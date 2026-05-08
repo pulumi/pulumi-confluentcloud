@@ -306,63 +306,63 @@ export interface FlinkConnectionState {
     /**
      * API key for the type.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The schema version of this representation of a resource.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * Access key for the type.
      */
-    awsAccessKey?: pulumi.Input<string>;
+    awsAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Secret key for the type.
      */
-    awsSecretKey?: pulumi.Input<string>;
+    awsSecretKey?: pulumi.Input<string | undefined>;
     /**
      * Session token for the type.
      */
-    awsSessionToken?: pulumi.Input<string>;
-    computePool?: pulumi.Input<inputs.FlinkConnectionComputePool>;
+    awsSessionToken?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<inputs.FlinkConnectionComputePool | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkConnectionCredentials>;
+    credentials?: pulumi.Input<inputs.FlinkConnectionCredentials | undefined>;
     /**
      * The unique name of the Flink Connection per organization, environment scope.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the flink connection.
      */
-    endpoint?: pulumi.Input<string>;
-    environment?: pulumi.Input<inputs.FlinkConnectionEnvironment>;
+    endpoint?: pulumi.Input<string | undefined>;
+    environment?: pulumi.Input<inputs.FlinkConnectionEnvironment | undefined>;
     /**
      * The object this REST resource represents.
      */
-    kind?: pulumi.Input<string>;
-    organization?: pulumi.Input<inputs.FlinkConnectionOrganization>;
+    kind?: pulumi.Input<string | undefined>;
+    organization?: pulumi.Input<inputs.FlinkConnectionOrganization | undefined>;
     /**
      * Password for the type.
      */
-    password?: pulumi.Input<string>;
-    principal?: pulumi.Input<inputs.FlinkConnectionPrincipal>;
+    password?: pulumi.Input<string | undefined>;
+    principal?: pulumi.Input<inputs.FlinkConnectionPrincipal | undefined>;
     /**
      * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Service Key for the type.
      */
-    serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string | undefined>;
     /**
      * The type of the flink connection.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Username for the type.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -372,24 +372,24 @@ export interface FlinkConnectionArgs {
     /**
      * API key for the type.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Access key for the type.
      */
-    awsAccessKey?: pulumi.Input<string>;
+    awsAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Secret key for the type.
      */
-    awsSecretKey?: pulumi.Input<string>;
+    awsSecretKey?: pulumi.Input<string | undefined>;
     /**
      * Session token for the type.
      */
-    awsSessionToken?: pulumi.Input<string>;
-    computePool?: pulumi.Input<inputs.FlinkConnectionComputePool>;
+    awsSessionToken?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<inputs.FlinkConnectionComputePool | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkConnectionCredentials>;
+    credentials?: pulumi.Input<inputs.FlinkConnectionCredentials | undefined>;
     /**
      * The unique name of the Flink Connection per organization, environment scope.
      */
@@ -398,21 +398,21 @@ export interface FlinkConnectionArgs {
      * The endpoint of the flink connection.
      */
     endpoint: pulumi.Input<string>;
-    environment?: pulumi.Input<inputs.FlinkConnectionEnvironment>;
-    organization?: pulumi.Input<inputs.FlinkConnectionOrganization>;
+    environment?: pulumi.Input<inputs.FlinkConnectionEnvironment | undefined>;
+    organization?: pulumi.Input<inputs.FlinkConnectionOrganization | undefined>;
     /**
      * Password for the type.
      */
-    password?: pulumi.Input<string>;
-    principal?: pulumi.Input<inputs.FlinkConnectionPrincipal>;
+    password?: pulumi.Input<string | undefined>;
+    principal?: pulumi.Input<inputs.FlinkConnectionPrincipal | undefined>;
     /**
      * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Service Key for the type.
      */
-    serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string | undefined>;
     /**
      * The type of the flink connection.
      */
@@ -420,5 +420,5 @@ export interface FlinkConnectionArgs {
     /**
      * Username for the type.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

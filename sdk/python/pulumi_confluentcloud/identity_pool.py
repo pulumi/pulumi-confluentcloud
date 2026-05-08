@@ -105,11 +105,11 @@ class IdentityPoolArgs:
 @pulumi.input_type
 class _IdentityPoolState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional['IdentityPoolIdentityProviderArgs']] = None):
         """
         Input properties used for looking up and filtering IdentityPool resources.
 
@@ -132,62 +132,62 @@ class _IdentityPoolState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Identity Pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the Identity Pool.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="identityClaim")
-    def identity_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         """
         return pulumi.get(self, "identity_claim")
 
     @identity_claim.setter
-    def identity_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']]:
+    def identity_provider(self) -> pulumi.Input[Optional['IdentityPoolIdentityProviderArgs']]:
         """
         Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
         """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
-    def identity_provider(self, value: Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']]):
+    def identity_provider(self, value: pulumi.Input[Optional['IdentityPoolIdentityProviderArgs']]):
         pulumi.set(self, "identity_provider", value)
 
 
@@ -197,11 +197,11 @@ class IdentityPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -368,11 +368,11 @@ class IdentityPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,11 +407,11 @@ class IdentityPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None) -> 'IdentityPool':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None) -> 'IdentityPool':
         """
         Get an existing IdentityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

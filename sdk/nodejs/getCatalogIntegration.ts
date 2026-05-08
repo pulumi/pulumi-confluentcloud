@@ -170,7 +170,7 @@ export function getCatalogIntegrationOutput(args: GetCatalogIntegrationOutputArg
  * A collection of arguments for invoking getCatalogIntegration.
  */
 export interface GetCatalogIntegrationOutputArgs {
-    credentials?: pulumi.Input<inputs.GetCatalogIntegrationCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetCatalogIntegrationCredentialsArgs | undefined>;
     environment: pulumi.Input<inputs.GetCatalogIntegrationEnvironmentArgs>;
     /**
      * The ID of the Catalog Integration, for example, `tci-abc123`.

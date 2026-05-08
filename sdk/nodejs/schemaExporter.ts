@@ -225,47 +225,47 @@ export interface SchemaExporterState {
     /**
      * Block for custom *nonsensitive* configuration properties:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Customized context of the exporter if `contextType` is set to `CUSTOM`.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
      */
-    contextType?: pulumi.Input<string>;
+    contextType?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaExporterCredentials>;
-    destinationSchemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryCluster>;
+    credentials?: pulumi.Input<inputs.SchemaExporterCredentials | undefined>;
+    destinationSchemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryCluster | undefined>;
     /**
      * Name of the Schema Exporter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      *
      * > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      */
-    resetOnUpdate?: pulumi.Input<boolean>;
+    resetOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster | undefined>;
     /**
      * The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      */
-    subjectRenameFormat?: pulumi.Input<string>;
+    subjectRenameFormat?: pulumi.Input<string | undefined>;
     /**
      * Name of each exporter subject.
      */
-    subjects?: pulumi.Input<pulumi.Input<string>[]>;
+    subjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -275,45 +275,45 @@ export interface SchemaExporterArgs {
     /**
      * Block for custom *nonsensitive* configuration properties:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Customized context of the exporter if `contextType` is set to `CUSTOM`.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
      */
-    contextType?: pulumi.Input<string>;
+    contextType?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaExporterCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaExporterCredentials | undefined>;
     destinationSchemaRegistryCluster: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryCluster>;
     /**
      * Name of the Schema Exporter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      *
      * > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      */
-    resetOnUpdate?: pulumi.Input<boolean>;
+    resetOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster | undefined>;
     /**
      * The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      */
-    subjectRenameFormat?: pulumi.Input<string>;
+    subjectRenameFormat?: pulumi.Input<string | undefined>;
     /**
      * Name of each exporter subject.
      */
-    subjects?: pulumi.Input<pulumi.Input<string>[]>;
+    subjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

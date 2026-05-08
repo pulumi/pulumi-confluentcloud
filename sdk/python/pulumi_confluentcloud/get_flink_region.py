@@ -152,8 +152,8 @@ def get_flink_region(cloud: Optional[_builtins.str] = None,
         private_rest_endpoint=pulumi.get(__ret__, 'private_rest_endpoint'),
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
-def get_flink_region_output(cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flink_region_output(cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkRegionResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

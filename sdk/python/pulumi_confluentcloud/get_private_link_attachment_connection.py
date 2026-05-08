@@ -177,8 +177,8 @@ def get_private_link_attachment_connection(environment: Optional[Union['GetPriva
         id=pulumi.get(__ret__, 'id'),
         private_link_attachments=pulumi.get(__ret__, 'private_link_attachments'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-def get_private_link_attachment_connection_output(environment: Optional[pulumi.Input[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
-                                                  id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_link_attachment_connection_output(environment: pulumi.Input[Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
+                                                  id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAttachmentConnectionResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

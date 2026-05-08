@@ -187,12 +187,12 @@ def get_business_metadata_binding(business_metadata_name: Optional[_builtins.str
         id=pulumi.get(__ret__, 'id'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
-def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         credentials: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']]]] = None,
-                                         entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                         rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']]]] = None,
+def get_business_metadata_binding_output(business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         credentials: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']]]] = None,
+                                         entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                         rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessMetadataBindingResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

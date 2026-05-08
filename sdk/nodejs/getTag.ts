@@ -149,7 +149,7 @@ export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOutputO
  * A collection of arguments for invoking getTag.
  */
 export interface GetTagOutputArgs {
-    credentials?: pulumi.Input<inputs.GetTagCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetTagCredentialsArgs | undefined>;
     /**
      * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      *
@@ -159,6 +159,6 @@ export interface GetTagOutputArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetTagSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetTagSchemaRegistryClusterArgs | undefined>;
 }

@@ -24,9 +24,9 @@ class ConnectorArgs:
                  config_nonsensitive: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  environment: pulumi.Input['ConnectorEnvironmentArgs'],
                  kafka_cluster: pulumi.Input['ConnectorKafkaClusterArgs'],
-                 config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -87,31 +87,31 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="configSensitive")
-    def config_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_sensitive")
 
     @config_sensitive.setter
-    def config_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config_sensitive(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config_sensitive", value)
 
     @_builtins.property
     @pulumi.getter
-    def offsets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
+    def offsets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
         """
         Connector partitions with offsets
         """
         return pulumi.get(self, "offsets")
 
     @offsets.setter
-    def offsets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
+    def offsets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
         pulumi.set(self, "offsets", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 
@@ -124,19 +124,19 @@ class ConnectorArgs:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _ConnectorState:
     def __init__(__self__, *,
-                 config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input['ConnectorEnvironmentArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['ConnectorKafkaClusterArgs']] = None,
-                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional['ConnectorEnvironmentArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['ConnectorKafkaClusterArgs']] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connector resources.
 
@@ -167,64 +167,64 @@ class _ConnectorState:
 
     @_builtins.property
     @pulumi.getter(name="configNonsensitive")
-    def config_nonsensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config_nonsensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_nonsensitive")
 
     @config_nonsensitive.setter
-    def config_nonsensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config_nonsensitive(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config_nonsensitive", value)
 
     @_builtins.property
     @pulumi.getter(name="configSensitive")
-    def config_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_sensitive")
 
     @config_sensitive.setter
-    def config_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config_sensitive(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config_sensitive", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ConnectorEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ConnectorEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ConnectorEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ConnectorEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['ConnectorKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['ConnectorKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['ConnectorKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['ConnectorKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def offsets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
+    def offsets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
         """
         Connector partitions with offsets
         """
         return pulumi.get(self, "offsets")
 
     @offsets.setter
-    def offsets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
+    def offsets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
         pulumi.set(self, "offsets", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 
@@ -237,7 +237,7 @@ class _ConnectorState:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -247,12 +247,12 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -917,12 +917,12 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -956,12 +956,12 @@ class Connector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-            offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'Connector':
+            config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+            offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Connector':
         """
         Get an existing Connector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

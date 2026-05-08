@@ -146,7 +146,7 @@ export interface GetProviderIntegrationOutputArgs {
     /**
      * A human-readable name for the Provider Integration.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */
@@ -154,5 +154,5 @@ export interface GetProviderIntegrationOutputArgs {
     /**
      * The ID of the Provider Integration, for example, `cspi-4xg0q`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

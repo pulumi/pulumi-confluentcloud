@@ -228,38 +228,38 @@ export class Peering extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Peering resources.
  */
 export interface PeeringState {
-    aws?: pulumi.Input<inputs.PeeringAws>;
-    azure?: pulumi.Input<inputs.PeeringAzure>;
+    aws?: pulumi.Input<inputs.PeeringAws | undefined>;
+    azure?: pulumi.Input<inputs.PeeringAzure | undefined>;
     /**
      * The name of the Peering.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.PeeringEnvironment>;
-    gcp?: pulumi.Input<inputs.PeeringGcp>;
+    environment?: pulumi.Input<inputs.PeeringEnvironment | undefined>;
+    gcp?: pulumi.Input<inputs.PeeringGcp | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.PeeringNetwork>;
+    network?: pulumi.Input<inputs.PeeringNetwork | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Peering resource.
  */
 export interface PeeringArgs {
-    aws?: pulumi.Input<inputs.PeeringAws>;
-    azure?: pulumi.Input<inputs.PeeringAzure>;
+    aws?: pulumi.Input<inputs.PeeringAws | undefined>;
+    azure?: pulumi.Input<inputs.PeeringAzure | undefined>;
     /**
      * The name of the Peering.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.PeeringEnvironment>;
-    gcp?: pulumi.Input<inputs.PeeringGcp>;
+    gcp?: pulumi.Input<inputs.PeeringGcp | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */

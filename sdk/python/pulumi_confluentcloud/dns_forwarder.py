@@ -24,9 +24,9 @@ class DnsForwarderArgs:
                  domains: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  environment: pulumi.Input['DnsForwarderEnvironmentArgs'],
                  gateway: pulumi.Input['DnsForwarderGatewayArgs'],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_via_gcp_dns_zones: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
-                 forward_via_ip: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_via_gcp_dns_zones: pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
+                 forward_via_ip: pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']] = None):
         """
         The set of arguments for constructing a DnsForwarder resource.
 
@@ -79,44 +79,44 @@ class DnsForwarderArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS Forwarder.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardViaGcpDnsZones")
-    def forward_via_gcp_dns_zones(self) -> Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]:
+    def forward_via_gcp_dns_zones(self) -> pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']]:
         return pulumi.get(self, "forward_via_gcp_dns_zones")
 
     @forward_via_gcp_dns_zones.setter
-    def forward_via_gcp_dns_zones(self, value: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]):
+    def forward_via_gcp_dns_zones(self, value: pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']]):
         pulumi.set(self, "forward_via_gcp_dns_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardViaIp")
-    def forward_via_ip(self) -> Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]:
+    def forward_via_ip(self) -> pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']]:
         return pulumi.get(self, "forward_via_ip")
 
     @forward_via_ip.setter
-    def forward_via_ip(self, value: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]):
+    def forward_via_ip(self, value: pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']]):
         pulumi.set(self, "forward_via_ip", value)
 
 
 @pulumi.input_type
 class _DnsForwarderState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input['DnsForwarderEnvironmentArgs']] = None,
-                 forward_via_gcp_dns_zones: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
-                 forward_via_ip: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']] = None,
-                 gateway: Optional[pulumi.Input['DnsForwarderGatewayArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional['DnsForwarderEnvironmentArgs']] = None,
+                 forward_via_gcp_dns_zones: pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
+                 forward_via_ip: pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']] = None,
+                 gateway: pulumi.Input[Optional['DnsForwarderGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering DnsForwarder resources.
 
@@ -139,65 +139,65 @@ class _DnsForwarderState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS Forwarder.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of domains for the DNS forwarder to use.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['DnsForwarderEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['DnsForwarderEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['DnsForwarderEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['DnsForwarderEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardViaGcpDnsZones")
-    def forward_via_gcp_dns_zones(self) -> Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]:
+    def forward_via_gcp_dns_zones(self) -> pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']]:
         return pulumi.get(self, "forward_via_gcp_dns_zones")
 
     @forward_via_gcp_dns_zones.setter
-    def forward_via_gcp_dns_zones(self, value: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]):
+    def forward_via_gcp_dns_zones(self, value: pulumi.Input[Optional['DnsForwarderForwardViaGcpDnsZonesArgs']]):
         pulumi.set(self, "forward_via_gcp_dns_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardViaIp")
-    def forward_via_ip(self) -> Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]:
+    def forward_via_ip(self) -> pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']]:
         return pulumi.get(self, "forward_via_ip")
 
     @forward_via_ip.setter
-    def forward_via_ip(self, value: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]):
+    def forward_via_ip(self, value: pulumi.Input[Optional['DnsForwarderForwardViaIpArgs']]):
         pulumi.set(self, "forward_via_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input['DnsForwarderGatewayArgs']]:
+    def gateway(self) -> pulumi.Input[Optional['DnsForwarderGatewayArgs']]:
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input['DnsForwarderGatewayArgs']]):
+    def gateway(self, value: pulumi.Input[Optional['DnsForwarderGatewayArgs']]):
         pulumi.set(self, "gateway", value)
 
 
@@ -207,12 +207,12 @@ class DnsForwarder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
-                 forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
-                 forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_gcp_dns_zones: pulumi.Input[Optional[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
+                 forward_via_ip: pulumi.Input[Optional[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -391,12 +391,12 @@ class DnsForwarder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
-                 forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
-                 forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 environment: pulumi.Input[Optional[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_gcp_dns_zones: pulumi.Input[Optional[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
+                 forward_via_ip: pulumi.Input[Optional[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,12 +428,12 @@ class DnsForwarder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
-            forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
-            forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
-            gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None) -> 'DnsForwarder':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            environment: pulumi.Input[Optional[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+            forward_via_gcp_dns_zones: pulumi.Input[Optional[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
+            forward_via_ip: pulumi.Input[Optional[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+            gateway: pulumi.Input[Optional[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None) -> 'DnsForwarder':
         """
         Get an existing DnsForwarder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

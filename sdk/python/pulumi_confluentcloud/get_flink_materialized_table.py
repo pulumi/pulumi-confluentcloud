@@ -278,13 +278,13 @@ def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMateriali
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         stopped=pulumi.get(__ret__, 'stopped'),
         watermarks=pulumi.get(__ret__, 'watermarks'))
-def get_flink_materialized_table_output(compute_pool: Optional[pulumi.Input[Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict']]]] = None,
-                                        credentials: Optional[pulumi.Input[Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict']]]] = None,
-                                        display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        environment: Optional[pulumi.Input[Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict']]]] = None,
-                                        organization: Optional[pulumi.Input[Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict']]]] = None,
-                                        principal: Optional[pulumi.Input[Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict']]]] = None,
-                                        rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict']]]] = None,
+                                        credentials: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict']]]] = None,
+                                        display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        environment: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict']]]] = None,
+                                        organization: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict']]]] = None,
+                                        principal: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict']]]] = None,
+                                        rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkMaterializedTableResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

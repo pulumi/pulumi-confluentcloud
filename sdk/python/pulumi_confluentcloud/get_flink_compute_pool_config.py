@@ -119,7 +119,7 @@ def get_flink_compute_pool_config(id: Optional[_builtins.str] = None,
         default_max_cfu=pulumi.get(__ret__, 'default_max_cfu'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'))
-def get_flink_compute_pool_config_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flink_compute_pool_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkComputePoolConfigResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

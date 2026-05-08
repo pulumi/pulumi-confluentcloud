@@ -142,20 +142,20 @@ export interface SchemaRegistryClusterModeState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean | undefined>;
     /**
      * The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterModeSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterModeSchemaRegistryCluster | undefined>;
 }
 
 /**
@@ -165,18 +165,18 @@ export interface SchemaRegistryClusterModeArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean | undefined>;
     /**
      * The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterModeSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterModeSchemaRegistryCluster | undefined>;
 }

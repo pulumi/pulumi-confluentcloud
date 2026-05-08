@@ -233,8 +233,8 @@ def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGat
         gcp_ingress_private_service_connect_gateways=pulumi.get(__ret__, 'gcp_ingress_private_service_connect_gateways'),
         gcp_peering_gateways=pulumi.get(__ret__, 'gcp_peering_gateways'),
         id=pulumi.get(__ret__, 'id'))
-def get_gateway_output(environment: Optional[pulumi.Input[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']]] = None,
-                       id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(environment: pulumi.Input[Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']]] = None,
+                       id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

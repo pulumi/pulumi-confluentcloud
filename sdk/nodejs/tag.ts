@@ -168,7 +168,7 @@ export interface TagState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.TagCredentials>;
+    credentials?: pulumi.Input<inputs.TagCredentials | undefined>;
     /**
      * The description of the tag.
      *
@@ -178,24 +178,24 @@ export interface TagState {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.Tag` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * (Optional List of String) The entity types of the tag, this always returns `["cfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
-    entityTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    entityTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.TagSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.TagSchemaRegistryCluster | undefined>;
     /**
      * (Optional Integer) The version, for example, `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface TagArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.TagCredentials>;
+    credentials?: pulumi.Input<inputs.TagCredentials | undefined>;
     /**
      * The description of the tag.
      *
@@ -215,14 +215,14 @@ export interface TagArgs {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.Tag` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.TagSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.TagSchemaRegistryCluster | undefined>;
 }

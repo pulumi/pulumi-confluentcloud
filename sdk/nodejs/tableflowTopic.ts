@@ -241,63 +241,63 @@ export interface TableflowTopicState {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2>;
+    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2 | undefined>;
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
-    byobAws?: pulumi.Input<inputs.TableflowTopicByobAws>;
+    byobAws?: pulumi.Input<inputs.TableflowTopicByobAws | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.TableflowTopicCredentials>;
+    credentials?: pulumi.Input<inputs.TableflowTopicCredentials | undefined>;
     /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
      */
-    enableCompaction?: pulumi.Input<boolean>;
+    enableCompaction?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
      */
-    enablePartitioning?: pulumi.Input<boolean>;
+    enablePartitioning?: pulumi.Input<boolean | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.TableflowTopicEnvironment>;
-    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling>;
-    kafkaCluster?: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
+    environment?: pulumi.Input<inputs.TableflowTopicEnvironment | undefined>;
+    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.TableflowTopicKafkaCluster | undefined>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
-    managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
+    managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      *
      * @deprecated This attribute is deprecated and will be removed in a future release.
      */
-    recordFailureStrategy?: pulumi.Input<string>;
+    recordFailureStrategy?: pulumi.Input<string | undefined>;
     /**
      * The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
      */
-    retentionMs?: pulumi.Input<string>;
+    retentionMs?: pulumi.Input<string | undefined>;
     /**
      * (Optional Boolean) Indicates whether the Tableflow should be suspended.
      */
-    suspended?: pulumi.Input<boolean>;
+    suspended?: pulumi.Input<boolean | undefined>;
     /**
      * The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
      */
-    tableFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    tableFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional String) The current storage path where the data and metadata is stored for this table.
      */
-    tablePath?: pulumi.Input<string>;
+    tablePath?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Indicates the write mode of the Tableflow topic.
      */
-    writeMode?: pulumi.Input<string>;
+    writeMode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -307,15 +307,15 @@ export interface TableflowTopicArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2>;
+    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2 | undefined>;
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
-    byobAws?: pulumi.Input<inputs.TableflowTopicByobAws>;
+    byobAws?: pulumi.Input<inputs.TableflowTopicByobAws | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.TableflowTopicCredentials>;
+    credentials?: pulumi.Input<inputs.TableflowTopicCredentials | undefined>;
     /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */
@@ -324,24 +324,24 @@ export interface TableflowTopicArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.TableflowTopicEnvironment>;
-    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling>;
+    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling | undefined>;
     kafkaCluster: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
-    managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
+    managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      *
      * @deprecated This attribute is deprecated and will be removed in a future release.
      */
-    recordFailureStrategy?: pulumi.Input<string>;
+    recordFailureStrategy?: pulumi.Input<string | undefined>;
     /**
      * The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
      */
-    retentionMs?: pulumi.Input<string>;
+    retentionMs?: pulumi.Input<string | undefined>;
     /**
      * The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
      */
-    tableFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    tableFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -179,23 +179,23 @@ export interface IdentityPoolState {
     /**
      * A description for the Identity Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A human-readable name for the Identity Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
      */
-    identityClaim?: pulumi.Input<string>;
+    identityClaim?: pulumi.Input<string | undefined>;
     /**
      * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
      */
-    identityProvider?: pulumi.Input<inputs.IdentityPoolIdentityProvider>;
+    identityProvider?: pulumi.Input<inputs.IdentityPoolIdentityProvider | undefined>;
 }
 
 /**

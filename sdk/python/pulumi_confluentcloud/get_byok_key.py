@@ -116,7 +116,7 @@ def get_byok_key(id: Optional[_builtins.str] = None,
         azures=pulumi.get(__ret__, 'azures'),
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'))
-def get_byok_key_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_byok_key_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetByokKeyResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

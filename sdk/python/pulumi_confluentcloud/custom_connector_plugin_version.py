@@ -27,8 +27,8 @@ class CustomConnectorPluginVersionArgs:
                  filename: pulumi.Input[_builtins.str],
                  plugin_id: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomConnectorPluginVersion resource.
 
@@ -126,42 +126,42 @@ class CustomConnectorPluginVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentationLink")
-    def documentation_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The documentation link of the Custom Connector Plugin Version.
         """
         return pulumi.get(self, "documentation_link")
 
     @documentation_link.setter
-    def documentation_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_link", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveConfigProperties")
-    def sensitive_config_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sensitive_config_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
         """
         return pulumi.get(self, "sensitive_config_properties")
 
     @sensitive_config_properties.setter
-    def sensitive_config_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sensitive_config_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sensitive_config_properties", value)
 
 
 @pulumi.input_type
 class _CustomConnectorPluginVersionState:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_classes: Optional[pulumi.Input[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['CustomConnectorPluginVersionEnvironmentArgs']] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['CustomConnectorPluginVersionEnvironmentArgs']] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomConnectorPluginVersion resources.
 
@@ -199,122 +199,122 @@ class _CustomConnectorPluginVersionState:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorClasses")
-    def connector_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]]:
+    def connector_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]]:
         """
         The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         """
         return pulumi.get(self, "connector_classes")
 
     @connector_classes.setter
-    def connector_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]]):
+    def connector_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]]]):
         pulumi.set(self, "connector_classes", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationLink")
-    def documentation_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The documentation link of the Custom Connector Plugin Version.
         """
         return pulumi.get(self, "documentation_link")
 
     @documentation_link.setter
-    def documentation_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['CustomConnectorPluginVersionEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['CustomConnectorPluginVersionEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['CustomConnectorPluginVersionEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['CustomConnectorPluginVersionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginId")
-    def plugin_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugin_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the plugin created using `Plugin` resource, or through other ways.
         """
         return pulumi.get(self, "plugin_id")
 
     @plugin_id.setter
-    def plugin_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugin_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugin_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveConfigProperties")
-    def sensitive_config_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sensitive_config_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
         """
         return pulumi.get(self, "sensitive_config_properties")
 
     @sensitive_config_properties.setter
-    def sensitive_config_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sensitive_config_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sensitive_config_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -324,14 +324,14 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_classes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -463,14 +463,14 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_classes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,16 +512,16 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            connector_classes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
-            documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
-            filename: Optional[pulumi.Input[_builtins.str]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            plugin_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomConnectorPluginVersion':
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+            documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomConnectorPluginVersion':
         """
         Get an existing CustomConnectorPluginVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

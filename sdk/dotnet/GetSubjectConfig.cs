@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new[]
         ///         {
@@ -66,7 +66,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });
@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new[]
         ///         {
@@ -136,7 +136,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });
@@ -168,7 +168,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new[]
         ///         {
@@ -206,7 +206,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });

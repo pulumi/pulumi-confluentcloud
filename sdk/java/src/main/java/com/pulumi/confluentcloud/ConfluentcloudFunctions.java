@@ -210,8 +210,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -257,8 +257,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -304,8 +304,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -351,8 +351,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
      * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -448,8 +448,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -489,8 +489,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -536,8 +536,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -624,8 +624,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -665,8 +665,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -712,8 +712,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -753,8 +753,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -800,8 +800,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -841,8 +841,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -888,8 +888,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -931,8 +931,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -980,8 +980,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1023,8 +1023,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1072,8 +1072,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1115,8 +1115,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1164,8 +1164,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1207,8 +1207,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1256,8 +1256,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1299,8 +1299,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1344,8 +1344,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1387,8 +1387,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1430,8 +1430,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1473,8 +1473,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1516,8 +1516,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1564,8 +1564,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1608,8 +1608,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1656,8 +1656,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1700,8 +1700,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1748,8 +1748,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1792,8 +1792,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1840,8 +1840,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1884,8 +1884,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1932,8 +1932,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1976,8 +1976,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2019,8 +2019,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2062,8 +2062,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2105,8 +2105,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2148,8 +2148,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2191,8 +2191,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2235,8 +2235,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2290,8 +2290,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2345,8 +2345,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2400,8 +2400,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2455,8 +2455,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2513,8 +2513,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2555,8 +2555,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2590,8 +2590,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2641,8 +2641,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2683,8 +2683,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2718,8 +2718,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2769,8 +2769,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2811,8 +2811,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2846,8 +2846,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2897,8 +2897,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2939,8 +2939,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2974,8 +2974,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3025,8 +3025,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3067,8 +3067,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3102,8 +3102,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
      * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3150,8 +3150,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3201,8 +3201,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3252,8 +3252,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3303,8 +3303,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3354,8 +3354,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3405,8 +3405,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3452,8 +3452,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3499,8 +3499,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3546,8 +3546,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3593,8 +3593,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
      * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3643,8 +3643,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3698,8 +3698,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3753,8 +3753,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3808,8 +3808,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3863,8 +3863,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3917,8 +3917,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3977,8 +3977,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4037,8 +4037,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4097,8 +4097,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4157,8 +4157,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4217,8 +4217,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4277,8 +4277,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4333,8 +4333,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4373,8 +4373,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4413,8 +4413,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4453,8 +4453,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4493,8 +4493,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4533,8 +4533,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4573,8 +4573,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4615,8 +4615,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4670,8 +4670,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4725,8 +4725,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4780,8 +4780,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4835,8 +4835,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4890,8 +4890,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4945,8 +4945,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5000,8 +5000,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5055,8 +5055,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5110,8 +5110,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5164,8 +5164,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5207,8 +5207,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5250,8 +5250,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5293,8 +5293,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5336,8 +5336,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5386,8 +5386,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5438,8 +5438,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5489,8 +5489,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5541,8 +5541,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5592,8 +5592,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5644,8 +5644,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5695,8 +5695,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5747,8 +5747,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5798,8 +5798,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5850,8 +5850,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5900,8 +5900,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5948,8 +5948,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5997,8 +5997,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6045,8 +6045,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6094,8 +6094,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6142,8 +6142,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6191,8 +6191,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6239,8 +6239,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6288,8 +6288,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6336,8 +6336,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6379,8 +6379,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6423,8 +6423,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6467,8 +6467,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6511,8 +6511,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6555,8 +6555,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6600,8 +6600,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6647,8 +6647,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6694,8 +6694,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6741,8 +6741,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6788,8 +6788,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6836,8 +6836,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6904,8 +6904,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6972,8 +6972,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7040,8 +7040,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7108,8 +7108,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7176,8 +7176,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7225,8 +7225,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7274,8 +7274,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7323,8 +7323,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7372,8 +7372,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7421,8 +7421,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7470,8 +7470,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7518,8 +7518,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7573,8 +7573,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7628,8 +7628,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7683,8 +7683,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7738,8 +7738,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
      * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7792,8 +7792,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7840,8 +7840,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7888,8 +7888,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7936,8 +7936,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7984,8 +7984,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8032,8 +8032,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8080,8 +8080,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8128,8 +8128,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8171,8 +8171,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8214,8 +8214,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8257,8 +8257,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8300,8 +8300,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8347,8 +8347,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8401,8 +8401,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8455,8 +8455,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8509,8 +8509,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8563,8 +8563,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8617,8 +8617,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8671,8 +8671,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
      * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8723,8 +8723,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8768,8 +8768,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8813,8 +8813,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8858,8 +8858,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8903,8 +8903,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8948,8 +8948,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8993,8 +8993,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9038,8 +9038,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9083,8 +9083,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9128,8 +9128,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9173,8 +9173,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9218,8 +9218,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9263,8 +9263,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9308,8 +9308,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9353,8 +9353,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9399,8 +9399,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9460,8 +9460,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9521,8 +9521,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9582,8 +9582,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9643,8 +9643,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9702,8 +9702,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9747,8 +9747,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9792,8 +9792,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9837,8 +9837,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9882,8 +9882,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9930,8 +9930,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9972,8 +9972,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10019,8 +10019,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10061,8 +10061,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10108,8 +10108,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10150,8 +10150,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10197,8 +10197,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10239,8 +10239,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10286,8 +10286,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10328,8 +10328,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10374,8 +10374,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10431,8 +10431,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10488,8 +10488,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10545,8 +10545,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10602,8 +10602,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10671,8 +10671,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10744,8 +10744,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10817,8 +10817,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10890,8 +10890,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10963,8 +10963,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
      * import com.pulumi.confluentcloud.ServiceAccount;
      * import com.pulumi.confluentcloud.ServiceAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11022,8 +11022,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11069,8 +11069,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11116,8 +11116,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11163,8 +11163,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11210,8 +11210,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11257,8 +11257,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11304,8 +11304,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11351,8 +11351,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11398,8 +11398,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11445,8 +11445,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
      * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11490,8 +11490,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11530,8 +11530,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11570,8 +11570,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11610,8 +11610,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11650,8 +11650,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11690,8 +11690,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11730,8 +11730,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11772,8 +11772,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
      * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11827,8 +11827,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
      * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11882,8 +11882,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
      * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11937,8 +11937,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
      * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11992,8 +11992,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
      * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12047,8 +12047,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12102,8 +12102,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12157,8 +12157,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12212,8 +12212,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12267,8 +12267,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12322,8 +12322,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12375,8 +12375,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12428,8 +12428,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12481,8 +12481,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12534,8 +12534,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12587,8 +12587,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12640,8 +12640,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12693,8 +12693,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12746,8 +12746,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12799,8 +12799,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
      * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12852,8 +12852,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12912,8 +12912,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12972,8 +12972,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13032,8 +13032,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13092,8 +13092,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13160,8 +13160,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.azuread.ServicePrincipal;
      * import com.pulumi.azuread.ServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13205,8 +13205,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13250,8 +13250,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.google.ProjectIamMember;
      * import com.pulumi.google.ProjectIamMemberArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13276,7 +13276,7 @@ public final class ConfluentcloudFunctions {
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
      *             .member(String.format("serviceAccount:%s", gcp.gcps()[0].googleServiceAccount()))
-     *             .condition(List.of(Map.ofEntries(
+     *             .condition(Arrays.asList(Map.ofEntries(
      *                 Map.entry("title", "Confluent Cloud Access"),
      *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
      *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcp.gcps()[0].googleServiceAccount()))
@@ -13302,8 +13302,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13344,8 +13344,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13418,8 +13418,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.azuread.ServicePrincipal;
      * import com.pulumi.azuread.ServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13463,8 +13463,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13508,8 +13508,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.google.ProjectIamMember;
      * import com.pulumi.google.ProjectIamMemberArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13534,7 +13534,7 @@ public final class ConfluentcloudFunctions {
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
      *             .member(String.format("serviceAccount:%s", gcp.gcps()[0].googleServiceAccount()))
-     *             .condition(List.of(Map.ofEntries(
+     *             .condition(Arrays.asList(Map.ofEntries(
      *                 Map.entry("title", "Confluent Cloud Access"),
      *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
      *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcp.gcps()[0].googleServiceAccount()))
@@ -13560,8 +13560,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13602,8 +13602,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13676,8 +13676,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.azuread.ServicePrincipal;
      * import com.pulumi.azuread.ServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13721,8 +13721,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13766,8 +13766,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.google.ProjectIamMember;
      * import com.pulumi.google.ProjectIamMemberArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13792,7 +13792,7 @@ public final class ConfluentcloudFunctions {
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
      *             .member(String.format("serviceAccount:%s", gcp.gcps()[0].googleServiceAccount()))
-     *             .condition(List.of(Map.ofEntries(
+     *             .condition(Arrays.asList(Map.ofEntries(
      *                 Map.entry("title", "Confluent Cloud Access"),
      *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
      *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcp.gcps()[0].googleServiceAccount()))
@@ -13818,8 +13818,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13860,8 +13860,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13934,8 +13934,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.azuread.ServicePrincipal;
      * import com.pulumi.azuread.ServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13979,8 +13979,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14024,8 +14024,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.google.ProjectIamMember;
      * import com.pulumi.google.ProjectIamMemberArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14050,7 +14050,7 @@ public final class ConfluentcloudFunctions {
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
      *             .member(String.format("serviceAccount:%s", gcp.gcps()[0].googleServiceAccount()))
-     *             .condition(List.of(Map.ofEntries(
+     *             .condition(Arrays.asList(Map.ofEntries(
      *                 Map.entry("title", "Confluent Cloud Access"),
      *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
      *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcp.gcps()[0].googleServiceAccount()))
@@ -14076,8 +14076,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14118,8 +14118,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14192,8 +14192,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.azuread.ServicePrincipal;
      * import com.pulumi.azuread.ServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14237,8 +14237,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14282,8 +14282,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
      * import com.pulumi.google.ProjectIamMember;
      * import com.pulumi.google.ProjectIamMemberArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14308,7 +14308,7 @@ public final class ConfluentcloudFunctions {
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
      *             .member(String.format("serviceAccount:%s", gcp.gcps()[0].googleServiceAccount()))
-     *             .condition(List.of(Map.ofEntries(
+     *             .condition(Arrays.asList(Map.ofEntries(
      *                 Map.entry("title", "Confluent Cloud Access"),
      *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
      *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcp.gcps()[0].googleServiceAccount()))
@@ -14334,8 +14334,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14376,8 +14376,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14444,8 +14444,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14482,8 +14482,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14522,8 +14522,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14584,8 +14584,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14622,8 +14622,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14662,8 +14662,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14724,8 +14724,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14762,8 +14762,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14802,8 +14802,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14864,8 +14864,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14902,8 +14902,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14942,8 +14942,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15004,8 +15004,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15042,8 +15042,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15082,8 +15082,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
      * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15143,8 +15143,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15188,8 +15188,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15233,8 +15233,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15278,8 +15278,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15323,8 +15323,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15370,8 +15370,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15413,8 +15413,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15461,8 +15461,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15504,8 +15504,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15552,8 +15552,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15595,8 +15595,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15643,8 +15643,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15686,8 +15686,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15734,8 +15734,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15777,8 +15777,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15822,8 +15822,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15885,8 +15885,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15948,8 +15948,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16011,8 +16011,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16074,8 +16074,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16140,8 +16140,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16181,8 +16181,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16227,8 +16227,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16268,8 +16268,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16314,8 +16314,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16355,8 +16355,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16401,8 +16401,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16442,8 +16442,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16488,8 +16488,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16529,8 +16529,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16575,8 +16575,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16616,8 +16616,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16662,8 +16662,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16703,8 +16703,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16749,8 +16749,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16790,8 +16790,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16836,8 +16836,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16877,8 +16877,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16923,8 +16923,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16964,8 +16964,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17010,8 +17010,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17051,8 +17051,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17097,8 +17097,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17138,8 +17138,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17184,8 +17184,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17225,8 +17225,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17271,8 +17271,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17312,8 +17312,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17355,8 +17355,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17400,8 +17400,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17445,8 +17445,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17490,8 +17490,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17535,8 +17535,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17580,8 +17580,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17625,8 +17625,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17673,8 +17673,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17715,8 +17715,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17762,8 +17762,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17804,8 +17804,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17851,8 +17851,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17893,8 +17893,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17940,8 +17940,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17982,8 +17982,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18029,8 +18029,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18071,8 +18071,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18118,8 +18118,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18159,8 +18159,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18205,8 +18205,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18246,8 +18246,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18292,8 +18292,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18333,8 +18333,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18379,8 +18379,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18420,8 +18420,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18466,8 +18466,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18507,8 +18507,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18554,8 +18554,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18601,8 +18601,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18653,8 +18653,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18700,8 +18700,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18752,8 +18752,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18799,8 +18799,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18851,8 +18851,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18898,8 +18898,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18950,8 +18950,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18997,8 +18997,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19049,8 +19049,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19096,8 +19096,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19148,8 +19148,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19195,8 +19195,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19244,8 +19244,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19297,8 +19297,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19350,8 +19350,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19403,8 +19403,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19456,8 +19456,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19509,8 +19509,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19562,8 +19562,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
      * import com.pulumi.confluentcloud.EnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19614,8 +19614,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19628,10 +19628,10 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
      *             Map.entry("restEndpoint", essentials.restEndpoint()),
      *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
      *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
      *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
      *             )))
@@ -19653,8 +19653,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19695,8 +19695,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19709,10 +19709,10 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
      *             Map.entry("restEndpoint", essentials.restEndpoint()),
      *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
      *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
      *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
      *             )))
@@ -19734,8 +19734,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19776,8 +19776,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19790,10 +19790,10 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
      *             Map.entry("restEndpoint", essentials.restEndpoint()),
      *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
      *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
      *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
      *             )))
@@ -19815,8 +19815,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19857,8 +19857,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19871,10 +19871,10 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
      *             Map.entry("restEndpoint", essentials.restEndpoint()),
      *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
      *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
      *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
      *             )))
@@ -19896,8 +19896,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19938,8 +19938,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19952,10 +19952,10 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
      *             Map.entry("restEndpoint", essentials.restEndpoint()),
      *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
      *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
      *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
      *             )))
@@ -19977,8 +19977,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluent.ConfluentFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20022,8 +20022,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20064,8 +20064,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20111,8 +20111,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20153,8 +20153,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20200,8 +20200,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20242,8 +20242,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20289,8 +20289,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20331,8 +20331,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20378,8 +20378,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20420,8 +20420,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20468,8 +20468,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20512,8 +20512,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20560,8 +20560,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20604,8 +20604,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20652,8 +20652,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20696,8 +20696,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20744,8 +20744,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20788,8 +20788,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20836,8 +20836,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20880,8 +20880,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20927,8 +20927,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20968,8 +20968,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21015,8 +21015,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21056,8 +21056,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21103,8 +21103,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21144,8 +21144,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21191,8 +21191,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21232,8 +21232,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21279,8 +21279,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21320,8 +21320,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21367,8 +21367,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21410,8 +21410,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21459,8 +21459,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21502,8 +21502,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21551,8 +21551,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21594,8 +21594,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21643,8 +21643,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21686,8 +21686,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21735,8 +21735,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21778,8 +21778,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21824,8 +21824,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21879,8 +21879,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21934,8 +21934,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21989,8 +21989,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22044,8 +22044,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
      * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22106,8 +22106,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22187,8 +22187,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22268,8 +22268,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22349,8 +22349,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22430,8 +22430,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22511,8 +22511,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22592,8 +22592,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22664,8 +22664,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22704,8 +22704,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22744,8 +22744,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22784,8 +22784,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22824,8 +22824,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22864,8 +22864,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22904,8 +22904,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

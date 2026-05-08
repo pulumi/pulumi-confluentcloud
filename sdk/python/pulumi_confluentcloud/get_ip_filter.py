@@ -140,7 +140,7 @@ def get_ip_filter(id: Optional[_builtins.str] = None,
         operation_groups=pulumi.get(__ret__, 'operation_groups'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         resource_scope=pulumi.get(__ret__, 'resource_scope'))
-def get_ip_filter_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ip_filter_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpFilterResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

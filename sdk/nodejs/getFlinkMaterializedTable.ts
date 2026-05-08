@@ -189,17 +189,17 @@ export function getFlinkMaterializedTableOutput(args: GetFlinkMaterializedTableO
  * A collection of arguments for invoking getFlinkMaterializedTable.
  */
 export interface GetFlinkMaterializedTableOutputArgs {
-    computePool?: pulumi.Input<inputs.GetFlinkMaterializedTableComputePoolArgs>;
-    credentials?: pulumi.Input<inputs.GetFlinkMaterializedTableCredentialsArgs>;
+    computePool?: pulumi.Input<inputs.GetFlinkMaterializedTableComputePoolArgs | undefined>;
+    credentials?: pulumi.Input<inputs.GetFlinkMaterializedTableCredentialsArgs | undefined>;
     /**
      * The unique name of the Materialized Table.
      */
     displayName: pulumi.Input<string>;
-    environment?: pulumi.Input<inputs.GetFlinkMaterializedTableEnvironmentArgs>;
-    organization?: pulumi.Input<inputs.GetFlinkMaterializedTableOrganizationArgs>;
-    principal?: pulumi.Input<inputs.GetFlinkMaterializedTablePrincipalArgs>;
+    environment?: pulumi.Input<inputs.GetFlinkMaterializedTableEnvironmentArgs | undefined>;
+    organization?: pulumi.Input<inputs.GetFlinkMaterializedTableOrganizationArgs | undefined>;
+    principal?: pulumi.Input<inputs.GetFlinkMaterializedTablePrincipalArgs | undefined>;
     /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }

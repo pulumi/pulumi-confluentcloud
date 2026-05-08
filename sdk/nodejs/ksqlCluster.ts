@@ -165,45 +165,45 @@ export interface KsqlClusterState {
     /**
      * (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
-    credentialIdentity?: pulumi.Input<inputs.KsqlClusterCredentialIdentity>;
+    apiVersion?: pulumi.Input<string | undefined>;
+    credentialIdentity?: pulumi.Input<inputs.KsqlClusterCredentialIdentity | undefined>;
     /**
      * The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
      */
-    csu?: pulumi.Input<number>;
+    csu?: pulumi.Input<number | undefined>;
     /**
      * The name of the ksqlDB cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.KsqlClusterEnvironment>;
-    kafkaCluster?: pulumi.Input<inputs.KsqlClusterKafkaCluster>;
+    environment?: pulumi.Input<inputs.KsqlClusterEnvironment | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KsqlClusterKafkaCluster | undefined>;
     /**
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the ksqlDB cluster.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
      */
-    storage?: pulumi.Input<number>;
+    storage?: pulumi.Input<number | undefined>;
     /**
      * (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
      */
-    topicPrefix?: pulumi.Input<string>;
+    topicPrefix?: pulumi.Input<string | undefined>;
     /**
      * Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
      */
-    useDetailedProcessingLog?: pulumi.Input<boolean>;
+    useDetailedProcessingLog?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -227,5 +227,5 @@ export interface KsqlClusterArgs {
     /**
      * Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
      */
-    useDetailedProcessingLog?: pulumi.Input<boolean>;
+    useDetailedProcessingLog?: pulumi.Input<boolean | undefined>;
 }

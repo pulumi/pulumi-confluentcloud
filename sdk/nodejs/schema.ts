@@ -358,52 +358,52 @@ export interface SchemaState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaCredentials | undefined>;
     /**
      * The format of the Schema.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      */
-    hardDelete?: pulumi.Input<boolean>;
-    metadata?: pulumi.Input<inputs.SchemaMetadata>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
+    metadata?: pulumi.Input<inputs.SchemaMetadata | undefined>;
     /**
      * Controls whether a schema should be recreated on update.
      */
-    recreateOnUpdate?: pulumi.Input<boolean>;
+    recreateOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
      * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
-    restEndpoint?: pulumi.Input<string>;
-    ruleset?: pulumi.Input<inputs.SchemaRuleset>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    ruleset?: pulumi.Input<inputs.SchemaRuleset | undefined>;
     /**
      * The definition of the Schema.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      */
-    schemaIdentifier?: pulumi.Input<number>;
+    schemaIdentifier?: pulumi.Input<number | undefined>;
     /**
      * The list of references to other Schemas.
      */
-    schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
+    schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[] | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster | undefined>;
     /**
      * Controls whether a schema validation should be skipped during terraform plan.
      */
-    skipValidationDuringPlan?: pulumi.Input<boolean>;
+    skipValidationDuringPlan?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
     /**
      * (Required Integer) The version of the Schema, for example, `4`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -413,7 +413,7 @@ export interface SchemaArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaCredentials | undefined>;
     /**
      * The format of the Schema.
      */
@@ -421,32 +421,32 @@ export interface SchemaArgs {
     /**
      * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      */
-    hardDelete?: pulumi.Input<boolean>;
-    metadata?: pulumi.Input<inputs.SchemaMetadata>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
+    metadata?: pulumi.Input<inputs.SchemaMetadata | undefined>;
     /**
      * Controls whether a schema should be recreated on update.
      */
-    recreateOnUpdate?: pulumi.Input<boolean>;
+    recreateOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
      * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
-    restEndpoint?: pulumi.Input<string>;
-    ruleset?: pulumi.Input<inputs.SchemaRuleset>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    ruleset?: pulumi.Input<inputs.SchemaRuleset | undefined>;
     /**
      * The definition of the Schema.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * The list of references to other Schemas.
      */
-    schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
+    schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[] | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster | undefined>;
     /**
      * Controls whether a schema validation should be skipped during terraform plan.
      */
-    skipValidationDuringPlan?: pulumi.Input<boolean>;
+    skipValidationDuringPlan?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */

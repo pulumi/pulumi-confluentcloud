@@ -121,11 +121,11 @@ export interface TfImporterState {
      *
      * > **Note:** File an issue to request a support for other resources.
      */
-    outputPath?: pulumi.Input<string>;
+    outputPath?: pulumi.Input<string | undefined>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -146,9 +146,9 @@ export interface TfImporterArgs {
      *
      * > **Note:** File an issue to request a support for other resources.
      */
-    outputPath?: pulumi.Input<string>;
+    outputPath?: pulumi.Input<string | undefined>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

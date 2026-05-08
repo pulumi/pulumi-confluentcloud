@@ -21,12 +21,12 @@ __all__ = ['SchemaRegistryClusterConfigArgs', 'SchemaRegistryClusterConfig']
 @pulumi.input_type
 class SchemaRegistryClusterConfigArgs:
     def __init__(__self__, *,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SchemaRegistryClusterConfig resource.
 
@@ -51,83 +51,83 @@ class SchemaRegistryClusterConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
-    def compatibility_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The global Schema Registry compatibility group.
         """
         return pulumi.get(self, "compatibility_group")
 
     @compatibility_group.setter
-    def compatibility_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_group", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def normalize(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether schemas are automatically normalized when registered or passed during lookups.
         """
         return pulumi.get(self, "normalize")
 
     @normalize.setter
-    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def normalize(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
 @pulumi.input_type
 class _SchemaRegistryClusterConfigState:
     def __init__(__self__, *,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryClusterConfig resources.
 
@@ -152,71 +152,71 @@ class _SchemaRegistryClusterConfigState:
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
-    def compatibility_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The global Schema Registry compatibility group.
         """
         return pulumi.get(self, "compatibility_group")
 
     @compatibility_group.setter
-    def compatibility_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_group", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def normalize(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether schemas are automatically normalized when registered or passed during lookups.
         """
         return pulumi.get(self, "normalize")
 
     @normalize.setter
-    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def normalize(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
@@ -226,12 +226,12 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -368,12 +368,12 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,12 +401,12 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-            compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
-            normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None) -> 'SchemaRegistryClusterConfig':
+            compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+            normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None) -> 'SchemaRegistryClusterConfig':
         """
         Get an existing SchemaRegistryClusterConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

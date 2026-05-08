@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .id(basic.id())
  *                 .apiVersion(basic.apiVersion())
  *                 .kind(basic.kind())
- *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .environments(Arrays.asList(Map.of("id", staging.id())))
  *                 .build())
  *             .build());
  * 
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                 .id(main.id())
  *                 .apiVersion(main.apiVersion())
  *                 .kind(main.kind())
- *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .environments(Arrays.asList(Map.of("id", staging.id())))
  *                 .build())
  *             .build());
  * 
@@ -131,8 +131,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *                 .id(essentials.id())
  *                 .apiVersion(essentials.apiVersion())
  *                 .kind(essentials.kind())
- *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .environments(Arrays.asList(Map.of("id", staging.id())))
  *                 .build())
  *             .build());
  * 
@@ -177,8 +177,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *                 .id(example.id())
  *                 .apiVersion(example.apiVersion())
  *                 .kind(example.kind())
- *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .environments(Arrays.asList(Map.of("id", staging.id())))
  *                 .build())
  *             .build());
  * 
@@ -223,8 +223,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -267,8 +267,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKey;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

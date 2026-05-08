@@ -315,73 +315,73 @@ export interface NetworkState {
     /**
      * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      */
-    aws?: pulumi.Input<pulumi.Input<inputs.NetworkAw>[]>;
+    aws?: pulumi.Input<pulumi.Input<inputs.NetworkAw>[] | undefined>;
     /**
      * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
      */
-    azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
+    azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[] | undefined>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
      */
-    connectionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Network.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Network DNS config. It applies only to the PRIVATELINK network connection type.
      */
-    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig | undefined>;
     /**
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      */
-    dnsDomain?: pulumi.Input<string>;
+    dnsDomain?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. 
      * - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
      * - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpointSuffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
      */
-    endpointSuffix?: pulumi.Input<string>;
+    endpointSuffix?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.NetworkEnvironment>;
+    environment?: pulumi.Input<inputs.NetworkEnvironment | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gateways?: pulumi.Input<pulumi.Input<inputs.NetworkGateway>[]>;
+    gateways?: pulumi.Input<pulumi.Input<inputs.NetworkGateway>[] | undefined>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */
-    gcps?: pulumi.Input<pulumi.Input<inputs.NetworkGcp>[]>;
+    gcps?: pulumi.Input<pulumi.Input<inputs.NetworkGcp>[] | undefined>;
     /**
      * The cloud provider region where the network exists.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
      */
-    reservedCidr?: pulumi.Input<string>;
+    reservedCidr?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Network.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
      */
-    zonalSubdomains?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    zonalSubdomains?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Each item represents information related to a single zone.
      */
-    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[]>;
+    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[] | undefined>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -390,7 +390,7 @@ export interface NetworkState {
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -400,15 +400,15 @@ export interface NetworkArgs {
     /**
      * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      */
-    aws?: pulumi.Input<pulumi.Input<inputs.NetworkAw>[]>;
+    aws?: pulumi.Input<pulumi.Input<inputs.NetworkAw>[] | undefined>;
     /**
      * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
      */
-    azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
+    azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[] | undefined>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -420,11 +420,11 @@ export interface NetworkArgs {
     /**
      * The name of the Network.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Network DNS config. It applies only to the PRIVATELINK network connection type.
      */
-    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -432,7 +432,7 @@ export interface NetworkArgs {
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */
-    gcps?: pulumi.Input<pulumi.Input<inputs.NetworkGcp>[]>;
+    gcps?: pulumi.Input<pulumi.Input<inputs.NetworkGcp>[] | undefined>;
     /**
      * The cloud provider region where the network exists.
      */
@@ -440,11 +440,11 @@ export interface NetworkArgs {
     /**
      * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
      */
-    reservedCidr?: pulumi.Input<string>;
+    reservedCidr?: pulumi.Input<string | undefined>;
     /**
      * Each item represents information related to a single zone.
      */
-    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[]>;
+    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[] | undefined>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -453,5 +453,5 @@ export interface NetworkArgs {
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

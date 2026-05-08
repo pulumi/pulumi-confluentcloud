@@ -24,8 +24,8 @@ class DnsRecordArgs:
                  domain: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['DnsRecordEnvironmentArgs'],
                  gateway: pulumi.Input['DnsRecordGatewayArgs'],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_access_point: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_access_point: pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']] = None):
         """
         The set of arguments for constructing a DnsRecord resource.
 
@@ -76,34 +76,34 @@ class DnsRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS Record.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccessPoint")
-    def private_link_access_point(self) -> Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']]:
+    def private_link_access_point(self) -> pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']]:
         return pulumi.get(self, "private_link_access_point")
 
     @private_link_access_point.setter
-    def private_link_access_point(self, value: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']]):
+    def private_link_access_point(self, value: pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']]):
         pulumi.set(self, "private_link_access_point", value)
 
 
 @pulumi.input_type
 class _DnsRecordState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['DnsRecordEnvironmentArgs']] = None,
-                 gateway: Optional[pulumi.Input['DnsRecordGatewayArgs']] = None,
-                 private_link_access_point: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['DnsRecordEnvironmentArgs']] = None,
+                 gateway: pulumi.Input[Optional['DnsRecordGatewayArgs']] = None,
+                 private_link_access_point: pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']] = None):
         """
         Input properties used for looking up and filtering DnsRecord resources.
 
@@ -124,56 +124,56 @@ class _DnsRecordState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS Record.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the DNS Record.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['DnsRecordEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['DnsRecordEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['DnsRecordEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['DnsRecordEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input['DnsRecordGatewayArgs']]:
+    def gateway(self) -> pulumi.Input[Optional['DnsRecordGatewayArgs']]:
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input['DnsRecordGatewayArgs']]):
+    def gateway(self, value: pulumi.Input[Optional['DnsRecordGatewayArgs']]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccessPoint")
-    def private_link_access_point(self) -> Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']]:
+    def private_link_access_point(self) -> pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']]:
         return pulumi.get(self, "private_link_access_point")
 
     @private_link_access_point.setter
-    def private_link_access_point(self, value: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']]):
+    def private_link_access_point(self, value: pulumi.Input[Optional['DnsRecordPrivateLinkAccessPointArgs']]):
         pulumi.set(self, "private_link_access_point", value)
 
 
@@ -183,11 +183,11 @@ class DnsRecord(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
-                 private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+                 private_link_access_point: pulumi.Input[Optional[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -298,11 +298,11 @@ class DnsRecord(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
-                 private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+                 private_link_access_point: pulumi.Input[Optional[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,11 +333,11 @@ class DnsRecord(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
-            gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
-            private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None) -> 'DnsRecord':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+            gateway: pulumi.Input[Optional[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+            private_link_access_point: pulumi.Input[Optional[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None) -> 'DnsRecord':
         """
         Get an existing DnsRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

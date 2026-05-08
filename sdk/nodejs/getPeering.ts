@@ -144,7 +144,7 @@ export interface GetPeeringOutputArgs {
     /**
      * A human-readable name for the Peering.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */
@@ -152,5 +152,5 @@ export interface GetPeeringOutputArgs {
     /**
      * The ID of the Peering, for example, `peer-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

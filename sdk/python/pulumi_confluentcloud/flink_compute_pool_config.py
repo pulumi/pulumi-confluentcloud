@@ -19,8 +19,8 @@ __all__ = ['FlinkComputePoolConfigArgs', 'FlinkComputePoolConfig']
 @pulumi.input_type
 class FlinkComputePoolConfigArgs:
     def __init__(__self__, *,
-                 default_compute_pool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_max_cfu: Optional[pulumi.Input[_builtins.int]] = None):
+                 default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a FlinkComputePoolConfig resource.
 
@@ -36,19 +36,19 @@ class FlinkComputePoolConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultComputePoolEnabled")
-    def default_compute_pool_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_compute_pool_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether default compute pools are enabled for the organization.
         """
         return pulumi.get(self, "default_compute_pool_enabled")
 
     @default_compute_pool_enabled.setter
-    def default_compute_pool_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_compute_pool_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_compute_pool_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMaxCfu")
-    def default_max_cfu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_max_cfu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of Confluent Flink Units (CFU).
 
@@ -57,17 +57,17 @@ class FlinkComputePoolConfigArgs:
         return pulumi.get(self, "default_max_cfu")
 
     @default_max_cfu.setter
-    def default_max_cfu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_max_cfu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_max_cfu", value)
 
 
 @pulumi.input_type
 class _FlinkComputePoolConfigState:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_compute_pool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlinkComputePoolConfig resources.
 
@@ -89,31 +89,31 @@ class _FlinkComputePoolConfigState:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The API Version of the schema version of the Flink Compute Pool Config, for example, `fcpm/v2`.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultComputePoolEnabled")
-    def default_compute_pool_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_compute_pool_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether default compute pools are enabled for the organization.
         """
         return pulumi.get(self, "default_compute_pool_enabled")
 
     @default_compute_pool_enabled.setter
-    def default_compute_pool_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_compute_pool_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_compute_pool_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMaxCfu")
-    def default_max_cfu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_max_cfu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of Confluent Flink Units (CFU).
 
@@ -122,19 +122,19 @@ class _FlinkComputePoolConfigState:
         return pulumi.get(self, "default_max_cfu")
 
     @default_max_cfu.setter
-    def default_max_cfu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_max_cfu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_max_cfu", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The kind of the Flink Compute Pool Config, for example, `OrgComputePoolConfig`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -144,8 +144,8 @@ class FlinkComputePoolConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_compute_pool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
+                 default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -237,8 +237,8 @@ class FlinkComputePoolConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_compute_pool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
+                 default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,10 +262,10 @@ class FlinkComputePoolConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            default_compute_pool_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlinkComputePoolConfig':
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlinkComputePoolConfig':
         """
         Get an existing FlinkComputePoolConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

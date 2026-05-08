@@ -170,95 +170,95 @@ export interface ProviderArgs {
     /**
      * The Stream Catalog REST Endpoint.
      */
-    catalogRestEndpoint?: pulumi.Input<string>;
+    catalogRestEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Confluent Cloud API Key.
      */
-    cloudApiKey?: pulumi.Input<string>;
+    cloudApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Confluent Cloud API Secret.
      */
-    cloudApiSecret?: pulumi.Input<string>;
+    cloudApiSecret?: pulumi.Input<string | undefined>;
     /**
      * The base endpoint of Confluent Cloud API.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The Flink Environment ID.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * The Flink API Key.
      */
-    flinkApiKey?: pulumi.Input<string>;
+    flinkApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Flink API Secret.
      */
-    flinkApiSecret?: pulumi.Input<string>;
+    flinkApiSecret?: pulumi.Input<string | undefined>;
     /**
      * The Flink Compute Pool ID.
      */
-    flinkComputePoolId?: pulumi.Input<string>;
+    flinkComputePoolId?: pulumi.Input<string | undefined>;
     /**
      * The Flink Principal ID.
      */
-    flinkPrincipalId?: pulumi.Input<string>;
+    flinkPrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The Flink REST Endpoint.
      */
-    flinkRestEndpoint?: pulumi.Input<string>;
+    flinkRestEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Kafka Cluster API Key.
      */
-    kafkaApiKey?: pulumi.Input<string>;
+    kafkaApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Kafka Cluster API Secret.
      */
-    kafkaApiSecret?: pulumi.Input<string>;
+    kafkaApiSecret?: pulumi.Input<string | undefined>;
     /**
      * The Kafka Cluster ID.
      */
-    kafkaId?: pulumi.Input<string>;
+    kafkaId?: pulumi.Input<string | undefined>;
     /**
      * The Kafka Cluster REST Endpoint.
      */
-    kafkaRestEndpoint?: pulumi.Input<string>;
+    kafkaRestEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of retries of HTTP client. Defaults to 4.
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * OAuth config settings
      */
-    oauth?: pulumi.Input<inputs.ProviderOauth>;
+    oauth?: pulumi.Input<inputs.ProviderOauth | undefined>;
     /**
      * The Flink Organization ID.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * The Schema Registry Cluster API Key.
      */
-    schemaRegistryApiKey?: pulumi.Input<string>;
+    schemaRegistryApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Schema Registry Cluster API Secret.
      */
-    schemaRegistryApiSecret?: pulumi.Input<string>;
+    schemaRegistryApiSecret?: pulumi.Input<string | undefined>;
     /**
      * The Schema Registry Cluster ID.
      */
-    schemaRegistryId?: pulumi.Input<string>;
+    schemaRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The Schema Registry Cluster REST Endpoint.
      */
-    schemaRegistryRestEndpoint?: pulumi.Input<string>;
+    schemaRegistryRestEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Tableflow API Key.
      */
-    tableflowApiKey?: pulumi.Input<string>;
+    tableflowApiKey?: pulumi.Input<string | undefined>;
     /**
      * The Tableflow API Secret.
      */
-    tableflowApiSecret?: pulumi.Input<string>;
+    tableflowApiSecret?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

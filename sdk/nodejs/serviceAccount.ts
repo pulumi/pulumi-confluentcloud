@@ -141,19 +141,19 @@ export interface ServiceAccountState {
     /**
      * (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * A free-form description of the Service Account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A human-readable name for the Service Account.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) A kind of the Service Account, for example, `ServiceAccount`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,9 +163,9 @@ export interface ServiceAccountArgs {
     /**
      * A free-form description of the Service Account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A human-readable name for the Service Account.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
 }

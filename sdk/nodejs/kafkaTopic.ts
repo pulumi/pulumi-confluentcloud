@@ -223,28 +223,28 @@ export interface KafkaTopicState {
     /**
      * The custom topic settings to set:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaTopicCredentials | undefined>;
     /**
      * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
-    httpEndpoint?: pulumi.Input<string>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
+    httpEndpoint?: pulumi.Input<string | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster | undefined>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
      */
-    partitionsCount?: pulumi.Input<number>;
+    partitionsCount?: pulumi.Input<number | undefined>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,24 +254,24 @@ export interface KafkaTopicArgs {
     /**
      * The custom topic settings to set:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaTopicCredentials | undefined>;
     /**
      * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
-    httpEndpoint?: pulumi.Input<string>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
+    httpEndpoint?: pulumi.Input<string | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster | undefined>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
      */
-    partitionsCount?: pulumi.Input<number>;
+    partitionsCount?: pulumi.Input<number | undefined>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
      */

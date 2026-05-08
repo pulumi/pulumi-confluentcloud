@@ -156,11 +156,11 @@ export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSchemas.
  */
 export interface GetSchemasOutputArgs {
-    credentials?: pulumi.Input<inputs.GetSchemasCredentialsArgs>;
-    filter?: pulumi.Input<inputs.GetSchemasFilterArgs>;
+    credentials?: pulumi.Input<inputs.GetSchemasCredentialsArgs | undefined>;
+    filter?: pulumi.Input<inputs.GetSchemasFilterArgs | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemasSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemasSchemaRegistryClusterArgs | undefined>;
 }

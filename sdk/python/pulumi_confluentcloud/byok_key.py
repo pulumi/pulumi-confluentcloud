@@ -21,9 +21,9 @@ __all__ = ['ByokKeyArgs', 'ByokKey']
 @pulumi.input_type
 class ByokKeyArgs:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
-                 gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['ByokKeyAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['ByokKeyAzureArgs']] = None,
+                 gcp: pulumi.Input[Optional['ByokKeyGcpArgs']] = None):
         """
         The set of arguments for constructing a ByokKey resource.
 
@@ -40,47 +40,47 @@ class ByokKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ByokKeyAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ByokKeyAwsArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ByokKeyAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ByokKeyAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['ByokKeyAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['ByokKeyAzureArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['ByokKeyAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['ByokKeyAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['ByokKeyGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['ByokKeyGcpArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['ByokKeyGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['ByokKeyGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _ByokKeyState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
-                 gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['ByokKeyAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['ByokKeyAzureArgs']] = None,
+                 gcp: pulumi.Input[Optional['ByokKeyGcpArgs']] = None):
         """
         Input properties used for looking up and filtering ByokKey resources.
 
@@ -97,38 +97,38 @@ class _ByokKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ByokKeyAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ByokKeyAwsArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ByokKeyAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ByokKeyAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['ByokKeyAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['ByokKeyAzureArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['ByokKeyAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['ByokKeyAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['ByokKeyGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['ByokKeyGcpArgs']]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['ByokKeyGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['ByokKeyGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
@@ -138,9 +138,9 @@ class ByokKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -277,9 +277,9 @@ class ByokKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,9 +302,9 @@ class ByokKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-            azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-            gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None) -> 'ByokKey':
+            aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+            gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None) -> 'ByokKey':
         """
         Get an existing ByokKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

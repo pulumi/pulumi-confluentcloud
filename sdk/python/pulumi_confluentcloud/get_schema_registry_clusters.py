@@ -105,7 +105,7 @@ def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryC
         clusters=pulumi.get(__ret__, 'clusters'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
-def get_schema_registry_clusters_output(environment: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict']]]] = None,
+def get_schema_registry_clusters_output(environment: pulumi.Input[Optional[Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict']]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryClustersResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

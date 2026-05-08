@@ -101,11 +101,11 @@ class CertificatePoolArgs:
 @pulumi.input_type
 class _CertificatePoolState:
     def __init__(__self__, *,
-                 certificate_authority: Optional[pulumi.Input['CertificatePoolCertificateAuthorityArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_authority: pulumi.Input[Optional['CertificatePoolCertificateAuthorityArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificatePool resources.
 
@@ -127,59 +127,59 @@ class _CertificatePoolState:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> Optional[pulumi.Input['CertificatePoolCertificateAuthorityArgs']]:
+    def certificate_authority(self) -> pulumi.Input[Optional['CertificatePoolCertificateAuthorityArgs']]:
         return pulumi.get(self, "certificate_authority")
 
     @certificate_authority.setter
-    def certificate_authority(self, value: Optional[pulumi.Input['CertificatePoolCertificateAuthorityArgs']]):
+    def certificate_authority(self, value: pulumi.Input[Optional['CertificatePoolCertificateAuthorityArgs']]):
         pulumi.set(self, "certificate_authority", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Certificate Pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Certificate Pool.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="externalIdentifier")
-    def external_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate field that will be used to represent the pool's external identity for audit logging.
         """
         return pulumi.get(self, "external_identifier")
 
     @external_identifier.setter
-    def external_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
 
@@ -189,11 +189,11 @@ class CertificatePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority: Optional[pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -295,11 +295,11 @@ class CertificatePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority: Optional[pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -334,11 +334,11 @@ class CertificatePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_authority: Optional[pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            external_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[_builtins.str]] = None) -> 'CertificatePool':
+            certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None) -> 'CertificatePool':
         """
         Get an existing CertificatePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

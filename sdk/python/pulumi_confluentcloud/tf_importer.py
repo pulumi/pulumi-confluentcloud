@@ -19,8 +19,8 @@ __all__ = ['TfImporterArgs', 'TfImporter']
 @pulumi.input_type
 class TfImporterArgs:
     def __init__(__self__, *,
-                 output_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 output_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TfImporter resource.
 
@@ -45,7 +45,7 @@ class TfImporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputPath")
-    def output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
 
@@ -63,27 +63,27 @@ class TfImporterArgs:
         return pulumi.get(self, "output_path")
 
     @output_path.setter
-    def output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of resources names to export. Defaults to all exportable resources.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
 
 @pulumi.input_type
 class _TfImporterState:
     def __init__(__self__, *,
-                 output_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 output_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TfImporter resources.
 
@@ -108,7 +108,7 @@ class _TfImporterState:
 
     @_builtins.property
     @pulumi.getter(name="outputPath")
-    def output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
 
@@ -126,19 +126,19 @@ class _TfImporterState:
         return pulumi.get(self, "output_path")
 
     @output_path.setter
-    def output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of resources names to export. Defaults to all exportable resources.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
 
@@ -148,8 +148,8 @@ class TfImporter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 output_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 output_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -242,8 +242,8 @@ class TfImporter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 output_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 output_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,8 +265,8 @@ class TfImporter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            output_path: Optional[pulumi.Input[_builtins.str]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TfImporter':
+            output_path: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TfImporter':
         """
         Get an existing TfImporter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

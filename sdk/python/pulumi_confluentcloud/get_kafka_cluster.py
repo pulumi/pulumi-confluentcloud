@@ -339,14 +339,14 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         standards=pulumi.get(__ret__, 'standards'))
-def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]]]] = None,
-                             dedicated: Optional[pulumi.Input[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']]]] = None,
-                             display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             enterprises: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]]]] = None,
-                             environment: Optional[pulumi.Input[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']]] = None,
-                             freights: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]]]] = None,
-                             id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             standards: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]]]] = None,
+def get_kafka_cluster_output(basics: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]]]] = None,
+                             dedicated: pulumi.Input[Optional[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']]]] = None,
+                             display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             enterprises: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]]]] = None,
+                             environment: pulumi.Input[Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']]] = None,
+                             freights: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]]]] = None,
+                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             standards: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClusterResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -199,10 +199,10 @@ def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
         fingerprints=pulumi.get(__ret__, 'fingerprints'),
         id=pulumi.get(__ret__, 'id'),
         serial_numbers=pulumi.get(__ret__, 'serial_numbers'))
-def get_certificate_authority_output(crl_source: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     crl_updated_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     crl_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     crl_updated_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     crl_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

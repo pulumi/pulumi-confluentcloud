@@ -25,12 +25,12 @@ class FlinkArtifactArgs:
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['FlinkArtifactEnvironmentArgs'],
                  region: pulumi.Input[_builtins.str],
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlinkArtifact resource.
 
@@ -115,94 +115,94 @@ class FlinkArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactFile")
-    def artifact_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
     @artifact_file.setter
-    def artifact_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_file", value)
 
     @_builtins.property
     @pulumi.getter(name="class")
     @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
-    def class_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def class_(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java class or alias for the Flink Artifact as provided by developer.
         """
         return pulumi.get(self, "class_")
 
     @class_.setter
-    def class_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def class_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "class_", value)
 
     @_builtins.property
     @pulumi.getter(name="contentFormat")
-    def content_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         """
         return pulumi.get(self, "content_format")
 
     @content_format.setter
-    def content_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Description of the Flink Artifact.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationLink")
-    def documentation_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Documentation link of the Flink Artifact.
         """
         return pulumi.get(self, "documentation_link")
 
     @documentation_link.setter
-    def documentation_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_link", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeLanguage")
-    def runtime_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         return pulumi.get(self, "runtime_language")
 
     @runtime_language.setter
-    def runtime_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_language", value)
 
 
 @pulumi.input_type
 class _FlinkArtifactState:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['FlinkArtifactEnvironmentArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['FlinkArtifactEnvironmentArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]] = None):
         """
         Input properties used for looking up and filtering FlinkArtifact resources.
 
@@ -252,159 +252,159 @@ class _FlinkArtifactState:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactFile")
-    def artifact_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
     @artifact_file.setter
-    def artifact_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_file", value)
 
     @_builtins.property
     @pulumi.getter(name="class")
     @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
-    def class_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def class_(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java class or alias for the Flink Artifact as provided by developer.
         """
         return pulumi.get(self, "class_")
 
     @class_.setter
-    def class_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def class_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "class_", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="contentFormat")
-    def content_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         """
         return pulumi.get(self, "content_format")
 
     @content_format.setter
-    def content_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Description of the Flink Artifact.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the Flink Artifact per cloud, region, environment scope.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationLink")
-    def documentation_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Documentation link of the Flink Artifact.
         """
         return pulumi.get(self, "documentation_link")
 
     @documentation_link.setter
-    def documentation_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkArtifactEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkArtifactEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkArtifactEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkArtifactEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider region that hosts the Flink Artifact.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeLanguage")
-    def runtime_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         return pulumi.get(self, "runtime_language")
 
     @runtime_language.setter
-    def runtime_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]:
         """
         List of versions for this Flink Artifact.
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]):
         pulumi.set(self, "versions", value)
 
 
@@ -414,16 +414,16 @@ class FlinkArtifact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -543,16 +543,16 @@ class FlinkArtifact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -593,19 +593,19 @@ class FlinkArtifact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-            class_: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            content_format: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            documentation_link: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
-            versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]]] = None) -> 'FlinkArtifact':
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+            class_: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            content_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]]] = None) -> 'FlinkArtifact':
         """
         Get an existing FlinkArtifact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

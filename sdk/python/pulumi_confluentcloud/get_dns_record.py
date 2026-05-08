@@ -145,8 +145,8 @@ def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'G
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'),
         private_link_access_points=pulumi.get(__ret__, 'private_link_access_points'))
-def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
-                          id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_record_output(environment: pulumi.Input[Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
+                          id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsRecordResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

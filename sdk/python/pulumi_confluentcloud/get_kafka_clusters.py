@@ -105,7 +105,7 @@ def get_kafka_clusters(environment: Optional[Union['GetKafkaClustersEnvironmentA
         clusters=pulumi.get(__ret__, 'clusters'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
-def get_kafka_clusters_output(environment: Optional[pulumi.Input[Union['GetKafkaClustersEnvironmentArgs', 'GetKafkaClustersEnvironmentArgsDict']]] = None,
+def get_kafka_clusters_output(environment: pulumi.Input[Optional[Union['GetKafkaClustersEnvironmentArgs', 'GetKafkaClustersEnvironmentArgsDict']]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClustersResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

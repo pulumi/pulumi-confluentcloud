@@ -25,8 +25,8 @@ class ConnectArtifactArgs:
                  content_format: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['ConnectArtifactEnvironmentArgs'],
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectArtifact resource.
 
@@ -96,39 +96,39 @@ class ConnectArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactFile")
-    def artifact_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
     @artifact_file.setter
-    def artifact_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Connect Artifact.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _ConnectArtifactState:
     def __init__(__self__, *,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['ConnectArtifactEnvironmentArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['ConnectArtifactEnvironmentArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectArtifact resources.
 
@@ -157,86 +157,86 @@ class _ConnectArtifactState:
 
     @_builtins.property
     @pulumi.getter(name="artifactFile")
-    def artifact_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
     @artifact_file.setter
-    def artifact_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="contentFormat")
-    def content_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
         """
         return pulumi.get(self, "content_format")
 
     @content_format.setter
-    def content_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Connect Artifact.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the Connect Artifact per cloud, environment scope.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ConnectArtifactEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ConnectArtifactEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ConnectArtifactEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ConnectArtifactEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the Connect Artifact.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -246,12 +246,12 @@ class ConnectArtifact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -365,12 +365,12 @@ class ConnectArtifact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+                 artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -405,13 +405,13 @@ class ConnectArtifact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            artifact_file: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            content_format: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'ConnectArtifact':
+            artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            content_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConnectArtifact':
         """
         Get an existing ConnectArtifact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

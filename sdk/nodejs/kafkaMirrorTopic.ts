@@ -156,13 +156,13 @@ export class KafkaMirrorTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KafkaMirrorTopic resources.
  */
 export interface KafkaMirrorTopicState {
-    clusterLink?: pulumi.Input<inputs.KafkaMirrorTopicClusterLink>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaMirrorTopicKafkaCluster>;
+    clusterLink?: pulumi.Input<inputs.KafkaMirrorTopicClusterLink | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaMirrorTopicKafkaCluster | undefined>;
     /**
      * The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
      */
-    mirrorTopicName?: pulumi.Input<string>;
-    sourceKafkaTopic?: pulumi.Input<inputs.KafkaMirrorTopicSourceKafkaTopic>;
+    mirrorTopicName?: pulumi.Input<string | undefined>;
+    sourceKafkaTopic?: pulumi.Input<inputs.KafkaMirrorTopicSourceKafkaTopic | undefined>;
     /**
      * The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
      *
@@ -178,7 +178,7 @@ export interface KafkaMirrorTopicState {
      *
      * !> **Warning:** When promoting or failing over a mirror topic, don't destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface KafkaMirrorTopicArgs {
     /**
      * The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
      */
-    mirrorTopicName?: pulumi.Input<string>;
+    mirrorTopicName?: pulumi.Input<string | undefined>;
     sourceKafkaTopic: pulumi.Input<inputs.KafkaMirrorTopicSourceKafkaTopic>;
     /**
      * The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
@@ -207,5 +207,5 @@ export interface KafkaMirrorTopicArgs {
      *
      * !> **Warning:** When promoting or failing over a mirror topic, don't destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

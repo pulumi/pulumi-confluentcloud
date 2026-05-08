@@ -20,29 +20,29 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 catalog_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_compute_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth: Optional[pulumi.Input['ProviderOauthArgs']] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_compute_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth: pulumi.Input[Optional['ProviderOauthArgs']] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -119,278 +119,278 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogRestEndpoint")
-    def catalog_rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Stream Catalog REST Endpoint.
         """
         return pulumi.get(self, "catalog_rest_endpoint")
 
     @catalog_rest_endpoint.setter
-    def catalog_rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudApiKey")
-    def cloud_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Confluent Cloud API Key.
         """
         return pulumi.get(self, "cloud_api_key")
 
     @cloud_api_key.setter
-    def cloud_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudApiSecret")
-    def cloud_api_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_api_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Confluent Cloud API Secret.
         """
         return pulumi.get(self, "cloud_api_secret")
 
     @cloud_api_secret.setter
-    def cloud_api_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_api_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base endpoint of Confluent Cloud API.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink Environment ID.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="flinkApiKey")
-    def flink_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flink_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink API Key.
         """
         return pulumi.get(self, "flink_api_key")
 
     @flink_api_key.setter
-    def flink_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flink_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flink_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="flinkApiSecret")
-    def flink_api_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flink_api_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink API Secret.
         """
         return pulumi.get(self, "flink_api_secret")
 
     @flink_api_secret.setter
-    def flink_api_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flink_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flink_api_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="flinkComputePoolId")
-    def flink_compute_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flink_compute_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink Compute Pool ID.
         """
         return pulumi.get(self, "flink_compute_pool_id")
 
     @flink_compute_pool_id.setter
-    def flink_compute_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flink_compute_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flink_compute_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="flinkPrincipalId")
-    def flink_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flink_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink Principal ID.
         """
         return pulumi.get(self, "flink_principal_id")
 
     @flink_principal_id.setter
-    def flink_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flink_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flink_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="flinkRestEndpoint")
-    def flink_rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flink_rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink REST Endpoint.
         """
         return pulumi.get(self, "flink_rest_endpoint")
 
     @flink_rest_endpoint.setter
-    def flink_rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flink_rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flink_rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaApiKey")
-    def kafka_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kafka_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka Cluster API Key.
         """
         return pulumi.get(self, "kafka_api_key")
 
     @kafka_api_key.setter
-    def kafka_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kafka_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kafka_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaApiSecret")
-    def kafka_api_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kafka_api_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka Cluster API Secret.
         """
         return pulumi.get(self, "kafka_api_secret")
 
     @kafka_api_secret.setter
-    def kafka_api_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kafka_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kafka_api_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaId")
-    def kafka_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kafka_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka Cluster ID.
         """
         return pulumi.get(self, "kafka_id")
 
     @kafka_id.setter
-    def kafka_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kafka_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kafka_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaRestEndpoint")
-    def kafka_rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kafka_rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka Cluster REST Endpoint.
         """
         return pulumi.get(self, "kafka_rest_endpoint")
 
     @kafka_rest_endpoint.setter
-    def kafka_rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kafka_rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kafka_rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of retries of HTTP client. Defaults to 4.
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
-    def oauth(self) -> Optional[pulumi.Input['ProviderOauthArgs']]:
+    def oauth(self) -> pulumi.Input[Optional['ProviderOauthArgs']]:
         """
         OAuth config settings
         """
         return pulumi.get(self, "oauth")
 
     @oauth.setter
-    def oauth(self, value: Optional[pulumi.Input['ProviderOauthArgs']]):
+    def oauth(self, value: pulumi.Input[Optional['ProviderOauthArgs']]):
         pulumi.set(self, "oauth", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Flink Organization ID.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryApiKey")
-    def schema_registry_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_registry_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Schema Registry Cluster API Key.
         """
         return pulumi.get(self, "schema_registry_api_key")
 
     @schema_registry_api_key.setter
-    def schema_registry_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_registry_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_registry_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryApiSecret")
-    def schema_registry_api_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_registry_api_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Schema Registry Cluster API Secret.
         """
         return pulumi.get(self, "schema_registry_api_secret")
 
     @schema_registry_api_secret.setter
-    def schema_registry_api_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_registry_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_registry_api_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryId")
-    def schema_registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Schema Registry Cluster ID.
         """
         return pulumi.get(self, "schema_registry_id")
 
     @schema_registry_id.setter
-    def schema_registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_registry_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryRestEndpoint")
-    def schema_registry_rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_registry_rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Schema Registry Cluster REST Endpoint.
         """
         return pulumi.get(self, "schema_registry_rest_endpoint")
 
     @schema_registry_rest_endpoint.setter
-    def schema_registry_rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_registry_rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_registry_rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="tableflowApiKey")
-    def tableflow_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tableflow_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tableflow API Key.
         """
         return pulumi.get(self, "tableflow_api_key")
 
     @tableflow_api_key.setter
-    def tableflow_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tableflow_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tableflow_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tableflowApiSecret")
-    def tableflow_api_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tableflow_api_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tableflow API Secret.
         """
         return pulumi.get(self, "tableflow_api_secret")
 
     @tableflow_api_secret.setter
-    def tableflow_api_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tableflow_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tableflow_api_secret", value)
 
 
@@ -400,29 +400,29 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_compute_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth: Optional[pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_compute_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth: pulumi.Input[Optional[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the confluent package. By default, resources use package-wide configuration
@@ -485,29 +485,29 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_compute_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 flink_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth: Optional[pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tableflow_api_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_compute_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 flink_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth: pulumi.Input[Optional[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

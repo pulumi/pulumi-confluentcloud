@@ -266,19 +266,19 @@ export interface ProviderIntegrationAuthorizationState {
     /**
      * (Optional Configuration Block) Azure-specific configuration details. It supports the following:
      */
-    azure?: pulumi.Input<inputs.ProviderIntegrationAuthorizationAzure>;
+    azure?: pulumi.Input<inputs.ProviderIntegrationAuthorizationAzure | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.ProviderIntegrationAuthorizationEnvironment>;
+    environment?: pulumi.Input<inputs.ProviderIntegrationAuthorizationEnvironment | undefined>;
     /**
      * (Optional Configuration Block) GCP-specific configuration details. It supports the following:
      */
-    gcp?: pulumi.Input<inputs.ProviderIntegrationAuthorizationGcp>;
+    gcp?: pulumi.Input<inputs.ProviderIntegrationAuthorizationGcp | undefined>;
     /**
      * The ID of the provider integration to authorize.
      */
-    providerIntegrationId?: pulumi.Input<string>;
+    providerIntegrationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -288,7 +288,7 @@ export interface ProviderIntegrationAuthorizationArgs {
     /**
      * (Optional Configuration Block) Azure-specific configuration details. It supports the following:
      */
-    azure?: pulumi.Input<inputs.ProviderIntegrationAuthorizationAzure>;
+    azure?: pulumi.Input<inputs.ProviderIntegrationAuthorizationAzure | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -296,7 +296,7 @@ export interface ProviderIntegrationAuthorizationArgs {
     /**
      * (Optional Configuration Block) GCP-specific configuration details. It supports the following:
      */
-    gcp?: pulumi.Input<inputs.ProviderIntegrationAuthorizationGcp>;
+    gcp?: pulumi.Input<inputs.ProviderIntegrationAuthorizationGcp | undefined>;
     /**
      * The ID of the provider integration to authorize.
      */

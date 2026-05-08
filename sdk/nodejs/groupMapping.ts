@@ -124,15 +124,15 @@ export interface GroupMappingState {
     /**
      * A description explaining the purpose and use of the group mapping.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Group Mapping.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface GroupMappingArgs {
     /**
      * A description explaining the purpose and use of the group mapping.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Group Mapping.
      */

@@ -253,41 +253,41 @@ export interface FlinkMaterializedTableState {
     /**
      * A list of column definitions. Each `columns` block supports the following sub-blocks:
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumn>[]>;
-    computePool?: pulumi.Input<inputs.FlinkMaterializedTableComputePool>;
-    constraints?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableConstraint>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumn>[] | undefined>;
+    computePool?: pulumi.Input<inputs.FlinkMaterializedTableComputePool | undefined>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableConstraint>[] | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkMaterializedTableCredentials>;
+    credentials?: pulumi.Input<inputs.FlinkMaterializedTableCredentials | undefined>;
     /**
      * The unique name of the Materialized Table.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The distribution definition for the Materialized Table. Supports the following:
      */
-    distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution>;
-    environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment>;
-    kafkaCluster?: pulumi.Input<inputs.FlinkMaterializedTableKafkaCluster>;
-    organization?: pulumi.Input<inputs.FlinkMaterializedTableOrganization>;
-    principal?: pulumi.Input<inputs.FlinkMaterializedTablePrincipal>;
+    distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution | undefined>;
+    environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.FlinkMaterializedTableKafkaCluster | undefined>;
+    organization?: pulumi.Input<inputs.FlinkMaterializedTableOrganization | undefined>;
+    principal?: pulumi.Input<inputs.FlinkMaterializedTablePrincipal | undefined>;
     /**
      * The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
      */
-    stopped?: pulumi.Input<boolean>;
+    stopped?: pulumi.Input<boolean | undefined>;
     /**
      * The watermark definition for the Materialized Table. Supports the following:
      */
-    watermark?: pulumi.Input<inputs.FlinkMaterializedTableWatermark>;
+    watermark?: pulumi.Input<inputs.FlinkMaterializedTableWatermark | undefined>;
 }
 
 /**
@@ -297,13 +297,13 @@ export interface FlinkMaterializedTableArgs {
     /**
      * A list of column definitions. Each `columns` block supports the following sub-blocks:
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumn>[]>;
-    computePool?: pulumi.Input<inputs.FlinkMaterializedTableComputePool>;
-    constraints?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableConstraint>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumn>[] | undefined>;
+    computePool?: pulumi.Input<inputs.FlinkMaterializedTableComputePool | undefined>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableConstraint>[] | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkMaterializedTableCredentials>;
+    credentials?: pulumi.Input<inputs.FlinkMaterializedTableCredentials | undefined>;
     /**
      * The unique name of the Materialized Table.
      */
@@ -311,25 +311,25 @@ export interface FlinkMaterializedTableArgs {
     /**
      * The distribution definition for the Materialized Table. Supports the following:
      */
-    distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution>;
-    environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment>;
+    distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution | undefined>;
+    environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment | undefined>;
     kafkaCluster: pulumi.Input<inputs.FlinkMaterializedTableKafkaCluster>;
-    organization?: pulumi.Input<inputs.FlinkMaterializedTableOrganization>;
-    principal?: pulumi.Input<inputs.FlinkMaterializedTablePrincipal>;
+    organization?: pulumi.Input<inputs.FlinkMaterializedTableOrganization | undefined>;
+    principal?: pulumi.Input<inputs.FlinkMaterializedTablePrincipal | undefined>;
     /**
      * The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
      */
-    stopped?: pulumi.Input<boolean>;
+    stopped?: pulumi.Input<boolean | undefined>;
     /**
      * The watermark definition for the Materialized Table. Supports the following:
      */
-    watermark?: pulumi.Input<inputs.FlinkMaterializedTableWatermark>;
+    watermark?: pulumi.Input<inputs.FlinkMaterializedTableWatermark | undefined>;
 }

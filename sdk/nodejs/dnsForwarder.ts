@@ -175,18 +175,18 @@ export interface DnsForwarderState {
     /**
      * The name of the DNS Forwarder.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * List of domains for the DNS forwarder to use.
      */
-    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    domains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.DnsForwarderEnvironment>;
-    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones>;
-    forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp>;
-    gateway?: pulumi.Input<inputs.DnsForwarderGateway>;
+    environment?: pulumi.Input<inputs.DnsForwarderEnvironment | undefined>;
+    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones | undefined>;
+    forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp | undefined>;
+    gateway?: pulumi.Input<inputs.DnsForwarderGateway | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface DnsForwarderArgs {
     /**
      * The name of the DNS Forwarder.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * List of domains for the DNS forwarder to use.
      */
@@ -205,7 +205,7 @@ export interface DnsForwarderArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.DnsForwarderEnvironment>;
-    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones>;
-    forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp>;
+    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones | undefined>;
+    forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp | undefined>;
     gateway: pulumi.Input<inputs.DnsForwarderGateway>;
 }

@@ -22,7 +22,7 @@ class RoleBindingArgs:
                  crn_pattern: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
                  role_name: pulumi.Input[_builtins.str],
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RoleBinding resource.
 
@@ -83,7 +83,7 @@ class RoleBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
 
@@ -98,17 +98,17 @@ class RoleBindingArgs:
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
 
 @pulumi.input_type
 class _RoleBindingState:
     def __init__(__self__, *,
-                 crn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 crn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleBinding resources.
 
@@ -136,19 +136,19 @@ class _RoleBindingState:
 
     @_builtins.property
     @pulumi.getter(name="crnPattern")
-    def crn_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crn_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
         """
         return pulumi.get(self, "crn_pattern")
 
     @crn_pattern.setter
-    def crn_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crn_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crn_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
 
@@ -163,31 +163,31 @@ class _RoleBindingState:
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
 
@@ -197,10 +197,10 @@ class RoleBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 crn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 crn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -542,10 +542,10 @@ class RoleBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 crn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 crn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -575,10 +575,10 @@ class RoleBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            crn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'RoleBinding':
+            crn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoleBinding':
         """
         Get an existing RoleBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -155,24 +155,24 @@ export interface SubjectModeState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SubjectModeCredentials>;
+    credentials?: pulumi.Input<inputs.SubjectModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean | undefined>;
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SubjectModeSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SubjectModeSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,20 +182,20 @@ export interface SubjectModeArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SubjectModeCredentials>;
+    credentials?: pulumi.Input<inputs.SubjectModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean | undefined>;
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SubjectModeSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SubjectModeSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      */

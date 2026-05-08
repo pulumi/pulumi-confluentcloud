@@ -159,7 +159,7 @@ export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getTagBinding.
  */
 export interface GetTagBindingOutputArgs {
-    credentials?: pulumi.Input<inputs.GetTagBindingCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetTagBindingCredentialsArgs | undefined>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
@@ -173,8 +173,8 @@ export interface GetTagBindingOutputArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetTagBindingSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetTagBindingSchemaRegistryClusterArgs | undefined>;
     /**
      * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */

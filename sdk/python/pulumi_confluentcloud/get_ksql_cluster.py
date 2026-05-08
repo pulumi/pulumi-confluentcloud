@@ -243,9 +243,9 @@ def get_ksql_cluster(display_name: Optional[_builtins.str] = None,
         storage=pulumi.get(__ret__, 'storage'),
         topic_prefix=pulumi.get(__ret__, 'topic_prefix'),
         use_detailed_processing_log=pulumi.get(__ret__, 'use_detailed_processing_log'))
-def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            environment: Optional[pulumi.Input[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
-                            id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_ksql_cluster_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            environment: pulumi.Input[Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
+                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """
     ## # KsqlCluster Data Source

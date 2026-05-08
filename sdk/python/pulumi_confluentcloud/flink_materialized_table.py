@@ -23,18 +23,18 @@ class FlinkMaterializedTableArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  kafka_cluster: pulumi.Input['FlinkMaterializedTableKafkaClusterArgs'],
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]] = None,
-                 compute_pool: Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]] = None,
-                 credentials: Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']] = None,
-                 distribution: Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']] = None,
-                 environment: Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']] = None,
-                 organization: Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']] = None,
-                 principal: Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]] = None,
+                 compute_pool: pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]] = None,
+                 credentials: pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']] = None,
+                 distribution: pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']] = None,
+                 environment: pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']] = None,
+                 organization: pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']] = None,
+                 principal: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
         """
         The set of arguments for constructing a FlinkMaterializedTable resource.
 
@@ -97,151 +97,151 @@ class FlinkMaterializedTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]:
         """
         A list of column definitions. Each `columns` block supports the following sub-blocks:
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]:
+    def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]:
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]):
+    def constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']]:
+    def distribution(self) -> pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]:
         """
         The distribution definition for the Materialized Table. Supports the following:
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']]):
+    def distribution(self, value: pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]):
         pulumi.set(self, "distribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def stopped(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
 
     @stopped.setter
-    def stopped(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
 
     @_builtins.property
     @pulumi.getter
-    def watermark(self) -> Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']]:
+    def watermark(self) -> pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']]:
         """
         The watermark definition for the Materialized Table. Supports the following:
         """
         return pulumi.get(self, "watermark")
 
     @watermark.setter
-    def watermark(self, value: Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']]):
+    def watermark(self, value: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']]):
         pulumi.set(self, "watermark", value)
 
 
 @pulumi.input_type
 class _FlinkMaterializedTableState:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]] = None,
-                 compute_pool: Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]] = None,
-                 credentials: Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']] = None,
-                 environment: Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['FlinkMaterializedTableKafkaClusterArgs']] = None,
-                 organization: Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']] = None,
-                 principal: Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]] = None,
+                 compute_pool: pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]] = None,
+                 credentials: pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']] = None,
+                 environment: pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['FlinkMaterializedTableKafkaClusterArgs']] = None,
+                 organization: pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']] = None,
+                 principal: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
         """
         Input properties used for looking up and filtering FlinkMaterializedTable resources.
 
@@ -285,152 +285,152 @@ class _FlinkMaterializedTableState:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]:
         """
         A list of column definitions. Each `columns` block supports the following sub-blocks:
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkMaterializedTableComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkMaterializedTableComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]:
+    def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]:
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]):
+    def constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableConstraintArgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkMaterializedTableCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkMaterializedTableCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the Materialized Table.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']]:
+    def distribution(self) -> pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]:
         """
         The distribution definition for the Materialized Table. Supports the following:
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input['FlinkMaterializedTableDistributionArgs']]):
+    def distribution(self, value: pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]):
         pulumi.set(self, "distribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkMaterializedTableEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkMaterializedTableEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['FlinkMaterializedTableKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['FlinkMaterializedTableKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['FlinkMaterializedTableKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['FlinkMaterializedTableKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkMaterializedTableOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkMaterializedTableOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkMaterializedTablePrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def stopped(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
 
     @stopped.setter
-    def stopped(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
 
     @_builtins.property
     @pulumi.getter
-    def watermark(self) -> Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']]:
+    def watermark(self) -> pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']]:
         """
         The watermark definition for the Materialized Table. Supports the following:
         """
         return pulumi.get(self, "watermark")
 
     @watermark.setter
-    def watermark(self, value: Optional[pulumi.Input['FlinkMaterializedTableWatermarkArgs']]):
+    def watermark(self, value: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']]):
         pulumi.set(self, "watermark", value)
 
 
@@ -440,20 +440,20 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -715,20 +715,20 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution: Optional[pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -768,20 +768,20 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-            compute_pool: Optional[pulumi.Input[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-            constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-            credentials: Optional[pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            distribution: Optional[pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-            environment: Optional[pulumi.Input[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-            organization: Optional[pulumi.Input[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-            principal: Optional[pulumi.Input[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            stopped: Optional[pulumi.Input[_builtins.bool]] = None,
-            watermark: Optional[pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None) -> 'FlinkMaterializedTable':
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+            watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None) -> 'FlinkMaterializedTable':
         """
         Get an existing FlinkMaterializedTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

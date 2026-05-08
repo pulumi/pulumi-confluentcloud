@@ -148,8 +148,8 @@ def get_identity_provider(display_name: Optional[_builtins.str] = None,
         identity_claim=pulumi.get(__ret__, 'identity_claim'),
         issuer=pulumi.get(__ret__, 'issuer'),
         jwks_uri=pulumi.get(__ret__, 'jwks_uri'))
-def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_identity_provider_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

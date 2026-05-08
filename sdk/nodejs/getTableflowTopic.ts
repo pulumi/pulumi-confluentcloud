@@ -202,7 +202,7 @@ export function getTableflowTopicOutput(args: GetTableflowTopicOutputArgs, opts?
  * A collection of arguments for invoking getTableflowTopic.
  */
 export interface GetTableflowTopicOutputArgs {
-    credentials?: pulumi.Input<inputs.GetTableflowTopicCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetTableflowTopicCredentialsArgs | undefined>;
     /**
      * The name of the Tableflow Topic.
      */

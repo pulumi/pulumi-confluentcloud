@@ -24,8 +24,8 @@ class PluginArgs:
                  cloud: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['PluginEnvironmentArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Plugin resource.
 
@@ -81,39 +81,39 @@ class PluginArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Plugin.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeLanguage")
-    def runtime_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Runtime language of the plugin.
         """
         return pulumi.get(self, "runtime_language")
 
     @runtime_language.setter
-    def runtime_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_language", value)
 
 
 @pulumi.input_type
 class _PluginState:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['PluginEnvironmentArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['PluginEnvironmentArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Plugin resources.
 
@@ -142,86 +142,86 @@ class _PluginState:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Plugin.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Plugin.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['PluginEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['PluginEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['PluginEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['PluginEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeLanguage")
-    def runtime_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) Runtime language of the plugin.
         """
         return pulumi.get(self, "runtime_language")
 
     @runtime_language.setter
-    def runtime_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_language", value)
 
 
@@ -231,11 +231,11 @@ class Plugin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -340,11 +340,11 @@ class Plugin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
-                 runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+                 runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,13 +377,13 @@ class Plugin(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_language: Optional[pulumi.Input[_builtins.str]] = None) -> 'Plugin':
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_language: pulumi.Input[Optional[_builtins.str]] = None) -> 'Plugin':
         """
         Get an existing Plugin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -146,9 +146,9 @@ def get_connect_artifact(cloud: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
-def get_connect_artifact_output(cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                                environment: Optional[pulumi.Input[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict']]] = None,
-                                id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connect_artifact_output(cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                                environment: pulumi.Input[Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict']]] = None,
+                                id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectArtifactResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -151,16 +151,16 @@ export interface KafkaClusterConfigState {
     /**
      * The custom cluster settings to set:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaClusterConfigCredentials>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster>;
+    credentials?: pulumi.Input<inputs.KafkaClusterConfigCredentials | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster | undefined>;
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,10 +174,10 @@ export interface KafkaClusterConfigArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaClusterConfigCredentials>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster>;
+    credentials?: pulumi.Input<inputs.KafkaClusterConfigCredentials | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster | undefined>;
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }

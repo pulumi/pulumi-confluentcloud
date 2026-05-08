@@ -149,9 +149,9 @@ def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePo
         external_identifier=pulumi.get(__ret__, 'external_identifier'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'))
-def get_certificate_pool_output(certificate_authority: Optional[pulumi.Input[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']]] = None,
-                                display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_certificate_pool_output(certificate_authority: pulumi.Input[Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']]] = None,
+                                display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificatePoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

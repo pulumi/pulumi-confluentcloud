@@ -194,32 +194,32 @@ export interface CatalogIntegrationState {
     /**
      * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      */
-    awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue>;
+    awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.CatalogIntegrationCredentials>;
+    credentials?: pulumi.Input<inputs.CatalogIntegrationCredentials | undefined>;
     /**
      * The name of the catalog integration.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.CatalogIntegrationEnvironment>;
-    kafkaCluster?: pulumi.Input<inputs.CatalogIntegrationKafkaCluster>;
+    environment?: pulumi.Input<inputs.CatalogIntegrationEnvironment | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.CatalogIntegrationKafkaCluster | undefined>;
     /**
      * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      */
-    snowflake?: pulumi.Input<inputs.CatalogIntegrationSnowflake>;
+    snowflake?: pulumi.Input<inputs.CatalogIntegrationSnowflake | undefined>;
     /**
      * (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
      */
-    suspended?: pulumi.Input<boolean>;
+    suspended?: pulumi.Input<boolean | undefined>;
     /**
      * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
      */
-    unity?: pulumi.Input<inputs.CatalogIntegrationUnity>;
+    unity?: pulumi.Input<inputs.CatalogIntegrationUnity | undefined>;
 }
 
 /**
@@ -229,11 +229,11 @@ export interface CatalogIntegrationArgs {
     /**
      * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      */
-    awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue>;
+    awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.CatalogIntegrationCredentials>;
+    credentials?: pulumi.Input<inputs.CatalogIntegrationCredentials | undefined>;
     /**
      * The name of the catalog integration.
      */
@@ -246,9 +246,9 @@ export interface CatalogIntegrationArgs {
     /**
      * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      */
-    snowflake?: pulumi.Input<inputs.CatalogIntegrationSnowflake>;
+    snowflake?: pulumi.Input<inputs.CatalogIntegrationSnowflake | undefined>;
     /**
      * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
      */
-    unity?: pulumi.Input<inputs.CatalogIntegrationUnity>;
+    unity?: pulumi.Input<inputs.CatalogIntegrationUnity | undefined>;
 }

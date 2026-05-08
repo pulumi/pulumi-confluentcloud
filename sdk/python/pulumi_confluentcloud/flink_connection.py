@@ -24,19 +24,19 @@ class FlinkConnectionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  endpoint: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input['FlinkConnectionComputePoolArgs']] = None,
-                 credentials: Optional[pulumi.Input['FlinkConnectionCredentialsArgs']] = None,
-                 environment: Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']] = None,
-                 organization: Optional[pulumi.Input['FlinkConnectionOrganizationArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input['FlinkConnectionPrincipalArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional['FlinkConnectionComputePoolArgs']] = None,
+                 credentials: pulumi.Input[Optional['FlinkConnectionCredentialsArgs']] = None,
+                 environment: pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']] = None,
+                 organization: pulumi.Input[Optional['FlinkConnectionOrganizationArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional['FlinkConnectionPrincipalArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlinkConnection resource.
 
@@ -121,170 +121,170 @@ class FlinkConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API key for the type.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccessKey")
-    def aws_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key for the type.
         """
         return pulumi.get(self, "aws_access_key")
 
     @aws_access_key.setter
-    def aws_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSecretKey")
-    def aws_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret key for the type.
         """
         return pulumi.get(self, "aws_secret_key")
 
     @aws_secret_key.setter
-    def aws_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSessionToken")
-    def aws_session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session token for the type.
         """
         return pulumi.get(self, "aws_session_token")
 
     @aws_session_token.setter
-    def aws_session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_session_token", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkConnectionComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkConnectionComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkConnectionComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkConnectionComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkConnectionCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkConnectionCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkConnectionCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkConnectionCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkConnectionOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkConnectionOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkConnectionOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkConnectionOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the type.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkConnectionPrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkConnectionPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkConnectionPrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkConnectionPrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service Key for the type.
         """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
-    def service_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username for the type.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _FlinkConnectionState:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input['FlinkConnectionComputePoolArgs']] = None,
-                 credentials: Optional[pulumi.Input['FlinkConnectionCredentialsArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input['FlinkConnectionOrganizationArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input['FlinkConnectionPrincipalArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional['FlinkConnectionComputePoolArgs']] = None,
+                 credentials: pulumi.Input[Optional['FlinkConnectionCredentialsArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional['FlinkConnectionOrganizationArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional['FlinkConnectionPrincipalArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlinkConnection resources.
 
@@ -342,206 +342,206 @@ class _FlinkConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API key for the type.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema version of this representation of a resource.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccessKey")
-    def aws_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key for the type.
         """
         return pulumi.get(self, "aws_access_key")
 
     @aws_access_key.setter
-    def aws_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSecretKey")
-    def aws_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret key for the type.
         """
         return pulumi.get(self, "aws_secret_key")
 
     @aws_secret_key.setter
-    def aws_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSessionToken")
-    def aws_session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session token for the type.
         """
         return pulumi.get(self, "aws_session_token")
 
     @aws_session_token.setter
-    def aws_session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_session_token", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkConnectionComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkConnectionComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkConnectionComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkConnectionComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkConnectionCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkConnectionCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkConnectionCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkConnectionCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the Flink Connection per organization, environment scope.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint of the flink connection.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkConnectionEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkConnectionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object this REST resource represents.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkConnectionOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkConnectionOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkConnectionOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkConnectionOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the type.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkConnectionPrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkConnectionPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkConnectionPrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkConnectionPrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service Key for the type.
         """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
-    def service_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the flink connection.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username for the type.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -551,22 +551,22 @@ class FlinkConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -872,22 +872,22 @@ class FlinkConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -933,24 +933,24 @@ class FlinkConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_pool: Optional[pulumi.Input[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-            credentials: Optional[pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            organization: Optional[pulumi.Input[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            principal: Optional[pulumi.Input[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            service_key: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlinkConnection':
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlinkConnection':
         """
         Get an existing FlinkConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

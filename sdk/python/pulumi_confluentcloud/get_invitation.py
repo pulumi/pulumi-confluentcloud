@@ -168,7 +168,7 @@ def get_invitation(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'),
         users=pulumi.get(__ret__, 'users'))
-def get_invitation_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_invitation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvitationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

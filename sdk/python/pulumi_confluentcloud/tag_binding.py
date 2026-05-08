@@ -24,10 +24,10 @@ class TagBindingArgs:
                  entity_name: pulumi.Input[_builtins.str],
                  entity_type: pulumi.Input[_builtins.str],
                  tag_name: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None):
+                 credentials: pulumi.Input[Optional['TagBindingCredentialsArgs']] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a TagBinding resource.
 
@@ -94,19 +94,19 @@ class TagBindingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['TagBindingCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['TagBindingCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['TagBindingCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['TagBindingCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
 
@@ -119,41 +119,41 @@ class TagBindingArgs:
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
 @pulumi.input_type
 class _TagBindingState:
     def __init__(__self__, *,
-                 credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['TagBindingCredentialsArgs']] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagBinding resources.
 
@@ -187,19 +187,19 @@ class _TagBindingState:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['TagBindingCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['TagBindingCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['TagBindingCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['TagBindingCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
 
@@ -212,64 +212,64 @@ class _TagBindingState:
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
     @_builtins.property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         """
         return pulumi.get(self, "entity_name")
 
     @entity_name.setter
-    def entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         """
         return pulumi.get(self, "entity_type")
 
     @entity_type.setter
-    def entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['TagBindingSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="tagName")
-    def tag_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "tag_name")
 
     @tag_name.setter
-    def tag_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_name", value)
 
 
@@ -279,13 +279,13 @@ class TagBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -445,13 +445,13 @@ class TagBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,13 +486,13 @@ class TagBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
-            disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-            entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-            entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
-            tag_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'TagBinding':
+            credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+            tag_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TagBinding':
         """
         Get an existing TagBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

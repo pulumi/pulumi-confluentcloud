@@ -194,21 +194,21 @@ export function getFlinkConnectionOutput(args: GetFlinkConnectionOutputArgs, opt
  * A collection of arguments for invoking getFlinkConnection.
  */
 export interface GetFlinkConnectionOutputArgs {
-    computePool?: pulumi.Input<inputs.GetFlinkConnectionComputePoolArgs>;
-    credentials?: pulumi.Input<inputs.GetFlinkConnectionCredentialsArgs>;
+    computePool?: pulumi.Input<inputs.GetFlinkConnectionComputePoolArgs | undefined>;
+    credentials?: pulumi.Input<inputs.GetFlinkConnectionCredentialsArgs | undefined>;
     /**
      * The name of the Flink Connection.
      */
     displayName: pulumi.Input<string>;
-    environment?: pulumi.Input<inputs.GetFlinkConnectionEnvironmentArgs>;
-    organization?: pulumi.Input<inputs.GetFlinkConnectionOrganizationArgs>;
-    principal?: pulumi.Input<inputs.GetFlinkConnectionPrincipalArgs>;
+    environment?: pulumi.Input<inputs.GetFlinkConnectionEnvironmentArgs | undefined>;
+    organization?: pulumi.Input<inputs.GetFlinkConnectionOrganizationArgs | undefined>;
+    principal?: pulumi.Input<inputs.GetFlinkConnectionPrincipalArgs | undefined>;
     /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The type of the Flink Connection. The accepted values are: `OPENAI`, `AZUREML`, `AZUREOPENAI`, `BEDROCK`, `SAGEMAKER`, `GOOGLEAI`, `VERTEXAI`, `MONGODB`, `PINECONE`, `ELASTIC` and `COUCHBASE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

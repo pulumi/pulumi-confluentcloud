@@ -257,14 +257,14 @@ def get_flink_connection(compute_pool: Optional[Union['GetFlinkConnectionCompute
         status=pulumi.get(__ret__, 'status'),
         status_detail=pulumi.get(__ret__, 'status_detail'),
         type=pulumi.get(__ret__, 'type'))
-def get_flink_connection_output(compute_pool: Optional[pulumi.Input[Optional[Union['GetFlinkConnectionComputePoolArgs', 'GetFlinkConnectionComputePoolArgsDict']]]] = None,
-                                credentials: Optional[pulumi.Input[Optional[Union['GetFlinkConnectionCredentialsArgs', 'GetFlinkConnectionCredentialsArgsDict']]]] = None,
-                                display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                environment: Optional[pulumi.Input[Optional[Union['GetFlinkConnectionEnvironmentArgs', 'GetFlinkConnectionEnvironmentArgsDict']]]] = None,
-                                organization: Optional[pulumi.Input[Optional[Union['GetFlinkConnectionOrganizationArgs', 'GetFlinkConnectionOrganizationArgsDict']]]] = None,
-                                principal: Optional[pulumi.Input[Optional[Union['GetFlinkConnectionPrincipalArgs', 'GetFlinkConnectionPrincipalArgsDict']]]] = None,
-                                rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_flink_connection_output(compute_pool: pulumi.Input[Optional[Optional[Union['GetFlinkConnectionComputePoolArgs', 'GetFlinkConnectionComputePoolArgsDict']]]] = None,
+                                credentials: pulumi.Input[Optional[Optional[Union['GetFlinkConnectionCredentialsArgs', 'GetFlinkConnectionCredentialsArgsDict']]]] = None,
+                                display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                environment: pulumi.Input[Optional[Optional[Union['GetFlinkConnectionEnvironmentArgs', 'GetFlinkConnectionEnvironmentArgsDict']]]] = None,
+                                organization: pulumi.Input[Optional[Optional[Union['GetFlinkConnectionOrganizationArgs', 'GetFlinkConnectionOrganizationArgsDict']]]] = None,
+                                principal: pulumi.Input[Optional[Optional[Union['GetFlinkConnectionPrincipalArgs', 'GetFlinkConnectionPrincipalArgsDict']]]] = None,
+                                rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkConnectionResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -165,7 +165,7 @@ export function getSchemaRegistryKekOutput(args: GetSchemaRegistryKekOutputArgs,
  * A collection of arguments for invoking getSchemaRegistryKek.
  */
 export interface GetSchemaRegistryKekOutputArgs {
-    credentials?: pulumi.Input<inputs.GetSchemaRegistryKekCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetSchemaRegistryKekCredentialsArgs | undefined>;
     /**
      * The name for the KEK.
      *
@@ -175,6 +175,6 @@ export interface GetSchemaRegistryKekOutputArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs | undefined>;
 }

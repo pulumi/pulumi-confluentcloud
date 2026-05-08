@@ -134,10 +134,10 @@ export interface GetEnvironmentOutputArgs {
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Environment, for example, `env-abc123`.
      */
-    id?: pulumi.Input<string>;
-    streamGovernance?: pulumi.Input<inputs.GetEnvironmentStreamGovernanceArgs>;
+    id?: pulumi.Input<string | undefined>;
+    streamGovernance?: pulumi.Input<inputs.GetEnvironmentStreamGovernanceArgs | undefined>;
 }

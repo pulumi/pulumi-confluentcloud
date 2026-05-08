@@ -22,12 +22,12 @@ __all__ = ['KafkaTopicArgs', 'KafkaTopic']
 class KafkaTopicArgs:
     def __init__(__self__, *,
                  topic_name: pulumi.Input[_builtins.str],
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
-                 partitions_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional['KafkaTopicCredentialsArgs']] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']] = None,
+                 partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaTopic resource.
 
@@ -68,82 +68,82 @@ class KafkaTopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom topic settings to set:
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaTopicCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaTopicCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaTopicCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaTopicCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="httpEndpoint")
     @_utilities.deprecated("""This property has been deprecated. Please use \"restEndpoint\" instead.""")
-    def http_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionsCount")
-    def partitions_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partitions_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of partitions to create in the topic. Defaults to `6`.
         """
         return pulumi.get(self, "partitions_count")
 
     @partitions_count.setter
-    def partitions_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partitions_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partitions_count", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
 @pulumi.input_type
 class _KafkaTopicState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
-                 partitions_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional['KafkaTopicCredentialsArgs']] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']] = None,
+                 partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaTopic resources.
 
@@ -173,81 +173,81 @@ class _KafkaTopicState:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom topic settings to set:
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaTopicCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaTopicCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaTopicCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaTopicCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="httpEndpoint")
     @_utilities.deprecated("""This property has been deprecated. Please use \"restEndpoint\" instead.""")
-    def http_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaTopicKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionsCount")
-    def partitions_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partitions_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of partitions to create in the topic. Defaults to `6`.
         """
         return pulumi.get(self, "partitions_count")
 
     @partitions_count.setter
-    def partitions_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partitions_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partitions_count", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -257,13 +257,13 @@ class KafkaTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
-                 partitions_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
+                 partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -526,13 +526,13 @@ class KafkaTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
-                 partitions_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
+                 partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,13 +563,13 @@ class KafkaTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
-            http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
-            partitions_count: Optional[pulumi.Input[_builtins.int]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            topic_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'KafkaTopic':
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
+            http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
+            partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaTopic':
         """
         Get an existing KafkaTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

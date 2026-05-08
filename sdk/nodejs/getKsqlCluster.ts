@@ -163,10 +163,10 @@ export interface GetKsqlClusterOutputArgs {
     /**
      * The name of the ksqlDB cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     environment: pulumi.Input<inputs.GetKsqlClusterEnvironmentArgs>;
     /**
      * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

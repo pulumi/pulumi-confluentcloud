@@ -259,7 +259,7 @@ export interface KafkaAclState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaAclCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaAclCredentials | undefined>;
     /**
      * The host for the ACL. Should be set to `*` for Confluent Cloud.
      *
@@ -271,36 +271,36 @@ export interface KafkaAclState {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    host?: pulumi.Input<string>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster>;
+    host?: pulumi.Input<string | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster | undefined>;
     /**
      * The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      */
-    operation?: pulumi.Input<string>;
+    operation?: pulumi.Input<string | undefined>;
     /**
      * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      */
-    patternType?: pulumi.Input<string>;
+    patternType?: pulumi.Input<string | undefined>;
     /**
      * The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * The principal for the ACL.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -310,7 +310,7 @@ export interface KafkaAclArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaAclCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaAclCredentials | undefined>;
     /**
      * The host for the ACL. Should be set to `*` for Confluent Cloud.
      *
@@ -323,7 +323,7 @@ export interface KafkaAclArgs {
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
     host: pulumi.Input<string>;
-    kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster | undefined>;
     /**
      * The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      */
@@ -351,5 +351,5 @@ export interface KafkaAclArgs {
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }

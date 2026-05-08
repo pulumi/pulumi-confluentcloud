@@ -167,42 +167,42 @@ export class NetworkLinkService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkLinkService resources.
  */
 export interface NetworkLinkServiceState {
-    accept?: pulumi.Input<inputs.NetworkLinkServiceAccept>;
+    accept?: pulumi.Input<inputs.NetworkLinkServiceAccept | undefined>;
     /**
      * The description of the Network Link Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Link Service.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.NetworkLinkServiceEnvironment>;
+    environment?: pulumi.Input<inputs.NetworkLinkServiceEnvironment | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.NetworkLinkServiceNetwork>;
+    network?: pulumi.Input<inputs.NetworkLinkServiceNetwork | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Network Link Service.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a NetworkLinkService resource.
  */
 export interface NetworkLinkServiceArgs {
-    accept?: pulumi.Input<inputs.NetworkLinkServiceAccept>;
+    accept?: pulumi.Input<inputs.NetworkLinkServiceAccept | undefined>;
     /**
      * The description of the Network Link Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Link Service.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

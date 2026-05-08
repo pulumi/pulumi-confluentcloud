@@ -164,10 +164,10 @@ def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAccept
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']]]] = None,
-                                    display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    environment: Optional[pulumi.Input[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']]] = None,
-                                    id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_link_service_output(accept: pulumi.Input[Optional[Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']]]] = None,
+                                    display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    environment: pulumi.Input[Optional[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']]] = None,
+                                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkLinkServiceResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

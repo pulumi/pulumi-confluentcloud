@@ -174,47 +174,47 @@ export interface CertificateAuthorityState {
     /**
      * A PEM encoded string containing the signing certificate chain.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * The name of the certificate file.
      */
-    certificateChainFilename?: pulumi.Input<string>;
+    certificateChainFilename?: pulumi.Input<string | undefined>;
     /**
      * A PEM encoded string containing the CRL for this certificate authority.
      */
-    crlChain?: pulumi.Input<string>;
+    crlChain?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
      */
-    crlSource?: pulumi.Input<string>;
+    crlSource?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The timestamp for when CRL was last updated.
      */
-    crlUpdatedAt?: pulumi.Input<string>;
+    crlUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The url from which to fetch the CRL for the certificate authority.
      */
-    crlUrl?: pulumi.Input<string>;
+    crlUrl?: pulumi.Input<string | undefined>;
     /**
      * A description of the Certificate Authority.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Certificate Authority.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required List of Strings) The expiration dates of certificates in the chain.
      */
-    expirationDates?: pulumi.Input<pulumi.Input<string>[]>;
+    expirationDates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required List of Strings) The fingerprints for each certificate in the certificate chain.
      */
-    fingerprints?: pulumi.Input<pulumi.Input<string>[]>;
+    fingerprints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      */
-    serialNumbers?: pulumi.Input<pulumi.Input<string>[]>;
+    serialNumbers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -232,11 +232,11 @@ export interface CertificateAuthorityArgs {
     /**
      * A PEM encoded string containing the CRL for this certificate authority.
      */
-    crlChain?: pulumi.Input<string>;
+    crlChain?: pulumi.Input<string | undefined>;
     /**
      * The url from which to fetch the CRL for the certificate authority.
      */
-    crlUrl?: pulumi.Input<string>;
+    crlUrl?: pulumi.Input<string | undefined>;
     /**
      * A description of the Certificate Authority.
      */

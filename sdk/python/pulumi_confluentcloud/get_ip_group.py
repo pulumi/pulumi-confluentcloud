@@ -101,7 +101,7 @@ def get_ip_group(id: Optional[_builtins.str] = None,
         cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
         group_name=pulumi.get(__ret__, 'group_name'),
         id=pulumi.get(__ret__, 'id'))
-def get_ip_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ip_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpGroupResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -167,8 +167,8 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.RoleBinding;
      * import com.pulumi.confluentcloud.RoleBindingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -468,8 +468,8 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
          * import com.pulumi.core.Output;
          * import com.pulumi.confluentcloud.RoleBinding;
          * import com.pulumi.confluentcloud.RoleBindingArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -522,8 +522,8 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
          * import com.pulumi.core.Output;
          * import com.pulumi.confluentcloud.RoleBinding;
          * import com.pulumi.confluentcloud.RoleBindingArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

@@ -24,8 +24,8 @@ class NetworkLinkEndpointArgs:
                  environment: pulumi.Input['NetworkLinkEndpointEnvironmentArgs'],
                  network: pulumi.Input['NetworkLinkEndpointNetworkArgs'],
                  network_link_service: pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkLinkEndpoint resource.
 
@@ -77,38 +77,38 @@ class NetworkLinkEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Link Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Link Endpoint.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type
 class _NetworkLinkEndpointState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['NetworkLinkEndpointEnvironmentArgs']] = None,
-                 network: Optional[pulumi.Input['NetworkLinkEndpointNetworkArgs']] = None,
-                 network_link_service: Optional[pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs']] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['NetworkLinkEndpointEnvironmentArgs']] = None,
+                 network: pulumi.Input[Optional['NetworkLinkEndpointNetworkArgs']] = None,
+                 network_link_service: pulumi.Input[Optional['NetworkLinkEndpointNetworkLinkServiceArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkLinkEndpoint resources.
 
@@ -133,71 +133,71 @@ class _NetworkLinkEndpointState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Link Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network Link Endpoint.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['NetworkLinkEndpointEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['NetworkLinkEndpointEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['NetworkLinkEndpointEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['NetworkLinkEndpointEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['NetworkLinkEndpointNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['NetworkLinkEndpointNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['NetworkLinkEndpointNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['NetworkLinkEndpointNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="networkLinkService")
-    def network_link_service(self) -> Optional[pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs']]:
+    def network_link_service(self) -> pulumi.Input[Optional['NetworkLinkEndpointNetworkLinkServiceArgs']]:
         return pulumi.get(self, "network_link_service")
 
     @network_link_service.setter
-    def network_link_service(self, value: Optional[pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs']]):
+    def network_link_service(self, value: pulumi.Input[Optional['NetworkLinkEndpointNetworkLinkServiceArgs']]):
         pulumi.set(self, "network_link_service", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the Network Link Endpoint.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
 
@@ -207,11 +207,11 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
-                 network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+                 network_link_service: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -337,11 +337,11 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
-                 network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+                 network_link_service: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,12 +373,12 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
-            network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
-            network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkLinkEndpoint':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+            network_link_service: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkLinkEndpoint':
         """
         Get an existing NetworkLinkEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

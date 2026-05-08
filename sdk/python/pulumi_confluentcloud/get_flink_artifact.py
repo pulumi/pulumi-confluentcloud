@@ -238,12 +238,12 @@ def get_flink_artifact(class_: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         runtime_language=pulumi.get(__ret__, 'runtime_language'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_flink_artifact_output(class_: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                              display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              environment: Optional[pulumi.Input[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
-                              id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flink_artifact_output(class_: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                              display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              environment: pulumi.Input[Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
+                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkArtifactResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

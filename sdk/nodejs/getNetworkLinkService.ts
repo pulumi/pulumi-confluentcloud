@@ -122,14 +122,14 @@ export interface GetNetworkLinkServiceOutputArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs>;
+    accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs | undefined>;
     /**
      * The Display Name of the Network Link Service, for example, `DR Link`
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     environment: pulumi.Input<inputs.GetNetworkLinkServiceEnvironmentArgs>;
     /**
      * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

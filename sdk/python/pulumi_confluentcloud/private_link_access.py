@@ -23,10 +23,10 @@ class PrivateLinkAccessArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input['PrivateLinkAccessEnvironmentArgs'],
                  network: pulumi.Input['PrivateLinkAccessNetworkArgs'],
-                 aws: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['PrivateLinkAccessAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PrivateLinkAccessAzureArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp: pulumi.Input[Optional['PrivateLinkAccessGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAccess resource.
 
@@ -71,53 +71,53 @@ class PrivateLinkAccessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PrivateLinkAccessAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PrivateLinkAccessAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PrivateLinkAccessAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PrivateLinkAccessAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PrivateLinkAccessAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PrivateLinkAccessAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private Link Access.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PrivateLinkAccessGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PrivateLinkAccessGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _PrivateLinkAccessState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['PrivateLinkAccessEnvironmentArgs']] = None,
-                 gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None,
-                 network: Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']] = None):
+                 aws: pulumi.Input[Optional['PrivateLinkAccessAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PrivateLinkAccessAzureArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['PrivateLinkAccessEnvironmentArgs']] = None,
+                 gcp: pulumi.Input[Optional['PrivateLinkAccessGcpArgs']] = None,
+                 network: pulumi.Input[Optional['PrivateLinkAccessNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAccess resources.
 
@@ -140,65 +140,65 @@ class _PrivateLinkAccessState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PrivateLinkAccessAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PrivateLinkAccessAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PrivateLinkAccessAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PrivateLinkAccessAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PrivateLinkAccessAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PrivateLinkAccessAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private Link Access.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['PrivateLinkAccessEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['PrivateLinkAccessEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['PrivateLinkAccessEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['PrivateLinkAccessEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PrivateLinkAccessGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PrivateLinkAccessGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['PrivateLinkAccessNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['PrivateLinkAccessNetworkArgs']]):
         pulumi.set(self, "network", value)
 
 
@@ -208,12 +208,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -498,12 +498,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,12 +533,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-            azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-            gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-            network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None) -> 'PrivateLinkAccess':
+            aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+            gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None) -> 'PrivateLinkAccess':
         """
         Get an existing PrivateLinkAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

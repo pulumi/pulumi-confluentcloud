@@ -160,19 +160,19 @@ export interface TransitGatewayAttachmentState {
     /**
      * (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
      */
-    aws?: pulumi.Input<inputs.TransitGatewayAttachmentAws>;
+    aws?: pulumi.Input<inputs.TransitGatewayAttachmentAws | undefined>;
     /**
      * The name of the Transit Gateway Attachment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.TransitGatewayAttachmentEnvironment>;
+    environment?: pulumi.Input<inputs.TransitGatewayAttachmentEnvironment | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.TransitGatewayAttachmentNetwork>;
+    network?: pulumi.Input<inputs.TransitGatewayAttachmentNetwork | undefined>;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface TransitGatewayAttachmentArgs {
     /**
      * (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
      */
-    aws?: pulumi.Input<inputs.TransitGatewayAttachmentAws>;
+    aws?: pulumi.Input<inputs.TransitGatewayAttachmentAws | undefined>;
     /**
      * The name of the Transit Gateway Attachment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

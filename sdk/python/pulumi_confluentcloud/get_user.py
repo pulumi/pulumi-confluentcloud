@@ -152,9 +152,9 @@ def get_user(email: Optional[_builtins.str] = None,
         full_name=pulumi.get(__ret__, 'full_name'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'))
-def get_user_output(email: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(email: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
