@@ -129,15 +129,15 @@ export interface GetCertificateAuthorityOutputArgs {
     /**
      * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
      */
-    crlSource?: pulumi.Input<string>;
+    crlSource?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
      */
-    crlUpdatedAt?: pulumi.Input<string>;
+    crlUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      */
-    crlUrl?: pulumi.Input<string>;
+    crlUrl?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Certificate Authority, for example, `op-abc123`.
      */

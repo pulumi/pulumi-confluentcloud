@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.Index.FlinkMaterializedTable("example", new()
+    ///     var example = new ConfluentCloud.FlinkMaterializedTable("example", new()
     ///     {
     ///         Organization = new ConfluentCloud.Inputs.FlinkMaterializedTableOrganizationArgs
     ///         {
@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.Index.FlinkMaterializedTable("example", new()
+    ///     var example = new ConfluentCloud.FlinkMaterializedTable("example", new()
     ///     {
     ///         DisplayName = "my_materialized_table",
     ///         KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs
@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.Index.FlinkMaterializedTable("example", new()
+    ///     var example = new ConfluentCloud.FlinkMaterializedTable("example", new()
     ///     {
     ///         Organization = new ConfluentCloud.Inputs.FlinkMaterializedTableOrganizationArgs
     ///         {

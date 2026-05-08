@@ -126,5 +126,5 @@ export function getGatewaysOutput(args: GetGatewaysOutputArgs, opts?: pulumi.Inv
  */
 export interface GetGatewaysOutputArgs {
     environment: pulumi.Input<inputs.GetGatewaysEnvironmentArgs>;
-    filter?: pulumi.Input<inputs.GetGatewaysFilterArgs>;
+    filter?: pulumi.Input<inputs.GetGatewaysFilterArgs | undefined>;
 }

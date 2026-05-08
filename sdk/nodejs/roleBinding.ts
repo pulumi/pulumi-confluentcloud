@@ -277,7 +277,7 @@ export interface RoleBindingState {
     /**
      * A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
      */
-    crnPattern?: pulumi.Input<string>;
+    crnPattern?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
      *
@@ -289,15 +289,15 @@ export interface RoleBindingState {
      *
      * > **Note:** You can also use `timeSleep` resource of HashiCorp's `time` TF provider to configure a custom waiting period, see this example for more details.
      */
-    disableWaitForReady?: pulumi.Input<boolean>;
+    disableWaitForReady?: pulumi.Input<boolean | undefined>;
     /**
      * A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -319,7 +319,7 @@ export interface RoleBindingArgs {
      *
      * > **Note:** You can also use `timeSleep` resource of HashiCorp's `time` TF provider to configure a custom waiting period, see this example for more details.
      */
-    disableWaitForReady?: pulumi.Input<boolean>;
+    disableWaitForReady?: pulumi.Input<boolean | undefined>;
     /**
      * A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
      */

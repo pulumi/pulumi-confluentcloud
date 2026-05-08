@@ -28,9 +28,9 @@ class KafkaAclArgs:
                  principal: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['KafkaAclCredentialsArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['KafkaAclCredentialsArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaAclKafkaClusterArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaAcl resource.
 
@@ -160,51 +160,51 @@ class KafkaAclArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaAclCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaAclCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaAclCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaAclCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaAclKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaAclKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
 @pulumi.input_type
 class _KafkaAclState:
     def __init__(__self__, *,
-                 credentials: Optional[pulumi.Input['KafkaAclCredentialsArgs']] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']] = None,
-                 operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['KafkaAclCredentialsArgs']] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaAclKafkaClusterArgs']] = None,
+                 operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaAcl resources.
 
@@ -249,19 +249,19 @@ class _KafkaAclState:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaAclCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaAclCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaAclCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaAclCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host for the ACL. Should be set to `*` for Confluent Cloud.
 
@@ -276,100 +276,100 @@ class _KafkaAclState:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaAclKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaAclKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation", value)
 
     @_builtins.property
     @pulumi.getter(name="patternType")
-    def pattern_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         """
         return pulumi.get(self, "pattern_type")
 
     @pattern_type.setter
-    def pattern_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
         """
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal for the ACL.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -379,16 +379,16 @@ class KafkaAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
-                 operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+                 operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -643,16 +643,16 @@ class KafkaAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
-                 operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+                 operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -698,16 +698,16 @@ class KafkaAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
-            operation: Optional[pulumi.Input[_builtins.str]] = None,
-            pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-            permission: Optional[pulumi.Input[_builtins.str]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'KafkaAcl':
+            credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+            operation: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+            permission: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaAcl':
         """
         Get an existing KafkaAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

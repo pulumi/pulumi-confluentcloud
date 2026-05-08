@@ -23,16 +23,16 @@ class SchemaArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[_builtins.str],
                  subject_name: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input['SchemaMetadataArgs']] = None,
-                 recreate_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ruleset: Optional[pulumi.Input['SchemaRulesetArgs']] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
-                 skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None):
+                 credentials: pulumi.Input[Optional['SchemaCredentialsArgs']] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional['SchemaMetadataArgs']] = None,
+                 recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ruleset: pulumi.Input[Optional['SchemaRulesetArgs']] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_references: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']] = None,
+                 skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
@@ -97,52 +97,52 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['SchemaMetadataArgs']]:
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['SchemaMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['SchemaMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="recreateOnUpdate")
-    def recreate_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recreate_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema should be recreated on update.
         """
         return pulumi.get(self, "recreate_on_update")
 
     @recreate_on_update.setter
-    def recreate_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recreate_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recreate_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
         - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -151,81 +151,81 @@ class SchemaArgs:
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
+    def ruleset(self) -> pulumi.Input[Optional['SchemaRulesetArgs']]:
         return pulumi.get(self, "ruleset")
 
     @ruleset.setter
-    def ruleset(self, value: Optional[pulumi.Input['SchemaRulesetArgs']]):
+    def ruleset(self, value: pulumi.Input[Optional['SchemaRulesetArgs']]):
         pulumi.set(self, "ruleset", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The definition of the Schema.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaReferences")
-    def schema_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
+    def schema_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
         """
         The list of references to other Schemas.
         """
         return pulumi.get(self, "schema_references")
 
     @schema_references.setter
-    def schema_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]):
+    def schema_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]):
         pulumi.set(self, "schema_references", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidationDuringPlan")
-    def skip_validation_during_plan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation_during_plan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema validation should be skipped during terraform plan.
         """
         return pulumi.get(self, "skip_validation_during_plan")
 
     @skip_validation_during_plan.setter
-    def skip_validation_during_plan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation_during_plan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation_during_plan", value)
 
 
 @pulumi.input_type
 class _SchemaState:
     def __init__(__self__, *,
-                 credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input['SchemaMetadataArgs']] = None,
-                 recreate_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ruleset: Optional[pulumi.Input['SchemaRulesetArgs']] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_identifier: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
-                 skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 credentials: pulumi.Input[Optional['SchemaCredentialsArgs']] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional['SchemaMetadataArgs']] = None,
+                 recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ruleset: pulumi.Input[Optional['SchemaRulesetArgs']] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_identifier: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema_references: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']] = None,
+                 skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
 
@@ -274,64 +274,64 @@ class _SchemaState:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the Schema.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['SchemaMetadataArgs']]:
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['SchemaMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['SchemaMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="recreateOnUpdate")
-    def recreate_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recreate_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema should be recreated on update.
         """
         return pulumi.get(self, "recreate_on_update")
 
     @recreate_on_update.setter
-    def recreate_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recreate_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recreate_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
         - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -340,97 +340,97 @@ class _SchemaState:
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
+    def ruleset(self) -> pulumi.Input[Optional['SchemaRulesetArgs']]:
         return pulumi.get(self, "ruleset")
 
     @ruleset.setter
-    def ruleset(self, value: Optional[pulumi.Input['SchemaRulesetArgs']]):
+    def ruleset(self, value: pulumi.Input[Optional['SchemaRulesetArgs']]):
         pulumi.set(self, "ruleset", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The definition of the Schema.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaIdentifier")
-    def schema_identifier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schema_identifier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         """
         return pulumi.get(self, "schema_identifier")
 
     @schema_identifier.setter
-    def schema_identifier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schema_identifier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schema_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaReferences")
-    def schema_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
+    def schema_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
         """
         The list of references to other Schemas.
         """
         return pulumi.get(self, "schema_references")
 
     @schema_references.setter
-    def schema_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]):
+    def schema_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]):
         pulumi.set(self, "schema_references", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidationDuringPlan")
-    def skip_validation_during_plan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation_during_plan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether a schema validation should be skipped during terraform plan.
         """
         return pulumi.get(self, "skip_validation_during_plan")
 
     @skip_validation_during_plan.setter
-    def skip_validation_during_plan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation_during_plan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation_during_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
-    def subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Required Integer) The version of the Schema, for example, `4`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -440,18 +440,18 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
-                 recreate_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
-                 skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
+                 recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ruleset: pulumi.Input[Optional[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
+                 skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -886,18 +886,18 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
-                 recreate_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
-                 skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
+                 recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ruleset: pulumi.Input[Optional[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
+                 skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -937,20 +937,20 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
-            format: Optional[pulumi.Input[_builtins.str]] = None,
-            hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
-            recreate_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_identifier: Optional[pulumi.Input[_builtins.int]] = None,
-            schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
-            skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-            subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'Schema':
+            credentials: pulumi.Input[Optional[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
+            recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ruleset: pulumi.Input[Optional[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_identifier: pulumi.Input[Optional[_builtins.int]] = None,
+            schema_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
+            skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

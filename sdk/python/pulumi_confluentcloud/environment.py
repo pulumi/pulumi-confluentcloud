@@ -21,8 +21,8 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_governance: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_governance: pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -36,35 +36,35 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamGovernance")
-    def stream_governance(self) -> Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]:
+    def stream_governance(self) -> pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']]:
         """
         The stream governance configuration for the Environment. The block supports the following arguments:
         """
         return pulumi.get(self, "stream_governance")
 
     @stream_governance.setter
-    def stream_governance(self, value: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]):
+    def stream_governance(self, value: pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']]):
         pulumi.set(self, "stream_governance", value)
 
 
 @pulumi.input_type
 class _EnvironmentState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_governance: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_governance: pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']] = None):
         """
         Input properties used for looking up and filtering Environment resources.
 
@@ -81,38 +81,38 @@ class _EnvironmentState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamGovernance")
-    def stream_governance(self) -> Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]:
+    def stream_governance(self) -> pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']]:
         """
         The stream governance configuration for the Environment. The block supports the following arguments:
         """
         return pulumi.get(self, "stream_governance")
 
     @stream_governance.setter
-    def stream_governance(self, value: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]):
+    def stream_governance(self, value: pulumi.Input[Optional['EnvironmentStreamGovernanceArgs']]):
         pulumi.set(self, "stream_governance", value)
 
 
@@ -122,8 +122,8 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_governance: Optional[pulumi.Input[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_governance: pulumi.Input[Optional[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -271,8 +271,8 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_governance: Optional[pulumi.Input[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_governance: pulumi.Input[Optional[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,9 +295,9 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_governance: Optional[pulumi.Input[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None) -> 'Environment':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_governance: pulumi.Input[Optional[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict']]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

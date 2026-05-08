@@ -198,10 +198,10 @@ def get_cluster_link(credentials: Optional[Union['GetClusterLinkCredentialsArgs'
         link_name=pulumi.get(__ret__, 'link_name'),
         link_state=pulumi.get(__ret__, 'link_state'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
-def get_cluster_link_output(credentials: Optional[pulumi.Input[Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict']]]] = None,
-                            kafka_cluster: Optional[pulumi.Input[Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict']]]] = None,
-                            link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_link_output(credentials: pulumi.Input[Optional[Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict']]]] = None,
+                            kafka_cluster: pulumi.Input[Optional[Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict']]]] = None,
+                            link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterLinkResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

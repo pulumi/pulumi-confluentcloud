@@ -157,7 +157,7 @@ def get_kafka_client_quota(id: Optional[_builtins.str] = None,
         kafka_clusters=pulumi.get(__ret__, 'kafka_clusters'),
         principals=pulumi.get(__ret__, 'principals'),
         throughputs=pulumi.get(__ret__, 'throughputs'))
-def get_kafka_client_quota_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kafka_client_quota_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClientQuotaResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

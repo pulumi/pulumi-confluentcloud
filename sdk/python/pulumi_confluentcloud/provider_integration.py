@@ -23,7 +23,7 @@ class ProviderIntegrationArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['ProviderIntegrationEnvironmentArgs'],
-                 aws: Optional[pulumi.Input['ProviderIntegrationAwsArgs']] = None):
+                 aws: pulumi.Input[Optional['ProviderIntegrationAwsArgs']] = None):
         """
         The set of arguments for constructing a ProviderIntegration resource.
 
@@ -62,24 +62,24 @@ class ProviderIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ProviderIntegrationAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ProviderIntegrationAwsArgs']]:
         """
         (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ProviderIntegrationAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ProviderIntegrationAwsArgs']]):
         pulumi.set(self, "aws", value)
 
 
 @pulumi.input_type
 class _ProviderIntegrationState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['ProviderIntegrationAwsArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['ProviderIntegrationEnvironmentArgs']] = None,
-                 usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aws: pulumi.Input[Optional['ProviderIntegrationAwsArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['ProviderIntegrationEnvironmentArgs']] = None,
+                 usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegration resources.
 
@@ -99,50 +99,50 @@ class _ProviderIntegrationState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ProviderIntegrationAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ProviderIntegrationAwsArgs']]:
         """
         (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ProviderIntegrationAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ProviderIntegrationAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Provider Integration.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProviderIntegrationEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ProviderIntegrationEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProviderIntegrationEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ProviderIntegrationEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def usages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) List of resource CRNs where this provider integration is being used.
         """
         return pulumi.get(self, "usages")
 
     @usages.setter
-    def usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def usages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "usages", value)
 
 
@@ -152,9 +152,9 @@ class ProviderIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -279,9 +279,9 @@ class ProviderIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,10 +309,10 @@ class ProviderIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
-            usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegration':
+            aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+            usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegration':
         """
         Get an existing ProviderIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

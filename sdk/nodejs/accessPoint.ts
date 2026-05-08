@@ -252,40 +252,40 @@ export interface AccessPointState {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint>;
+    awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsIngressPrivateLinkEndpoint>;
+    awsIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsIngressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsPrivateNetworkInterface?: pulumi.Input<inputs.AccessPointAwsPrivateNetworkInterface>;
+    awsPrivateNetworkInterface?: pulumi.Input<inputs.AccessPointAwsPrivateNetworkInterface | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
+    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint>;
+    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint | undefined>;
     /**
      * The name of the Access Point.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.AccessPointEnvironment>;
-    gateway?: pulumi.Input<inputs.AccessPointGateway>;
+    environment?: pulumi.Input<inputs.AccessPointEnvironment | undefined>;
+    gateway?: pulumi.Input<inputs.AccessPointGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
+    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint>;
+    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint | undefined>;
 }
 
 /**
@@ -295,27 +295,27 @@ export interface AccessPointArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint>;
+    awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsIngressPrivateLinkEndpoint>;
+    awsIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsIngressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsPrivateNetworkInterface?: pulumi.Input<inputs.AccessPointAwsPrivateNetworkInterface>;
+    awsPrivateNetworkInterface?: pulumi.Input<inputs.AccessPointAwsPrivateNetworkInterface | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
+    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint>;
+    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint | undefined>;
     /**
      * The name of the Access Point.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -324,9 +324,9 @@ export interface AccessPointArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
+    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint>;
+    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint | undefined>;
 }

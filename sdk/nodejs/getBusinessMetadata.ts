@@ -152,7 +152,7 @@ export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, o
  * A collection of arguments for invoking getBusinessMetadata.
  */
 export interface GetBusinessMetadataOutputArgs {
-    credentials?: pulumi.Input<inputs.GetBusinessMetadataCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetBusinessMetadataCredentialsArgs | undefined>;
     /**
      * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      *
@@ -162,6 +162,6 @@ export interface GetBusinessMetadataOutputArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetBusinessMetadataSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetBusinessMetadataSchemaRegistryClusterArgs | undefined>;
 }

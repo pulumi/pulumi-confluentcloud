@@ -23,8 +23,8 @@ class TransitGatewayAttachmentArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input['TransitGatewayAttachmentEnvironmentArgs'],
                  network: pulumi.Input['TransitGatewayAttachmentNetworkArgs'],
-                 aws: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws: pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGatewayAttachment resource.
 
@@ -66,36 +66,36 @@ class TransitGatewayAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']]:
         """
         (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Transit Gateway Attachment.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type
 class _TransitGatewayAttachmentState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['TransitGatewayAttachmentEnvironmentArgs']] = None,
-                 network: Optional[pulumi.Input['TransitGatewayAttachmentNetworkArgs']] = None):
+                 aws: pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['TransitGatewayAttachmentEnvironmentArgs']] = None,
+                 network: pulumi.Input[Optional['TransitGatewayAttachmentNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering TransitGatewayAttachment resources.
 
@@ -115,50 +115,50 @@ class _TransitGatewayAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']]:
         """
         (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['TransitGatewayAttachmentAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Transit Gateway Attachment.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['TransitGatewayAttachmentEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['TransitGatewayAttachmentEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['TransitGatewayAttachmentEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['TransitGatewayAttachmentEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['TransitGatewayAttachmentNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['TransitGatewayAttachmentNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['TransitGatewayAttachmentNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['TransitGatewayAttachmentNetworkArgs']]):
         pulumi.set(self, "network", value)
 
 
@@ -168,10 +168,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -333,10 +333,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,10 +364,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
-            network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None) -> 'TransitGatewayAttachment':
+            aws: pulumi.Input[Optional[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None) -> 'TransitGatewayAttachment':
         """
         Get an existing TransitGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

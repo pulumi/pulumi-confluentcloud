@@ -136,7 +136,7 @@ export interface GetTransitGatewayAttachmentOutputArgs {
     /**
      * A human-readable name for the Transit Gateway Attachment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */
@@ -144,5 +144,5 @@ export interface GetTransitGatewayAttachmentOutputArgs {
     /**
      * The ID of the Peering, for example, `tgwa-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

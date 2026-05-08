@@ -438,20 +438,20 @@ export interface ConnectorState {
     /**
      * Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
-    configNonsensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configNonsensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
-    configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.ConnectorEnvironment>;
-    kafkaCluster?: pulumi.Input<inputs.ConnectorKafkaCluster>;
+    environment?: pulumi.Input<inputs.ConnectorEnvironment | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.ConnectorKafkaCluster | undefined>;
     /**
      * Connector partitions with offsets
      */
-    offsets?: pulumi.Input<pulumi.Input<inputs.ConnectorOffset>[]>;
+    offsets?: pulumi.Input<pulumi.Input<inputs.ConnectorOffset>[] | undefined>;
     /**
      * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
      *
@@ -461,7 +461,7 @@ export interface ConnectorState {
      *
      * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -475,7 +475,7 @@ export interface ConnectorArgs {
     /**
      * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
-    configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -484,7 +484,7 @@ export interface ConnectorArgs {
     /**
      * Connector partitions with offsets
      */
-    offsets?: pulumi.Input<pulumi.Input<inputs.ConnectorOffset>[]>;
+    offsets?: pulumi.Input<pulumi.Input<inputs.ConnectorOffset>[] | undefined>;
     /**
      * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
      *
@@ -494,5 +494,5 @@ export interface ConnectorArgs {
      *
      * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

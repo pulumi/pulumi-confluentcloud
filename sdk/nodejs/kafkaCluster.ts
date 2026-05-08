@@ -384,72 +384,72 @@ export interface KafkaClusterState {
     /**
      * (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      */
-    availability?: pulumi.Input<string>;
+    availability?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    basic?: pulumi.Input<inputs.KafkaClusterBasic>;
+    basic?: pulumi.Input<inputs.KafkaClusterBasic | undefined>;
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
-    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
+    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey | undefined>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
-    dedicated?: pulumi.Input<inputs.KafkaClusterDedicated>;
+    dedicated?: pulumi.Input<inputs.KafkaClusterDedicated | undefined>;
     /**
      * The name of the Kafka cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEndpoint>[] | undefined>;
     /**
      * The configuration of the Enterprise Kafka cluster.
      */
-    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[]>;
+    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[] | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.KafkaClusterEnvironment>;
+    environment?: pulumi.Input<inputs.KafkaClusterEnvironment | undefined>;
     /**
      * The configuration of the Freight Kafka cluster.
      */
-    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[]>;
+    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[] | undefined>;
     /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.KafkaClusterNetwork>;
+    network?: pulumi.Input<inputs.KafkaClusterNetwork | undefined>;
     /**
      * (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
      */
-    rbacCrn?: pulumi.Input<string>;
+    rbacCrn?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    standard?: pulumi.Input<inputs.KafkaClusterStandard>;
+    standard?: pulumi.Input<inputs.KafkaClusterStandard | undefined>;
 }
 
 /**
@@ -463,8 +463,8 @@ export interface KafkaClusterArgs {
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    basic?: pulumi.Input<inputs.KafkaClusterBasic>;
-    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey>;
+    basic?: pulumi.Input<inputs.KafkaClusterBasic | undefined>;
+    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey | undefined>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -472,15 +472,15 @@ export interface KafkaClusterArgs {
     /**
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
-    dedicated?: pulumi.Input<inputs.KafkaClusterDedicated>;
+    dedicated?: pulumi.Input<inputs.KafkaClusterDedicated | undefined>;
     /**
      * The name of the Kafka cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the Enterprise Kafka cluster.
      */
-    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[]>;
+    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[] | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -488,11 +488,11 @@ export interface KafkaClusterArgs {
     /**
      * The configuration of the Freight Kafka cluster.
      */
-    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[]>;
+    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[] | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.KafkaClusterNetwork>;
+    network?: pulumi.Input<inputs.KafkaClusterNetwork | undefined>;
     /**
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
@@ -500,5 +500,5 @@ export interface KafkaClusterArgs {
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    standard?: pulumi.Input<inputs.KafkaClusterStandard>;
+    standard?: pulumi.Input<inputs.KafkaClusterStandard | undefined>;
 }

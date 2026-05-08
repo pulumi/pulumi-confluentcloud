@@ -302,10 +302,10 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         table_formats=pulumi.get(__ret__, 'table_formats'),
         table_path=pulumi.get(__ret__, 'table_path'),
         write_mode=pulumi.get(__ret__, 'write_mode'))
-def get_tableflow_topic_output(credentials: Optional[pulumi.Input[Optional[Union['GetTableflowTopicCredentialsArgs', 'GetTableflowTopicCredentialsArgsDict']]]] = None,
-                               display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               environment: Optional[pulumi.Input[Union['GetTableflowTopicEnvironmentArgs', 'GetTableflowTopicEnvironmentArgsDict']]] = None,
-                               kafka_cluster: Optional[pulumi.Input[Union['GetTableflowTopicKafkaClusterArgs', 'GetTableflowTopicKafkaClusterArgsDict']]] = None,
+def get_tableflow_topic_output(credentials: pulumi.Input[Optional[Optional[Union['GetTableflowTopicCredentialsArgs', 'GetTableflowTopicCredentialsArgsDict']]]] = None,
+                               display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               environment: pulumi.Input[Optional[Union['GetTableflowTopicEnvironmentArgs', 'GetTableflowTopicEnvironmentArgsDict']]] = None,
+                               kafka_cluster: pulumi.Input[Optional[Union['GetTableflowTopicKafkaClusterArgs', 'GetTableflowTopicKafkaClusterArgsDict']]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableflowTopicResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

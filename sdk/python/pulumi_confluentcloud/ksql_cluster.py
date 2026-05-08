@@ -26,7 +26,7 @@ class KsqlClusterArgs:
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['KsqlClusterEnvironmentArgs'],
                  kafka_cluster: pulumi.Input['KsqlClusterKafkaClusterArgs'],
-                 use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a KsqlCluster resource.
 
@@ -99,32 +99,32 @@ class KsqlClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="useDetailedProcessingLog")
-    def use_detailed_processing_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_detailed_processing_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
         """
         return pulumi.get(self, "use_detailed_processing_log")
 
     @use_detailed_processing_log.setter
-    def use_detailed_processing_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_detailed_processing_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_detailed_processing_log", value)
 
 
 @pulumi.input_type
 class _KsqlClusterState:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_identity: Optional[pulumi.Input['KsqlClusterCredentialIdentityArgs']] = None,
-                 csu: Optional[pulumi.Input[_builtins.int]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 topic_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_identity: pulumi.Input[Optional['KsqlClusterCredentialIdentityArgs']] = None,
+                 csu: pulumi.Input[Optional[_builtins.int]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['KsqlClusterEnvironmentArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KsqlClusterKafkaClusterArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 topic_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering KsqlCluster resources.
 
@@ -166,140 +166,140 @@ class _KsqlClusterState:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialIdentity")
-    def credential_identity(self) -> Optional[pulumi.Input['KsqlClusterCredentialIdentityArgs']]:
+    def credential_identity(self) -> pulumi.Input[Optional['KsqlClusterCredentialIdentityArgs']]:
         return pulumi.get(self, "credential_identity")
 
     @credential_identity.setter
-    def credential_identity(self, value: Optional[pulumi.Input['KsqlClusterCredentialIdentityArgs']]):
+    def credential_identity(self, value: pulumi.Input[Optional['KsqlClusterCredentialIdentityArgs']]):
         pulumi.set(self, "credential_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def csu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def csu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         """
         return pulumi.get(self, "csu")
 
     @csu.setter
-    def csu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def csu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "csu", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ksqlDB cluster.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['KsqlClusterEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['KsqlClusterEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['KsqlClusterEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KsqlClusterKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KsqlClusterKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the ksqlDB cluster.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter(name="topicPrefix")
-    def topic_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
         """
         return pulumi.get(self, "topic_prefix")
 
     @topic_prefix.setter
-    def topic_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="useDetailedProcessingLog")
-    def use_detailed_processing_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_detailed_processing_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
         """
         return pulumi.get(self, "use_detailed_processing_log")
 
     @use_detailed_processing_log.setter
-    def use_detailed_processing_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_detailed_processing_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_detailed_processing_log", value)
 
 
@@ -309,12 +309,12 @@ class KsqlCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_identity: Optional[pulumi.Input[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
-                 csu: Optional[pulumi.Input[_builtins.int]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
-                 use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None,
+                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+                 csu: pulumi.Input[Optional[_builtins.int]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+                 use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -388,12 +388,12 @@ class KsqlCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_identity: Optional[pulumi.Input[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
-                 csu: Optional[pulumi.Input[_builtins.int]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
-                 use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None,
+                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+                 csu: pulumi.Input[Optional[_builtins.int]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+                 use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,18 +435,18 @@ class KsqlCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            credential_identity: Optional[pulumi.Input[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
-            csu: Optional[pulumi.Input[_builtins.int]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            storage: Optional[pulumi.Input[_builtins.int]] = None,
-            topic_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None) -> 'KsqlCluster':
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+            csu: pulumi.Input[Optional[_builtins.int]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[_builtins.int]] = None,
+            topic_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None) -> 'KsqlCluster':
         """
         Get an existing KsqlCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

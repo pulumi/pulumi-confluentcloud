@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.RoleBinding;
  * import com.pulumi.confluentcloud.RoleBindingArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -203,8 +203,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.KafkaTopicKafkaClusterArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaTopicCredentialsArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -226,7 +226,7 @@ import javax.annotation.Nullable;
  *         var wait360SecondsAfterRoleBinding = new Sleep("wait360SecondsAfterRoleBinding", SleepArgs.builder()
  *             .createDuration("360s")
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(app_manager_kafka_cluster_admin_skip_sync))
+ *                 .dependsOn(Arrays.asList(app_manager_kafka_cluster_admin_skip_sync))
  *                 .build());
  * 
  *         var orders = new KafkaTopic("orders", KafkaTopicArgs.builder()

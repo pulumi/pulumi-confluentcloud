@@ -141,15 +141,15 @@ export interface EnvironmentState {
     /**
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The stream governance configuration for the Environment. The block supports the following arguments:
      */
-    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
+    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance | undefined>;
 }
 
 /**
@@ -159,9 +159,9 @@ export interface EnvironmentArgs {
     /**
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The stream governance configuration for the Environment. The block supports the following arguments:
      */
-    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
+    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance | undefined>;
 }

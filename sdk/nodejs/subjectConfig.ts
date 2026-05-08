@@ -204,28 +204,28 @@ export interface SubjectConfigState {
      *
      * > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Group of the specified subject.
      */
-    compatibilityGroup?: pulumi.Input<string>;
+    compatibilityGroup?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SubjectConfigCredentials>;
+    credentials?: pulumi.Input<inputs.SubjectConfigCredentials | undefined>;
     /**
      * Whether schemas are automatically normalized when registered or passed during lookups.
      */
-    normalize?: pulumi.Input<boolean>;
+    normalize?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      *
@@ -233,7 +233,7 @@ export interface SubjectConfigState {
      *
      * > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -245,28 +245,28 @@ export interface SubjectConfigArgs {
      *
      * > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Group of the specified subject.
      */
-    compatibilityGroup?: pulumi.Input<string>;
+    compatibilityGroup?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SubjectConfigCredentials>;
+    credentials?: pulumi.Input<inputs.SubjectConfigCredentials | undefined>;
     /**
      * Whether schemas are automatically normalized when registered or passed during lookups.
      */
-    normalize?: pulumi.Input<boolean>;
+    normalize?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      *

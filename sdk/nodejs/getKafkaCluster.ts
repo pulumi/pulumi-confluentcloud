@@ -222,30 +222,30 @@ export interface GetKafkaClusterOutputArgs {
     /**
      * (Optional Configuration Block) The configuration of the Basic Kafka cluster.
      */
-    basics?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterBasicArgs>[]>;
+    basics?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterBasicArgs>[] | undefined>;
     /**
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
-    dedicated?: pulumi.Input<inputs.GetKafkaClusterDedicatedArgs>;
+    dedicated?: pulumi.Input<inputs.GetKafkaClusterDedicatedArgs | undefined>;
     /**
      * A human-readable name for the Kafka cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
      */
-    enterprises?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterEnterpriseArgs>[]>;
+    enterprises?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterEnterpriseArgs>[] | undefined>;
     environment: pulumi.Input<inputs.GetKafkaClusterEnvironmentArgs>;
     /**
      * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
      */
-    freights?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterFreightArgs>[]>;
+    freights?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterFreightArgs>[] | undefined>;
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) The configuration of the Standard Kafka cluster.
      */
-    standards?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterStandardArgs>[]>;
+    standards?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterStandardArgs>[] | undefined>;
 }

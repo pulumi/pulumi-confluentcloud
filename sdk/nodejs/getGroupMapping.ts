@@ -120,9 +120,9 @@ export interface GetGroupMappingOutputArgs {
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Group Mapping.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

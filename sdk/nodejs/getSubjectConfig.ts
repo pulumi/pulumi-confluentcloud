@@ -153,12 +153,12 @@ export function getSubjectConfigOutput(args: GetSubjectConfigOutputArgs, opts?: 
  * A collection of arguments for invoking getSubjectConfig.
  */
 export interface GetSubjectConfigOutputArgs {
-    credentials?: pulumi.Input<inputs.GetSubjectConfigCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetSubjectConfigCredentialsArgs | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSubjectConfigSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSubjectConfigSchemaRegistryClusterArgs | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      */

@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkMaterializedTableOrganizationInputArgs
         ///         {
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         DisplayName = "my_materialized_table",
         ///     });
@@ -100,7 +100,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkMaterializedTableOrganizationInputArgs
         ///         {
@@ -140,7 +140,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         DisplayName = "my_materialized_table",
         ///     });
@@ -172,7 +172,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkMaterializedTableOrganizationInputArgs
         ///         {
@@ -212,7 +212,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()
+        ///     var example = ConfluentCloud.GetFlinkMaterializedTable.Invoke(new()
         ///     {
         ///         DisplayName = "my_materialized_table",
         ///     });

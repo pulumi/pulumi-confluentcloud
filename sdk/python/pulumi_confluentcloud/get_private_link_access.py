@@ -170,9 +170,9 @@ def get_private_link_access(display_name: Optional[_builtins.str] = None,
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
-def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   environment: Optional[pulumi.Input[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']]] = None,
-                                   id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_private_link_access_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   environment: pulumi.Input[Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']]] = None,
+                                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAccessResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

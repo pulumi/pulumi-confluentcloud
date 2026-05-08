@@ -24,10 +24,10 @@ class BusinessMetadataBindingArgs:
                  business_metadata_name: pulumi.Input[_builtins.str],
                  entity_name: pulumi.Input[_builtins.str],
                  entity_type: pulumi.Input[_builtins.str],
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a BusinessMetadataBinding resource.
 
@@ -94,7 +94,7 @@ class BusinessMetadataBindingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The block of key-value pair attributes.
 
@@ -107,53 +107,53 @@ class BusinessMetadataBindingArgs:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
 @pulumi.input_type
 class _BusinessMetadataBindingState:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 business_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering BusinessMetadataBinding resources.
 
@@ -187,7 +187,7 @@ class _BusinessMetadataBindingState:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The block of key-value pair attributes.
 
@@ -200,76 +200,76 @@ class _BusinessMetadataBindingState:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="businessMetadataName")
-    def business_metadata_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "business_metadata_name")
 
     @business_metadata_name.setter
-    def business_metadata_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_metadata_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['BusinessMetadataBindingCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         """
         return pulumi.get(self, "entity_name")
 
     @entity_name.setter
-    def entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         """
         return pulumi.get(self, "entity_type")
 
     @entity_type.setter
-    def entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['BusinessMetadataBindingSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
@@ -279,13 +279,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 business_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -461,13 +461,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 business_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,13 +502,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            business_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
-            entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-            entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None) -> 'BusinessMetadataBinding':
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+            entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None) -> 'BusinessMetadataBinding':
         """
         Get an existing BusinessMetadataBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

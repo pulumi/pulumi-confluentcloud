@@ -118,21 +118,21 @@ export interface FlinkComputePoolConfigState {
     /**
      * (Required String) The API Version of the schema version of the Flink Compute Pool Config, for example, `fcpm/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether default compute pools are enabled for the organization.
      */
-    defaultComputePoolEnabled?: pulumi.Input<boolean>;
+    defaultComputePoolEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum number of Confluent Flink Units (CFU).
      *
      * > **Note:** At least one of `defaultComputePoolEnabled` or `defaultMaxCfu` is required.
      */
-    defaultMaxCfu?: pulumi.Input<number>;
+    defaultMaxCfu?: pulumi.Input<number | undefined>;
     /**
      * (Required String) The kind of the Flink Compute Pool Config, for example, `OrgComputePoolConfig`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,11 +142,11 @@ export interface FlinkComputePoolConfigArgs {
     /**
      * Whether default compute pools are enabled for the organization.
      */
-    defaultComputePoolEnabled?: pulumi.Input<boolean>;
+    defaultComputePoolEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum number of Confluent Flink Units (CFU).
      *
      * > **Note:** At least one of `defaultComputePoolEnabled` or `defaultMaxCfu` is required.
      */
-    defaultMaxCfu?: pulumi.Input<number>;
+    defaultMaxCfu?: pulumi.Input<number | undefined>;
 }

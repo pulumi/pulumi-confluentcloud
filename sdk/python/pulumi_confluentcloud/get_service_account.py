@@ -135,8 +135,8 @@ def get_service_account(display_name: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'))
-def get_service_account_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_account_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

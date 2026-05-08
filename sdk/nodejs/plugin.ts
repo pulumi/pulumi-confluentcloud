@@ -151,31 +151,31 @@ export interface PluginState {
     /**
      * (Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * The description of the Plugin.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Plugin.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.PluginEnvironment>;
+    environment?: pulumi.Input<inputs.PluginEnvironment | undefined>;
     /**
      * (Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Runtime language of the plugin.
      */
-    runtimeLanguage?: pulumi.Input<string>;
+    runtimeLanguage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface PluginArgs {
     /**
      * The description of the Plugin.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Plugin.
      */
@@ -201,5 +201,5 @@ export interface PluginArgs {
     /**
      * (Optional String) Runtime language of the plugin.
      */
-    runtimeLanguage?: pulumi.Input<string>;
+    runtimeLanguage?: pulumi.Input<string | undefined>;
 }

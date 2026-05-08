@@ -222,27 +222,27 @@ export interface ClusterLinkState {
     /**
      * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
      */
-    clusterLinkId?: pulumi.Input<string>;
+    clusterLinkId?: pulumi.Input<string | undefined>;
     /**
      * The custom cluster link settings to set:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */
-    connectionMode?: pulumi.Input<string>;
-    destinationKafkaCluster?: pulumi.Input<inputs.ClusterLinkDestinationKafkaCluster>;
+    connectionMode?: pulumi.Input<string | undefined>;
+    destinationKafkaCluster?: pulumi.Input<inputs.ClusterLinkDestinationKafkaCluster | undefined>;
     /**
      * The name of the cluster link, for example, `my-cluster-link`.
      */
-    link?: pulumi.Input<string>;
+    link?: pulumi.Input<string | undefined>;
     /**
      * The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
      */
-    linkMode?: pulumi.Input<string>;
-    localKafkaCluster?: pulumi.Input<inputs.ClusterLinkLocalKafkaCluster>;
-    remoteKafkaCluster?: pulumi.Input<inputs.ClusterLinkRemoteKafkaCluster>;
-    sourceKafkaCluster?: pulumi.Input<inputs.ClusterLinkSourceKafkaCluster>;
+    linkMode?: pulumi.Input<string | undefined>;
+    localKafkaCluster?: pulumi.Input<inputs.ClusterLinkLocalKafkaCluster | undefined>;
+    remoteKafkaCluster?: pulumi.Input<inputs.ClusterLinkRemoteKafkaCluster | undefined>;
+    sourceKafkaCluster?: pulumi.Input<inputs.ClusterLinkSourceKafkaCluster | undefined>;
 }
 
 /**
@@ -252,21 +252,21 @@ export interface ClusterLinkArgs {
     /**
      * The custom cluster link settings to set:
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */
-    connectionMode?: pulumi.Input<string>;
-    destinationKafkaCluster?: pulumi.Input<inputs.ClusterLinkDestinationKafkaCluster>;
+    connectionMode?: pulumi.Input<string | undefined>;
+    destinationKafkaCluster?: pulumi.Input<inputs.ClusterLinkDestinationKafkaCluster | undefined>;
     /**
      * The name of the cluster link, for example, `my-cluster-link`.
      */
-    link?: pulumi.Input<string>;
+    link?: pulumi.Input<string | undefined>;
     /**
      * The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
      */
-    linkMode?: pulumi.Input<string>;
-    localKafkaCluster?: pulumi.Input<inputs.ClusterLinkLocalKafkaCluster>;
-    remoteKafkaCluster?: pulumi.Input<inputs.ClusterLinkRemoteKafkaCluster>;
-    sourceKafkaCluster?: pulumi.Input<inputs.ClusterLinkSourceKafkaCluster>;
+    linkMode?: pulumi.Input<string | undefined>;
+    localKafkaCluster?: pulumi.Input<inputs.ClusterLinkLocalKafkaCluster | undefined>;
+    remoteKafkaCluster?: pulumi.Input<inputs.ClusterLinkRemoteKafkaCluster | undefined>;
+    sourceKafkaCluster?: pulumi.Input<inputs.ClusterLinkSourceKafkaCluster | undefined>;
 }

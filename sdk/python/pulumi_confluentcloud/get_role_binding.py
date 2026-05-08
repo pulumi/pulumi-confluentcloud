@@ -114,7 +114,7 @@ def get_role_binding(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         principal=pulumi.get(__ret__, 'principal'),
         role_name=pulumi.get(__ret__, 'role_name'))
-def get_role_binding_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_binding_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleBindingResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

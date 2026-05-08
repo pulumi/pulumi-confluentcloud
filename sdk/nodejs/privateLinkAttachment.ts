@@ -171,39 +171,39 @@ export interface PrivateLinkAttachmentState {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    aws?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAw>[]>;
+    aws?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAw>[] | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azures?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAzure>[]>;
+    azures?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAzure>[] | undefined>;
     /**
      * The cloud service provider that hosts the resources to access with the Private Link Attachment.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * The name of the Private Link Attachment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      */
-    dnsDomain?: pulumi.Input<string>;
+    dnsDomain?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.PrivateLinkAttachmentEnvironment>;
+    environment?: pulumi.Input<inputs.PrivateLinkAttachmentEnvironment | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcps?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentGcp>[]>;
+    gcps?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentGcp>[] | undefined>;
     /**
      * The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 /**

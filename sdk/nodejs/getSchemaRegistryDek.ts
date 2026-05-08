@@ -177,8 +177,8 @@ export interface GetSchemaRegistryDekOutputArgs {
      *
      * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
-    algorithm?: pulumi.Input<string>;
-    credentials?: pulumi.Input<inputs.GetSchemaRegistryDekCredentialsArgs>;
+    algorithm?: pulumi.Input<string | undefined>;
+    credentials?: pulumi.Input<inputs.GetSchemaRegistryDekCredentialsArgs | undefined>;
     /**
      * The name of the KEK used to encrypt this DEK.
      */
@@ -186,8 +186,8 @@ export interface GetSchemaRegistryDekOutputArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs | undefined>;
     /**
      * The subject for this DEK.
      */
@@ -195,5 +195,5 @@ export interface GetSchemaRegistryDekOutputArgs {
     /**
      * The version of this DEK. Defaults to `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }

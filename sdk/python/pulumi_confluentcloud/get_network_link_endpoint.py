@@ -158,8 +158,8 @@ def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpoin
         network_link_services=pulumi.get(__ret__, 'network_link_services'),
         networks=pulumi.get(__ret__, 'networks'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-def get_network_link_endpoint_output(environment: Optional[pulumi.Input[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']]] = None,
-                                     id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_link_endpoint_output(environment: pulumi.Input[Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']]] = None,
+                                     id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkLinkEndpointResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

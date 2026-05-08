@@ -22,16 +22,16 @@ __all__ = ['FlinkStatementArgs', 'FlinkStatement']
 class FlinkStatementArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[_builtins.str],
-                 compute_pool: Optional[pulumi.Input['FlinkStatementComputePoolArgs']] = None,
-                 credentials: Optional[pulumi.Input['FlinkStatementCredentialsArgs']] = None,
-                 environment: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']] = None,
-                 organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
-                 principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None):
+                 compute_pool: pulumi.Input[Optional['FlinkStatementComputePoolArgs']] = None,
+                 credentials: pulumi.Input[Optional['FlinkStatementCredentialsArgs']] = None,
+                 environment: pulumi.Input[Optional['FlinkStatementEnvironmentArgs']] = None,
+                 organization: pulumi.Input[Optional['FlinkStatementOrganizationArgs']] = None,
+                 principal: pulumi.Input[Optional['FlinkStatementPrincipalArgs']] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FlinkStatement resource.
 
@@ -101,79 +101,79 @@ class FlinkStatementArgs:
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkStatementComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkStatementComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkStatementComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkStatementComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkStatementCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkStatementCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkStatementCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkStatementCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkStatementEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkStatementEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkStatementOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkStatementOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkStatementOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkStatementOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkStatementPrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkStatementPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkStatementPrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkStatementPrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom topic settings to set:
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="propertiesSensitive")
-    def properties_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for sensitive statement properties:
         """
         return pulumi.get(self, "properties_sensitive")
 
     @properties_sensitive.setter
-    def properties_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties_sensitive(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties_sensitive", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
         - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -182,24 +182,24 @@ class FlinkStatementArgs:
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="statementName")
-    def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
-    def statement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stopped(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
 
@@ -226,26 +226,26 @@ class FlinkStatementArgs:
         return pulumi.get(self, "stopped")
 
     @stopped.setter
-    def stopped(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
 
 
 @pulumi.input_type
 class _FlinkStatementState:
     def __init__(__self__, *,
-                 compute_pool: Optional[pulumi.Input['FlinkStatementComputePoolArgs']] = None,
-                 credentials: Optional[pulumi.Input['FlinkStatementCredentialsArgs']] = None,
-                 environment: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']] = None,
-                 latest_offsets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 latest_offsets_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
-                 principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None):
+                 compute_pool: pulumi.Input[Optional['FlinkStatementComputePoolArgs']] = None,
+                 credentials: pulumi.Input[Optional['FlinkStatementCredentialsArgs']] = None,
+                 environment: pulumi.Input[Optional['FlinkStatementEnvironmentArgs']] = None,
+                 latest_offsets: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 latest_offsets_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional['FlinkStatementOrganizationArgs']] = None,
+                 principal: pulumi.Input[Optional['FlinkStatementPrincipalArgs']] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FlinkStatement resources.
 
@@ -316,37 +316,37 @@ class _FlinkStatementState:
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input['FlinkStatementComputePoolArgs']]:
+    def compute_pool(self) -> pulumi.Input[Optional['FlinkStatementComputePoolArgs']]:
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input['FlinkStatementComputePoolArgs']]):
+    def compute_pool(self, value: pulumi.Input[Optional['FlinkStatementComputePoolArgs']]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['FlinkStatementCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['FlinkStatementCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['FlinkStatementCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['FlinkStatementCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['FlinkStatementEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['FlinkStatementEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="latestOffsets")
-    def latest_offsets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def latest_offsets(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
         ```bash
@@ -359,66 +359,66 @@ class _FlinkStatementState:
         return pulumi.get(self, "latest_offsets")
 
     @latest_offsets.setter
-    def latest_offsets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def latest_offsets(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "latest_offsets", value)
 
     @_builtins.property
     @pulumi.getter(name="latestOffsetsTimestamp")
-    def latest_offsets_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latest_offsets_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         """
         return pulumi.get(self, "latest_offsets_timestamp")
 
     @latest_offsets_timestamp.setter
-    def latest_offsets_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latest_offsets_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latest_offsets_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input['FlinkStatementOrganizationArgs']]:
+    def organization(self) -> pulumi.Input[Optional['FlinkStatementOrganizationArgs']]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input['FlinkStatementOrganizationArgs']]):
+    def organization(self, value: pulumi.Input[Optional['FlinkStatementOrganizationArgs']]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['FlinkStatementPrincipalArgs']]:
+    def principal(self) -> pulumi.Input[Optional['FlinkStatementPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['FlinkStatementPrincipalArgs']]):
+    def principal(self, value: pulumi.Input[Optional['FlinkStatementPrincipalArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom topic settings to set:
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="propertiesSensitive")
-    def properties_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for sensitive statement properties:
         """
         return pulumi.get(self, "properties_sensitive")
 
     @properties_sensitive.setter
-    def properties_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties_sensitive(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties_sensitive", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
         - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -427,36 +427,36 @@ class _FlinkStatementState:
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement", value)
 
     @_builtins.property
     @pulumi.getter(name="statementName")
-    def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
-    def statement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stopped(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
 
@@ -483,7 +483,7 @@ class _FlinkStatementState:
         return pulumi.get(self, "stopped")
 
     @stopped.setter
-    def stopped(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
 
 
@@ -493,17 +493,17 @@ class FlinkStatement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -758,17 +758,17 @@ class FlinkStatement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_pool: Optional[pulumi.Input[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
-                 organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-                 principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopped: Optional[pulumi.Input[_builtins.bool]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -805,19 +805,19 @@ class FlinkStatement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute_pool: Optional[pulumi.Input[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-            credentials: Optional[pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-            environment: Optional[pulumi.Input[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
-            latest_offsets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            latest_offsets_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-            principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            statement: Optional[pulumi.Input[_builtins.str]] = None,
-            statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stopped: Optional[pulumi.Input[_builtins.bool]] = None) -> 'FlinkStatement':
+            compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
+            latest_offsets: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            latest_offsets_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            statement: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stopped: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FlinkStatement':
         """
         Get an existing FlinkStatement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

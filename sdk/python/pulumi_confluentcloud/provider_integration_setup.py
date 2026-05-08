@@ -75,11 +75,11 @@ class ProviderIntegrationSetupArgs:
 @pulumi.input_type
 class _ProviderIntegrationSetupState:
     def __init__(__self__, *,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['ProviderIntegrationSetupEnvironmentArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['ProviderIntegrationSetupEnvironmentArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegrationSetup resources.
 
@@ -102,62 +102,62 @@ class _ProviderIntegrationSetupState:
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider. Supported values are `AZURE` and `GCP`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Provider Integration.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProviderIntegrationSetupEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ProviderIntegrationSetupEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProviderIntegrationSetupEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ProviderIntegrationSetupEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The status of the Provider Integration. Values are `DRAFT` and `CREATED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def usages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) List of resource CRNs where this provider integration is being used.
         """
         return pulumi.get(self, "usages")
 
     @usages.setter
-    def usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def usages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "usages", value)
 
 
@@ -167,9 +167,9 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -364,9 +364,9 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -397,11 +397,11 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegrationSetup':
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegrationSetup':
         """
         Get an existing ProviderIntegrationSetup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

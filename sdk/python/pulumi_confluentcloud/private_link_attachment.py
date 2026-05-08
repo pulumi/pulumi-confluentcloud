@@ -90,15 +90,15 @@ class PrivateLinkAttachmentArgs:
 @pulumi.input_type
 class _PrivateLinkAttachmentState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]] = None,
-                 azures: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['PrivateLinkAttachmentEnvironmentArgs']] = None,
-                 gcps: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]] = None,
+                 azures: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['PrivateLinkAttachmentEnvironmentArgs']] = None,
+                 gcps: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAttachment resources.
 
@@ -133,110 +133,110 @@ class _PrivateLinkAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]]:
+    def aws(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]]):
+    def aws(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]:
+    def azures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "azures")
 
     @azures.setter
-    def azures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]):
+    def azures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]):
         pulumi.set(self, "azures", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider that hosts the resources to access with the Private Link Attachment.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private Link Attachment.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsDomain")
-    def dns_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "dns_domain")
 
     @dns_domain.setter
-    def dns_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['PrivateLinkAttachmentEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['PrivateLinkAttachmentEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['PrivateLinkAttachmentEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['PrivateLinkAttachmentEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]]:
+    def gcps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "gcps")
 
     @gcps.setter
-    def gcps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]]):
+    def gcps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]]):
         pulumi.set(self, "gcps", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
 
@@ -246,10 +246,10 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -363,10 +363,10 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,15 +403,15 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict']]]]] = None,
-            azures: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict']]]]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
-            gcps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrivateLinkAttachment':
+            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict']]]]] = None,
+            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict']]]]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
+            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrivateLinkAttachment':
         """
         Get an existing PrivateLinkAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

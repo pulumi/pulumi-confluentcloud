@@ -160,35 +160,35 @@ export interface GatewayState {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway>;
+    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway>;
+    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway>;
+    azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway>;
+    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway | undefined>;
     /**
      * The name of the Gateway.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.GatewayEnvironment>;
+    environment?: pulumi.Input<inputs.GatewayEnvironment | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway>;
+    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway | undefined>;
 }
 
 /**
@@ -198,23 +198,23 @@ export interface GatewayArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway>;
+    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway>;
+    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway>;
+    azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway>;
+    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway | undefined>;
     /**
      * The name of the Gateway.
      */
@@ -226,5 +226,5 @@ export interface GatewayArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway>;
+    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway | undefined>;
 }

@@ -213,9 +213,9 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         gcp_egress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_egress_private_service_connect_endpoints'),
         gcp_ingress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_ingress_private_service_connect_endpoints'),
         id=pulumi.get(__ret__, 'id'))
-def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
-                            gcp_egress_private_service_connect_endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]]]] = None,
-                            id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(environment: pulumi.Input[Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
+                            gcp_egress_private_service_connect_endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]]]] = None,
+                            id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

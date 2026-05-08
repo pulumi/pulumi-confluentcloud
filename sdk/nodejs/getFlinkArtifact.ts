@@ -170,7 +170,7 @@ export interface GetFlinkArtifactOutputArgs {
      *
      * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    class?: pulumi.Input<string>;
+    class?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -178,12 +178,12 @@ export interface GetFlinkArtifactOutputArgs {
     /**
      * A human-readable name for the Flink Artifact.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     environment: pulumi.Input<inputs.GetFlinkArtifactEnvironmentArgs>;
     /**
      * The ID of the Flink Artifact, for example, `lfa-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider region, for example, `us-east-1`.
      *

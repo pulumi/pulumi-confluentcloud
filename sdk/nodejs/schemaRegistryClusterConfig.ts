@@ -152,24 +152,24 @@ export interface SchemaRegistryClusterConfigState {
     /**
      * The global Schema Registry compatibility group.
      */
-    compatibilityGroup?: pulumi.Input<string>;
+    compatibilityGroup?: pulumi.Input<string | undefined>;
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials | undefined>;
     /**
      * Whether schemas are automatically normalized when registered or passed during lookups.
      */
-    normalize?: pulumi.Input<boolean>;
+    normalize?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterConfigSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterConfigSchemaRegistryCluster | undefined>;
 }
 
 /**
@@ -179,22 +179,22 @@ export interface SchemaRegistryClusterConfigArgs {
     /**
      * The global Schema Registry compatibility group.
      */
-    compatibilityGroup?: pulumi.Input<string>;
+    compatibilityGroup?: pulumi.Input<string | undefined>;
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials | undefined>;
     /**
      * Whether schemas are automatically normalized when registered or passed during lookups.
      */
-    normalize?: pulumi.Input<boolean>;
+    normalize?: pulumi.Input<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterConfigSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryClusterConfigSchemaRegistryCluster | undefined>;
 }

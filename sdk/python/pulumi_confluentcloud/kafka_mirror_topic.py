@@ -24,8 +24,8 @@ class KafkaMirrorTopicArgs:
                  cluster_link: pulumi.Input['KafkaMirrorTopicClusterLinkArgs'],
                  kafka_cluster: pulumi.Input['KafkaMirrorTopicKafkaClusterArgs'],
                  source_kafka_topic: pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs'],
-                 mirror_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaMirrorTopic resource.
 
@@ -81,19 +81,19 @@ class KafkaMirrorTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="mirrorTopicName")
-    def mirror_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         """
         return pulumi.get(self, "mirror_topic_name")
 
     @mirror_topic_name.setter
-    def mirror_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
 
@@ -112,18 +112,18 @@ class KafkaMirrorTopicArgs:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _KafkaMirrorTopicState:
     def __init__(__self__, *,
-                 cluster_link: Optional[pulumi.Input['KafkaMirrorTopicClusterLinkArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterArgs']] = None,
-                 mirror_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_kafka_topic: Optional[pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_link: pulumi.Input[Optional['KafkaMirrorTopicClusterLinkArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterArgs']] = None,
+                 mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_kafka_topic: pulumi.Input[Optional['KafkaMirrorTopicSourceKafkaTopicArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaMirrorTopic resources.
 
@@ -155,46 +155,46 @@ class _KafkaMirrorTopicState:
 
     @_builtins.property
     @pulumi.getter(name="clusterLink")
-    def cluster_link(self) -> Optional[pulumi.Input['KafkaMirrorTopicClusterLinkArgs']]:
+    def cluster_link(self) -> pulumi.Input[Optional['KafkaMirrorTopicClusterLinkArgs']]:
         return pulumi.get(self, "cluster_link")
 
     @cluster_link.setter
-    def cluster_link(self, value: Optional[pulumi.Input['KafkaMirrorTopicClusterLinkArgs']]):
+    def cluster_link(self, value: pulumi.Input[Optional['KafkaMirrorTopicClusterLinkArgs']]):
         pulumi.set(self, "cluster_link", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="mirrorTopicName")
-    def mirror_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         """
         return pulumi.get(self, "mirror_topic_name")
 
     @mirror_topic_name.setter
-    def mirror_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceKafkaTopic")
-    def source_kafka_topic(self) -> Optional[pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs']]:
+    def source_kafka_topic(self) -> pulumi.Input[Optional['KafkaMirrorTopicSourceKafkaTopicArgs']]:
         return pulumi.get(self, "source_kafka_topic")
 
     @source_kafka_topic.setter
-    def source_kafka_topic(self, value: Optional[pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs']]):
+    def source_kafka_topic(self, value: pulumi.Input[Optional['KafkaMirrorTopicSourceKafkaTopicArgs']]):
         pulumi.set(self, "source_kafka_topic", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
 
@@ -213,7 +213,7 @@ class _KafkaMirrorTopicState:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -223,11 +223,11 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
-                 mirror_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+                 mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -375,11 +375,11 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
-                 mirror_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+                 mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,11 +410,11 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
-            mirror_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'KafkaMirrorTopic':
+            cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+            mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaMirrorTopic':
         """
         Get an existing KafkaMirrorTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

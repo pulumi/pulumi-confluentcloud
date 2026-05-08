@@ -191,43 +191,43 @@ export interface CustomConnectorPluginVersionState {
     /**
      * (Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */
-    connectorClasses?: pulumi.Input<pulumi.Input<inputs.CustomConnectorPluginVersionConnectorClass>[]>;
+    connectorClasses?: pulumi.Input<pulumi.Input<inputs.CustomConnectorPluginVersionConnectorClass>[] | undefined>;
     /**
      * The documentation link of the Custom Connector Plugin Version.
      */
-    documentationLink?: pulumi.Input<string>;
+    documentationLink?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.CustomConnectorPluginVersionEnvironment>;
+    environment?: pulumi.Input<inputs.CustomConnectorPluginVersionEnvironment | undefined>;
     /**
      * The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
      */
-    filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The ID of the plugin created using `confluentcloud.Plugin` resource, or through other ways.
      */
-    pluginId?: pulumi.Input<string>;
+    pluginId?: pulumi.Input<string | undefined>;
     /**
      * The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
      */
-    sensitiveConfigProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    sensitiveConfigProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -245,7 +245,7 @@ export interface CustomConnectorPluginVersionArgs {
     /**
      * The documentation link of the Custom Connector Plugin Version.
      */
-    documentationLink?: pulumi.Input<string>;
+    documentationLink?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -261,7 +261,7 @@ export interface CustomConnectorPluginVersionArgs {
     /**
      * The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
      */
-    sensitiveConfigProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    sensitiveConfigProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
      */

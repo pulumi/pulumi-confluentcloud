@@ -9,15 +9,15 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     /**
      * Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
      */
-    enableHighAvailability?: pulumi.Input<boolean>;
+    enableHighAvailability?: pulumi.Input<boolean | undefined>;
     /**
      * (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
      */
-    vpcEndpointDnsName?: pulumi.Input<string>;
+    vpcEndpointDnsName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
      * AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
      */
@@ -28,7 +28,7 @@ export interface AccessPointAwsIngressPrivateLinkEndpoint {
     /**
      * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
-    dnsDomain?: pulumi.Input<string>;
+    dnsDomain?: pulumi.Input<string | undefined>;
     /**
      * ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
      */
@@ -36,7 +36,7 @@ export interface AccessPointAwsIngressPrivateLinkEndpoint {
     /**
      * (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
      */
-    vpcEndpointServiceName?: pulumi.Input<string>;
+    vpcEndpointServiceName?: pulumi.Input<string | undefined>;
 }
 
 export interface AccessPointAwsPrivateNetworkInterface {
@@ -51,26 +51,26 @@ export interface AccessPointAwsPrivateNetworkInterface {
     /**
      * List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
      */
-    routes?: pulumi.Input<pulumi.Input<string>[]>;
+    routes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface AccessPointAzureEgressPrivateLinkEndpoint {
     /**
      * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
      */
-    privateEndpointCustomDnsConfigDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    privateEndpointCustomDnsConfigDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      */
-    privateEndpointDomain?: pulumi.Input<string>;
+    privateEndpointDomain?: pulumi.Input<string | undefined>;
     /**
      * (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
      */
-    privateEndpointIpAddress?: pulumi.Input<string>;
+    privateEndpointIpAddress?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
      */
-    privateEndpointResourceId?: pulumi.Input<string>;
+    privateEndpointResourceId?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of the Azure Private Link service.
      */
@@ -78,14 +78,14 @@ export interface AccessPointAzureEgressPrivateLinkEndpoint {
     /**
      * Name of the subresource for the Private Endpoint to connect to.
      */
-    privateLinkSubresourceName?: pulumi.Input<string>;
+    privateLinkSubresourceName?: pulumi.Input<string | undefined>;
 }
 
 export interface AccessPointAzureIngressPrivateLinkEndpoint {
     /**
      * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
-    dnsDomain?: pulumi.Input<string>;
+    dnsDomain?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of a Private Endpoint that will be connected to the Private Link service.
      */
@@ -93,11 +93,11 @@ export interface AccessPointAzureIngressPrivateLinkEndpoint {
     /**
      * (Required String) Alias of the Confluent Cloud Private Link Service.
      */
-    privateLinkServiceAlias?: pulumi.Input<string>;
+    privateLinkServiceAlias?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Resource ID of the Confluent Cloud Private Link Service.
      */
-    privateLinkServiceResourceId?: pulumi.Input<string>;
+    privateLinkServiceResourceId?: pulumi.Input<string | undefined>;
 }
 
 export interface AccessPointEnvironment {
@@ -118,15 +118,15 @@ export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
     /**
      * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointConnectionId?: pulumi.Input<string>;
+    privateServiceConnectEndpointConnectionId?: pulumi.Input<string | undefined>;
     /**
      * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointIpAddress?: pulumi.Input<string>;
+    privateServiceConnectEndpointIpAddress?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointName?: pulumi.Input<string>;
+    privateServiceConnectEndpointName?: pulumi.Input<string | undefined>;
     /**
      * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
@@ -137,7 +137,7 @@ export interface AccessPointGcpIngressPrivateServiceConnectEndpoint {
     /**
      * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
-    dnsDomain?: pulumi.Input<string>;
+    dnsDomain?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `privateServiceConnectConnectionId = "116002050319319045"`.
      */
@@ -145,7 +145,7 @@ export interface AccessPointGcpIngressPrivateServiceConnectEndpoint {
     /**
      * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
      */
-    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    privateServiceConnectServiceAttachment?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiKeyManagedResource {
@@ -153,7 +153,7 @@ export interface ApiKeyManagedResource {
      * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      */
     apiVersion: pulumi.Input<string>;
-    environment?: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment>;
+    environment?: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment | undefined>;
     /**
      * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      */
@@ -190,15 +190,15 @@ export interface BusinessMetadataAttributeDefinition {
     /**
      * The default value of this attribute.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of this attribute.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to control whether the attribute should be optional or required. The default value is `false`.
      */
-    isOptional?: pulumi.Input<boolean>;
+    isOptional?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the attribute.
      */
@@ -208,11 +208,11 @@ export interface BusinessMetadataAttributeDefinition {
      * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
      * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      */
-    options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    options?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Required String) The type of the attribute, it always returns `string`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface BusinessMetadataBindingCredentials {
@@ -265,14 +265,14 @@ export interface ByokKeyAws {
     /**
      * (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ByokKeyAzure {
     /**
      * (Optional String) The Application ID created for this key-environment combination.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * The unique Key Object Identifier URL of an Azure Key Vault key.
      */
@@ -295,7 +295,7 @@ export interface ByokKeyGcp {
     /**
      * (Optional String) The Google security group created for this key.
      */
-    securityGroup?: pulumi.Input<string>;
+    securityGroup?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogEntityAttributesCredentials {
@@ -407,11 +407,11 @@ export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Kafka API Credentials.
      */
-    credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials>;
+    credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials | undefined>;
     /**
      * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
      */
@@ -419,7 +419,7 @@ export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ClusterLinkDestinationKafkaClusterCredentials {
@@ -437,11 +437,11 @@ export interface ClusterLinkLocalKafkaCluster {
     /**
      * The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Kafka API Credentials.
      */
-    credentials?: pulumi.Input<inputs.ClusterLinkLocalKafkaClusterCredentials>;
+    credentials?: pulumi.Input<inputs.ClusterLinkLocalKafkaClusterCredentials | undefined>;
     /**
      * The ID of the local Kafka cluster, for example, `lkc-abc123`.
      */
@@ -449,7 +449,7 @@ export interface ClusterLinkLocalKafkaCluster {
     /**
      * The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ClusterLinkLocalKafkaClusterCredentials {
@@ -467,11 +467,11 @@ export interface ClusterLinkRemoteKafkaCluster {
     /**
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Kafka API Credentials.
      */
-    credentials?: pulumi.Input<inputs.ClusterLinkRemoteKafkaClusterCredentials>;
+    credentials?: pulumi.Input<inputs.ClusterLinkRemoteKafkaClusterCredentials | undefined>;
     /**
      * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
      */
@@ -479,7 +479,7 @@ export interface ClusterLinkRemoteKafkaCluster {
     /**
      * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ClusterLinkRemoteKafkaClusterCredentials {
@@ -497,11 +497,11 @@ export interface ClusterLinkSourceKafkaCluster {
     /**
      * The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Kafka API Credentials.
      */
-    credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials>;
+    credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials | undefined>;
     /**
      * The ID of the source Kafka cluster, for example, `lkc-abc123`.
      */
@@ -509,7 +509,7 @@ export interface ClusterLinkSourceKafkaCluster {
     /**
      * The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ClusterLinkSourceKafkaClusterCredentials {
@@ -588,14 +588,14 @@ export interface DnsForwarderForwardViaGcpDnsZones {
      *
      * > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      */
-    domainMappings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    domainMappings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface DnsForwarderForwardViaIp {
     /**
      * List of IP addresses of the DNS server.
      */
-    dnsServerIps?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServerIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface DnsForwarderGateway {
@@ -685,65 +685,65 @@ export interface FlinkMaterializedTableColumn {
     /**
      * Computed column definitions. Each block supports:
      */
-    columnsComputeds?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsComputed>[]>;
+    columnsComputeds?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsComputed>[] | undefined>;
     /**
      * Metadata column definitions. Each block supports:
      */
-    columnsMetadatas?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsMetadata>[]>;
+    columnsMetadatas?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsMetadata>[] | undefined>;
     /**
      * Physical column definitions. Each block supports:
      */
-    columnsPhysicals?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsPhysical>[]>;
+    columnsPhysicals?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsPhysical>[] | undefined>;
 }
 
 export interface FlinkMaterializedTableColumnColumnsComputed {
     /**
      * Comment for the computed column.
      */
-    columnComputedComment?: pulumi.Input<string>;
+    columnComputedComment?: pulumi.Input<string | undefined>;
     /**
      * Expression of the computed column.
      */
-    columnComputedExpression?: pulumi.Input<string>;
+    columnComputedExpression?: pulumi.Input<string | undefined>;
     /**
      * Kind of the computed column.
      */
-    columnComputedKind?: pulumi.Input<string>;
+    columnComputedKind?: pulumi.Input<string | undefined>;
     /**
      * Name of the computed column.
      */
-    columnComputedName?: pulumi.Input<string>;
+    columnComputedName?: pulumi.Input<string | undefined>;
     /**
      * Type of the computed column.
      */
-    columnComputedType?: pulumi.Input<string>;
+    columnComputedType?: pulumi.Input<string | undefined>;
     /**
      * Whether the computed column is virtual. Defaults to `false`.
      */
-    columnComputedVirtual?: pulumi.Input<boolean>;
+    columnComputedVirtual?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FlinkMaterializedTableColumnColumnsMetadata {
     /**
      * Comment for the metadata column.
      */
-    columnMetadataComment?: pulumi.Input<string>;
+    columnMetadataComment?: pulumi.Input<string | undefined>;
     /**
      * Metadata key of the metadata column.
      */
-    columnMetadataKey?: pulumi.Input<string>;
+    columnMetadataKey?: pulumi.Input<string | undefined>;
     /**
      * Kind of the metadata column.
      */
-    columnMetadataKind?: pulumi.Input<string>;
+    columnMetadataKind?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata column.
      */
-    columnMetadataName?: pulumi.Input<string>;
+    columnMetadataName?: pulumi.Input<string | undefined>;
     /**
      * Type of the metadata column.
      */
-    columnMetadataType?: pulumi.Input<string>;
+    columnMetadataType?: pulumi.Input<string | undefined>;
     /**
      * Whether the metadata column is virtual. Defaults to `false`.
      *
@@ -766,26 +766,26 @@ export interface FlinkMaterializedTableColumnColumnsMetadata {
      * });
      * ```
      */
-    columnMetadataVirtual?: pulumi.Input<boolean>;
+    columnMetadataVirtual?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FlinkMaterializedTableColumnColumnsPhysical {
     /**
      * Comment for the physical column.
      */
-    columnPhysicalComment?: pulumi.Input<string>;
+    columnPhysicalComment?: pulumi.Input<string | undefined>;
     /**
      * Kind of the physical column.
      */
-    columnPhysicalKind?: pulumi.Input<string>;
+    columnPhysicalKind?: pulumi.Input<string | undefined>;
     /**
      * Name of the physical column.
      */
-    columnPhysicalName?: pulumi.Input<string>;
+    columnPhysicalName?: pulumi.Input<string | undefined>;
     /**
      * Type of the physical column.
      */
-    columnPhysicalType?: pulumi.Input<string>;
+    columnPhysicalType?: pulumi.Input<string | undefined>;
 }
 
 export interface FlinkMaterializedTableComputePool {
@@ -799,19 +799,19 @@ export interface FlinkMaterializedTableConstraint {
     /**
      * The column names of the constraint.
      */
-    columns?: pulumi.Input<pulumi.Input<string>[]>;
+    columns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the constraint is enforced. Defaults to `false`.
      */
-    enforced?: pulumi.Input<boolean>;
+    enforced?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the constraint, for example, `pkOrders`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of the constraint, for example, `PRIMARY_KEY`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface FlinkMaterializedTableCredentials {
@@ -829,11 +829,11 @@ export interface FlinkMaterializedTableDistribution {
     /**
      * The number of buckets the table is distributed by.
      */
-    bucketCount?: pulumi.Input<number>;
+    bucketCount?: pulumi.Input<number | undefined>;
     /**
      * The names of the columns the table is distributed by.
      */
-    keys?: pulumi.Input<pulumi.Input<string>[]>;
+    keys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface FlinkMaterializedTableEnvironment {
@@ -868,11 +868,11 @@ export interface FlinkMaterializedTableWatermark {
     /**
      * The name of the watermark column.
      */
-    column?: pulumi.Input<string>;
+    column?: pulumi.Input<string | undefined>;
     /**
      * The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
      */
-    expression?: pulumi.Input<string>;
+    expression?: pulumi.Input<string | undefined>;
 }
 
 export interface FlinkStatementComputePool {
@@ -922,7 +922,7 @@ export interface GatewayAwsEgressPrivateLinkGateway {
     /**
      * (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
      */
-    principalArn?: pulumi.Input<string>;
+    principalArn?: pulumi.Input<string | undefined>;
     /**
      * AWS region of the Gateway, for example, `us-east-1`.
      */
@@ -937,14 +937,14 @@ export interface GatewayAwsIngressPrivateLinkGateway {
     /**
      * (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
      */
-    vpcEndpointServiceName?: pulumi.Input<string>;
+    vpcEndpointServiceName?: pulumi.Input<string | undefined>;
 }
 
 export interface GatewayAwsPrivateNetworkInterfaceGateway {
     /**
      * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
      */
-    account?: pulumi.Input<string>;
+    account?: pulumi.Input<string | undefined>;
     /**
      * AWS region of the Private Network Interface Gateway.
      */
@@ -963,18 +963,18 @@ export interface GatewayAzureEgressPrivateLinkGateway {
     /**
      * (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
      */
-    subscription?: pulumi.Input<string>;
+    subscription?: pulumi.Input<string | undefined>;
 }
 
 export interface GatewayAzureIngressPrivateLinkGateway {
     /**
      * (Required String) Alias of the Confluent Cloud Private Link Service.
      */
-    privateLinkServiceAlias?: pulumi.Input<string>;
+    privateLinkServiceAlias?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Resource ID of the Confluent Cloud Private Link Service.
      */
-    privateLinkServiceResourceId?: pulumi.Input<string>;
+    privateLinkServiceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Azure region of the Ingress Private Link Gateway, for example, `centralus`.
      */
@@ -992,7 +992,7 @@ export interface GatewayGcpIngressPrivateServiceConnectGateway {
     /**
      * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
      */
-    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    privateServiceConnectServiceAttachment?: pulumi.Input<string | undefined>;
     /**
      * GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
      */
@@ -1036,19 +1036,19 @@ export interface GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs {
     /**
      * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointConnectionId?: pulumi.Input<string>;
+    privateServiceConnectEndpointConnectionId?: pulumi.Input<string | undefined>;
     /**
      * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointIpAddress?: pulumi.Input<string>;
+    privateServiceConnectEndpointIpAddress?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
      */
-    privateServiceConnectEndpointName?: pulumi.Input<string>;
+    privateServiceConnectEndpointName?: pulumi.Input<string | undefined>;
     /**
      * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
-    privateServiceConnectEndpointTarget?: pulumi.Input<string>;
+    privateServiceConnectEndpointTarget?: pulumi.Input<string | undefined>;
 }
 
 export interface GetBusinessMetadataBindingCredentials {
@@ -1302,7 +1302,7 @@ export interface GetEndpointFilterArgs {
     /**
      * The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * (Computed Configuration Block) supports the following:
      */
@@ -1310,15 +1310,15 @@ export interface GetEndpointFilterArgs {
     /**
      * Whether the endpoint is private (true) or public (false).
      */
-    isPrivate?: pulumi.Input<boolean>;
+    isPrivate?: pulumi.Input<boolean | undefined>;
     /**
      * The cloud service provider region in which the resource is located, for example, `us-west-2`.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
      */
-    resource?: pulumi.Input<string>;
+    resource?: pulumi.Input<string | undefined>;
     /**
      * The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
      */
@@ -1664,23 +1664,23 @@ export interface GetGatewaysFilterArgs {
     /**
      * Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
      */
-    displayNames?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
      */
-    gatewayTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
      */
-    ids?: pulumi.Input<pulumi.Input<string>[]>;
+    ids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
      */
-    phases?: pulumi.Input<pulumi.Input<string>[]>;
+    phases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetIdentityPoolIdentityProvider {
@@ -1724,19 +1724,19 @@ export interface GetIpAddressesFilterArgs {
     /**
      * A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
      */
-    addressTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
-    clouds?: pulumi.Input<pulumi.Input<string>[]>;
+    clouds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of regions to filter by.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetKafkaClusterBasic {
@@ -1750,7 +1750,7 @@ export interface GetKafkaClusterBasicArgs {
     /**
      * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface GetKafkaClusterDedicated {
@@ -1775,18 +1775,18 @@ export interface GetKafkaClusterDedicatedArgs {
     /**
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      */
-    cku?: pulumi.Input<number>;
+    cku?: pulumi.Input<number | undefined>;
     /**
      * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetKafkaClusterEnterprise {
@@ -1800,7 +1800,7 @@ export interface GetKafkaClusterEnterpriseArgs {
     /**
      * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface GetKafkaClusterEnvironment {
@@ -1839,14 +1839,14 @@ export interface GetKafkaClusterFreightArgs {
     /**
      * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetKafkaClusterStandard {
@@ -1860,7 +1860,7 @@ export interface GetKafkaClusterStandardArgs {
     /**
      * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface GetKafkaClustersEnvironment {
@@ -1958,15 +1958,15 @@ export interface GetNetworkAwArgs {
     /**
      * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
      */
-    account?: pulumi.Input<string>;
+    account?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
-    privateLinkEndpointService?: pulumi.Input<string>;
+    privateLinkEndpointService?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Cloud VPC ID.
      */
-    vpc?: pulumi.Input<string>;
+    vpc?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkAzure {
@@ -1980,7 +1980,7 @@ export interface GetNetworkAzureArgs {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      */
-    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface GetNetworkDnsConfig {
@@ -1998,7 +1998,7 @@ export interface GetNetworkDnsConfigArgs {
      * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
      * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
      */
-    resolution?: pulumi.Input<string>;
+    resolution?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkEnvironment {
@@ -2038,15 +2038,15 @@ export interface GetNetworkGcpArgs {
     /**
      * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
-    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The network name of the Confluent Cloud VPC.
      */
-    vpcNetwork?: pulumi.Input<string>;
+    vpcNetwork?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkLinkEndpointEnvironment {
@@ -2078,11 +2078,11 @@ export interface GetNetworkLinkServiceAcceptArgs {
     /**
      * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
      */
-    environments?: pulumi.Input<pulumi.Input<string>[]>;
+    environments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional List of Strings) List of network ids from which connections can be accepted.
      */
-    networks?: pulumi.Input<pulumi.Input<string>[]>;
+    networks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetNetworkLinkServiceEnvironment {
@@ -2254,15 +2254,15 @@ export interface GetSchemaMetadataArgs {
     /**
      * (Optional Map) The custom properties to set:
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional List of Strings) A list of metadata properties to be encrypted.
      */
-    sensitives?: pulumi.Input<pulumi.Input<string>[]>;
+    sensitives?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional String List) The tags to which the rule applies, if any.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.GetSchemaMetadataTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.GetSchemaMetadataTagArgs>[] | undefined>;
 }
 
 export interface GetSchemaMetadataTag {
@@ -2280,11 +2280,11 @@ export interface GetSchemaMetadataTagArgs {
     /**
      * (Required String) The setting name.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * (Required List of Strings) The list of tags.
      */
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetSchemaRegistryClusterConfigCredentials {
@@ -2484,15 +2484,15 @@ export interface GetSchemaRulesetArgs {
     /**
      * (Optional List of Blocks) supports the following:
      */
-    domainRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetDomainRuleArgs>[]>;
+    domainRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetDomainRuleArgs>[] | undefined>;
     /**
      * (Optional List of Blocks) supports the following:
      */
-    encodingRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetEncodingRuleArgs>[]>;
+    encodingRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetEncodingRuleArgs>[] | undefined>;
     /**
      * (Optional List of Blocks) supports the following:
      */
-    migrationRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetMigrationRuleArgs>[]>;
+    migrationRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetMigrationRuleArgs>[] | undefined>;
 }
 
 export interface GetSchemaRulesetDomainRule {
@@ -2546,15 +2546,15 @@ export interface GetSchemaRulesetDomainRuleArgs {
     /**
      * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional String) An optional description of the rule.
      */
-    doc?: pulumi.Input<string>;
+    doc?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
      */
-    expr?: pulumi.Input<string>;
+    expr?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
@@ -2570,19 +2570,19 @@ export interface GetSchemaRulesetDomainRuleArgs {
     /**
      * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      */
-    onFailure?: pulumi.Input<string>;
+    onFailure?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
-    onSuccess?: pulumi.Input<string>;
+    onSuccess?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      */
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional String List) The tags to which the rule applies, if any.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
@@ -2640,15 +2640,15 @@ export interface GetSchemaRulesetEncodingRuleArgs {
     /**
      * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional String) An optional description of the rule.
      */
-    doc?: pulumi.Input<string>;
+    doc?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
      */
-    expr?: pulumi.Input<string>;
+    expr?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
@@ -2664,19 +2664,19 @@ export interface GetSchemaRulesetEncodingRuleArgs {
     /**
      * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      */
-    onFailure?: pulumi.Input<string>;
+    onFailure?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
-    onSuccess?: pulumi.Input<string>;
+    onSuccess?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      */
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional String List) The tags to which the rule applies, if any.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
@@ -2734,15 +2734,15 @@ export interface GetSchemaRulesetMigrationRuleArgs {
     /**
      * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional String) An optional description of the rule.
      */
-    doc?: pulumi.Input<string>;
+    doc?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
      */
-    expr?: pulumi.Input<string>;
+    expr?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
@@ -2758,19 +2758,19 @@ export interface GetSchemaRulesetMigrationRuleArgs {
     /**
      * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      */
-    onFailure?: pulumi.Input<string>;
+    onFailure?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
-    onSuccess?: pulumi.Input<string>;
+    onSuccess?: pulumi.Input<string | undefined>;
     /**
      * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      */
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional String List) The tags to which the rule applies, if any.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
@@ -2832,15 +2832,15 @@ export interface GetSchemasFilterArgs {
     /**
      * The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
      */
-    deleted?: pulumi.Input<boolean>;
+    deleted?: pulumi.Input<boolean | undefined>;
     /**
      * The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
      */
-    latestOnly?: pulumi.Input<boolean>;
+    latestOnly?: pulumi.Input<boolean | undefined>;
     /**
      * The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
      */
-    subjectPrefix?: pulumi.Input<string>;
+    subjectPrefix?: pulumi.Input<string | undefined>;
 }
 
 export interface GetSchemasSchemaRegistryCluster {
@@ -3088,14 +3088,14 @@ export interface InvitationCreator {
     /**
      * (Required String) The id of invitation creator.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface InvitationUser {
     /**
      * (Required String) The id of invitation creator.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface KafkaAclCredentials {
@@ -3149,7 +3149,7 @@ export interface KafkaClusterBasic {
     /**
      * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface KafkaClusterByokKey {
@@ -3199,38 +3199,38 @@ export interface KafkaClusterDedicated {
     /**
      * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface KafkaClusterEndpoint {
     /**
      * (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
      */
-    accessPointId?: pulumi.Input<string>;
+    accessPointId?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
-    bootstrapEndpoint?: pulumi.Input<string>;
+    bootstrapEndpoint?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface KafkaClusterEnterprise {
     /**
      * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface KafkaClusterEnvironment {
@@ -3244,12 +3244,12 @@ export interface KafkaClusterFreight {
     /**
      * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface KafkaClusterNetwork {
@@ -3263,7 +3263,7 @@ export interface KafkaClusterStandard {
     /**
      * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
      */
-    maxEcku?: pulumi.Input<number>;
+    maxEcku?: pulumi.Input<number | undefined>;
 }
 
 export interface KafkaMirrorTopicClusterLink {
@@ -3277,7 +3277,7 @@ export interface KafkaMirrorTopicKafkaCluster {
     /**
      * The Kafka API Credentials.
      */
-    credentials?: pulumi.Input<inputs.KafkaMirrorTopicKafkaClusterCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaMirrorTopicKafkaClusterCredentials | undefined>;
     /**
      * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
      */
@@ -3285,7 +3285,7 @@ export interface KafkaMirrorTopicKafkaCluster {
     /**
      * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface KafkaMirrorTopicKafkaClusterCredentials {
@@ -3353,22 +3353,22 @@ export interface NetworkAw {
     /**
      * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
      */
-    account?: pulumi.Input<string>;
+    account?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
-    privateLinkEndpointService?: pulumi.Input<string>;
+    privateLinkEndpointService?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Cloud VPC ID.
      */
-    vpc?: pulumi.Input<string>;
+    vpc?: pulumi.Input<string | undefined>;
 }
 
 export interface NetworkAzure {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
      */
-    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface NetworkDnsConfig {
@@ -3392,22 +3392,22 @@ export interface NetworkGateway {
     /**
      * (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface NetworkGcp {
     /**
      * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
-    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The network name of the Confluent Cloud VPC.
      */
-    vpcNetwork?: pulumi.Input<string>;
+    vpcNetwork?: pulumi.Input<string | undefined>;
 }
 
 export interface NetworkLinkEndpointEnvironment {
@@ -3435,11 +3435,11 @@ export interface NetworkLinkServiceAccept {
     /**
      * List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
      */
-    environments?: pulumi.Input<pulumi.Input<string>[]>;
+    environments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of network ids from which connections can be accepted.
      */
-    networks?: pulumi.Input<pulumi.Input<string>[]>;
+    networks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface NetworkLinkServiceEnvironment {
@@ -3460,11 +3460,11 @@ export interface NetworkZoneInfo {
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * Cloud provider zone ID.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 export interface PeeringAws {
@@ -3520,7 +3520,7 @@ export interface PeeringGcp {
      *
      * > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
      */
-    importCustomRoutes?: pulumi.Input<boolean>;
+    importCustomRoutes?: pulumi.Input<boolean | undefined>;
     /**
      * The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
      */
@@ -3590,18 +3590,18 @@ export interface PrivateLinkAttachmentAw {
     /**
      * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
      */
-    vpcEndpointServiceName?: pulumi.Input<string>;
+    vpcEndpointServiceName?: pulumi.Input<string | undefined>;
 }
 
 export interface PrivateLinkAttachmentAzure {
     /**
      * (Required String) Azure Private Link service alias for the availability zone.
      */
-    privateLinkServiceAlias?: pulumi.Input<string>;
+    privateLinkServiceAlias?: pulumi.Input<string | undefined>;
     /**
      * (Required String) Azure Private Link service resource ID for the availability zone.
      */
-    privateLinkServiceResourceId?: pulumi.Input<string>;
+    privateLinkServiceResourceId?: pulumi.Input<string | undefined>;
 }
 
 export interface PrivateLinkAttachmentConnectionAws {
@@ -3650,14 +3650,14 @@ export interface PrivateLinkAttachmentGcp {
     /**
      * (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      */
-    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    privateServiceConnectServiceAttachment?: pulumi.Input<string | undefined>;
 }
 
 export interface ProviderIntegrationAuthorizationAzure {
     /**
      * (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
      */
-    confluentMultiTenantAppId?: pulumi.Input<string>;
+    confluentMultiTenantAppId?: pulumi.Input<string | undefined>;
     /**
      * Customer's Azure Tenant ID.
      */
@@ -3681,7 +3681,7 @@ export interface ProviderIntegrationAuthorizationGcp {
     /**
      * (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
      */
-    googleServiceAccount?: pulumi.Input<string>;
+    googleServiceAccount?: pulumi.Input<string | undefined>;
 }
 
 export interface ProviderIntegrationAws {
@@ -3696,11 +3696,11 @@ export interface ProviderIntegrationAws {
     /**
      * (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
 }
 
 export interface ProviderIntegrationEnvironment {
@@ -3721,23 +3721,23 @@ export interface ProviderOauth {
     /**
      * OAuth existing static access token already fetched from external Identity Provider.
      */
-    oauthExternalAccessToken?: pulumi.Input<string>;
+    oauthExternalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * OAuth token application client id from external Identity Provider.
      */
-    oauthExternalClientId?: pulumi.Input<string>;
+    oauthExternalClientId?: pulumi.Input<string | undefined>;
     /**
      * OAuth token application client secret from external Identity Provider.
      */
-    oauthExternalClientSecret?: pulumi.Input<string>;
+    oauthExternalClientSecret?: pulumi.Input<string | undefined>;
     /**
      * OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
      */
-    oauthExternalTokenScope?: pulumi.Input<string>;
+    oauthExternalTokenScope?: pulumi.Input<string | undefined>;
     /**
      * OAuth token URL to fetch access token from external Identity Provider.
      */
-    oauthExternalTokenUrl?: pulumi.Input<string>;
+    oauthExternalTokenUrl?: pulumi.Input<string | undefined>;
     /**
      * OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
      */
@@ -3745,7 +3745,7 @@ export interface ProviderOauth {
     /**
      * OAuth STS access token expired in second from Confluent Cloud
      */
-    oauthStsTokenExpiredInSeconds?: pulumi.Input<string>;
+    oauthStsTokenExpiredInSeconds?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaCredentials {
@@ -3777,11 +3777,11 @@ export interface SchemaExporterCredentials {
 }
 
 export interface SchemaExporterDestinationSchemaRegistryCluster {
-    credentials?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryClusterCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryClusterCredentials | undefined>;
     /**
      * The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
@@ -3810,17 +3810,17 @@ export interface SchemaMetadata {
     /**
      * The custom properties to set:
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of metadata properties to be encrypted.
      */
-    sensitives?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.SchemaMetadataTag>[]>;
+    sensitives?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.SchemaMetadataTag>[] | undefined>;
 }
 
 export interface SchemaMetadataTag {
-    key?: pulumi.Input<string>;
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    key?: pulumi.Input<string | undefined>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface SchemaRegistryClusterConfigCredentials {
@@ -3913,56 +3913,56 @@ export interface SchemaRuleset {
     /**
      * supports the following:
      */
-    domainRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetDomainRule>[]>;
+    domainRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetDomainRule>[] | undefined>;
     /**
      * supports the following:
      */
-    encodingRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetEncodingRule>[]>;
+    encodingRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetEncodingRule>[] | undefined>;
     /**
      * supports the following:
      */
-    migrationRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetMigrationRule>[]>;
+    migrationRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetMigrationRule>[] | undefined>;
 }
 
 export interface SchemaRulesetDomainRule {
-    disabled?: pulumi.Input<boolean>;
-    doc?: pulumi.Input<string>;
-    expr?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    doc?: pulumi.Input<string | undefined>;
+    expr?: pulumi.Input<string | undefined>;
     kind: pulumi.Input<string>;
     mode: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    onFailure?: pulumi.Input<string>;
-    onSuccess?: pulumi.Input<string>;
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    onFailure?: pulumi.Input<string | undefined>;
+    onSuccess?: pulumi.Input<string | undefined>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     type: pulumi.Input<string>;
 }
 
 export interface SchemaRulesetEncodingRule {
-    disabled?: pulumi.Input<boolean>;
-    doc?: pulumi.Input<string>;
-    expr?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    doc?: pulumi.Input<string | undefined>;
+    expr?: pulumi.Input<string | undefined>;
     kind: pulumi.Input<string>;
     mode: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    onFailure?: pulumi.Input<string>;
-    onSuccess?: pulumi.Input<string>;
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    onFailure?: pulumi.Input<string | undefined>;
+    onSuccess?: pulumi.Input<string | undefined>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     type: pulumi.Input<string>;
 }
 
 export interface SchemaRulesetMigrationRule {
-    disabled?: pulumi.Input<boolean>;
-    doc?: pulumi.Input<string>;
-    expr?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    doc?: pulumi.Input<string | undefined>;
+    expr?: pulumi.Input<string | undefined>;
     kind: pulumi.Input<string>;
     mode: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    onFailure?: pulumi.Input<string>;
-    onSuccess?: pulumi.Input<string>;
-    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    onFailure?: pulumi.Input<string | undefined>;
+    onSuccess?: pulumi.Input<string | undefined>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     type: pulumi.Input<string>;
 }
 
@@ -4052,7 +4052,7 @@ export interface TableflowTopicAzureDataLakeStorageGen2 {
     /**
      * (Required String) The storage region.
      */
-    storageRegion?: pulumi.Input<string>;
+    storageRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface TableflowTopicByobAws {
@@ -4063,7 +4063,7 @@ export interface TableflowTopicByobAws {
     /**
      * (Required String) The bucket region.
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * The provider integration id.
      */
@@ -4098,11 +4098,11 @@ export interface TableflowTopicErrorHandling {
     /**
      * The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
      */
-    logTarget?: pulumi.Input<string>;
+    logTarget?: pulumi.Input<string | undefined>;
     /**
      * The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
 }
 
 export interface TableflowTopicKafkaCluster {
@@ -4165,7 +4165,7 @@ export interface TransitGatewayAttachmentAws {
     /**
      * (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
      */

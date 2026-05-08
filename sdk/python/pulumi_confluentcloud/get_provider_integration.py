@@ -149,9 +149,9 @@ def get_provider_integration(display_name: Optional[_builtins.str] = None,
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         usages=pulumi.get(__ret__, 'usages'))
-def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    environment: Optional[pulumi.Input[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']]] = None,
-                                    id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_provider_integration_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    environment: pulumi.Input[Optional[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']]] = None,
+                                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

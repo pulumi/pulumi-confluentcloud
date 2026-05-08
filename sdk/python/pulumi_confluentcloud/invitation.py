@@ -22,8 +22,8 @@ __all__ = ['InvitationArgs', 'Invitation']
 class InvitationArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 allow_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Invitation resource.
 
@@ -51,40 +51,40 @@ class InvitationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowDeletion")
-    def allow_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         """
         return pulumi.get(self, "allow_deletion")
 
     @allow_deletion.setter
-    def allow_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_type", value)
 
 
 @pulumi.input_type
 class _InvitationState:
     def __init__(__self__, *,
-                 accepted_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 creators: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]]] = None):
+                 accepted_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 creators: pulumi.Input[Optional[Sequence[pulumi.Input['InvitationCreatorArgs']]]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['InvitationUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering Invitation resources.
 
@@ -116,98 +116,98 @@ class _InvitationState:
 
     @_builtins.property
     @pulumi.getter(name="acceptedAt")
-    def accepted_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accepted_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The timestamp that the invitation was accepted.
         """
         return pulumi.get(self, "accepted_at")
 
     @accepted_at.setter
-    def accepted_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accepted_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accepted_at", value)
 
     @_builtins.property
     @pulumi.getter(name="allowDeletion")
-    def allow_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         """
         return pulumi.get(self, "allow_deletion")
 
     @allow_deletion.setter
-    def allow_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def creators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]]]:
+    def creators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InvitationCreatorArgs']]]]:
         """
         (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "creators")
 
     @creators.setter
-    def creators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]]]):
+    def creators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InvitationCreatorArgs']]]]):
         pulumi.set(self, "creators", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user/invitee's email address.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The timestamp that the invitation will expire.
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The status of invitations. Accepted values are: `INVITE_STATUS_SENT`,`INVITE_STATUS_STAGED`,`INVITE_STATUS_ACCEPTED`,`INVITE_STATUS_EXPIRED`, and `INVITE_STATUS_DEACTIVATED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InvitationUserArgs']]]]:
         """
         (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InvitationUserArgs']]]]):
         pulumi.set(self, "users", value)
 
 
@@ -217,9 +217,9 @@ class Invitation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -312,9 +312,9 @@ class Invitation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,14 +344,14 @@ class Invitation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accepted_at: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-            auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-            creators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InvitationCreatorArgs', 'InvitationCreatorArgsDict']]]]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InvitationUserArgs', 'InvitationUserArgsDict']]]]] = None) -> 'Invitation':
+            accepted_at: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            creators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvitationCreatorArgs', 'InvitationCreatorArgsDict']]]]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvitationUserArgs', 'InvitationUserArgsDict']]]]] = None) -> 'Invitation':
         """
         Get an existing Invitation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

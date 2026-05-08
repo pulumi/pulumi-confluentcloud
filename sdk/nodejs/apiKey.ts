@@ -305,27 +305,27 @@ export interface ApiKeyState {
     /**
      * A free-form description of the API Account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
      */
-    disableWaitForReady?: pulumi.Input<boolean>;
+    disableWaitForReady?: pulumi.Input<boolean | undefined>;
     /**
      * A human-readable name for the API Key.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
      */
-    managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
+    managedResource?: pulumi.Input<inputs.ApiKeyManagedResource | undefined>;
     /**
      * The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
      */
-    owner?: pulumi.Input<inputs.ApiKeyOwner>;
+    owner?: pulumi.Input<inputs.ApiKeyOwner | undefined>;
     /**
      * (Required String, Sensitive) The secret of the API Key.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -335,19 +335,19 @@ export interface ApiKeyArgs {
     /**
      * A free-form description of the API Account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
      */
-    disableWaitForReady?: pulumi.Input<boolean>;
+    disableWaitForReady?: pulumi.Input<boolean | undefined>;
     /**
      * A human-readable name for the API Key.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
      */
-    managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
+    managedResource?: pulumi.Input<inputs.ApiKeyManagedResource | undefined>;
     /**
      * The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
      */

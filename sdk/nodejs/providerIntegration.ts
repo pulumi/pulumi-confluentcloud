@@ -142,19 +142,19 @@ export interface ProviderIntegrationState {
     /**
      * (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
      */
-    aws?: pulumi.Input<inputs.ProviderIntegrationAws>;
+    aws?: pulumi.Input<inputs.ProviderIntegrationAws | undefined>;
     /**
      * The name of the Provider Integration.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.ProviderIntegrationEnvironment>;
+    environment?: pulumi.Input<inputs.ProviderIntegrationEnvironment | undefined>;
     /**
      * (Required List of Strings) List of resource CRNs where this provider integration is being used.
      */
-    usages?: pulumi.Input<pulumi.Input<string>[]>;
+    usages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface ProviderIntegrationArgs {
     /**
      * (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
      */
-    aws?: pulumi.Input<inputs.ProviderIntegrationAws>;
+    aws?: pulumi.Input<inputs.ProviderIntegrationAws | undefined>;
     /**
      * The name of the Provider Integration.
      */

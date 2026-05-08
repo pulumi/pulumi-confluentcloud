@@ -23,14 +23,14 @@ class SchemaRegistryKekArgs:
     def __init__(__self__, *,
                  kms_key_id: pulumi.Input[_builtins.str],
                  kms_type: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']] = None,
-                 shared: Optional[pulumi.Input[_builtins.bool]] = None):
+                 credentials: pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SchemaRegistryKek resource.
 
@@ -101,31 +101,31 @@ class SchemaRegistryKekArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description for the KEK.
         """
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
 
@@ -138,80 +138,80 @@ class SchemaRegistryKekArgs:
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the KEK.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def shared(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
         """
         return pulumi.get(self, "shared")
 
     @shared.setter
-    def shared(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shared(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shared", value)
 
 
 @pulumi.input_type
 class _SchemaRegistryKekState:
     def __init__(__self__, *,
-                 credentials: Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']] = None,
-                 shared: Optional[pulumi.Input[_builtins.bool]] = None):
+                 credentials: pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryKek resources.
 
@@ -257,31 +257,31 @@ class _SchemaRegistryKekState:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryKekCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryKekCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description for the KEK.
         """
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
 
@@ -294,12 +294,12 @@ class _SchemaRegistryKekState:
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the key from KMS. 
         - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -309,76 +309,76 @@ class _SchemaRegistryKekState:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsType")
-    def kms_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
         """
         return pulumi.get(self, "kms_type")
 
     @kms_type.setter
-    def kms_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the KEK.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryKekSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryKekSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def shared(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
         """
         return pulumi.get(self, "shared")
 
     @shared.setter
-    def shared(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shared(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shared", value)
 
 
@@ -388,16 +388,16 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
-                 shared: Optional[pulumi.Input[_builtins.bool]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -569,16 +569,16 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
-                 shared: Optional[pulumi.Input[_builtins.bool]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -614,16 +614,16 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
-            doc: Optional[pulumi.Input[_builtins.str]] = None,
-            hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
-            shared: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SchemaRegistryKek':
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
+            doc: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
+            shared: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SchemaRegistryKek':
         """
         Get an existing SchemaRegistryKek resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

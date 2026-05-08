@@ -140,11 +140,11 @@ export interface GetIdentityPoolOutputArgs {
     /**
      * A human-readable name for the Identity Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Identity Pool, for example, `pool-xyz456`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */

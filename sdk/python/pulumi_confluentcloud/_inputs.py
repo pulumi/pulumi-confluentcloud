@@ -588,15 +588,15 @@ class AccessPointAwsEgressPrivateLinkEndpointArgsDict(TypedDict):
     """
     AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
     """
-    enable_high_availability: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_high_availability: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
     """
-    vpc_endpoint_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
     """
-    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
     """
@@ -605,9 +605,9 @@ class AccessPointAwsEgressPrivateLinkEndpointArgsDict(TypedDict):
 class AccessPointAwsEgressPrivateLinkEndpointArgs:
     def __init__(__self__, *,
                  vpc_endpoint_service_name: pulumi.Input[_builtins.str],
-                 enable_high_availability: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_high_availability: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] vpc_endpoint_service_name: AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
         :param pulumi.Input[_builtins.bool] enable_high_availability: Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
@@ -636,38 +636,38 @@ class AccessPointAwsEgressPrivateLinkEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableHighAvailability")
-    def enable_high_availability(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_high_availability(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
         """
         return pulumi.get(self, "enable_high_availability")
 
     @enable_high_availability.setter
-    def enable_high_availability(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_high_availability(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_high_availability", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointDnsName")
-    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
         """
         return pulumi.get(self, "vpc_endpoint_dns_name")
 
     @vpc_endpoint_dns_name.setter
-    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
@@ -676,11 +676,11 @@ class AccessPointAwsIngressPrivateLinkEndpointArgsDict(TypedDict):
     """
     ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
     """
-    dns_domain: NotRequired[pulumi.Input[_builtins.str]]
+    dns_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
     """
-    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
     """
@@ -689,8 +689,8 @@ class AccessPointAwsIngressPrivateLinkEndpointArgsDict(TypedDict):
 class AccessPointAwsIngressPrivateLinkEndpointArgs:
     def __init__(__self__, *,
                  vpc_endpoint_id: pulumi.Input[_builtins.str],
-                 dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         :param pulumi.Input[_builtins.str] dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
@@ -716,26 +716,26 @@ class AccessPointAwsIngressPrivateLinkEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsDomain")
-    def dns_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         """
         return pulumi.get(self, "dns_domain")
 
     @dns_domain.setter
-    def dns_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
-    def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
         """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
     @vpc_endpoint_service_name.setter
-    def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
@@ -748,7 +748,7 @@ class AccessPointAwsPrivateNetworkInterfaceArgsDict(TypedDict):
     """
     List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
     """
-    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
     """
@@ -758,7 +758,7 @@ class AccessPointAwsPrivateNetworkInterfaceArgs:
     def __init__(__self__, *,
                  account: pulumi.Input[_builtins.str],
                  network_interfaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] account: The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interfaces: List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
@@ -795,14 +795,14 @@ class AccessPointAwsPrivateNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "routes", value)
 
 
@@ -811,23 +811,23 @@ class AccessPointAzureEgressPrivateLinkEndpointArgsDict(TypedDict):
     """
     Resource ID of the Azure Private Link service.
     """
-    private_endpoint_custom_dns_config_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    private_endpoint_custom_dns_config_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
     """
-    private_endpoint_domain: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
     """
-    private_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
     """
-    private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
     """
-    private_link_subresource_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_subresource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subresource for the Private Endpoint to connect to.
     """
@@ -836,11 +836,11 @@ class AccessPointAzureEgressPrivateLinkEndpointArgsDict(TypedDict):
 class AccessPointAzureEgressPrivateLinkEndpointArgs:
     def __init__(__self__, *,
                  private_link_service_resource_id: pulumi.Input[_builtins.str],
-                 private_endpoint_custom_dns_config_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_endpoint_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_subresource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_endpoint_custom_dns_config_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_endpoint_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_subresource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_link_service_resource_id: Resource ID of the Azure Private Link service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_endpoint_custom_dns_config_domains: (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
@@ -875,62 +875,62 @@ class AccessPointAzureEgressPrivateLinkEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointCustomDnsConfigDomains")
-    def private_endpoint_custom_dns_config_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_endpoint_custom_dns_config_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
         """
         return pulumi.get(self, "private_endpoint_custom_dns_config_domains")
 
     @private_endpoint_custom_dns_config_domains.setter
-    def private_endpoint_custom_dns_config_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_endpoint_custom_dns_config_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_endpoint_custom_dns_config_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointDomain")
-    def private_endpoint_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
         """
         return pulumi.get(self, "private_endpoint_domain")
 
     @private_endpoint_domain.setter
-    def private_endpoint_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointIpAddress")
-    def private_endpoint_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
         """
         return pulumi.get(self, "private_endpoint_ip_address")
 
     @private_endpoint_ip_address.setter
-    def private_endpoint_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointResourceId")
-    def private_endpoint_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
         """
         return pulumi.get(self, "private_endpoint_resource_id")
 
     @private_endpoint_resource_id.setter
-    def private_endpoint_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkSubresourceName")
-    def private_link_subresource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subresource for the Private Endpoint to connect to.
         """
         return pulumi.get(self, "private_link_subresource_name")
 
     @private_link_subresource_name.setter
-    def private_link_subresource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_subresource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_subresource_name", value)
 
 
@@ -939,15 +939,15 @@ class AccessPointAzureIngressPrivateLinkEndpointArgsDict(TypedDict):
     """
     Resource ID of a Private Endpoint that will be connected to the Private Link service.
     """
-    dns_domain: NotRequired[pulumi.Input[_builtins.str]]
+    dns_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
     """
-    private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Alias of the Confluent Cloud Private Link Service.
     """
-    private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Resource ID of the Confluent Cloud Private Link Service.
     """
@@ -956,9 +956,9 @@ class AccessPointAzureIngressPrivateLinkEndpointArgsDict(TypedDict):
 class AccessPointAzureIngressPrivateLinkEndpointArgs:
     def __init__(__self__, *,
                  private_endpoint_resource_id: pulumi.Input[_builtins.str],
-                 dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_endpoint_resource_id: Resource ID of a Private Endpoint that will be connected to the Private Link service.
         :param pulumi.Input[_builtins.str] dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
@@ -987,38 +987,38 @@ class AccessPointAzureIngressPrivateLinkEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsDomain")
-    def dns_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         """
         return pulumi.get(self, "dns_domain")
 
     @dns_domain.setter
-    def dns_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceAlias")
-    def private_link_service_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Alias of the Confluent Cloud Private Link Service.
         """
         return pulumi.get(self, "private_link_service_alias")
 
     @private_link_service_alias.setter
-    def private_link_service_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceResourceId")
-    def private_link_service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Resource ID of the Confluent Cloud Private Link Service.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
     @private_link_service_resource_id.setter
-    def private_link_service_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_resource_id", value)
 
 
@@ -1083,15 +1083,15 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
     """
     URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
     """
-    private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
     """
-    private_service_connect_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_endpoint_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
     """
-    private_service_connect_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_endpoint_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
     """
@@ -1100,9 +1100,9 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
 class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
     def __init__(__self__, *,
                  private_service_connect_endpoint_target: pulumi.Input[_builtins.str],
-                 private_service_connect_endpoint_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_service_connect_endpoint_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_service_connect_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_service_connect_endpoint_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_service_connect_endpoint_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_service_connect_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         :param pulumi.Input[_builtins.str] private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
@@ -1131,38 +1131,38 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectEndpointConnectionId")
-    def private_service_connect_endpoint_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_endpoint_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
         """
         return pulumi.get(self, "private_service_connect_endpoint_connection_id")
 
     @private_service_connect_endpoint_connection_id.setter
-    def private_service_connect_endpoint_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_endpoint_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_endpoint_connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectEndpointIpAddress")
-    def private_service_connect_endpoint_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_endpoint_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
         """
         return pulumi.get(self, "private_service_connect_endpoint_ip_address")
 
     @private_service_connect_endpoint_ip_address.setter
-    def private_service_connect_endpoint_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_endpoint_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_endpoint_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectEndpointName")
-    def private_service_connect_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
         """
         return pulumi.get(self, "private_service_connect_endpoint_name")
 
     @private_service_connect_endpoint_name.setter
-    def private_service_connect_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_endpoint_name", value)
 
 
@@ -1171,11 +1171,11 @@ class AccessPointGcpIngressPrivateServiceConnectEndpointArgsDict(TypedDict):
     """
     The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
     """
-    dns_domain: NotRequired[pulumi.Input[_builtins.str]]
+    dns_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
     """
-    private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_service_attachment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
     """
@@ -1184,8 +1184,8 @@ class AccessPointGcpIngressPrivateServiceConnectEndpointArgsDict(TypedDict):
 class AccessPointGcpIngressPrivateServiceConnectEndpointArgs:
     def __init__(__self__, *,
                  private_service_connect_connection_id: pulumi.Input[_builtins.str],
-                 dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_service_connect_service_attachment: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_service_connect_service_attachment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_service_connect_connection_id: The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
         :param pulumi.Input[_builtins.str] dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
@@ -1211,26 +1211,26 @@ class AccessPointGcpIngressPrivateServiceConnectEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsDomain")
-    def dns_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         """
         return pulumi.get(self, "dns_domain")
 
     @dns_domain.setter
-    def dns_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
-    def private_service_connect_service_attachment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_service_attachment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
     @private_service_connect_service_attachment.setter
-    def private_service_connect_service_attachment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_service_attachment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_service_attachment", value)
 
 
@@ -1247,7 +1247,7 @@ class ApiKeyManagedResourceArgsDict(TypedDict):
     """
     The kind of the managed resource that the API Key associated with, for example, `Cluster`.
     """
-    environment: NotRequired[pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']]
+    environment: NotRequired[pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgs']]]
 
 @pulumi.input_type
 class ApiKeyManagedResourceArgs:
@@ -1255,7 +1255,7 @@ class ApiKeyManagedResourceArgs:
                  api_version: pulumi.Input[_builtins.str],
                  id: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
-                 environment: Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']] = None):
+                 environment: pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_version: The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
         :param pulumi.Input[_builtins.str] id: The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
@@ -1305,11 +1305,11 @@ class ApiKeyManagedResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgs']]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
 
@@ -1412,25 +1412,25 @@ class BusinessMetadataAttributeDefinitionArgsDict(TypedDict):
     """
     The name of the attribute.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default value of this attribute.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of this attribute.
     """
-    is_optional: NotRequired[pulumi.Input[_builtins.bool]]
+    is_optional: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     An optional flag to control whether the attribute should be optional or required. The default value is `false`.
     """
-    options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    options: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     (Optional Map) Block for the attribute options:
     - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
     - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The type of the attribute, it always returns `string`.
     """
@@ -1439,11 +1439,11 @@ class BusinessMetadataAttributeDefinitionArgsDict(TypedDict):
 class BusinessMetadataAttributeDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_optional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_optional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the attribute.
         :param pulumi.Input[_builtins.str] default_value: The default value of this attribute.
@@ -1480,43 +1480,43 @@ class BusinessMetadataAttributeDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of this attribute.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this attribute.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isOptional")
-    def is_optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to control whether the attribute should be optional or required. The default value is `false`.
         """
         return pulumi.get(self, "is_optional")
 
     @is_optional.setter
-    def is_optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_optional", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional Map) Block for the attribute options:
         - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
@@ -1525,19 +1525,19 @@ class BusinessMetadataAttributeDefinitionArgs:
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The type of the attribute, it always returns `string`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1714,7 +1714,7 @@ class ByokKeyAwsArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of an AWS KMS key.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
     """
@@ -1723,7 +1723,7 @@ class ByokKeyAwsArgsDict(TypedDict):
 class ByokKeyAwsArgs:
     def __init__(__self__, *,
                  key_arn: pulumi.Input[_builtins.str],
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key_arn: The Amazon Resource Name (ARN) of an AWS KMS key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
@@ -1746,14 +1746,14 @@ class ByokKeyAwsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -1770,7 +1770,7 @@ class ByokKeyAzureArgsDict(TypedDict):
     """
     Tenant ID (uuid) hosting the Key Vault containing the key.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) The Application ID created for this key-environment combination.
     """
@@ -1781,7 +1781,7 @@ class ByokKeyAzureArgs:
                  key_identifier: pulumi.Input[_builtins.str],
                  key_vault_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_identifier: The unique Key Object Identifier URL of an Azure Key Vault key.
         :param pulumi.Input[_builtins.str] key_vault_id: Key Vault ID containing the key.
@@ -1832,14 +1832,14 @@ class ByokKeyAzureArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The Application ID created for this key-environment combination.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
 
@@ -1848,7 +1848,7 @@ class ByokKeyGcpArgsDict(TypedDict):
     """
     The Google Cloud Platform key ID.
     """
-    security_group: NotRequired[pulumi.Input[_builtins.str]]
+    security_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) The Google security group created for this key.
     """
@@ -1857,7 +1857,7 @@ class ByokKeyGcpArgsDict(TypedDict):
 class ByokKeyGcpArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
-                 security_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_id: The Google Cloud Platform key ID.
         :param pulumi.Input[_builtins.str] security_group: (Optional String) The Google security group created for this key.
@@ -1880,14 +1880,14 @@ class ByokKeyGcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroup")
-    def security_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The Google security group created for this key.
         """
         return pulumi.get(self, "security_group")
 
     @security_group.setter
-    def security_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group", value)
 
 
@@ -2337,15 +2337,15 @@ class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
     """
     The ID of the destination Kafka cluster, for example, `lkc-abc123`.
     """
-    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    bootstrap_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgs']]]
     """
     The Kafka API Credentials.
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -2354,9 +2354,9 @@ class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
 class ClusterLinkDestinationKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 bootstrap_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2385,38 +2385,38 @@ class ClusterLinkDestinationKafkaClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="bootstrapEndpoint")
-    def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
     @bootstrap_endpoint.setter
-    def bootstrap_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgs']]:
         """
         The Kafka API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -2472,15 +2472,15 @@ class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
     """
     The ID of the local Kafka cluster, for example, `lkc-abc123`.
     """
-    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    bootstrap_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgs']]]
     """
     The Kafka API Credentials.
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -2489,9 +2489,9 @@ class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
 class ClusterLinkLocalKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 bootstrap_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the local Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2520,38 +2520,38 @@ class ClusterLinkLocalKafkaClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="bootstrapEndpoint")
-    def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
     @bootstrap_endpoint.setter
-    def bootstrap_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgs']]:
         """
         The Kafka API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -2607,15 +2607,15 @@ class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
     """
     The ID of the remote Kafka cluster, for example, `lkc-abc123`.
     """
-    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    bootstrap_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgs']]]
     """
     The Kafka API Credentials.
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -2624,9 +2624,9 @@ class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
 class ClusterLinkRemoteKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 bootstrap_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2655,38 +2655,38 @@ class ClusterLinkRemoteKafkaClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="bootstrapEndpoint")
-    def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
     @bootstrap_endpoint.setter
-    def bootstrap_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgs']]:
         """
         The Kafka API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -2742,15 +2742,15 @@ class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
     """
     The ID of the source Kafka cluster, for example, `lkc-abc123`.
     """
-    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    bootstrap_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgs']]]
     """
     The Kafka API Credentials.
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -2759,9 +2759,9 @@ class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
 class ClusterLinkSourceKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 bootstrap_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the source Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2790,38 +2790,38 @@ class ClusterLinkSourceKafkaClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="bootstrapEndpoint")
-    def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
     @bootstrap_endpoint.setter
-    def bootstrap_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgs']]:
         """
         The Kafka API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -3107,7 +3107,7 @@ class DnsForwarderEnvironmentArgs:
 
 
 class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
-    domain_mappings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    domain_mappings: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     List of Maps which contains the domain to zone and project mapping.
 
@@ -3119,7 +3119,7 @@ class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
 @pulumi.input_type
 class DnsForwarderForwardViaGcpDnsZonesArgs:
     def __init__(__self__, *,
-                 domain_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 domain_mappings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] domain_mappings: List of Maps which contains the domain to zone and project mapping.
                
@@ -3132,7 +3132,7 @@ class DnsForwarderForwardViaGcpDnsZonesArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainMappings")
-    def domain_mappings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def domain_mappings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of Maps which contains the domain to zone and project mapping.
 
@@ -3143,12 +3143,12 @@ class DnsForwarderForwardViaGcpDnsZonesArgs:
         return pulumi.get(self, "domain_mappings")
 
     @domain_mappings.setter
-    def domain_mappings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def domain_mappings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_mappings", value)
 
 
 class DnsForwarderForwardViaIpArgsDict(TypedDict):
-    dns_server_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_server_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP addresses of the DNS server.
     """
@@ -3156,7 +3156,7 @@ class DnsForwarderForwardViaIpArgsDict(TypedDict):
 @pulumi.input_type
 class DnsForwarderForwardViaIpArgs:
     def __init__(__self__, *,
-                 dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 dns_server_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_server_ips: List of IP addresses of the DNS server.
         """
@@ -3165,14 +3165,14 @@ class DnsForwarderForwardViaIpArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServerIps")
-    def dns_server_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_server_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP addresses of the DNS server.
         """
         return pulumi.get(self, "dns_server_ips")
 
     @dns_server_ips.setter
-    def dns_server_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_server_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_server_ips", value)
 
 
@@ -3524,15 +3524,15 @@ class FlinkConnectionPrincipalArgs:
 
 
 class FlinkMaterializedTableColumnArgsDict(TypedDict):
-    columns_computeds: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgsDict']]]]
+    columns_computeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]]
     """
     Computed column definitions. Each block supports:
     """
-    columns_metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgsDict']]]]
+    columns_metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]]
     """
     Metadata column definitions. Each block supports:
     """
-    columns_physicals: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgsDict']]]]
+    columns_physicals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]]
     """
     Physical column definitions. Each block supports:
     """
@@ -3540,9 +3540,9 @@ class FlinkMaterializedTableColumnArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableColumnArgs:
     def __init__(__self__, *,
-                 columns_computeds: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]] = None,
-                 columns_metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]] = None,
-                 columns_physicals: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]] = None):
+                 columns_computeds: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]] = None,
+                 columns_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]] = None,
+                 columns_physicals: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]] columns_computeds: Computed column definitions. Each block supports:
         :param pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]] columns_metadatas: Metadata column definitions. Each block supports:
@@ -3557,63 +3557,63 @@ class FlinkMaterializedTableColumnArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnsComputeds")
-    def columns_computeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]:
+    def columns_computeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]:
         """
         Computed column definitions. Each block supports:
         """
         return pulumi.get(self, "columns_computeds")
 
     @columns_computeds.setter
-    def columns_computeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]):
+    def columns_computeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]):
         pulumi.set(self, "columns_computeds", value)
 
     @_builtins.property
     @pulumi.getter(name="columnsMetadatas")
-    def columns_metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]:
+    def columns_metadatas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]:
         """
         Metadata column definitions. Each block supports:
         """
         return pulumi.get(self, "columns_metadatas")
 
     @columns_metadatas.setter
-    def columns_metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]):
+    def columns_metadatas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]):
         pulumi.set(self, "columns_metadatas", value)
 
     @_builtins.property
     @pulumi.getter(name="columnsPhysicals")
-    def columns_physicals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]:
+    def columns_physicals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]:
         """
         Physical column definitions. Each block supports:
         """
         return pulumi.get(self, "columns_physicals")
 
     @columns_physicals.setter
-    def columns_physicals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]):
+    def columns_physicals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]):
         pulumi.set(self, "columns_physicals", value)
 
 
 class FlinkMaterializedTableColumnColumnsComputedArgsDict(TypedDict):
-    column_computed_comment: NotRequired[pulumi.Input[_builtins.str]]
+    column_computed_comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comment for the computed column.
     """
-    column_computed_expression: NotRequired[pulumi.Input[_builtins.str]]
+    column_computed_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expression of the computed column.
     """
-    column_computed_kind: NotRequired[pulumi.Input[_builtins.str]]
+    column_computed_kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of the computed column.
     """
-    column_computed_name: NotRequired[pulumi.Input[_builtins.str]]
+    column_computed_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the computed column.
     """
-    column_computed_type: NotRequired[pulumi.Input[_builtins.str]]
+    column_computed_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the computed column.
     """
-    column_computed_virtual: NotRequired[pulumi.Input[_builtins.bool]]
+    column_computed_virtual: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the computed column is virtual. Defaults to `false`.
     """
@@ -3621,12 +3621,12 @@ class FlinkMaterializedTableColumnColumnsComputedArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableColumnColumnsComputedArgs:
     def __init__(__self__, *,
-                 column_computed_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_computed_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_computed_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_computed_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_computed_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_computed_virtual: Optional[pulumi.Input[_builtins.bool]] = None):
+                 column_computed_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_computed_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_computed_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_computed_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_computed_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_computed_virtual: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] column_computed_comment: Comment for the computed column.
         :param pulumi.Input[_builtins.str] column_computed_expression: Expression of the computed column.
@@ -3650,99 +3650,99 @@ class FlinkMaterializedTableColumnColumnsComputedArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnComputedComment")
-    def column_computed_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_computed_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment for the computed column.
         """
         return pulumi.get(self, "column_computed_comment")
 
     @column_computed_comment.setter
-    def column_computed_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_computed_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_computed_comment", value)
 
     @_builtins.property
     @pulumi.getter(name="columnComputedExpression")
-    def column_computed_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_computed_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expression of the computed column.
         """
         return pulumi.get(self, "column_computed_expression")
 
     @column_computed_expression.setter
-    def column_computed_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_computed_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_computed_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="columnComputedKind")
-    def column_computed_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_computed_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the computed column.
         """
         return pulumi.get(self, "column_computed_kind")
 
     @column_computed_kind.setter
-    def column_computed_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_computed_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_computed_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="columnComputedName")
-    def column_computed_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_computed_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the computed column.
         """
         return pulumi.get(self, "column_computed_name")
 
     @column_computed_name.setter
-    def column_computed_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_computed_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_computed_name", value)
 
     @_builtins.property
     @pulumi.getter(name="columnComputedType")
-    def column_computed_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_computed_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the computed column.
         """
         return pulumi.get(self, "column_computed_type")
 
     @column_computed_type.setter
-    def column_computed_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_computed_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_computed_type", value)
 
     @_builtins.property
     @pulumi.getter(name="columnComputedVirtual")
-    def column_computed_virtual(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def column_computed_virtual(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the computed column is virtual. Defaults to `false`.
         """
         return pulumi.get(self, "column_computed_virtual")
 
     @column_computed_virtual.setter
-    def column_computed_virtual(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def column_computed_virtual(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "column_computed_virtual", value)
 
 
 class FlinkMaterializedTableColumnColumnsMetadataArgsDict(TypedDict):
-    column_metadata_comment: NotRequired[pulumi.Input[_builtins.str]]
+    column_metadata_comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comment for the metadata column.
     """
-    column_metadata_key: NotRequired[pulumi.Input[_builtins.str]]
+    column_metadata_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Metadata key of the metadata column.
     """
-    column_metadata_kind: NotRequired[pulumi.Input[_builtins.str]]
+    column_metadata_kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of the metadata column.
     """
-    column_metadata_name: NotRequired[pulumi.Input[_builtins.str]]
+    column_metadata_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the metadata column.
     """
-    column_metadata_type: NotRequired[pulumi.Input[_builtins.str]]
+    column_metadata_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the metadata column.
     """
-    column_metadata_virtual: NotRequired[pulumi.Input[_builtins.bool]]
+    column_metadata_virtual: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the metadata column is virtual. Defaults to `false`.
 
@@ -3768,12 +3768,12 @@ class FlinkMaterializedTableColumnColumnsMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableColumnColumnsMetadataArgs:
     def __init__(__self__, *,
-                 column_metadata_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_metadata_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_metadata_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_metadata_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_metadata_virtual: Optional[pulumi.Input[_builtins.bool]] = None):
+                 column_metadata_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_metadata_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_metadata_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_metadata_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_metadata_virtual: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] column_metadata_comment: Comment for the metadata column.
         :param pulumi.Input[_builtins.str] column_metadata_key: Metadata key of the metadata column.
@@ -3815,67 +3815,67 @@ class FlinkMaterializedTableColumnColumnsMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataComment")
-    def column_metadata_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_metadata_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment for the metadata column.
         """
         return pulumi.get(self, "column_metadata_comment")
 
     @column_metadata_comment.setter
-    def column_metadata_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_metadata_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_metadata_comment", value)
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataKey")
-    def column_metadata_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_metadata_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metadata key of the metadata column.
         """
         return pulumi.get(self, "column_metadata_key")
 
     @column_metadata_key.setter
-    def column_metadata_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_metadata_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_metadata_key", value)
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataKind")
-    def column_metadata_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_metadata_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the metadata column.
         """
         return pulumi.get(self, "column_metadata_kind")
 
     @column_metadata_kind.setter
-    def column_metadata_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_metadata_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_metadata_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataName")
-    def column_metadata_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the metadata column.
         """
         return pulumi.get(self, "column_metadata_name")
 
     @column_metadata_name.setter
-    def column_metadata_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataType")
-    def column_metadata_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_metadata_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the metadata column.
         """
         return pulumi.get(self, "column_metadata_type")
 
     @column_metadata_type.setter
-    def column_metadata_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_metadata_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_metadata_type", value)
 
     @_builtins.property
     @pulumi.getter(name="columnMetadataVirtual")
-    def column_metadata_virtual(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def column_metadata_virtual(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the metadata column is virtual. Defaults to `false`.
 
@@ -3900,24 +3900,24 @@ class FlinkMaterializedTableColumnColumnsMetadataArgs:
         return pulumi.get(self, "column_metadata_virtual")
 
     @column_metadata_virtual.setter
-    def column_metadata_virtual(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def column_metadata_virtual(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "column_metadata_virtual", value)
 
 
 class FlinkMaterializedTableColumnColumnsPhysicalArgsDict(TypedDict):
-    column_physical_comment: NotRequired[pulumi.Input[_builtins.str]]
+    column_physical_comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comment for the physical column.
     """
-    column_physical_kind: NotRequired[pulumi.Input[_builtins.str]]
+    column_physical_kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kind of the physical column.
     """
-    column_physical_name: NotRequired[pulumi.Input[_builtins.str]]
+    column_physical_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the physical column.
     """
-    column_physical_type: NotRequired[pulumi.Input[_builtins.str]]
+    column_physical_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the physical column.
     """
@@ -3925,10 +3925,10 @@ class FlinkMaterializedTableColumnColumnsPhysicalArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableColumnColumnsPhysicalArgs:
     def __init__(__self__, *,
-                 column_physical_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_physical_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_physical_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_physical_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 column_physical_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_physical_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_physical_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_physical_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] column_physical_comment: Comment for the physical column.
         :param pulumi.Input[_builtins.str] column_physical_kind: Kind of the physical column.
@@ -3946,50 +3946,50 @@ class FlinkMaterializedTableColumnColumnsPhysicalArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnPhysicalComment")
-    def column_physical_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_physical_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment for the physical column.
         """
         return pulumi.get(self, "column_physical_comment")
 
     @column_physical_comment.setter
-    def column_physical_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_physical_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_physical_comment", value)
 
     @_builtins.property
     @pulumi.getter(name="columnPhysicalKind")
-    def column_physical_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_physical_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the physical column.
         """
         return pulumi.get(self, "column_physical_kind")
 
     @column_physical_kind.setter
-    def column_physical_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_physical_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_physical_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="columnPhysicalName")
-    def column_physical_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_physical_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the physical column.
         """
         return pulumi.get(self, "column_physical_name")
 
     @column_physical_name.setter
-    def column_physical_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_physical_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_physical_name", value)
 
     @_builtins.property
     @pulumi.getter(name="columnPhysicalType")
-    def column_physical_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_physical_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the physical column.
         """
         return pulumi.get(self, "column_physical_type")
 
     @column_physical_type.setter
-    def column_physical_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_physical_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_physical_type", value)
 
 
@@ -4022,19 +4022,19 @@ class FlinkMaterializedTableComputePoolArgs:
 
 
 class FlinkMaterializedTableConstraintArgsDict(TypedDict):
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The column names of the constraint.
     """
-    enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    enforced: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the constraint is enforced. Defaults to `false`.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the constraint, for example, `pk_orders`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the constraint, for example, `PRIMARY_KEY`.
     """
@@ -4042,10 +4042,10 @@ class FlinkMaterializedTableConstraintArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableConstraintArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: The column names of the constraint.
         :param pulumi.Input[_builtins.bool] enforced: Whether the constraint is enforced. Defaults to `false`.
@@ -4063,50 +4063,50 @@ class FlinkMaterializedTableConstraintArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The column names of the constraint.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the constraint is enforced. Defaults to `false`.
         """
         return pulumi.get(self, "enforced")
 
     @enforced.setter
-    def enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforced", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the constraint, for example, `pk_orders`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the constraint, for example, `PRIMARY_KEY`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -4158,11 +4158,11 @@ class FlinkMaterializedTableCredentialsArgs:
 
 
 class FlinkMaterializedTableDistributionArgsDict(TypedDict):
-    bucket_count: NotRequired[pulumi.Input[_builtins.int]]
+    bucket_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of buckets the table is distributed by.
     """
-    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The names of the columns the table is distributed by.
     """
@@ -4170,8 +4170,8 @@ class FlinkMaterializedTableDistributionArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableDistributionArgs:
     def __init__(__self__, *,
-                 bucket_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bucket_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] bucket_count: The number of buckets the table is distributed by.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: The names of the columns the table is distributed by.
@@ -4183,26 +4183,26 @@ class FlinkMaterializedTableDistributionArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketCount")
-    def bucket_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bucket_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of buckets the table is distributed by.
         """
         return pulumi.get(self, "bucket_count")
 
     @bucket_count.setter
-    def bucket_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bucket_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bucket_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the columns the table is distributed by.
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keys", value)
 
 
@@ -4319,11 +4319,11 @@ class FlinkMaterializedTablePrincipalArgs:
 
 
 class FlinkMaterializedTableWatermarkArgsDict(TypedDict):
-    column: NotRequired[pulumi.Input[_builtins.str]]
+    column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the watermark column.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The watermark expression, for example, `event_time - INTERVAL '5' SECOND`.
     """
@@ -4331,8 +4331,8 @@ class FlinkMaterializedTableWatermarkArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableWatermarkArgs:
     def __init__(__self__, *,
-                 column: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 column: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] column: The name of the watermark column.
         :param pulumi.Input[_builtins.str] expression: The watermark expression, for example, `event_time - INTERVAL '5' SECOND`.
@@ -4344,26 +4344,26 @@ class FlinkMaterializedTableWatermarkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the watermark column.
         """
         return pulumi.get(self, "column")
 
     @column.setter
-    def column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The watermark expression, for example, `event_time - INTERVAL '5' SECOND`.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
 
@@ -4543,7 +4543,7 @@ class GatewayAwsEgressPrivateLinkGatewayArgsDict(TypedDict):
     """
     AWS region of the Gateway, for example, `us-east-1`.
     """
-    principal_arn: NotRequired[pulumi.Input[_builtins.str]]
+    principal_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
     """
@@ -4552,7 +4552,7 @@ class GatewayAwsEgressPrivateLinkGatewayArgsDict(TypedDict):
 class GatewayAwsEgressPrivateLinkGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: AWS region of the Gateway, for example, `us-east-1`.
         :param pulumi.Input[_builtins.str] principal_arn: (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
@@ -4575,14 +4575,14 @@ class GatewayAwsEgressPrivateLinkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
         """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
 
@@ -4591,7 +4591,7 @@ class GatewayAwsIngressPrivateLinkGatewayArgsDict(TypedDict):
     """
     AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
     """
-    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
     """
@@ -4600,7 +4600,7 @@ class GatewayAwsIngressPrivateLinkGatewayArgsDict(TypedDict):
 class GatewayAwsIngressPrivateLinkGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
         :param pulumi.Input[_builtins.str] vpc_endpoint_service_name: (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
@@ -4623,14 +4623,14 @@ class GatewayAwsIngressPrivateLinkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
-    def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
         """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
     @vpc_endpoint_service_name.setter
-    def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
@@ -4643,7 +4643,7 @@ class GatewayAwsPrivateNetworkInterfaceGatewayArgsDict(TypedDict):
     """
     AWS availability zone ids of the Private Network Interface Gateway.
     """
-    account: NotRequired[pulumi.Input[_builtins.str]]
+    account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The AWS account ID associated with the Private Network Interface Gateway.
     """
@@ -4653,7 +4653,7 @@ class GatewayAwsPrivateNetworkInterfaceGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 account: Optional[pulumi.Input[_builtins.str]] = None):
+                 account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: AWS region of the Private Network Interface Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: AWS availability zone ids of the Private Network Interface Gateway.
@@ -4690,14 +4690,14 @@ class GatewayAwsPrivateNetworkInterfaceGatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The AWS account ID associated with the Private Network Interface Gateway.
         """
         return pulumi.get(self, "account")
 
     @account.setter
-    def account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account", value)
 
 
@@ -4706,7 +4706,7 @@ class GatewayAzureEgressPrivateLinkGatewayArgsDict(TypedDict):
     """
     Azure region of the Gateway, for example, `eastus`.
     """
-    subscription: NotRequired[pulumi.Input[_builtins.str]]
+    subscription: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
     """
@@ -4715,7 +4715,7 @@ class GatewayAzureEgressPrivateLinkGatewayArgsDict(TypedDict):
 class GatewayAzureEgressPrivateLinkGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 subscription: Optional[pulumi.Input[_builtins.str]] = None):
+                 subscription: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: Azure region of the Gateway, for example, `eastus`.
         :param pulumi.Input[_builtins.str] subscription: (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
@@ -4738,14 +4738,14 @@ class GatewayAzureEgressPrivateLinkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
         """
         return pulumi.get(self, "subscription")
 
     @subscription.setter
-    def subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription", value)
 
 
@@ -4754,11 +4754,11 @@ class GatewayAzureIngressPrivateLinkGatewayArgsDict(TypedDict):
     """
     Azure region of the Ingress Private Link Gateway, for example, `centralus`.
     """
-    private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Alias of the Confluent Cloud Private Link Service.
     """
-    private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Resource ID of the Confluent Cloud Private Link Service.
     """
@@ -4767,8 +4767,8 @@ class GatewayAzureIngressPrivateLinkGatewayArgsDict(TypedDict):
 class GatewayAzureIngressPrivateLinkGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 private_link_service_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_link_service_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: Azure region of the Ingress Private Link Gateway, for example, `centralus`.
         :param pulumi.Input[_builtins.str] private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
@@ -4794,26 +4794,26 @@ class GatewayAzureIngressPrivateLinkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceAlias")
-    def private_link_service_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Alias of the Confluent Cloud Private Link Service.
         """
         return pulumi.get(self, "private_link_service_alias")
 
     @private_link_service_alias.setter
-    def private_link_service_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceResourceId")
-    def private_link_service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Resource ID of the Confluent Cloud Private Link Service.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
     @private_link_service_resource_id.setter
-    def private_link_service_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_resource_id", value)
 
 
@@ -4850,7 +4850,7 @@ class GatewayGcpIngressPrivateServiceConnectGatewayArgsDict(TypedDict):
     """
     GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
     """
-    private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_service_attachment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
     """
@@ -4859,7 +4859,7 @@ class GatewayGcpIngressPrivateServiceConnectGatewayArgsDict(TypedDict):
 class GatewayGcpIngressPrivateServiceConnectGatewayArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 private_service_connect_service_attachment: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_service_connect_service_attachment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
         :param pulumi.Input[_builtins.str] private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
@@ -4882,14 +4882,14 @@ class GatewayGcpIngressPrivateServiceConnectGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
-    def private_service_connect_service_attachment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_service_attachment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
     @private_service_connect_service_attachment.setter
-    def private_service_connect_service_attachment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_service_attachment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_service_attachment", value)
 
 
@@ -4922,7 +4922,7 @@ class IdentityPoolIdentityProviderArgs:
 
 
 class InvitationCreatorArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The id of invitation creator.
     """
@@ -4930,7 +4930,7 @@ class InvitationCreatorArgsDict(TypedDict):
 @pulumi.input_type
 class InvitationCreatorArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: (Required String) The id of invitation creator.
         """
@@ -4939,19 +4939,19 @@ class InvitationCreatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The id of invitation creator.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
 class InvitationUserArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The id of invitation creator.
     """
@@ -4959,7 +4959,7 @@ class InvitationUserArgsDict(TypedDict):
 @pulumi.input_type
 class InvitationUserArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: (Required String) The id of invitation creator.
         """
@@ -4968,14 +4968,14 @@ class InvitationUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The id of invitation creator.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -5170,7 +5170,7 @@ class KafkaClientQuotaThroughputArgs:
 
 
 class KafkaClusterBasicArgsDict(TypedDict):
-    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    max_ecku: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
     """
@@ -5178,7 +5178,7 @@ class KafkaClusterBasicArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterBasicArgs:
     def __init__(__self__, *,
-                 max_ecku: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_ecku: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
@@ -5187,14 +5187,14 @@ class KafkaClusterBasicArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxEcku")
-    def max_ecku(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_ecku(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
         return pulumi.get(self, "max_ecku")
 
     @max_ecku.setter
-    def max_ecku(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_ecku(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_ecku", value)
 
 
@@ -5328,11 +5328,11 @@ class KafkaClusterDedicatedArgsDict(TypedDict):
 
     > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
     """
-    encryption_key: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Required List of String) The list of zones the cluster is in.
     - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5342,8 +5342,8 @@ class KafkaClusterDedicatedArgsDict(TypedDict):
 class KafkaClusterDedicatedArgs:
     def __init__(__self__, *,
                  cku: pulumi.Input[_builtins.int],
-                 encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
                
@@ -5390,19 +5390,19 @@ class KafkaClusterDedicatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of String) The list of zones the cluster is in.
         - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5410,24 +5410,24 @@ class KafkaClusterDedicatedArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 class KafkaClusterEndpointArgsDict(TypedDict):
-    access_point_id: NotRequired[pulumi.Input[_builtins.str]]
+    access_point_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
     """
-    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    bootstrap_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
     """
-    connection_type: NotRequired[pulumi.Input[_builtins.str]]
+    connection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
     """
@@ -5435,10 +5435,10 @@ class KafkaClusterEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterEndpointArgs:
     def __init__(__self__, *,
-                 access_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] access_point_id: (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
@@ -5456,55 +5456,55 @@ class KafkaClusterEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPointId")
-    def access_point_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_point_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
         """
         return pulumi.get(self, "access_point_id")
 
     @access_point_id.setter
-    def access_point_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_point_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_point_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapEndpoint")
-    def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
     @bootstrap_endpoint.setter
-    def bootstrap_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
         """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
-    def connection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
 class KafkaClusterEnterpriseArgsDict(TypedDict):
-    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    max_ecku: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
     """
@@ -5512,7 +5512,7 @@ class KafkaClusterEnterpriseArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterEnterpriseArgs:
     def __init__(__self__, *,
-                 max_ecku: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_ecku: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
@@ -5521,14 +5521,14 @@ class KafkaClusterEnterpriseArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxEcku")
-    def max_ecku(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_ecku(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
         return pulumi.get(self, "max_ecku")
 
     @max_ecku.setter
-    def max_ecku(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_ecku(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_ecku", value)
 
 
@@ -5561,11 +5561,11 @@ class KafkaClusterEnvironmentArgs:
 
 
 class KafkaClusterFreightArgsDict(TypedDict):
-    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    max_ecku: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Required List of String) The list of zones the cluster is in.
     - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5574,8 +5574,8 @@ class KafkaClusterFreightArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterFreightArgs:
     def __init__(__self__, *,
-                 max_ecku: Optional[pulumi.Input[_builtins.int]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 max_ecku: pulumi.Input[Optional[_builtins.int]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: (Required List of String) The list of zones the cluster is in.
@@ -5588,19 +5588,19 @@ class KafkaClusterFreightArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxEcku")
-    def max_ecku(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_ecku(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
         return pulumi.get(self, "max_ecku")
 
     @max_ecku.setter
-    def max_ecku(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_ecku(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_ecku", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of String) The list of zones the cluster is in.
         - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5608,7 +5608,7 @@ class KafkaClusterFreightArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -5641,7 +5641,7 @@ class KafkaClusterNetworkArgs:
 
 
 class KafkaClusterStandardArgsDict(TypedDict):
-    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    max_ecku: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
     """
@@ -5649,7 +5649,7 @@ class KafkaClusterStandardArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaClusterStandardArgs:
     def __init__(__self__, *,
-                 max_ecku: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_ecku: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
@@ -5658,14 +5658,14 @@ class KafkaClusterStandardArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxEcku")
-    def max_ecku(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_ecku(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         """
         return pulumi.get(self, "max_ecku")
 
     @max_ecku.setter
-    def max_ecku(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_ecku(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_ecku", value)
 
 
@@ -5702,11 +5702,11 @@ class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
     """
     The ID of the destination Kafka cluster, for example, `lkc-abc123`.
     """
-    credentials: NotRequired[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgs']]]
     """
     The Kafka API Credentials.
     """
-    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    rest_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -5715,8 +5715,8 @@ class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
 class KafkaMirrorTopicKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs'] credentials: The Kafka API Credentials.
@@ -5742,26 +5742,26 @@ class KafkaMirrorTopicKafkaClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgs']]:
         """
         The Kafka API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -6012,15 +6012,15 @@ class KsqlClusterKafkaClusterArgs:
 
 
 class NetworkAwArgsDict(TypedDict):
-    account: NotRequired[pulumi.Input[_builtins.str]]
+    account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The AWS account ID associated with the Confluent Cloud VPC.
     """
-    private_link_endpoint_service: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_endpoint_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
     """
-    vpc: NotRequired[pulumi.Input[_builtins.str]]
+    vpc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The Confluent Cloud VPC ID.
     """
@@ -6028,9 +6028,9 @@ class NetworkAwArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkAwArgs:
     def __init__(__self__, *,
-                 account: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc: Optional[pulumi.Input[_builtins.str]] = None):
+                 account: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account: (Required String) The AWS account ID associated with the Confluent Cloud VPC.
         :param pulumi.Input[_builtins.str] private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
@@ -6045,43 +6045,43 @@ class NetworkAwArgs:
 
     @_builtins.property
     @pulumi.getter
-    def account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The AWS account ID associated with the Confluent Cloud VPC.
         """
         return pulumi.get(self, "account")
 
     @account.setter
-    def account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkEndpointService")
-    def private_link_endpoint_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_endpoint_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         """
         return pulumi.get(self, "private_link_endpoint_service")
 
     @private_link_endpoint_service.setter
-    def private_link_endpoint_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_endpoint_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_endpoint_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Cloud VPC ID.
         """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc", value)
 
 
 class NetworkAzureArgsDict(TypedDict):
-    private_link_service_aliases: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    private_link_service_aliases: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
     """
@@ -6089,7 +6089,7 @@ class NetworkAzureArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkAzureArgs:
     def __init__(__self__, *,
-                 private_link_service_aliases: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 private_link_service_aliases: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] private_link_service_aliases: (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
         """
@@ -6098,14 +6098,14 @@ class NetworkAzureArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceAliases")
-    def private_link_service_aliases(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def private_link_service_aliases(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
         """
         return pulumi.get(self, "private_link_service_aliases")
 
     @private_link_service_aliases.setter
-    def private_link_service_aliases(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def private_link_service_aliases(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_link_service_aliases", value)
 
 
@@ -6175,7 +6175,7 @@ class NetworkEnvironmentArgs:
 
 
 class NetworkGatewayArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional String) The ID of the Gateway, for example, `gw-abc123`.
     """
@@ -6183,7 +6183,7 @@ class NetworkGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkGatewayArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         """
@@ -6192,27 +6192,27 @@ class NetworkGatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
 class NetworkGcpArgsDict(TypedDict):
-    private_service_connect_service_attachments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    private_service_connect_service_attachments: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
     """
-    project: NotRequired[pulumi.Input[_builtins.str]]
+    project: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
     """
-    vpc_network: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_network: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The network name of the Confluent Cloud VPC.
     """
@@ -6220,9 +6220,9 @@ class NetworkGcpArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkGcpArgs:
     def __init__(__self__, *,
-                 private_service_connect_service_attachments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_network: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_service_connect_service_attachments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_network: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         :param pulumi.Input[_builtins.str] project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
@@ -6237,38 +6237,38 @@ class NetworkGcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectServiceAttachments")
-    def private_service_connect_service_attachments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def private_service_connect_service_attachments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         """
         return pulumi.get(self, "private_service_connect_service_attachments")
 
     @private_service_connect_service_attachments.setter
-    def private_service_connect_service_attachments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def private_service_connect_service_attachments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_service_connect_service_attachments", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcNetwork")
-    def vpc_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The network name of the Confluent Cloud VPC.
         """
         return pulumi.get(self, "vpc_network")
 
     @vpc_network.setter
-    def vpc_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_network", value)
 
 
@@ -6357,11 +6357,11 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
 
 
 class NetworkLinkServiceAcceptArgsDict(TypedDict):
-    environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
     """
-    networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of network ids from which connections can be accepted.
     """
@@ -6369,8 +6369,8 @@ class NetworkLinkServiceAcceptArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkLinkServiceAcceptArgs:
     def __init__(__self__, *,
-                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] environments: List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] networks: List of network ids from which connections can be accepted.
@@ -6382,26 +6382,26 @@ class NetworkLinkServiceAcceptArgs:
 
     @_builtins.property
     @pulumi.getter
-    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
         """
         return pulumi.get(self, "environments")
 
     @environments.setter
-    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environments", value)
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of network ids from which connections can be accepted.
         """
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "networks", value)
 
 
@@ -6462,11 +6462,11 @@ class NetworkLinkServiceNetworkArgs:
 
 
 class NetworkZoneInfoArgsDict(TypedDict):
-    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
     """
-    zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cloud provider zone ID.
     """
@@ -6474,8 +6474,8 @@ class NetworkZoneInfoArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkZoneInfoArgs:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[_builtins.str] zone_id: Cloud provider zone ID.
@@ -6487,26 +6487,26 @@ class NetworkZoneInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cloud provider zone ID.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -6698,7 +6698,7 @@ class PeeringGcpArgsDict(TypedDict):
     """
     The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
     """
-    import_custom_routes: NotRequired[pulumi.Input[_builtins.bool]]
+    import_custom_routes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
 
@@ -6716,7 +6716,7 @@ class PeeringGcpArgs:
     def __init__(__self__, *,
                  project: pulumi.Input[_builtins.str],
                  vpc_network: pulumi.Input[_builtins.str],
-                 import_custom_routes: Optional[pulumi.Input[_builtins.bool]] = None):
+                 import_custom_routes: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] project: The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
         :param pulumi.Input[_builtins.str] vpc_network: The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
@@ -6761,7 +6761,7 @@ class PeeringGcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="importCustomRoutes")
-    def import_custom_routes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def import_custom_routes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
 
@@ -6776,7 +6776,7 @@ class PeeringGcpArgs:
         return pulumi.get(self, "import_custom_routes")
 
     @import_custom_routes.setter
-    def import_custom_routes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def import_custom_routes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "import_custom_routes", value)
 
 
@@ -6995,7 +6995,7 @@ class PrivateLinkAccessNetworkArgs:
 
 
 class PrivateLinkAttachmentAwArgsDict(TypedDict):
-    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
     """
@@ -7003,7 +7003,7 @@ class PrivateLinkAttachmentAwArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkAttachmentAwArgs:
     def __init__(__self__, *,
-                 vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
         """
@@ -7012,23 +7012,23 @@ class PrivateLinkAttachmentAwArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
-    def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
         """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
     @vpc_endpoint_service_name.setter
-    def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
 class PrivateLinkAttachmentAzureArgsDict(TypedDict):
-    private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Azure Private Link service alias for the availability zone.
     """
-    private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Azure Private Link service resource ID for the availability zone.
     """
@@ -7036,8 +7036,8 @@ class PrivateLinkAttachmentAzureArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkAttachmentAzureArgs:
     def __init__(__self__, *,
-                 private_link_service_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_link_service_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_link_service_alias: (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[_builtins.str] private_link_service_resource_id: (Required String) Azure Private Link service resource ID for the availability zone.
@@ -7049,26 +7049,26 @@ class PrivateLinkAttachmentAzureArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceAlias")
-    def private_link_service_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "private_link_service_alias")
 
     @private_link_service_alias.setter
-    def private_link_service_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceResourceId")
-    def private_link_service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Azure Private Link service resource ID for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
     @private_link_service_resource_id.setter
-    def private_link_service_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_resource_id", value)
 
 
@@ -7241,7 +7241,7 @@ class PrivateLinkAttachmentEnvironmentArgs:
 
 
 class PrivateLinkAttachmentGcpArgsDict(TypedDict):
-    private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
+    private_service_connect_service_attachment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
     """
@@ -7249,7 +7249,7 @@ class PrivateLinkAttachmentGcpArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkAttachmentGcpArgs:
     def __init__(__self__, *,
-                 private_service_connect_service_attachment: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_service_connect_service_attachment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] private_service_connect_service_attachment: (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
@@ -7258,14 +7258,14 @@ class PrivateLinkAttachmentGcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
-    def private_service_connect_service_attachment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_service_connect_service_attachment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
     @private_service_connect_service_attachment.setter
-    def private_service_connect_service_attachment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_service_connect_service_attachment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_service_connect_service_attachment", value)
 
 
@@ -7274,7 +7274,7 @@ class ProviderIntegrationAuthorizationAzureArgsDict(TypedDict):
     """
     Customer's Azure Tenant ID.
     """
-    confluent_multi_tenant_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    confluent_multi_tenant_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
     """
@@ -7283,7 +7283,7 @@ class ProviderIntegrationAuthorizationAzureArgsDict(TypedDict):
 class ProviderIntegrationAuthorizationAzureArgs:
     def __init__(__self__, *,
                  customer_azure_tenant_id: pulumi.Input[_builtins.str],
-                 confluent_multi_tenant_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 confluent_multi_tenant_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] customer_azure_tenant_id: Customer's Azure Tenant ID.
         :param pulumi.Input[_builtins.str] confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
@@ -7306,14 +7306,14 @@ class ProviderIntegrationAuthorizationAzureArgs:
 
     @_builtins.property
     @pulumi.getter(name="confluentMultiTenantAppId")
-    def confluent_multi_tenant_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confluent_multi_tenant_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
         """
         return pulumi.get(self, "confluent_multi_tenant_app_id")
 
     @confluent_multi_tenant_app_id.setter
-    def confluent_multi_tenant_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confluent_multi_tenant_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confluent_multi_tenant_app_id", value)
 
 
@@ -7352,7 +7352,7 @@ class ProviderIntegrationAuthorizationGcpArgsDict(TypedDict):
 
     > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
     """
-    google_service_account: NotRequired[pulumi.Input[_builtins.str]]
+    google_service_account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
     """
@@ -7361,7 +7361,7 @@ class ProviderIntegrationAuthorizationGcpArgsDict(TypedDict):
 class ProviderIntegrationAuthorizationGcpArgs:
     def __init__(__self__, *,
                  customer_google_service_account: pulumi.Input[_builtins.str],
-                 google_service_account: Optional[pulumi.Input[_builtins.str]] = None):
+                 google_service_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] customer_google_service_account: Customer's Google Service Account that Confluent Cloud impersonates.
                
@@ -7388,14 +7388,14 @@ class ProviderIntegrationAuthorizationGcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="googleServiceAccount")
-    def google_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_service_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
         """
         return pulumi.get(self, "google_service_account")
 
     @google_service_account.setter
-    def google_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_service_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_service_account", value)
 
 
@@ -7408,11 +7408,11 @@ class ProviderIntegrationAwsArgsDict(TypedDict):
 
     > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
     """
-    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
     """
@@ -7421,8 +7421,8 @@ class ProviderIntegrationAwsArgsDict(TypedDict):
 class ProviderIntegrationAwsArgs:
     def __init__(__self__, *,
                  customer_role_arn: pulumi.Input[_builtins.str],
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] customer_role_arn: Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
                
@@ -7456,26 +7456,26 @@ class ProviderIntegrationAwsArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
 
@@ -7540,27 +7540,27 @@ class ProviderOauthArgsDict(TypedDict):
     """
     OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
     """
-    oauth_external_access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_external_access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth existing static access token already fetched from external Identity Provider.
     """
-    oauth_external_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_external_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth token application client id from external Identity Provider.
     """
-    oauth_external_client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_external_client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth token application client secret from external Identity Provider.
     """
-    oauth_external_token_scope: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_external_token_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
     """
-    oauth_external_token_url: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_external_token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth token URL to fetch access token from external Identity Provider.
     """
-    oauth_sts_token_expired_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_sts_token_expired_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth STS access token expired in second from Confluent Cloud
     """
@@ -7569,12 +7569,12 @@ class ProviderOauthArgsDict(TypedDict):
 class ProviderOauthArgs:
     def __init__(__self__, *,
                  oauth_identity_pool_id: pulumi.Input[_builtins.str],
-                 oauth_external_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_external_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_external_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_external_token_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_external_token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_sts_token_expired_in_seconds: Optional[pulumi.Input[_builtins.str]] = None):
+                 oauth_external_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_external_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_external_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_external_token_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_external_token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_sts_token_expired_in_seconds: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] oauth_identity_pool_id: OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
         :param pulumi.Input[_builtins.str] oauth_external_access_token: OAuth existing static access token already fetched from external Identity Provider.
@@ -7612,74 +7612,74 @@ class ProviderOauthArgs:
 
     @_builtins.property
     @pulumi.getter(name="oauthExternalAccessToken")
-    def oauth_external_access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_external_access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth existing static access token already fetched from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_access_token")
 
     @oauth_external_access_token.setter
-    def oauth_external_access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_external_access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_external_access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthExternalClientId")
-    def oauth_external_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_external_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth token application client id from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_client_id")
 
     @oauth_external_client_id.setter
-    def oauth_external_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_external_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_external_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthExternalClientSecret")
-    def oauth_external_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_external_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth token application client secret from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_client_secret")
 
     @oauth_external_client_secret.setter
-    def oauth_external_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_external_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_external_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthExternalTokenScope")
-    def oauth_external_token_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_external_token_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
         """
         return pulumi.get(self, "oauth_external_token_scope")
 
     @oauth_external_token_scope.setter
-    def oauth_external_token_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_external_token_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_external_token_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthExternalTokenUrl")
-    def oauth_external_token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_external_token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth token URL to fetch access token from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_token_url")
 
     @oauth_external_token_url.setter
-    def oauth_external_token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_external_token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_external_token_url", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthStsTokenExpiredInSeconds")
-    def oauth_sts_token_expired_in_seconds(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_sts_token_expired_in_seconds(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth STS access token expired in second from Confluent Cloud
         """
         return pulumi.get(self, "oauth_sts_token_expired_in_seconds")
 
     @oauth_sts_token_expired_in_seconds.setter
-    def oauth_sts_token_expired_in_seconds(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_sts_token_expired_in_seconds(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_sts_token_expired_in_seconds", value)
 
 
@@ -7800,8 +7800,8 @@ class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
     """
     The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    credentials: NotRequired[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']]
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    credentials: NotRequired[pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
     """
@@ -7810,8 +7810,8 @@ class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
 class SchemaExporterDestinationSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  rest_endpoint: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] id: The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
@@ -7836,23 +7836,23 @@ class SchemaExporterDestinationSchemaRegistryClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -7932,22 +7932,22 @@ class SchemaExporterSchemaRegistryClusterArgs:
 
 
 class SchemaMetadataArgsDict(TypedDict):
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The custom properties to set:
     """
-    sensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    sensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of metadata properties to be encrypted.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]]
 
 @pulumi.input_type
 class SchemaMetadataArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sensitives: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sensitives: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom properties to set:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sensitives: A list of metadata properties to be encrypted.
@@ -7961,47 +7961,47 @@ class SchemaMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom properties to set:
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def sensitives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sensitives(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of metadata properties to be encrypted.
         """
         return pulumi.get(self, "sensitives")
 
     @sensitives.setter
-    def sensitives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sensitives(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sensitives", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class SchemaMetadataTagArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SchemaMetadataTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -8009,20 +8009,20 @@ class SchemaMetadataTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -8369,15 +8369,15 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
 
 
 class SchemaRulesetArgsDict(TypedDict):
-    domain_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]
+    domain_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]]
     """
     supports the following:
     """
-    encoding_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgsDict']]]]
+    encoding_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]]
     """
     supports the following:
     """
-    migration_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]
+    migration_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]]
     """
     supports the following:
     """
@@ -8385,9 +8385,9 @@ class SchemaRulesetArgsDict(TypedDict):
 @pulumi.input_type
 class SchemaRulesetArgs:
     def __init__(__self__, *,
-                 domain_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]] = None,
-                 encoding_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]] = None,
-                 migration_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]] = None):
+                 domain_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]] = None,
+                 encoding_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]] = None,
+                 migration_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]] domain_rules: supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]] encoding_rules: supports the following:
@@ -8402,38 +8402,38 @@ class SchemaRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainRules")
-    def domain_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]:
+    def domain_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]:
         """
         supports the following:
         """
         return pulumi.get(self, "domain_rules")
 
     @domain_rules.setter
-    def domain_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]):
+    def domain_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]):
         pulumi.set(self, "domain_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="encodingRules")
-    def encoding_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]:
+    def encoding_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]:
         """
         supports the following:
         """
         return pulumi.get(self, "encoding_rules")
 
     @encoding_rules.setter
-    def encoding_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]):
+    def encoding_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]):
         pulumi.set(self, "encoding_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationRules")
-    def migration_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]:
+    def migration_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]:
         """
         supports the following:
         """
         return pulumi.get(self, "migration_rules")
 
     @migration_rules.setter
-    def migration_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]):
+    def migration_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]):
         pulumi.set(self, "migration_rules", value)
 
 
@@ -8442,13 +8442,13 @@ class SchemaRulesetDomainRuleArgsDict(TypedDict):
     mode: pulumi.Input[_builtins.str]
     name: pulumi.Input[_builtins.str]
     type: pulumi.Input[_builtins.str]
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
-    doc: NotRequired[pulumi.Input[_builtins.str]]
-    expr: NotRequired[pulumi.Input[_builtins.str]]
-    on_failure: NotRequired[pulumi.Input[_builtins.str]]
-    on_success: NotRequired[pulumi.Input[_builtins.str]]
-    params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_success: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SchemaRulesetDomainRuleArgs:
@@ -8457,13 +8457,13 @@ class SchemaRulesetDomainRuleArgs:
                  mode: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 expr: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_failure: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_success: Optional[pulumi.Input[_builtins.str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 expr: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_failure: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_success: pulumi.Input[Optional[_builtins.str]] = None,
+                 params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "name", name)
@@ -8521,65 +8521,65 @@ class SchemaRulesetDomainRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
     @_builtins.property
     @pulumi.getter
-    def expr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expr(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expr")
 
     @expr.setter
-    def expr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expr", value)
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_failure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_success(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_success(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_success", value)
 
     @_builtins.property
     @pulumi.getter
-    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "params")
 
     @params.setter
-    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "params", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -8588,13 +8588,13 @@ class SchemaRulesetEncodingRuleArgsDict(TypedDict):
     mode: pulumi.Input[_builtins.str]
     name: pulumi.Input[_builtins.str]
     type: pulumi.Input[_builtins.str]
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
-    doc: NotRequired[pulumi.Input[_builtins.str]]
-    expr: NotRequired[pulumi.Input[_builtins.str]]
-    on_failure: NotRequired[pulumi.Input[_builtins.str]]
-    on_success: NotRequired[pulumi.Input[_builtins.str]]
-    params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_success: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SchemaRulesetEncodingRuleArgs:
@@ -8603,13 +8603,13 @@ class SchemaRulesetEncodingRuleArgs:
                  mode: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 expr: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_failure: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_success: Optional[pulumi.Input[_builtins.str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 expr: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_failure: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_success: pulumi.Input[Optional[_builtins.str]] = None,
+                 params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "name", name)
@@ -8667,65 +8667,65 @@ class SchemaRulesetEncodingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
     @_builtins.property
     @pulumi.getter
-    def expr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expr(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expr")
 
     @expr.setter
-    def expr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expr", value)
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_failure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_success(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_success(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_success", value)
 
     @_builtins.property
     @pulumi.getter
-    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "params")
 
     @params.setter
-    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "params", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -8734,13 +8734,13 @@ class SchemaRulesetMigrationRuleArgsDict(TypedDict):
     mode: pulumi.Input[_builtins.str]
     name: pulumi.Input[_builtins.str]
     type: pulumi.Input[_builtins.str]
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
-    doc: NotRequired[pulumi.Input[_builtins.str]]
-    expr: NotRequired[pulumi.Input[_builtins.str]]
-    on_failure: NotRequired[pulumi.Input[_builtins.str]]
-    on_success: NotRequired[pulumi.Input[_builtins.str]]
-    params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_success: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SchemaRulesetMigrationRuleArgs:
@@ -8749,13 +8749,13 @@ class SchemaRulesetMigrationRuleArgs:
                  mode: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 doc: Optional[pulumi.Input[_builtins.str]] = None,
-                 expr: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_failure: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_success: Optional[pulumi.Input[_builtins.str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 doc: pulumi.Input[Optional[_builtins.str]] = None,
+                 expr: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_failure: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_success: pulumi.Input[Optional[_builtins.str]] = None,
+                 params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "name", name)
@@ -8813,65 +8813,65 @@ class SchemaRulesetMigrationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
     @_builtins.property
     @pulumi.getter
-    def expr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expr(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expr")
 
     @expr.setter
-    def expr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expr", value)
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_failure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_success(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_success(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_success", value)
 
     @_builtins.property
     @pulumi.getter
-    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "params")
 
     @params.setter
-    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "params", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -9168,7 +9168,7 @@ class TableflowTopicAzureDataLakeStorageGen2ArgsDict(TypedDict):
     """
     The storage account name.
     """
-    storage_region: NotRequired[pulumi.Input[_builtins.str]]
+    storage_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The storage region.
     """
@@ -9179,7 +9179,7 @@ class TableflowTopicAzureDataLakeStorageGen2Args:
                  container_name: pulumi.Input[_builtins.str],
                  provider_integration_id: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 storage_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_name: The container name.
         :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
@@ -9230,14 +9230,14 @@ class TableflowTopicAzureDataLakeStorageGen2Args:
 
     @_builtins.property
     @pulumi.getter(name="storageRegion")
-    def storage_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The storage region.
         """
         return pulumi.get(self, "storage_region")
 
     @storage_region.setter
-    def storage_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_region", value)
 
 
@@ -9250,7 +9250,7 @@ class TableflowTopicByobAwsArgsDict(TypedDict):
     """
     The provider integration id.
     """
-    bucket_region: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The bucket region.
     """
@@ -9260,7 +9260,7 @@ class TableflowTopicByobAwsArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  provider_integration_id: pulumi.Input[_builtins.str],
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The bucket name.
         :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
@@ -9297,14 +9297,14 @@ class TableflowTopicByobAwsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The bucket region.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
 
@@ -9402,11 +9402,11 @@ class TableflowTopicEnvironmentArgs:
 
 
 class TableflowTopicErrorHandlingArgsDict(TypedDict):
-    log_target: NotRequired[pulumi.Input[_builtins.str]]
+    log_target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
     """
-    mode: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
     """
@@ -9414,8 +9414,8 @@ class TableflowTopicErrorHandlingArgsDict(TypedDict):
 @pulumi.input_type
 class TableflowTopicErrorHandlingArgs:
     def __init__(__self__, *,
-                 log_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_target: The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
         :param pulumi.Input[_builtins.str] mode: The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
@@ -9427,26 +9427,26 @@ class TableflowTopicErrorHandlingArgs:
 
     @_builtins.property
     @pulumi.getter(name="logTarget")
-    def log_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
         """
         return pulumi.get(self, "log_target")
 
     @log_target.setter
-    def log_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_target", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
 
@@ -9652,7 +9652,7 @@ class TransitGatewayAttachmentAwsArgsDict(TypedDict):
     """
     The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
     """
-    transit_gateway_attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    transit_gateway_attachment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
     """
@@ -9663,7 +9663,7 @@ class TransitGatewayAttachmentAwsArgs:
                  ram_resource_share_arn: pulumi.Input[_builtins.str],
                  routes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  transit_gateway_id: pulumi.Input[_builtins.str],
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ram_resource_share_arn: The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] routes: List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
@@ -9718,14 +9718,14 @@ class TransitGatewayAttachmentAwsArgs:
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 

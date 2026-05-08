@@ -122,9 +122,9 @@ export interface GetServiceAccountOutputArgs {
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Account (e.g., `sa-abc123`).
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

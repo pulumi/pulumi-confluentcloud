@@ -145,8 +145,8 @@ export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getKafkaTopic.
  */
 export interface GetKafkaTopicOutputArgs {
-    credentials?: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs>;
-    kafkaCluster?: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
+    credentials?: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs | undefined>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */

@@ -22,17 +22,17 @@ __all__ = ['SchemaExporterArgs', 'SchemaExporter']
 class SchemaExporterArgs:
     def __init__(__self__, *,
                  destination_schema_registry_cluster: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs'],
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaExporterCredentialsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_rename_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaExporterCredentialsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchemaExporter resource.
 
@@ -84,67 +84,67 @@ class SchemaExporterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for custom *nonsensitive* configuration properties:
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customized context of the exporter if `context_type` is set to `CUSTOM`.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="contextType")
-    def context_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         """
         return pulumi.get(self, "context_type")
 
     @context_type.setter
-    def context_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaExporterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaExporterCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaExporterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaExporterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Schema Exporter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resetOnUpdate")
-    def reset_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reset_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 
@@ -153,82 +153,82 @@ class SchemaExporterArgs:
         return pulumi.get(self, "reset_on_update")
 
     @reset_on_update.setter
-    def reset_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reset_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reset_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectRenameFormat")
-    def subject_rename_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_rename_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         """
         return pulumi.get(self, "subject_rename_format")
 
     @subject_rename_format.setter
-    def subject_rename_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_rename_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_rename_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def subjects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subjects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Name of each exporter subject.
         """
         return pulumi.get(self, "subjects")
 
     @subjects.setter
-    def subjects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subjects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subjects", value)
 
 
 @pulumi.input_type
 class _SchemaExporterState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaExporterCredentialsArgs']] = None,
-                 destination_schema_registry_cluster: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_rename_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaExporterCredentialsArgs']] = None,
+                 destination_schema_registry_cluster: pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SchemaExporter resources.
 
@@ -272,76 +272,76 @@ class _SchemaExporterState:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Block for custom *nonsensitive* configuration properties:
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customized context of the exporter if `context_type` is set to `CUSTOM`.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="contextType")
-    def context_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         """
         return pulumi.get(self, "context_type")
 
     @context_type.setter
-    def context_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaExporterCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaExporterCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaExporterCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaExporterCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationSchemaRegistryCluster")
-    def destination_schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs']]:
+    def destination_schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "destination_schema_registry_cluster")
 
     @destination_schema_registry_cluster.setter
-    def destination_schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs']]):
+    def destination_schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterArgs']]):
         pulumi.set(self, "destination_schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Schema Exporter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resetOnUpdate")
-    def reset_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reset_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 
@@ -350,64 +350,64 @@ class _SchemaExporterState:
         return pulumi.get(self, "reset_on_update")
 
     @reset_on_update.setter
-    def reset_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reset_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reset_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaExporterSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectRenameFormat")
-    def subject_rename_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_rename_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         """
         return pulumi.get(self, "subject_rename_format")
 
     @subject_rename_format.setter
-    def subject_rename_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_rename_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_rename_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def subjects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subjects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Name of each exporter subject.
         """
         return pulumi.get(self, "subjects")
 
     @subjects.setter
-    def subjects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subjects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subjects", value)
 
 
@@ -417,18 +417,18 @@ class SchemaExporter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
-                 destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_rename_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+                 destination_schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -640,18 +640,18 @@ class SchemaExporter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
-                 destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_rename_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+                 destination_schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -687,18 +687,18 @@ class SchemaExporter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            context: Optional[pulumi.Input[_builtins.str]] = None,
-            context_type: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
-            destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            reset_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_rename_format: Optional[pulumi.Input[_builtins.str]] = None,
-            subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SchemaExporter':
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            context_type: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+            destination_schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+            subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SchemaExporter':
         """
         Get an existing SchemaExporter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

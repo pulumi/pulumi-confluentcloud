@@ -178,28 +178,28 @@ export interface BusinessMetadataState {
     /**
      * The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
      */
-    attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.BusinessMetadataAttributeDefinition>[]>;
+    attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.BusinessMetadataAttributeDefinition>[] | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.BusinessMetadataCredentials>;
+    credentials?: pulumi.Input<inputs.BusinessMetadataCredentials | undefined>;
     /**
      * The description of the Business Metadata.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.BusinessMetadataSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.BusinessMetadataSchemaRegistryCluster | undefined>;
     /**
      * (Required Integer) The version of the Business Metadata, for example, `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -209,22 +209,22 @@ export interface BusinessMetadataArgs {
     /**
      * The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
      */
-    attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.BusinessMetadataAttributeDefinition>[]>;
+    attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.BusinessMetadataAttributeDefinition>[] | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.BusinessMetadataCredentials>;
+    credentials?: pulumi.Input<inputs.BusinessMetadataCredentials | undefined>;
     /**
      * The description of the Business Metadata.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.BusinessMetadataSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.BusinessMetadataSchemaRegistryCluster | undefined>;
 }

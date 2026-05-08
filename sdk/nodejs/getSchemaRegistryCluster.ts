@@ -178,10 +178,10 @@ export interface GetSchemaRegistryClusterOutputArgs {
     /**
      * The name for the Schema Registry cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     environment: pulumi.Input<inputs.GetSchemaRegistryClusterEnvironmentArgs>;
     /**
      * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

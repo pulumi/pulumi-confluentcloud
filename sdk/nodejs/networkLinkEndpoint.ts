@@ -153,24 +153,24 @@ export interface NetworkLinkEndpointState {
     /**
      * The description of the Network Link Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Link Endpoint.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.NetworkLinkEndpointEnvironment>;
+    environment?: pulumi.Input<inputs.NetworkLinkEndpointEnvironment | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.NetworkLinkEndpointNetwork>;
-    networkLinkService?: pulumi.Input<inputs.NetworkLinkEndpointNetworkLinkService>;
+    network?: pulumi.Input<inputs.NetworkLinkEndpointNetwork | undefined>;
+    networkLinkService?: pulumi.Input<inputs.NetworkLinkEndpointNetworkLinkService | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Network Link Endpoint.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface NetworkLinkEndpointArgs {
     /**
      * The description of the Network Link Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Link Endpoint.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

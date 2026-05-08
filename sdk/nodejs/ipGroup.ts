@@ -115,11 +115,11 @@ export interface IpGroupState {
     /**
      * A list of CIDRs.
      */
-    cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A human-readable name for an IP Group. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -127,9 +127,9 @@ def get_environment(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_name=pulumi.get(__ret__, 'resource_name'),
         stream_governance=pulumi.get(__ret__, 'stream_governance'))
-def get_environment_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           stream_governance: Optional[pulumi.Input[Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']]]] = None,
+def get_environment_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           stream_governance: pulumi.Input[Optional[Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

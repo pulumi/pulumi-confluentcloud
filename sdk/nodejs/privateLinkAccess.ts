@@ -226,38 +226,38 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrivateLinkAccess resources.
  */
 export interface PrivateLinkAccessState {
-    aws?: pulumi.Input<inputs.PrivateLinkAccessAws>;
-    azure?: pulumi.Input<inputs.PrivateLinkAccessAzure>;
+    aws?: pulumi.Input<inputs.PrivateLinkAccessAws | undefined>;
+    azure?: pulumi.Input<inputs.PrivateLinkAccessAzure | undefined>;
     /**
      * The name of the Private Link Access.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
-    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
+    environment?: pulumi.Input<inputs.PrivateLinkAccessEnvironment | undefined>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    network?: pulumi.Input<inputs.PrivateLinkAccessNetwork>;
+    network?: pulumi.Input<inputs.PrivateLinkAccessNetwork | undefined>;
 }
 
 /**
  * The set of arguments for constructing a PrivateLinkAccess resource.
  */
 export interface PrivateLinkAccessArgs {
-    aws?: pulumi.Input<inputs.PrivateLinkAccessAws>;
-    azure?: pulumi.Input<inputs.PrivateLinkAccessAzure>;
+    aws?: pulumi.Input<inputs.PrivateLinkAccessAws | undefined>;
+    azure?: pulumi.Input<inputs.PrivateLinkAccessAzure | undefined>;
     /**
      * The name of the Private Link Access.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
-    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */

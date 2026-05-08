@@ -202,11 +202,11 @@ export interface SchemaRegistryKekState {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials | undefined>;
     /**
      * The optional description for the KEK.
      */
-    doc?: pulumi.Input<string>;
+    doc?: pulumi.Input<string | undefined>;
     /**
      * The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
      *
@@ -216,35 +216,35 @@ export interface SchemaRegistryKekState {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.SchemaRegistryKek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    hardDelete?: pulumi.Input<boolean>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the key from KMS. 
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
      * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
      * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
      */
-    kmsType?: pulumi.Input<string>;
+    kmsType?: pulumi.Input<string | undefined>;
     /**
      * The name for the KEK.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster | undefined>;
     /**
      * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
      */
-    shared?: pulumi.Input<boolean>;
+    shared?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -254,11 +254,11 @@ export interface SchemaRegistryKekArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials | undefined>;
     /**
      * The optional description for the KEK.
      */
-    doc?: pulumi.Input<string>;
+    doc?: pulumi.Input<string | undefined>;
     /**
      * The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
      *
@@ -268,7 +268,7 @@ export interface SchemaRegistryKekArgs {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.SchemaRegistryKek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    hardDelete?: pulumi.Input<boolean>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the key from KMS. 
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -283,18 +283,18 @@ export interface SchemaRegistryKekArgs {
     /**
      * The name for the KEK.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster | undefined>;
     /**
      * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
      */
-    shared?: pulumi.Input<boolean>;
+    shared?: pulumi.Input<boolean | undefined>;
 }

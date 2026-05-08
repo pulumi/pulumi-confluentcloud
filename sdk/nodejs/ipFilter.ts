@@ -144,23 +144,23 @@ export interface IpFilterState {
     /**
      * A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
      */
-    filterName?: pulumi.Input<string>;
+    filterName?: pulumi.Input<string | undefined>;
     /**
      * A list of IP Groups.
      */
-    ipGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    ipGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ipGroups` attribute).
      */
-    operationGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    operationGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
      */
-    resourceScope?: pulumi.Input<string>;
+    resourceScope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface IpFilterArgs {
     /**
      * Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ipGroups` attribute).
      */
-    operationGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    operationGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
      */
@@ -186,5 +186,5 @@ export interface IpFilterArgs {
     /**
      * A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
      */
-    resourceScope?: pulumi.Input<string>;
+    resourceScope?: pulumi.Input<string | undefined>;
 }

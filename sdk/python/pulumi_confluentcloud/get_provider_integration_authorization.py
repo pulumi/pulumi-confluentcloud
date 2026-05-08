@@ -235,8 +235,8 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'),
         provider_integration_id=pulumi.get(__ret__, 'provider_integration_id'))
-def get_provider_integration_authorization_output(environment: Optional[pulumi.Input[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-                                                  id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_provider_integration_authorization_output(environment: pulumi.Input[Optional[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
+                                                  id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationAuthorizationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

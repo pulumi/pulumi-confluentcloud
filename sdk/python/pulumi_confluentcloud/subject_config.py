@@ -22,13 +22,13 @@ __all__ = ['SubjectConfigArgs', 'SubjectConfig']
 class SubjectConfigArgs:
     def __init__(__self__, *,
                  subject_name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SubjectConfigCredentialsArgs']] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SubjectConfig resource.
 
@@ -80,7 +80,7 @@ class SubjectConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
 
@@ -89,90 +89,90 @@ class SubjectConfigArgs:
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
-    def compatibility_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compatibility Group of the specified subject.
         """
         return pulumi.get(self, "compatibility_group")
 
     @compatibility_group.setter
-    def compatibility_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_group", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SubjectConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SubjectConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SubjectConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SubjectConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def normalize(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether schemas are automatically normalized when registered or passed during lookups.
         """
         return pulumi.get(self, "normalize")
 
     @normalize.setter
-    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def normalize(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
 
 @pulumi.input_type
 class _SubjectConfigState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SubjectConfigCredentialsArgs']] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubjectConfig resources.
 
@@ -209,7 +209,7 @@ class _SubjectConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
 
@@ -218,81 +218,81 @@ class _SubjectConfigState:
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
-    def compatibility_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compatibility Group of the specified subject.
         """
         return pulumi.get(self, "compatibility_group")
 
     @compatibility_group.setter
-    def compatibility_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_group", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
     @compatibility_level.setter
-    def compatibility_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SubjectConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SubjectConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SubjectConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SubjectConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def normalize(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether schemas are automatically normalized when registered or passed during lookups.
         """
         return pulumi.get(self, "normalize")
 
     @normalize.setter
-    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def normalize(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SubjectConfigSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
 
@@ -303,7 +303,7 @@ class _SubjectConfigState:
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
-    def subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name", value)
 
 
@@ -313,14 +313,14 @@ class SubjectConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -513,14 +513,14 @@ class SubjectConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
-                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+                 normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,14 +552,14 @@ class SubjectConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
-            compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
-            normalize: Optional[pulumi.Input[_builtins.bool]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
-            subject_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'SubjectConfig':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+            normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubjectConfig':
         """
         Get an existing SubjectConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

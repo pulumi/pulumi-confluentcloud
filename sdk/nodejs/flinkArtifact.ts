@@ -197,57 +197,57 @@ export interface FlinkArtifactState {
     /**
      * (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
-    artifactFile?: pulumi.Input<string>;
+    artifactFile?: pulumi.Input<string | undefined>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      *
      * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    class?: pulumi.Input<string>;
+    class?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
-    contentFormat?: pulumi.Input<string>;
+    contentFormat?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Description of the Flink Artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Documentation link of the Flink Artifact.
      */
-    documentationLink?: pulumi.Input<string>;
+    documentationLink?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.FlinkArtifactEnvironment>;
+    environment?: pulumi.Input<inputs.FlinkArtifactEnvironment | undefined>;
     /**
      * (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider region that hosts the Flink Artifact.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
-    runtimeLanguage?: pulumi.Input<string>;
+    runtimeLanguage?: pulumi.Input<string | undefined>;
     /**
      * List of versions for this Flink Artifact.
      */
-    versions?: pulumi.Input<pulumi.Input<inputs.FlinkArtifactVersion>[]>;
+    versions?: pulumi.Input<pulumi.Input<inputs.FlinkArtifactVersion>[] | undefined>;
 }
 
 /**
@@ -257,13 +257,13 @@ export interface FlinkArtifactArgs {
     /**
      * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
-    artifactFile?: pulumi.Input<string>;
+    artifactFile?: pulumi.Input<string | undefined>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      *
      * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    class?: pulumi.Input<string>;
+    class?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
@@ -271,11 +271,11 @@ export interface FlinkArtifactArgs {
     /**
      * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
-    contentFormat?: pulumi.Input<string>;
+    contentFormat?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) Description of the Flink Artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
@@ -283,7 +283,7 @@ export interface FlinkArtifactArgs {
     /**
      * (Optional String) Documentation link of the Flink Artifact.
      */
-    documentationLink?: pulumi.Input<string>;
+    documentationLink?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -295,5 +295,5 @@ export interface FlinkArtifactArgs {
     /**
      * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
-    runtimeLanguage?: pulumi.Input<string>;
+    runtimeLanguage?: pulumi.Input<string | undefined>;
 }

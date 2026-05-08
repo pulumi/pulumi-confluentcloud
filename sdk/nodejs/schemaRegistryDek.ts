@@ -193,15 +193,15 @@ export interface SchemaRegistryDekState {
     /**
      * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
      */
-    algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials | undefined>;
     /**
      * The encrypted key material for the DEK.
      */
-    encryptedKeyMaterial?: pulumi.Input<string>;
+    encryptedKeyMaterial?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
      *
@@ -211,28 +211,28 @@ export interface SchemaRegistryDekState {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.SchemaRegistryDek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    hardDelete?: pulumi.Input<boolean>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the KEK used to encrypt this DEK.
      */
-    kekName?: pulumi.Input<string>;
+    kekName?: pulumi.Input<string | undefined>;
     /**
      * (Optional String) The decrypted version of encrypted key material.
      */
-    keyMaterial?: pulumi.Input<string>;
+    keyMaterial?: pulumi.Input<string | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster | undefined>;
     /**
      * The subject for this DEK.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
     /**
      * The version of this DEK. Defaults to `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -242,15 +242,15 @@ export interface SchemaRegistryDekArgs {
     /**
      * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
      */
-    algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials | undefined>;
     /**
      * The encrypted key material for the DEK.
      */
-    encryptedKeyMaterial?: pulumi.Input<string>;
+    encryptedKeyMaterial?: pulumi.Input<string | undefined>;
     /**
      * An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
      *
@@ -260,7 +260,7 @@ export interface SchemaRegistryDekArgs {
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.SchemaRegistryDek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
-    hardDelete?: pulumi.Input<boolean>;
+    hardDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the KEK used to encrypt this DEK.
      */
@@ -268,8 +268,8 @@ export interface SchemaRegistryDekArgs {
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster | undefined>;
     /**
      * The subject for this DEK.
      */
@@ -277,5 +277,5 @@ export interface SchemaRegistryDekArgs {
     /**
      * The version of this DEK. Defaults to `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }

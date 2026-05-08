@@ -23,8 +23,8 @@ class CertificateAuthorityArgs:
                  certificate_chain_filename: pulumi.Input[_builtins.str],
                  description: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 crl_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
 
@@ -94,43 +94,43 @@ class CertificateAuthorityArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlChain")
-    def crl_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A PEM encoded string containing the CRL for this certificate authority.
         """
         return pulumi.get(self, "crl_chain")
 
     @crl_chain.setter
-    def crl_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="crlUrl")
-    def crl_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url from which to fetch the CRL for the certificate authority.
         """
         return pulumi.get(self, "crl_url")
 
     @crl_url.setter
-    def crl_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_url", value)
 
 
 @pulumi.input_type
 class _CertificateAuthorityState:
     def __init__(__self__, *,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fingerprints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 serial_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fingerprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 serial_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthority resources.
 
@@ -171,134 +171,134 @@ class _CertificateAuthorityState:
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A PEM encoded string containing the signing certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChainFilename")
-    def certificate_chain_filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain_filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the certificate file.
         """
         return pulumi.get(self, "certificate_chain_filename")
 
     @certificate_chain_filename.setter
-    def certificate_chain_filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain_filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain_filename", value)
 
     @_builtins.property
     @pulumi.getter(name="crlChain")
-    def crl_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A PEM encoded string containing the CRL for this certificate authority.
         """
         return pulumi.get(self, "crl_chain")
 
     @crl_chain.setter
-    def crl_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="crlSource")
-    def crl_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
         """
         return pulumi.get(self, "crl_source")
 
     @crl_source.setter
-    def crl_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_source", value)
 
     @_builtins.property
     @pulumi.getter(name="crlUpdatedAt")
-    def crl_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The timestamp for when CRL was last updated.
         """
         return pulumi.get(self, "crl_updated_at")
 
     @crl_updated_at.setter
-    def crl_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="crlUrl")
-    def crl_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url from which to fetch the CRL for the certificate authority.
         """
         return pulumi.get(self, "crl_url")
 
     @crl_url.setter
-    def crl_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Certificate Authority.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Certificate Authority.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDates")
-    def expiration_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expiration_dates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) The expiration dates of certificates in the chain.
         """
         return pulumi.get(self, "expiration_dates")
 
     @expiration_dates.setter
-    def expiration_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expiration_dates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expiration_dates", value)
 
     @_builtins.property
     @pulumi.getter
-    def fingerprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fingerprints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) The fingerprints for each certificate in the certificate chain.
         """
         return pulumi.get(self, "fingerprints")
 
     @fingerprints.setter
-    def fingerprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fingerprints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fingerprints", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumbers")
-    def serial_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def serial_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Required List of Strings) The serial numbers for each certificate in the certificate chain.
         """
         return pulumi.get(self, "serial_numbers")
 
     @serial_numbers.setter
-    def serial_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def serial_numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "serial_numbers", value)
 
 
@@ -308,12 +308,12 @@ class CertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -411,12 +411,12 @@ class CertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,17 +457,17 @@ class CertificateAuthority(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_chain_filename: Optional[pulumi.Input[_builtins.str]] = None,
-            crl_chain: Optional[pulumi.Input[_builtins.str]] = None,
-            crl_source: Optional[pulumi.Input[_builtins.str]] = None,
-            crl_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            crl_url: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            fingerprints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            serial_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CertificateAuthority':
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain_filename: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_source: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fingerprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            serial_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CertificateAuthority':
         """
         Get an existing CertificateAuthority resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

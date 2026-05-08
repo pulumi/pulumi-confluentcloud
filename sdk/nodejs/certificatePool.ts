@@ -138,23 +138,23 @@ export class CertificatePool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CertificatePool resources.
  */
 export interface CertificatePoolState {
-    certificateAuthority?: pulumi.Input<inputs.CertificatePoolCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<inputs.CertificatePoolCertificateAuthority | undefined>;
     /**
      * A description of the Certificate Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Certificate Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The certificate field that will be used to represent the pool's external identity for audit logging.
      */
-    externalIdentifier?: pulumi.Input<string>;
+    externalIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
 }
 
 /**

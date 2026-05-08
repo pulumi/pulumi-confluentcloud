@@ -160,11 +160,11 @@ export interface IdentityProviderState {
     /**
      * A description for the Identity Provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A human-readable name for the Identity Provider.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
      *
@@ -172,15 +172,15 @@ export interface IdentityProviderState {
      *
      * > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
      */
-    identityClaim?: pulumi.Input<string>;
+    identityClaim?: pulumi.Input<string | undefined>;
     /**
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
      */
-    jwksUri?: pulumi.Input<string>;
+    jwksUri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface IdentityProviderArgs {
      *
      * > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
      */
-    identityClaim?: pulumi.Input<string>;
+    identityClaim?: pulumi.Input<string | undefined>;
     /**
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      */

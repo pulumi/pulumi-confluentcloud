@@ -158,31 +158,31 @@ export interface ConnectArtifactState {
     /**
      * The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
      */
-    artifactFile?: pulumi.Input<string>;
+    artifactFile?: pulumi.Input<string | undefined>;
     /**
      * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
      */
-    contentFormat?: pulumi.Input<string>;
+    contentFormat?: pulumi.Input<string | undefined>;
     /**
      * Description of the Connect Artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Connect Artifact per cloud, environment scope.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.ConnectArtifactEnvironment>;
+    environment?: pulumi.Input<inputs.ConnectArtifactEnvironment | undefined>;
     /**
      * Status of the Connect Artifact.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface ConnectArtifactArgs {
     /**
      * The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
      */
-    artifactFile?: pulumi.Input<string>;
+    artifactFile?: pulumi.Input<string | undefined>;
     /**
      * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
@@ -204,7 +204,7 @@ export interface ConnectArtifactArgs {
     /**
      * Description of the Connect Artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Connect Artifact per cloud, environment scope.
      */

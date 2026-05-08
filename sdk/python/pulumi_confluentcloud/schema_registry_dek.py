@@ -23,13 +23,13 @@ class SchemaRegistryDekArgs:
     def __init__(__self__, *,
                  kek_name: pulumi.Input[_builtins.str],
                  subject_name: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']] = None,
-                 encrypted_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']] = None,
+                 encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SchemaRegistryDek resource.
 
@@ -91,43 +91,43 @@ class SchemaRegistryDekArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyMaterial")
-    def encrypted_key_material(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_material(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encrypted key material for the DEK.
         """
         return pulumi.get(self, "encrypted_key_material")
 
     @encrypted_key_material.setter
-    def encrypted_key_material(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_material(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_material", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
 
@@ -140,56 +140,56 @@ class SchemaRegistryDekArgs:
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of this DEK. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _SchemaRegistryDekState:
     def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']] = None,
-                 encrypted_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kek_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']] = None,
+                 encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kek_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryDek resources.
 
@@ -232,43 +232,43 @@ class _SchemaRegistryDekState:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['SchemaRegistryDekCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['SchemaRegistryDekCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedKeyMaterial")
-    def encrypted_key_material(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key_material(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encrypted key material for the DEK.
         """
         return pulumi.get(self, "encrypted_key_material")
 
     @encrypted_key_material.setter
-    def encrypted_key_material(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key_material(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key_material", value)
 
     @_builtins.property
     @pulumi.getter(name="hardDelete")
-    def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
 
@@ -281,76 +281,76 @@ class _SchemaRegistryDekState:
         return pulumi.get(self, "hard_delete")
 
     @hard_delete.setter
-    def hard_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="kekName")
-    def kek_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kek_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the KEK used to encrypt this DEK.
         """
         return pulumi.get(self, "kek_name")
 
     @kek_name.setter
-    def kek_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kek_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kek_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyMaterial")
-    def key_material(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_material(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The decrypted version of encrypted key material.
         """
         return pulumi.get(self, "key_material")
 
     @key_material.setter
-    def key_material(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_material(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_material", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryCluster")
-    def schema_registry_cluster(self) -> Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']]:
+    def schema_registry_cluster(self) -> pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']]:
         return pulumi.get(self, "schema_registry_cluster")
 
     @schema_registry_cluster.setter
-    def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaRegistryDekSchemaRegistryClusterArgs']]):
+    def schema_registry_cluster(self, value: pulumi.Input[Optional['SchemaRegistryDekSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject for this DEK.
         """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
-    def subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of this DEK. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -360,15 +360,15 @@ class SchemaRegistryDek(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
-                 encrypted_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kek_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None,
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+                 encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kek_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -524,15 +524,15 @@ class SchemaRegistryDek(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
-                 encrypted_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kek_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
-                 subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None,
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+                 encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kek_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+                 subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -568,16 +568,16 @@ class SchemaRegistryDek(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
-            encrypted_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-            hard_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            kek_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_material: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
-            subject_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'SchemaRegistryDek':
+            algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+            encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            kek_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_material: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'SchemaRegistryDek':
         """
         Get an existing SchemaRegistryDek resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

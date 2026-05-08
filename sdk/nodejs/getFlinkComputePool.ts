@@ -156,7 +156,7 @@ export interface GetFlinkComputePoolOutputArgs {
     /**
      * A human-readable name for the Flink Compute Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */
@@ -164,5 +164,5 @@ export interface GetFlinkComputePoolOutputArgs {
     /**
      * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

@@ -23,8 +23,8 @@ class ProviderIntegrationAuthorizationArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs'],
                  provider_integration_id: pulumi.Input[_builtins.str],
-                 azure: Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']] = None,
-                 gcp: Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']] = None):
+                 azure: pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']] = None,
+                 gcp: pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']] = None):
         """
         The set of arguments for constructing a ProviderIntegrationAuthorization resource.
 
@@ -66,36 +66,36 @@ class ProviderIntegrationAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']]:
         """
         (Optional Configuration Block) Azure-specific configuration details. It supports the following:
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']]:
         """
         (Optional Configuration Block) GCP-specific configuration details. It supports the following:
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _ProviderIntegrationAuthorizationState:
     def __init__(__self__, *,
-                 azure: Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']] = None,
-                 environment: Optional[pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs']] = None,
-                 gcp: Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']] = None,
-                 provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure: pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']] = None,
+                 environment: pulumi.Input[Optional['ProviderIntegrationAuthorizationEnvironmentArgs']] = None,
+                 gcp: pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']] = None,
+                 provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegrationAuthorization resources.
 
@@ -115,50 +115,50 @@ class _ProviderIntegrationAuthorizationState:
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']]:
         """
         (Optional Configuration Block) Azure-specific configuration details. It supports the following:
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['ProviderIntegrationAuthorizationAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['ProviderIntegrationAuthorizationAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ProviderIntegrationAuthorizationEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ProviderIntegrationAuthorizationEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']]:
         """
         (Optional Configuration Block) GCP-specific configuration details. It supports the following:
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['ProviderIntegrationAuthorizationGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
     @_builtins.property
     @pulumi.getter(name="providerIntegrationId")
-    def provider_integration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_integration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the provider integration to authorize.
         """
         return pulumi.get(self, "provider_integration_id")
 
     @provider_integration_id.setter
-    def provider_integration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_integration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_integration_id", value)
 
 
@@ -168,10 +168,10 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
-                 provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+                 provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -539,10 +539,10 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
-                 provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+                 provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -570,10 +570,10 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-            environment: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-            gcp: Optional[pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
-            provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProviderIntegrationAuthorization':
+            azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
+            gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+            provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProviderIntegrationAuthorization':
         """
         Get an existing ProviderIntegrationAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

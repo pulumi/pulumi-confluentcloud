@@ -22,10 +22,10 @@ __all__ = ['ApiKeyArgs', 'ApiKey']
 class ApiKeyArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input['ApiKeyOwnerArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource: Optional[pulumi.Input['ApiKeyManagedResourceArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource: pulumi.Input[Optional['ApiKeyManagedResourceArgs']] = None):
         """
         The set of arguments for constructing a ApiKey resource.
 
@@ -59,62 +59,62 @@ class ApiKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A free-form description of the API Account.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         """
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the API Key.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResource")
-    def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
+    def managed_resource(self) -> pulumi.Input[Optional['ApiKeyManagedResourceArgs']]:
         """
         The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
     @managed_resource.setter
-    def managed_resource(self, value: Optional[pulumi.Input['ApiKeyManagedResourceArgs']]):
+    def managed_resource(self, value: pulumi.Input[Optional['ApiKeyManagedResourceArgs']]):
         pulumi.set(self, "managed_resource", value)
 
 
 @pulumi.input_type
 class _ApiKeyState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource: Optional[pulumi.Input['ApiKeyManagedResourceArgs']] = None,
-                 owner: Optional[pulumi.Input['ApiKeyOwnerArgs']] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource: pulumi.Input[Optional['ApiKeyManagedResourceArgs']] = None,
+                 owner: pulumi.Input[Optional['ApiKeyOwnerArgs']] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -140,74 +140,74 @@ class _ApiKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A free-form description of the API Account.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableWaitForReady")
-    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_wait_for_ready(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         """
         return pulumi.get(self, "disable_wait_for_ready")
 
     @disable_wait_for_ready.setter
-    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_wait_for_ready(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_wait_for_ready", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the API Key.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResource")
-    def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
+    def managed_resource(self) -> pulumi.Input[Optional['ApiKeyManagedResourceArgs']]:
         """
         The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
     @managed_resource.setter
-    def managed_resource(self, value: Optional[pulumi.Input['ApiKeyManagedResourceArgs']]):
+    def managed_resource(self, value: pulumi.Input[Optional['ApiKeyManagedResourceArgs']]):
         pulumi.set(self, "managed_resource", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input['ApiKeyOwnerArgs']]:
+    def owner(self) -> pulumi.Input[Optional['ApiKeyOwnerArgs']]:
         """
         The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input['ApiKeyOwnerArgs']]):
+    def owner(self, value: pulumi.Input[Optional['ApiKeyOwnerArgs']]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String, Sensitive) The secret of the API Key.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
 
@@ -217,11 +217,11 @@ class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-                 owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -644,11 +644,11 @@ class ApiKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-                 owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -678,12 +678,12 @@ class ApiKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-            owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
-            secret: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiKey':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+            owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

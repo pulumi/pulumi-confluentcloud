@@ -24,9 +24,9 @@ class PrivateLinkAttachmentConnectionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs'],
                  private_link_attachment: pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'],
-                 aws: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']] = None,
-                 gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']] = None,
+                 gcp: pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAttachmentConnection resource.
 
@@ -82,42 +82,42 @@ class PrivateLinkAttachmentConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _PrivateLinkAttachmentConnectionState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs']] = None,
-                 gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None,
-                 private_link_attachment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['PrivateLinkAttachmentConnectionEnvironmentArgs']] = None,
+                 gcp: pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']] = None,
+                 private_link_attachment: pulumi.Input[Optional['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAttachmentConnection resources.
 
@@ -143,77 +143,77 @@ class _PrivateLinkAttachmentConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Private Link Attachment Connection.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAttachment")
-    def private_link_attachment(self) -> Optional[pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']]:
+    def private_link_attachment(self) -> pulumi.Input[Optional['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']]:
         """
         The private_link_attachment to which this belongs.
         """
         return pulumi.get(self, "private_link_attachment")
 
     @private_link_attachment.setter
-    def private_link_attachment(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']]):
+    def private_link_attachment(self, value: pulumi.Input[Optional['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']]):
         pulumi.set(self, "private_link_attachment", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
 
@@ -223,12 +223,12 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
-                 private_link_attachment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
+                 private_link_attachment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -393,12 +393,12 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
-                 private_link_attachment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
+                 private_link_attachment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -431,13 +431,13 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
-            azure: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
-            gcp: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
-            private_link_attachment: Optional[pulumi.Input[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrivateLinkAttachmentConnection':
+            aws: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
+            gcp: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict']]] = None,
+            private_link_attachment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict']]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrivateLinkAttachmentConnection':
         """
         Get an existing PrivateLinkAttachmentConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

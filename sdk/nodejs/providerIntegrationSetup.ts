@@ -189,23 +189,23 @@ export interface ProviderIntegrationSetupState {
     /**
      * The cloud service provider. Supported values are `AZURE` and `GCP`.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * The name of the Provider Integration.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.ProviderIntegrationSetupEnvironment>;
+    environment?: pulumi.Input<inputs.ProviderIntegrationSetupEnvironment | undefined>;
     /**
      * (Required String) The status of the Provider Integration. Values are `DRAFT` and `CREATED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * (Required List of Strings) List of resource CRNs where this provider integration is being used.
      */
-    usages?: pulumi.Input<pulumi.Input<string>[]>;
+    usages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

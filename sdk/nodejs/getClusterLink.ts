@@ -181,8 +181,8 @@ export function getClusterLinkOutput(args: GetClusterLinkOutputArgs, opts?: pulu
  * A collection of arguments for invoking getClusterLink.
  */
 export interface GetClusterLinkOutputArgs {
-    credentials?: pulumi.Input<inputs.GetClusterLinkCredentialsArgs>;
-    kafkaCluster?: pulumi.Input<inputs.GetClusterLinkKafkaClusterArgs>;
+    credentials?: pulumi.Input<inputs.GetClusterLinkCredentialsArgs | undefined>;
+    kafkaCluster?: pulumi.Input<inputs.GetClusterLinkKafkaClusterArgs | undefined>;
     /**
      * The name of the cluster link, for example, `my-cluster-link`.
      */
@@ -190,5 +190,5 @@ export interface GetClusterLinkOutputArgs {
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
 }

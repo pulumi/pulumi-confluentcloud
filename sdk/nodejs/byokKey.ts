@@ -134,15 +134,15 @@ export interface ByokKeyState {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    aws?: pulumi.Input<inputs.ByokKeyAws>;
+    aws?: pulumi.Input<inputs.ByokKeyAws | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azure?: pulumi.Input<inputs.ByokKeyAzure>;
+    azure?: pulumi.Input<inputs.ByokKeyAzure | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcp?: pulumi.Input<inputs.ByokKeyGcp>;
+    gcp?: pulumi.Input<inputs.ByokKeyGcp | undefined>;
 }
 
 /**
@@ -152,13 +152,13 @@ export interface ByokKeyArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    aws?: pulumi.Input<inputs.ByokKeyAws>;
+    aws?: pulumi.Input<inputs.ByokKeyAws | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    azure?: pulumi.Input<inputs.ByokKeyAzure>;
+    azure?: pulumi.Input<inputs.ByokKeyAzure | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcp?: pulumi.Input<inputs.ByokKeyGcp>;
+    gcp?: pulumi.Input<inputs.ByokKeyGcp | undefined>;
 }

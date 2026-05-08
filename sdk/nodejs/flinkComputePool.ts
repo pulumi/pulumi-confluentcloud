@@ -169,39 +169,39 @@ export interface FlinkComputePoolState {
     /**
      * (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
      */
-    apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string | undefined>;
     /**
      * The cloud service provider that runs the Flink Compute Pool.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
      */
-    defaultPool?: pulumi.Input<boolean>;
+    defaultPool?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Flink Compute Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.FlinkComputePoolEnvironment>;
+    environment?: pulumi.Input<inputs.FlinkComputePoolEnvironment | undefined>;
     /**
      * (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
-    maxCfu?: pulumi.Input<number>;
+    maxCfu?: pulumi.Input<number | undefined>;
     /**
      * The cloud service provider region that hosts the Flink Compute Pool.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Flink Compute Pool.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface FlinkComputePoolArgs {
     /**
      * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
      */
-    defaultPool?: pulumi.Input<boolean>;
+    defaultPool?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Flink Compute Pool.
      */
@@ -227,7 +227,7 @@ export interface FlinkComputePoolArgs {
     /**
      * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
-    maxCfu?: pulumi.Input<number>;
+    maxCfu?: pulumi.Input<number | undefined>;
     /**
      * The cloud service provider region that hosts the Flink Compute Pool.
      */

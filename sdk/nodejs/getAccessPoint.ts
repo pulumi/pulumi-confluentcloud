@@ -133,7 +133,7 @@ export interface GetAccessPointOutputArgs {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    gcpEgressPrivateServiceConnectEndpoints?: pulumi.Input<pulumi.Input<inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs>[]>;
+    gcpEgressPrivateServiceConnectEndpoints?: pulumi.Input<pulumi.Input<inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs>[] | undefined>;
     /**
      * The ID of the Access Point, for example, `ap-abc123`.
      */

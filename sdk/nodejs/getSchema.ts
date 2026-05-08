@@ -192,26 +192,26 @@ export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getSchema.
  */
 export interface GetSchemaOutputArgs {
-    credentials?: pulumi.Input<inputs.GetSchemaCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetSchemaCredentialsArgs | undefined>;
     /**
      * (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
      */
-    metadata?: pulumi.Input<inputs.GetSchemaMetadataArgs>;
+    metadata?: pulumi.Input<inputs.GetSchemaMetadataArgs | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
      */
-    ruleset?: pulumi.Input<inputs.GetSchemaRulesetArgs>;
+    ruleset?: pulumi.Input<inputs.GetSchemaRulesetArgs | undefined>;
     /**
      * The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      *
      * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     schemaIdentifier: pulumi.Input<number>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaSchemaRegistryClusterArgs>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaSchemaRegistryClusterArgs | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */

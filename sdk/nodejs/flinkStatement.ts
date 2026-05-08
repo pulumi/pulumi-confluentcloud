@@ -262,12 +262,12 @@ export class FlinkStatement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FlinkStatement resources.
  */
 export interface FlinkStatementState {
-    computePool?: pulumi.Input<inputs.FlinkStatementComputePool>;
+    computePool?: pulumi.Input<inputs.FlinkStatementComputePool | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkStatementCredentials>;
-    environment?: pulumi.Input<inputs.FlinkStatementEnvironment>;
+    credentials?: pulumi.Input<inputs.FlinkStatementCredentials | undefined>;
+    environment?: pulumi.Input<inputs.FlinkStatementEnvironment | undefined>;
     /**
      * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
      * ```bash
@@ -277,35 +277,35 @@ export interface FlinkStatementState {
      * }
      * ```
      */
-    latestOffsets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    latestOffsets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
      */
-    latestOffsetsTimestamp?: pulumi.Input<string>;
-    organization?: pulumi.Input<inputs.FlinkStatementOrganization>;
-    principal?: pulumi.Input<inputs.FlinkStatementPrincipal>;
+    latestOffsetsTimestamp?: pulumi.Input<string | undefined>;
+    organization?: pulumi.Input<inputs.FlinkStatementOrganization | undefined>;
+    principal?: pulumi.Input<inputs.FlinkStatementPrincipal | undefined>;
     /**
      * The custom topic settings to set:
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Block for sensitive statement properties:
      */
-    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_flink_region.main.private_rest_endpoint`, or
      * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
      */
-    statementName?: pulumi.Input<string>;
+    statementName?: pulumi.Input<string | undefined>;
     /**
      * The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
      *
@@ -330,35 +330,35 @@ export interface FlinkStatementState {
      * });
      * ```
      */
-    stopped?: pulumi.Input<boolean>;
+    stopped?: pulumi.Input<boolean | undefined>;
 }
 
 /**
  * The set of arguments for constructing a FlinkStatement resource.
  */
 export interface FlinkStatementArgs {
-    computePool?: pulumi.Input<inputs.FlinkStatementComputePool>;
+    computePool?: pulumi.Input<inputs.FlinkStatementComputePool | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    credentials?: pulumi.Input<inputs.FlinkStatementCredentials>;
-    environment?: pulumi.Input<inputs.FlinkStatementEnvironment>;
-    organization?: pulumi.Input<inputs.FlinkStatementOrganization>;
-    principal?: pulumi.Input<inputs.FlinkStatementPrincipal>;
+    credentials?: pulumi.Input<inputs.FlinkStatementCredentials | undefined>;
+    environment?: pulumi.Input<inputs.FlinkStatementEnvironment | undefined>;
+    organization?: pulumi.Input<inputs.FlinkStatementOrganization | undefined>;
+    principal?: pulumi.Input<inputs.FlinkStatementPrincipal | undefined>;
     /**
      * The custom topic settings to set:
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Block for sensitive statement properties:
      */
-    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_flink_region.main.private_rest_endpoint`, or
      * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      */
-    restEndpoint?: pulumi.Input<string>;
+    restEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
      */
@@ -366,7 +366,7 @@ export interface FlinkStatementArgs {
     /**
      * The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
      */
-    statementName?: pulumi.Input<string>;
+    statementName?: pulumi.Input<string | undefined>;
     /**
      * The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
      *
@@ -391,5 +391,5 @@ export interface FlinkStatementArgs {
      * });
      * ```
      */
-    stopped?: pulumi.Input<boolean>;
+    stopped?: pulumi.Input<boolean | undefined>;
 }

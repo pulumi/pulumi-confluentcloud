@@ -144,7 +144,7 @@ export interface GetPrivateLinkAccessOutputArgs {
     /**
      * A human-readable name for the Private Link Access.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * (Required Configuration Block) supports the following:
      */
@@ -152,5 +152,5 @@ export interface GetPrivateLinkAccessOutputArgs {
     /**
      * The ID of the Private Link Access, for example, `pla-abc123`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

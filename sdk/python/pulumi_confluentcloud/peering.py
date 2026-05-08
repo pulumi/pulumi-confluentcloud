@@ -23,10 +23,10 @@ class PeeringArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input['PeeringEnvironmentArgs'],
                  network: pulumi.Input['PeeringNetworkArgs'],
-                 aws: Optional[pulumi.Input['PeeringAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PeeringAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp: Optional[pulumi.Input['PeeringGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['PeeringAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PeeringAzureArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp: pulumi.Input[Optional['PeeringGcpArgs']] = None):
         """
         The set of arguments for constructing a Peering resource.
 
@@ -71,53 +71,53 @@ class PeeringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PeeringAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PeeringAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PeeringAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PeeringAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PeeringAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PeeringAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PeeringAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PeeringAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Peering.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PeeringGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PeeringGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PeeringGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PeeringGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _PeeringState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['PeeringAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['PeeringAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['PeeringEnvironmentArgs']] = None,
-                 gcp: Optional[pulumi.Input['PeeringGcpArgs']] = None,
-                 network: Optional[pulumi.Input['PeeringNetworkArgs']] = None):
+                 aws: pulumi.Input[Optional['PeeringAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['PeeringAzureArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['PeeringEnvironmentArgs']] = None,
+                 gcp: pulumi.Input[Optional['PeeringGcpArgs']] = None,
+                 network: pulumi.Input[Optional['PeeringNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering Peering resources.
 
@@ -140,65 +140,65 @@ class _PeeringState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['PeeringAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['PeeringAwsArgs']]:
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['PeeringAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['PeeringAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['PeeringAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['PeeringAzureArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['PeeringAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['PeeringAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Peering.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['PeeringEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['PeeringEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['PeeringEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['PeeringEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['PeeringGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['PeeringGcpArgs']]:
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['PeeringGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['PeeringGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['PeeringNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['PeeringNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['PeeringNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['PeeringNetworkArgs']]):
         pulumi.set(self, "network", value)
 
 
@@ -208,12 +208,12 @@ class Peering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -502,12 +502,12 @@ class Peering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
-                 gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
-                 network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,12 +537,12 @@ class Peering(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
-            azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
-            gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
-            network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None) -> 'Peering':
+            aws: pulumi.Input[Optional[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+            gcp: pulumi.Input[Optional[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None) -> 'Peering':
         """
         Get an existing Peering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

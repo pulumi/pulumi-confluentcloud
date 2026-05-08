@@ -22,9 +22,9 @@ __all__ = ['KafkaClusterConfigArgs', 'KafkaClusterConfig']
 class KafkaClusterConfigArgs:
     def __init__(__self__, *,
                  config: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
-                 credentials: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaClusterConfig resource.
 
@@ -54,45 +54,45 @@ class KafkaClusterConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
 @pulumi.input_type
 class _KafkaClusterConfigState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaClusterConfig resources.
 
@@ -111,47 +111,47 @@ class _KafkaClusterConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom cluster settings to set:
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']]:
         """
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['KafkaClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaClusterConfigKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
     @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_endpoint", value)
 
 
@@ -161,10 +161,10 @@ class KafkaClusterConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -317,10 +317,10 @@ class KafkaClusterConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: Optional[pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
-                 rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+                 rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -348,10 +348,10 @@ class KafkaClusterConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            credentials: Optional[pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
-            rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'KafkaClusterConfig':
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaClusterConfig':
         """
         Get an existing KafkaClusterConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -229,10 +229,10 @@ def get_schema_registry_kek(credentials: Optional[Union['GetSchemaRegistryKekCre
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         shared=pulumi.get(__ret__, 'shared'))
-def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekCredentialsArgs', 'GetSchemaRegistryKekCredentialsArgsDict']]]] = None,
-                                   name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']]]] = None,
+def get_schema_registry_kek_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemaRegistryKekCredentialsArgs', 'GetSchemaRegistryKekCredentialsArgsDict']]]] = None,
+                                   name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

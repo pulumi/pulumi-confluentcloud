@@ -92,5 +92,5 @@ export interface GetSchemaRegistryClustersOutputArgs {
     /**
      * (Required Object) exports the following attributes:
      */
-    environment?: pulumi.Input<inputs.GetSchemaRegistryClustersEnvironmentArgs>;
+    environment?: pulumi.Input<inputs.GetSchemaRegistryClustersEnvironmentArgs | undefined>;
 }

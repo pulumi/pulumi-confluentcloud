@@ -137,17 +137,17 @@ export interface DnsRecordState {
     /**
      * The name of the DNS Record.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the DNS Record.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.DnsRecordEnvironment>;
-    gateway?: pulumi.Input<inputs.DnsRecordGateway>;
-    privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint>;
+    environment?: pulumi.Input<inputs.DnsRecordEnvironment | undefined>;
+    gateway?: pulumi.Input<inputs.DnsRecordGateway | undefined>;
+    privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface DnsRecordArgs {
     /**
      * The name of the DNS Record.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the DNS Record.
      */
@@ -167,5 +167,5 @@ export interface DnsRecordArgs {
      */
     environment: pulumi.Input<inputs.DnsRecordEnvironment>;
     gateway: pulumi.Input<inputs.DnsRecordGateway>;
-    privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint>;
+    privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint | undefined>;
 }

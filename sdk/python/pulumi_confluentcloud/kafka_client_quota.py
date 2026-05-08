@@ -26,7 +26,7 @@ class KafkaClientQuotaArgs:
                  kafka_cluster: pulumi.Input['KafkaClientQuotaKafkaClusterArgs'],
                  principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  throughput: pulumi.Input['KafkaClientQuotaThroughputArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaClientQuota resource.
 
@@ -103,26 +103,26 @@ class KafkaClientQuotaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Kafka Client Quota.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _KafkaClientQuotaState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['KafkaClientQuotaEnvironmentArgs']] = None,
-                 kafka_cluster: Optional[pulumi.Input['KafkaClientQuotaKafkaClusterArgs']] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 throughput: Optional[pulumi.Input['KafkaClientQuotaThroughputArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['KafkaClientQuotaEnvironmentArgs']] = None,
+                 kafka_cluster: pulumi.Input[Optional['KafkaClientQuotaKafkaClusterArgs']] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 throughput: pulumi.Input[Optional['KafkaClientQuotaThroughputArgs']] = None):
         """
         Input properties used for looking up and filtering KafkaClientQuota resources.
 
@@ -147,71 +147,71 @@ class _KafkaClientQuotaState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Kafka Client Quota.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kafka Client Quota.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['KafkaClientQuotaEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['KafkaClientQuotaEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['KafkaClientQuotaEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['KafkaClientQuotaEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaClientQuotaKafkaClusterArgs']]:
+    def kafka_cluster(self) -> pulumi.Input[Optional['KafkaClientQuotaKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
-    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaClientQuotaKafkaClusterArgs']]):
+    def kafka_cluster(self, value: pulumi.Input[Optional['KafkaClientQuotaKafkaClusterArgs']]):
         pulumi.set(self, "kafka_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input['KafkaClientQuotaThroughputArgs']]:
+    def throughput(self) -> pulumi.Input[Optional['KafkaClientQuotaThroughputArgs']]:
         """
         Block for representing a Kafka Quota.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input['KafkaClientQuotaThroughputArgs']]):
+    def throughput(self, value: pulumi.Input[Optional['KafkaClientQuotaThroughputArgs']]):
         pulumi.set(self, "throughput", value)
 
 
@@ -221,12 +221,12 @@ class KafkaClientQuota(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 throughput: Optional[pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -355,12 +355,12 @@ class KafkaClientQuota(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 throughput: Optional[pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -396,12 +396,12 @@ class KafkaClientQuota(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-            kafka_cluster: Optional[pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
-            principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            throughput: Optional[pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None) -> 'KafkaClientQuota':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None) -> 'KafkaClientQuota':
         """
         Get an existing KafkaClientQuota resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

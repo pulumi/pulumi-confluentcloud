@@ -164,13 +164,13 @@ export interface GetUserOutputArgs {
      *
      * > **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The full name of the User.
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User (e.g., `u-abc123`).
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

@@ -279,13 +279,13 @@ def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchem
         skip_validation_during_plan=pulumi.get(__ret__, 'skip_validation_during_plan'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
         version=pulumi.get(__ret__, 'version'))
-def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict']]]] = None,
-                      metadata: Optional[pulumi.Input[Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict']]]] = None,
-                      rest_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      ruleset: Optional[pulumi.Input[Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict']]]] = None,
-                      schema_identifier: Optional[pulumi.Input[_builtins.int]] = None,
-                      schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict']]]] = None,
-                      subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict']]]] = None,
+                      metadata: pulumi.Input[Optional[Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict']]]] = None,
+                      rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      ruleset: pulumi.Input[Optional[Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict']]]] = None,
+                      schema_identifier: pulumi.Input[Optional[_builtins.int]] = None,
+                      schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict']]]] = None,
+                      subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

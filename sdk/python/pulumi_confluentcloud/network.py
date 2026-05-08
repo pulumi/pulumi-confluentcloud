@@ -25,15 +25,15 @@ class NetworkArgs:
                  connection_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  environment: pulumi.Input['NetworkEnvironmentArgs'],
                  region: pulumi.Input[_builtins.str],
-                 aws: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
-                 azures: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
-                 gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
-                 reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aws: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
+                 azures: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_config: pulumi.Input[Optional['NetworkDnsConfigArgs']] = None,
+                 gcps: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
+                 reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
 
@@ -129,103 +129,103 @@ class NetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]]:
+    def aws(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]]:
         """
         (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]]):
+    def aws(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]]:
+    def azures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]]:
         """
         (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "azures")
 
     @azures.setter
-    def azures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]]):
+    def azures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]]):
         pulumi.set(self, "azures", value)
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional[pulumi.Input['NetworkDnsConfigArgs']]:
+    def dns_config(self) -> pulumi.Input[Optional['NetworkDnsConfigArgs']]:
         """
         Network DNS config. It applies only to the PRIVATELINK network connection type.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: Optional[pulumi.Input['NetworkDnsConfigArgs']]):
+    def dns_config(self, value: pulumi.Input[Optional['NetworkDnsConfigArgs']]):
         pulumi.set(self, "dns_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]]:
+    def gcps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]]:
         """
         (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "gcps")
 
     @gcps.setter
-    def gcps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]]):
+    def gcps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]]):
         pulumi.set(self, "gcps", value)
 
     @_builtins.property
     @pulumi.getter(name="reservedCidr")
-    def reserved_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reserved_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         """
         return pulumi.get(self, "reserved_cidr")
 
     @reserved_cidr.setter
-    def reserved_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reserved_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reserved_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneInfos")
-    def zone_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
+    def zone_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
         """
         Each item represents information related to a single zone.
         """
         return pulumi.get(self, "zone_infos")
 
     @zone_infos.setter
-    def zone_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
+    def zone_infos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
         pulumi.set(self, "zone_infos", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The 3 availability zones for this network. They can optionally be specified for AWS networks
         used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -237,31 +237,31 @@ class NetworkArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _NetworkState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
-                 azures: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
-                 dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['NetworkEnvironmentArgs']] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]] = None,
-                 gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_subdomains: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aws: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
+                 azures: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_config: pulumi.Input[Optional['NetworkDnsConfigArgs']] = None,
+                 dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['NetworkEnvironmentArgs']] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGatewayArgs']]]] = None,
+                 gcps: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_subdomains: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Network resources.
 
@@ -330,103 +330,103 @@ class _NetworkState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]]:
+    def aws(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]]:
         """
         (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]]):
+    def aws(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAwArgs']]]]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]]:
+    def azures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]]:
         """
         (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "azures")
 
     @azures.setter
-    def azures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]]):
+    def azures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAzureArgs']]]]):
         pulumi.set(self, "azures", value)
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionTypes")
-    def connection_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connection_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         """
         return pulumi.get(self, "connection_types")
 
     @connection_types.setter
-    def connection_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connection_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connection_types", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Network.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional[pulumi.Input['NetworkDnsConfigArgs']]:
+    def dns_config(self) -> pulumi.Input[Optional['NetworkDnsConfigArgs']]:
         """
         Network DNS config. It applies only to the PRIVATELINK network connection type.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: Optional[pulumi.Input['NetworkDnsConfigArgs']]):
+    def dns_config(self, value: pulumi.Input[Optional['NetworkDnsConfigArgs']]):
         pulumi.set(self, "dns_config", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsDomain")
-    def dns_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         """
         return pulumi.get(self, "dns_domain")
 
     @dns_domain.setter
-    def dns_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointSuffix")
-    def endpoint_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. 
         - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -435,108 +435,108 @@ class _NetworkState:
         return pulumi.get(self, "endpoint_suffix")
 
     @endpoint_suffix.setter
-    def endpoint_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_suffix", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['NetworkEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['NetworkEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['NetworkEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['NetworkEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]]:
+    def gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGatewayArgs']]]]:
         """
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
-    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]]):
+    def gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGatewayArgs']]]]):
         pulumi.set(self, "gateways", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]]:
+    def gcps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]]:
         """
         (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         """
         return pulumi.get(self, "gcps")
 
     @gcps.setter
-    def gcps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]]):
+    def gcps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkGcpArgs']]]]):
         pulumi.set(self, "gcps", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud provider region where the network exists.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="reservedCidr")
-    def reserved_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reserved_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         """
         return pulumi.get(self, "reserved_cidr")
 
     @reserved_cidr.setter
-    def reserved_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reserved_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reserved_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required String) The Confluent Resource Name of the Network.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalSubdomains")
-    def zonal_subdomains(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def zonal_subdomains(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "zonal_subdomains")
 
     @zonal_subdomains.setter
-    def zonal_subdomains(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def zonal_subdomains(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zonal_subdomains", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneInfos")
-    def zone_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
+    def zone_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
         """
         Each item represents information related to a single zone.
         """
         return pulumi.get(self, "zone_infos")
 
     @zone_infos.setter
-    def zone_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
+    def zone_infos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
         pulumi.set(self, "zone_infos", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The 3 availability zones for this network. They can optionally be specified for AWS networks
         used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -548,7 +548,7 @@ class _NetworkState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -558,19 +558,19 @@ class Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
-                 azures: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_config: Optional[pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
-                 gcps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
+                 azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_config: pulumi.Input[Optional[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
+                 gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -858,19 +858,19 @@ class Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
-                 azures: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_config: Optional[pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
-                 gcps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
+                 azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_config: pulumi.Input[Optional[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
+                 gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -916,24 +916,24 @@ class Network(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
-            azures: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
-            cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_config: Optional[pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
-            dns_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
-            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGatewayArgs', 'NetworkGatewayArgsDict']]]]] = None,
-            gcps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            reserved_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-            zonal_subdomains: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Network':
+            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict']]]]] = None,
+            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict']]]]] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_config: pulumi.Input[Optional[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
+            dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
+            gateways: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGatewayArgs', 'NetworkGatewayArgsDict']]]]] = None,
+            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            zonal_subdomains: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Network':
         """
         Get an existing Network resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -172,33 +172,33 @@ export class PrivateLinkAttachmentConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrivateLinkAttachmentConnection resources.
  */
 export interface PrivateLinkAttachmentConnectionState {
-    aws?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAws>;
-    azure?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAzure>;
+    aws?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAws | undefined>;
+    azure?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAzure | undefined>;
     /**
      * The name of the Private Link Attachment Connection.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    environment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionEnvironment>;
-    gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp>;
+    environment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionEnvironment | undefined>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp | undefined>;
     /**
      * The privateLinkAttachment to which this belongs.
      */
-    privateLinkAttachment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
+    privateLinkAttachment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a PrivateLinkAttachmentConnection resource.
  */
 export interface PrivateLinkAttachmentConnectionArgs {
-    aws?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAws>;
-    azure?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAzure>;
+    aws?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAws | undefined>;
+    azure?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionAzure | undefined>;
     /**
      * The name of the Private Link Attachment Connection.
      */
@@ -207,7 +207,7 @@ export interface PrivateLinkAttachmentConnectionArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.PrivateLinkAttachmentConnectionEnvironment>;
-    gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp | undefined>;
     /**
      * The privateLinkAttachment to which this belongs.
      */

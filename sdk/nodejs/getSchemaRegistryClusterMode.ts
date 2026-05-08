@@ -130,10 +130,10 @@ export function getSchemaRegistryClusterModeOutput(args?: GetSchemaRegistryClust
  * A collection of arguments for invoking getSchemaRegistryClusterMode.
  */
 export interface GetSchemaRegistryClusterModeOutputArgs {
-    credentials?: pulumi.Input<inputs.GetSchemaRegistryClusterModeCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetSchemaRegistryClusterModeCredentialsArgs | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    restEndpoint?: pulumi.Input<string>;
-    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs>;
+    restEndpoint?: pulumi.Input<string | undefined>;
+    schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs | undefined>;
 }

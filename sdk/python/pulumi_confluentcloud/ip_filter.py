@@ -22,8 +22,8 @@ class IpFilterArgs:
                  filter_name: pulumi.Input[_builtins.str],
                  ip_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group: pulumi.Input[_builtins.str],
-                 operation_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpFilter resource.
 
@@ -79,37 +79,37 @@ class IpFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="operationGroups")
-    def operation_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def operation_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         """
         return pulumi.get(self, "operation_groups")
 
     @operation_groups.setter
-    def operation_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def operation_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "operation_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceScope")
-    def resource_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
         return pulumi.get(self, "resource_scope")
 
     @resource_scope.setter
-    def resource_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_scope", value)
 
 
 @pulumi.input_type
 class _IpFilterState:
     def __init__(__self__, *,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 operation_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpFilter resources.
 
@@ -132,62 +132,62 @@ class _IpFilterState:
 
     @_builtins.property
     @pulumi.getter(name="filterName")
-    def filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         """
         return pulumi.get(self, "filter_name")
 
     @filter_name.setter
-    def filter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipGroups")
-    def ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Groups.
         """
         return pulumi.get(self, "ip_groups")
 
     @ip_groups.setter
-    def ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="operationGroups")
-    def operation_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def operation_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         """
         return pulumi.get(self, "operation_groups")
 
     @operation_groups.setter
-    def operation_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def operation_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "operation_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceScope")
-    def resource_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
         return pulumi.get(self, "resource_scope")
 
     @resource_scope.setter
-    def resource_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_scope", value)
 
 
@@ -197,11 +197,11 @@ class IpFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 operation_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -318,11 +318,11 @@ class IpFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 operation_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,11 +353,11 @@ class IpFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            operation_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_scope: Optional[pulumi.Input[_builtins.str]] = None) -> 'IpFilter':
+            filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'IpFilter':
         """
         Get an existing IpFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

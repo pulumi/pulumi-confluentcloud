@@ -23,7 +23,7 @@ class IdentityProviderArgs:
                  display_name: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input[_builtins.str],
                  jwks_uri: pulumi.Input[_builtins.str],
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
 
@@ -94,7 +94,7 @@ class IdentityProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityClaim")
-    def identity_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
 
@@ -105,18 +105,18 @@ class IdentityProviderArgs:
         return pulumi.get(self, "identity_claim")
 
     @identity_claim.setter
-    def identity_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_claim", value)
 
 
 @pulumi.input_type
 class _IdentityProviderState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
 
@@ -143,31 +143,31 @@ class _IdentityProviderState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Identity Provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the Identity Provider.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityClaim")
-    def identity_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
 
@@ -178,31 +178,31 @@ class _IdentityProviderState:
         return pulumi.get(self, "identity_claim")
 
     @identity_claim.setter
-    def identity_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_claim", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="jwksUri")
-    def jwks_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwks_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
         """
         return pulumi.get(self, "jwks_uri")
 
     @jwks_uri.setter
-    def jwks_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwks_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwks_uri", value)
 
 
@@ -212,11 +212,11 @@ class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -355,11 +355,11 @@ class IdentityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -392,11 +392,11 @@ class IdentityProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_claim: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            jwks_uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'IdentityProvider':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'IdentityProvider':
         """
         Get an existing IdentityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

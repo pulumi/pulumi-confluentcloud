@@ -347,13 +347,13 @@ def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwAr
         zonal_subdomains=pulumi.get(__ret__, 'zonal_subdomains'),
         zone_infos=pulumi.get(__ret__, 'zone_infos'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]]]] = None,
-                       azures: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]]]] = None,
-                       display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       dns_configs: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]]]] = None,
-                       environment: Optional[pulumi.Input[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
-                       gcps: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]]]] = None,
-                       id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_output(aws: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]]]] = None,
+                       azures: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]]]] = None,
+                       display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       dns_configs: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]]]] = None,
+                       environment: pulumi.Input[Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
+                       gcps: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]]]] = None,
+                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     ## 
