@@ -350,6 +350,11 @@ export const getRoleBinding: typeof import("./getRoleBinding").getRoleBinding = 
 export const getRoleBindingOutput: typeof import("./getRoleBinding").getRoleBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleBinding","getRoleBindingOutput"], () => require("./getRoleBinding"));
 
+export { GetRtceTopicArgs, GetRtceTopicResult, GetRtceTopicOutputArgs } from "./getRtceTopic";
+export const getRtceTopic: typeof import("./getRtceTopic").getRtceTopic = null as any;
+export const getRtceTopicOutput: typeof import("./getRtceTopic").getRtceTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getRtceTopic","getRtceTopicOutput"], () => require("./getRtceTopic"));
+
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
@@ -563,6 +568,11 @@ export type RoleBinding = import("./roleBinding").RoleBinding;
 export const RoleBinding: typeof import("./roleBinding").RoleBinding = null as any;
 utilities.lazyLoad(exports, ["RoleBinding"], () => require("./roleBinding"));
 
+export { RtceTopicArgs, RtceTopicState } from "./rtceTopic";
+export type RtceTopic = import("./rtceTopic").RtceTopic;
+export const RtceTopic: typeof import("./rtceTopic").RtceTopic = null as any;
+utilities.lazyLoad(exports, ["RtceTopic"], () => require("./rtceTopic"));
+
 export { SchemaArgs, SchemaState } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
@@ -745,6 +755,8 @@ const _module = {
                 return new ProviderIntegrationSetup(name, <any>undefined, { urn })
             case "confluentcloud:index/roleBinding:RoleBinding":
                 return new RoleBinding(name, <any>undefined, { urn })
+            case "confluentcloud:index/rtceTopic:RtceTopic":
+                return new RtceTopic(name, <any>undefined, { urn })
             case "confluentcloud:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaExporter:SchemaExporter":
@@ -827,6 +839,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegrati
 pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegrationAuthorization", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegrationSetup", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/rtceTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaExporter", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClusterConfig", _module)

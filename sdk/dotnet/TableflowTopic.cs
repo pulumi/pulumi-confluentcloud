@@ -130,6 +130,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TableflowTopicCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        /// </summary>
+        [Output("dataRetentionMs")]
+        public Output<string> DataRetentionMs { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kafka topic for which Tableflow is enabled.
         /// </summary>
         [Output("displayName")]
@@ -280,6 +286,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        /// </summary>
+        [Input("dataRetentionMs")]
+        public Input<string>? DataRetentionMs { get; set; }
+
+        /// <summary>
         /// The name of the Kafka topic for which Tableflow is enabled.
         /// </summary>
         [Input("displayName", required: true)]
@@ -368,6 +380,12 @@ namespace Pulumi.ConfluentCloud
                 _credentials = Output.Tuple<Input<Inputs.TableflowTopicCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        /// </summary>
+        [Input("dataRetentionMs")]
+        public Input<string>? DataRetentionMs { get; set; }
 
         /// <summary>
         /// The name of the Kafka topic for which Tableflow is enabled.

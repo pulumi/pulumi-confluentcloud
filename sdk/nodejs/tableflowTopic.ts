@@ -122,6 +122,10 @@ export class TableflowTopic extends pulumi.CustomResource {
      */
     declare public readonly credentials: pulumi.Output<outputs.TableflowTopicCredentials | undefined>;
     /**
+     * The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     */
+    declare public readonly dataRetentionMs: pulumi.Output<string>;
+    /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */
     declare public readonly displayName: pulumi.Output<string>;
@@ -186,6 +190,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["azureDataLakeStorageGen2"] = state?.azureDataLakeStorageGen2;
             resourceInputs["byobAws"] = state?.byobAws;
             resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["dataRetentionMs"] = state?.dataRetentionMs;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["enableCompaction"] = state?.enableCompaction;
             resourceInputs["enablePartitioning"] = state?.enablePartitioning;
@@ -213,6 +218,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["azureDataLakeStorageGen2"] = args?.azureDataLakeStorageGen2;
             resourceInputs["byobAws"] = args?.byobAws;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
+            resourceInputs["dataRetentionMs"] = args?.dataRetentionMs;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["errorHandling"] = args?.errorHandling;
@@ -250,6 +256,10 @@ export interface TableflowTopicState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.TableflowTopicCredentials | undefined>;
+    /**
+     * The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     */
+    dataRetentionMs?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */
@@ -316,6 +326,10 @@ export interface TableflowTopicArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.TableflowTopicCredentials | undefined>;
+    /**
+     * The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     */
+    dataRetentionMs?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */

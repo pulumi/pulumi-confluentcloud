@@ -226,7 +226,9 @@ class ApiKey(pulumi.CustomResource):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-        `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+        `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Global API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+
+        > **Note:** A Global API Key can manage resources across all clusters and environments within the organization. Unlike Cluster API Keys, which are scoped to a specific cluster, a Global API Key provides broad access, making it suitable for use cases that require cross-resource management. Review [documentation](https://docs.confluent.io/cloud/current/security/authenticate/workload-identities/service-accounts/api-keys/overview.html#resource-scopes) for limitations.
 
         > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental API Key deletion. This setting rejects plans that would destroy or recreate the API Key, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
 
@@ -341,6 +343,26 @@ class ApiKey(pulumi.CustomResource):
                 "id": "tableflow",
                 "api_version": "tableflow/v1",
                 "kind": "Tableflow",
+            })
+        ```
+
+        ### Example Global API Key
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        env_manager_global_api_key = confluentcloud.ApiKey("env-manager-global-api-key",
+            display_name="env-manager-global-api-key",
+            description="Global API Key that is owned by 'env-manager' service account",
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": "global",
+                "api_version": "global/v1",
+                "kind": "Global",
             })
         ```
 
@@ -436,7 +458,9 @@ class ApiKey(pulumi.CustomResource):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-        `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+        `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Global API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+
+        > **Note:** A Global API Key can manage resources across all clusters and environments within the organization. Unlike Cluster API Keys, which are scoped to a specific cluster, a Global API Key provides broad access, making it suitable for use cases that require cross-resource management. Review [documentation](https://docs.confluent.io/cloud/current/security/authenticate/workload-identities/service-accounts/api-keys/overview.html#resource-scopes) for limitations.
 
         > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental API Key deletion. This setting rejects plans that would destroy or recreate the API Key, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
 
@@ -551,6 +575,26 @@ class ApiKey(pulumi.CustomResource):
                 "id": "tableflow",
                 "api_version": "tableflow/v1",
                 "kind": "Tableflow",
+            })
+        ```
+
+        ### Example Global API Key
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        env_manager_global_api_key = confluentcloud.ApiKey("env-manager-global-api-key",
+            display_name="env-manager-global-api-key",
+            description="Global API Key that is owned by 'env-manager' service account",
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": "global",
+                "api_version": "global/v1",
+                "kind": "Global",
             })
         ```
 

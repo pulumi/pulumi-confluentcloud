@@ -844,6 +844,17 @@
             "confluent_role_binding": {
                 "current": "confluentcloud:index/roleBinding:RoleBinding"
             },
+            "confluent_rtce_topic": {
+                "current": "confluentcloud:index/rtceTopic:RtceTopic",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_schema": {
                 "current": "confluentcloud:index/schema:Schema",
                 "fields": {
@@ -1962,6 +1973,17 @@
             },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/getRoleBinding:getRoleBinding"
+            },
+            "confluent_rtce_topic": {
+                "current": "confluentcloud:index/getRtceTopic:getRtceTopic",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_schema": {
                 "current": "confluentcloud:index/getSchema:getSchema",

@@ -90,6 +90,8 @@ import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
 import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+import com.pulumi.confluentcloud.inputs.GetRtceTopicPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
@@ -167,6 +169,7 @@ import com.pulumi.confluentcloud.outputs.GetProviderIntegrationAuthorizationResu
 import com.pulumi.confluentcloud.outputs.GetProviderIntegrationResult;
 import com.pulumi.confluentcloud.outputs.GetProviderIntegrationSetupResult;
 import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
+import com.pulumi.confluentcloud.outputs.GetRtceTopicResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterResult;
@@ -15349,6 +15352,261 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetRoleBindingResult> getRoleBindingPlain(GetRoleBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RtceTopic` describes a RtceTopic data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicKafkaClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRtceTopic(GetRtceTopicArgs.builder()
+     *             .topicName("orders_topic")
+     *             .environment(GetRtceTopicEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .kafkaCluster(GetRtceTopicKafkaClusterArgs.builder()
+     *                 .id("lkc-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRtceTopicResult> getRtceTopic(GetRtceTopicArgs args) {
+        return getRtceTopic(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RtceTopic` describes a RtceTopic data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicKafkaClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRtceTopic(GetRtceTopicArgs.builder()
+     *             .topicName("orders_topic")
+     *             .environment(GetRtceTopicEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .kafkaCluster(GetRtceTopicKafkaClusterArgs.builder()
+     *                 .id("lkc-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRtceTopicResult> getRtceTopicPlain(GetRtceTopicPlainArgs args) {
+        return getRtceTopicPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RtceTopic` describes a RtceTopic data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicKafkaClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRtceTopic(GetRtceTopicArgs.builder()
+     *             .topicName("orders_topic")
+     *             .environment(GetRtceTopicEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .kafkaCluster(GetRtceTopicKafkaClusterArgs.builder()
+     *                 .id("lkc-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRtceTopicResult> getRtceTopic(GetRtceTopicArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getRtceTopic:getRtceTopic", TypeShape.of(GetRtceTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RtceTopic` describes a RtceTopic data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicKafkaClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRtceTopic(GetRtceTopicArgs.builder()
+     *             .topicName("orders_topic")
+     *             .environment(GetRtceTopicEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .kafkaCluster(GetRtceTopicKafkaClusterArgs.builder()
+     *                 .id("lkc-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRtceTopicResult> getRtceTopic(GetRtceTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getRtceTopic:getRtceTopic", TypeShape.of(GetRtceTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RtceTopic` describes a RtceTopic data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetRtceTopicKafkaClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRtceTopic(GetRtceTopicArgs.builder()
+     *             .topicName("orders_topic")
+     *             .environment(GetRtceTopicEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .kafkaCluster(GetRtceTopicKafkaClusterArgs.builder()
+     *                 .id("lkc-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRtceTopicResult> getRtceTopicPlain(GetRtceTopicPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getRtceTopic:getRtceTopic", TypeShape.of(GetRtceTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

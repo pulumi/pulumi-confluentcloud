@@ -32,6 +32,11 @@ public final class GetTableflowTopicResult {
      */
     private List<GetTableflowTopicByobAw> byobAws;
     private @Nullable GetTableflowTopicCredentials credentials;
+    /**
+     * @return (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    private String dataRetentionMs;
     private String displayName;
     /**
      * @return (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
@@ -108,6 +113,13 @@ public final class GetTableflowTopicResult {
     }
     public Optional<GetTableflowTopicCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
+    }
+    /**
+     * @return (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    public String dataRetentionMs() {
+        return this.dataRetentionMs;
     }
     public String displayName() {
         return this.displayName;
@@ -208,6 +220,7 @@ public final class GetTableflowTopicResult {
         private List<GetTableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2s;
         private List<GetTableflowTopicByobAw> byobAws;
         private @Nullable GetTableflowTopicCredentials credentials;
+        private String dataRetentionMs;
         private String displayName;
         private Boolean enableCompaction;
         private Boolean enablePartitioning;
@@ -228,6 +241,7 @@ public final class GetTableflowTopicResult {
     	      this.azureDataLakeStorageGen2s = defaults.azureDataLakeStorageGen2s;
     	      this.byobAws = defaults.byobAws;
     	      this.credentials = defaults.credentials;
+    	      this.dataRetentionMs = defaults.dataRetentionMs;
     	      this.displayName = defaults.displayName;
     	      this.enableCompaction = defaults.enableCompaction;
     	      this.enablePartitioning = defaults.enablePartitioning;
@@ -270,6 +284,14 @@ public final class GetTableflowTopicResult {
         public Builder credentials(@Nullable GetTableflowTopicCredentials credentials) {
 
             this.credentials = credentials;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataRetentionMs(String dataRetentionMs) {
+            if (dataRetentionMs == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "dataRetentionMs");
+            }
+            this.dataRetentionMs = dataRetentionMs;
             return this;
         }
         @CustomType.Setter
@@ -398,6 +420,7 @@ public final class GetTableflowTopicResult {
             _resultValue.azureDataLakeStorageGen2s = azureDataLakeStorageGen2s;
             _resultValue.byobAws = byobAws;
             _resultValue.credentials = credentials;
+            _resultValue.dataRetentionMs = dataRetentionMs;
             _resultValue.displayName = displayName;
             _resultValue.enableCompaction = enableCompaction;
             _resultValue.enablePartitioning = enablePartitioning;

@@ -335,6 +335,8 @@ export interface CatalogIntegrationCredentials {
      *
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
      *
+     * > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `confluentcloud.CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+     *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
     secret: string;
@@ -2843,6 +2845,20 @@ export interface GetProviderIntegrationSetupEnvironment {
     id: string;
 }
 
+export interface GetRtceTopicEnvironment {
+    /**
+     * The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetRtceTopicKafkaCluster {
+    /**
+     * The ID of the Kafka Cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
 export interface GetSchemaCredentials {
     /**
      * The Schema Registry API Key.
@@ -4115,6 +4131,20 @@ export interface ProviderIntegrationSetupEnvironment {
     id: string;
 }
 
+export interface RtceTopicEnvironment {
+    /**
+     * The ID of the Environment.
+     */
+    id: string;
+}
+
+export interface RtceTopicKafkaCluster {
+    /**
+     * The ID of the Kafka Cluster.
+     */
+    id: string;
+}
+
 export interface SchemaCredentials {
     /**
      * The Schema Registry API Key.
@@ -4448,6 +4478,8 @@ export interface TableflowTopicCredentials {
      * > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
      *
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+     *
+     * > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `confluentcloud.TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */

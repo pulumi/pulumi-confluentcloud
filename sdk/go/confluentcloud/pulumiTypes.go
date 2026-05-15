@@ -3845,6 +3845,8 @@ type CatalogIntegrationCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 	//
+	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+	//
 	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
@@ -3868,6 +3870,8 @@ type CatalogIntegrationCredentialsArgs struct {
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+	//
+	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
 	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
@@ -3961,6 +3965,8 @@ func (o CatalogIntegrationCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 //
+// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+//
 // !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o CatalogIntegrationCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationCredentials) string { return v.Secret }).(pulumi.StringOutput)
@@ -4005,6 +4011,8 @@ func (o CatalogIntegrationCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+//
+// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
 // !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o CatalogIntegrationCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
@@ -22488,6 +22496,280 @@ func (o ProviderOauthPtrOutput) OauthStsTokenExpiredInSeconds() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type RtceTopicEnvironment struct {
+	// The ID of the Environment.
+	Id string `pulumi:"id"`
+}
+
+// RtceTopicEnvironmentInput is an input type that accepts RtceTopicEnvironmentArgs and RtceTopicEnvironmentOutput values.
+// You can construct a concrete instance of `RtceTopicEnvironmentInput` via:
+//
+//	RtceTopicEnvironmentArgs{...}
+type RtceTopicEnvironmentInput interface {
+	pulumi.Input
+
+	ToRtceTopicEnvironmentOutput() RtceTopicEnvironmentOutput
+	ToRtceTopicEnvironmentOutputWithContext(context.Context) RtceTopicEnvironmentOutput
+}
+
+type RtceTopicEnvironmentArgs struct {
+	// The ID of the Environment.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (RtceTopicEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RtceTopicEnvironment)(nil)).Elem()
+}
+
+func (i RtceTopicEnvironmentArgs) ToRtceTopicEnvironmentOutput() RtceTopicEnvironmentOutput {
+	return i.ToRtceTopicEnvironmentOutputWithContext(context.Background())
+}
+
+func (i RtceTopicEnvironmentArgs) ToRtceTopicEnvironmentOutputWithContext(ctx context.Context) RtceTopicEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicEnvironmentOutput)
+}
+
+func (i RtceTopicEnvironmentArgs) ToRtceTopicEnvironmentPtrOutput() RtceTopicEnvironmentPtrOutput {
+	return i.ToRtceTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i RtceTopicEnvironmentArgs) ToRtceTopicEnvironmentPtrOutputWithContext(ctx context.Context) RtceTopicEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicEnvironmentOutput).ToRtceTopicEnvironmentPtrOutputWithContext(ctx)
+}
+
+// RtceTopicEnvironmentPtrInput is an input type that accepts RtceTopicEnvironmentArgs, RtceTopicEnvironmentPtr and RtceTopicEnvironmentPtrOutput values.
+// You can construct a concrete instance of `RtceTopicEnvironmentPtrInput` via:
+//
+//	        RtceTopicEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type RtceTopicEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToRtceTopicEnvironmentPtrOutput() RtceTopicEnvironmentPtrOutput
+	ToRtceTopicEnvironmentPtrOutputWithContext(context.Context) RtceTopicEnvironmentPtrOutput
+}
+
+type rtceTopicEnvironmentPtrType RtceTopicEnvironmentArgs
+
+func RtceTopicEnvironmentPtr(v *RtceTopicEnvironmentArgs) RtceTopicEnvironmentPtrInput {
+	return (*rtceTopicEnvironmentPtrType)(v)
+}
+
+func (*rtceTopicEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RtceTopicEnvironment)(nil)).Elem()
+}
+
+func (i *rtceTopicEnvironmentPtrType) ToRtceTopicEnvironmentPtrOutput() RtceTopicEnvironmentPtrOutput {
+	return i.ToRtceTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *rtceTopicEnvironmentPtrType) ToRtceTopicEnvironmentPtrOutputWithContext(ctx context.Context) RtceTopicEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicEnvironmentPtrOutput)
+}
+
+type RtceTopicEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (RtceTopicEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RtceTopicEnvironment)(nil)).Elem()
+}
+
+func (o RtceTopicEnvironmentOutput) ToRtceTopicEnvironmentOutput() RtceTopicEnvironmentOutput {
+	return o
+}
+
+func (o RtceTopicEnvironmentOutput) ToRtceTopicEnvironmentOutputWithContext(ctx context.Context) RtceTopicEnvironmentOutput {
+	return o
+}
+
+func (o RtceTopicEnvironmentOutput) ToRtceTopicEnvironmentPtrOutput() RtceTopicEnvironmentPtrOutput {
+	return o.ToRtceTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o RtceTopicEnvironmentOutput) ToRtceTopicEnvironmentPtrOutputWithContext(ctx context.Context) RtceTopicEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RtceTopicEnvironment) *RtceTopicEnvironment {
+		return &v
+	}).(RtceTopicEnvironmentPtrOutput)
+}
+
+// The ID of the Environment.
+func (o RtceTopicEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RtceTopicEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type RtceTopicEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (RtceTopicEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RtceTopicEnvironment)(nil)).Elem()
+}
+
+func (o RtceTopicEnvironmentPtrOutput) ToRtceTopicEnvironmentPtrOutput() RtceTopicEnvironmentPtrOutput {
+	return o
+}
+
+func (o RtceTopicEnvironmentPtrOutput) ToRtceTopicEnvironmentPtrOutputWithContext(ctx context.Context) RtceTopicEnvironmentPtrOutput {
+	return o
+}
+
+func (o RtceTopicEnvironmentPtrOutput) Elem() RtceTopicEnvironmentOutput {
+	return o.ApplyT(func(v *RtceTopicEnvironment) RtceTopicEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret RtceTopicEnvironment
+		return ret
+	}).(RtceTopicEnvironmentOutput)
+}
+
+// The ID of the Environment.
+func (o RtceTopicEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RtceTopicEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type RtceTopicKafkaCluster struct {
+	// The ID of the Kafka Cluster.
+	Id string `pulumi:"id"`
+}
+
+// RtceTopicKafkaClusterInput is an input type that accepts RtceTopicKafkaClusterArgs and RtceTopicKafkaClusterOutput values.
+// You can construct a concrete instance of `RtceTopicKafkaClusterInput` via:
+//
+//	RtceTopicKafkaClusterArgs{...}
+type RtceTopicKafkaClusterInput interface {
+	pulumi.Input
+
+	ToRtceTopicKafkaClusterOutput() RtceTopicKafkaClusterOutput
+	ToRtceTopicKafkaClusterOutputWithContext(context.Context) RtceTopicKafkaClusterOutput
+}
+
+type RtceTopicKafkaClusterArgs struct {
+	// The ID of the Kafka Cluster.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (RtceTopicKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i RtceTopicKafkaClusterArgs) ToRtceTopicKafkaClusterOutput() RtceTopicKafkaClusterOutput {
+	return i.ToRtceTopicKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i RtceTopicKafkaClusterArgs) ToRtceTopicKafkaClusterOutputWithContext(ctx context.Context) RtceTopicKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicKafkaClusterOutput)
+}
+
+func (i RtceTopicKafkaClusterArgs) ToRtceTopicKafkaClusterPtrOutput() RtceTopicKafkaClusterPtrOutput {
+	return i.ToRtceTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i RtceTopicKafkaClusterArgs) ToRtceTopicKafkaClusterPtrOutputWithContext(ctx context.Context) RtceTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicKafkaClusterOutput).ToRtceTopicKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// RtceTopicKafkaClusterPtrInput is an input type that accepts RtceTopicKafkaClusterArgs, RtceTopicKafkaClusterPtr and RtceTopicKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `RtceTopicKafkaClusterPtrInput` via:
+//
+//	        RtceTopicKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type RtceTopicKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToRtceTopicKafkaClusterPtrOutput() RtceTopicKafkaClusterPtrOutput
+	ToRtceTopicKafkaClusterPtrOutputWithContext(context.Context) RtceTopicKafkaClusterPtrOutput
+}
+
+type rtceTopicKafkaClusterPtrType RtceTopicKafkaClusterArgs
+
+func RtceTopicKafkaClusterPtr(v *RtceTopicKafkaClusterArgs) RtceTopicKafkaClusterPtrInput {
+	return (*rtceTopicKafkaClusterPtrType)(v)
+}
+
+func (*rtceTopicKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i *rtceTopicKafkaClusterPtrType) ToRtceTopicKafkaClusterPtrOutput() RtceTopicKafkaClusterPtrOutput {
+	return i.ToRtceTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *rtceTopicKafkaClusterPtrType) ToRtceTopicKafkaClusterPtrOutputWithContext(ctx context.Context) RtceTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RtceTopicKafkaClusterPtrOutput)
+}
+
+type RtceTopicKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (RtceTopicKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o RtceTopicKafkaClusterOutput) ToRtceTopicKafkaClusterOutput() RtceTopicKafkaClusterOutput {
+	return o
+}
+
+func (o RtceTopicKafkaClusterOutput) ToRtceTopicKafkaClusterOutputWithContext(ctx context.Context) RtceTopicKafkaClusterOutput {
+	return o
+}
+
+func (o RtceTopicKafkaClusterOutput) ToRtceTopicKafkaClusterPtrOutput() RtceTopicKafkaClusterPtrOutput {
+	return o.ToRtceTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o RtceTopicKafkaClusterOutput) ToRtceTopicKafkaClusterPtrOutputWithContext(ctx context.Context) RtceTopicKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RtceTopicKafkaCluster) *RtceTopicKafkaCluster {
+		return &v
+	}).(RtceTopicKafkaClusterPtrOutput)
+}
+
+// The ID of the Kafka Cluster.
+func (o RtceTopicKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RtceTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type RtceTopicKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (RtceTopicKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o RtceTopicKafkaClusterPtrOutput) ToRtceTopicKafkaClusterPtrOutput() RtceTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o RtceTopicKafkaClusterPtrOutput) ToRtceTopicKafkaClusterPtrOutputWithContext(ctx context.Context) RtceTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o RtceTopicKafkaClusterPtrOutput) Elem() RtceTopicKafkaClusterOutput {
+	return o.ApplyT(func(v *RtceTopicKafkaCluster) RtceTopicKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret RtceTopicKafkaCluster
+		return ret
+	}).(RtceTopicKafkaClusterOutput)
+}
+
+// The ID of the Kafka Cluster.
+func (o RtceTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RtceTopicKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -26690,6 +26972,8 @@ type TableflowTopicCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 	//
+	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+	//
 	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
@@ -26713,6 +26997,8 @@ type TableflowTopicCredentialsArgs struct {
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+	//
+	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
 	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
@@ -26806,6 +27092,8 @@ func (o TableflowTopicCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 //
+// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+//
 // !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o TableflowTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v TableflowTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
@@ -26850,6 +27138,8 @@ func (o TableflowTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+//
+// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
 // !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o TableflowTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
@@ -45309,6 +45599,110 @@ func (o GetProviderIntegrationSetupEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProviderIntegrationSetupEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetRtceTopicEnvironment struct {
+	// The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetRtceTopicEnvironmentInput is an input type that accepts GetRtceTopicEnvironmentArgs and GetRtceTopicEnvironmentOutput values.
+// You can construct a concrete instance of `GetRtceTopicEnvironmentInput` via:
+//
+//	GetRtceTopicEnvironmentArgs{...}
+type GetRtceTopicEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetRtceTopicEnvironmentOutput() GetRtceTopicEnvironmentOutput
+	ToGetRtceTopicEnvironmentOutputWithContext(context.Context) GetRtceTopicEnvironmentOutput
+}
+
+type GetRtceTopicEnvironmentArgs struct {
+	// The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetRtceTopicEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRtceTopicEnvironment)(nil)).Elem()
+}
+
+func (i GetRtceTopicEnvironmentArgs) ToGetRtceTopicEnvironmentOutput() GetRtceTopicEnvironmentOutput {
+	return i.ToGetRtceTopicEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetRtceTopicEnvironmentArgs) ToGetRtceTopicEnvironmentOutputWithContext(ctx context.Context) GetRtceTopicEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRtceTopicEnvironmentOutput)
+}
+
+type GetRtceTopicEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetRtceTopicEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRtceTopicEnvironment)(nil)).Elem()
+}
+
+func (o GetRtceTopicEnvironmentOutput) ToGetRtceTopicEnvironmentOutput() GetRtceTopicEnvironmentOutput {
+	return o
+}
+
+func (o GetRtceTopicEnvironmentOutput) ToGetRtceTopicEnvironmentOutputWithContext(ctx context.Context) GetRtceTopicEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+func (o GetRtceTopicEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRtceTopicEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetRtceTopicKafkaCluster struct {
+	// The ID of the Kafka Cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetRtceTopicKafkaClusterInput is an input type that accepts GetRtceTopicKafkaClusterArgs and GetRtceTopicKafkaClusterOutput values.
+// You can construct a concrete instance of `GetRtceTopicKafkaClusterInput` via:
+//
+//	GetRtceTopicKafkaClusterArgs{...}
+type GetRtceTopicKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetRtceTopicKafkaClusterOutput() GetRtceTopicKafkaClusterOutput
+	ToGetRtceTopicKafkaClusterOutputWithContext(context.Context) GetRtceTopicKafkaClusterOutput
+}
+
+type GetRtceTopicKafkaClusterArgs struct {
+	// The ID of the Kafka Cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetRtceTopicKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i GetRtceTopicKafkaClusterArgs) ToGetRtceTopicKafkaClusterOutput() GetRtceTopicKafkaClusterOutput {
+	return i.ToGetRtceTopicKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetRtceTopicKafkaClusterArgs) ToGetRtceTopicKafkaClusterOutputWithContext(ctx context.Context) GetRtceTopicKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRtceTopicKafkaClusterOutput)
+}
+
+type GetRtceTopicKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetRtceTopicKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRtceTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o GetRtceTopicKafkaClusterOutput) ToGetRtceTopicKafkaClusterOutput() GetRtceTopicKafkaClusterOutput {
+	return o
+}
+
+func (o GetRtceTopicKafkaClusterOutput) ToGetRtceTopicKafkaClusterOutputWithContext(ctx context.Context) GetRtceTopicKafkaClusterOutput {
+	return o
+}
+
+// The ID of the Kafka Cluster, for example, `lkc-abc123`.
+func (o GetRtceTopicKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRtceTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetSchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -51574,6 +51968,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationSetupEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationSetupEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthPtrInput)(nil)).Elem(), ProviderOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RtceTopicEnvironmentInput)(nil)).Elem(), RtceTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RtceTopicEnvironmentPtrInput)(nil)).Elem(), RtceTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RtceTopicKafkaClusterInput)(nil)).Elem(), RtceTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RtceTopicKafkaClusterPtrInput)(nil)).Elem(), RtceTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterCredentialsInput)(nil)).Elem(), SchemaExporterCredentialsArgs{})
@@ -51932,6 +52330,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwArrayInput)(nil)).Elem(), GetProviderIntegrationAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationSetupEnvironmentInput)(nil)).Elem(), GetProviderIntegrationSetupEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRtceTopicEnvironmentInput)(nil)).Elem(), GetRtceTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRtceTopicKafkaClusterInput)(nil)).Elem(), GetRtceTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataInput)(nil)).Elem(), GetSchemaMetadataArgs{})
@@ -52319,6 +52719,10 @@ func init() {
 	pulumi.RegisterOutputType(ProviderIntegrationSetupEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderOauthOutput{})
 	pulumi.RegisterOutputType(ProviderOauthPtrOutput{})
+	pulumi.RegisterOutputType(RtceTopicEnvironmentOutput{})
+	pulumi.RegisterOutputType(RtceTopicEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(RtceTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(RtceTopicKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaExporterCredentialsOutput{})
@@ -52677,6 +53081,8 @@ func init() {
 	pulumi.RegisterOutputType(GetProviderIntegrationAwArrayOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationSetupEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetRtceTopicEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetRtceTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaMetadataOutput{})

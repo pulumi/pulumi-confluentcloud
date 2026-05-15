@@ -106,7 +106,9 @@ type LookupTableflowTopicResult struct {
 	// (Optional Configuration Block) supports the following:
 	ByobAws     []GetTableflowTopicByobAw     `pulumi:"byobAws"`
 	Credentials *GetTableflowTopicCredentials `pulumi:"credentials"`
-	DisplayName string                        `pulumi:"displayName"`
+	// (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs string `pulumi:"dataRetentionMs"`
+	DisplayName     string `pulumi:"displayName"`
 	// (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
 	EnableCompaction bool `pulumi:"enableCompaction"`
 	// (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
@@ -184,6 +186,11 @@ func (o LookupTableflowTopicResultOutput) ByobAws() GetTableflowTopicByobAwArray
 
 func (o LookupTableflowTopicResultOutput) Credentials() GetTableflowTopicCredentialsPtrOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) *GetTableflowTopicCredentials { return v.Credentials }).(GetTableflowTopicCredentialsPtrOutput)
+}
+
+// (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+func (o LookupTableflowTopicResultOutput) DataRetentionMs() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.DataRetentionMs }).(pulumi.StringOutput)
 }
 
 func (o LookupTableflowTopicResultOutput) DisplayName() pulumi.StringOutput {

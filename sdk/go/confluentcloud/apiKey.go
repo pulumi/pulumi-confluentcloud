@@ -14,7 +14,9 @@ import (
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
-// `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+// `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Global API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+//
+// > **Note:** A Global API Key can manage resources across all clusters and environments within the organization. Unlike Cluster API Keys, which are scoped to a specific cluster, a Global API Key provides broad access, making it suitable for use cases that require cross-resource management. Review [documentation](https://docs.confluent.io/cloud/current/security/authenticate/workload-identities/service-accounts/api-keys/overview.html#resource-scopes) for limitations.
 //
 // > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental API Key deletion. This setting rejects plans that would destroy or recreate the API Key, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
 //
@@ -209,6 +211,42 @@ import (
 //					Id:         pulumi.String("tableflow"),
 //					ApiVersion: pulumi.String("tableflow/v1"),
 //					Kind:       pulumi.String("Tableflow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example Global API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-global-api-key", &confluentcloud.ApiKeyArgs{
+//				DisplayName: pulumi.String("env-manager-global-api-key"),
+//				Description: pulumi.String("Global API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(env_manager.Id),
+//					ApiVersion: pulumi.Any(env_manager.ApiVersion),
+//					Kind:       pulumi.Any(env_manager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.String("global"),
+//					ApiVersion: pulumi.String("global/v1"),
+//					Kind:       pulumi.String("Global"),
 //				},
 //			})
 //			if err != nil {

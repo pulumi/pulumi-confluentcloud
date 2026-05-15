@@ -70,6 +70,21 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    @Import(name="dataRetentionMs")
+    private @Nullable Output<String> dataRetentionMs;
+
+    /**
+     * @return The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    public Optional<Output<String>> dataRetentionMs() {
+        return Optional.ofNullable(this.dataRetentionMs);
+    }
+
+    /**
      * The name of the Kafka topic for which Tableflow is enabled.
      * 
      */
@@ -262,6 +277,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         this.azureDataLakeStorageGen2 = $.azureDataLakeStorageGen2;
         this.byobAws = $.byobAws;
         this.credentials = $.credentials;
+        this.dataRetentionMs = $.dataRetentionMs;
         this.displayName = $.displayName;
         this.enableCompaction = $.enableCompaction;
         this.enablePartitioning = $.enablePartitioning;
@@ -356,6 +372,27 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
          */
         public Builder credentials(TableflowTopicCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
+        }
+
+        /**
+         * @param dataRetentionMs The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataRetentionMs(@Nullable Output<String> dataRetentionMs) {
+            $.dataRetentionMs = dataRetentionMs;
+            return this;
+        }
+
+        /**
+         * @param dataRetentionMs The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataRetentionMs(String dataRetentionMs) {
+            return dataRetentionMs(Output.of(dataRetentionMs));
         }
 
         /**

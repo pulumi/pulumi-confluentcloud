@@ -91,6 +91,10 @@ export interface GetTableflowTopicResult {
      */
     readonly byobAws: outputs.GetTableflowTopicByobAw[];
     readonly credentials?: outputs.GetTableflowTopicCredentials;
+    /**
+     * (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     */
+    readonly dataRetentionMs: string;
     readonly displayName: string;
     /**
      * (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
