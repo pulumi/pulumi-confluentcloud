@@ -119,6 +119,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProviderIntegrationSetup{}
 	case "confluentcloud:index/roleBinding:RoleBinding":
 		r = &RoleBinding{}
+	case "confluentcloud:index/rtceTopic:RtceTopic":
+		r = &RtceTopic{}
 	case "confluentcloud:index/schema:Schema":
 		r = &Schema{}
 	case "confluentcloud:index/schemaExporter:SchemaExporter":
@@ -421,6 +423,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/roleBinding",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/rtceTopic",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

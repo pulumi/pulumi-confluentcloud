@@ -28,7 +28,7 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, data_retention_ms=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
         if azure_data_lake_storage_gen2s and not isinstance(azure_data_lake_storage_gen2s, list):
             raise TypeError("Expected argument 'azure_data_lake_storage_gen2s' to be a list")
         pulumi.set(__self__, "azure_data_lake_storage_gen2s", azure_data_lake_storage_gen2s)
@@ -38,6 +38,9 @@ class GetTableflowTopicResult:
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
+        if data_retention_ms and not isinstance(data_retention_ms, str):
+            raise TypeError("Expected argument 'data_retention_ms' to be a str")
+        pulumi.set(__self__, "data_retention_ms", data_retention_ms)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -101,6 +104,14 @@ class GetTableflowTopicResult:
     @pulumi.getter
     def credentials(self) -> Optional['outputs.GetTableflowTopicCredentialsResult']:
         return pulumi.get(self, "credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionMs")
+    def data_retention_ms(self) -> _builtins.str:
+        """
+        (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        """
+        return pulumi.get(self, "data_retention_ms")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -215,6 +226,7 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
             azure_data_lake_storage_gen2s=self.azure_data_lake_storage_gen2s,
             byob_aws=self.byob_aws,
             credentials=self.credentials,
+            data_retention_ms=self.data_retention_ms,
             display_name=self.display_name,
             enable_compaction=self.enable_compaction,
             enable_partitioning=self.enable_partitioning,
@@ -288,6 +300,7 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         azure_data_lake_storage_gen2s=pulumi.get(__ret__, 'azure_data_lake_storage_gen2s'),
         byob_aws=pulumi.get(__ret__, 'byob_aws'),
         credentials=pulumi.get(__ret__, 'credentials'),
+        data_retention_ms=pulumi.get(__ret__, 'data_retention_ms'),
         display_name=pulumi.get(__ret__, 'display_name'),
         enable_compaction=pulumi.get(__ret__, 'enable_compaction'),
         enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
@@ -358,6 +371,7 @@ def get_tableflow_topic_output(credentials: pulumi.Input[Optional[Optional[Union
         azure_data_lake_storage_gen2s=pulumi.get(__response__, 'azure_data_lake_storage_gen2s'),
         byob_aws=pulumi.get(__response__, 'byob_aws'),
         credentials=pulumi.get(__response__, 'credentials'),
+        data_retention_ms=pulumi.get(__response__, 'data_retention_ms'),
         display_name=pulumi.get(__response__, 'display_name'),
         enable_compaction=pulumi.get(__response__, 'enable_compaction'),
         enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),

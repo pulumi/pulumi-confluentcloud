@@ -287,6 +287,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableflowTopicByobAwResult> ByobAws;
         public readonly Outputs.GetTableflowTopicCredentialsResult? Credentials;
+        /// <summary>
+        /// (Optional String) The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        /// </summary>
+        public readonly string DataRetentionMs;
         public readonly string DisplayName;
         /// <summary>
         /// (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
@@ -343,6 +347,8 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetTableflowTopicCredentialsResult? credentials,
 
+            string dataRetentionMs,
+
             string displayName,
 
             bool enableCompaction,
@@ -374,6 +380,7 @@ namespace Pulumi.ConfluentCloud
             AzureDataLakeStorageGen2s = azureDataLakeStorageGen2s;
             ByobAws = byobAws;
             Credentials = credentials;
+            DataRetentionMs = dataRetentionMs;
             DisplayName = displayName;
             EnableCompaction = enableCompaction;
             EnablePartitioning = enablePartitioning;

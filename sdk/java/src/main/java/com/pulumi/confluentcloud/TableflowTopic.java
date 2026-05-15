@@ -195,6 +195,20 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
+     * The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    @Export(name="dataRetentionMs", refs={String.class}, tree="[0]")
+    private Output<String> dataRetentionMs;
+
+    /**
+     * @return The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+     * 
+     */
+    public Output<String> dataRetentionMs() {
+        return this.dataRetentionMs;
+    }
+    /**
      * The name of the Kafka topic for which Tableflow is enabled.
      * 
      */

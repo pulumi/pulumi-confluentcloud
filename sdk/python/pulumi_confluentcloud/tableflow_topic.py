@@ -27,6 +27,7 @@ class TableflowTopicArgs:
                  azure_data_lake_storage_gen2: pulumi.Input[Optional['TableflowTopicAzureDataLakeStorageGen2Args']] = None,
                  byob_aws: pulumi.Input[Optional['TableflowTopicByobAwsArgs']] = None,
                  credentials: pulumi.Input[Optional['TableflowTopicCredentialsArgs']] = None,
+                 data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  error_handling: pulumi.Input[Optional['TableflowTopicErrorHandlingArgs']] = None,
                  managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +41,7 @@ class TableflowTopicArgs:
         :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
@@ -54,6 +56,8 @@ class TableflowTopicArgs:
             pulumi.set(__self__, "byob_aws", byob_aws)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if data_retention_ms is not None:
+            pulumi.set(__self__, "data_retention_ms", data_retention_ms)
         if error_handling is not None:
             pulumi.set(__self__, "error_handling", error_handling)
         if managed_storages is not None:
@@ -138,6 +142,18 @@ class TableflowTopicArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataRetentionMs")
+    def data_retention_ms(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        """
+        return pulumi.get(self, "data_retention_ms")
+
+    @data_retention_ms.setter
+    def data_retention_ms(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_retention_ms", value)
+
+    @_builtins.property
     @pulumi.getter(name="errorHandling")
     def error_handling(self) -> pulumi.Input[Optional['TableflowTopicErrorHandlingArgs']]:
         return pulumi.get(self, "error_handling")
@@ -202,6 +218,7 @@ class _TableflowTopicState:
                  azure_data_lake_storage_gen2: pulumi.Input[Optional['TableflowTopicAzureDataLakeStorageGen2Args']] = None,
                  byob_aws: pulumi.Input[Optional['TableflowTopicByobAwsArgs']] = None,
                  credentials: pulumi.Input[Optional['TableflowTopicCredentialsArgs']] = None,
+                 data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -221,6 +238,7 @@ class _TableflowTopicState:
         :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[_builtins.bool] enable_compaction: (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
@@ -239,6 +257,8 @@ class _TableflowTopicState:
             pulumi.set(__self__, "byob_aws", byob_aws)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if data_retention_ms is not None:
+            pulumi.set(__self__, "data_retention_ms", data_retention_ms)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if enable_compaction is not None:
@@ -304,6 +324,18 @@ class _TableflowTopicState:
     @credentials.setter
     def credentials(self, value: pulumi.Input[Optional['TableflowTopicCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionMs")
+    def data_retention_ms(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        """
+        return pulumi.get(self, "data_retention_ms")
+
+    @data_retention_ms.setter
+    def data_retention_ms(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_retention_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -466,6 +498,7 @@ class TableflowTopic(pulumi.CustomResource):
                  azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
                  byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
                  credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+                 data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
                  error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
@@ -554,6 +587,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -659,6 +693,7 @@ class TableflowTopic(pulumi.CustomResource):
                  azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
                  byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
                  credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+                 data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
                  error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
@@ -679,6 +714,7 @@ class TableflowTopic(pulumi.CustomResource):
             __props__.__dict__["azure_data_lake_storage_gen2"] = azure_data_lake_storage_gen2
             __props__.__dict__["byob_aws"] = byob_aws
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            __props__.__dict__["data_retention_ms"] = data_retention_ms
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -713,6 +749,7 @@ class TableflowTopic(pulumi.CustomResource):
             azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
             byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
             credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+            data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enable_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -736,6 +773,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[_builtins.bool] enable_compaction: (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
@@ -755,6 +793,7 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["azure_data_lake_storage_gen2"] = azure_data_lake_storage_gen2
         __props__.__dict__["byob_aws"] = byob_aws
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["data_retention_ms"] = data_retention_ms
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enable_compaction"] = enable_compaction
         __props__.__dict__["enable_partitioning"] = enable_partitioning
@@ -793,6 +832,14 @@ class TableflowTopic(pulumi.CustomResource):
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionMs")
+    def data_retention_ms(self) -> pulumi.Output[_builtins.str]:
+        """
+        The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+        """
+        return pulumi.get(self, "data_retention_ms")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

@@ -126,6 +126,8 @@ type TableflowTopic struct {
 	ByobAws TableflowTopicByobAwsPtrOutput `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrOutput `pulumi:"credentials"`
+	// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs pulumi.StringOutput `pulumi:"dataRetentionMs"`
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
@@ -206,6 +208,8 @@ type tableflowTopicState struct {
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials *TableflowTopicCredentials `pulumi:"credentials"`
+	// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs *string `pulumi:"dataRetentionMs"`
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName *string `pulumi:"displayName"`
 	// (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
@@ -241,6 +245,8 @@ type TableflowTopicState struct {
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrInput
+	// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs pulumi.StringPtrInput
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName pulumi.StringPtrInput
 	// (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
@@ -280,6 +286,8 @@ type tableflowTopicArgs struct {
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials *TableflowTopicCredentials `pulumi:"credentials"`
+	// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs *string `pulumi:"dataRetentionMs"`
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -306,6 +314,8 @@ type TableflowTopicArgs struct {
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrInput
+	// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+	DataRetentionMs pulumi.StringPtrInput
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -426,6 +436,11 @@ func (o TableflowTopicOutput) ByobAws() TableflowTopicByobAwsPtrOutput {
 // The Cluster API Credentials.
 func (o TableflowTopicOutput) Credentials() TableflowTopicCredentialsPtrOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicCredentialsPtrOutput { return v.Credentials }).(TableflowTopicCredentialsPtrOutput)
+}
+
+// The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
+func (o TableflowTopicOutput) DataRetentionMs() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.DataRetentionMs }).(pulumi.StringOutput)
 }
 
 // The name of the Kafka topic for which Tableflow is enabled.

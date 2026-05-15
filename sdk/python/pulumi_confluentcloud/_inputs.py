@@ -319,6 +319,10 @@ __all__ = [
     'ProviderIntegrationSetupEnvironmentArgsDict',
     'ProviderOauthArgs',
     'ProviderOauthArgsDict',
+    'RtceTopicEnvironmentArgs',
+    'RtceTopicEnvironmentArgsDict',
+    'RtceTopicKafkaClusterArgs',
+    'RtceTopicKafkaClusterArgsDict',
     'SchemaCredentialsArgs',
     'SchemaCredentialsArgsDict',
     'SchemaExporterCredentialsArgs',
@@ -515,6 +519,10 @@ __all__ = [
     'GetProviderIntegrationEnvironmentArgsDict',
     'GetProviderIntegrationSetupEnvironmentArgs',
     'GetProviderIntegrationSetupEnvironmentArgsDict',
+    'GetRtceTopicEnvironmentArgs',
+    'GetRtceTopicEnvironmentArgsDict',
+    'GetRtceTopicKafkaClusterArgs',
+    'GetRtceTopicKafkaClusterArgsDict',
     'GetSchemaCredentialsArgs',
     'GetSchemaCredentialsArgsDict',
     'GetSchemaMetadataArgs',
@@ -2007,6 +2015,8 @@ class CatalogIntegrationCredentialsArgsDict(TypedDict):
 
     > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 
+    > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+
     !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
     """
 
@@ -2022,6 +2032,8 @@ class CatalogIntegrationCredentialsArgs:
                > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
                
                > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+               
+               > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
@@ -2049,6 +2061,8 @@ class CatalogIntegrationCredentialsArgs:
         > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 
         > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+        > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 
         !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
@@ -7683,6 +7697,62 @@ class ProviderOauthArgs:
         pulumi.set(self, "oauth_sts_token_expired_in_seconds", value)
 
 
+class RtceTopicEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment.
+    """
+
+@pulumi.input_type
+class RtceTopicEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the Environment.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Environment.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+class RtceTopicKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka Cluster.
+    """
+
+@pulumi.input_type
+class RtceTopicKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the Kafka Cluster.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Kafka Cluster.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+
 class SchemaCredentialsArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     """
@@ -9321,6 +9391,8 @@ class TableflowTopicCredentialsArgsDict(TypedDict):
 
     > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
 
+    > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
+
     !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
     """
 
@@ -9336,6 +9408,8 @@ class TableflowTopicCredentialsArgs:
                > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
                
                > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+               
+               > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
@@ -9363,6 +9437,8 @@ class TableflowTopicCredentialsArgs:
         > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 
         > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+        > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflow_api_key`/`tableflow_api_secret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflow_api_key`/`tableflow_api_secret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 
         !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
@@ -12228,6 +12304,62 @@ class GetProviderIntegrationSetupEnvironmentArgs:
     def id(self) -> _builtins.str:
         """
         The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+
+class GetRtceTopicEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+    """
+
+@pulumi.input_type
+class GetRtceTopicEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the RtceTopic belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+
+class GetRtceTopicKafkaClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Kafka Cluster, for example, `lkc-abc123`.
+    """
+
+@pulumi.input_type
+class GetRtceTopicKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Kafka Cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Kafka Cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 

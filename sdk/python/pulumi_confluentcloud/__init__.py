@@ -75,6 +75,7 @@ from .get_provider_integration import *
 from .get_provider_integration_authorization import *
 from .get_provider_integration_setup import *
 from .get_role_binding import *
+from .get_rtce_topic import *
 from .get_schema import *
 from .get_schema_registry_cluster import *
 from .get_schema_registry_cluster_config import *
@@ -118,6 +119,7 @@ from .provider_integration import *
 from .provider_integration_authorization import *
 from .provider_integration_setup import *
 from .role_binding import *
+from .rtce_topic import *
 from .schema import *
 from .schema_exporter import *
 from .schema_registry_cluster_config import *
@@ -535,6 +537,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/roleBinding:RoleBinding": "RoleBinding"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/rtceTopic",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/rtceTopic:RtceTopic": "RtceTopic"
   }
  },
  {
