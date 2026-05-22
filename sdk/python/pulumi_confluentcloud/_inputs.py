@@ -1255,7 +1255,7 @@ class ApiKeyManagedResourceArgsDict(TypedDict):
     """
     The kind of the managed resource that the API Key associated with, for example, `Cluster`.
     """
-    environment: NotRequired[pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgs']]]
+    environment: NotRequired[pulumi.Input[Optional['ApiKeyManagedResourceEnvironmentArgsDict']]]
 
 @pulumi.input_type
 class ApiKeyManagedResourceArgs:
@@ -2355,7 +2355,7 @@ class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
     """
     The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkDestinationKafkaClusterCredentialsArgsDict']]]
     """
     The Kafka API Credentials.
     """
@@ -2490,7 +2490,7 @@ class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
     """
     The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkLocalKafkaClusterCredentialsArgsDict']]]
     """
     The Kafka API Credentials.
     """
@@ -2625,7 +2625,7 @@ class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
     """
     The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkRemoteKafkaClusterCredentialsArgsDict']]]
     """
     The Kafka API Credentials.
     """
@@ -2760,7 +2760,7 @@ class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
     """
     The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
     """
-    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['ClusterLinkSourceKafkaClusterCredentialsArgsDict']]]
     """
     The Kafka API Credentials.
     """
@@ -3538,15 +3538,15 @@ class FlinkConnectionPrincipalArgs:
 
 
 class FlinkMaterializedTableColumnArgsDict(TypedDict):
-    columns_computeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgs']]]]]
+    columns_computeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsComputedArgsDict']]]]]
     """
     Computed column definitions. Each block supports:
     """
-    columns_metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgs']]]]]
+    columns_metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsMetadataArgsDict']]]]]
     """
     Metadata column definitions. Each block supports:
     """
-    columns_physicals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgs']]]]]
+    columns_physicals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlinkMaterializedTableColumnColumnsPhysicalArgsDict']]]]]
     """
     Physical column definitions. Each block supports:
     """
@@ -5716,7 +5716,7 @@ class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
     """
     The ID of the destination Kafka cluster, for example, `lkc-abc123`.
     """
-    credentials: NotRequired[pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['KafkaMirrorTopicKafkaClusterCredentialsArgsDict']]]
     """
     The Kafka API Credentials.
     """
@@ -7870,7 +7870,7 @@ class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
     """
     The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    credentials: NotRequired[pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']]]
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
@@ -8010,7 +8010,7 @@ class SchemaMetadataArgsDict(TypedDict):
     """
     A list of metadata properties to be encrypted.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]]
 
 @pulumi.input_type
 class SchemaMetadataArgs:
@@ -8439,15 +8439,15 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
 
 
 class SchemaRulesetArgsDict(TypedDict):
-    domain_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]]
+    domain_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]]
     """
     supports the following:
     """
-    encoding_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgs']]]]]
+    encoding_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetEncodingRuleArgsDict']]]]]
     """
     supports the following:
     """
-    migration_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]]
+    migration_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]]
     """
     supports the following:
     """
