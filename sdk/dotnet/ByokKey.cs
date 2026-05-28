@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/byokKey:ByokKey")]
     public partial class ByokKey : global::Pulumi.CustomResource

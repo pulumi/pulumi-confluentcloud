@@ -74,7 +74,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/identityProvider:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource

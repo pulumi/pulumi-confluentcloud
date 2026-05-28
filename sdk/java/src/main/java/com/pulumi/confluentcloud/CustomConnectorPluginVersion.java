@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion")

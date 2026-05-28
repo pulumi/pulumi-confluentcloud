@@ -74,7 +74,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection main env-abc123/plattc-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class PrivateLinkAttachmentConnection extends pulumi.CustomResource {
     /**

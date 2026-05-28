@@ -339,7 +339,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -521,7 +521,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

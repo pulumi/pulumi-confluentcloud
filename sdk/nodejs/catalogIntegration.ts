@@ -79,7 +79,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/catalogIntegration:CatalogIntegration example env-abc123/lkc-abc123/tci-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class CatalogIntegration extends pulumi.CustomResource {
     /**

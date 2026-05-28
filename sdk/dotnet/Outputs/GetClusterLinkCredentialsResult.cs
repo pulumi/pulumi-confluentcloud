@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// 
         /// &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
         /// 
-        /// !&gt; **Warning:** Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+        /// &gt; **Warning:** Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         public readonly string Secret;
 

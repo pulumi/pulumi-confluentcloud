@@ -71,7 +71,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment my_tgwa env-abc123/tgwa-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class TransitGatewayAttachment extends pulumi.CustomResource {
     /**

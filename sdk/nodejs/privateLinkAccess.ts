@@ -137,7 +137,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class PrivateLinkAccess extends pulumi.CustomResource {
     /**

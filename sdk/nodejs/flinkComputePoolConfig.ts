@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig main org-123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class FlinkComputePoolConfig extends pulumi.CustomResource {
     /**

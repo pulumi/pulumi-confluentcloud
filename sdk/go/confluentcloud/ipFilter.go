@@ -75,7 +75,7 @@ import (
 // $ pulumi import confluentcloud:index/ipFilter:IpFilter example ipf-abc123
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type IpFilter struct {
 	pulumi.CustomResourceState
 

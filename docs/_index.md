@@ -287,4 +287,4 @@ Complete examples (with Okta and Microsoft Azure Entra ID as identity provider) 
 
 > **Note:** To switch your Pulumi configuration from API key/secret authentication to OAuth, update your provider configuration by removing any references to variables such as `cloudApiKey`, `flinkApiKey`, `kafkaApiKey`, `schemaRegistryApiKey`, and similar variables. Also, remove any `credentials` blocks from resources like `confluentcloud.KafkaTopic`, `confluentcloud.Schema`, and `confluentcloud.FlinkStatement`. Instead, specify your authentication details within the `oauth {}` block. After making these changes, apply your configuration to start using OAuth.
 
-!> **Warning:** Without proper Identity Provider setup, Identity Pool creation and RBAC roles assignment, the OAuth credentials will not work with Confluent Pulumi Provider.
+> **Warning:** Without proper Identity Provider setup, Identity Pool creation and RBAC roles assignment, the OAuth credentials will not work with Confluent Pulumi Provider.

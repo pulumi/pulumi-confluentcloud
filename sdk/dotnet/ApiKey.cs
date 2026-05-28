@@ -309,7 +309,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource

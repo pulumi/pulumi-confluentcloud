@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/serviceAccount:ServiceAccount")]
     public partial class ServiceAccount : global::Pulumi.CustomResource

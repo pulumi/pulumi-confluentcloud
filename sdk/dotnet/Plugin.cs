@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/plugin:Plugin")]
     public partial class Plugin : global::Pulumi.CustomResource

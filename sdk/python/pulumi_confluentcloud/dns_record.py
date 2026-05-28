@@ -227,7 +227,7 @@ class DnsRecord(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/dnsRecord:DnsRecord main env-abc123/dnsrec-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -280,7 +280,7 @@ class DnsRecord(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/dnsRecord:DnsRecord main env-abc123/dnsrec-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

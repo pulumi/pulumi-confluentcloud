@@ -95,7 +95,7 @@ import (
 // $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type ByokKey struct {
 	pulumi.CustomResourceState
 

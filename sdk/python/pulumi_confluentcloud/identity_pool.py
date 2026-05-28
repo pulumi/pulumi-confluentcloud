@@ -268,7 +268,7 @@ class IdentityPool(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -350,7 +350,7 @@ class IdentityPool(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

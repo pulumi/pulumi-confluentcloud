@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin")]
     public partial class CustomConnectorPlugin : global::Pulumi.CustomResource

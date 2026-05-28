@@ -45,7 +45,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/rtceTopic:RtceTopic example env-abc123/lkc-abc123/orders_topic
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class RtceTopic extends pulumi.CustomResource {
     /**

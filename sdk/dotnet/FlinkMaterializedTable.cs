@@ -157,7 +157,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable example env-abc123/lkc-xyz123/my_materialized_table
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable")]
     public partial class FlinkMaterializedTable : global::Pulumi.CustomResource

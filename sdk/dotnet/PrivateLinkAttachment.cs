@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment main env-abc123/platt-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment")]
     public partial class PrivateLinkAttachment : global::Pulumi.CustomResource

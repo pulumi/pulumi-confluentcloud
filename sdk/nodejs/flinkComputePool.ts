@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/flinkComputePool:FlinkComputePool main env-abc123/lfcp-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class FlinkComputePool extends pulumi.CustomResource {
     /**

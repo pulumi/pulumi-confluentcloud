@@ -72,7 +72,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class NetworkLinkService extends pulumi.CustomResource {
     /**

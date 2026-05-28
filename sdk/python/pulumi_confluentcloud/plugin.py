@@ -271,7 +271,7 @@ class Plugin(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -322,7 +322,7 @@ class Plugin(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

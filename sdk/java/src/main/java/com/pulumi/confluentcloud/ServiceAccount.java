@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/serviceAccount:ServiceAccount")

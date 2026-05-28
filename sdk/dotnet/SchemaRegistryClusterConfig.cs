@@ -77,7 +77,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig example lsrc-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig")]
     public partial class SchemaRegistryClusterConfig : global::Pulumi.CustomResource

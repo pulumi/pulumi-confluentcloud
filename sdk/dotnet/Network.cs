@@ -195,7 +195,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/network:Network")]
     public partial class Network : global::Pulumi.CustomResource

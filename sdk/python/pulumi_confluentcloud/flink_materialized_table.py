@@ -566,7 +566,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable example env-abc123/lkc-xyz123/my_materialized_table
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -697,7 +697,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable example env-abc123/lkc-xyz123/my_materialized_table
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

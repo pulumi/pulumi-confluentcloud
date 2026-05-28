@@ -50,7 +50,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/invitation:Invitation")]
     public partial class Invitation : global::Pulumi.CustomResource

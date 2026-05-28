@@ -43,7 +43,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class CustomConnectorPlugin extends pulumi.CustomResource {
     /**

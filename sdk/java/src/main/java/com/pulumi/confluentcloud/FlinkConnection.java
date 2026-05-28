@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  * - `username` - (Optional String) The username for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
  * - `password` - (Optional String) The password  for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
  * 
- * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+ * &gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
  * 
  * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
  * 
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** The example above is for `type = OPENAI`, so we exported `API_KEY`. Export the required field for each type as mentioned above. The fields that can be exported are: `API_KEY`, `AWS_SECRET_ACCESS_KEY_CONNECTION`, `AWS_ACCESS_KEY_ID_CONNECTION`, `AWS_SESSION_TOKEN_CONNECTION`, `SERVICE_KEY`, `USERNAME`, `PASSWORD`.
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/flinkConnection:FlinkConnection")

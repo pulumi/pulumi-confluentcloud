@@ -54,7 +54,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class CustomConnectorPluginVersion extends pulumi.CustomResource {
     /**

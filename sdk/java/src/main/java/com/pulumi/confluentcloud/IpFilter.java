@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/ipFilter:IpFilter example ipf-abc123
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/ipFilter:IpFilter")

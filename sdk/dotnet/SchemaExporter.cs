@@ -132,7 +132,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// 
     /// &gt; **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
     /// </summary>

@@ -159,7 +159,7 @@ import (
 //
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type KafkaTopic struct {
 	pulumi.CustomResourceState
 

@@ -342,7 +342,7 @@ class Peering(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -484,7 +484,7 @@ class Peering(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

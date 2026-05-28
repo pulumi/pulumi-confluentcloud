@@ -120,7 +120,7 @@ import * as utilities from "./utilities";
  * }
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class KafkaTopic extends pulumi.CustomResource {
     /**

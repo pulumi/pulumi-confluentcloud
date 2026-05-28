@@ -87,7 +87,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/subjectConfig:SubjectConfig example lsrc-abc123/test-subject
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class SubjectConfig extends pulumi.CustomResource {
     /**

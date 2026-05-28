@@ -62,7 +62,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/dnsRecord:DnsRecord main env-abc123/dnsrec-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/dnsRecord:DnsRecord")]
     public partial class DnsRecord : global::Pulumi.CustomResource

@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/certificateAuthority:CertificateAuthority main op-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class CertificateAuthority extends pulumi.CustomResource {
     /**

@@ -61,7 +61,7 @@ import (
 // $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Invitation struct {
 	pulumi.CustomResourceState
 

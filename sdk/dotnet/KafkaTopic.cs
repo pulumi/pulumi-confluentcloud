@@ -141,7 +141,7 @@ namespace Pulumi.ConfluentCloud
     /// }
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaTopic:KafkaTopic")]
     public partial class KafkaTopic : global::Pulumi.CustomResource
