@@ -100,7 +100,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/networkLinkService:NetworkLinkService")]
     public partial class NetworkLinkService : global::Pulumi.CustomResource

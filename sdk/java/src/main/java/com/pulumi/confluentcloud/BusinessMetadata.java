@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/businessMetadata:BusinessMetadata")

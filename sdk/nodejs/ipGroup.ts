@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/ipGroup:IpGroup example ipg-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class IpGroup extends pulumi.CustomResource {
     /**

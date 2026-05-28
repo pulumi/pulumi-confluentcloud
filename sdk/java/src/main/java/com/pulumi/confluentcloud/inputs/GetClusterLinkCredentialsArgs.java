@@ -34,7 +34,7 @@ public final class GetClusterLinkCredentialsArgs extends com.pulumi.resources.Re
      * 
      * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
      * 
-     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     @Import(name="secret", required=true)
@@ -45,7 +45,7 @@ public final class GetClusterLinkCredentialsArgs extends com.pulumi.resources.Re
      * 
      * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
      * 
-     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public Output<String> secret() {
@@ -103,7 +103,7 @@ public final class GetClusterLinkCredentialsArgs extends com.pulumi.resources.Re
          * 
          * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
          * 
-         * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+         * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetClusterLinkCredentialsArgs extends com.pulumi.resources.Re
          * 
          * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
          * 
-         * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+         * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 

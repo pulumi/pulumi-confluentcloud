@@ -2592,7 +2592,7 @@ type BusinessMetadataCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -2616,7 +2616,7 @@ type BusinessMetadataCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2708,7 +2708,7 @@ func (o BusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o BusinessMetadataCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2753,7 +2753,7 @@ func (o BusinessMetadataCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o BusinessMetadataCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessMetadataCredentials) *string {
 		if v == nil {
@@ -3847,7 +3847,7 @@ type CatalogIntegrationCredentials struct {
 	//
 	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3873,7 +3873,7 @@ type CatalogIntegrationCredentialsArgs struct {
 	//
 	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3967,7 +3967,7 @@ func (o CatalogIntegrationCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o CatalogIntegrationCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -4014,7 +4014,7 @@ func (o CatalogIntegrationCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `CatalogIntegration` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o CatalogIntegrationCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationCredentials) *string {
 		if v == nil {
@@ -9455,7 +9455,7 @@ type FlinkMaterializedTableColumnColumnsMetadata struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	//
 	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
 	//
@@ -9512,7 +9512,7 @@ type FlinkMaterializedTableColumnColumnsMetadataArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	//
 	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
 	//
@@ -9623,7 +9623,7 @@ func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataType() 
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 //
 // > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
 //
@@ -14570,7 +14570,7 @@ type KafkaClusterDedicated struct {
 	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 	//
-	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+	// > **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	//
@@ -14601,7 +14601,7 @@ type KafkaClusterDedicatedArgs struct {
 	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 	//
-	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+	// > **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	//
@@ -14697,7 +14697,7 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 //
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 //
-// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+// > **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
 // > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 //
@@ -14747,7 +14747,7 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 //
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 //
-// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+// > **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
 // > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 //
@@ -22779,7 +22779,7 @@ type SchemaCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -22803,7 +22803,7 @@ type SchemaCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -22895,7 +22895,7 @@ func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SchemaCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -22940,7 +22940,7 @@ func (o SchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaCredentials) *string {
 		if v == nil {
@@ -23852,7 +23852,7 @@ type SchemaRegistryClusterConfigCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	//
 	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subjectName`. See the SubjectConfig` resource documentation for more details.
 	Secret string `pulumi:"secret"`
@@ -23878,7 +23878,7 @@ type SchemaRegistryClusterConfigCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	//
 	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subjectName`. See the SubjectConfig` resource documentation for more details.
 	Secret pulumi.StringInput `pulumi:"secret"`
@@ -23972,7 +23972,7 @@ func (o SchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput 
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 //
 // > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subjectName`. See the SubjectConfig` resource documentation for more details.
 func (o SchemaRegistryClusterConfigCredentialsOutput) Secret() pulumi.StringOutput {
@@ -24019,7 +24019,7 @@ func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Key() pulumi.StringPtrO
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 //
 // > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subjectName`. See the SubjectConfig` resource documentation for more details.
 func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
@@ -24177,7 +24177,7 @@ type SchemaRegistryClusterModeCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -24201,7 +24201,7 @@ type SchemaRegistryClusterModeCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -24293,7 +24293,7 @@ func (o SchemaRegistryClusterModeCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SchemaRegistryClusterModeCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -24338,7 +24338,7 @@ func (o SchemaRegistryClusterModeCredentialsPtrOutput) Key() pulumi.StringPtrOut
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentKafkaClusterMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SchemaRegistryClusterModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterModeCredentials) *string {
 		if v == nil {
@@ -25969,7 +25969,7 @@ type SubjectConfigCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -25993,7 +25993,7 @@ type SubjectConfigCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -26085,7 +26085,7 @@ func (o SubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SubjectConfigCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -26130,7 +26130,7 @@ func (o SubjectConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SubjectConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubjectConfigCredentials) *string {
 		if v == nil {
@@ -26286,7 +26286,7 @@ type SubjectModeCredentials struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -26310,7 +26310,7 @@ type SubjectModeCredentialsArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -26402,7 +26402,7 @@ func (o SubjectModeCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SubjectModeCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -26447,7 +26447,7 @@ func (o SubjectModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o SubjectModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubjectModeCredentials) *string {
 		if v == nil {
@@ -26974,7 +26974,7 @@ type TableflowTopicCredentials struct {
 	//
 	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -27000,7 +27000,7 @@ type TableflowTopicCredentialsArgs struct {
 	//
 	// > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -27094,7 +27094,7 @@ func (o TableflowTopicCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o TableflowTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v TableflowTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -27141,7 +27141,7 @@ func (o TableflowTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** When Tableflow API key and secret are set on the `provider` block (Option #2) **and** a `credentials {}` block is also set on `TableflowTopic` resource (Option #1), the provider-level credentials (`tableflowApiKey`/`tableflowApiSecret`) take precedence and the resource-level `credentials {}` block is ignored. To use resource-level credentials, omit `tableflowApiKey`/`tableflowApiSecret` from the provider block (and unset the `TABLEFLOW_API_KEY`/`TABLEFLOW_API_SECRET` env vars).
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o TableflowTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableflowTopicCredentials) *string {
 		if v == nil {
@@ -30941,7 +30941,7 @@ type GetCatalogIntegrationCredentials struct {
 	//
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -30963,7 +30963,7 @@ type GetCatalogIntegrationCredentialsArgs struct {
 	//
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -31053,7 +31053,7 @@ func (o GetCatalogIntegrationCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetCatalogIntegrationCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogIntegrationCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -31096,7 +31096,7 @@ func (o GetCatalogIntegrationCredentialsPtrOutput) Key() pulumi.StringPtrOutput 
 //
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetCatalogIntegrationCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetCatalogIntegrationCredentials) *string {
 		if v == nil {
@@ -31490,7 +31490,7 @@ type GetClusterLinkCredentials struct {
 	//
 	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -31512,7 +31512,7 @@ type GetClusterLinkCredentialsArgs struct {
 	//
 	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -31602,7 +31602,7 @@ func (o GetClusterLinkCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetClusterLinkCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterLinkCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -31645,7 +31645,7 @@ func (o GetClusterLinkCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetClusterLinkCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetClusterLinkCredentials) *string {
 		if v == nil {
@@ -41561,7 +41561,7 @@ type GetKafkaTopicCredentials struct {
 	//
 	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -41583,7 +41583,7 @@ type GetKafkaTopicCredentialsArgs struct {
 	//
 	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 	//
-	// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -41673,7 +41673,7 @@ func (o GetKafkaTopicCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetKafkaTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -41716,7 +41716,7 @@ func (o GetKafkaTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 //
-// !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetKafkaTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetKafkaTopicCredentials) *string {
 		if v == nil {
@@ -50335,7 +50335,7 @@ type GetTableflowTopicCredentials struct {
 	//
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret string `pulumi:"secret"`
 }
 
@@ -50357,7 +50357,7 @@ type GetTableflowTopicCredentialsArgs struct {
 	//
 	// > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -50447,7 +50447,7 @@ func (o GetTableflowTopicCredentialsOutput) Key() pulumi.StringOutput {
 //
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetTableflowTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableflowTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -50490,7 +50490,7 @@ func (o GetTableflowTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 //
 // > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o GetTableflowTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTableflowTopicCredentials) *string {
 		if v == nil {

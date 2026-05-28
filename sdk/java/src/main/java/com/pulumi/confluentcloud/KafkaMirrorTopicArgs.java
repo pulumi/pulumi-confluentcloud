@@ -66,9 +66,9 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
      * 
-     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
-     * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+     * &gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
      * 
      */
     @Import(name="status")
@@ -85,9 +85,9 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
      * 
-     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
-     * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+     * &gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
      * 
      */
     public Optional<Output<String>> status() {
@@ -181,9 +181,9 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
          * 
-         * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+         * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
-         * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+         * &gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
          * 
          * @return builder
          * 
@@ -204,9 +204,9 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
          * 
-         * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+         * &gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
-         * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+         * &gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
          * 
          * @return builder
          * 

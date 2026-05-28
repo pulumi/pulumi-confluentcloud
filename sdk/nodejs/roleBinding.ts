@@ -177,7 +177,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class RoleBinding extends pulumi.CustomResource {
     /**
@@ -214,7 +214,7 @@ export class RoleBinding extends pulumi.CustomResource {
     /**
      * An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
      *
-     * !> **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+     * > **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
      * For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
      * This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
      *
@@ -281,7 +281,7 @@ export interface RoleBindingState {
     /**
      * An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
      *
-     * !> **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+     * > **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
      * For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
      * This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
      *
@@ -311,7 +311,7 @@ export interface RoleBindingArgs {
     /**
      * An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
      *
-     * !> **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+     * > **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
      * For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
      * This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
      *

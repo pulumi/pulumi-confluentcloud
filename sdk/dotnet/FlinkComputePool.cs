@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkComputePool:FlinkComputePool main env-abc123/lfcp-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkComputePool:FlinkComputePool")]
     public partial class FlinkComputePool : global::Pulumi.CustomResource

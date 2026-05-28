@@ -61,7 +61,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkArtifact:FlinkArtifact")]
     public partial class FlinkArtifact : global::Pulumi.CustomResource

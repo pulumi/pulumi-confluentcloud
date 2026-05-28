@@ -45,7 +45,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/connectArtifact:ConnectArtifact example env-123456/AWS/ca-123456
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class ConnectArtifact extends pulumi.CustomResource {
     /**

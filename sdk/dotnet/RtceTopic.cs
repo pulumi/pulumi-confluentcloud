@@ -57,7 +57,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/rtceTopic:RtceTopic example env-abc123/lkc-abc123/orders_topic
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/rtceTopic:RtceTopic")]
     public partial class RtceTopic : global::Pulumi.CustomResource

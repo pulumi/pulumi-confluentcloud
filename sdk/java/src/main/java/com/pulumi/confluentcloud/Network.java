@@ -256,7 +256,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/network:Network")

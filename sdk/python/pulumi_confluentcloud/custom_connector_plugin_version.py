@@ -379,7 +379,7 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -445,7 +445,7 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

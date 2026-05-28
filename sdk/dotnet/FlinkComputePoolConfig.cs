@@ -45,7 +45,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig main org-123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig")]
     public partial class FlinkComputePoolConfig : global::Pulumi.CustomResource

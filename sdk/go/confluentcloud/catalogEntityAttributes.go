@@ -198,7 +198,7 @@ import (
 //
 // > **Note:** Use the `<Schema Registry Cluster ID>/<Entity Type>/<Entity Name>/` format to import a Catalog Entity Attributes resource with an empty list of attributes.
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type CatalogEntityAttributes struct {
 	pulumi.CustomResourceState
 
@@ -210,7 +210,7 @@ type CatalogEntityAttributes struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrOutput `pulumi:"credentials"`
@@ -274,7 +274,7 @@ type catalogEntityAttributesState struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
@@ -296,7 +296,7 @@ type CatalogEntityAttributesState struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
@@ -322,7 +322,7 @@ type catalogEntityAttributesArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
@@ -345,7 +345,7 @@ type CatalogEntityAttributesArgs struct {
 	//
 	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 	//
-	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
@@ -453,7 +453,7 @@ func (o CatalogEntityAttributesOutput) ToCatalogEntityAttributesOutputWithContex
 //
 // > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_catalog_entity_attributes.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_entity_attributes.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
 //
-// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+// > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o CatalogEntityAttributesOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogEntityAttributes) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }

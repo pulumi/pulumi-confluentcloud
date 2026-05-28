@@ -129,7 +129,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class Network extends pulumi.CustomResource {
     /**

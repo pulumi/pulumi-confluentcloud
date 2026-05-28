@@ -65,7 +65,7 @@ import (
 // $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type CustomConnectorPlugin struct {
 	pulumi.CustomResourceState
 

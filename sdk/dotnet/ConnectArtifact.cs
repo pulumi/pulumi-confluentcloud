@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/connectArtifact:ConnectArtifact example env-123456/AWS/ca-123456
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/connectArtifact:ConnectArtifact")]
     public partial class ConnectArtifact : global::Pulumi.CustomResource

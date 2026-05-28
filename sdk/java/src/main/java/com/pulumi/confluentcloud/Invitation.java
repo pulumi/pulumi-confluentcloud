@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/invitation:Invitation")

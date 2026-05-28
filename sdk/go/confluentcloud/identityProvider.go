@@ -92,7 +92,7 @@ import (
 // $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 

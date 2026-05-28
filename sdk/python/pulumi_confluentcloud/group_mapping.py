@@ -173,7 +173,7 @@ class GroupMapping(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -223,7 +223,7 @@ class GroupMapping(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

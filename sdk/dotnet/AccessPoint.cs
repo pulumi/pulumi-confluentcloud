@@ -182,7 +182,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/accessPoint:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource

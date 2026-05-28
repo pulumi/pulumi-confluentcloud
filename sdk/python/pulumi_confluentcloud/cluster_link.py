@@ -404,7 +404,7 @@ class ClusterLink(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -533,7 +533,7 @@ class ClusterLink(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

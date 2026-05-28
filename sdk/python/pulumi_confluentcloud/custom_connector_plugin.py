@@ -339,7 +339,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -397,7 +397,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

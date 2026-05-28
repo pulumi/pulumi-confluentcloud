@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/identityPool:IdentityPool")]
     public partial class IdentityPool : global::Pulumi.CustomResource

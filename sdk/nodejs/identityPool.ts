@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class IdentityPool extends pulumi.CustomResource {
     /**

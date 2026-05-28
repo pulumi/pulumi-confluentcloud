@@ -291,7 +291,7 @@ class ConnectArtifact(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/connectArtifact:ConnectArtifact example env-123456/AWS/ca-123456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -347,7 +347,7 @@ class ConnectArtifact(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/connectArtifact:ConnectArtifact example env-123456/AWS/ca-123456
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

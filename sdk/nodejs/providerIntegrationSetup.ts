@@ -91,7 +91,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup main env-abc123/cspi-4xg0q
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class ProviderIntegrationSetup extends pulumi.CustomResource {
     /**

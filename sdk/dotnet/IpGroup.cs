@@ -51,7 +51,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/ipGroup:IpGroup example ipg-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/ipGroup:IpGroup")]
     public partial class IpGroup : global::Pulumi.CustomResource

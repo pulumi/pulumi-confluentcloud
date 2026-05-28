@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class FlinkArtifact extends pulumi.CustomResource {
     /**

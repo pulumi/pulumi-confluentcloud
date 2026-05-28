@@ -399,7 +399,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key &#34;4UEXOMMWIBE5KZQG&#34;
  * ```
  * 
- * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/apiKey:ApiKey")

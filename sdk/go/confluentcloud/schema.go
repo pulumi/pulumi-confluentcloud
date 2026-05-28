@@ -315,7 +315,7 @@ import (
 // $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Schema struct {
 	pulumi.CustomResourceState
 

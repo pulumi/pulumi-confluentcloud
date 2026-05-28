@@ -121,7 +121,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup main env-abc123/cspi-4xg0q
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup")]
     public partial class ProviderIntegrationSetup : global::Pulumi.CustomResource

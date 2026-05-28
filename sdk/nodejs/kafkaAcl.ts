@@ -112,7 +112,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class KafkaAcl extends pulumi.CustomResource {
     /**
@@ -155,7 +155,7 @@ export class KafkaAcl extends pulumi.CustomResource {
      *
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      *
-     * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
     declare public readonly host: pulumi.Output<string>;
     declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaAclKafkaCluster | undefined>;
@@ -269,7 +269,7 @@ export interface KafkaAclState {
      *
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      *
-     * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
     host?: pulumi.Input<string | undefined>;
     kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster | undefined>;
@@ -320,7 +320,7 @@ export interface KafkaAclArgs {
      *
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      *
-     * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      */
     host: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster | undefined>;

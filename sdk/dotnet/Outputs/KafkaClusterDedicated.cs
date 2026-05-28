@@ -20,7 +20,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// 
         /// &gt; **Note:** The `Freight` Kafka cluster type is currently available only on AWS.
         /// 
-        /// !&gt; **Warning:** You can only upgrade clusters from `Basic` to `Standard`.
+        /// &gt; **Warning:** You can only upgrade clusters from `Basic` to `Standard`.
         /// 
         /// &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
         /// 

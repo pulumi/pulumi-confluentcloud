@@ -70,7 +70,7 @@ import (
 // $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
 // ```
 //
-// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type GroupMapping struct {
 	pulumi.CustomResourceState
 

@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/businessMetadata:BusinessMetadata")]
     public partial class BusinessMetadata : global::Pulumi.CustomResource

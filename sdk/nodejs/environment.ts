@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/environment:Environment my_env env-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class Environment extends pulumi.CustomResource {
     /**

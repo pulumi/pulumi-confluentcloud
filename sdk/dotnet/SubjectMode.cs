@@ -77,7 +77,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/subjectMode:SubjectMode")]
     public partial class SubjectMode : global::Pulumi.CustomResource

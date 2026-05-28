@@ -205,7 +205,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/peering:Peering")]
     public partial class Peering : global::Pulumi.CustomResource

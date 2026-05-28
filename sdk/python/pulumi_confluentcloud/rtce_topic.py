@@ -321,7 +321,7 @@ class RtceTopic(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/rtceTopic:RtceTopic example env-abc123/lkc-abc123/orders_topic
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
@@ -377,7 +377,7 @@ class RtceTopic(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/rtceTopic:RtceTopic example env-abc123/lkc-abc123/orders_topic
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.

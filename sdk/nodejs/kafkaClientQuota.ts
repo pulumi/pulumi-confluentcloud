@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class KafkaClientQuota extends pulumi.CustomResource {
     /**

@@ -512,7 +512,7 @@ class SchemaExporter(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         > **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
 
@@ -620,7 +620,7 @@ class SchemaExporter(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
         ```
 
-        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         > **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
 

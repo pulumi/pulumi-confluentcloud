@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
  * ```
  *
- * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class Plugin extends pulumi.CustomResource {
     /**

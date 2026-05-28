@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion")]
     public partial class CustomConnectorPluginVersion : global::Pulumi.CustomResource

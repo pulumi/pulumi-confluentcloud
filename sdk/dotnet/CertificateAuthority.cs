@@ -47,7 +47,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/certificateAuthority:CertificateAuthority main op-abc123
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/certificateAuthority:CertificateAuthority")]
     public partial class CertificateAuthority : global::Pulumi.CustomResource

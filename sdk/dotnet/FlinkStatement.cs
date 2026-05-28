@@ -139,7 +139,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
     /// ```
     /// 
-    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkStatement:FlinkStatement")]
     public partial class FlinkStatement : global::Pulumi.CustomResource
@@ -215,13 +215,13 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `False`. Update it to `True` to stop the statement. Subsequently update it to `False` to resume the statement.
         /// 
-        /// !&gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
+        /// &gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
         /// 
-        /// !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+        /// &gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
         /// 
-        /// !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+        /// &gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
         /// 
-        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+        /// &gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// 
         /// &gt; **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
         /// 
@@ -376,13 +376,13 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `False`. Update it to `True` to stop the statement. Subsequently update it to `False` to resume the statement.
         /// 
-        /// !&gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
+        /// &gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
         /// 
-        /// !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+        /// &gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
         /// 
-        /// !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+        /// &gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
         /// 
-        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+        /// &gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// 
         /// &gt; **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
         /// 
@@ -518,13 +518,13 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `False`. Update it to `True` to stop the statement. Subsequently update it to `False` to resume the statement.
         /// 
-        /// !&gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
+        /// &gt; **Note:** To stop a running statement, no other argument can be updated except `Stopped`.
         /// 
-        /// !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+        /// &gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `Stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
         /// 
-        /// !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+        /// &gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
         /// 
-        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+        /// &gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// 
         /// &gt; **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
         /// 
