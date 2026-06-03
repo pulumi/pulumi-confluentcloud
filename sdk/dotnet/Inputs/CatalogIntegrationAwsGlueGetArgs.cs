@@ -13,6 +13,12 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class CatalogIntegrationAwsGlueGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The custom database name to use in AWS Glue.
+        /// </summary>
+        [Input("customDatabase")]
+        public Input<string>? CustomDatabase { get; set; }
+
+        /// <summary>
         /// The provider integration id.
         /// </summary>
         [Input("providerIntegrationId", required: true)]

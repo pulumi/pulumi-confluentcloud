@@ -16,6 +16,11 @@ public final class GetCatalogIntegrationUnity {
      */
     private String catalogName;
     /**
+     * @return (Computed String) The custom schema name to use in Unity Catalog.
+     * 
+     */
+    private String customSchema;
+    /**
      * @return (Required String) The Databricks workspace URL associated with the Unity Catalog.
      * 
      */
@@ -28,6 +33,13 @@ public final class GetCatalogIntegrationUnity {
      */
     public String catalogName() {
         return this.catalogName;
+    }
+    /**
+     * @return (Computed String) The custom schema name to use in Unity Catalog.
+     * 
+     */
+    public String customSchema() {
+        return this.customSchema;
     }
     /**
      * @return (Required String) The Databricks workspace URL associated with the Unity Catalog.
@@ -47,11 +59,13 @@ public final class GetCatalogIntegrationUnity {
     @CustomType.Builder
     public static final class Builder {
         private String catalogName;
+        private String customSchema;
         private String workspaceEndpoint;
         public Builder() {}
         public Builder(GetCatalogIntegrationUnity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogName = defaults.catalogName;
+    	      this.customSchema = defaults.customSchema;
     	      this.workspaceEndpoint = defaults.workspaceEndpoint;
         }
 
@@ -61,6 +75,14 @@ public final class GetCatalogIntegrationUnity {
               throw new MissingRequiredPropertyException("GetCatalogIntegrationUnity", "catalogName");
             }
             this.catalogName = catalogName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customSchema(String customSchema) {
+            if (customSchema == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationUnity", "customSchema");
+            }
+            this.customSchema = customSchema;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +96,7 @@ public final class GetCatalogIntegrationUnity {
         public GetCatalogIntegrationUnity build() {
             final var _resultValue = new GetCatalogIntegrationUnity();
             _resultValue.catalogName = catalogName;
+            _resultValue.customSchema = customSchema;
             _resultValue.workspaceEndpoint = workspaceEndpoint;
             return _resultValue;
         }

@@ -11,12 +11,24 @@ import java.util.Objects;
 @CustomType
 public final class GetCatalogIntegrationAwsGlue {
     /**
+     * @return (Computed String) The custom database name to use in AWS Glue.
+     * 
+     */
+    private String customDatabase;
+    /**
      * @return (Required String) The provider integration id.
      * 
      */
     private String providerIntegrationId;
 
     private GetCatalogIntegrationAwsGlue() {}
+    /**
+     * @return (Computed String) The custom database name to use in AWS Glue.
+     * 
+     */
+    public String customDatabase() {
+        return this.customDatabase;
+    }
     /**
      * @return (Required String) The provider integration id.
      * 
@@ -34,13 +46,23 @@ public final class GetCatalogIntegrationAwsGlue {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String customDatabase;
         private String providerIntegrationId;
         public Builder() {}
         public Builder(GetCatalogIntegrationAwsGlue defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customDatabase = defaults.customDatabase;
     	      this.providerIntegrationId = defaults.providerIntegrationId;
         }
 
+        @CustomType.Setter
+        public Builder customDatabase(String customDatabase) {
+            if (customDatabase == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationAwsGlue", "customDatabase");
+            }
+            this.customDatabase = customDatabase;
+            return this;
+        }
         @CustomType.Setter
         public Builder providerIntegrationId(String providerIntegrationId) {
             if (providerIntegrationId == null) {
@@ -51,6 +73,7 @@ public final class GetCatalogIntegrationAwsGlue {
         }
         public GetCatalogIntegrationAwsGlue build() {
             final var _resultValue = new GetCatalogIntegrationAwsGlue();
+            _resultValue.customDatabase = customDatabase;
             _resultValue.providerIntegrationId = providerIntegrationId;
             return _resultValue;
         }

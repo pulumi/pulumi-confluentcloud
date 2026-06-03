@@ -16,6 +16,11 @@ public final class GetCatalogIntegrationSnowflake {
      */
     private String allowedScope;
     /**
+     * @return (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    private String customNamespace;
+    /**
      * @return (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
      * 
      */
@@ -33,6 +38,13 @@ public final class GetCatalogIntegrationSnowflake {
      */
     public String allowedScope() {
         return this.allowedScope;
+    }
+    /**
+     * @return (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    public String customNamespace() {
+        return this.customNamespace;
     }
     /**
      * @return (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
@@ -59,12 +71,14 @@ public final class GetCatalogIntegrationSnowflake {
     @CustomType.Builder
     public static final class Builder {
         private String allowedScope;
+        private String customNamespace;
         private String endpoint;
         private String warehouse;
         public Builder() {}
         public Builder(GetCatalogIntegrationSnowflake defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedScope = defaults.allowedScope;
+    	      this.customNamespace = defaults.customNamespace;
     	      this.endpoint = defaults.endpoint;
     	      this.warehouse = defaults.warehouse;
         }
@@ -75,6 +89,14 @@ public final class GetCatalogIntegrationSnowflake {
               throw new MissingRequiredPropertyException("GetCatalogIntegrationSnowflake", "allowedScope");
             }
             this.allowedScope = allowedScope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customNamespace(String customNamespace) {
+            if (customNamespace == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationSnowflake", "customNamespace");
+            }
+            this.customNamespace = customNamespace;
             return this;
         }
         @CustomType.Setter
@@ -96,6 +118,7 @@ public final class GetCatalogIntegrationSnowflake {
         public GetCatalogIntegrationSnowflake build() {
             final var _resultValue = new GetCatalogIntegrationSnowflake();
             _resultValue.allowedScope = allowedScope;
+            _resultValue.customNamespace = customNamespace;
             _resultValue.endpoint = endpoint;
             _resultValue.warehouse = warehouse;
             return _resultValue;

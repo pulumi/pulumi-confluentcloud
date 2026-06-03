@@ -1979,15 +1979,23 @@ class CatalogIntegrationAwsGlueArgsDict(TypedDict):
     """
     The provider integration id.
     """
+    custom_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The custom database name to use in AWS Glue.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationAwsGlueArgs:
     def __init__(__self__, *,
-                 provider_integration_id: pulumi.Input[_builtins.str]):
+                 provider_integration_id: pulumi.Input[_builtins.str],
+                 custom_database: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
+        :param pulumi.Input[_builtins.str] custom_database: The custom database name to use in AWS Glue.
         """
         pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        if custom_database is not None:
+            pulumi.set(__self__, "custom_database", custom_database)
 
     @_builtins.property
     @pulumi.getter(name="providerIntegrationId")
@@ -2000,6 +2008,18 @@ class CatalogIntegrationAwsGlueArgs:
     @provider_integration_id.setter
     def provider_integration_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_integration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customDatabase")
+    def custom_database(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom database name to use in AWS Glue.
+        """
+        return pulumi.get(self, "custom_database")
+
+    @custom_database.setter
+    def custom_database(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_database", value)
 
 
 class CatalogIntegrationCredentialsArgsDict(TypedDict):
@@ -2150,6 +2170,10 @@ class CatalogIntegrationSnowflakeArgsDict(TypedDict):
     """
     Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
     """
+    custom_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The custom namespace to use in Snowflake Open Catalog.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationSnowflakeArgs:
@@ -2158,19 +2182,23 @@ class CatalogIntegrationSnowflakeArgs:
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
                  endpoint: pulumi.Input[_builtins.str],
-                 warehouse: pulumi.Input[_builtins.str]):
+                 warehouse: pulumi.Input[_builtins.str],
+                 custom_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] allowed_scope: Allowed scope of the Snowflake Open Catalog.
         :param pulumi.Input[_builtins.str] client_id: The client ID of the catalog integration.
         :param pulumi.Input[_builtins.str] client_secret: The client secret of the catalog integration.
         :param pulumi.Input[_builtins.str] endpoint: The catalog integration connection endpoint for Snowflake Open Catalog.
         :param pulumi.Input[_builtins.str] warehouse: Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        :param pulumi.Input[_builtins.str] custom_namespace: The custom namespace to use in Snowflake Open Catalog.
         """
         pulumi.set(__self__, "allowed_scope", allowed_scope)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "warehouse", warehouse)
+        if custom_namespace is not None:
+            pulumi.set(__self__, "custom_namespace", custom_namespace)
 
     @_builtins.property
     @pulumi.getter(name="allowedScope")
@@ -2232,6 +2260,18 @@ class CatalogIntegrationSnowflakeArgs:
     def warehouse(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "warehouse", value)
 
+    @_builtins.property
+    @pulumi.getter(name="customNamespace")
+    def custom_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom namespace to use in Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "custom_namespace")
+
+    @custom_namespace.setter
+    def custom_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_namespace", value)
+
 
 class CatalogIntegrationUnityArgsDict(TypedDict):
     catalog_name: pulumi.Input[_builtins.str]
@@ -2250,6 +2290,10 @@ class CatalogIntegrationUnityArgsDict(TypedDict):
     """
     The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
     """
+    custom_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The custom schema name to use in Unity Catalog.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationUnityArgs:
@@ -2257,17 +2301,21 @@ class CatalogIntegrationUnityArgs:
                  catalog_name: pulumi.Input[_builtins.str],
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 workspace_endpoint: pulumi.Input[_builtins.str]):
+                 workspace_endpoint: pulumi.Input[_builtins.str],
+                 custom_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] catalog_name: The name of the catalog within Unity Catalog.
         :param pulumi.Input[_builtins.str] client_id: The OAuth client ID used to authenticate with the Unity Catalog.
         :param pulumi.Input[_builtins.str] client_secret: The OAuth client secret used for authentication with the Unity Catalog.
         :param pulumi.Input[_builtins.str] workspace_endpoint: The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+        :param pulumi.Input[_builtins.str] custom_schema: The custom schema name to use in Unity Catalog.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "workspace_endpoint", workspace_endpoint)
+        if custom_schema is not None:
+            pulumi.set(__self__, "custom_schema", custom_schema)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
@@ -2316,6 +2364,18 @@ class CatalogIntegrationUnityArgs:
     @workspace_endpoint.setter
     def workspace_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customSchema")
+    def custom_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom schema name to use in Unity Catalog.
+        """
+        return pulumi.get(self, "custom_schema")
+
+    @custom_schema.setter
+    def custom_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_schema", value)
 
 
 class CertificatePoolCertificateAuthorityArgsDict(TypedDict):

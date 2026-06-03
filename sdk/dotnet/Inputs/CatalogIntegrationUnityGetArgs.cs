@@ -51,6 +51,12 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
+        /// The custom schema name to use in Unity Catalog.
+        /// </summary>
+        [Input("customSchema")]
+        public Input<string>? CustomSchema { get; set; }
+
+        /// <summary>
         /// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
         /// </summary>
         [Input("workspaceEndpoint", required: true)]

@@ -26,6 +26,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
+        /// The custom namespace to use in Snowflake Open Catalog.
+        /// </summary>
+        public readonly string? CustomNamespace;
+        /// <summary>
         /// The catalog integration connection endpoint for Snowflake Open Catalog.
         /// </summary>
         public readonly string Endpoint;
@@ -42,6 +46,8 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string clientSecret,
 
+            string? customNamespace,
+
             string endpoint,
 
             string warehouse)
@@ -49,6 +55,7 @@ namespace Pulumi.ConfluentCloud.Outputs
             AllowedScope = allowedScope;
             ClientId = clientId;
             ClientSecret = clientSecret;
+            CustomNamespace = customNamespace;
             Endpoint = endpoint;
             Warehouse = warehouse;
         }

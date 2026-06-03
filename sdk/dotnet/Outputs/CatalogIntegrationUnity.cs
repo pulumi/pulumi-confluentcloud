@@ -26,6 +26,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
+        /// The custom schema name to use in Unity Catalog.
+        /// </summary>
+        public readonly string? CustomSchema;
+        /// <summary>
         /// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
         /// </summary>
         public readonly string WorkspaceEndpoint;
@@ -38,11 +42,14 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string clientSecret,
 
+            string? customSchema,
+
             string workspaceEndpoint)
         {
             CatalogName = catalogName;
             ClientId = clientId;
             ClientSecret = clientSecret;
+            CustomSchema = customSchema;
             WorkspaceEndpoint = workspaceEndpoint;
         }
     }

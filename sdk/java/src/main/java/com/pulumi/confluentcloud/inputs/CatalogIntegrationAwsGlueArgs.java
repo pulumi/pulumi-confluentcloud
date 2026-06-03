@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogIntegrationAwsGlueArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CatalogIntegrationAwsGlueArgs Empty = new CatalogIntegrationAwsGlueArgs();
+
+    /**
+     * The custom database name to use in AWS Glue.
+     * 
+     */
+    @Import(name="customDatabase")
+    private @Nullable Output<String> customDatabase;
+
+    /**
+     * @return The custom database name to use in AWS Glue.
+     * 
+     */
+    public Optional<Output<String>> customDatabase() {
+        return Optional.ofNullable(this.customDatabase);
+    }
 
     /**
      * The provider integration id.
@@ -32,6 +49,7 @@ public final class CatalogIntegrationAwsGlueArgs extends com.pulumi.resources.Re
     private CatalogIntegrationAwsGlueArgs() {}
 
     private CatalogIntegrationAwsGlueArgs(CatalogIntegrationAwsGlueArgs $) {
+        this.customDatabase = $.customDatabase;
         this.providerIntegrationId = $.providerIntegrationId;
     }
 
@@ -51,6 +69,27 @@ public final class CatalogIntegrationAwsGlueArgs extends com.pulumi.resources.Re
 
         public Builder(CatalogIntegrationAwsGlueArgs defaults) {
             $ = new CatalogIntegrationAwsGlueArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customDatabase The custom database name to use in AWS Glue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatabase(@Nullable Output<String> customDatabase) {
+            $.customDatabase = customDatabase;
+            return this;
+        }
+
+        /**
+         * @param customDatabase The custom database name to use in AWS Glue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatabase(String customDatabase) {
+            return customDatabase(Output.of(customDatabase));
         }
 
         /**
