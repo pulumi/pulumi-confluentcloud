@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogIntegrationUnityArgs extends com.pulumi.resources.ResourceArgs {
@@ -60,6 +62,21 @@ public final class CatalogIntegrationUnityArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The custom schema name to use in Unity Catalog.
+     * 
+     */
+    @Import(name="customSchema")
+    private @Nullable Output<String> customSchema;
+
+    /**
+     * @return The custom schema name to use in Unity Catalog.
+     * 
+     */
+    public Optional<Output<String>> customSchema() {
+        return Optional.ofNullable(this.customSchema);
+    }
+
+    /**
      * The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
      * 
      */
@@ -80,6 +97,7 @@ public final class CatalogIntegrationUnityArgs extends com.pulumi.resources.Reso
         this.catalogName = $.catalogName;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.customSchema = $.customSchema;
         this.workspaceEndpoint = $.workspaceEndpoint;
     }
 
@@ -162,6 +180,27 @@ public final class CatalogIntegrationUnityArgs extends com.pulumi.resources.Reso
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param customSchema The custom schema name to use in Unity Catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customSchema(@Nullable Output<String> customSchema) {
+            $.customSchema = customSchema;
+            return this;
+        }
+
+        /**
+         * @param customSchema The custom schema name to use in Unity Catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customSchema(String customSchema) {
+            return customSchema(Output.of(customSchema));
         }
 
         /**

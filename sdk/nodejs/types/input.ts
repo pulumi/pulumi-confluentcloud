@@ -318,6 +318,10 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
 
 export interface CatalogIntegrationAwsGlue {
     /**
+     * The custom database name to use in AWS Glue.
+     */
+    customDatabase?: pulumi.Input<string | undefined>;
+    /**
      * The provider integration id.
      */
     providerIntegrationId: pulumi.Input<string>;
@@ -370,6 +374,10 @@ export interface CatalogIntegrationSnowflake {
      */
     clientSecret: pulumi.Input<string>;
     /**
+     * The custom namespace to use in Snowflake Open Catalog.
+     */
+    customNamespace?: pulumi.Input<string | undefined>;
+    /**
      * The catalog integration connection endpoint for Snowflake Open Catalog.
      */
     endpoint: pulumi.Input<string>;
@@ -392,6 +400,10 @@ export interface CatalogIntegrationUnity {
      * The OAuth client secret used for authentication with the Unity Catalog.
      */
     clientSecret: pulumi.Input<string>;
+    /**
+     * The custom schema name to use in Unity Catalog.
+     */
+    customSchema?: pulumi.Input<string | undefined>;
     /**
      * The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
      */

@@ -14,13 +14,21 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class CatalogIntegrationAwsGlue
     {
         /// <summary>
+        /// The custom database name to use in AWS Glue.
+        /// </summary>
+        public readonly string? CustomDatabase;
+        /// <summary>
         /// The provider integration id.
         /// </summary>
         public readonly string ProviderIntegrationId;
 
         [OutputConstructor]
-        private CatalogIntegrationAwsGlue(string providerIntegrationId)
+        private CatalogIntegrationAwsGlue(
+            string? customDatabase,
+
+            string providerIntegrationId)
         {
+            CustomDatabase = customDatabase;
             ProviderIntegrationId = providerIntegrationId;
         }
     }

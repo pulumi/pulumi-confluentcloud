@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogIntegrationSnowflakeArgs extends com.pulumi.resources.ResourceArgs {
@@ -60,6 +62,21 @@ public final class CatalogIntegrationSnowflakeArgs extends com.pulumi.resources.
     }
 
     /**
+     * The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    @Import(name="customNamespace")
+    private @Nullable Output<String> customNamespace;
+
+    /**
+     * @return The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    public Optional<Output<String>> customNamespace() {
+        return Optional.ofNullable(this.customNamespace);
+    }
+
+    /**
      * The catalog integration connection endpoint for Snowflake Open Catalog.
      * 
      */
@@ -95,6 +112,7 @@ public final class CatalogIntegrationSnowflakeArgs extends com.pulumi.resources.
         this.allowedScope = $.allowedScope;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.customNamespace = $.customNamespace;
         this.endpoint = $.endpoint;
         this.warehouse = $.warehouse;
     }
@@ -178,6 +196,27 @@ public final class CatalogIntegrationSnowflakeArgs extends com.pulumi.resources.
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param customNamespace The custom namespace to use in Snowflake Open Catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customNamespace(@Nullable Output<String> customNamespace) {
+            $.customNamespace = customNamespace;
+            return this;
+        }
+
+        /**
+         * @param customNamespace The custom namespace to use in Snowflake Open Catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customNamespace(String customNamespace) {
+            return customNamespace(Output.of(customNamespace));
         }
 
         /**

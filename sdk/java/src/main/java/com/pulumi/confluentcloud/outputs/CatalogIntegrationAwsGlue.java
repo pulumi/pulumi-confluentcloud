@@ -7,9 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogIntegrationAwsGlue {
+    /**
+     * @return The custom database name to use in AWS Glue.
+     * 
+     */
+    private @Nullable String customDatabase;
     /**
      * @return The provider integration id.
      * 
@@ -17,6 +24,13 @@ public final class CatalogIntegrationAwsGlue {
     private String providerIntegrationId;
 
     private CatalogIntegrationAwsGlue() {}
+    /**
+     * @return The custom database name to use in AWS Glue.
+     * 
+     */
+    public Optional<String> customDatabase() {
+        return Optional.ofNullable(this.customDatabase);
+    }
     /**
      * @return The provider integration id.
      * 
@@ -34,13 +48,21 @@ public final class CatalogIntegrationAwsGlue {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String customDatabase;
         private String providerIntegrationId;
         public Builder() {}
         public Builder(CatalogIntegrationAwsGlue defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customDatabase = defaults.customDatabase;
     	      this.providerIntegrationId = defaults.providerIntegrationId;
         }
 
+        @CustomType.Setter
+        public Builder customDatabase(@Nullable String customDatabase) {
+
+            this.customDatabase = customDatabase;
+            return this;
+        }
         @CustomType.Setter
         public Builder providerIntegrationId(String providerIntegrationId) {
             if (providerIntegrationId == null) {
@@ -51,6 +73,7 @@ public final class CatalogIntegrationAwsGlue {
         }
         public CatalogIntegrationAwsGlue build() {
             final var _resultValue = new CatalogIntegrationAwsGlue();
+            _resultValue.customDatabase = customDatabase;
             _resultValue.providerIntegrationId = providerIntegrationId;
             return _resultValue;
         }

@@ -3700,6 +3700,8 @@ func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) Id() pulumi.Strin
 }
 
 type CatalogIntegrationAwsGlue struct {
+	// The custom database name to use in AWS Glue.
+	CustomDatabase *string `pulumi:"customDatabase"`
 	// The provider integration id.
 	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
 }
@@ -3716,6 +3718,8 @@ type CatalogIntegrationAwsGlueInput interface {
 }
 
 type CatalogIntegrationAwsGlueArgs struct {
+	// The custom database name to use in AWS Glue.
+	CustomDatabase pulumi.StringPtrInput `pulumi:"customDatabase"`
 	// The provider integration id.
 	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
 }
@@ -3797,6 +3801,11 @@ func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGluePtrOutputWit
 	}).(CatalogIntegrationAwsGluePtrOutput)
 }
 
+// The custom database name to use in AWS Glue.
+func (o CatalogIntegrationAwsGlueOutput) CustomDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlue) *string { return v.CustomDatabase }).(pulumi.StringPtrOutput)
+}
+
 // The provider integration id.
 func (o CatalogIntegrationAwsGlueOutput) ProviderIntegrationId() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationAwsGlue) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
@@ -3824,6 +3833,16 @@ func (o CatalogIntegrationAwsGluePtrOutput) Elem() CatalogIntegrationAwsGlueOutp
 		var ret CatalogIntegrationAwsGlue
 		return ret
 	}).(CatalogIntegrationAwsGlueOutput)
+}
+
+// The custom database name to use in AWS Glue.
+func (o CatalogIntegrationAwsGluePtrOutput) CustomDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDatabase
+	}).(pulumi.StringPtrOutput)
 }
 
 // The provider integration id.
@@ -4305,6 +4324,8 @@ type CatalogIntegrationSnowflake struct {
 	ClientId string `pulumi:"clientId"`
 	// The client secret of the catalog integration.
 	ClientSecret string `pulumi:"clientSecret"`
+	// The custom namespace to use in Snowflake Open Catalog.
+	CustomNamespace *string `pulumi:"customNamespace"`
 	// The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint string `pulumi:"endpoint"`
 	// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
@@ -4329,6 +4350,8 @@ type CatalogIntegrationSnowflakeArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret of the catalog integration.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The custom namespace to use in Snowflake Open Catalog.
+	CustomNamespace pulumi.StringPtrInput `pulumi:"customNamespace"`
 	// The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
@@ -4427,6 +4450,11 @@ func (o CatalogIntegrationSnowflakeOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The custom namespace to use in Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakeOutput) CustomNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) *string { return v.CustomNamespace }).(pulumi.StringPtrOutput)
+}
+
 // The catalog integration connection endpoint for Snowflake Open Catalog.
 func (o CatalogIntegrationSnowflakeOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -4491,6 +4519,16 @@ func (o CatalogIntegrationSnowflakePtrOutput) ClientSecret() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The custom namespace to use in Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakePtrOutput) CustomNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
 // The catalog integration connection endpoint for Snowflake Open Catalog.
 func (o CatalogIntegrationSnowflakePtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
@@ -4518,6 +4556,8 @@ type CatalogIntegrationUnity struct {
 	ClientId string `pulumi:"clientId"`
 	// The OAuth client secret used for authentication with the Unity Catalog.
 	ClientSecret string `pulumi:"clientSecret"`
+	// The custom schema name to use in Unity Catalog.
+	CustomSchema *string `pulumi:"customSchema"`
 	// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
 	WorkspaceEndpoint string `pulumi:"workspaceEndpoint"`
 }
@@ -4540,6 +4580,8 @@ type CatalogIntegrationUnityArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The OAuth client secret used for authentication with the Unity Catalog.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The custom schema name to use in Unity Catalog.
+	CustomSchema pulumi.StringPtrInput `pulumi:"customSchema"`
 	// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
 	WorkspaceEndpoint pulumi.StringInput `pulumi:"workspaceEndpoint"`
 }
@@ -4636,6 +4678,11 @@ func (o CatalogIntegrationUnityOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The custom schema name to use in Unity Catalog.
+func (o CatalogIntegrationUnityOutput) CustomSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationUnity) *string { return v.CustomSchema }).(pulumi.StringPtrOutput)
+}
+
 // The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
 func (o CatalogIntegrationUnityOutput) WorkspaceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.WorkspaceEndpoint }).(pulumi.StringOutput)
@@ -4692,6 +4739,16 @@ func (o CatalogIntegrationUnityPtrOutput) ClientSecret() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The custom schema name to use in Unity Catalog.
+func (o CatalogIntegrationUnityPtrOutput) CustomSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSchema
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -30838,6 +30895,8 @@ func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
 }
 
 type GetCatalogIntegrationAwsGlue struct {
+	// (Computed String) The custom database name to use in AWS Glue.
+	CustomDatabase string `pulumi:"customDatabase"`
 	// (Required String) The provider integration id.
 	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
 }
@@ -30854,6 +30913,8 @@ type GetCatalogIntegrationAwsGlueInput interface {
 }
 
 type GetCatalogIntegrationAwsGlueArgs struct {
+	// (Computed String) The custom database name to use in AWS Glue.
+	CustomDatabase pulumi.StringInput `pulumi:"customDatabase"`
 	// (Required String) The provider integration id.
 	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
 }
@@ -30907,6 +30968,11 @@ func (o GetCatalogIntegrationAwsGlueOutput) ToGetCatalogIntegrationAwsGlueOutput
 
 func (o GetCatalogIntegrationAwsGlueOutput) ToGetCatalogIntegrationAwsGlueOutputWithContext(ctx context.Context) GetCatalogIntegrationAwsGlueOutput {
 	return o
+}
+
+// (Computed String) The custom database name to use in AWS Glue.
+func (o GetCatalogIntegrationAwsGlueOutput) CustomDatabase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationAwsGlue) string { return v.CustomDatabase }).(pulumi.StringOutput)
 }
 
 // (Required String) The provider integration id.
@@ -31213,6 +31279,8 @@ func (o GetCatalogIntegrationKafkaClusterOutput) Id() pulumi.StringOutput {
 type GetCatalogIntegrationSnowflake struct {
 	// (Required String) Allowed scope of the Snowflake Open Catalog.
 	AllowedScope string `pulumi:"allowedScope"`
+	// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+	CustomNamespace string `pulumi:"customNamespace"`
 	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint string `pulumi:"endpoint"`
 	// (Required String) Warehouse name of the Snowflake Open Catalog.
@@ -31233,6 +31301,8 @@ type GetCatalogIntegrationSnowflakeInput interface {
 type GetCatalogIntegrationSnowflakeArgs struct {
 	// (Required String) Allowed scope of the Snowflake Open Catalog.
 	AllowedScope pulumi.StringInput `pulumi:"allowedScope"`
+	// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+	CustomNamespace pulumi.StringInput `pulumi:"customNamespace"`
 	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// (Required String) Warehouse name of the Snowflake Open Catalog.
@@ -31295,6 +31365,11 @@ func (o GetCatalogIntegrationSnowflakeOutput) AllowedScope() pulumi.StringOutput
 	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.AllowedScope }).(pulumi.StringOutput)
 }
 
+// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+func (o GetCatalogIntegrationSnowflakeOutput) CustomNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.CustomNamespace }).(pulumi.StringOutput)
+}
+
 // (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
 func (o GetCatalogIntegrationSnowflakeOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -31328,6 +31403,8 @@ func (o GetCatalogIntegrationSnowflakeArrayOutput) Index(i pulumi.IntInput) GetC
 type GetCatalogIntegrationUnity struct {
 	// (Required String) The name of the catalog within Unity Catalog.
 	CatalogName string `pulumi:"catalogName"`
+	// (Computed String) The custom schema name to use in Unity Catalog.
+	CustomSchema string `pulumi:"customSchema"`
 	// (Required String) The Databricks workspace URL associated with the Unity Catalog.
 	WorkspaceEndpoint string `pulumi:"workspaceEndpoint"`
 }
@@ -31346,6 +31423,8 @@ type GetCatalogIntegrationUnityInput interface {
 type GetCatalogIntegrationUnityArgs struct {
 	// (Required String) The name of the catalog within Unity Catalog.
 	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// (Computed String) The custom schema name to use in Unity Catalog.
+	CustomSchema pulumi.StringInput `pulumi:"customSchema"`
 	// (Required String) The Databricks workspace URL associated with the Unity Catalog.
 	WorkspaceEndpoint pulumi.StringInput `pulumi:"workspaceEndpoint"`
 }
@@ -31404,6 +31483,11 @@ func (o GetCatalogIntegrationUnityOutput) ToGetCatalogIntegrationUnityOutputWith
 // (Required String) The name of the catalog within Unity Catalog.
 func (o GetCatalogIntegrationUnityOutput) CatalogName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogIntegrationUnity) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// (Computed String) The custom schema name to use in Unity Catalog.
+func (o GetCatalogIntegrationUnityOutput) CustomSchema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationUnity) string { return v.CustomSchema }).(pulumi.StringOutput)
 }
 
 // (Required String) The Databricks workspace URL associated with the Unity Catalog.

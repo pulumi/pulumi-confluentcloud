@@ -51,6 +51,12 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
+        /// The custom namespace to use in Snowflake Open Catalog.
+        /// </summary>
+        [Input("customNamespace")]
+        public Input<string>? CustomNamespace { get; set; }
+
+        /// <summary>
         /// The catalog integration connection endpoint for Snowflake Open Catalog.
         /// </summary>
         [Input("endpoint", required: true)]

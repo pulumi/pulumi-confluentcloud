@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogIntegrationSnowflake {
@@ -25,6 +27,11 @@ public final class CatalogIntegrationSnowflake {
      * 
      */
     private String clientSecret;
+    /**
+     * @return The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    private @Nullable String customNamespace;
     /**
      * @return The catalog integration connection endpoint for Snowflake Open Catalog.
      * 
@@ -59,6 +66,13 @@ public final class CatalogIntegrationSnowflake {
         return this.clientSecret;
     }
     /**
+     * @return The custom namespace to use in Snowflake Open Catalog.
+     * 
+     */
+    public Optional<String> customNamespace() {
+        return Optional.ofNullable(this.customNamespace);
+    }
+    /**
      * @return The catalog integration connection endpoint for Snowflake Open Catalog.
      * 
      */
@@ -85,6 +99,7 @@ public final class CatalogIntegrationSnowflake {
         private String allowedScope;
         private String clientId;
         private String clientSecret;
+        private @Nullable String customNamespace;
         private String endpoint;
         private String warehouse;
         public Builder() {}
@@ -93,6 +108,7 @@ public final class CatalogIntegrationSnowflake {
     	      this.allowedScope = defaults.allowedScope;
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
+    	      this.customNamespace = defaults.customNamespace;
     	      this.endpoint = defaults.endpoint;
     	      this.warehouse = defaults.warehouse;
         }
@@ -122,6 +138,12 @@ public final class CatalogIntegrationSnowflake {
             return this;
         }
         @CustomType.Setter
+        public Builder customNamespace(@Nullable String customNamespace) {
+
+            this.customNamespace = customNamespace;
+            return this;
+        }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             if (endpoint == null) {
               throw new MissingRequiredPropertyException("CatalogIntegrationSnowflake", "endpoint");
@@ -142,6 +164,7 @@ public final class CatalogIntegrationSnowflake {
             _resultValue.allowedScope = allowedScope;
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
+            _resultValue.customNamespace = customNamespace;
             _resultValue.endpoint = endpoint;
             _resultValue.warehouse = warehouse;
             return _resultValue;

@@ -318,6 +318,10 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
 
 export interface CatalogIntegrationAwsGlue {
     /**
+     * The custom database name to use in AWS Glue.
+     */
+    customDatabase?: string;
+    /**
      * The provider integration id.
      */
     providerIntegrationId: string;
@@ -370,6 +374,10 @@ export interface CatalogIntegrationSnowflake {
      */
     clientSecret: string;
     /**
+     * The custom namespace to use in Snowflake Open Catalog.
+     */
+    customNamespace?: string;
+    /**
      * The catalog integration connection endpoint for Snowflake Open Catalog.
      */
     endpoint: string;
@@ -392,6 +400,10 @@ export interface CatalogIntegrationUnity {
      * The OAuth client secret used for authentication with the Unity Catalog.
      */
     clientSecret: string;
+    /**
+     * The custom schema name to use in Unity Catalog.
+     */
+    customSchema?: string;
     /**
      * The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
      */
@@ -1256,6 +1268,10 @@ export interface GetByokKeyGcp {
 
 export interface GetCatalogIntegrationAwsGlue {
     /**
+     * (Computed String) The custom database name to use in AWS Glue.
+     */
+    customDatabase: string;
+    /**
      * (Required String) The provider integration id.
      */
     providerIntegrationId: string;
@@ -1296,6 +1312,10 @@ export interface GetCatalogIntegrationSnowflake {
      */
     allowedScope: string;
     /**
+     * (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     */
+    customNamespace: string;
+    /**
      * (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
      */
     endpoint: string;
@@ -1310,6 +1330,10 @@ export interface GetCatalogIntegrationUnity {
      * (Required String) The name of the catalog within Unity Catalog.
      */
     catalogName: string;
+    /**
+     * (Computed String) The custom schema name to use in Unity Catalog.
+     */
+    customSchema: string;
     /**
      * (Required String) The Databricks workspace URL associated with the Unity Catalog.
      */

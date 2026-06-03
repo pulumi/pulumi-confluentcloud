@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogIntegrationUnity {
@@ -25,6 +27,11 @@ public final class CatalogIntegrationUnity {
      * 
      */
     private String clientSecret;
+    /**
+     * @return The custom schema name to use in Unity Catalog.
+     * 
+     */
+    private @Nullable String customSchema;
     /**
      * @return The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
      * 
@@ -54,6 +61,13 @@ public final class CatalogIntegrationUnity {
         return this.clientSecret;
     }
     /**
+     * @return The custom schema name to use in Unity Catalog.
+     * 
+     */
+    public Optional<String> customSchema() {
+        return Optional.ofNullable(this.customSchema);
+    }
+    /**
      * @return The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
      * 
      */
@@ -73,6 +87,7 @@ public final class CatalogIntegrationUnity {
         private String catalogName;
         private String clientId;
         private String clientSecret;
+        private @Nullable String customSchema;
         private String workspaceEndpoint;
         public Builder() {}
         public Builder(CatalogIntegrationUnity defaults) {
@@ -80,6 +95,7 @@ public final class CatalogIntegrationUnity {
     	      this.catalogName = defaults.catalogName;
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
+    	      this.customSchema = defaults.customSchema;
     	      this.workspaceEndpoint = defaults.workspaceEndpoint;
         }
 
@@ -108,6 +124,12 @@ public final class CatalogIntegrationUnity {
             return this;
         }
         @CustomType.Setter
+        public Builder customSchema(@Nullable String customSchema) {
+
+            this.customSchema = customSchema;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workspaceEndpoint(String workspaceEndpoint) {
             if (workspaceEndpoint == null) {
               throw new MissingRequiredPropertyException("CatalogIntegrationUnity", "workspaceEndpoint");
@@ -120,6 +142,7 @@ public final class CatalogIntegrationUnity {
             _resultValue.catalogName = catalogName;
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
+            _resultValue.customSchema = customSchema;
             _resultValue.workspaceEndpoint = workspaceEndpoint;
             return _resultValue;
         }
