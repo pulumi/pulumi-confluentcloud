@@ -772,6 +772,10 @@
         },
         "confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue": {
             "properties": {
+                "customDatabase": {
+                    "type": "string",
+                    "description": "The custom database name to use in AWS Glue.\n"
+                },
                 "providerIntegrationId": {
                     "type": "string",
                     "description": "The provider integration id.\n",
@@ -844,6 +848,10 @@
                     "description": "The client secret of the catalog integration.\n",
                     "secret": true
                 },
+                "customNamespace": {
+                    "type": "string",
+                    "description": "The custom namespace to use in Snowflake Open Catalog.\n"
+                },
                 "endpoint": {
                     "type": "string",
                     "description": "The catalog integration connection endpoint for Snowflake Open Catalog.\n"
@@ -877,6 +885,10 @@
                     "type": "string",
                     "description": "The OAuth client secret used for authentication with the Unity Catalog.\n",
                     "secret": true
+                },
+                "customSchema": {
+                    "type": "string",
+                    "description": "The custom schema name to use in Unity Catalog.\n"
                 },
                 "workspaceEndpoint": {
                     "type": "string",
@@ -4401,6 +4413,10 @@
         },
         "confluentcloud:index/getCatalogIntegrationAwsGlue:getCatalogIntegrationAwsGlue": {
             "properties": {
+                "customDatabase": {
+                    "type": "string",
+                    "description": "(Computed String) The custom database name to use in AWS Glue.\n"
+                },
                 "providerIntegrationId": {
                     "type": "string",
                     "description": "(Required String) The provider integration id.\n"
@@ -4408,6 +4424,7 @@
             },
             "type": "object",
             "required": [
+                "customDatabase",
                 "providerIntegrationId"
             ],
             "language": {
@@ -4465,6 +4482,10 @@
                     "type": "string",
                     "description": "(Required String) Allowed scope of the Snowflake Open Catalog.\n"
                 },
+                "customNamespace": {
+                    "type": "string",
+                    "description": "(Computed String) The custom namespace to use in Snowflake Open Catalog.\n"
+                },
                 "endpoint": {
                     "type": "string",
                     "description": "(Required String) The catalog integration connection endpoint for Snowflake Open Catalog.\n"
@@ -4477,6 +4498,7 @@
             "type": "object",
             "required": [
                 "allowedScope",
+                "customNamespace",
                 "endpoint",
                 "warehouse"
             ],
@@ -4492,6 +4514,10 @@
                     "type": "string",
                     "description": "(Required String) The name of the catalog within Unity Catalog.\n"
                 },
+                "customSchema": {
+                    "type": "string",
+                    "description": "(Computed String) The custom schema name to use in Unity Catalog.\n"
+                },
                 "workspaceEndpoint": {
                     "type": "string",
                     "description": "(Required String) The Databricks workspace URL associated with the Unity Catalog.\n"
@@ -4500,6 +4526,7 @@
             "type": "object",
             "required": [
                 "catalogName",
+                "customSchema",
                 "workspaceEndpoint"
             ],
             "language": {
@@ -15536,8 +15563,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "willReplaceOnChanges": true
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster",
@@ -15592,8 +15618,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                        "willReplaceOnChanges": true
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster",
@@ -16189,8 +16214,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "willReplaceOnChanges": true
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster",
@@ -16223,8 +16247,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                        "willReplaceOnChanges": true
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster",
