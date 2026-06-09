@@ -106,7 +106,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
         /// </summary>
         [Input("crlSource")]
         public string? CrlSource { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.ConfluentCloud
         public string? CrlUpdatedAt { get; set; }
 
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
+        /// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `CrlSource` is `URL`. When the CRL was uploaded inline via `CrlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         [Input("crlUrl")]
         public string? CrlUrl { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
         /// </summary>
         [Input("crlSource")]
         public Input<string>? CrlSource { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? CrlUpdatedAt { get; set; }
 
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
+        /// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `CrlSource` is `URL`. When the CRL was uploaded inline via `CrlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         [Input("crlUrl")]
         public Input<string>? CrlUrl { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string CertificateChainFilename;
         /// <summary>
-        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
         /// </summary>
         public readonly string CrlSource;
         /// <summary>
@@ -184,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string CrlUpdatedAt;
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
+        /// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `CrlSource` is `URL`. When the CRL was uploaded inline via `CrlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         public readonly string CrlUrl;
         /// <summary>
@@ -204,6 +204,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<string> Fingerprints;
         public readonly string Id;
+        /// <summary>
+        /// (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `True`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+        /// </summary>
+        public readonly bool RequireCrlOnClientCertificate;
         /// <summary>
         /// (Required List of Strings) The serial numbers for each certificate in the certificate chain.
         /// </summary>
@@ -229,6 +233,8 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
+            bool requireCrlOnClientCertificate,
+
             ImmutableArray<string> serialNumbers)
         {
             CertificateChainFilename = certificateChainFilename;
@@ -240,6 +246,7 @@ namespace Pulumi.ConfluentCloud
             ExpirationDates = expirationDates;
             Fingerprints = fingerprints;
             Id = id;
+            RequireCrlOnClientCertificate = requireCrlOnClientCertificate;
             SerialNumbers = serialNumbers;
         }
     }

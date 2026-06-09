@@ -36,7 +36,7 @@ export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?
  */
 export interface GetCertificateAuthorityArgs {
     /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      */
     crlSource?: string;
     /**
@@ -44,7 +44,7 @@ export interface GetCertificateAuthorityArgs {
      */
     crlUpdatedAt?: string;
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      */
     crlUrl?: string;
     /**
@@ -62,7 +62,7 @@ export interface GetCertificateAuthorityResult {
      */
     readonly certificateChainFilename: string;
     /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      */
     readonly crlSource: string;
     /**
@@ -70,7 +70,7 @@ export interface GetCertificateAuthorityResult {
      */
     readonly crlUpdatedAt: string;
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      */
     readonly crlUrl: string;
     /**
@@ -90,6 +90,10 @@ export interface GetCertificateAuthorityResult {
      */
     readonly fingerprints: string[];
     readonly id: string;
+    /**
+     * (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+     */
+    readonly requireCrlOnClientCertificate: boolean;
     /**
      * (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      */
@@ -127,7 +131,7 @@ export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutpu
  */
 export interface GetCertificateAuthorityOutputArgs {
     /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      */
     crlSource?: pulumi.Input<string | undefined>;
     /**
@@ -135,7 +139,7 @@ export interface GetCertificateAuthorityOutputArgs {
      */
     crlUpdatedAt?: pulumi.Input<string | undefined>;
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      */
     crlUrl?: pulumi.Input<string | undefined>;
     /**

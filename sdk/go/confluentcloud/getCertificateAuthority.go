@@ -53,11 +53,11 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
-	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
 	CrlSource *string `pulumi:"crlSource"`
 	// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
 	CrlUpdatedAt *string `pulumi:"crlUpdatedAt"`
-	// (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+	// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
 	CrlUrl *string `pulumi:"crlUrl"`
 	// The ID of the Certificate Authority, for example, `op-abc123`.
 	Id string `pulumi:"id"`
@@ -67,11 +67,11 @@ type LookupCertificateAuthorityArgs struct {
 type LookupCertificateAuthorityResult struct {
 	// (Required String) The name of the certificate file, for example, `certificate.pem`.
 	CertificateChainFilename string `pulumi:"certificateChainFilename"`
-	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
 	CrlSource string `pulumi:"crlSource"`
 	// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
 	CrlUpdatedAt string `pulumi:"crlUpdatedAt"`
-	// (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+	// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
 	CrlUrl string `pulumi:"crlUrl"`
 	// (Required String) A description for the Certificate Authority.
 	Description string `pulumi:"description"`
@@ -82,6 +82,8 @@ type LookupCertificateAuthorityResult struct {
 	// (Required List of Strings) The fingerprints for each certificate in the certificate chain, for example, `["B1BC968BD4f49D622AA89A81F2150152A41D829C"]`.
 	Fingerprints []string `pulumi:"fingerprints"`
 	Id           string   `pulumi:"id"`
+	// (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+	RequireCrlOnClientCertificate bool `pulumi:"requireCrlOnClientCertificate"`
 	// (Required List of Strings) The serial numbers for each certificate in the certificate chain.
 	SerialNumbers []string `pulumi:"serialNumbers"`
 }
@@ -97,11 +99,11 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityOutputArgs struct {
-	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
 	CrlSource pulumi.StringPtrInput `pulumi:"crlSource"`
 	// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
 	CrlUpdatedAt pulumi.StringPtrInput `pulumi:"crlUpdatedAt"`
-	// (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+	// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
 	CrlUrl pulumi.StringPtrInput `pulumi:"crlUrl"`
 	// The ID of the Certificate Authority, for example, `op-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -131,7 +133,7 @@ func (o LookupCertificateAuthorityResultOutput) CertificateChainFilename() pulum
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CertificateChainFilename }).(pulumi.StringOutput)
 }
 
-// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
 func (o LookupCertificateAuthorityResultOutput) CrlSource() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CrlSource }).(pulumi.StringOutput)
 }
@@ -141,7 +143,7 @@ func (o LookupCertificateAuthorityResultOutput) CrlUpdatedAt() pulumi.StringOutp
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CrlUpdatedAt }).(pulumi.StringOutput)
 }
 
-// (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
 func (o LookupCertificateAuthorityResultOutput) CrlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CrlUrl }).(pulumi.StringOutput)
 }
@@ -168,6 +170,11 @@ func (o LookupCertificateAuthorityResultOutput) Fingerprints() pulumi.StringArra
 
 func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+func (o LookupCertificateAuthorityResultOutput) RequireCrlOnClientCertificate() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) bool { return v.RequireCrlOnClientCertificate }).(pulumi.BoolOutput)
 }
 
 // (Required List of Strings) The serial numbers for each certificate in the certificate chain.

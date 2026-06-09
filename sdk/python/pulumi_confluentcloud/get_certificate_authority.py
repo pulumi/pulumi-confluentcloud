@@ -26,7 +26,7 @@ class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, certificate_chain_filename=None, crl_source=None, crl_updated_at=None, crl_url=None, description=None, display_name=None, expiration_dates=None, fingerprints=None, id=None, serial_numbers=None):
+    def __init__(__self__, certificate_chain_filename=None, crl_source=None, crl_updated_at=None, crl_url=None, description=None, display_name=None, expiration_dates=None, fingerprints=None, id=None, require_crl_on_client_certificate=None, serial_numbers=None):
         if certificate_chain_filename and not isinstance(certificate_chain_filename, str):
             raise TypeError("Expected argument 'certificate_chain_filename' to be a str")
         pulumi.set(__self__, "certificate_chain_filename", certificate_chain_filename)
@@ -54,6 +54,9 @@ class GetCertificateAuthorityResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if require_crl_on_client_certificate and not isinstance(require_crl_on_client_certificate, bool):
+            raise TypeError("Expected argument 'require_crl_on_client_certificate' to be a bool")
+        pulumi.set(__self__, "require_crl_on_client_certificate", require_crl_on_client_certificate)
         if serial_numbers and not isinstance(serial_numbers, list):
             raise TypeError("Expected argument 'serial_numbers' to be a list")
         pulumi.set(__self__, "serial_numbers", serial_numbers)
@@ -70,7 +73,7 @@ class GetCertificateAuthorityResult:
     @pulumi.getter(name="crlSource")
     def crl_source(self) -> _builtins.str:
         """
-        (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+        (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
         """
         return pulumi.get(self, "crl_source")
 
@@ -86,7 +89,7 @@ class GetCertificateAuthorityResult:
     @pulumi.getter(name="crlUrl")
     def crl_url(self) -> _builtins.str:
         """
-        (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+        (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crl_source` is `URL`. When the CRL was uploaded inline via `crl_chain` on the resource, the backend reports this attribute as `Local file uploaded`.
         """
         return pulumi.get(self, "crl_url")
 
@@ -128,6 +131,14 @@ class GetCertificateAuthorityResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="requireCrlOnClientCertificate")
+    def require_crl_on_client_certificate(self) -> _builtins.bool:
+        """
+        (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+        """
+        return pulumi.get(self, "require_crl_on_client_certificate")
+
+    @_builtins.property
     @pulumi.getter(name="serialNumbers")
     def serial_numbers(self) -> Sequence[_builtins.str]:
         """
@@ -151,6 +162,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             expiration_dates=self.expiration_dates,
             fingerprints=self.fingerprints,
             id=self.id,
+            require_crl_on_client_certificate=self.require_crl_on_client_certificate,
             serial_numbers=self.serial_numbers)
 
 
@@ -175,9 +187,9 @@ def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
     :param _builtins.str crl_updated_at: (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-    :param _builtins.str crl_url: (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+    :param _builtins.str crl_url: (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crl_source` is `URL`. When the CRL was uploaded inline via `crl_chain` on the resource, the backend reports this attribute as `Local file uploaded`.
     :param _builtins.str id: The ID of the Certificate Authority, for example, `op-abc123`.
     """
     __args__ = dict()
@@ -198,6 +210,7 @@ def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
         expiration_dates=pulumi.get(__ret__, 'expiration_dates'),
         fingerprints=pulumi.get(__ret__, 'fingerprints'),
         id=pulumi.get(__ret__, 'id'),
+        require_crl_on_client_certificate=pulumi.get(__ret__, 'require_crl_on_client_certificate'),
         serial_numbers=pulumi.get(__ret__, 'serial_numbers'))
 def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      crl_updated_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -220,9 +233,9 @@ def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[
     ```
 
 
-    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
     :param _builtins.str crl_updated_at: (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-    :param _builtins.str crl_url: (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+    :param _builtins.str crl_url: (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crl_source` is `URL`. When the CRL was uploaded inline via `crl_chain` on the resource, the backend reports this attribute as `Local file uploaded`.
     :param _builtins.str id: The ID of the Certificate Authority, for example, `op-abc123`.
     """
     __args__ = dict()
@@ -242,4 +255,5 @@ def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[
         expiration_dates=pulumi.get(__response__, 'expiration_dates'),
         fingerprints=pulumi.get(__response__, 'fingerprints'),
         id=pulumi.get(__response__, 'id'),
+        require_crl_on_client_certificate=pulumi.get(__response__, 'require_crl_on_client_certificate'),
         serial_numbers=pulumi.get(__response__, 'serial_numbers')))

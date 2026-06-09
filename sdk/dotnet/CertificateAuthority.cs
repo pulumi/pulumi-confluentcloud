@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> CertificateChainFilename { get; private set; } = null!;
 
         /// <summary>
-        /// A PEM encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set.
         /// </summary>
         [Output("crlChain")]
         public Output<string?> CrlChain { get; private set; } = null!;
@@ -83,10 +83,10 @@ namespace Pulumi.ConfluentCloud
         public Output<string> CrlUpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The url from which to fetch the CRL for the certificate authority.
+        /// The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set. When `CrlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         [Output("crlUrl")]
-        public Output<string?> CrlUrl { get; private set; } = null!;
+        public Output<string> CrlUrl { get; private set; } = null!;
 
         /// <summary>
         /// A description of the Certificate Authority.
@@ -111,6 +111,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("fingerprints")]
         public Output<ImmutableArray<string>> Fingerprints { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `False`.
+        /// </summary>
+        [Output("requireCrlOnClientCertificate")]
+        public Output<bool?> RequireCrlOnClientCertificate { get; private set; } = null!;
 
         /// <summary>
         /// (Required List of Strings) The serial numbers for each certificate in the certificate chain.
@@ -195,7 +201,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _crlChain;
 
         /// <summary>
-        /// A PEM encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set.
         /// </summary>
         public Input<string>? CrlChain
         {
@@ -208,7 +214,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The url from which to fetch the CRL for the certificate authority.
+        /// The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set. When `CrlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         [Input("crlUrl")]
         public Input<string>? CrlUrl { get; set; }
@@ -224,6 +230,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `False`.
+        /// </summary>
+        [Input("requireCrlOnClientCertificate")]
+        public Input<bool>? RequireCrlOnClientCertificate { get; set; }
 
         public CertificateAuthorityArgs()
         {
@@ -259,7 +271,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _crlChain;
 
         /// <summary>
-        /// A PEM encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set.
         /// </summary>
         public Input<string>? CrlChain
         {
@@ -284,7 +296,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? CrlUpdatedAt { get; set; }
 
         /// <summary>
-        /// The url from which to fetch the CRL for the certificate authority.
+        /// The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `CrlUrl` or `CrlChain` should be set. When `CrlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         /// </summary>
         [Input("crlUrl")]
         public Input<string>? CrlUrl { get; set; }
@@ -324,6 +336,12 @@ namespace Pulumi.ConfluentCloud
             get => _fingerprints ?? (_fingerprints = new InputList<string>());
             set => _fingerprints = value;
         }
+
+        /// <summary>
+        /// Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `False`.
+        /// </summary>
+        [Input("requireCrlOnClientCertificate")]
+        public Input<bool>? RequireCrlOnClientCertificate { get; set; }
 
         [Input("serialNumbers")]
         private InputList<string>? _serialNumbers;

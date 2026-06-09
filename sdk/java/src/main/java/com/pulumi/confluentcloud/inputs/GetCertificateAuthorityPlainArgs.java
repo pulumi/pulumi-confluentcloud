@@ -16,14 +16,14 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     public static final GetCertificateAuthorityPlainArgs Empty = new GetCertificateAuthorityPlainArgs();
 
     /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      * 
      */
     @Import(name="crlSource")
     private @Nullable String crlSource;
 
     /**
-     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      * 
      */
     public Optional<String> crlSource() {
@@ -46,14 +46,14 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     @Import(name="crlUrl")
     private @Nullable String crlUrl;
 
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * @return (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     public Optional<String> crlUrl() {
@@ -103,7 +103,7 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param crlSource (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+         * @param crlSource (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+         * @param crlUrl (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
          * 
          * @return builder
          * 

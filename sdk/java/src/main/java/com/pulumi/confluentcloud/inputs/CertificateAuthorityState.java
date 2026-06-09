@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,14 +48,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A PEM encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
      * 
      */
     @Import(name="crlChain")
     private @Nullable Output<String> crlChain;
 
     /**
-     * @return A PEM encoded string containing the CRL for this certificate authority.
+     * @return A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
      * 
      */
     public Optional<Output<String>> crlChain() {
@@ -92,14 +93,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The url from which to fetch the CRL for the certificate authority.
+     * The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     @Import(name="crlUrl")
     private @Nullable Output<String> crlUrl;
 
     /**
-     * @return The url from which to fetch the CRL for the certificate authority.
+     * @return The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     public Optional<Output<String>> crlUrl() {
@@ -167,6 +168,21 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+     * 
+     */
+    @Import(name="requireCrlOnClientCertificate")
+    private @Nullable Output<Boolean> requireCrlOnClientCertificate;
+
+    /**
+     * @return Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> requireCrlOnClientCertificate() {
+        return Optional.ofNullable(this.requireCrlOnClientCertificate);
+    }
+
+    /**
      * (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      * 
      */
@@ -194,6 +210,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         this.displayName = $.displayName;
         this.expirationDates = $.expirationDates;
         this.fingerprints = $.fingerprints;
+        this.requireCrlOnClientCertificate = $.requireCrlOnClientCertificate;
         this.serialNumbers = $.serialNumbers;
     }
 
@@ -258,7 +275,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crlChain A PEM encoded string containing the CRL for this certificate authority.
+         * @param crlChain A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
          * 
          * @return builder
          * 
@@ -269,7 +286,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crlChain A PEM encoded string containing the CRL for this certificate authority.
+         * @param crlChain A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
          * 
          * @return builder
          * 
@@ -321,7 +338,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crlUrl The url from which to fetch the CRL for the certificate authority.
+         * @param crlUrl The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
          * 
          * @return builder
          * 
@@ -332,7 +349,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crlUrl The url from which to fetch the CRL for the certificate authority.
+         * @param crlUrl The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
          * 
          * @return builder
          * 
@@ -443,6 +460,27 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
          */
         public Builder fingerprints(String... fingerprints) {
             return fingerprints(List.of(fingerprints));
+        }
+
+        /**
+         * @param requireCrlOnClientCertificate Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireCrlOnClientCertificate(@Nullable Output<Boolean> requireCrlOnClientCertificate) {
+            $.requireCrlOnClientCertificate = requireCrlOnClientCertificate;
+            return this;
+        }
+
+        /**
+         * @param requireCrlOnClientCertificate Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireCrlOnClientCertificate(Boolean requireCrlOnClientCertificate) {
+            return requireCrlOnClientCertificate(Output.of(requireCrlOnClientCertificate));
         }
 
         /**

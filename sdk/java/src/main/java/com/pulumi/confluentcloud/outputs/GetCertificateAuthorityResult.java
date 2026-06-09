@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public final class GetCertificateAuthorityResult {
      */
     private String certificateChainFilename;
     /**
-     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      * 
      */
     private String crlSource;
@@ -27,7 +28,7 @@ public final class GetCertificateAuthorityResult {
      */
     private String crlUpdatedAt;
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * @return (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     private String crlUrl;
@@ -53,6 +54,11 @@ public final class GetCertificateAuthorityResult {
     private List<String> fingerprints;
     private String id;
     /**
+     * @return (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+     * 
+     */
+    private Boolean requireCrlOnClientCertificate;
+    /**
      * @return (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      * 
      */
@@ -67,7 +73,7 @@ public final class GetCertificateAuthorityResult {
         return this.certificateChainFilename;
     }
     /**
-     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.
+     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
      * 
      */
     public String crlSource() {
@@ -81,7 +87,7 @@ public final class GetCertificateAuthorityResult {
         return this.crlUpdatedAt;
     }
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
+     * @return (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     public String crlUrl() {
@@ -119,6 +125,13 @@ public final class GetCertificateAuthorityResult {
         return this.id;
     }
     /**
+     * @return (Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When `true`, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.
+     * 
+     */
+    public Boolean requireCrlOnClientCertificate() {
+        return this.requireCrlOnClientCertificate;
+    }
+    /**
      * @return (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      * 
      */
@@ -144,6 +157,7 @@ public final class GetCertificateAuthorityResult {
         private List<String> expirationDates;
         private List<String> fingerprints;
         private String id;
+        private Boolean requireCrlOnClientCertificate;
         private List<String> serialNumbers;
         public Builder() {}
         public Builder(GetCertificateAuthorityResult defaults) {
@@ -157,6 +171,7 @@ public final class GetCertificateAuthorityResult {
     	      this.expirationDates = defaults.expirationDates;
     	      this.fingerprints = defaults.fingerprints;
     	      this.id = defaults.id;
+    	      this.requireCrlOnClientCertificate = defaults.requireCrlOnClientCertificate;
     	      this.serialNumbers = defaults.serialNumbers;
         }
 
@@ -239,6 +254,14 @@ public final class GetCertificateAuthorityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder requireCrlOnClientCertificate(Boolean requireCrlOnClientCertificate) {
+            if (requireCrlOnClientCertificate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityResult", "requireCrlOnClientCertificate");
+            }
+            this.requireCrlOnClientCertificate = requireCrlOnClientCertificate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serialNumbers(List<String> serialNumbers) {
             if (serialNumbers == null) {
               throw new MissingRequiredPropertyException("GetCertificateAuthorityResult", "serialNumbers");
@@ -260,6 +283,7 @@ public final class GetCertificateAuthorityResult {
             _resultValue.expirationDates = expirationDates;
             _resultValue.fingerprints = fingerprints;
             _resultValue.id = id;
+            _resultValue.requireCrlOnClientCertificate = requireCrlOnClientCertificate;
             _resultValue.serialNumbers = serialNumbers;
             return _resultValue;
         }
