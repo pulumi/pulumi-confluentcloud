@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -102,14 +103,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.certificateChainFilename;
     }
     /**
-     * A PEM encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
      * 
      */
     @Export(name="crlChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> crlChain;
 
     /**
-     * @return A PEM encoded string containing the CRL for this certificate authority.
+     * @return A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set.
      * 
      */
     public Output<Optional<String>> crlChain() {
@@ -144,18 +145,18 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.crlUpdatedAt;
     }
     /**
-     * The url from which to fetch the CRL for the certificate authority.
+     * The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
      * 
      */
     @Export(name="crlUrl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> crlUrl;
+    private Output<String> crlUrl;
 
     /**
-     * @return The url from which to fetch the CRL for the certificate authority.
+     * @return The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crlUrl` or `crlChain` should be set. When `crlChain` is uploaded, the backend reports this attribute as `Local file uploaded`.
      * 
      */
-    public Output<Optional<String>> crlUrl() {
-        return Codegen.optional(this.crlUrl);
+    public Output<String> crlUrl() {
+        return this.crlUrl;
     }
     /**
      * A description of the Certificate Authority.
@@ -212,6 +213,20 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> fingerprints() {
         return this.fingerprints;
+    }
+    /**
+     * Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+     * 
+     */
+    @Export(name="requireCrlOnClientCertificate", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> requireCrlOnClientCertificate;
+
+    /**
+     * @return Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> requireCrlOnClientCertificate() {
+        return Codegen.optional(this.requireCrlOnClientCertificate);
     }
     /**
      * (Required List of Strings) The serial numbers for each certificate in the certificate chain.

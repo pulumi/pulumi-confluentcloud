@@ -82,7 +82,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cam v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ccpm v0.0.1 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/certificate-authority v0.0.2 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/certificate-authority v0.0.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.25.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.2 // indirect

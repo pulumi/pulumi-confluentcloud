@@ -24,7 +24,8 @@ class CertificateAuthorityArgs:
                  description: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
-                 crl_url: pulumi.Input[Optional[_builtins.str]] = None):
+                 crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
 
@@ -32,8 +33,9 @@ class CertificateAuthorityArgs:
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Authority.
-        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
-        :param pulumi.Input[_builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
+        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
+        :param pulumi.Input[_builtins.str] crl_url: The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
+        :param pulumi.Input[_builtins.bool] require_crl_on_client_certificate: Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "certificate_chain_filename", certificate_chain_filename)
@@ -43,6 +45,8 @@ class CertificateAuthorityArgs:
             pulumi.set(__self__, "crl_chain", crl_chain)
         if crl_url is not None:
             pulumi.set(__self__, "crl_url", crl_url)
+        if require_crl_on_client_certificate is not None:
+            pulumi.set(__self__, "require_crl_on_client_certificate", require_crl_on_client_certificate)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
@@ -96,7 +100,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A PEM encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
         """
         return pulumi.get(self, "crl_chain")
 
@@ -108,13 +112,25 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="crlUrl")
     def crl_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The url from which to fetch the CRL for the certificate authority.
+        The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         """
         return pulumi.get(self, "crl_url")
 
     @crl_url.setter
     def crl_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireCrlOnClientCertificate")
+    def require_crl_on_client_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_crl_on_client_certificate")
+
+    @require_crl_on_client_certificate.setter
+    def require_crl_on_client_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "require_crl_on_client_certificate", value)
 
 
 @pulumi.input_type
@@ -130,20 +146,22 @@ class _CertificateAuthorityState:
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fingerprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
                  serial_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthority resources.
 
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
         :param pulumi.Input[_builtins.str] crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
         :param pulumi.Input[_builtins.str] crl_updated_at: (Optional String) The timestamp for when CRL was last updated.
-        :param pulumi.Input[_builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
+        :param pulumi.Input[_builtins.str] crl_url: The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Authority.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expiration_dates: (Required List of Strings) The expiration dates of certificates in the chain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fingerprints: (Required List of Strings) The fingerprints for each certificate in the certificate chain.
+        :param pulumi.Input[_builtins.bool] require_crl_on_client_certificate: Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] serial_numbers: (Required List of Strings) The serial numbers for each certificate in the certificate chain.
         """
         if certificate_chain is not None:
@@ -166,6 +184,8 @@ class _CertificateAuthorityState:
             pulumi.set(__self__, "expiration_dates", expiration_dates)
         if fingerprints is not None:
             pulumi.set(__self__, "fingerprints", fingerprints)
+        if require_crl_on_client_certificate is not None:
+            pulumi.set(__self__, "require_crl_on_client_certificate", require_crl_on_client_certificate)
         if serial_numbers is not None:
             pulumi.set(__self__, "serial_numbers", serial_numbers)
 
@@ -197,7 +217,7 @@ class _CertificateAuthorityState:
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A PEM encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
         """
         return pulumi.get(self, "crl_chain")
 
@@ -233,7 +253,7 @@ class _CertificateAuthorityState:
     @pulumi.getter(name="crlUrl")
     def crl_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The url from which to fetch the CRL for the certificate authority.
+        The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         """
         return pulumi.get(self, "crl_url")
 
@@ -290,6 +310,18 @@ class _CertificateAuthorityState:
         pulumi.set(self, "fingerprints", value)
 
     @_builtins.property
+    @pulumi.getter(name="requireCrlOnClientCertificate")
+    def require_crl_on_client_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_crl_on_client_certificate")
+
+    @require_crl_on_client_certificate.setter
+    def require_crl_on_client_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "require_crl_on_client_certificate", value)
+
+    @_builtins.property
     @pulumi.getter(name="serialNumbers")
     def serial_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -314,6 +346,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  crl_url: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -352,10 +385,11 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
-        :param pulumi.Input[_builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
+        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
+        :param pulumi.Input[_builtins.str] crl_url: The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Authority.
+        :param pulumi.Input[_builtins.bool] require_crl_on_client_certificate: Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
         """
         ...
     @overload
@@ -417,6 +451,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  crl_url: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,6 +475,7 @@ class CertificateAuthority(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["require_crl_on_client_certificate"] = require_crl_on_client_certificate
             __props__.__dict__["crl_source"] = None
             __props__.__dict__["crl_updated_at"] = None
             __props__.__dict__["expiration_dates"] = None
@@ -467,6 +503,7 @@ class CertificateAuthority(pulumi.CustomResource):
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             expiration_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             fingerprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
             serial_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CertificateAuthority':
         """
         Get an existing CertificateAuthority resource's state with the given name, id, and optional extra
@@ -477,14 +514,15 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
         :param pulumi.Input[_builtins.str] crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
         :param pulumi.Input[_builtins.str] crl_updated_at: (Optional String) The timestamp for when CRL was last updated.
-        :param pulumi.Input[_builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
+        :param pulumi.Input[_builtins.str] crl_url: The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Authority.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expiration_dates: (Required List of Strings) The expiration dates of certificates in the chain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fingerprints: (Required List of Strings) The fingerprints for each certificate in the certificate chain.
+        :param pulumi.Input[_builtins.bool] require_crl_on_client_certificate: Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] serial_numbers: (Required List of Strings) The serial numbers for each certificate in the certificate chain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -501,6 +539,7 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["expiration_dates"] = expiration_dates
         __props__.__dict__["fingerprints"] = fingerprints
+        __props__.__dict__["require_crl_on_client_certificate"] = require_crl_on_client_certificate
         __props__.__dict__["serial_numbers"] = serial_numbers
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
@@ -524,7 +563,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A PEM encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set.
         """
         return pulumi.get(self, "crl_chain")
 
@@ -546,9 +585,9 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="crlUrl")
-    def crl_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def crl_url(self) -> pulumi.Output[_builtins.str]:
         """
-        The url from which to fetch the CRL for the certificate authority.
+        The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of `crl_url` or `crl_chain` should be set. When `crl_chain` is uploaded, the backend reports this attribute as `Local file uploaded`.
         """
         return pulumi.get(self, "crl_url")
 
@@ -583,6 +622,14 @@ class CertificateAuthority(pulumi.CustomResource):
         (Required List of Strings) The fingerprints for each certificate in the certificate chain.
         """
         return pulumi.get(self, "fingerprints")
+
+    @_builtins.property
+    @pulumi.getter(name="requireCrlOnClientCertificate")
+    def require_crl_on_client_certificate(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to `false`.
+        """
+        return pulumi.get(self, "require_crl_on_client_certificate")
 
     @_builtins.property
     @pulumi.getter(name="serialNumbers")

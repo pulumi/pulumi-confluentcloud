@@ -9445,7 +9445,7 @@
                 },
                 "crlChain": {
                     "type": "string",
-                    "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
+                    "description": "A PEM encoded string containing the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set.\n",
                     "secret": true
                 },
                 "crlSource": {
@@ -9458,7 +9458,7 @@
                 },
                 "crlUrl": {
                     "type": "string",
-                    "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                    "description": "The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set. When \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e is uploaded, the backend reports this attribute as `Local file uploaded`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -9482,6 +9482,10 @@
                     },
                     "description": "(Required List of Strings) The fingerprints for each certificate in the certificate chain.\n"
                 },
+                "requireCrlOnClientCertificate": {
+                    "type": "boolean",
+                    "description": "Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
                 "serialNumbers": {
                     "type": "array",
                     "items": {
@@ -9495,6 +9499,7 @@
                 "certificateChainFilename",
                 "crlSource",
                 "crlUpdatedAt",
+                "crlUrl",
                 "description",
                 "displayName",
                 "expirationDates",
@@ -9513,12 +9518,12 @@
                 },
                 "crlChain": {
                     "type": "string",
-                    "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
+                    "description": "A PEM encoded string containing the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set.\n",
                     "secret": true
                 },
                 "crlUrl": {
                     "type": "string",
-                    "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                    "description": "The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set. When \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e is uploaded, the backend reports this attribute as `Local file uploaded`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -9527,6 +9532,10 @@
                 "displayName": {
                     "type": "string",
                     "description": "The name of the Certificate Authority.\n"
+                },
+                "requireCrlOnClientCertificate": {
+                    "type": "boolean",
+                    "description": "Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 }
             },
             "requiredInputs": [
@@ -9549,7 +9558,7 @@
                     },
                     "crlChain": {
                         "type": "string",
-                        "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
+                        "description": "A PEM encoded string containing the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set.\n",
                         "secret": true
                     },
                     "crlSource": {
@@ -9562,7 +9571,7 @@
                     },
                     "crlUrl": {
                         "type": "string",
-                        "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                        "description": "The URL from which Confluent Cloud will fetch the CRL for this Certificate Authority. Only one of \u003cspan pulumi-lang-nodejs=\"`crlUrl`\" pulumi-lang-dotnet=\"`CrlUrl`\" pulumi-lang-go=\"`crlUrl`\" pulumi-lang-python=\"`crl_url`\" pulumi-lang-yaml=\"`crlUrl`\" pulumi-lang-java=\"`crlUrl`\" pulumi-lang-hcl=\"`crl_url`\"\u003e`crlUrl`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e should be set. When \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e is uploaded, the backend reports this attribute as `Local file uploaded`.\n"
                     },
                     "description": {
                         "type": "string",
@@ -9585,6 +9594,10 @@
                             "type": "string"
                         },
                         "description": "(Required List of Strings) The fingerprints for each certificate in the certificate chain.\n"
+                    },
+                    "requireCrlOnClientCertificate": {
+                        "type": "boolean",
+                        "description": "Whether to enforce Certificate Revocation List (CRL) validation on client certificates during mTLS authentication. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                     },
                     "serialNumbers": {
                         "type": "array",
@@ -16915,7 +16928,7 @@
                 "properties": {
                     "crlSource": {
                         "type": "string",
-                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.\n"
+                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.\n"
                     },
                     "crlUpdatedAt": {
                         "type": "string",
@@ -16923,7 +16936,7 @@
                     },
                     "crlUrl": {
                         "type": "string",
-                        "description": "(Optional String) The url from which to fetch the CRL for the certificate authority if\u003cspan pulumi-lang-nodejs=\" crlSource \" pulumi-lang-dotnet=\" CrlSource \" pulumi-lang-go=\" crlSource \" pulumi-lang-python=\" crl_source \" pulumi-lang-yaml=\" crlSource \" pulumi-lang-java=\" crlSource \" pulumi-lang-hcl=\" crl_source \"\u003e crlSource \u003c/span\u003eis URL.\n"
+                        "description": "(Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when \u003cspan pulumi-lang-nodejs=\"`crlSource`\" pulumi-lang-dotnet=\"`CrlSource`\" pulumi-lang-go=\"`crlSource`\" pulumi-lang-python=\"`crl_source`\" pulumi-lang-yaml=\"`crlSource`\" pulumi-lang-java=\"`crlSource`\" pulumi-lang-hcl=\"`crl_source`\"\u003e`crlSource`\u003c/span\u003e is `URL`. When the CRL was uploaded inline via \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e on the resource, the backend reports this attribute as `Local file uploaded`.\n"
                     },
                     "id": {
                         "type": "string",
@@ -16943,7 +16956,7 @@
                         "type": "string"
                     },
                     "crlSource": {
-                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.\n",
+                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.\n",
                         "type": "string"
                     },
                     "crlUpdatedAt": {
@@ -16951,7 +16964,7 @@
                         "type": "string"
                     },
                     "crlUrl": {
-                        "description": "(Optional String) The url from which to fetch the CRL for the certificate authority if\u003cspan pulumi-lang-nodejs=\" crlSource \" pulumi-lang-dotnet=\" CrlSource \" pulumi-lang-go=\" crlSource \" pulumi-lang-python=\" crl_source \" pulumi-lang-yaml=\" crlSource \" pulumi-lang-java=\" crlSource \" pulumi-lang-hcl=\" crl_source \"\u003e crlSource \u003c/span\u003eis URL.\n",
+                        "description": "(Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when \u003cspan pulumi-lang-nodejs=\"`crlSource`\" pulumi-lang-dotnet=\"`CrlSource`\" pulumi-lang-go=\"`crlSource`\" pulumi-lang-python=\"`crl_source`\" pulumi-lang-yaml=\"`crlSource`\" pulumi-lang-java=\"`crlSource`\" pulumi-lang-hcl=\"`crl_source`\"\u003e`crlSource`\u003c/span\u003e is `URL`. When the CRL was uploaded inline via \u003cspan pulumi-lang-nodejs=\"`crlChain`\" pulumi-lang-dotnet=\"`CrlChain`\" pulumi-lang-go=\"`crlChain`\" pulumi-lang-python=\"`crl_chain`\" pulumi-lang-yaml=\"`crlChain`\" pulumi-lang-java=\"`crlChain`\" pulumi-lang-hcl=\"`crl_chain`\"\u003e`crlChain`\u003c/span\u003e on the resource, the backend reports this attribute as `Local file uploaded`.\n",
                         "type": "string"
                     },
                     "description": {
@@ -16979,6 +16992,10 @@
                     "id": {
                         "type": "string"
                     },
+                    "requireCrlOnClientCertificate": {
+                        "description": "(Required Boolean) Whether Certificate Revocation List (CRL) validation is enforced on client certificates during mTLS authentication. When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, a client certificate that is revoked in the CRL — or whose issuer does not match the CRL issuer — is rejected even if the TLS handshake succeeds.\n",
+                        "type": "boolean"
+                    },
                     "serialNumbers": {
                         "description": "(Required List of Strings) The serial numbers for each certificate in the certificate chain.\n",
                         "items": {
@@ -16997,6 +17014,7 @@
                     "expirationDates",
                     "fingerprints",
                     "id",
+                    "requireCrlOnClientCertificate",
                     "serialNumbers"
                 ],
                 "type": "object"
