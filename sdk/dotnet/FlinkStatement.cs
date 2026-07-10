@@ -84,7 +84,12 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
-    /// Example of `confluentcloud.FlinkStatement` that creates a model:
+    /// ### Example: Create a model using a Flink Connection
+    /// 
+    /// Use a `confluentcloud.FlinkConnection` resource to
+    /// avoid embedding secrets in statement properties. Note that secrets may still be
+    /// persisted in Terraform state, so be sure to protect your state appropriately.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,17 +98,73 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Step 1: Create a Flink Connection for OpenAI
+    ///     var openai = new ConfluentCloud.FlinkConnection("openai", new()
+    ///     {
+    ///         Organization = new ConfluentCloud.Inputs.FlinkConnectionOrganizationArgs
+    ///         {
+    ///             Id = main.Id,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.FlinkConnectionEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         ComputePool = new ConfluentCloud.Inputs.FlinkConnectionComputePoolArgs
+    ///         {
+    ///             Id = exampleConfluentFlinkComputePool.Id,
+    ///         },
+    ///         Principal = new ConfluentCloud.Inputs.FlinkConnectionPrincipalArgs
+    ///         {
+    ///             Id = app_manager_flink.Id,
+    ///         },
+    ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.FlinkConnectionCredentialsArgs
+    ///         {
+    ///             Key = env_admin_flink_api_key.Id,
+    ///             Secret = env_admin_flink_api_key.Secret,
+    ///         },
+    ///         DisplayName = "openai-connection",
+    ///         Type = "OPENAI",
+    ///         Endpoint = "https://api.openai.com/v1/embeddings",
+    ///         ApiKey = openaiApiKey,
+    ///     });
+    /// 
+    ///     // Step 2: Create a model that references the connection
     ///     var example = new ConfluentCloud.FlinkStatement("example", new()
     ///     {
-    ///         Statement = "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY&lt;FLOAT&gt;) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+    ///         Organization = new ConfluentCloud.Inputs.FlinkStatementOrganizationArgs
+    ///         {
+    ///             Id = main.Id,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.FlinkStatementEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         ComputePool = new ConfluentCloud.Inputs.FlinkStatementComputePoolArgs
+    ///         {
+    ///             Id = exampleConfluentFlinkComputePool.Id,
+    ///         },
+    ///         Principal = new ConfluentCloud.Inputs.FlinkStatementPrincipalArgs
+    ///         {
+    ///             Id = app_manager_flink.Id,
+    ///         },
+    ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.FlinkStatementCredentialsArgs
+    ///         {
+    ///             Key = env_admin_flink_api_key.Id,
+    ///             Secret = env_admin_flink_api_key.Secret,
+    ///         },
+    ///         Statement = "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY&lt;FLOAT&gt;) WITH ('TASK' = 'classification', 'PROVIDER' = 'OPENAI', 'OPENAI.CONNECTION' = 'openai-connection');",
     ///         Properties = 
     ///         {
-    ///             { "sql.current-catalog", confluentEnvironmentDisplayName },
-    ///             { "sql.current-database", confluentKafkaClusterDisplayName },
+    ///             { "sql.current-catalog", exampleConfluentEnvironment.DisplayName },
+    ///             { "sql.current-database", exampleConfluentKafkaCluster.DisplayName },
     ///         },
-    ///         PropertiesSensitive = 
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
     ///         {
-    ///             { "sql.secrets.openaikey", "***REDACTED***" },
+    ///             openai,
     ///         },
     ///     });
     /// 
@@ -187,7 +248,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Block for sensitive statement properties:
+        /// Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         /// </summary>
         [Output("propertiesSensitive")]
         public Output<ImmutableDictionary<string, string>> PropertiesSensitive { get; private set; } = null!;
@@ -341,7 +402,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _propertiesSensitive;
 
         /// <summary>
-        /// Block for sensitive statement properties:
+        /// Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         /// </summary>
         public InputMap<string> PropertiesSensitive
         {
@@ -483,7 +544,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _propertiesSensitive;
 
         /// <summary>
-        /// Block for sensitive statement properties:
+        /// Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         /// </summary>
         public InputMap<string> PropertiesSensitive
         {

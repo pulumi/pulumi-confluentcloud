@@ -95,7 +95,12 @@ import (
 //
 // ```
 //
-// Example of `FlinkStatement` that creates a model:
+// ### Example: Create a model using a Flink Connection
+//
+// Use a `FlinkConnection` resource to
+// avoid embedding secrets in statement properties. Note that secrets may still be
+// persisted in Terraform state, so be sure to protect your state appropriately.
+//
 // ```go
 // package main
 //
@@ -108,16 +113,60 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewFlinkStatement(ctx, "example", &confluentcloud.FlinkStatementArgs{
-//				Statement: pulumi.String("CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');"),
-//				Properties: pulumi.StringMap{
-//					"sql.current-catalog":  pulumi.Any(confluentEnvironmentDisplayName),
-//					"sql.current-database": pulumi.Any(confluentKafkaClusterDisplayName),
+//			// Step 1: Create a Flink Connection for OpenAI
+//			openai, err := confluentcloud.NewFlinkConnection(ctx, "openai", &confluentcloud.FlinkConnectionArgs{
+//				Organization: &confluentcloud.FlinkConnectionOrganizationArgs{
+//					Id: pulumi.Any(main.Id),
 //				},
-//				PropertiesSensitive: pulumi.StringMap{
-//					"sql.secrets.openaikey": pulumi.String("***REDACTED***"),
+//				Environment: &confluentcloud.FlinkConnectionEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
 //				},
+//				ComputePool: &confluentcloud.FlinkConnectionComputePoolArgs{
+//					Id: pulumi.Any(exampleConfluentFlinkComputePool.Id),
+//				},
+//				Principal: &confluentcloud.FlinkConnectionPrincipalArgs{
+//					Id: pulumi.Any(app_manager_flink.Id),
+//				},
+//				RestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),
+//				Credentials: &confluentcloud.FlinkConnectionCredentialsArgs{
+//					Key:    pulumi.Any(env_admin_flink_api_key.Id),
+//					Secret: pulumi.Any(env_admin_flink_api_key.Secret),
+//				},
+//				DisplayName: pulumi.String("openai-connection"),
+//				Type:        pulumi.String("OPENAI"),
+//				Endpoint:    pulumi.String("https://api.openai.com/v1/embeddings"),
+//				ApiKey:      pulumi.Any(openaiApiKey),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			// Step 2: Create a model that references the connection
+//			_, err = confluentcloud.NewFlinkStatement(ctx, "example", &confluentcloud.FlinkStatementArgs{
+//				Organization: &confluentcloud.FlinkStatementOrganizationArgs{
+//					Id: pulumi.Any(main.Id),
+//				},
+//				Environment: &confluentcloud.FlinkStatementEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
+//				},
+//				ComputePool: &confluentcloud.FlinkStatementComputePoolArgs{
+//					Id: pulumi.Any(exampleConfluentFlinkComputePool.Id),
+//				},
+//				Principal: &confluentcloud.FlinkStatementPrincipalArgs{
+//					Id: pulumi.Any(app_manager_flink.Id),
+//				},
+//				RestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),
+//				Credentials: &confluentcloud.FlinkStatementCredentialsArgs{
+//					Key:    pulumi.Any(env_admin_flink_api_key.Id),
+//					Secret: pulumi.Any(env_admin_flink_api_key.Secret),
+//				},
+//				Statement: pulumi.String("CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH ('TASK' = 'classification', 'PROVIDER' = 'OPENAI', 'OPENAI.CONNECTION' = 'openai-connection');"),
+//				Properties: pulumi.StringMap{
+//					"sql.current-catalog":  pulumi.Any(exampleConfluentEnvironment.DisplayName),
+//					"sql.current-database": pulumi.Any(exampleConfluentKafkaCluster.DisplayName),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				openai,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -172,7 +221,7 @@ type FlinkStatement struct {
 	Principal              FlinkStatementPrincipalOutput    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Block for sensitive statement properties:
+	// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 	PropertiesSensitive pulumi.StringMapOutput `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
 	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -275,7 +324,7 @@ type flinkStatementState struct {
 	Principal              *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// Block for sensitive statement properties:
+	// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
 	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -335,7 +384,7 @@ type FlinkStatementState struct {
 	Principal              FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// Block for sensitive statement properties:
+	// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 	PropertiesSensitive pulumi.StringMapInput
 	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
 	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -395,7 +444,7 @@ type flinkStatementArgs struct {
 	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// Block for sensitive statement properties:
+	// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
 	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -452,7 +501,7 @@ type FlinkStatementArgs struct {
 	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// Block for sensitive statement properties:
+	// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 	PropertiesSensitive pulumi.StringMapInput
 	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
 	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
@@ -622,7 +671,7 @@ func (o FlinkStatementOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Block for sensitive statement properties:
+// Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
 func (o FlinkStatementOutput) PropertiesSensitive() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.PropertiesSensitive }).(pulumi.StringMapOutput)
 }

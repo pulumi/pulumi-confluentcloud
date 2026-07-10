@@ -60,20 +60,66 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * Example of `confluentcloud.FlinkStatement` that creates a model:
+ * ### Example: Create a model using a Flink Connection
+ *
+ * Use a `confluentcloud.FlinkConnection` resource to
+ * avoid embedding secrets in statement properties. Note that secrets may still be
+ * persisted in Terraform state, so be sure to protect your state appropriately.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
+ * // Step 1: Create a Flink Connection for OpenAI
+ * const openai = new confluentcloud.FlinkConnection("openai", {
+ *     organization: {
+ *         id: main.id,
+ *     },
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     computePool: {
+ *         id: exampleConfluentFlinkComputePool.id,
+ *     },
+ *     principal: {
+ *         id: app_manager_flink.id,
+ *     },
+ *     restEndpoint: mainConfluentFlinkRegion.restEndpoint,
+ *     credentials: {
+ *         key: env_admin_flink_api_key.id,
+ *         secret: env_admin_flink_api_key.secret,
+ *     },
+ *     displayName: "openai-connection",
+ *     type: "OPENAI",
+ *     endpoint: "https://api.openai.com/v1/embeddings",
+ *     apiKey: openaiApiKey,
+ * });
+ * // Step 2: Create a model that references the connection
  * const example = new confluentcloud.FlinkStatement("example", {
- *     statement: "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+ *     organization: {
+ *         id: main.id,
+ *     },
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     computePool: {
+ *         id: exampleConfluentFlinkComputePool.id,
+ *     },
+ *     principal: {
+ *         id: app_manager_flink.id,
+ *     },
+ *     restEndpoint: mainConfluentFlinkRegion.restEndpoint,
+ *     credentials: {
+ *         key: env_admin_flink_api_key.id,
+ *         secret: env_admin_flink_api_key.secret,
+ *     },
+ *     statement: "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH ('TASK' = 'classification', 'PROVIDER' = 'OPENAI', 'OPENAI.CONNECTION' = 'openai-connection');",
  *     properties: {
- *         "sql.current-catalog": confluentEnvironmentDisplayName,
- *         "sql.current-database": confluentKafkaClusterDisplayName,
+ *         "sql.current-catalog": exampleConfluentEnvironment.displayName,
+ *         "sql.current-database": exampleConfluentKafkaCluster.displayName,
  *     },
- *     propertiesSensitive: {
- *         "sql.secrets.openaikey": "***REDACTED***",
- *     },
+ * }, {
+ *     dependsOn: [openai],
  * });
  * ```
  *
@@ -163,7 +209,7 @@ export class FlinkStatement extends pulumi.CustomResource {
      */
     declare public readonly properties: pulumi.Output<{[key: string]: string}>;
     /**
-     * Block for sensitive statement properties:
+     * Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
      */
     declare public readonly propertiesSensitive: pulumi.Output<{[key: string]: string}>;
     /**
@@ -289,7 +335,7 @@ export interface FlinkStatementState {
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Block for sensitive statement properties:
+     * Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
      */
     propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -350,7 +396,7 @@ export interface FlinkStatementArgs {
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Block for sensitive statement properties:
+     * Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
      */
     propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

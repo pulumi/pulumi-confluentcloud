@@ -111,14 +111,14 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Block for sensitive statement properties:
+     * Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
      * 
      */
     @Import(name="propertiesSensitive")
     private @Nullable Output<Map<String,String>> propertiesSensitive;
 
     /**
-     * @return Block for sensitive statement properties:
+     * @return Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
      * 
      */
     public Optional<Output<Map<String,String>>> propertiesSensitive() {
@@ -432,7 +432,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param propertiesSensitive Block for sensitive statement properties:
+         * @param propertiesSensitive Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param propertiesSensitive Block for sensitive statement properties:
+         * @param propertiesSensitive Block for sensitive statement properties. Prefer using `confluentcloud.FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
          * 
          * @return builder
          * 

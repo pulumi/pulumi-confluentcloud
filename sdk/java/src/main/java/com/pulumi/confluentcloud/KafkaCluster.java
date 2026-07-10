@@ -19,6 +19,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -434,6 +435,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KafkaClusterDedicated>> dedicated() {
         return Codegen.optional(this.dedicated);
+    }
+    /**
+     * Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     * 
+     */
+    @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> deletionProtection;
+
+    /**
+     * @return Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> deletionProtection() {
+        return Codegen.optional(this.deletionProtection);
     }
     /**
      * The name of the Kafka cluster.

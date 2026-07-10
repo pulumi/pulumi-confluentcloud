@@ -331,6 +331,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterDedicated?> Dedicated { get; private set; } = null!;
 
         /// <summary>
+        /// Whether deletion protection is enabled for the Kafka cluster. When set to `True`, the Kafka cluster cannot be deleted until this attribute is set back to `False`. Defaults to `False`.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kafka cluster.
         /// </summary>
         [Output("displayName")]
@@ -470,6 +476,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaClusterDedicatedArgs>? Dedicated { get; set; }
 
         /// <summary>
+        /// Whether deletion protection is enabled for the Kafka cluster. When set to `True`, the Kafka cluster cannot be deleted until this attribute is set back to `False`. Defaults to `False`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
         /// The name of the Kafka cluster.
         /// </summary>
         [Input("displayName")]
@@ -569,6 +581,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("dedicated")]
         public Input<Inputs.KafkaClusterDedicatedGetArgs>? Dedicated { get; set; }
+
+        /// <summary>
+        /// Whether deletion protection is enabled for the Kafka cluster. When set to `True`, the Kafka cluster cannot be deleted until this attribute is set back to `False`. Defaults to `False`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
         /// The name of the Kafka cluster.

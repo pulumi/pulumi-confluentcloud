@@ -40379,6 +40379,8 @@ type GetKafkaClustersCluster struct {
 	Cloud string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *GetKafkaClustersClusterDedicated `pulumi:"dedicated"`
+	// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+	DeletionProtection bool `pulumi:"deletionProtection"`
 	// (Required String) The name of the Kafka cluster.
 	DisplayName string `pulumi:"displayName"`
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -40431,6 +40433,8 @@ type GetKafkaClustersClusterArgs struct {
 	Cloud pulumi.StringInput `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated GetKafkaClustersClusterDedicatedPtrInput `pulumi:"dedicated"`
+	// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+	DeletionProtection pulumi.BoolInput `pulumi:"deletionProtection"`
 	// (Required String) The name of the Kafka cluster.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -40541,6 +40545,11 @@ func (o GetKafkaClustersClusterOutput) Cloud() pulumi.StringOutput {
 // (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 func (o GetKafkaClustersClusterOutput) Dedicated() GetKafkaClustersClusterDedicatedPtrOutput {
 	return o.ApplyT(func(v GetKafkaClustersCluster) *GetKafkaClustersClusterDedicated { return v.Dedicated }).(GetKafkaClustersClusterDedicatedPtrOutput)
+}
+
+// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+func (o GetKafkaClustersClusterOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
 // (Required String) The name of the Kafka cluster.

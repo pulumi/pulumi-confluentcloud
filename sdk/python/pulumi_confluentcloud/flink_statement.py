@@ -38,7 +38,7 @@ class FlinkStatementArgs:
         :param pulumi.Input[_builtins.str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_flink_region.main.private_rest_endpoint`, or
                - `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -163,7 +163,7 @@ class FlinkStatementArgs:
     @pulumi.getter(name="propertiesSensitive")
     def properties_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Block for sensitive statement properties:
+        Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         """
         return pulumi.get(self, "properties_sensitive")
 
@@ -259,7 +259,7 @@ class _FlinkStatementState:
                ```
         :param pulumi.Input[_builtins.str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_flink_region.main.private_rest_endpoint`, or
                - `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -408,7 +408,7 @@ class _FlinkStatementState:
     @pulumi.getter(name="propertiesSensitive")
     def properties_sensitive(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Block for sensitive statement properties:
+        Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         """
         return pulumi.get(self, "properties_sensitive")
 
@@ -557,20 +557,64 @@ class FlinkStatement(pulumi.CustomResource):
             })
         ```
 
-        Example of `FlinkStatement` that creates a model:
+        ### Example: Create a model using a Flink Connection
+
+        Use a `FlinkConnection` resource to
+        avoid embedding secrets in statement properties. Note that secrets may still be
+        persisted in Terraform state, so be sure to protect your state appropriately.
+
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        example = confluentcloud.FlinkStatement("example",
-            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
-            properties={
-                "sql.current-catalog": confluent_environment_display_name,
-                "sql.current-database": confluent_kafka_cluster_display_name,
+        # Step 1: Create a Flink Connection for OpenAI
+        openai = confluentcloud.FlinkConnection("openai",
+            organization={
+                "id": main["id"],
             },
-            properties_sensitive={
-                "sql.secrets.openaikey": "***REDACTED***",
-            })
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example_confluent_flink_compute_pool["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            },
+            display_name="openai-connection",
+            type="OPENAI",
+            endpoint="https://api.openai.com/v1/embeddings",
+            api_key=openai_api_key)
+        # Step 2: Create a model that references the connection
+        example = confluentcloud.FlinkStatement("example",
+            organization={
+                "id": main["id"],
+            },
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example_confluent_flink_compute_pool["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            },
+            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH ('TASK' = 'classification', 'PROVIDER' = 'OPENAI', 'OPENAI.CONNECTION' = 'openai-connection');",
+            properties={
+                "sql.current-catalog": example_confluent_environment["displayName"],
+                "sql.current-database": example_confluent_kafka_cluster["displayName"],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[openai]))
         ```
 
         ## Getting Started
@@ -609,7 +653,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_flink_region.main.private_rest_endpoint`, or
                - `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -695,20 +739,64 @@ class FlinkStatement(pulumi.CustomResource):
             })
         ```
 
-        Example of `FlinkStatement` that creates a model:
+        ### Example: Create a model using a Flink Connection
+
+        Use a `FlinkConnection` resource to
+        avoid embedding secrets in statement properties. Note that secrets may still be
+        persisted in Terraform state, so be sure to protect your state appropriately.
+
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        example = confluentcloud.FlinkStatement("example",
-            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
-            properties={
-                "sql.current-catalog": confluent_environment_display_name,
-                "sql.current-database": confluent_kafka_cluster_display_name,
+        # Step 1: Create a Flink Connection for OpenAI
+        openai = confluentcloud.FlinkConnection("openai",
+            organization={
+                "id": main["id"],
             },
-            properties_sensitive={
-                "sql.secrets.openaikey": "***REDACTED***",
-            })
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example_confluent_flink_compute_pool["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            },
+            display_name="openai-connection",
+            type="OPENAI",
+            endpoint="https://api.openai.com/v1/embeddings",
+            api_key=openai_api_key)
+        # Step 2: Create a model that references the connection
+        example = confluentcloud.FlinkStatement("example",
+            organization={
+                "id": main["id"],
+            },
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example_confluent_flink_compute_pool["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            },
+            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH ('TASK' = 'classification', 'PROVIDER' = 'OPENAI', 'OPENAI.CONNECTION' = 'openai-connection');",
+            properties={
+                "sql.current-catalog": example_confluent_environment["displayName"],
+                "sql.current-database": example_confluent_kafka_cluster["displayName"],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[openai]))
         ```
 
         ## Getting Started
@@ -835,7 +923,7 @@ class FlinkStatement(pulumi.CustomResource):
                ```
         :param pulumi.Input[_builtins.str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_flink_region.main.private_rest_endpoint`, or
                - `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -944,7 +1032,7 @@ class FlinkStatement(pulumi.CustomResource):
     @pulumi.getter(name="propertiesSensitive")
     def properties_sensitive(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        Block for sensitive statement properties:
+        Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         """
         return pulumi.get(self, "properties_sensitive")
 

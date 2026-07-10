@@ -42,6 +42,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly Outputs.GetKafkaClustersClusterDedicatedResult? Dedicated;
         /// <summary>
+        /// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+        /// </summary>
+        public readonly bool DeletionProtection;
+        /// <summary>
         /// (Required String) The name of the Kafka cluster.
         /// </summary>
         public readonly string DisplayName;
@@ -106,6 +110,8 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             Outputs.GetKafkaClustersClusterDedicatedResult? dedicated,
 
+            bool deletionProtection,
+
             string displayName,
 
             ImmutableArray<Outputs.GetKafkaClustersClusterEndpointResult> endpoints,
@@ -137,6 +143,7 @@ namespace Pulumi.ConfluentCloud.Outputs
             ByokKeys = byokKeys;
             Cloud = cloud;
             Dedicated = dedicated;
+            DeletionProtection = deletionProtection;
             DisplayName = displayName;
             Endpoints = endpoints;
             Enterprises = enterprises;

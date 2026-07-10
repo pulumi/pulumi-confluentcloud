@@ -28,6 +28,7 @@ class KafkaClusterArgs:
                  basic: pulumi.Input[Optional['KafkaClusterBasicArgs']] = None,
                  byok_key: pulumi.Input[Optional['KafkaClusterByokKeyArgs']] = None,
                  dedicated: pulumi.Input[Optional['KafkaClusterDedicatedArgs']] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enterprises: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
                  freights: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]] = None,
@@ -42,6 +43,7 @@ class KafkaClusterArgs:
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
@@ -58,6 +60,8 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "byok_key", byok_key)
         if dedicated is not None:
             pulumi.set(__self__, "dedicated", dedicated)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if enterprises is not None:
@@ -151,6 +155,18 @@ class KafkaClusterArgs:
         pulumi.set(self, "dedicated", value)
 
     @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "deletion_protection", value)
+
+    @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -221,6 +237,7 @@ class _KafkaClusterState:
                  byok_key: pulumi.Input[Optional['KafkaClusterByokKeyArgs']] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  dedicated: pulumi.Input[Optional['KafkaClusterDedicatedArgs']] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]]] = None,
                  enterprises: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
@@ -241,6 +258,7 @@ class _KafkaClusterState:
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
@@ -267,6 +285,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "cloud", cloud)
         if dedicated is not None:
             pulumi.set(__self__, "dedicated", dedicated)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if endpoints is not None:
@@ -370,6 +390,18 @@ class _KafkaClusterState:
     @dedicated.setter
     def dedicated(self, value: pulumi.Input[Optional['KafkaClusterDedicatedArgs']]):
         pulumi.set(self, "dedicated", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -515,6 +547,7 @@ class KafkaCluster(pulumi.CustomResource):
                  byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
                  environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
@@ -722,6 +755,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -949,6 +983,7 @@ class KafkaCluster(pulumi.CustomResource):
                  byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
                  environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
@@ -974,6 +1009,7 @@ class KafkaCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
             __props__.__dict__["dedicated"] = dedicated
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enterprises"] = enterprises
             if environment is None and not opts.urn:
@@ -1008,6 +1044,7 @@ class KafkaCluster(pulumi.CustomResource):
             byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]]] = None,
             enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
@@ -1032,6 +1069,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
@@ -1055,6 +1093,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["byok_key"] = byok_key
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["dedicated"] = dedicated
+        __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enterprises"] = enterprises
@@ -1120,6 +1159,14 @@ class KafkaCluster(pulumi.CustomResource):
         (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         """
         return pulumi.get(self, "dedicated")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

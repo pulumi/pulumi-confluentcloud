@@ -14,6 +14,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,6 +91,21 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<KafkaClusterDedicatedArgs>> dedicated() {
         return Optional.ofNullable(this.dedicated);
+    }
+
+    /**
+     * Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="deletionProtection")
+    private @Nullable Output<Boolean> deletionProtection;
+
+    /**
+     * @return Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionProtection() {
+        return Optional.ofNullable(this.deletionProtection);
     }
 
     /**
@@ -205,6 +221,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.byokKey = $.byokKey;
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
+        this.deletionProtection = $.deletionProtection;
         this.displayName = $.displayName;
         this.enterprises = $.enterprises;
         this.environment = $.environment;
@@ -323,6 +340,27 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dedicated(KafkaClusterDedicatedArgs dedicated) {
             return dedicated(Output.of(dedicated));
+        }
+
+        /**
+         * @param deletionProtection Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(@Nullable Output<Boolean> deletionProtection) {
+            $.deletionProtection = deletionProtection;
+            return this;
+        }
+
+        /**
+         * @param deletionProtection Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(Boolean deletionProtection) {
+            return deletionProtection(Output.of(deletionProtection));
         }
 
         /**

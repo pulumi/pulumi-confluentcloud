@@ -2325,6 +2325,10 @@ export interface GetKafkaClustersCluster {
      */
     dedicated?: outputs.GetKafkaClustersClusterDedicated;
     /**
+     * (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+     */
+    deletionProtection: boolean;
+    /**
      * (Required String) The name of the Kafka cluster.
      */
     displayName: string;
