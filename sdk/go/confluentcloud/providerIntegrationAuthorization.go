@@ -249,8 +249,8 @@ import (
 //
 // 1. **Get the multi-tenant app ID** from the Terraform outputs
 // 2. **Grant admin consent** (if you have Global Admin rights):
-// 4. **Grant permissions** in Azure Portal → Enterprise Applications
-// 5. **Re-run `pulumi up`** to validate the connection
+// 3. **Grant permissions** in Azure Portal → Enterprise Applications
+// 4. **Re-run `pulumi up`** to validate the connection
 //
 // ## GCP Setup Process
 //

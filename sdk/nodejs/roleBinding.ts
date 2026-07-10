@@ -208,7 +208,7 @@ export class RoleBinding extends pulumi.CustomResource {
     }
 
     /**
-     * A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+     * A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
      */
     declare public readonly crnPattern: pulumi.Output<string>;
     /**
@@ -275,7 +275,7 @@ export class RoleBinding extends pulumi.CustomResource {
  */
 export interface RoleBindingState {
     /**
-     * A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+     * A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
      */
     crnPattern?: pulumi.Input<string | undefined>;
     /**
@@ -305,7 +305,7 @@ export interface RoleBindingState {
  */
 export interface RoleBindingArgs {
     /**
-     * A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+     * A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
      */
     crnPattern: pulumi.Input<string>;
     /**

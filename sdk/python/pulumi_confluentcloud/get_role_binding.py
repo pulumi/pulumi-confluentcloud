@@ -44,7 +44,7 @@ class GetRoleBindingResult:
     @pulumi.getter(name="crnPattern")
     def crn_pattern(self) -> _builtins.str:
         """
-        (Required String) A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        (Required String) A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         """
         return pulumi.get(self, "crn_pattern")
 
