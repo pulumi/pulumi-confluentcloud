@@ -49,7 +49,7 @@ export interface GetRoleBindingArgs {
  */
 export interface GetRoleBindingResult {
     /**
-     * (Required String) A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+     * (Required String) A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
      */
     readonly crnPattern: string;
     readonly id: string;

@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-confluentcloud"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing Confluent cloud resources."
+                description = $/A Pulumi package for creating and managing Confluent cloud resources./$
 
                 url = "https://github.com/pulumi/pulumi-confluentcloud"
 

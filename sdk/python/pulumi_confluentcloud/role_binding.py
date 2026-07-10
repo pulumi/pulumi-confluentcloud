@@ -26,7 +26,7 @@ class RoleBindingArgs:
         """
         The set of arguments for constructing a RoleBinding resource.
 
-        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         :param pulumi.Input[_builtins.str] principal: A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
         :param pulumi.Input[_builtins.str] role_name: A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
@@ -49,7 +49,7 @@ class RoleBindingArgs:
     @pulumi.getter(name="crnPattern")
     def crn_pattern(self) -> pulumi.Input[_builtins.str]:
         """
-        A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         """
         return pulumi.get(self, "crn_pattern")
 
@@ -112,7 +112,7 @@ class _RoleBindingState:
         """
         Input properties used for looking up and filtering RoleBinding resources.
 
-        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
                > **Warning:** When `disable_wait_for_ready = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
@@ -138,7 +138,7 @@ class _RoleBindingState:
     @pulumi.getter(name="crnPattern")
     def crn_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         """
         return pulumi.get(self, "crn_pattern")
 
@@ -356,7 +356,7 @@ class RoleBinding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
                > **Warning:** When `disable_wait_for_ready = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
@@ -586,7 +586,7 @@ class RoleBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        :param pulumi.Input[_builtins.str] crn_pattern: A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
                > **Warning:** When `disable_wait_for_ready = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
@@ -613,7 +613,7 @@ class RoleBinding(pulumi.CustomResource):
     @pulumi.getter(name="crnPattern")
     def crn_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
         """
         return pulumi.get(self, "crn_pattern")
 
