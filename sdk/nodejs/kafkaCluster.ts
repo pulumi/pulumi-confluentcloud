@@ -264,6 +264,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     declare public readonly dedicated: pulumi.Output<outputs.KafkaClusterDedicated | undefined>;
     /**
+     * Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     */
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Kafka cluster.
      */
     declare public readonly displayName: pulumi.Output<string>;
@@ -328,6 +332,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["byokKey"] = state?.byokKey;
             resourceInputs["cloud"] = state?.cloud;
             resourceInputs["dedicated"] = state?.dedicated;
+            resourceInputs["deletionProtection"] = state?.deletionProtection;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["endpoints"] = state?.endpoints;
             resourceInputs["enterprises"] = state?.enterprises;
@@ -358,6 +363,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["byokKey"] = args?.byokKey;
             resourceInputs["cloud"] = args?.cloud;
             resourceInputs["dedicated"] = args?.dedicated;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["enterprises"] = args?.enterprises;
             resourceInputs["environment"] = args?.environment;
@@ -406,6 +412,10 @@ export interface KafkaClusterState {
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
     dedicated?: pulumi.Input<inputs.KafkaClusterDedicated | undefined>;
+    /**
+     * Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     */
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Kafka cluster.
      */
@@ -473,6 +483,10 @@ export interface KafkaClusterArgs {
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
     dedicated?: pulumi.Input<inputs.KafkaClusterDedicated | undefined>;
+    /**
+     * Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+     */
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Kafka cluster.
      */

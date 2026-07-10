@@ -10849,6 +10849,7 @@ class GetKafkaClustersClusterResult(dict):
                  bootstrap_endpoint: _builtins.str,
                  byok_keys: Sequence['outputs.GetKafkaClustersClusterByokKeyResult'],
                  cloud: _builtins.str,
+                 deletion_protection: _builtins.bool,
                  display_name: _builtins.str,
                  endpoints: Sequence['outputs.GetKafkaClustersClusterEndpointResult'],
                  environment: 'outputs.GetKafkaClustersClusterEnvironmentResult',
@@ -10869,6 +10870,7 @@ class GetKafkaClustersClusterResult(dict):
         :param _builtins.str bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param Sequence['GetKafkaClustersClusterByokKeyArgs'] byok_keys: (Optional Configuration Block) supports the following:
         :param _builtins.str cloud: (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param _builtins.bool deletion_protection: (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
         :param _builtins.str display_name: (Required String) The name of the Kafka cluster.
         :param Sequence['GetKafkaClustersClusterEndpointArgs'] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
         :param 'GetKafkaClustersClusterEnvironmentArgs' environment: (Required Object) exports the following attributes:
@@ -10889,6 +10891,7 @@ class GetKafkaClustersClusterResult(dict):
         pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
         pulumi.set(__self__, "byok_keys", byok_keys)
         pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "endpoints", endpoints)
         pulumi.set(__self__, "environment", environment)
@@ -10948,6 +10951,14 @@ class GetKafkaClustersClusterResult(dict):
         (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         """
         return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> _builtins.bool:
+        """
+        (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

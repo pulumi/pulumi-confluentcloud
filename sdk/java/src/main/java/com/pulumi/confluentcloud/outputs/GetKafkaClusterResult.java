@@ -14,6 +14,7 @@ import com.pulumi.confluentcloud.outputs.GetKafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterStandard;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,6 +58,11 @@ public final class GetKafkaClusterResult {
      * 
      */
     private @Nullable GetKafkaClusterDedicated dedicated;
+    /**
+     * @return (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+     * 
+     */
+    private Boolean deletionProtection;
     /**
      * @return (Required String) The name of the Kafka cluster.
      * 
@@ -165,6 +171,13 @@ public final class GetKafkaClusterResult {
         return Optional.ofNullable(this.dedicated);
     }
     /**
+     * @return (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+     * 
+     */
+    public Boolean deletionProtection() {
+        return this.deletionProtection;
+    }
+    /**
      * @return (Required String) The name of the Kafka cluster.
      * 
      */
@@ -261,6 +274,7 @@ public final class GetKafkaClusterResult {
         private List<GetKafkaClusterByokKey> byokKeys;
         private String cloud;
         private @Nullable GetKafkaClusterDedicated dedicated;
+        private Boolean deletionProtection;
         private String displayName;
         private List<GetKafkaClusterEndpoint> endpoints;
         private @Nullable List<GetKafkaClusterEnterprise> enterprises;
@@ -283,6 +297,7 @@ public final class GetKafkaClusterResult {
     	      this.byokKeys = defaults.byokKeys;
     	      this.cloud = defaults.cloud;
     	      this.dedicated = defaults.dedicated;
+    	      this.deletionProtection = defaults.deletionProtection;
     	      this.displayName = defaults.displayName;
     	      this.endpoints = defaults.endpoints;
     	      this.enterprises = defaults.enterprises;
@@ -353,6 +368,14 @@ public final class GetKafkaClusterResult {
         public Builder dedicated(@Nullable GetKafkaClusterDedicated dedicated) {
 
             this.dedicated = dedicated;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtection(Boolean deletionProtection) {
+            if (deletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "deletionProtection");
+            }
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
@@ -469,6 +492,7 @@ public final class GetKafkaClusterResult {
             _resultValue.byokKeys = byokKeys;
             _resultValue.cloud = cloud;
             _resultValue.dedicated = dedicated;
+            _resultValue.deletionProtection = deletionProtection;
             _resultValue.displayName = displayName;
             _resultValue.endpoints = endpoints;
             _resultValue.enterprises = enterprises;

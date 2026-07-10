@@ -28,7 +28,7 @@ class GetKafkaClusterResult:
     """
     A collection of values returned by getKafkaCluster.
     """
-    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, endpoints=None, enterprises=None, environment=None, freights=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
+    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, deletion_protection=None, display_name=None, endpoints=None, enterprises=None, environment=None, freights=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -50,6 +50,9 @@ class GetKafkaClusterResult:
         if dedicated and not isinstance(dedicated, dict):
             raise TypeError("Expected argument 'dedicated' to be a dict")
         pulumi.set(__self__, "dedicated", dedicated)
+        if deletion_protection and not isinstance(deletion_protection, bool):
+            raise TypeError("Expected argument 'deletion_protection' to be a bool")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -142,6 +145,14 @@ class GetKafkaClusterResult:
         (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         """
         return pulumi.get(self, "dedicated")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> _builtins.bool:
+        """
+        (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -250,6 +261,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             byok_keys=self.byok_keys,
             cloud=self.cloud,
             dedicated=self.dedicated,
+            deletion_protection=self.deletion_protection,
             display_name=self.display_name,
             endpoints=self.endpoints,
             enterprises=self.enterprises,
@@ -327,6 +339,7 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
         byok_keys=pulumi.get(__ret__, 'byok_keys'),
         cloud=pulumi.get(__ret__, 'cloud'),
         dedicated=pulumi.get(__ret__, 'dedicated'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         display_name=pulumi.get(__ret__, 'display_name'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
         enterprises=pulumi.get(__ret__, 'enterprises'),
@@ -401,6 +414,7 @@ def get_kafka_cluster_output(basics: pulumi.Input[Optional[Optional[Sequence[Uni
         byok_keys=pulumi.get(__response__, 'byok_keys'),
         cloud=pulumi.get(__response__, 'cloud'),
         dedicated=pulumi.get(__response__, 'dedicated'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         display_name=pulumi.get(__response__, 'display_name'),
         endpoints=pulumi.get(__response__, 'endpoints'),
         enterprises=pulumi.get(__response__, 'enterprises'),

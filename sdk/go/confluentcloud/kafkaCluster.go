@@ -323,6 +323,8 @@ type KafkaCluster struct {
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrOutput `pulumi:"dedicated"`
+	// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -402,6 +404,8 @@ type kafkaClusterState struct {
 	Cloud *string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
+	// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -440,6 +444,8 @@ type KafkaClusterState struct {
 	Cloud pulumi.StringPtrInput
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrInput
+	// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+	DeletionProtection pulumi.BoolPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -478,6 +484,8 @@ type kafkaClusterArgs struct {
 	Cloud string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
+	// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
 	// The configuration of the Enterprise Kafka cluster.
@@ -505,6 +513,8 @@ type KafkaClusterArgs struct {
 	Cloud pulumi.StringInput
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrInput
+	// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+	DeletionProtection pulumi.BoolPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
 	// The configuration of the Enterprise Kafka cluster.
@@ -640,6 +650,11 @@ func (o KafkaClusterOutput) Cloud() pulumi.StringOutput {
 // (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 func (o KafkaClusterOutput) Dedicated() KafkaClusterDedicatedPtrOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDedicatedPtrOutput { return v.Dedicated }).(KafkaClusterDedicatedPtrOutput)
+}
+
+// Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
+func (o KafkaClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Kafka cluster.

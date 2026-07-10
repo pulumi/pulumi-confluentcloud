@@ -105,6 +105,8 @@ type LookupKafkaClusterResult struct {
 	Cloud string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *GetKafkaClusterDedicated `pulumi:"dedicated"`
+	// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+	DeletionProtection bool `pulumi:"deletionProtection"`
 	// (Required String) The name of the Kafka cluster.
 	DisplayName string `pulumi:"displayName"`
 	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
@@ -210,6 +212,11 @@ func (o LookupKafkaClusterResultOutput) Cloud() pulumi.StringOutput {
 // (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 func (o LookupKafkaClusterResultOutput) Dedicated() GetKafkaClusterDedicatedPtrOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) *GetKafkaClusterDedicated { return v.Dedicated }).(GetKafkaClusterDedicatedPtrOutput)
+}
+
+// (Required Boolean) Whether deletion protection is enabled for the Kafka cluster.
+func (o LookupKafkaClusterResultOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKafkaClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
 // (Required String) The name of the Kafka cluster.
