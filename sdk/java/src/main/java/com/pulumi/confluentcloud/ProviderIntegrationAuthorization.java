@@ -262,11 +262,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export("gcpIamCommand", Output.tuple(gcpProviderIntegrationAuthorization.gcp(), gcpProviderIntegrationAuthorization.gcp()).applyValue(values -> {
- *             var gcpProviderIntegrationAuthorizationGcp = values.t1;
- *             var gcpProviderIntegrationAuthorizationGcp1 = values.t2;
- *             return String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcpProviderIntegrationAuthorizationGcp.googleServiceAccount(),gcpProviderIntegrationAuthorizationGcp1.googleServiceAccount());
- *         }));
+ *         ctx.export("gcpIamCommand", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", _gcp.googleServiceAccount(),_gcp.googleServiceAccount())));
  *         ctx.export("confluentServiceAccount", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> _gcp.googleServiceAccount()));
  *     }
  * }

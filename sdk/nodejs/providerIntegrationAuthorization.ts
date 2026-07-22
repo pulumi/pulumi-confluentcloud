@@ -136,7 +136,7 @@ import * as utilities from "./utilities";
  *         customerGoogleServiceAccount: gcpServiceAccount,
  *     },
  * });
- * export const gcpIamCommand = pulumi.all([gcpProviderIntegrationAuthorization.gcp, gcpProviderIntegrationAuthorization.gcp]).apply(([gcpProviderIntegrationAuthorizationGcp, gcpProviderIntegrationAuthorizationGcp1]) => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcpProviderIntegrationAuthorizationGcp?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcpProviderIntegrationAuthorizationGcp1?.googleServiceAccount}'"`);
+ * export const gcpIamCommand = gcpProviderIntegrationAuthorization.gcp.apply(gcp => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp?.googleServiceAccount}'"`);
  * export const confluentServiceAccount = gcpProviderIntegrationAuthorization.gcp.apply(gcp => gcp?.googleServiceAccount);
  * ```
  *

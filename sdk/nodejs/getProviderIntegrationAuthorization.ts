@@ -99,7 +99,7 @@ import * as utilities from "./utilities";
  *         id: "env-xyz456",
  *     },
  * });
- * export const gcpIamCommand = Promise.all([gcp, gcp]).then(([gcp, gcp1]) => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp1.gcps?.[0]?.googleServiceAccount}'"`);
+ * export const gcpIamCommand = gcp.then(gcp => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp.gcps?.[0]?.googleServiceAccount}'"`);
  * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
  * ```
  *
@@ -121,12 +121,12 @@ import * as utilities from "./utilities";
  *         id: "env-xyz456",
  *     },
  * }));
- * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization1, mainGetProviderIntegrationAuthorization2, mainGetProviderIntegrationAuthorization3]) => main.cloud == "AZURE" ? {
+ * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization]) => main.cloud == "AZURE" ? {
  *     appId: mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId,
- *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization1.azures?.[0]?.confluentMultiTenantAppId}`,
+ *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId}`,
  * } : {
- *     confluentSa: mainGetProviderIntegrationAuthorization2.gcps?.[0]?.googleServiceAccount,
- *     customerSa: mainGetProviderIntegrationAuthorization3.gcps?.[0]?.customerGoogleServiceAccount,
+ *     confluentSa: mainGetProviderIntegrationAuthorization.gcps?.[0]?.googleServiceAccount,
+ *     customerSa: mainGetProviderIntegrationAuthorization.gcps?.[0]?.customerGoogleServiceAccount,
  * });
  * ```
  *
@@ -276,7 +276,7 @@ export interface GetProviderIntegrationAuthorizationResult {
  *         id: "env-xyz456",
  *     },
  * });
- * export const gcpIamCommand = Promise.all([gcp, gcp]).then(([gcp, gcp1]) => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp1.gcps?.[0]?.googleServiceAccount}'"`);
+ * export const gcpIamCommand = gcp.then(gcp => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp.gcps?.[0]?.googleServiceAccount}'"`);
  * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
  * ```
  *
@@ -298,12 +298,12 @@ export interface GetProviderIntegrationAuthorizationResult {
  *         id: "env-xyz456",
  *     },
  * }));
- * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization1, mainGetProviderIntegrationAuthorization2, mainGetProviderIntegrationAuthorization3]) => main.cloud == "AZURE" ? {
+ * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization]) => main.cloud == "AZURE" ? {
  *     appId: mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId,
- *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization1.azures?.[0]?.confluentMultiTenantAppId}`,
+ *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId}`,
  * } : {
- *     confluentSa: mainGetProviderIntegrationAuthorization2.gcps?.[0]?.googleServiceAccount,
- *     customerSa: mainGetProviderIntegrationAuthorization3.gcps?.[0]?.customerGoogleServiceAccount,
+ *     confluentSa: mainGetProviderIntegrationAuthorization.gcps?.[0]?.googleServiceAccount,
+ *     customerSa: mainGetProviderIntegrationAuthorization.gcps?.[0]?.customerGoogleServiceAccount,
  * });
  * ```
  *

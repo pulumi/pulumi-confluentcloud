@@ -229,10 +229,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("gcpIamCommand", pulumi.All(gcpProviderIntegrationAuthorization.Gcp, gcpProviderIntegrationAuthorization.Gcp).ApplyT(func(_args []interface{}) (string, error) {
-//				gcpProviderIntegrationAuthorizationGcp := _args[0].(confluentcloud.ProviderIntegrationAuthorizationGcp)
-//				gcpProviderIntegrationAuthorizationGcp1 := _args[1].(confluentcloud.ProviderIntegrationAuthorizationGcp)
-//				return fmt.Sprintf("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%v\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%v'\"", gcpProviderIntegrationAuthorizationGcp.GoogleServiceAccount, gcpProviderIntegrationAuthorizationGcp1.GoogleServiceAccount), nil
+//			ctx.Export("gcpIamCommand", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (string, error) {
+//				return fmt.Sprintf("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%v\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%v'\"", gcp.GoogleServiceAccount, gcp.GoogleServiceAccount), nil
 //			}).(pulumi.StringOutput))
 //			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (*string, error) {
 //				return gcp.GoogleServiceAccount, nil
