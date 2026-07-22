@@ -207,12 +207,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["gcpIamCommand"] = Output.Tuple(gcpProviderIntegrationAuthorization.Gcp, gcpProviderIntegrationAuthorization.Gcp).Apply(values =&gt;
-    ///         {
-    ///             var gcpProviderIntegrationAuthorizationGcp = values.Item1;
-    ///             var gcpProviderIntegrationAuthorizationGcp1 = values.Item2;
-    ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcpProviderIntegrationAuthorizationGcp?.GoogleServiceAccount}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcpProviderIntegrationAuthorizationGcp1?.GoogleServiceAccount}'\"";
-    ///         }),
+    ///         ["gcpIamCommand"] = gcpProviderIntegrationAuthorization.Gcp.Apply(gcp =&gt; $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp?.GoogleServiceAccount}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp?.GoogleServiceAccount}'\""),
     ///         ["confluentServiceAccount"] = gcpProviderIntegrationAuthorization.Gcp.Apply(gcp =&gt; gcp?.GoogleServiceAccount),
     ///     };
     /// });

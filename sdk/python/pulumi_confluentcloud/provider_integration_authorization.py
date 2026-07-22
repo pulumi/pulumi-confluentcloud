@@ -294,11 +294,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             gcp={
                 "customer_google_service_account": gcp_service_account,
             })
-        pulumi.export("gcpIamCommand", pulumi.Output.all(
-            gcpProviderIntegrationAuthorizationGcp=gcp_provider_integration_authorization.gcp,
-            gcpProviderIntegrationAuthorizationGcp1=gcp_provider_integration_authorization.gcp
-        ).apply(lambda resolved_outputs: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp_provider_integration_authorization_gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp_provider_integration_authorization_gcp1.google_service_account}'\\"")
-        )
+        pulumi.export("gcpIamCommand", gcp_provider_integration_authorization.gcp.apply(lambda gcp: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp.google_service_account}'\\""))
         pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
         ```
 
@@ -476,11 +472,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             gcp={
                 "customer_google_service_account": gcp_service_account,
             })
-        pulumi.export("gcpIamCommand", pulumi.Output.all(
-            gcpProviderIntegrationAuthorizationGcp=gcp_provider_integration_authorization.gcp,
-            gcpProviderIntegrationAuthorizationGcp1=gcp_provider_integration_authorization.gcp
-        ).apply(lambda resolved_outputs: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp_provider_integration_authorization_gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp_provider_integration_authorization_gcp1.google_service_account}'\\"")
-        )
+        pulumi.export("gcpIamCommand", gcp_provider_integration_authorization.gcp.apply(lambda gcp: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp.google_service_account}'\\""))
         pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
         ```
 

@@ -156,12 +156,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
-        ///         {
-        ///             var gcp = values.Item1;
-        ///             var gcp1 = values.Item2;
-        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
-        ///         }),
+        ///         ["gcpIamCommand"] = $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'\"",
         ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
         ///     };
         /// });
@@ -197,21 +192,18 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var mainGetProviderIntegrationAuthorization = values.Item2;
-        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
-        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
-        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
         ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
         ///             {
         ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
-        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}" },
         ///             } : 
         ///             {
-        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
-        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount) },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount) },
         ///             };
         ///         }),
         ///     };
@@ -373,12 +365,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
-        ///         {
-        ///             var gcp = values.Item1;
-        ///             var gcp1 = values.Item2;
-        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
-        ///         }),
+        ///         ["gcpIamCommand"] = $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'\"",
         ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
         ///     };
         /// });
@@ -414,21 +401,18 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var mainGetProviderIntegrationAuthorization = values.Item2;
-        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
-        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
-        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
         ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
         ///             {
         ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
-        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}" },
         ///             } : 
         ///             {
-        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
-        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount) },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount) },
         ///             };
         ///         }),
         ///     };
@@ -590,12 +574,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
-        ///         {
-        ///             var gcp = values.Item1;
-        ///             var gcp1 = values.Item2;
-        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
-        ///         }),
+        ///         ["gcpIamCommand"] = $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'\"",
         ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
         ///     };
         /// });
@@ -631,21 +610,18 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var mainGetProviderIntegrationAuthorization = values.Item2;
-        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
-        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
-        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
         ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
         ///             {
         ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
-        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}" },
         ///             } : 
         ///             {
-        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
-        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount) },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount) },
         ///             };
         ///         }),
         ///     };
