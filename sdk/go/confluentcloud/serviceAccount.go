@@ -86,7 +86,7 @@ type ServiceAccount struct {
 	// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
 	// A free-form description of the Service Account.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// A human-readable name for the Service Account.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// (Required String) A kind of the Service Account, for example, `ServiceAccount`.
@@ -256,8 +256,8 @@ func (o ServiceAccountOutput) ApiVersion() pulumi.StringOutput {
 }
 
 // A free-form description of the Service Account.
-func (o ServiceAccountOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceAccount) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o ServiceAccountOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // A human-readable name for the Service Account.

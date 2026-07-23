@@ -279,18 +279,18 @@ public class FlinkMaterializedTable extends com.pulumi.resources.CustomResource 
         return this.displayName;
     }
     /**
-     * The distribution definition for the Materialized Table. Supports the following:
+     * The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      * 
      */
     @Export(name="distribution", refs={FlinkMaterializedTableDistribution.class}, tree="[0]")
-    private Output</* @Nullable */ FlinkMaterializedTableDistribution> distribution;
+    private Output<FlinkMaterializedTableDistribution> distribution;
 
     /**
-     * @return The distribution definition for the Materialized Table. Supports the following:
+     * @return The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      * 
      */
-    public Output<Optional<FlinkMaterializedTableDistribution>> distribution() {
-        return Codegen.optional(this.distribution);
+    public Output<FlinkMaterializedTableDistribution> distribution() {
+        return this.distribution;
     }
     @Export(name="environment", refs={FlinkMaterializedTableEnvironment.class}, tree="[0]")
     private Output<FlinkMaterializedTableEnvironment> environment;
@@ -345,14 +345,14 @@ public class FlinkMaterializedTable extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.restEndpoint);
     }
     /**
-     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
     @Export(name="stopped", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stopped;
 
     /**
-     * @return Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * @return Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
     public Output<Optional<Boolean>> stopped() {

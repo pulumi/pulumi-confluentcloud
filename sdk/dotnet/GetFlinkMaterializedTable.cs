@@ -329,7 +329,7 @@ namespace Pulumi.ConfluentCloud
         public readonly Outputs.GetFlinkMaterializedTableCredentialsResult? Credentials;
         public readonly string DisplayName;
         /// <summary>
-        /// (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+        /// (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query's primary key when a `GROUP BY` is present). Supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFlinkMaterializedTableDistributionResult> Distributions;
         public readonly Outputs.GetFlinkMaterializedTableEnvironmentResult Environment;

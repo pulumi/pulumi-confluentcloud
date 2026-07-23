@@ -110,7 +110,7 @@ class GetFlinkMaterializedTableResult:
     @pulumi.getter
     def distributions(self) -> Sequence['outputs.GetFlinkMaterializedTableDistributionResult']:
         """
-        (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+        (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query's primary key when a `GROUP BY` is present). Supports the following:
         """
         return pulumi.get(self, "distributions")
 

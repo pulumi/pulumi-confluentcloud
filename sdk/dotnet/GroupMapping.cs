@@ -64,7 +64,7 @@ namespace Pulumi.ConfluentCloud
         /// A description explaining the purpose and use of the group mapping.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Group Mapping.

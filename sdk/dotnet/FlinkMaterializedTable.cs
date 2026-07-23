@@ -187,10 +187,10 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The distribution definition for the Materialized Table. Supports the following:
+        /// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         /// </summary>
         [Output("distribution")]
-        public Output<Outputs.FlinkMaterializedTableDistribution?> Distribution { get; private set; } = null!;
+        public Output<Outputs.FlinkMaterializedTableDistribution> Distribution { get; private set; } = null!;
 
         [Output("environment")]
         public Output<Outputs.FlinkMaterializedTableEnvironment> Environment { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> RestEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table. Subsequently update it to `False` to resume it.
+        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Output("stopped")]
         public Output<bool?> Stopped { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The distribution definition for the Materialized Table. Supports the following:
+        /// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         /// </summary>
         [Input("distribution")]
         public Input<Inputs.FlinkMaterializedTableDistributionArgs>? Distribution { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? RestEndpoint { get; set; }
 
         /// <summary>
-        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table. Subsequently update it to `False` to resume it.
+        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Input("stopped")]
         public Input<bool>? Stopped { get; set; }
@@ -419,7 +419,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The distribution definition for the Materialized Table. Supports the following:
+        /// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         /// </summary>
         [Input("distribution")]
         public Input<Inputs.FlinkMaterializedTableDistributionGetArgs>? Distribution { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? RestEndpoint { get; set; }
 
         /// <summary>
-        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table. Subsequently update it to `False` to resume it.
+        /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Input("stopped")]
         public Input<bool>? Stopped { get; set; }

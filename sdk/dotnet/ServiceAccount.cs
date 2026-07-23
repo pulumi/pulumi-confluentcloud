@@ -85,7 +85,7 @@ namespace Pulumi.ConfluentCloud
         /// A free-form description of the Service Account.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// A human-readable name for the Service Account.

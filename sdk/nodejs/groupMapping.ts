@@ -74,7 +74,7 @@ export class GroupMapping extends pulumi.CustomResource {
     /**
      * A description explaining the purpose and use of the group mapping.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Group Mapping.
      */

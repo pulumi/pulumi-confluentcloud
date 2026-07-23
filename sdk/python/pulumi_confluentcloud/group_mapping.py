@@ -295,7 +295,7 @@ class GroupMapping(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def description(self) -> pulumi.Output[_builtins.str]:
         """
         A description explaining the purpose and use of the group mapping.
         """
