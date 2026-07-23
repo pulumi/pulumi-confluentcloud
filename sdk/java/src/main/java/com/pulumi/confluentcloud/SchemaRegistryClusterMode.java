@@ -134,14 +134,14 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.credentials);
     }
     /**
-     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
      * 
      */
     @Export(name="force", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> force;
 
     /**
-     * @return An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * @return An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
      * 
      */
     public Output<Optional<Boolean>> force() {

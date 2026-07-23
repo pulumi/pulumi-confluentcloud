@@ -89,7 +89,7 @@ export class SchemaRegistryClusterMode extends pulumi.CustomResource {
      */
     declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
-     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
      */
     declare public readonly force: pulumi.Output<boolean | undefined>;
     /**
@@ -144,7 +144,7 @@ export interface SchemaRegistryClusterModeState {
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
-     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
      */
     force?: pulumi.Input<boolean | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface SchemaRegistryClusterModeArgs {
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
-     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
      */
     force?: pulumi.Input<boolean | undefined>;
     /**

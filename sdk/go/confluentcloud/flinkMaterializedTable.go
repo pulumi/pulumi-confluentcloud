@@ -182,17 +182,17 @@ type FlinkMaterializedTable struct {
 	Credentials FlinkMaterializedTableCredentialsPtrOutput `pulumi:"credentials"`
 	// The unique name of the Materialized Table.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The distribution definition for the Materialized Table. Supports the following:
-	Distribution FlinkMaterializedTableDistributionPtrOutput `pulumi:"distribution"`
-	Environment  FlinkMaterializedTableEnvironmentOutput     `pulumi:"environment"`
-	KafkaCluster FlinkMaterializedTableKafkaClusterOutput    `pulumi:"kafkaCluster"`
-	Organization FlinkMaterializedTableOrganizationOutput    `pulumi:"organization"`
-	Principal    FlinkMaterializedTablePrincipalOutput       `pulumi:"principal"`
+	// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
+	Distribution FlinkMaterializedTableDistributionOutput `pulumi:"distribution"`
+	Environment  FlinkMaterializedTableEnvironmentOutput  `pulumi:"environment"`
+	KafkaCluster FlinkMaterializedTableKafkaClusterOutput `pulumi:"kafkaCluster"`
+	Organization FlinkMaterializedTableOrganizationOutput `pulumi:"organization"`
+	Principal    FlinkMaterializedTablePrincipalOutput    `pulumi:"principal"`
 	// The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
 	Query pulumi.StringPtrOutput `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
-	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrOutput `pulumi:"stopped"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrOutput `pulumi:"watermark"`
@@ -249,7 +249,7 @@ type flinkMaterializedTableState struct {
 	Credentials *FlinkMaterializedTableCredentials `pulumi:"credentials"`
 	// The unique name of the Materialized Table.
 	DisplayName *string `pulumi:"displayName"`
-	// The distribution definition for the Materialized Table. Supports the following:
+	// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
 	Distribution *FlinkMaterializedTableDistribution `pulumi:"distribution"`
 	Environment  *FlinkMaterializedTableEnvironment  `pulumi:"environment"`
 	KafkaCluster *FlinkMaterializedTableKafkaCluster `pulumi:"kafkaCluster"`
@@ -259,7 +259,7 @@ type flinkMaterializedTableState struct {
 	Query *string `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
-	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark *FlinkMaterializedTableWatermark `pulumi:"watermark"`
@@ -274,7 +274,7 @@ type FlinkMaterializedTableState struct {
 	Credentials FlinkMaterializedTableCredentialsPtrInput
 	// The unique name of the Materialized Table.
 	DisplayName pulumi.StringPtrInput
-	// The distribution definition for the Materialized Table. Supports the following:
+	// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
 	Distribution FlinkMaterializedTableDistributionPtrInput
 	Environment  FlinkMaterializedTableEnvironmentPtrInput
 	KafkaCluster FlinkMaterializedTableKafkaClusterPtrInput
@@ -284,7 +284,7 @@ type FlinkMaterializedTableState struct {
 	Query pulumi.StringPtrInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrInput
-	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrInput
@@ -303,7 +303,7 @@ type flinkMaterializedTableArgs struct {
 	Credentials *FlinkMaterializedTableCredentials `pulumi:"credentials"`
 	// The unique name of the Materialized Table.
 	DisplayName string `pulumi:"displayName"`
-	// The distribution definition for the Materialized Table. Supports the following:
+	// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
 	Distribution *FlinkMaterializedTableDistribution `pulumi:"distribution"`
 	Environment  *FlinkMaterializedTableEnvironment  `pulumi:"environment"`
 	KafkaCluster FlinkMaterializedTableKafkaCluster  `pulumi:"kafkaCluster"`
@@ -313,7 +313,7 @@ type flinkMaterializedTableArgs struct {
 	Query *string `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
-	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark *FlinkMaterializedTableWatermark `pulumi:"watermark"`
@@ -329,7 +329,7 @@ type FlinkMaterializedTableArgs struct {
 	Credentials FlinkMaterializedTableCredentialsPtrInput
 	// The unique name of the Materialized Table.
 	DisplayName pulumi.StringInput
-	// The distribution definition for the Materialized Table. Supports the following:
+	// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
 	Distribution FlinkMaterializedTableDistributionPtrInput
 	Environment  FlinkMaterializedTableEnvironmentPtrInput
 	KafkaCluster FlinkMaterializedTableKafkaClusterInput
@@ -339,7 +339,7 @@ type FlinkMaterializedTableArgs struct {
 	Query pulumi.StringPtrInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrInput
-	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrInput
@@ -455,9 +455,9 @@ func (o FlinkMaterializedTableOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The distribution definition for the Materialized Table. Supports the following:
-func (o FlinkMaterializedTableOutput) Distribution() FlinkMaterializedTableDistributionPtrOutput {
-	return o.ApplyT(func(v *FlinkMaterializedTable) FlinkMaterializedTableDistributionPtrOutput { return v.Distribution }).(FlinkMaterializedTableDistributionPtrOutput)
+// The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
+func (o FlinkMaterializedTableOutput) Distribution() FlinkMaterializedTableDistributionOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTable) FlinkMaterializedTableDistributionOutput { return v.Distribution }).(FlinkMaterializedTableDistributionOutput)
 }
 
 func (o FlinkMaterializedTableOutput) Environment() FlinkMaterializedTableEnvironmentOutput {
@@ -486,7 +486,7 @@ func (o FlinkMaterializedTableOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 func (o FlinkMaterializedTableOutput) Stopped() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.BoolPtrOutput { return v.Stopped }).(pulumi.BoolPtrOutput)
 }

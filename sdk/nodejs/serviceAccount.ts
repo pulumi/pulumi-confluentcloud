@@ -95,7 +95,7 @@ export class ServiceAccount extends pulumi.CustomResource {
     /**
      * A free-form description of the Service Account.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A human-readable name for the Service Account.
      */

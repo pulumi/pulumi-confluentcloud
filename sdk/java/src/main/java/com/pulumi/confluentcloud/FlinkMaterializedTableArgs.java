@@ -88,14 +88,14 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The distribution definition for the Materialized Table. Supports the following:
+     * The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      * 
      */
     @Import(name="distribution")
     private @Nullable Output<FlinkMaterializedTableDistributionArgs> distribution;
 
     /**
-     * @return The distribution definition for the Materialized Table. Supports the following:
+     * @return The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      * 
      */
     public Optional<Output<FlinkMaterializedTableDistributionArgs>> distribution() {
@@ -161,14 +161,14 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
     @Import(name="stopped")
     private @Nullable Output<Boolean> stopped;
 
     /**
-     * @return Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * @return Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
     public Optional<Output<Boolean>> stopped() {
@@ -323,7 +323,7 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param distribution The distribution definition for the Materialized Table. Supports the following:
+         * @param distribution The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param distribution The distribution definition for the Materialized Table. Supports the following:
+         * @param distribution The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query&#39;s primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param stopped Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+         * @param stopped Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param stopped Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+         * @param stopped Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
          * 
          * @return builder
          * 

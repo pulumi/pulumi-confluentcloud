@@ -165,9 +165,9 @@ export class FlinkMaterializedTable extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * The distribution definition for the Materialized Table. Supports the following:
+     * The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      */
-    declare public readonly distribution: pulumi.Output<outputs.FlinkMaterializedTableDistribution | undefined>;
+    declare public readonly distribution: pulumi.Output<outputs.FlinkMaterializedTableDistribution>;
     declare public readonly environment: pulumi.Output<outputs.FlinkMaterializedTableEnvironment>;
     declare public readonly kafkaCluster: pulumi.Output<outputs.FlinkMaterializedTableKafkaCluster>;
     declare public readonly organization: pulumi.Output<outputs.FlinkMaterializedTableOrganization>;
@@ -181,7 +181,7 @@ export class FlinkMaterializedTable extends pulumi.CustomResource {
      */
     declare public readonly restEndpoint: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     declare public readonly stopped: pulumi.Output<boolean | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface FlinkMaterializedTableState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The distribution definition for the Materialized Table. Supports the following:
+     * The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      */
     distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution | undefined>;
     environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment | undefined>;
@@ -281,7 +281,7 @@ export interface FlinkMaterializedTableState {
      */
     restEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     stopped?: pulumi.Input<boolean | undefined>;
     /**
@@ -309,7 +309,7 @@ export interface FlinkMaterializedTableArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The distribution definition for the Materialized Table. Supports the following:
+     * The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
      */
     distribution?: pulumi.Input<inputs.FlinkMaterializedTableDistribution | undefined>;
     environment?: pulumi.Input<inputs.FlinkMaterializedTableEnvironment | undefined>;
@@ -325,7 +325,7 @@ export interface FlinkMaterializedTableArgs {
      */
     restEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+     * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     stopped?: pulumi.Input<boolean | undefined>;
     /**

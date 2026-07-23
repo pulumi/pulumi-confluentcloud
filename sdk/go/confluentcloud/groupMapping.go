@@ -75,7 +75,7 @@ type GroupMapping struct {
 	pulumi.CustomResourceState
 
 	// A description explaining the purpose and use of the group mapping.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the Group Mapping.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.
@@ -246,8 +246,8 @@ func (o GroupMappingOutput) ToGroupMappingOutputWithContext(ctx context.Context)
 }
 
 // A description explaining the purpose and use of the group mapping.
-func (o GroupMappingOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupMapping) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o GroupMappingOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupMapping) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The name of the Group Mapping.

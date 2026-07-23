@@ -843,11 +843,11 @@ export interface FlinkMaterializedTableDistribution {
     /**
      * The number of buckets the table is distributed by.
      */
-    bucketCount?: number;
+    bucketCount: number;
     /**
      * The names of the columns the table is distributed by.
      */
-    keys?: string[];
+    keys: string[];
 }
 
 export interface FlinkMaterializedTableEnvironment {

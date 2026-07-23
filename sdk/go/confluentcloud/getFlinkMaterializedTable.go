@@ -116,7 +116,7 @@ type LookupFlinkMaterializedTableResult struct {
 	Constraints []GetFlinkMaterializedTableConstraint `pulumi:"constraints"`
 	Credentials *GetFlinkMaterializedTableCredentials `pulumi:"credentials"`
 	DisplayName string                                `pulumi:"displayName"`
-	// (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+	// (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query's primary key when a `GROUP BY` is present). Supports the following:
 	Distributions []GetFlinkMaterializedTableDistribution `pulumi:"distributions"`
 	Environment   GetFlinkMaterializedTableEnvironment    `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
@@ -197,7 +197,7 @@ func (o LookupFlinkMaterializedTableResultOutput) DisplayName() pulumi.StringOut
 	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+// (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query's primary key when a `GROUP BY` is present). Supports the following:
 func (o LookupFlinkMaterializedTableResultOutput) Distributions() GetFlinkMaterializedTableDistributionArrayOutput {
 	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) []GetFlinkMaterializedTableDistribution {
 		return v.Distributions

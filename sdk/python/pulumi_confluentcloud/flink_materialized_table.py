@@ -41,10 +41,10 @@ class FlinkMaterializedTableArgs:
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
         :param pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
         :param pulumi.Input['FlinkMaterializedTableCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. Supports the following:
+        :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
-        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -141,7 +141,7 @@ class FlinkMaterializedTableArgs:
     @pulumi.getter
     def distribution(self) -> pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]:
         """
-        The distribution definition for the Materialized Table. Supports the following:
+        The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         """
         return pulumi.get(self, "distribution")
 
@@ -204,7 +204,7 @@ class FlinkMaterializedTableArgs:
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
 
@@ -248,10 +248,10 @@ class _FlinkMaterializedTableState:
         :param pulumi.Input[Sequence[pulumi.Input['FlinkMaterializedTableColumnArgs']]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
         :param pulumi.Input['FlinkMaterializedTableCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
-        :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. Supports the following:
+        :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
-        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         if columns is not None:
@@ -341,7 +341,7 @@ class _FlinkMaterializedTableState:
     @pulumi.getter
     def distribution(self) -> pulumi.Input[Optional['FlinkMaterializedTableDistributionArgs']]:
         """
-        The distribution definition for the Materialized Table. Supports the following:
+        The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         """
         return pulumi.get(self, "distribution")
 
@@ -413,7 +413,7 @@ class _FlinkMaterializedTableState:
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
 
@@ -574,10 +574,10 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
         :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
-        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
-        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         ...
@@ -792,10 +792,10 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
         :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
-        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
-        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -854,9 +854,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def distribution(self) -> pulumi.Output[Optional['outputs.FlinkMaterializedTableDistribution']]:
+    def distribution(self) -> pulumi.Output['outputs.FlinkMaterializedTableDistribution']:
         """
-        The distribution definition for the Materialized Table. Supports the following:
+        The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         """
         return pulumi.get(self, "distribution")
 
@@ -900,7 +900,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     @pulumi.getter
     def stopped(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table. Subsequently update it to `false` to resume it.
+        Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
 

@@ -38,7 +38,7 @@ public final class GetFlinkMaterializedTableResult {
     private @Nullable GetFlinkMaterializedTableCredentials credentials;
     private String displayName;
     /**
-     * @return (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+     * @return (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query&#39;s primary key when a `GROUP BY` is present). Supports the following:
      * 
      */
     private List<GetFlinkMaterializedTableDistribution> distributions;
@@ -97,7 +97,7 @@ public final class GetFlinkMaterializedTableResult {
         return this.displayName;
     }
     /**
-     * @return (Configuration Block) The distribution definition for the Materialized Table. Supports the following:
+     * @return (Configuration Block) The distribution definition for the Materialized Table. This value could be derived automatically by Confluent Cloud (for example, from the query&#39;s primary key when a `GROUP BY` is present). Supports the following:
      * 
      */
     public List<GetFlinkMaterializedTableDistribution> distributions() {
