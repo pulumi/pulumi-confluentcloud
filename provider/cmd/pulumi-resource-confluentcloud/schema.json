@@ -1589,14 +1589,23 @@
                     },
                     "description": "The names of the columns the table is distributed by.\n",
                     "willReplaceOnChanges": true
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The kind of distribution. Required when the \u003cspan pulumi-lang-nodejs=\"`distribution`\" pulumi-lang-dotnet=\"`Distribution`\" pulumi-lang-go=\"`distribution`\" pulumi-lang-python=\"`distribution`\" pulumi-lang-yaml=\"`distribution`\" pulumi-lang-java=\"`distribution`\" pulumi-lang-hcl=\"`distribution`\"\u003e`distribution`\u003c/span\u003e block is specified. The only currently supported value is `HASH`.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "type": "object",
+            "required": [
+                "kind"
+            ],
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
                         "bucketCount",
-                        "keys"
+                        "keys",
+                        "kind"
                     ]
                 }
             }
@@ -5200,12 +5209,17 @@
                         "type": "string"
                     },
                     "description": "(Set of Strings) The names of the columns the table is distributed by.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(String) The kind of distribution, for example, `HASH`.\n"
                 }
             },
             "type": "object",
             "required": [
                 "bucketCount",
-                "keys"
+                "keys",
+                "kind"
             ],
             "language": {
                 "nodejs": {
@@ -11306,9 +11320,23 @@
                     "type": "string",
                     "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n"
                 },
+                "sessionOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.\n"
+                },
                 "stopped": {
                     "type": "boolean",
                     "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table; subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                },
+                "tableOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.\n"
                 },
                 "watermark": {
                     "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
@@ -11322,7 +11350,9 @@
                 "environment",
                 "kafkaCluster",
                 "organization",
-                "principal"
+                "principal",
+                "sessionOptions",
+                "tableOptions"
             ],
             "inputProperties": {
                 "columns": {
@@ -11378,9 +11408,24 @@
                     "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n",
                     "willReplaceOnChanges": true
                 },
+                "sessionOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.\n",
+                    "willReplaceOnChanges": true
+                },
                 "stopped": {
                     "type": "boolean",
                     "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table; subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                },
+                "tableOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.\n"
                 },
                 "watermark": {
                     "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
@@ -11447,9 +11492,24 @@
                         "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n",
                         "willReplaceOnChanges": true
                     },
+                    "sessionOptions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "stopped": {
                         "type": "boolean",
                         "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table; subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                    },
+                    "tableOptions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.\n"
                     },
                     "watermark": {
                         "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
@@ -12341,7 +12401,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.\n"
+                    "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as \u003cspan pulumi-lang-nodejs=\"`kafkaRestEndpoint`\" pulumi-lang-dotnet=\"`KafkaRestEndpoint`\" pulumi-lang-go=\"`kafkaRestEndpoint`\" pulumi-lang-python=\"`kafka_rest_endpoint`\" pulumi-lang-yaml=\"`kafkaRestEndpoint`\" pulumi-lang-java=\"`kafkaRestEndpoint`\" pulumi-lang-hcl=\"`kafka_rest_endpoint`\"\u003e`kafkaRestEndpoint`\u003c/span\u003e or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.\n"
                 }
             },
             "required": [
@@ -12400,7 +12460,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.\n",
+                    "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as \u003cspan pulumi-lang-nodejs=\"`kafkaRestEndpoint`\" pulumi-lang-dotnet=\"`KafkaRestEndpoint`\" pulumi-lang-go=\"`kafkaRestEndpoint`\" pulumi-lang-python=\"`kafka_rest_endpoint`\" pulumi-lang-yaml=\"`kafkaRestEndpoint`\" pulumi-lang-java=\"`kafkaRestEndpoint`\" pulumi-lang-hcl=\"`kafka_rest_endpoint`\"\u003e`kafkaRestEndpoint`\u003c/span\u003e or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -12462,7 +12522,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.\n",
+                        "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as \u003cspan pulumi-lang-nodejs=\"`kafkaRestEndpoint`\" pulumi-lang-dotnet=\"`KafkaRestEndpoint`\" pulumi-lang-go=\"`kafkaRestEndpoint`\" pulumi-lang-python=\"`kafka_rest_endpoint`\" pulumi-lang-yaml=\"`kafkaRestEndpoint`\" pulumi-lang-java=\"`kafkaRestEndpoint`\" pulumi-lang-hcl=\"`kafka_rest_endpoint`\"\u003e`kafkaRestEndpoint`\u003c/span\u003e or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -17848,9 +17908,23 @@
                     "restEndpoint": {
                         "type": "string"
                     },
+                    "sessionOptions": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "(Map) Session configurations equivalent to the SQL `SET` statement.\n",
+                        "type": "object"
+                    },
                     "stopped": {
                         "description": "(Boolean) Whether the Materialized Table is stopped.\n",
                         "type": "boolean"
+                    },
+                    "tableOptions": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "(Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.\n",
+                        "type": "object"
                     },
                     "watermarks": {
                         "description": "(Configuration Block) The watermark definition for the Materialized Table. Supports the following:\n",
@@ -17871,7 +17945,9 @@
                     "organization",
                     "principal",
                     "query",
+                    "sessionOptions",
                     "stopped",
+                    "tableOptions",
                     "watermarks",
                     "id"
                 ],
