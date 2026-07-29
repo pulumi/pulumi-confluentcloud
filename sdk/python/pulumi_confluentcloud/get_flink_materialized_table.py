@@ -28,7 +28,7 @@ class GetFlinkMaterializedTableResult:
     """
     A collection of values returned by getFlinkMaterializedTable.
     """
-    def __init__(__self__, columns=None, compute_pool=None, constraints=None, credentials=None, display_name=None, distributions=None, environment=None, id=None, kafka_clusters=None, organization=None, principal=None, query=None, rest_endpoint=None, stopped=None, watermarks=None):
+    def __init__(__self__, columns=None, compute_pool=None, constraints=None, credentials=None, display_name=None, distributions=None, environment=None, id=None, kafka_clusters=None, organization=None, principal=None, query=None, rest_endpoint=None, session_options=None, stopped=None, table_options=None, watermarks=None):
         if columns and not isinstance(columns, list):
             raise TypeError("Expected argument 'columns' to be a list")
         pulumi.set(__self__, "columns", columns)
@@ -68,9 +68,15 @@ class GetFlinkMaterializedTableResult:
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if session_options and not isinstance(session_options, dict):
+            raise TypeError("Expected argument 'session_options' to be a dict")
+        pulumi.set(__self__, "session_options", session_options)
         if stopped and not isinstance(stopped, bool):
             raise TypeError("Expected argument 'stopped' to be a bool")
         pulumi.set(__self__, "stopped", stopped)
+        if table_options and not isinstance(table_options, dict):
+            raise TypeError("Expected argument 'table_options' to be a dict")
+        pulumi.set(__self__, "table_options", table_options)
         if watermarks and not isinstance(watermarks, list):
             raise TypeError("Expected argument 'watermarks' to be a list")
         pulumi.set(__self__, "watermarks", watermarks)
@@ -159,12 +165,28 @@ class GetFlinkMaterializedTableResult:
         return pulumi.get(self, "rest_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="sessionOptions")
+    def session_options(self) -> Mapping[str, _builtins.str]:
+        """
+        (Map) Session configurations equivalent to the SQL `SET` statement.
+        """
+        return pulumi.get(self, "session_options")
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> _builtins.bool:
         """
         (Boolean) Whether the Materialized Table is stopped.
         """
         return pulumi.get(self, "stopped")
+
+    @_builtins.property
+    @pulumi.getter(name="tableOptions")
+    def table_options(self) -> Mapping[str, _builtins.str]:
+        """
+        (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        """
+        return pulumi.get(self, "table_options")
 
     @_builtins.property
     @pulumi.getter
@@ -194,7 +216,9 @@ class AwaitableGetFlinkMaterializedTableResult(GetFlinkMaterializedTableResult):
             principal=self.principal,
             query=self.query,
             rest_endpoint=self.rest_endpoint,
+            session_options=self.session_options,
             stopped=self.stopped,
+            table_options=self.table_options,
             watermarks=self.watermarks)
 
 
@@ -276,7 +300,9 @@ def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMateriali
         principal=pulumi.get(__ret__, 'principal'),
         query=pulumi.get(__ret__, 'query'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        session_options=pulumi.get(__ret__, 'session_options'),
         stopped=pulumi.get(__ret__, 'stopped'),
+        table_options=pulumi.get(__ret__, 'table_options'),
         watermarks=pulumi.get(__ret__, 'watermarks'))
 def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict']]]] = None,
                                         credentials: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict']]]] = None,
@@ -355,5 +381,7 @@ def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Opti
         principal=pulumi.get(__response__, 'principal'),
         query=pulumi.get(__response__, 'query'),
         rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        session_options=pulumi.get(__response__, 'session_options'),
         stopped=pulumi.get(__response__, 'stopped'),
+        table_options=pulumi.get(__response__, 'table_options'),
         watermarks=pulumi.get(__response__, 'watermarks')))

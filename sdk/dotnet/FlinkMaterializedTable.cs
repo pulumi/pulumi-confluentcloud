@@ -217,10 +217,22 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> RestEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        /// </summary>
+        [Output("sessionOptions")]
+        public Output<ImmutableDictionary<string, string>> SessionOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Output("stopped")]
         public Output<bool?> Stopped { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        /// </summary>
+        [Output("tableOptions")]
+        public Output<ImmutableDictionary<string, string>> TableOptions { get; private set; } = null!;
 
         /// <summary>
         /// The watermark definition for the Materialized Table. Supports the following:
@@ -353,11 +365,35 @@ namespace Pulumi.ConfluentCloud
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
+        [Input("sessionOptions")]
+        private InputMap<string>? _sessionOptions;
+
+        /// <summary>
+        /// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        /// </summary>
+        public InputMap<string> SessionOptions
+        {
+            get => _sessionOptions ?? (_sessionOptions = new InputMap<string>());
+            set => _sessionOptions = value;
+        }
+
         /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Input("stopped")]
         public Input<bool>? Stopped { get; set; }
+
+        [Input("tableOptions")]
+        private InputMap<string>? _tableOptions;
+
+        /// <summary>
+        /// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        /// </summary>
+        public InputMap<string> TableOptions
+        {
+            get => _tableOptions ?? (_tableOptions = new InputMap<string>());
+            set => _tableOptions = value;
+        }
 
         /// <summary>
         /// The watermark definition for the Materialized Table. Supports the following:
@@ -448,11 +484,35 @@ namespace Pulumi.ConfluentCloud
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
+        [Input("sessionOptions")]
+        private InputMap<string>? _sessionOptions;
+
+        /// <summary>
+        /// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        /// </summary>
+        public InputMap<string> SessionOptions
+        {
+            get => _sessionOptions ?? (_sessionOptions = new InputMap<string>());
+            set => _sessionOptions = value;
+        }
+
         /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Input("stopped")]
         public Input<bool>? Stopped { get; set; }
+
+        [Input("tableOptions")]
+        private InputMap<string>? _tableOptions;
+
+        /// <summary>
+        /// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        /// </summary>
+        public InputMap<string> TableOptions
+        {
+            get => _tableOptions ?? (_tableOptions = new InputMap<string>());
+            set => _tableOptions = value;
+        }
 
         /// <summary>
         /// The watermark definition for the Materialized Table. Supports the following:

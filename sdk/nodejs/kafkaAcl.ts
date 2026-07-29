@@ -184,7 +184,7 @@ export class KafkaAcl extends pulumi.CustomResource {
      */
     declare public readonly resourceType: pulumi.Output<string>;
     /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
      */
     declare public readonly restEndpoint: pulumi.Output<string | undefined>;
 
@@ -298,7 +298,7 @@ export interface KafkaAclState {
      */
     resourceType?: pulumi.Input<string | undefined>;
     /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
      */
     restEndpoint?: pulumi.Input<string | undefined>;
 }
@@ -349,7 +349,7 @@ export interface KafkaAclArgs {
      */
     resourceType: pulumi.Input<string>;
     /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
      */
     restEndpoint?: pulumi.Input<string | undefined>;
 }

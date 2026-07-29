@@ -203,7 +203,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `KafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> ResourceType { get; set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `KafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `KafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

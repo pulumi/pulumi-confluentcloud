@@ -19,6 +19,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -161,6 +162,21 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     * 
+     */
+    @Import(name="sessionOptions")
+    private @Nullable Output<Map<String,String>> sessionOptions;
+
+    /**
+     * @return Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> sessionOptions() {
+        return Optional.ofNullable(this.sessionOptions);
+    }
+
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
@@ -173,6 +189,21 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> stopped() {
         return Optional.ofNullable(this.stopped);
+    }
+
+    /**
+     * Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    @Import(name="tableOptions")
+    private @Nullable Output<Map<String,String>> tableOptions;
+
+    /**
+     * @return Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tableOptions() {
+        return Optional.ofNullable(this.tableOptions);
     }
 
     /**
@@ -205,7 +236,9 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         this.principal = $.principal;
         this.query = $.query;
         this.restEndpoint = $.restEndpoint;
+        this.sessionOptions = $.sessionOptions;
         this.stopped = $.stopped;
+        this.tableOptions = $.tableOptions;
         this.watermark = $.watermark;
     }
 
@@ -422,6 +455,27 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param sessionOptions Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionOptions(@Nullable Output<Map<String,String>> sessionOptions) {
+            $.sessionOptions = sessionOptions;
+            return this;
+        }
+
+        /**
+         * @param sessionOptions Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionOptions(Map<String,String> sessionOptions) {
+            return sessionOptions(Output.of(sessionOptions));
+        }
+
+        /**
          * @param stopped Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
          * 
          * @return builder
@@ -440,6 +494,27 @@ public final class FlinkMaterializedTableArgs extends com.pulumi.resources.Resou
          */
         public Builder stopped(Boolean stopped) {
             return stopped(Output.of(stopped));
+        }
+
+        /**
+         * @param tableOptions Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableOptions(@Nullable Output<Map<String,String>> tableOptions) {
+            $.tableOptions = tableOptions;
+            return this;
+        }
+
+        /**
+         * @param tableOptions Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableOptions(Map<String,String> tableOptions) {
+            return tableOptions(Output.of(tableOptions));
         }
 
         /**

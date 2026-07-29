@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -47,11 +48,27 @@ public final class FlinkMaterializedTableDistributionArgs extends com.pulumi.res
         return Optional.ofNullable(this.keys);
     }
 
+    /**
+     * The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     * 
+     */
+    @Import(name="kind", required=true)
+    private Output<String> kind;
+
+    /**
+     * @return The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     * 
+     */
+    public Output<String> kind() {
+        return this.kind;
+    }
+
     private FlinkMaterializedTableDistributionArgs() {}
 
     private FlinkMaterializedTableDistributionArgs(FlinkMaterializedTableDistributionArgs $) {
         this.bucketCount = $.bucketCount;
         this.keys = $.keys;
+        this.kind = $.kind;
     }
 
     public static Builder builder() {
@@ -124,7 +141,31 @@ public final class FlinkMaterializedTableDistributionArgs extends com.pulumi.res
             return keys(List.of(keys));
         }
 
+        /**
+         * @param kind The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kind(Output<String> kind) {
+            $.kind = kind;
+            return this;
+        }
+
+        /**
+         * @param kind The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kind(String kind) {
+            return kind(Output.of(kind));
+        }
+
         public FlinkMaterializedTableDistributionArgs build() {
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("FlinkMaterializedTableDistributionArgs", "kind");
+            }
             return $;
         }
     }

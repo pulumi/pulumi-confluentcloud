@@ -192,8 +192,12 @@ type FlinkMaterializedTable struct {
 	Query pulumi.StringPtrOutput `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
+	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+	SessionOptions pulumi.StringMapOutput `pulumi:"sessionOptions"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrOutput `pulumi:"stopped"`
+	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions pulumi.StringMapOutput `pulumi:"tableOptions"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrOutput `pulumi:"watermark"`
 }
@@ -259,8 +263,12 @@ type flinkMaterializedTableState struct {
 	Query *string `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
+	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+	SessionOptions map[string]string `pulumi:"sessionOptions"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
+	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions map[string]string `pulumi:"tableOptions"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark *FlinkMaterializedTableWatermark `pulumi:"watermark"`
 }
@@ -284,8 +292,12 @@ type FlinkMaterializedTableState struct {
 	Query pulumi.StringPtrInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrInput
+	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+	SessionOptions pulumi.StringMapInput
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
+	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions pulumi.StringMapInput
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrInput
 }
@@ -313,8 +325,12 @@ type flinkMaterializedTableArgs struct {
 	Query *string `pulumi:"query"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
+	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+	SessionOptions map[string]string `pulumi:"sessionOptions"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
+	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions map[string]string `pulumi:"tableOptions"`
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark *FlinkMaterializedTableWatermark `pulumi:"watermark"`
 }
@@ -339,8 +355,12 @@ type FlinkMaterializedTableArgs struct {
 	Query pulumi.StringPtrInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint pulumi.StringPtrInput
+	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+	SessionOptions pulumi.StringMapInput
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
+	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions pulumi.StringMapInput
 	// The watermark definition for the Materialized Table. Supports the following:
 	Watermark FlinkMaterializedTableWatermarkPtrInput
 }
@@ -486,9 +506,19 @@ func (o FlinkMaterializedTableOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+func (o FlinkMaterializedTableOutput) SessionOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringMapOutput { return v.SessionOptions }).(pulumi.StringMapOutput)
+}
+
 // Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 func (o FlinkMaterializedTableOutput) Stopped() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.BoolPtrOutput { return v.Stopped }).(pulumi.BoolPtrOutput)
+}
+
+// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+func (o FlinkMaterializedTableOutput) TableOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringMapOutput { return v.TableOptions }).(pulumi.StringMapOutput)
 }
 
 // The watermark definition for the Materialized Table. Supports the following:

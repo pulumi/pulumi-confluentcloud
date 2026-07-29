@@ -30,6 +30,12 @@ namespace Pulumi.ConfluentCloud.Inputs
             set => _keys = value;
         }
 
+        /// <summary>
+        /// The kind of distribution. Required when the `Distribution` block is specified. The only currently supported value is `HASH`.
+        /// </summary>
+        [Input("kind", required: true)]
+        public Input<string> Kind { get; set; } = null!;
+
         public FlinkMaterializedTableDistributionArgs()
         {
         }

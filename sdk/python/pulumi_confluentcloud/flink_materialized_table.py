@@ -33,7 +33,9 @@ class FlinkMaterializedTableArgs:
                  principal: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
         """
         The set of arguments for constructing a FlinkMaterializedTable resource.
@@ -44,7 +46,9 @@ class FlinkMaterializedTableArgs:
         :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -69,8 +73,12 @@ class FlinkMaterializedTableArgs:
             pulumi.set(__self__, "query", query)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if session_options is not None:
+            pulumi.set(__self__, "session_options", session_options)
         if stopped is not None:
             pulumi.set(__self__, "stopped", stopped)
+        if table_options is not None:
+            pulumi.set(__self__, "table_options", table_options)
         if watermark is not None:
             pulumi.set(__self__, "watermark", watermark)
 
@@ -201,6 +209,18 @@ class FlinkMaterializedTableArgs:
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionOptions")
+    def session_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        """
+        return pulumi.get(self, "session_options")
+
+    @session_options.setter
+    def session_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "session_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -211,6 +231,18 @@ class FlinkMaterializedTableArgs:
     @stopped.setter
     def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableOptions")
+    def table_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        """
+        return pulumi.get(self, "table_options")
+
+    @table_options.setter
+    def table_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "table_options", value)
 
     @_builtins.property
     @pulumi.getter
@@ -240,7 +272,9 @@ class _FlinkMaterializedTableState:
                  principal: pulumi.Input[Optional['FlinkMaterializedTablePrincipalArgs']] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
         """
         Input properties used for looking up and filtering FlinkMaterializedTable resources.
@@ -251,7 +285,9 @@ class _FlinkMaterializedTableState:
         :param pulumi.Input['FlinkMaterializedTableDistributionArgs'] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         if columns is not None:
@@ -278,8 +314,12 @@ class _FlinkMaterializedTableState:
             pulumi.set(__self__, "query", query)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if session_options is not None:
+            pulumi.set(__self__, "session_options", session_options)
         if stopped is not None:
             pulumi.set(__self__, "stopped", stopped)
+        if table_options is not None:
+            pulumi.set(__self__, "table_options", table_options)
         if watermark is not None:
             pulumi.set(__self__, "watermark", watermark)
 
@@ -410,6 +450,18 @@ class _FlinkMaterializedTableState:
         pulumi.set(self, "rest_endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionOptions")
+    def session_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        """
+        return pulumi.get(self, "session_options")
+
+    @session_options.setter
+    def session_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "session_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -420,6 +472,18 @@ class _FlinkMaterializedTableState:
     @stopped.setter
     def stopped(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stopped", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableOptions")
+    def table_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        """
+        return pulumi.get(self, "table_options")
+
+    @table_options.setter
+    def table_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "table_options", value)
 
     @_builtins.property
     @pulumi.getter
@@ -452,7 +516,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
                  principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
                  __props__=None):
         """
@@ -577,7 +643,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         ...
@@ -727,7 +795,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
                  principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -754,7 +824,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             __props__.__dict__["principal"] = principal
             __props__.__dict__["query"] = query
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            __props__.__dict__["session_options"] = session_options
             __props__.__dict__["stopped"] = stopped
+            __props__.__dict__["table_options"] = table_options
             __props__.__dict__["watermark"] = watermark
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -780,7 +852,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+            table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None) -> 'FlinkMaterializedTable':
         """
         Get an existing FlinkMaterializedTable resource's state with the given name, id, and optional extra
@@ -795,7 +869,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -814,7 +890,9 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         __props__.__dict__["principal"] = principal
         __props__.__dict__["query"] = query
         __props__.__dict__["rest_endpoint"] = rest_endpoint
+        __props__.__dict__["session_options"] = session_options
         __props__.__dict__["stopped"] = stopped
+        __props__.__dict__["table_options"] = table_options
         __props__.__dict__["watermark"] = watermark
         return FlinkMaterializedTable(resource_name, opts=opts, __props__=__props__)
 
@@ -897,12 +975,28 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         return pulumi.get(self, "rest_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="sessionOptions")
+    def session_options(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        """
+        return pulumi.get(self, "session_options")
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         """
         return pulumi.get(self, "stopped")
+
+    @_builtins.property
+    @pulumi.getter(name="tableOptions")
+    def table_options(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        """
+        return pulumi.get(self, "table_options")
 
     @_builtins.property
     @pulumi.getter

@@ -23,6 +23,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -345,6 +346,20 @@ public class FlinkMaterializedTable extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.restEndpoint);
     }
     /**
+     * Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     * 
+     */
+    @Export(name="sessionOptions", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> sessionOptions;
+
+    /**
+     * @return Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     * 
+     */
+    public Output<Map<String,String>> sessionOptions() {
+        return this.sessionOptions;
+    }
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
@@ -357,6 +372,20 @@ public class FlinkMaterializedTable extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<Boolean>> stopped() {
         return Codegen.optional(this.stopped);
+    }
+    /**
+     * Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    @Export(name="tableOptions", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tableOptions;
+
+    /**
+     * @return Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    public Output<Map<String,String>> tableOptions() {
+        return this.tableOptions;
     }
     /**
      * The watermark definition for the Materialized Table. Supports the following:

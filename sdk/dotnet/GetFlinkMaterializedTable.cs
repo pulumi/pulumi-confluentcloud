@@ -349,9 +349,17 @@ namespace Pulumi.ConfluentCloud
         public readonly string Query;
         public readonly string? RestEndpoint;
         /// <summary>
+        /// (Map) Session configurations equivalent to the SQL `SET` statement.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> SessionOptions;
+        /// <summary>
         /// (Boolean) Whether the Materialized Table is stopped.
         /// </summary>
         public readonly bool Stopped;
+        /// <summary>
+        /// (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> TableOptions;
         /// <summary>
         /// (Configuration Block) The watermark definition for the Materialized Table. Supports the following:
         /// </summary>
@@ -385,7 +393,11 @@ namespace Pulumi.ConfluentCloud
 
             string? restEndpoint,
 
+            ImmutableDictionary<string, string> sessionOptions,
+
             bool stopped,
+
+            ImmutableDictionary<string, string> tableOptions,
 
             ImmutableArray<Outputs.GetFlinkMaterializedTableWatermarkResult> watermarks)
         {
@@ -402,7 +414,9 @@ namespace Pulumi.ConfluentCloud
             Principal = principal;
             Query = query;
             RestEndpoint = restEndpoint;
+            SessionOptions = sessionOptions;
             Stopped = stopped;
+            TableOptions = tableOptions;
             Watermarks = watermarks;
         }
     }

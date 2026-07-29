@@ -10279,6 +10279,8 @@ type FlinkMaterializedTableDistribution struct {
 	BucketCount *int `pulumi:"bucketCount"`
 	// The names of the columns the table is distributed by.
 	Keys []string `pulumi:"keys"`
+	// The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+	Kind string `pulumi:"kind"`
 }
 
 // FlinkMaterializedTableDistributionInput is an input type that accepts FlinkMaterializedTableDistributionArgs and FlinkMaterializedTableDistributionOutput values.
@@ -10297,6 +10299,8 @@ type FlinkMaterializedTableDistributionArgs struct {
 	BucketCount pulumi.IntPtrInput `pulumi:"bucketCount"`
 	// The names of the columns the table is distributed by.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
+	// The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
 func (FlinkMaterializedTableDistributionArgs) ElementType() reflect.Type {
@@ -10386,6 +10390,11 @@ func (o FlinkMaterializedTableDistributionOutput) Keys() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v FlinkMaterializedTableDistribution) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
+// The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+func (o FlinkMaterializedTableDistributionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableDistribution) string { return v.Kind }).(pulumi.StringOutput)
+}
+
 type FlinkMaterializedTableDistributionPtrOutput struct{ *pulumi.OutputState }
 
 func (FlinkMaterializedTableDistributionPtrOutput) ElementType() reflect.Type {
@@ -10428,6 +10437,16 @@ func (o FlinkMaterializedTableDistributionPtrOutput) Keys() pulumi.StringArrayOu
 		}
 		return v.Keys
 	}).(pulumi.StringArrayOutput)
+}
+
+// The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+func (o FlinkMaterializedTableDistributionPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableDistribution) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlinkMaterializedTableEnvironment struct {
@@ -35132,6 +35151,8 @@ type GetFlinkMaterializedTableDistribution struct {
 	BucketCount int `pulumi:"bucketCount"`
 	// (Set of Strings) The names of the columns the table is distributed by.
 	Keys []string `pulumi:"keys"`
+	// (String) The kind of distribution, for example, `HASH`.
+	Kind string `pulumi:"kind"`
 }
 
 // GetFlinkMaterializedTableDistributionInput is an input type that accepts GetFlinkMaterializedTableDistributionArgs and GetFlinkMaterializedTableDistributionOutput values.
@@ -35150,6 +35171,8 @@ type GetFlinkMaterializedTableDistributionArgs struct {
 	BucketCount pulumi.IntInput `pulumi:"bucketCount"`
 	// (Set of Strings) The names of the columns the table is distributed by.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
+	// (String) The kind of distribution, for example, `HASH`.
+	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
 func (GetFlinkMaterializedTableDistributionArgs) ElementType() reflect.Type {
@@ -35211,6 +35234,11 @@ func (o GetFlinkMaterializedTableDistributionOutput) BucketCount() pulumi.IntOut
 // (Set of Strings) The names of the columns the table is distributed by.
 func (o GetFlinkMaterializedTableDistributionOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+// (String) The kind of distribution, for example, `HASH`.
+func (o GetFlinkMaterializedTableDistributionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 type GetFlinkMaterializedTableDistributionArrayOutput struct{ *pulumi.OutputState }

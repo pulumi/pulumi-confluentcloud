@@ -848,6 +848,10 @@ export interface FlinkMaterializedTableDistribution {
      * The names of the columns the table is distributed by.
      */
     keys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     */
+    kind: pulumi.Input<string>;
 }
 
 export interface FlinkMaterializedTableEnvironment {

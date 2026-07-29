@@ -161,14 +161,14 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     * @return The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -402,7 +402,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+         * @param restEndpoint The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+         * @param restEndpoint The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
          * 
          * @return builder
          * 
