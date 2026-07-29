@@ -4232,6 +4232,10 @@ class FlinkMaterializedTableCredentialsArgs:
 
 
 class FlinkMaterializedTableDistributionArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+    """
     bucket_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of buckets the table is distributed by.
@@ -4244,16 +4248,31 @@ class FlinkMaterializedTableDistributionArgsDict(TypedDict):
 @pulumi.input_type
 class FlinkMaterializedTableDistributionArgs:
     def __init__(__self__, *,
+                 kind: pulumi.Input[_builtins.str],
                  bucket_count: pulumi.Input[Optional[_builtins.int]] = None,
                  keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
+        :param pulumi.Input[_builtins.str] kind: The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
         :param pulumi.Input[_builtins.int] bucket_count: The number of buckets the table is distributed by.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: The names of the columns the table is distributed by.
         """
+        pulumi.set(__self__, "kind", kind)
         if bucket_count is not None:
             pulumi.set(__self__, "bucket_count", bucket_count)
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[_builtins.str]:
+        """
+        The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketCount")

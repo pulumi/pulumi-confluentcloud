@@ -848,6 +848,10 @@ export interface FlinkMaterializedTableDistribution {
      * The names of the columns the table is distributed by.
      */
     keys: string[];
+    /**
+     * The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     */
+    kind: string;
 }
 
 export interface FlinkMaterializedTableEnvironment {
@@ -1753,6 +1757,10 @@ export interface GetFlinkMaterializedTableDistribution {
      * (Set of Strings) The names of the columns the table is distributed by.
      */
     keys: string[];
+    /**
+     * (String) The kind of distribution, for example, `HASH`.
+     */
+    kind: string;
 }
 
 export interface GetFlinkMaterializedTableEnvironment {

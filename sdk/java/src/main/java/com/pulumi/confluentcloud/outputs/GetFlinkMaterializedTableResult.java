@@ -18,6 +18,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,10 +63,20 @@ public final class GetFlinkMaterializedTableResult {
     private String query;
     private @Nullable String restEndpoint;
     /**
+     * @return (Map) Session configurations equivalent to the SQL `SET` statement.
+     * 
+     */
+    private Map<String,String> sessionOptions;
+    /**
      * @return (Boolean) Whether the Materialized Table is stopped.
      * 
      */
     private Boolean stopped;
+    /**
+     * @return (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    private Map<String,String> tableOptions;
     /**
      * @return (Configuration Block) The watermark definition for the Materialized Table. Supports the following:
      * 
@@ -137,11 +148,25 @@ public final class GetFlinkMaterializedTableResult {
         return Optional.ofNullable(this.restEndpoint);
     }
     /**
+     * @return (Map) Session configurations equivalent to the SQL `SET` statement.
+     * 
+     */
+    public Map<String,String> sessionOptions() {
+        return this.sessionOptions;
+    }
+    /**
      * @return (Boolean) Whether the Materialized Table is stopped.
      * 
      */
     public Boolean stopped() {
         return this.stopped;
+    }
+    /**
+     * @return (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     * 
+     */
+    public Map<String,String> tableOptions() {
+        return this.tableOptions;
     }
     /**
      * @return (Configuration Block) The watermark definition for the Materialized Table. Supports the following:
@@ -173,7 +198,9 @@ public final class GetFlinkMaterializedTableResult {
         private GetFlinkMaterializedTablePrincipal principal;
         private String query;
         private @Nullable String restEndpoint;
+        private Map<String,String> sessionOptions;
         private Boolean stopped;
+        private Map<String,String> tableOptions;
         private List<GetFlinkMaterializedTableWatermark> watermarks;
         public Builder() {}
         public Builder(GetFlinkMaterializedTableResult defaults) {
@@ -191,7 +218,9 @@ public final class GetFlinkMaterializedTableResult {
     	      this.principal = defaults.principal;
     	      this.query = defaults.query;
     	      this.restEndpoint = defaults.restEndpoint;
+    	      this.sessionOptions = defaults.sessionOptions;
     	      this.stopped = defaults.stopped;
+    	      this.tableOptions = defaults.tableOptions;
     	      this.watermarks = defaults.watermarks;
         }
 
@@ -308,11 +337,27 @@ public final class GetFlinkMaterializedTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sessionOptions(Map<String,String> sessionOptions) {
+            if (sessionOptions == null) {
+              throw new MissingRequiredPropertyException("GetFlinkMaterializedTableResult", "sessionOptions");
+            }
+            this.sessionOptions = sessionOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder stopped(Boolean stopped) {
             if (stopped == null) {
               throw new MissingRequiredPropertyException("GetFlinkMaterializedTableResult", "stopped");
             }
             this.stopped = stopped;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tableOptions(Map<String,String> tableOptions) {
+            if (tableOptions == null) {
+              throw new MissingRequiredPropertyException("GetFlinkMaterializedTableResult", "tableOptions");
+            }
+            this.tableOptions = tableOptions;
             return this;
         }
         @CustomType.Setter
@@ -341,7 +386,9 @@ public final class GetFlinkMaterializedTableResult {
             _resultValue.principal = principal;
             _resultValue.query = query;
             _resultValue.restEndpoint = restEndpoint;
+            _resultValue.sessionOptions = sessionOptions;
             _resultValue.stopped = stopped;
+            _resultValue.tableOptions = tableOptions;
             _resultValue.watermarks = watermarks;
             return _resultValue;
         }

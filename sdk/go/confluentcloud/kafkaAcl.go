@@ -191,7 +191,7 @@ type KafkaAcl struct {
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 }
 
@@ -278,7 +278,7 @@ type kafkaAclState struct {
 	ResourceName *string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType *string `pulumi:"resourceType"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -308,7 +308,7 @@ type KafkaAclState struct {
 	ResourceName pulumi.StringPtrInput
 	// The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringPtrInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 	RestEndpoint pulumi.StringPtrInput
 }
 
@@ -342,7 +342,7 @@ type kafkaAclArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType string `pulumi:"resourceType"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -373,7 +373,7 @@ type KafkaAclArgs struct {
 	ResourceName pulumi.StringInput
 	// The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 	RestEndpoint pulumi.StringPtrInput
 }
 
@@ -516,7 +516,7 @@ func (o KafkaAclOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafkaRestEndpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
 func (o KafkaAclOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

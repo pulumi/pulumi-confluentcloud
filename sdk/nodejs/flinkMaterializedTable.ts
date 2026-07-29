@@ -181,9 +181,17 @@ export class FlinkMaterializedTable extends pulumi.CustomResource {
      */
     declare public readonly restEndpoint: pulumi.Output<string | undefined>;
     /**
+     * Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     */
+    declare public readonly sessionOptions: pulumi.Output<{[key: string]: string}>;
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     declare public readonly stopped: pulumi.Output<boolean | undefined>;
+    /**
+     * Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     */
+    declare public readonly tableOptions: pulumi.Output<{[key: string]: string}>;
     /**
      * The watermark definition for the Materialized Table. Supports the following:
      */
@@ -214,7 +222,9 @@ export class FlinkMaterializedTable extends pulumi.CustomResource {
             resourceInputs["principal"] = state?.principal;
             resourceInputs["query"] = state?.query;
             resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["sessionOptions"] = state?.sessionOptions;
             resourceInputs["stopped"] = state?.stopped;
+            resourceInputs["tableOptions"] = state?.tableOptions;
             resourceInputs["watermark"] = state?.watermark;
         } else {
             const args = argsOrState as FlinkMaterializedTableArgs | undefined;
@@ -236,7 +246,9 @@ export class FlinkMaterializedTable extends pulumi.CustomResource {
             resourceInputs["principal"] = args?.principal;
             resourceInputs["query"] = args?.query;
             resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["sessionOptions"] = args?.sessionOptions;
             resourceInputs["stopped"] = args?.stopped;
+            resourceInputs["tableOptions"] = args?.tableOptions;
             resourceInputs["watermark"] = args?.watermark;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -281,9 +293,17 @@ export interface FlinkMaterializedTableState {
      */
     restEndpoint?: pulumi.Input<string | undefined>;
     /**
+     * Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     */
+    sessionOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     stopped?: pulumi.Input<boolean | undefined>;
+    /**
+     * Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     */
+    tableOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The watermark definition for the Materialized Table. Supports the following:
      */
@@ -325,9 +345,17 @@ export interface FlinkMaterializedTableArgs {
      */
     restEndpoint?: pulumi.Input<string | undefined>;
     /**
+     * Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+     */
+    sessionOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      */
     stopped?: pulumi.Input<boolean | undefined>;
+    /**
+     * Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     */
+    tableOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The watermark definition for the Materialized Table. Supports the following:
      */

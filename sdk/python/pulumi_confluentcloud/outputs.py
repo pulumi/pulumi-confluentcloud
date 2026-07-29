@@ -3252,16 +3252,27 @@ class FlinkMaterializedTableDistribution(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 kind: _builtins.str,
                  bucket_count: Optional[_builtins.int] = None,
                  keys: Optional[Sequence[_builtins.str]] = None):
         """
+        :param _builtins.str kind: The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
         :param _builtins.int bucket_count: The number of buckets the table is distributed by.
         :param Sequence[_builtins.str] keys: The names of the columns the table is distributed by.
         """
+        pulumi.set(__self__, "kind", kind)
         if bucket_count is not None:
             pulumi.set(__self__, "bucket_count", bucket_count)
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+        """
+        return pulumi.get(self, "kind")
 
     @_builtins.property
     @pulumi.getter(name="bucketCount")
@@ -9387,13 +9398,16 @@ class GetFlinkMaterializedTableCredentialsResult(dict):
 class GetFlinkMaterializedTableDistributionResult(dict):
     def __init__(__self__, *,
                  bucket_count: _builtins.int,
-                 keys: Sequence[_builtins.str]):
+                 keys: Sequence[_builtins.str],
+                 kind: _builtins.str):
         """
         :param _builtins.int bucket_count: (Integer) The number of buckets the table is distributed by.
         :param Sequence[_builtins.str] keys: (Set of Strings) The names of the columns the table is distributed by.
+        :param _builtins.str kind: (String) The kind of distribution, for example, `HASH`.
         """
         pulumi.set(__self__, "bucket_count", bucket_count)
         pulumi.set(__self__, "keys", keys)
+        pulumi.set(__self__, "kind", kind)
 
     @_builtins.property
     @pulumi.getter(name="bucketCount")
@@ -9410,6 +9424,14 @@ class GetFlinkMaterializedTableDistributionResult(dict):
         (Set of Strings) The names of the columns the table is distributed by.
         """
         return pulumi.get(self, "keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        (String) The kind of distribution, for example, `HASH`.
+        """
+        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type

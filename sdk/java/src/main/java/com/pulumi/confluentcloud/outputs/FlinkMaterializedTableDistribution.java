@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -23,6 +24,11 @@ public final class FlinkMaterializedTableDistribution {
      * 
      */
     private @Nullable List<String> keys;
+    /**
+     * @return The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     * 
+     */
+    private String kind;
 
     private FlinkMaterializedTableDistribution() {}
     /**
@@ -39,6 +45,13 @@ public final class FlinkMaterializedTableDistribution {
     public List<String> keys() {
         return this.keys == null ? List.of() : this.keys;
     }
+    /**
+     * @return The kind of distribution. Required when the `distribution` block is specified. The only currently supported value is `HASH`.
+     * 
+     */
+    public String kind() {
+        return this.kind;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +64,13 @@ public final class FlinkMaterializedTableDistribution {
     public static final class Builder {
         private @Nullable Integer bucketCount;
         private @Nullable List<String> keys;
+        private String kind;
         public Builder() {}
         public Builder(FlinkMaterializedTableDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketCount = defaults.bucketCount;
     	      this.keys = defaults.keys;
+    	      this.kind = defaults.kind;
         }
 
         @CustomType.Setter
@@ -73,10 +88,19 @@ public final class FlinkMaterializedTableDistribution {
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }
+        @CustomType.Setter
+        public Builder kind(String kind) {
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("FlinkMaterializedTableDistribution", "kind");
+            }
+            this.kind = kind;
+            return this;
+        }
         public FlinkMaterializedTableDistribution build() {
             final var _resultValue = new FlinkMaterializedTableDistribution();
             _resultValue.bucketCount = bucketCount;
             _resultValue.keys = keys;
+            _resultValue.kind = kind;
             return _resultValue;
         }
     }

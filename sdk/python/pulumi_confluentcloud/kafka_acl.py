@@ -50,7 +50,7 @@ class KafkaAclArgs:
         :param pulumi.Input[_builtins.str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "operation", operation)
@@ -183,7 +183,7 @@ class KafkaAclArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -224,7 +224,7 @@ class _KafkaAclState:
         :param pulumi.Input[_builtins.str] principal: The principal for the ACL.
         :param pulumi.Input[_builtins.str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
@@ -364,7 +364,7 @@ class _KafkaAclState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -514,7 +514,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] principal: The principal for the ACL.
         :param pulumi.Input[_builtins.str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         ...
     @overload
@@ -731,7 +731,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] principal: The principal for the ACL.
         :param pulumi.Input[_builtins.str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -830,7 +830,7 @@ class KafkaAcl(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`. This attribute is optional at the resource level because the REST endpoint can also be set in the provider block as `kafka_rest_endpoint` or with the `KAFKA_REST_ENDPOINT` environment variable. One of these is required. See Option #1 for more details.
         """
         return pulumi.get(self, "rest_endpoint")
 

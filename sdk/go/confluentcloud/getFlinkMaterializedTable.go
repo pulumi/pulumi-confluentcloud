@@ -128,8 +128,12 @@ type LookupFlinkMaterializedTableResult struct {
 	// (String) The SQL query that defines the Materialized Table.
 	Query        string  `pulumi:"query"`
 	RestEndpoint *string `pulumi:"restEndpoint"`
+	// (Map) Session configurations equivalent to the SQL `SET` statement.
+	SessionOptions map[string]string `pulumi:"sessionOptions"`
 	// (Boolean) Whether the Materialized Table is stopped.
 	Stopped bool `pulumi:"stopped"`
+	// (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+	TableOptions map[string]string `pulumi:"tableOptions"`
 	// (Configuration Block) The watermark definition for the Materialized Table. Supports the following:
 	Watermarks []GetFlinkMaterializedTableWatermark `pulumi:"watermarks"`
 }
@@ -239,9 +243,19 @@ func (o LookupFlinkMaterializedTableResultOutput) RestEndpoint() pulumi.StringPt
 	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// (Map) Session configurations equivalent to the SQL `SET` statement.
+func (o LookupFlinkMaterializedTableResultOutput) SessionOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) map[string]string { return v.SessionOptions }).(pulumi.StringMapOutput)
+}
+
 // (Boolean) Whether the Materialized Table is stopped.
 func (o LookupFlinkMaterializedTableResultOutput) Stopped() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) bool { return v.Stopped }).(pulumi.BoolOutput)
+}
+
+// (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+func (o LookupFlinkMaterializedTableResultOutput) TableOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) map[string]string { return v.TableOptions }).(pulumi.StringMapOutput)
 }
 
 // (Configuration Block) The watermark definition for the Materialized Table. Supports the following:

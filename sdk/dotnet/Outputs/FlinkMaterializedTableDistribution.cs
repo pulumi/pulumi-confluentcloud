@@ -21,15 +21,22 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The names of the columns the table is distributed by.
         /// </summary>
         public readonly ImmutableArray<string> Keys;
+        /// <summary>
+        /// The kind of distribution. Required when the `Distribution` block is specified. The only currently supported value is `HASH`.
+        /// </summary>
+        public readonly string Kind;
 
         [OutputConstructor]
         private FlinkMaterializedTableDistribution(
             int? bucketCount,
 
-            ImmutableArray<string> keys)
+            ImmutableArray<string> keys,
+
+            string kind)
         {
             BucketCount = bucketCount;
             Keys = keys;
+            Kind = kind;
         }
     }
 }

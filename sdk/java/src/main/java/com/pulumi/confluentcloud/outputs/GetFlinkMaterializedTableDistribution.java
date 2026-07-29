@@ -22,6 +22,11 @@ public final class GetFlinkMaterializedTableDistribution {
      * 
      */
     private List<String> keys;
+    /**
+     * @return (String) The kind of distribution, for example, `HASH`.
+     * 
+     */
+    private String kind;
 
     private GetFlinkMaterializedTableDistribution() {}
     /**
@@ -38,6 +43,13 @@ public final class GetFlinkMaterializedTableDistribution {
     public List<String> keys() {
         return this.keys;
     }
+    /**
+     * @return (String) The kind of distribution, for example, `HASH`.
+     * 
+     */
+    public String kind() {
+        return this.kind;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +62,13 @@ public final class GetFlinkMaterializedTableDistribution {
     public static final class Builder {
         private Integer bucketCount;
         private List<String> keys;
+        private String kind;
         public Builder() {}
         public Builder(GetFlinkMaterializedTableDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketCount = defaults.bucketCount;
     	      this.keys = defaults.keys;
+    	      this.kind = defaults.kind;
         }
 
         @CustomType.Setter
@@ -76,10 +90,19 @@ public final class GetFlinkMaterializedTableDistribution {
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }
+        @CustomType.Setter
+        public Builder kind(String kind) {
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetFlinkMaterializedTableDistribution", "kind");
+            }
+            this.kind = kind;
+            return this;
+        }
         public GetFlinkMaterializedTableDistribution build() {
             final var _resultValue = new GetFlinkMaterializedTableDistribution();
             _resultValue.bucketCount = bucketCount;
             _resultValue.keys = keys;
+            _resultValue.kind = kind;
             return _resultValue;
         }
     }

@@ -119,9 +119,17 @@ export interface GetFlinkMaterializedTableResult {
     readonly query: string;
     readonly restEndpoint?: string;
     /**
+     * (Map) Session configurations equivalent to the SQL `SET` statement.
+     */
+    readonly sessionOptions: {[key: string]: string};
+    /**
      * (Boolean) Whether the Materialized Table is stopped.
      */
     readonly stopped: boolean;
+    /**
+     * (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
+     */
+    readonly tableOptions: {[key: string]: string};
     /**
      * (Configuration Block) The watermark definition for the Materialized Table. Supports the following:
      */
