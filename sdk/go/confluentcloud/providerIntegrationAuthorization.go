@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			azureProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "azure", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: azure.ID(),
+//				ProviderIntegrationId: azure.ID().ToIDOutput().ToStringOutput(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -68,9 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azureAppId", azureProviderIntegrationAuthorization.Azure.ApplyT(func(azure confluentcloud.ProviderIntegrationAuthorizationAzure) (*string, error) {
-//				return azure.ConfluentMultiTenantAppId, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("azureAppId", azureProviderIntegrationAuthorization.Azure.ConfluentMultiTenantAppId())
 //			ctx.Export("servicePrincipalObjectId", pulumi.Any(confluent.ObjectId))
 //			return nil
 //		})
@@ -105,7 +103,7 @@ import (
 //				return err
 //			}
 //			azureProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "azure", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: azure.ID(),
+//				ProviderIntegrationId: azure.ID().ToIDOutput().ToStringOutput(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -155,7 +153,7 @@ import (
 //				return err
 //			}
 //			gcpProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "gcp", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: gcp.ID(),
+//				ProviderIntegrationId: gcp.ID().ToIDOutput().ToStringOutput(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -182,9 +180,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (*string, error) {
-//				return gcp.GoogleServiceAccount, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.GoogleServiceAccount())
 //			return nil
 //		})
 //	}
@@ -218,7 +214,7 @@ import (
 //				return err
 //			}
 //			gcpProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "gcp", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: gcp.ID(),
+//				ProviderIntegrationId: gcp.ID().ToIDOutput().ToStringOutput(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -232,9 +228,7 @@ import (
 //			ctx.Export("gcpIamCommand", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (string, error) {
 //				return fmt.Sprintf("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%v\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%v'\"", gcp.GoogleServiceAccount, gcp.GoogleServiceAccount), nil
 //			}).(pulumi.StringOutput))
-//			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (*string, error) {
-//				return gcp.GoogleServiceAccount, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.GoogleServiceAccount())
 //			return nil
 //		})
 //	}

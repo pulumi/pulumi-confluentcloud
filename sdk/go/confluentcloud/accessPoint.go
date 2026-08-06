@@ -38,7 +38,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "aws", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(main.Gateway[0].Id),
@@ -53,7 +53,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "azure", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(main.Gateway[0].Id),
@@ -69,7 +69,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "gcp", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(main.Gateway[0].Id),
@@ -84,7 +84,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "pni", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(mainConfluentGateway.Id),
@@ -106,7 +106,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "aws_ingress", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_ingress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(ingress.Id),
@@ -121,7 +121,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "azure_ingress", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_ingress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(ingress.Id),
@@ -136,7 +136,7 @@ import (
 // _, err = confluentcloud.NewAccessPoint(ctx, "gcp_ingress", &confluentcloud.AccessPointArgs{
 // DisplayName: pulumi.String("access_point_ingress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
-// Id: development.ID(),
+// Id: development.ID().ToIDOutput().ToStringOutput(),
 // },
 // Gateway: &confluentcloud.AccessPointGatewayArgs{
 // Id: pulumi.Any(ingress.Id),

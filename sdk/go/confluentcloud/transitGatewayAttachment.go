@@ -49,7 +49,7 @@ import (
 //					pulumi.String("TRANSITGATEWAY"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -68,10 +68,10 @@ import (
 //					},
 //				},
 //				Environment: &confluentcloud.TransitGatewayAttachmentEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.TransitGatewayAttachmentNetworkArgs{
-//					Id: aws_transit_gateway_attachment.ID(),
+//					Id: aws_transit_gateway_attachment.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

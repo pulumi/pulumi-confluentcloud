@@ -47,7 +47,7 @@ import (
 //				Region:       pulumi.String("us-east-2"),
 //				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -60,7 +60,7 @@ import (
 //				Region:       pulumi.String("us-east-2"),
 //				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -75,7 +75,7 @@ import (
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -90,7 +90,7 @@ import (
 //					Cku: pulumi.Int(2),
 //				},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -144,7 +144,7 @@ import (
 //				Region:       pulumi.String("centralus"),
 //				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -157,7 +157,7 @@ import (
 //				Region:       pulumi.String("centralus"),
 //				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -172,7 +172,7 @@ import (
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -187,7 +187,7 @@ import (
 //					Cku: pulumi.Int(2),
 //				},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -226,7 +226,7 @@ import (
 //				Region:       pulumi.String("us-central1"),
 //				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -239,7 +239,7 @@ import (
 //				Region:       pulumi.String("us-central1"),
 //				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -254,7 +254,7 @@ import (
 //					Cku: pulumi.Int(2),
 //				},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

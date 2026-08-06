@@ -45,7 +45,7 @@ import (
 //				ContentFormat: pulumi.String("JAR"),
 //				ArtifactFile:  pulumi.String("path/to/your/artifact.jar"),
 //				Environment: &confluentcloud.FlinkArtifactEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

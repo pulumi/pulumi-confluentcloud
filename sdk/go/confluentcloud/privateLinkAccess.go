@@ -53,7 +53,7 @@ import (
 //					pulumi.String("use1-az6"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -65,10 +65,10 @@ import (
 //					Account: pulumi.String("012345678901"),
 //				},
 //				Environment: &confluentcloud.PrivateLinkAccessEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PrivateLinkAccessNetworkArgs{
-//					Id: aws_private_link.ID(),
+//					Id: aws_private_link.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -108,7 +108,7 @@ import (
 //					pulumi.String("PRIVATELINK"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -120,10 +120,10 @@ import (
 //					Subscription: pulumi.String("1234abcd-12ab-34cd-1234-123456abcdef"),
 //				},
 //				Environment: &confluentcloud.PrivateLinkAccessEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PrivateLinkAccessNetworkArgs{
-//					Id: azure_private_link.ID(),
+//					Id: azure_private_link.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -168,7 +168,7 @@ import (
 //					pulumi.String("us-central1-c"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -180,10 +180,10 @@ import (
 //					Project: pulumi.String("temp-gear-123456"),
 //				},
 //				Environment: &confluentcloud.PrivateLinkAccessEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PrivateLinkAccessNetworkArgs{
-//					Id: gcp_private_service_connect.ID(),
+//					Id: gcp_private_service_connect.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

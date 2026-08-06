@@ -41,7 +41,7 @@ import (
 //			_, err = confluentcloud.NewDnsForwarder(ctx, "main", &confluentcloud.DnsForwarderArgs{
 //				DisplayName: pulumi.String("dns_forwarder"),
 //				Environment: &confluentcloud.DnsForwarderEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),
@@ -89,7 +89,7 @@ import (
 //			_, err = confluentcloud.NewDnsForwarder(ctx, "main", &confluentcloud.DnsForwarderArgs{
 //				DisplayName: pulumi.String("dns_forwarder"),
 //				Environment: &confluentcloud.DnsForwarderEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),
@@ -98,9 +98,9 @@ import (
 //				Gateway: &confluentcloud.DnsForwarderGatewayArgs{
 //					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
 //				},
-//				ForwardViaGcpZones: []map[string]interface{}{
-//					map[string]interface{}{
-//						"domainMappings": map[string]interface{}{
+//				ForwardViaGcpZones: []map[string]map[string]string{
+//					{
+//						"domainMappings": {
 //							"example.com": "zone-1,project-1",
 //						},
 //					},

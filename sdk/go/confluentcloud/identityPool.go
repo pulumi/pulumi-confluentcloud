@@ -43,7 +43,7 @@ import (
 //			}
 //			_, err = confluentcloud.NewIdentityPool(ctx, "example", &confluentcloud.IdentityPoolArgs{
 //				IdentityProvider: &confluentcloud.IdentityPoolIdentityProviderArgs{
-//					Id: azure.ID(),
+//					Id: azure.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DisplayName:   pulumi.String("My Identity Pool"),
 //				Description:   pulumi.String("Prod Access to Kafka clusters to Release Engineering"),
@@ -84,7 +84,7 @@ import (
 //			}
 //			_, err = confluentcloud.NewIdentityPool(ctx, "example", &confluentcloud.IdentityPoolArgs{
 //				IdentityProvider: &confluentcloud.IdentityPoolIdentityProviderArgs{
-//					Id: okta.ID(),
+//					Id: okta.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DisplayName:   pulumi.String("My Identity Pool"),
 //				Description:   pulumi.String("Prod Access to Kafka clusters to Release Engineering"),

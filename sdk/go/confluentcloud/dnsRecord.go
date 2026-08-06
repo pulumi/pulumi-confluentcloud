@@ -39,7 +39,7 @@ import (
 //			_, err = confluentcloud.NewDnsRecord(ctx, "main", &confluentcloud.DnsRecordArgs{
 //				DisplayName: pulumi.String("dns_record"),
 //				Environment: &confluentcloud.DnsRecordEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Domain: pulumi.String("example.com"),
 //				Gateway: &confluentcloud.DnsRecordGatewayArgs{
