@@ -128,8 +128,8 @@ import (
 //				Project: gcpProjectId,
 //				Role:    "roles/iam.serviceAccountTokenCreator",
 //				Member:  fmt.Sprintf("serviceAccount:%v", gcp.Gcps[0].GoogleServiceAccount),
-//				Condition: []map[string]interface{}{
-//					map[string]interface{}{
+//				Condition: []map[string]string{
+//					{
 //						"title":       "Confluent Cloud Access",
 //						"description": "Allow Confluent Cloud to impersonate the customer service account",
 //						"expression":  fmt.Sprintf("request.auth.claims.sub == '%v'", gcp.Gcps[0].GoogleServiceAccount),

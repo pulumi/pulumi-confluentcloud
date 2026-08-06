@@ -39,8 +39,8 @@ import (
 //				},
 //				"restEndpoint": essentials.RestEndpoint,
 //				"subjectName":  "proto-purchase-value",
-//				"credentials": []map[string]interface{}{
-//					map[string]interface{}{
+//				"credentials": []map[string]string{
+//					{
 //						"key":    "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
 //						"secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
 //					},
@@ -70,7 +70,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]interface{}{
+//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]string{
 //				"subjectName": "proto-purchase-value",
 //			}, nil)
 //			if err != nil {

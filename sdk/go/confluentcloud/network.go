@@ -52,7 +52,7 @@ import (
 //					pulumi.String("use1-az6"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -92,7 +92,7 @@ import (
 //					pulumi.String("PEERING"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -136,7 +136,7 @@ import (
 //					pulumi.String("us-central1-c"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DnsConfig: &confluentcloud.NetworkDnsConfigArgs{
 //					Resolution: pulumi.String("PRIVATE"),
@@ -179,7 +179,7 @@ import (
 //					pulumi.String("TRANSITGATEWAY"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

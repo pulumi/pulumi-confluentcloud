@@ -55,7 +55,7 @@ import (
 //				Region:       pulumi.String("us-west-2"),
 //				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
-//					Id: test_env.ID(),
+//					Id: test_env.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

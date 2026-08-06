@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewRoleBinding(ctx, "envadmin", &confluentcloud.RoleBindingArgs{
-//				Principal: application_developers.ID().ApplyT(func(id string) (string, error) {
+//				Principal: application_developers.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("User:%v", id), nil
 //				}).(pulumi.StringOutput),
 //				RoleName:   pulumi.String("EnvironmentAdmin"),

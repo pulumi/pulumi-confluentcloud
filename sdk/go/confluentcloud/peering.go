@@ -49,7 +49,7 @@ import (
 //					pulumi.String("PEERING"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -66,10 +66,10 @@ import (
 //					CustomerRegion: pulumi.String("us-east-2"),
 //				},
 //				Environment: &confluentcloud.PeeringEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PeeringNetworkArgs{
-//					Id: aws_peering.ID(),
+//					Id: aws_peering.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -110,7 +110,7 @@ import (
 //					pulumi.String("PEERING"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -124,10 +124,10 @@ import (
 //					CustomerRegion: pulumi.String("centralus"),
 //				},
 //				Environment: &confluentcloud.PeeringEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PeeringNetworkArgs{
-//					Id: azure_peering.ID(),
+//					Id: azure_peering.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -168,7 +168,7 @@ import (
 //					pulumi.String("PEERING"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -181,10 +181,10 @@ import (
 //					VpcNetwork: pulumi.String("customer-test-vpc-network"),
 //				},
 //				Environment: &confluentcloud.PeeringEnvironmentArgs{
-//					Id: development.ID(),
+//					Id: development.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Network: &confluentcloud.PeeringNetworkArgs{
-//					Id: gcp_peering.ID(),
+//					Id: gcp_peering.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
