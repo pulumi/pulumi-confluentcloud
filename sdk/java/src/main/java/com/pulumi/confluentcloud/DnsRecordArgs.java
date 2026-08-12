@@ -64,9 +64,17 @@ public final class DnsRecordArgs extends com.pulumi.resources.ResourceArgs {
         return this.environment;
     }
 
+    /**
+     * The gateway to which this belongs.
+     * 
+     */
     @Import(name="gateway", required=true)
     private Output<DnsRecordGatewayArgs> gateway;
 
+    /**
+     * @return The gateway to which this belongs.
+     * 
+     */
     public Output<DnsRecordGatewayArgs> gateway() {
         return this.gateway;
     }
@@ -169,11 +177,23 @@ public final class DnsRecordArgs extends com.pulumi.resources.ResourceArgs {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param gateway The gateway to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateway(Output<DnsRecordGatewayArgs> gateway) {
             $.gateway = gateway;
             return this;
         }
 
+        /**
+         * @param gateway The gateway to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateway(DnsRecordGatewayArgs gateway) {
             return gateway(Output.of(gateway));
         }

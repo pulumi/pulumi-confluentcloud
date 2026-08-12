@@ -32,8 +32,9 @@ class KafkaClientQuotaArgs:
 
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['KafkaClientQuotaKafkaClusterArgs'] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
+        :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Throughput for the client quota.
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -71,6 +72,9 @@ class KafkaClientQuotaArgs:
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Input['KafkaClientQuotaKafkaClusterArgs']:
+        """
+        The ID of the Dedicated Kafka cluster where the client quota is applied.
+        """
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
@@ -93,7 +97,7 @@ class KafkaClientQuotaArgs:
     @pulumi.getter
     def throughput(self) -> pulumi.Input['KafkaClientQuotaThroughputArgs']:
         """
-        Block for representing a Kafka Quota.
+        Throughput for the client quota.
         """
         return pulumi.get(self, "throughput")
 
@@ -129,8 +133,9 @@ class _KafkaClientQuotaState:
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['KafkaClientQuotaKafkaClusterArgs'] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
+        :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Throughput for the client quota.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -184,6 +189,9 @@ class _KafkaClientQuotaState:
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Input[Optional['KafkaClientQuotaKafkaClusterArgs']]:
+        """
+        The ID of the Dedicated Kafka cluster where the client quota is applied.
+        """
         return pulumi.get(self, "kafka_cluster")
 
     @kafka_cluster.setter
@@ -206,7 +214,7 @@ class _KafkaClientQuotaState:
     @pulumi.getter
     def throughput(self) -> pulumi.Input[Optional['KafkaClientQuotaThroughputArgs']]:
         """
-        Block for representing a Kafka Quota.
+        Throughput for the client quota.
         """
         return pulumi.get(self, "throughput")
 
@@ -282,8 +290,9 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Block for representing a Kafka Quota.
+        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Throughput for the client quota.
         """
         ...
     @overload
@@ -412,8 +421,9 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Block for representing a Kafka Quota.
+        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Throughput for the client quota.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,7 +439,7 @@ class KafkaClientQuota(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def description(self) -> pulumi.Output[_builtins.str]:
         """
         The description of the Kafka Client Quota.
         """
@@ -454,6 +464,9 @@ class KafkaClientQuota(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Output['outputs.KafkaClientQuotaKafkaCluster']:
+        """
+        The ID of the Dedicated Kafka cluster where the client quota is applied.
+        """
         return pulumi.get(self, "kafka_cluster")
 
     @_builtins.property
@@ -468,7 +481,7 @@ class KafkaClientQuota(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output['outputs.KafkaClientQuotaThroughput']:
         """
-        Block for representing a Kafka Quota.
+        Throughput for the client quota.
         """
         return pulumi.get(self, "throughput")
 

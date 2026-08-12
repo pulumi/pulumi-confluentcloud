@@ -83,7 +83,8 @@ type NetworkLinkEndpoint struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentOutput `pulumi:"environment"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
-	Network            NetworkLinkEndpointNetworkOutput            `pulumi:"network"`
+	Network NetworkLinkEndpointNetworkOutput `pulumi:"network"`
+	// The networkLinkService to which this belongs.
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServiceOutput `pulumi:"networkLinkService"`
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
@@ -135,7 +136,8 @@ type networkLinkEndpointState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *NetworkLinkEndpointEnvironment `pulumi:"environment"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
-	Network            *NetworkLinkEndpointNetwork            `pulumi:"network"`
+	Network *NetworkLinkEndpointNetwork `pulumi:"network"`
+	// The networkLinkService to which this belongs.
 	NetworkLinkService *NetworkLinkEndpointNetworkLinkService `pulumi:"networkLinkService"`
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
 	ResourceName *string `pulumi:"resourceName"`
@@ -149,7 +151,8 @@ type NetworkLinkEndpointState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
-	Network            NetworkLinkEndpointNetworkPtrInput
+	Network NetworkLinkEndpointNetworkPtrInput
+	// The networkLinkService to which this belongs.
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServicePtrInput
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
 	ResourceName pulumi.StringPtrInput
@@ -167,7 +170,8 @@ type networkLinkEndpointArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironment `pulumi:"environment"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
-	Network            NetworkLinkEndpointNetwork            `pulumi:"network"`
+	Network NetworkLinkEndpointNetwork `pulumi:"network"`
+	// The networkLinkService to which this belongs.
 	NetworkLinkService NetworkLinkEndpointNetworkLinkService `pulumi:"networkLinkService"`
 }
 
@@ -180,7 +184,8 @@ type NetworkLinkEndpointArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
-	Network            NetworkLinkEndpointNetworkInput
+	Network NetworkLinkEndpointNetworkInput
+	// The networkLinkService to which this belongs.
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServiceInput
 }
 
@@ -291,6 +296,7 @@ func (o NetworkLinkEndpointOutput) Network() NetworkLinkEndpointNetworkOutput {
 	return o.ApplyT(func(v *NetworkLinkEndpoint) NetworkLinkEndpointNetworkOutput { return v.Network }).(NetworkLinkEndpointNetworkOutput)
 }
 
+// The networkLinkService to which this belongs.
 func (o NetworkLinkEndpointOutput) NetworkLinkService() NetworkLinkEndpointNetworkLinkServiceOutput {
 	return o.ApplyT(func(v *NetworkLinkEndpoint) NetworkLinkEndpointNetworkLinkServiceOutput { return v.NetworkLinkService }).(NetworkLinkEndpointNetworkLinkServiceOutput)
 }

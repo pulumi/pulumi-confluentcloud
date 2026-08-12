@@ -79,9 +79,10 @@ type DnsRecord struct {
 	// The fully qualified domain name of the DNS Record.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment            DnsRecordEnvironmentOutput               `pulumi:"environment"`
-	Gateway                DnsRecordGatewayOutput                   `pulumi:"gateway"`
-	PrivateLinkAccessPoint DnsRecordPrivateLinkAccessPointPtrOutput `pulumi:"privateLinkAccessPoint"`
+	Environment DnsRecordEnvironmentOutput `pulumi:"environment"`
+	// The gateway to which this belongs.
+	Gateway                DnsRecordGatewayOutput                `pulumi:"gateway"`
+	PrivateLinkAccessPoint DnsRecordPrivateLinkAccessPointOutput `pulumi:"privateLinkAccessPoint"`
 }
 
 // NewDnsRecord registers a new resource with the given unique name, arguments, and options.
@@ -128,7 +129,8 @@ type dnsRecordState struct {
 	// The fully qualified domain name of the DNS Record.
 	Domain *string `pulumi:"domain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment            *DnsRecordEnvironment            `pulumi:"environment"`
+	Environment *DnsRecordEnvironment `pulumi:"environment"`
+	// The gateway to which this belongs.
 	Gateway                *DnsRecordGateway                `pulumi:"gateway"`
 	PrivateLinkAccessPoint *DnsRecordPrivateLinkAccessPoint `pulumi:"privateLinkAccessPoint"`
 }
@@ -139,7 +141,8 @@ type DnsRecordState struct {
 	// The fully qualified domain name of the DNS Record.
 	Domain pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment            DnsRecordEnvironmentPtrInput
+	Environment DnsRecordEnvironmentPtrInput
+	// The gateway to which this belongs.
 	Gateway                DnsRecordGatewayPtrInput
 	PrivateLinkAccessPoint DnsRecordPrivateLinkAccessPointPtrInput
 }
@@ -154,7 +157,8 @@ type dnsRecordArgs struct {
 	// The fully qualified domain name of the DNS Record.
 	Domain string `pulumi:"domain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment            DnsRecordEnvironment             `pulumi:"environment"`
+	Environment DnsRecordEnvironment `pulumi:"environment"`
+	// The gateway to which this belongs.
 	Gateway                DnsRecordGateway                 `pulumi:"gateway"`
 	PrivateLinkAccessPoint *DnsRecordPrivateLinkAccessPoint `pulumi:"privateLinkAccessPoint"`
 }
@@ -166,7 +170,8 @@ type DnsRecordArgs struct {
 	// The fully qualified domain name of the DNS Record.
 	Domain pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment            DnsRecordEnvironmentInput
+	Environment DnsRecordEnvironmentInput
+	// The gateway to which this belongs.
 	Gateway                DnsRecordGatewayInput
 	PrivateLinkAccessPoint DnsRecordPrivateLinkAccessPointPtrInput
 }
@@ -273,12 +278,13 @@ func (o DnsRecordOutput) Environment() DnsRecordEnvironmentOutput {
 	return o.ApplyT(func(v *DnsRecord) DnsRecordEnvironmentOutput { return v.Environment }).(DnsRecordEnvironmentOutput)
 }
 
+// The gateway to which this belongs.
 func (o DnsRecordOutput) Gateway() DnsRecordGatewayOutput {
 	return o.ApplyT(func(v *DnsRecord) DnsRecordGatewayOutput { return v.Gateway }).(DnsRecordGatewayOutput)
 }
 
-func (o DnsRecordOutput) PrivateLinkAccessPoint() DnsRecordPrivateLinkAccessPointPtrOutput {
-	return o.ApplyT(func(v *DnsRecord) DnsRecordPrivateLinkAccessPointPtrOutput { return v.PrivateLinkAccessPoint }).(DnsRecordPrivateLinkAccessPointPtrOutput)
+func (o DnsRecordOutput) PrivateLinkAccessPoint() DnsRecordPrivateLinkAccessPointOutput {
+	return o.ApplyT(func(v *DnsRecord) DnsRecordPrivateLinkAccessPointOutput { return v.PrivateLinkAccessPoint }).(DnsRecordPrivateLinkAccessPointOutput)
 }
 
 type DnsRecordArrayOutput struct{ *pulumi.OutputState }

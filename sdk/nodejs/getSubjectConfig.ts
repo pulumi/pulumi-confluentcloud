@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
- * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+ * `confluentcloud.SubjectConfig` describes a Subject Config data source.
  *
  * ## Example Usage
  *
@@ -17,32 +17,32 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example = confluent.SubjectCompatibilityLevel({
- *     schemaRegistryCluster: [{
+ * const example = confluentcloud.getSubjectConfig({
+ *     schemaRegistryCluster: {
  *         id: essentials.id,
- *     }],
+ *     },
  *     restEndpoint: essentials.restEndpoint,
  *     subjectName: "proto-purchase-value",
- *     credentials: [{
+ *     credentials: {
  *         key: "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
  *         secret: "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
- *     }],
+ *     },
  * });
- * export const compatibilityLevel = example.compatibilityLevel;
+ * export const compatibilityLevel = example.then(example => example.compatibilityLevel);
  * ```
  *
  * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example = confluent.SubjectCompatibilityLevel({
+ * const example = confluentcloud.getSubjectConfig({
  *     subjectName: "proto-purchase-value",
  * });
- * export const compatibilityLevel = example.compatibilityLevel;
+ * export const compatibilityLevel = example.then(example => example.compatibilityLevel);
  * ```
  */
 export function getSubjectConfig(args: GetSubjectConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSubjectConfigResult> {
@@ -103,7 +103,7 @@ export interface GetSubjectConfigResult {
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
- * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+ * `confluentcloud.SubjectConfig` describes a Subject Config data source.
  *
  * ## Example Usage
  *
@@ -111,32 +111,32 @@ export interface GetSubjectConfigResult {
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example = confluent.SubjectCompatibilityLevel({
- *     schemaRegistryCluster: [{
+ * const example = confluentcloud.getSubjectConfig({
+ *     schemaRegistryCluster: {
  *         id: essentials.id,
- *     }],
+ *     },
  *     restEndpoint: essentials.restEndpoint,
  *     subjectName: "proto-purchase-value",
- *     credentials: [{
+ *     credentials: {
  *         key: "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
  *         secret: "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
- *     }],
+ *     },
  * });
- * export const compatibilityLevel = example.compatibilityLevel;
+ * export const compatibilityLevel = example.then(example => example.compatibilityLevel);
  * ```
  *
  * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example = confluent.SubjectCompatibilityLevel({
+ * const example = confluentcloud.getSubjectConfig({
  *     subjectName: "proto-purchase-value",
  * });
- * export const compatibilityLevel = example.compatibilityLevel;
+ * export const compatibilityLevel = example.then(example => example.compatibilityLevel);
  * ```
  */
 export function getSubjectConfigOutput(args: GetSubjectConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubjectConfigResult> {

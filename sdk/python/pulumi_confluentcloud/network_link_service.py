@@ -31,6 +31,7 @@ class NetworkLinkServiceArgs:
 
         :param pulumi.Input['NetworkLinkServiceEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['NetworkLinkServiceNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input['NetworkLinkServiceAcceptArgs'] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         """
@@ -70,6 +71,9 @@ class NetworkLinkServiceArgs:
     @_builtins.property
     @pulumi.getter
     def accept(self) -> pulumi.Input[Optional['NetworkLinkServiceAcceptArgs']]:
+        """
+        Network Link Service Accept policy
+        """
         return pulumi.get(self, "accept")
 
     @accept.setter
@@ -113,6 +117,7 @@ class _NetworkLinkServiceState:
         """
         Input properties used for looking up and filtering NetworkLinkService resources.
 
+        :param pulumi.Input['NetworkLinkServiceAcceptArgs'] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input['NetworkLinkServiceEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -135,6 +140,9 @@ class _NetworkLinkServiceState:
     @_builtins.property
     @pulumi.getter
     def accept(self) -> pulumi.Input[Optional['NetworkLinkServiceAcceptArgs']]:
+        """
+        Network Link Service Accept policy
+        """
         return pulumi.get(self, "accept")
 
     @accept.setter
@@ -283,6 +291,7 @@ class NetworkLinkService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -423,6 +432,7 @@ class NetworkLinkService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -444,6 +454,9 @@ class NetworkLinkService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def accept(self) -> pulumi.Output['outputs.NetworkLinkServiceAccept']:
+        """
+        Network Link Service Accept policy
+        """
         return pulumi.get(self, "accept")
 
     @_builtins.property

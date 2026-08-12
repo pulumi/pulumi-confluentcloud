@@ -29,7 +29,6 @@ import * as utilities from "./utilities";
 export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
-        "accept": args.accept,
         "displayName": args.displayName,
         "environment": args.environment,
         "id": args.id,
@@ -40,10 +39,6 @@ export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pu
  * A collection of arguments for invoking getNetworkLinkService.
  */
 export interface GetNetworkLinkServiceArgs {
-    /**
-     * (Optional Configuration Block) supports the following:
-     */
-    accept?: inputs.GetNetworkLinkServiceAccept;
     /**
      * The Display Name of the Network Link Service, for example, `DR Link`
      */
@@ -108,7 +103,6 @@ export interface GetNetworkLinkServiceResult {
 export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkLinkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
-        "accept": args.accept,
         "displayName": args.displayName,
         "environment": args.environment,
         "id": args.id,
@@ -119,10 +113,6 @@ export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArg
  * A collection of arguments for invoking getNetworkLinkService.
  */
 export interface GetNetworkLinkServiceOutputArgs {
-    /**
-     * (Optional Configuration Block) supports the following:
-     */
-    accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs | undefined>;
     /**
      * The Display Name of the Network Link Service, for example, `DR Link`
      */

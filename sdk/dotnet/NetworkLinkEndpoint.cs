@@ -97,6 +97,9 @@ namespace Pulumi.ConfluentCloud
         [Output("network")]
         public Output<Outputs.NetworkLinkEndpointNetwork> Network { get; private set; } = null!;
 
+        /// <summary>
+        /// The NetworkLinkService to which this belongs.
+        /// </summary>
         [Output("networkLinkService")]
         public Output<Outputs.NetworkLinkEndpointNetworkLinkService> NetworkLinkService { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.ConfluentCloud
         [Input("network", required: true)]
         public Input<Inputs.NetworkLinkEndpointNetworkArgs> Network { get; set; } = null!;
 
+        /// <summary>
+        /// The NetworkLinkService to which this belongs.
+        /// </summary>
         [Input("networkLinkService", required: true)]
         public Input<Inputs.NetworkLinkEndpointNetworkLinkServiceArgs> NetworkLinkService { get; set; } = null!;
 
@@ -211,6 +217,9 @@ namespace Pulumi.ConfluentCloud
         [Input("network")]
         public Input<Inputs.NetworkLinkEndpointNetworkGetArgs>? Network { get; set; }
 
+        /// <summary>
+        /// The NetworkLinkService to which this belongs.
+        /// </summary>
         [Input("networkLinkService")]
         public Input<Inputs.NetworkLinkEndpointNetworkLinkServiceGetArgs>? NetworkLinkService { get; set; }
 

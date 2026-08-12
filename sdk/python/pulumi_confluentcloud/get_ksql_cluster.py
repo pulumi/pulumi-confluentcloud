@@ -194,8 +194,6 @@ def get_ksql_cluster(display_name: Optional[_builtins.str] = None,
                      id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKsqlClusterResult:
     """
-    ## # KsqlCluster Data Source
-
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KsqlCluster` describes a ksqlDB cluster data source.
@@ -248,8 +246,6 @@ def get_ksql_cluster_output(display_name: pulumi.Input[Optional[Optional[_builti
                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """
-    ## # KsqlCluster Data Source
-
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KsqlCluster` describes a ksqlDB cluster data source.

@@ -31,6 +31,7 @@ class DnsRecordArgs:
 
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input['DnsRecordEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['DnsRecordGatewayArgs'] gateway: The gateway to which this belongs.
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
         """
         pulumi.set(__self__, "domain", domain)
@@ -68,6 +69,9 @@ class DnsRecordArgs:
     @_builtins.property
     @pulumi.getter
     def gateway(self) -> pulumi.Input['DnsRecordGatewayArgs']:
+        """
+        The gateway to which this belongs.
+        """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
@@ -110,6 +114,7 @@ class _DnsRecordState:
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input['DnsRecordEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['DnsRecordGatewayArgs'] gateway: The gateway to which this belongs.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -161,6 +166,9 @@ class _DnsRecordState:
     @_builtins.property
     @pulumi.getter
     def gateway(self) -> pulumi.Input[Optional['DnsRecordGatewayArgs']]:
+        """
+        The gateway to which this belongs.
+        """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
@@ -235,6 +243,7 @@ class DnsRecord(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']] gateway: The gateway to which this belongs.
         """
         ...
     @overload
@@ -348,6 +357,7 @@ class DnsRecord(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']] gateway: The gateway to which this belongs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -387,10 +397,13 @@ class DnsRecord(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def gateway(self) -> pulumi.Output['outputs.DnsRecordGateway']:
+        """
+        The gateway to which this belongs.
+        """
         return pulumi.get(self, "gateway")
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccessPoint")
-    def private_link_access_point(self) -> pulumi.Output[Optional['outputs.DnsRecordPrivateLinkAccessPoint']]:
+    def private_link_access_point(self) -> pulumi.Output['outputs.DnsRecordPrivateLinkAccessPoint']:
         return pulumi.get(self, "private_link_access_point")
 

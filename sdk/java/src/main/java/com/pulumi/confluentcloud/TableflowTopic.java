@@ -291,6 +291,20 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managedStorages);
     }
     /**
+     * The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * 
+     */
+    @Export(name="metadataColumnNamingScheme", refs={String.class}, tree="[0]")
+    private Output<String> metadataColumnNamingScheme;
+
+    /**
+     * @return The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * 
+     */
+    public Output<String> metadataColumnNamingScheme() {
+        return this.metadataColumnNamingScheme;
+    }
+    /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
      * @deprecated

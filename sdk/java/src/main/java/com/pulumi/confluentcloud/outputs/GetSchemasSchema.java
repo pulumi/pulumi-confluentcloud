@@ -24,7 +24,7 @@ public final class GetSchemasSchema {
      */
     private String schema;
     /**
-     * @return (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+     * @return (Required String) The ID of the Schema, for example: `100003`.
      * 
      */
     private Integer schemaIdentifier;
@@ -60,7 +60,7 @@ public final class GetSchemasSchema {
         return this.schema;
     }
     /**
-     * @return (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+     * @return (Required String) The ID of the Schema, for example: `100003`.
      * 
      */
     public Integer schemaIdentifier() {

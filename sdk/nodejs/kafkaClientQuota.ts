@@ -86,7 +86,7 @@ export class KafkaClientQuota extends pulumi.CustomResource {
     /**
      * The description of the Kafka Client Quota.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Kafka Client Quota.
      */
@@ -95,13 +95,16 @@ export class KafkaClientQuota extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     declare public readonly environment: pulumi.Output<outputs.KafkaClientQuotaEnvironment>;
+    /**
+     * The ID of the Dedicated Kafka cluster where the client quota is applied.
+     */
     declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaClientQuotaKafkaCluster>;
     /**
      * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     declare public readonly principals: pulumi.Output<string[]>;
     /**
-     * Block for representing a Kafka Quota.
+     * Throughput for the client quota.
      */
     declare public readonly throughput: pulumi.Output<outputs.KafkaClientQuotaThroughput>;
 
@@ -169,13 +172,16 @@ export interface KafkaClientQuotaState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.KafkaClientQuotaEnvironment | undefined>;
+    /**
+     * The ID of the Dedicated Kafka cluster where the client quota is applied.
+     */
     kafkaCluster?: pulumi.Input<inputs.KafkaClientQuotaKafkaCluster | undefined>;
     /**
      * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Block for representing a Kafka Quota.
+     * Throughput for the client quota.
      */
     throughput?: pulumi.Input<inputs.KafkaClientQuotaThroughput | undefined>;
 }
@@ -196,13 +202,16 @@ export interface KafkaClientQuotaArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.KafkaClientQuotaEnvironment>;
+    /**
+     * The ID of the Dedicated Kafka cluster where the client quota is applied.
+     */
     kafkaCluster: pulumi.Input<inputs.KafkaClientQuotaKafkaCluster>;
     /**
      * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     principals: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Block for representing a Kafka Quota.
+     * Throughput for the client quota.
      */
     throughput: pulumi.Input<inputs.KafkaClientQuotaThroughput>;
 }

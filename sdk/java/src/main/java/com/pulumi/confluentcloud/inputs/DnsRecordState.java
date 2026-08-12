@@ -63,9 +63,17 @@ public final class DnsRecordState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * The gateway to which this belongs.
+     * 
+     */
     @Import(name="gateway")
     private @Nullable Output<DnsRecordGatewayArgs> gateway;
 
+    /**
+     * @return The gateway to which this belongs.
+     * 
+     */
     public Optional<Output<DnsRecordGatewayArgs>> gateway() {
         return Optional.ofNullable(this.gateway);
     }
@@ -168,11 +176,23 @@ public final class DnsRecordState extends com.pulumi.resources.ResourceArgs {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param gateway The gateway to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateway(@Nullable Output<DnsRecordGatewayArgs> gateway) {
             $.gateway = gateway;
             return this;
         }
 
+        /**
+         * @param gateway The gateway to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateway(DnsRecordGatewayArgs gateway) {
             return gateway(Output.of(gateway));
         }

@@ -76,7 +76,7 @@ namespace Pulumi.ConfluentCloud
         /// The description of the Kafka Client Quota.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Kafka Client Quota.
@@ -90,6 +90,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.KafkaClientQuotaEnvironment> Environment { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Dedicated Kafka cluster where the client quota is applied.
+        /// </summary>
         [Output("kafkaCluster")]
         public Output<Outputs.KafkaClientQuotaKafkaCluster> KafkaCluster { get; private set; } = null!;
 
@@ -100,7 +103,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
         /// <summary>
-        /// Block for representing a Kafka Quota.
+        /// Throughput for the client quota.
         /// </summary>
         [Output("throughput")]
         public Output<Outputs.KafkaClientQuotaThroughput> Throughput { get; private set; } = null!;
@@ -169,6 +172,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.KafkaClientQuotaEnvironmentArgs> Environment { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Dedicated Kafka cluster where the client quota is applied.
+        /// </summary>
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.KafkaClientQuotaKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
@@ -185,7 +191,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// Block for representing a Kafka Quota.
+        /// Throughput for the client quota.
         /// </summary>
         [Input("throughput", required: true)]
         public Input<Inputs.KafkaClientQuotaThroughputArgs> Throughput { get; set; } = null!;
@@ -216,6 +222,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment")]
         public Input<Inputs.KafkaClientQuotaEnvironmentGetArgs>? Environment { get; set; }
 
+        /// <summary>
+        /// The ID of the Dedicated Kafka cluster where the client quota is applied.
+        /// </summary>
         [Input("kafkaCluster")]
         public Input<Inputs.KafkaClientQuotaKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
@@ -232,7 +241,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// Block for representing a Kafka Quota.
+        /// Throughput for the client quota.
         /// </summary>
         [Input("throughput")]
         public Input<Inputs.KafkaClientQuotaThroughputGetArgs>? Throughput { get; set; }

@@ -31,6 +31,7 @@ class NetworkLinkEndpointArgs:
 
         :param pulumi.Input['NetworkLinkEndpointEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['NetworkLinkEndpointNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs'] network_link_service: The network_link_service to which this belongs.
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Endpoint.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Endpoint.
         """
@@ -69,6 +70,9 @@ class NetworkLinkEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="networkLinkService")
     def network_link_service(self) -> pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs']:
+        """
+        The network_link_service to which this belongs.
+        """
         return pulumi.get(self, "network_link_service")
 
     @network_link_service.setter
@@ -116,6 +120,7 @@ class _NetworkLinkEndpointState:
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Endpoint.
         :param pulumi.Input['NetworkLinkEndpointEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['NetworkLinkEndpointNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs'] network_link_service: The network_link_service to which this belongs.
         :param pulumi.Input[_builtins.str] resource_name: (Required String) The Confluent Resource Name of the Network Link Endpoint.
         """
         if description is not None:
@@ -182,6 +187,9 @@ class _NetworkLinkEndpointState:
     @_builtins.property
     @pulumi.getter(name="networkLinkService")
     def network_link_service(self) -> pulumi.Input[Optional['NetworkLinkEndpointNetworkLinkServiceArgs']]:
+        """
+        The network_link_service to which this belongs.
+        """
         return pulumi.get(self, "network_link_service")
 
     @network_link_service.setter
@@ -267,6 +275,7 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Endpoint.
         :param pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']] network_link_service: The network_link_service to which this belongs.
         """
         ...
     @overload
@@ -390,6 +399,7 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Endpoint.
         :param pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']] network_link_service: The network_link_service to which this belongs.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Network Link Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -439,6 +449,9 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="networkLinkService")
     def network_link_service(self) -> pulumi.Output['outputs.NetworkLinkEndpointNetworkLinkService']:
+        """
+        The network_link_service to which this belongs.
+        """
         return pulumi.get(self, "network_link_service")
 
     @_builtins.property

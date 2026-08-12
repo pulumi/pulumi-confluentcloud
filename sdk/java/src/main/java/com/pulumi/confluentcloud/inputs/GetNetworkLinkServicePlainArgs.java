@@ -3,7 +3,6 @@
 
 package com.pulumi.confluentcloud.inputs;
 
-import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceAccept;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironment;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,21 +15,6 @@ import javax.annotation.Nullable;
 public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNetworkLinkServicePlainArgs Empty = new GetNetworkLinkServicePlainArgs();
-
-    /**
-     * (Optional Configuration Block) supports the following:
-     * 
-     */
-    @Import(name="accept")
-    private @Nullable GetNetworkLinkServiceAccept accept;
-
-    /**
-     * @return (Optional Configuration Block) supports the following:
-     * 
-     */
-    public Optional<GetNetworkLinkServiceAccept> accept() {
-        return Optional.ofNullable(this.accept);
-    }
 
     /**
      * The Display Name of the Network Link Service, for example, `DR Link`
@@ -72,7 +56,6 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
     private GetNetworkLinkServicePlainArgs() {}
 
     private GetNetworkLinkServicePlainArgs(GetNetworkLinkServicePlainArgs $) {
-        this.accept = $.accept;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.id = $.id;
@@ -94,17 +77,6 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
 
         public Builder(GetNetworkLinkServicePlainArgs defaults) {
             $ = new GetNetworkLinkServicePlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param accept (Optional Configuration Block) supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accept(@Nullable GetNetworkLinkServiceAccept accept) {
-            $.accept = accept;
-            return this;
         }
 
         /**

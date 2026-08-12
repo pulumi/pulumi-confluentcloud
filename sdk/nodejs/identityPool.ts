@@ -122,7 +122,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     declare public readonly identityClaim: pulumi.Output<string>;
     /**
-     * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * The identity provider that the resource belongs to.
      */
     declare public readonly identityProvider: pulumi.Output<outputs.IdentityPoolIdentityProvider>;
 
@@ -193,7 +193,7 @@ export interface IdentityPoolState {
      */
     identityClaim?: pulumi.Input<string | undefined>;
     /**
-     * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * The identity provider that the resource belongs to.
      */
     identityProvider?: pulumi.Input<inputs.IdentityPoolIdentityProvider | undefined>;
 }
@@ -219,7 +219,7 @@ export interface IdentityPoolArgs {
      */
     identityClaim: pulumi.Input<string>;
     /**
-     * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * The identity provider that the resource belongs to.
      */
     identityProvider: pulumi.Input<inputs.IdentityPoolIdentityProvider>;
 }

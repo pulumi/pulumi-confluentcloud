@@ -76,14 +76,14 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * The identity provider that the resource belongs to.
      * 
      */
     @Import(name="identityProvider", required=true)
     private Output<IdentityPoolIdentityProviderArgs> identityProvider;
 
     /**
-     * @return Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * @return The identity provider that the resource belongs to.
      * 
      */
     public Output<IdentityPoolIdentityProviderArgs> identityProvider() {
@@ -203,7 +203,7 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+         * @param identityProvider The identity provider that the resource belongs to.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+         * @param identityProvider The identity provider that the resource belongs to.
          * 
          * @return builder
          * 

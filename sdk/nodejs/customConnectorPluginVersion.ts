@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
- * `confluentcloud.CustomConnectorPlugin` provides a Custom Connector Plugin resource that enables creating and deleting Custom Connector Plugin Versions on Confluent Cloud.
+ * `confluentcloud.CustomConnectorPluginVersion` provides a Custom Connector Plugin Version resource that enables creating and deleting Custom Connector Plugin Versions on Confluent Cloud.
  *
  * > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Custom Connector Plugin Version deletion. This setting rejects plans that would destroy or recreate the Custom Connector Plugin Version, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
  *

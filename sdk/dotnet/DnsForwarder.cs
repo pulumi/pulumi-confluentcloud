@@ -91,14 +91,11 @@ namespace Pulumi.ConfluentCloud
     ///         {
     ///             Id = mainConfluentNetwork.Gateway[0].Id,
     ///         },
-    ///         ForwardViaGcpZones = new[]
+    ///         ForwardViaGcpDnsZones = new ConfluentCloud.Inputs.DnsForwarderForwardViaGcpDnsZonesArgs
     ///         {
-    ///             
+    ///             DomainMappings = 
     ///             {
-    ///                 { "domainMappings", 
-    ///                 {
-    ///                     { "example.com", "zone-1,project-1" },
-    ///                 } },
+    ///                 { "example.com", "zone-1,project-1" },
     ///             },
     ///         },
     ///     });

@@ -598,7 +598,7 @@ export interface DnsForwarderForwardViaGcpDnsZones {
     /**
      * List of Maps which contains the domain to zone and project mapping.
      *
-     * > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     * > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      *
      * > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      */
@@ -2079,28 +2079,6 @@ export interface GetNetworkLinkEndpointEnvironmentArgs {
      * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
-}
-
-export interface GetNetworkLinkServiceAccept {
-    /**
-     * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-     */
-    environments?: string[];
-    /**
-     * (Optional List of Strings) List of network ids from which connections can be accepted.
-     */
-    networks?: string[];
-}
-
-export interface GetNetworkLinkServiceAcceptArgs {
-    /**
-     * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-     */
-    environments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * (Optional List of Strings) List of network ids from which connections can be accepted.
-     */
-    networks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetNetworkLinkServiceEnvironment {

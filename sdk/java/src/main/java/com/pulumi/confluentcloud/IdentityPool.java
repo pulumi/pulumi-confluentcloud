@@ -197,14 +197,14 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
         return this.identityClaim;
     }
     /**
-     * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * The identity provider that the resource belongs to.
      * 
      */
     @Export(name="identityProvider", refs={IdentityPoolIdentityProvider.class}, tree="[0]")
     private Output<IdentityPoolIdentityProvider> identityProvider;
 
     /**
-     * @return Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+     * @return The identity provider that the resource belongs to.
      * 
      */
     public Output<IdentityPoolIdentityProvider> identityProvider() {

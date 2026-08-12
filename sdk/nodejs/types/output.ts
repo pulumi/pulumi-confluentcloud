@@ -598,7 +598,7 @@ export interface DnsForwarderForwardViaGcpDnsZones {
     /**
      * List of Maps which contains the domain to zone and project mapping.
      *
-     * > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     * > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      *
      * > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      */
@@ -3300,7 +3300,7 @@ export interface GetSchemasSchema {
      */
     schema: string;
     /**
-     * (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+     * (Required String) The ID of the Schema, for example: `100003`.
      */
     schemaIdentifier: number;
     /**

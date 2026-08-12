@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -133,17 +132,25 @@ public class DnsRecord extends com.pulumi.resources.CustomResource {
     public Output<DnsRecordEnvironment> environment() {
         return this.environment;
     }
+    /**
+     * The gateway to which this belongs.
+     * 
+     */
     @Export(name="gateway", refs={DnsRecordGateway.class}, tree="[0]")
     private Output<DnsRecordGateway> gateway;
 
+    /**
+     * @return The gateway to which this belongs.
+     * 
+     */
     public Output<DnsRecordGateway> gateway() {
         return this.gateway;
     }
     @Export(name="privateLinkAccessPoint", refs={DnsRecordPrivateLinkAccessPoint.class}, tree="[0]")
-    private Output</* @Nullable */ DnsRecordPrivateLinkAccessPoint> privateLinkAccessPoint;
+    private Output<DnsRecordPrivateLinkAccessPoint> privateLinkAccessPoint;
 
-    public Output<Optional<DnsRecordPrivateLinkAccessPoint>> privateLinkAccessPoint() {
-        return Codegen.optional(this.privateLinkAccessPoint);
+    public Output<DnsRecordPrivateLinkAccessPoint> privateLinkAccessPoint() {
+        return this.privateLinkAccessPoint;
     }
 
     /**

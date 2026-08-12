@@ -13,7 +13,7 @@ import (
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
-// `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+// `SubjectConfig` describes a Subject Config data source.
 //
 // ## Example Usage
 //
@@ -24,32 +24,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluent/sdk/go/confluent"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]interface{}{
-//				"schemaRegistryCluster": []map[string]interface{}{
-//					map[string]interface{}{
-//						"id": essentials.Id,
-//					},
+//			example, err := confluentcloud.GetSubjectConfig(ctx, &confluentcloud.LookupSubjectConfigArgs{
+//				SchemaRegistryCluster: confluentcloud.GetSubjectConfigSchemaRegistryCluster{
+//					Id: essentials.Id,
 //				},
-//				"restEndpoint": essentials.RestEndpoint,
-//				"subjectName":  "proto-purchase-value",
-//				"credentials": []map[string]string{
-//					{
-//						"key":    "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
-//						"secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
-//					},
+//				RestEndpoint: pulumi.StringRef(essentials.RestEndpoint),
+//				SubjectName:  "proto-purchase-value",
+//				Credentials: confluentcloud.GetSubjectConfigCredentials{
+//					Key:    "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+//					Secret: "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
 //				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("compatibilityLevel", pulumi.Any(example.CompatibilityLevel))
+//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
 //			return nil
 //		})
 //	}
@@ -63,20 +59,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluent/sdk/go/confluent"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]string{
-//				"subjectName": "proto-purchase-value",
+//			example, err := confluentcloud.GetSubjectConfig(ctx, &confluentcloud.LookupSubjectConfigArgs{
+//				SubjectName: "proto-purchase-value",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("compatibilityLevel", pulumi.Any(example.CompatibilityLevel))
+//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
 //			return nil
 //		})
 //	}

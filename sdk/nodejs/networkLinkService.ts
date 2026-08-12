@@ -102,6 +102,9 @@ export class NetworkLinkService extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkLinkService.__pulumiType;
     }
 
+    /**
+     * Network Link Service Accept policy
+     */
     declare public readonly accept: pulumi.Output<outputs.NetworkLinkServiceAccept>;
     /**
      * The description of the Network Link Service.
@@ -167,6 +170,9 @@ export class NetworkLinkService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkLinkService resources.
  */
 export interface NetworkLinkServiceState {
+    /**
+     * Network Link Service Accept policy
+     */
     accept?: pulumi.Input<inputs.NetworkLinkServiceAccept | undefined>;
     /**
      * The description of the Network Link Service.
@@ -194,6 +200,9 @@ export interface NetworkLinkServiceState {
  * The set of arguments for constructing a NetworkLinkService resource.
  */
 export interface NetworkLinkServiceArgs {
+    /**
+     * Network Link Service Accept policy
+     */
     accept?: pulumi.Input<inputs.NetworkLinkServiceAccept | undefined>;
     /**
      * The description of the Network Link Service.

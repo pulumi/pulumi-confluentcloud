@@ -128,7 +128,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> IdentityClaim { get; private set; } = null!;
 
         /// <summary>
-        /// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        /// The identity provider that the resource belongs to.
         /// </summary>
         [Output("identityProvider")]
         public Output<Outputs.IdentityPoolIdentityProvider> IdentityProvider { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> IdentityClaim { get; set; } = null!;
 
         /// <summary>
-        /// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        /// The identity provider that the resource belongs to.
         /// </summary>
         [Input("identityProvider", required: true)]
         public Input<Inputs.IdentityPoolIdentityProviderArgs> IdentityProvider { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? IdentityClaim { get; set; }
 
         /// <summary>
-        /// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        /// The identity provider that the resource belongs to.
         /// </summary>
         [Input("identityProvider")]
         public Input<Inputs.IdentityPoolIdentityProviderGetArgs>? IdentityProvider { get; set; }

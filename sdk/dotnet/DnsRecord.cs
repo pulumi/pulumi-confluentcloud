@@ -85,11 +85,14 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.DnsRecordEnvironment> Environment { get; private set; } = null!;
 
+        /// <summary>
+        /// The gateway to which this belongs.
+        /// </summary>
         [Output("gateway")]
         public Output<Outputs.DnsRecordGateway> Gateway { get; private set; } = null!;
 
         [Output("privateLinkAccessPoint")]
-        public Output<Outputs.DnsRecordPrivateLinkAccessPoint?> PrivateLinkAccessPoint { get; private set; } = null!;
+        public Output<Outputs.DnsRecordPrivateLinkAccessPoint> PrivateLinkAccessPoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -155,6 +158,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.DnsRecordEnvironmentArgs> Environment { get; set; } = null!;
 
+        /// <summary>
+        /// The gateway to which this belongs.
+        /// </summary>
         [Input("gateway", required: true)]
         public Input<Inputs.DnsRecordGatewayArgs> Gateway { get; set; } = null!;
 
@@ -187,6 +193,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment")]
         public Input<Inputs.DnsRecordEnvironmentGetArgs>? Environment { get; set; }
 
+        /// <summary>
+        /// The gateway to which this belongs.
+        /// </summary>
         [Input("gateway")]
         public Input<Inputs.DnsRecordGatewayGetArgs>? Gateway { get; set; }
 

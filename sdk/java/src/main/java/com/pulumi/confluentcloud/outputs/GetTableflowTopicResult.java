@@ -66,6 +66,11 @@ public final class GetTableflowTopicResult {
      */
     private List<GetTableflowTopicManagedStorage> managedStorages;
     /**
+     * @return (Optional String) The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * 
+     */
+    private String metadataColumnNamingScheme;
+    /**
      * @return (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
      */
@@ -166,6 +171,13 @@ public final class GetTableflowTopicResult {
         return this.managedStorages;
     }
     /**
+     * @return (Optional String) The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * 
+     */
+    public String metadataColumnNamingScheme() {
+        return this.metadataColumnNamingScheme;
+    }
+    /**
      * @return (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
      */
@@ -229,6 +241,7 @@ public final class GetTableflowTopicResult {
         private String id;
         private GetTableflowTopicKafkaCluster kafkaCluster;
         private List<GetTableflowTopicManagedStorage> managedStorages;
+        private String metadataColumnNamingScheme;
         private String recordFailureStrategy;
         private String retentionMs;
         private Boolean suspended;
@@ -250,6 +263,7 @@ public final class GetTableflowTopicResult {
     	      this.id = defaults.id;
     	      this.kafkaCluster = defaults.kafkaCluster;
     	      this.managedStorages = defaults.managedStorages;
+    	      this.metadataColumnNamingScheme = defaults.metadataColumnNamingScheme;
     	      this.recordFailureStrategy = defaults.recordFailureStrategy;
     	      this.retentionMs = defaults.retentionMs;
     	      this.suspended = defaults.suspended;
@@ -365,6 +379,14 @@ public final class GetTableflowTopicResult {
             return managedStorages(List.of(managedStorages));
         }
         @CustomType.Setter
+        public Builder metadataColumnNamingScheme(String metadataColumnNamingScheme) {
+            if (metadataColumnNamingScheme == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "metadataColumnNamingScheme");
+            }
+            this.metadataColumnNamingScheme = metadataColumnNamingScheme;
+            return this;
+        }
+        @CustomType.Setter
         public Builder recordFailureStrategy(String recordFailureStrategy) {
             if (recordFailureStrategy == null) {
               throw new MissingRequiredPropertyException("GetTableflowTopicResult", "recordFailureStrategy");
@@ -429,6 +451,7 @@ public final class GetTableflowTopicResult {
             _resultValue.id = id;
             _resultValue.kafkaCluster = kafkaCluster;
             _resultValue.managedStorages = managedStorages;
+            _resultValue.metadataColumnNamingScheme = metadataColumnNamingScheme;
             _resultValue.recordFailureStrategy = recordFailureStrategy;
             _resultValue.retentionMs = retentionMs;
             _resultValue.suspended = suspended;

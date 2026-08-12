@@ -501,8 +501,6 @@ __all__ = [
     'GetNetworkGcpArgsDict',
     'GetNetworkLinkEndpointEnvironmentArgs',
     'GetNetworkLinkEndpointEnvironmentArgsDict',
-    'GetNetworkLinkServiceAcceptArgs',
-    'GetNetworkLinkServiceAcceptArgsDict',
     'GetNetworkLinkServiceEnvironmentArgs',
     'GetNetworkLinkServiceEnvironmentArgsDict',
     'GetPeeringEnvironmentArgs',
@@ -3185,7 +3183,7 @@ class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
     """
     List of Maps which contains the domain to zone and project mapping.
 
-    > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+    > **Note:** The `forward_via_gcp_dns_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
 
     > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
     """
@@ -3197,7 +3195,7 @@ class DnsForwarderForwardViaGcpDnsZonesArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] domain_mappings: List of Maps which contains the domain to zone and project mapping.
                
-               > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+               > **Note:** The `forward_via_gcp_dns_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
                
                > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
         """
@@ -3210,7 +3208,7 @@ class DnsForwarderForwardViaGcpDnsZonesArgs:
         """
         List of Maps which contains the domain to zone and project mapping.
 
-        > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+        > **Note:** The `forward_via_gcp_dns_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
 
         > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
         """
@@ -12094,53 +12092,6 @@ class GetNetworkLinkEndpointEnvironmentArgs:
     @id.setter
     def id(self, value: _builtins.str):
         pulumi.set(self, "id", value)
-
-
-class GetNetworkLinkServiceAcceptArgsDict(TypedDict):
-    environments: Sequence[_builtins.str]
-    """
-    (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-    """
-    networks: Sequence[_builtins.str]
-    """
-    (Optional List of Strings) List of network ids from which connections can be accepted.
-    """
-
-@pulumi.input_type
-class GetNetworkLinkServiceAcceptArgs:
-    def __init__(__self__, *,
-                 environments: Sequence[_builtins.str],
-                 networks: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] environments: (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-        :param Sequence[_builtins.str] networks: (Optional List of Strings) List of network ids from which connections can be accepted.
-        """
-        pulumi.set(__self__, "environments", environments)
-        pulumi.set(__self__, "networks", networks)
-
-    @_builtins.property
-    @pulumi.getter
-    def environments(self) -> Sequence[_builtins.str]:
-        """
-        (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-        """
-        return pulumi.get(self, "environments")
-
-    @environments.setter
-    def environments(self, value: Sequence[_builtins.str]):
-        pulumi.set(self, "environments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def networks(self) -> Sequence[_builtins.str]:
-        """
-        (Optional List of Strings) List of network ids from which connections can be accepted.
-        """
-        return pulumi.get(self, "networks")
-
-    @networks.setter
-    def networks(self, value: Sequence[_builtins.str]):
-        pulumi.set(self, "networks", value)
 
 
 class GetNetworkLinkServiceEnvironmentArgsDict(TypedDict):

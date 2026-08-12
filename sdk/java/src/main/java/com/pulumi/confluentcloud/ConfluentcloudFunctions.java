@@ -10359,8 +10359,6 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
-     * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
@@ -10416,8 +10414,6 @@ public final class ConfluentcloudFunctions {
         return getKsqlCluster(args, InvokeOptions.Empty);
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
-     * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
@@ -10473,8 +10469,6 @@ public final class ConfluentcloudFunctions {
         return getKsqlClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
-     * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
@@ -10530,8 +10524,6 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
-     * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
@@ -10587,8 +10579,6 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
-     * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
@@ -16068,6 +16058,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
      * 
+     * &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you&#39;re provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -16077,6 +16069,9 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
@@ -16093,10 +16088,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // If the environment (and its Schema Registry cluster) is provisioned in the
+     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // ensures the Schema Registry cluster has finished provisioning before the
+     *         // data source is queried, even though the environment.id reference below
+     *         // already creates an implicit ordering dependency.
+     *         var staging = new Environment("staging", EnvironmentArgs.builder()
+     *             .displayName("staging")
+     *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+     *                 .package_("ESSENTIALS")
+     *                 .build())
+     *             .build());
+     * 
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id("env-xyz456")
+     *                 .id(staging.id())
      *                 .build())
      *             .build());
      * 
@@ -16131,6 +16138,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
      * 
+     * &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you&#39;re provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -16140,6 +16149,9 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
@@ -16156,10 +16168,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // If the environment (and its Schema Registry cluster) is provisioned in the
+     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // ensures the Schema Registry cluster has finished provisioning before the
+     *         // data source is queried, even though the environment.id reference below
+     *         // already creates an implicit ordering dependency.
+     *         var staging = new Environment("staging", EnvironmentArgs.builder()
+     *             .displayName("staging")
+     *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+     *                 .package_("ESSENTIALS")
+     *                 .build())
+     *             .build());
+     * 
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id("env-xyz456")
+     *                 .id(staging.id())
      *                 .build())
      *             .build());
      * 
@@ -16194,6 +16218,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
      * 
+     * &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you&#39;re provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -16203,6 +16229,9 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
@@ -16219,10 +16248,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // If the environment (and its Schema Registry cluster) is provisioned in the
+     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // ensures the Schema Registry cluster has finished provisioning before the
+     *         // data source is queried, even though the environment.id reference below
+     *         // already creates an implicit ordering dependency.
+     *         var staging = new Environment("staging", EnvironmentArgs.builder()
+     *             .displayName("staging")
+     *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+     *                 .package_("ESSENTIALS")
+     *                 .build())
+     *             .build());
+     * 
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id("env-xyz456")
+     *                 .id(staging.id())
      *                 .build())
      *             .build());
      * 
@@ -16257,6 +16298,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
      * 
+     * &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you&#39;re provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -16266,6 +16309,9 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
@@ -16282,10 +16328,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // If the environment (and its Schema Registry cluster) is provisioned in the
+     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // ensures the Schema Registry cluster has finished provisioning before the
+     *         // data source is queried, even though the environment.id reference below
+     *         // already creates an implicit ordering dependency.
+     *         var staging = new Environment("staging", EnvironmentArgs.builder()
+     *             .displayName("staging")
+     *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+     *                 .package_("ESSENTIALS")
+     *                 .build())
+     *             .build());
+     * 
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id("env-xyz456")
+     *                 .id(staging.id())
      *                 .build())
      *             .build());
      * 
@@ -16320,6 +16378,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
      * 
+     * &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you&#39;re provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -16329,6 +16389,9 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
      * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
@@ -16345,10 +16408,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // If the environment (and its Schema Registry cluster) is provisioned in the
+     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // ensures the Schema Registry cluster has finished provisioning before the
+     *         // data source is queried, even though the environment.id reference below
+     *         // already creates an implicit ordering dependency.
+     *         var staging = new Environment("staging", EnvironmentArgs.builder()
+     *             .displayName("staging")
+     *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+     *                 .package_("ESSENTIALS")
+     *                 .build())
+     *             .build());
+     * 
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id("env-xyz456")
+     *                 .id(staging.id())
      *                 .build())
      *             .build());
      * 
@@ -19858,7 +19933,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+     * `confluentcloud.SubjectConfig` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -19871,7 +19946,10 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigCredentialsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -19885,15 +19963,17 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
-     *             Map.entry("restEndpoint", essentials.restEndpoint()),
-     *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
-     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
-     *             )))
-     *         ));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
+     *                 .secret("<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *                 .build())
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -19910,7 +19990,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -19924,7 +20005,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -19939,7 +20022,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+     * `confluentcloud.SubjectConfig` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -19952,7 +20035,10 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigCredentialsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -19966,15 +20052,17 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
-     *             Map.entry("restEndpoint", essentials.restEndpoint()),
-     *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
-     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
-     *             )))
-     *         ));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
+     *                 .secret("<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *                 .build())
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -19991,7 +20079,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20005,7 +20094,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20020,7 +20111,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+     * `confluentcloud.SubjectConfig` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -20033,7 +20124,10 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigCredentialsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20047,15 +20141,17 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
-     *             Map.entry("restEndpoint", essentials.restEndpoint()),
-     *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
-     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
-     *             )))
-     *         ));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
+     *                 .secret("<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *                 .build())
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20072,7 +20168,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20086,7 +20183,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20101,7 +20200,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+     * `confluentcloud.SubjectConfig` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -20114,7 +20213,10 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigCredentialsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20128,15 +20230,17 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
-     *             Map.entry("restEndpoint", essentials.restEndpoint()),
-     *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
-     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
-     *             )))
-     *         ));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
+     *                 .secret("<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *                 .build())
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20153,7 +20257,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20167,7 +20272,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20182,7 +20289,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
+     * `confluentcloud.SubjectConfig` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -20195,7 +20302,10 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigCredentialsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20209,15 +20319,17 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
-     *             Map.entry("schemaRegistryCluster", Arrays.asList(Map.of("id", essentials.id()))),
-     *             Map.entry("restEndpoint", essentials.restEndpoint()),
-     *             Map.entry("subjectName", "proto-purchase-value"),
-     *             Map.entry("credentials", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
-     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
-     *             )))
-     *         ));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
+     *                 .secret("<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *                 .build())
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
@@ -20234,7 +20346,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.confluent.ConfluentFunctions;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20248,7 +20361,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
      * 
      *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }

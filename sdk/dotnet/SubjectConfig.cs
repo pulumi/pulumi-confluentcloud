@@ -28,13 +28,21 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var essentials = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+    ///         {
+    ///             Id = "env-xyz456",
+    ///         },
+    ///     });
+    /// 
     ///     var example = new ConfluentCloud.SubjectConfig("example", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectConfigSchemaRegistryClusterArgs
     ///         {
-    ///             Id = essentials.Id,
+    ///             Id = essentials.Apply(getSchemaRegistryClusterResult =&gt; getSchemaRegistryClusterResult.Id),
     ///         },
-    ///         RestEndpoint = essentialsConfluentSchemaRegistryCluster.RestEndpoint,
+    ///         RestEndpoint = essentials.Apply(getSchemaRegistryClusterResult =&gt; getSchemaRegistryClusterResult.RestEndpoint),
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
     ///         CompatibilityGroup = "abc.cg.version",

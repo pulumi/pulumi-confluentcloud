@@ -121,6 +121,8 @@ type LookupTableflowTopicResult struct {
 	KafkaCluster GetTableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// (Optional Configuration Block) The configuration of the Confluent managed bucket.
 	ManagedStorages []GetTableflowTopicManagedStorage `pulumi:"managedStorages"`
+	// (Optional String) The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme string `pulumi:"metadataColumnNamingScheme"`
 	// (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy string `pulumi:"recordFailureStrategy"`
 	// (Optional String) The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
@@ -228,6 +230,11 @@ func (o LookupTableflowTopicResultOutput) KafkaCluster() GetTableflowTopicKafkaC
 // (Optional Configuration Block) The configuration of the Confluent managed bucket.
 func (o LookupTableflowTopicResultOutput) ManagedStorages() GetTableflowTopicManagedStorageArrayOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicManagedStorage { return v.ManagedStorages }).(GetTableflowTopicManagedStorageArrayOutput)
+}
+
+// (Optional String) The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+func (o LookupTableflowTopicResultOutput) MetadataColumnNamingScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.MetadataColumnNamingScheme }).(pulumi.StringOutput)
 }
 
 // (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.

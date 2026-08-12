@@ -36,6 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+ * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
  * import com.pulumi.confluentcloud.SubjectConfig;
  * import com.pulumi.confluentcloud.SubjectConfigArgs;
  * import com.pulumi.confluentcloud.inputs.SubjectConfigSchemaRegistryClusterArgs;
@@ -53,11 +56,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var essentials = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+ *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+ *                 .id("env-xyz456")
+ *                 .build())
+ *             .build());
+ * 
  *         var example = new SubjectConfig("example", SubjectConfigArgs.builder()
  *             .schemaRegistryCluster(SubjectConfigSchemaRegistryClusterArgs.builder()
  *                 .id(essentials.id())
  *                 .build())
- *             .restEndpoint(essentialsConfluentSchemaRegistryCluster.restEndpoint())
+ *             .restEndpoint(essentials.restEndpoint())
  *             .subjectName("proto-purchase-value")
  *             .compatibilityLevel("BACKWARD")
  *             .compatibilityGroup("abc.cg.version")

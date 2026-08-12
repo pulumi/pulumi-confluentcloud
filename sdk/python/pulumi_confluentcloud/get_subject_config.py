@@ -143,7 +143,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `confluent_subject_compatibility_level` describes a Subject Config data source.
+    `SubjectConfig` describes a Subject Config data source.
 
     ## Example Usage
 
@@ -151,28 +151,28 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
 
     ```python
     import pulumi
-    import pulumi_confluent as confluent
+    import pulumi_confluentcloud as confluentcloud
 
-    example = confluent.subject_compatibility_level(schema_registry_cluster=[{
+    example = confluentcloud.get_subject_config(schema_registry_cluster={
             "id": essentials["id"],
-        }],
+        },
         rest_endpoint=essentials["restEndpoint"],
         subject_name="proto-purchase-value",
-        credentials=[{
+        credentials={
             "key": "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
             "secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
-        }])
-    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+        })
+    pulumi.export("compatibilityLevel", example.compatibility_level)
     ```
 
     ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
 
     ```python
     import pulumi
-    import pulumi_confluent as confluent
+    import pulumi_confluentcloud as confluentcloud
 
-    example = confluent.subject_compatibility_level(subject_name="proto-purchase-value")
-    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    example = confluentcloud.get_subject_config(subject_name="proto-purchase-value")
+    pulumi.export("compatibilityLevel", example.compatibility_level)
     ```
 
 
@@ -205,7 +205,7 @@ def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union[
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `confluent_subject_compatibility_level` describes a Subject Config data source.
+    `SubjectConfig` describes a Subject Config data source.
 
     ## Example Usage
 
@@ -213,28 +213,28 @@ def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union[
 
     ```python
     import pulumi
-    import pulumi_confluent as confluent
+    import pulumi_confluentcloud as confluentcloud
 
-    example = confluent.subject_compatibility_level(schema_registry_cluster=[{
+    example = confluentcloud.get_subject_config(schema_registry_cluster={
             "id": essentials["id"],
-        }],
+        },
         rest_endpoint=essentials["restEndpoint"],
         subject_name="proto-purchase-value",
-        credentials=[{
+        credentials={
             "key": "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
             "secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
-        }])
-    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+        })
+    pulumi.export("compatibilityLevel", example.compatibility_level)
     ```
 
     ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
 
     ```python
     import pulumi
-    import pulumi_confluent as confluent
+    import pulumi_confluentcloud as confluentcloud
 
-    example = confluent.subject_compatibility_level(subject_name="proto-purchase-value")
-    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    example = confluentcloud.get_subject_config(subject_name="proto-purchase-value")
+    pulumi.export("compatibilityLevel", example.compatibility_level)
     ```
 
 

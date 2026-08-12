@@ -16,6 +16,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
         /// 
+        /// &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `StreamGovernance` block configured. If you're provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `DependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -26,12 +28,26 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // If the environment (and its Schema Registry cluster) is provisioned in the
+        ///     // same pulumi up command, add it to the data source's depends_on. This
+        ///     // ensures the Schema Registry cluster has finished provisioning before the
+        ///     // data source is queried, even though the environment.id reference below
+        ///     // already creates an implicit ordering dependency.
+        ///     var staging = new ConfluentCloud.Environment("staging", new()
+        ///     {
+        ///         DisplayName = "staging",
+        ///         StreamGovernance = new ConfluentCloud.Inputs.EnvironmentStreamGovernanceArgs
+        ///         {
+        ///             Package = "ESSENTIALS",
+        ///         },
+        ///     });
+        /// 
         ///     // Loads the only Schema Registry cluster in the target environment
         ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
         ///         {
-        ///             Id = "env-xyz456",
+        ///             Id = staging.Id,
         ///         },
         ///     });
         /// 
@@ -70,6 +86,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
         /// 
+        /// &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `StreamGovernance` block configured. If you're provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `DependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -80,12 +98,26 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // If the environment (and its Schema Registry cluster) is provisioned in the
+        ///     // same pulumi up command, add it to the data source's depends_on. This
+        ///     // ensures the Schema Registry cluster has finished provisioning before the
+        ///     // data source is queried, even though the environment.id reference below
+        ///     // already creates an implicit ordering dependency.
+        ///     var staging = new ConfluentCloud.Environment("staging", new()
+        ///     {
+        ///         DisplayName = "staging",
+        ///         StreamGovernance = new ConfluentCloud.Inputs.EnvironmentStreamGovernanceArgs
+        ///         {
+        ///             Package = "ESSENTIALS",
+        ///         },
+        ///     });
+        /// 
         ///     // Loads the only Schema Registry cluster in the target environment
         ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
         ///         {
-        ///             Id = "env-xyz456",
+        ///             Id = staging.Id,
         ///         },
         ///     });
         /// 
@@ -124,6 +156,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
         /// 
+        /// &gt; **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `StreamGovernance` block configured. If you're provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `DependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -134,12 +168,26 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // If the environment (and its Schema Registry cluster) is provisioned in the
+        ///     // same pulumi up command, add it to the data source's depends_on. This
+        ///     // ensures the Schema Registry cluster has finished provisioning before the
+        ///     // data source is queried, even though the environment.id reference below
+        ///     // already creates an implicit ordering dependency.
+        ///     var staging = new ConfluentCloud.Environment("staging", new()
+        ///     {
+        ///         DisplayName = "staging",
+        ///         StreamGovernance = new ConfluentCloud.Inputs.EnvironmentStreamGovernanceArgs
+        ///         {
+        ///             Package = "ESSENTIALS",
+        ///         },
+        ///     });
+        /// 
         ///     // Loads the only Schema Registry cluster in the target environment
         ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
         ///         {
-        ///             Id = "env-xyz456",
+        ///             Id = staging.Id,
         ///         },
         ///     });
         /// 

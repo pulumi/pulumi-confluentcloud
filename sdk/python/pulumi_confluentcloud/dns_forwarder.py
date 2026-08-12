@@ -267,11 +267,11 @@ class DnsForwarder(pulumi.CustomResource):
             gateway={
                 "id": main_confluent_network["gateway"][0]["id"],
             },
-            forward_via_gcp_zones=[{
-                "domainMappings": {
+            forward_via_gcp_dns_zones={
+                "domain_mappings": {
                     "example.com": "zone-1,project-1",
                 },
-            }])
+            })
         ```
 
         ## Import
@@ -354,11 +354,11 @@ class DnsForwarder(pulumi.CustomResource):
             gateway={
                 "id": main_confluent_network["gateway"][0]["id"],
             },
-            forward_via_gcp_zones=[{
-                "domainMappings": {
+            forward_via_gcp_dns_zones={
+                "domain_mappings": {
                     "example.com": "zone-1,project-1",
                 },
-            }])
+            })
         ```
 
         ## Import

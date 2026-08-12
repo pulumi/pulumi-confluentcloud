@@ -128,7 +128,7 @@ type IdentityPool struct {
 	Filter pulumi.StringOutput `pulumi:"filter"`
 	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
 	IdentityClaim pulumi.StringOutput `pulumi:"identityClaim"`
-	// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+	// The identity provider that the resource belongs to.
 	IdentityProvider IdentityPoolIdentityProviderOutput `pulumi:"identityProvider"`
 }
 
@@ -185,7 +185,7 @@ type identityPoolState struct {
 	Filter *string `pulumi:"filter"`
 	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
 	IdentityClaim *string `pulumi:"identityClaim"`
-	// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+	// The identity provider that the resource belongs to.
 	IdentityProvider *IdentityPoolIdentityProvider `pulumi:"identityProvider"`
 }
 
@@ -198,7 +198,7 @@ type IdentityPoolState struct {
 	Filter pulumi.StringPtrInput
 	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
 	IdentityClaim pulumi.StringPtrInput
-	// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+	// The identity provider that the resource belongs to.
 	IdentityProvider IdentityPoolIdentityProviderPtrInput
 }
 
@@ -215,7 +215,7 @@ type identityPoolArgs struct {
 	Filter string `pulumi:"filter"`
 	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
 	IdentityClaim string `pulumi:"identityClaim"`
-	// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+	// The identity provider that the resource belongs to.
 	IdentityProvider IdentityPoolIdentityProvider `pulumi:"identityProvider"`
 }
 
@@ -229,7 +229,7 @@ type IdentityPoolArgs struct {
 	Filter pulumi.StringInput
 	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
 	IdentityClaim pulumi.StringInput
-	// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+	// The identity provider that the resource belongs to.
 	IdentityProvider IdentityPoolIdentityProviderInput
 }
 
@@ -340,7 +340,7 @@ func (o IdentityPoolOutput) IdentityClaim() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.IdentityClaim }).(pulumi.StringOutput)
 }
 
-// Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+// The identity provider that the resource belongs to.
 func (o IdentityPoolOutput) IdentityProvider() IdentityPoolIdentityProviderOutput {
 	return o.ApplyT(func(v *IdentityPool) IdentityPoolIdentityProviderOutput { return v.IdentityProvider }).(IdentityPoolIdentityProviderOutput)
 }

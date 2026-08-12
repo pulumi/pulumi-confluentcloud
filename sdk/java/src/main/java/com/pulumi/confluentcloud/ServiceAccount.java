@@ -123,14 +123,14 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Must be 64 characters or fewer.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return A human-readable name for the Service Account.
+     * @return A human-readable name for the Service Account. Must be 64 characters or fewer.
      * 
      */
     public Output<String> displayName() {

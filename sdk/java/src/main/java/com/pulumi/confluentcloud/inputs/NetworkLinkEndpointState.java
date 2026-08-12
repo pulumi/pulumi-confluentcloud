@@ -78,9 +78,17 @@ public final class NetworkLinkEndpointState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.network);
     }
 
+    /**
+     * The networkLinkService to which this belongs.
+     * 
+     */
     @Import(name="networkLinkService")
     private @Nullable Output<NetworkLinkEndpointNetworkLinkServiceArgs> networkLinkService;
 
+    /**
+     * @return The networkLinkService to which this belongs.
+     * 
+     */
     public Optional<Output<NetworkLinkEndpointNetworkLinkServiceArgs>> networkLinkService() {
         return Optional.ofNullable(this.networkLinkService);
     }
@@ -213,11 +221,23 @@ public final class NetworkLinkEndpointState extends com.pulumi.resources.Resourc
             return network(Output.of(network));
         }
 
+        /**
+         * @param networkLinkService The networkLinkService to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkLinkService(@Nullable Output<NetworkLinkEndpointNetworkLinkServiceArgs> networkLinkService) {
             $.networkLinkService = networkLinkService;
             return this;
         }
 
+        /**
+         * @param networkLinkService The networkLinkService to which this belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkLinkService(NetworkLinkEndpointNetworkLinkServiceArgs networkLinkService) {
             return networkLinkService(Output.of(networkLinkService));
         }

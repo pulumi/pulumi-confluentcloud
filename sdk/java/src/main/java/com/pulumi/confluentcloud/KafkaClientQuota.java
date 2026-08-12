@@ -15,7 +15,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,14 +98,14 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return The description of the Kafka Client Quota.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * The name of the Kafka Client Quota.
@@ -136,9 +135,17 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
     public Output<KafkaClientQuotaEnvironment> environment() {
         return this.environment;
     }
+    /**
+     * The ID of the Dedicated Kafka cluster where the client quota is applied.
+     * 
+     */
     @Export(name="kafkaCluster", refs={KafkaClientQuotaKafkaCluster.class}, tree="[0]")
     private Output<KafkaClientQuotaKafkaCluster> kafkaCluster;
 
+    /**
+     * @return The ID of the Dedicated Kafka cluster where the client quota is applied.
+     * 
+     */
     public Output<KafkaClientQuotaKafkaCluster> kafkaCluster() {
         return this.kafkaCluster;
     }
@@ -157,14 +164,14 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
         return this.principals;
     }
     /**
-     * Block for representing a Kafka Quota.
+     * Throughput for the client quota.
      * 
      */
     @Export(name="throughput", refs={KafkaClientQuotaThroughput.class}, tree="[0]")
     private Output<KafkaClientQuotaThroughput> throughput;
 
     /**
-     * @return Block for representing a Kafka Quota.
+     * @return Throughput for the client quota.
      * 
      */
     public Output<KafkaClientQuotaThroughput> throughput() {

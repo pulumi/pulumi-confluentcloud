@@ -15,6 +15,8 @@ import (
 //
 // `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
 //
+// > **Warning:** A Schema Registry cluster is provisioned automatically when a `Environment` resource has a `streamGovernance` block configured. If you're provisioning the `Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+//
 // ## Example Usage
 //
 // ```go
@@ -29,15 +31,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Loads the only Schema Registry cluster in the target environment
-//			exampleUsingEnvId, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
-//				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
-//					Id: "env-xyz456",
+//			// If the environment (and its Schema Registry cluster) is provisioned in the
+//			// same pulumi up command, add it to the data source's depends_on. This
+//			// ensures the Schema Registry cluster has finished provisioning before the
+//			// data source is queried, even though the environment.id reference below
+//			// already creates an implicit ordering dependency.
+//			staging, err := confluentcloud.NewEnvironment(ctx, "staging", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("staging"),
+//				StreamGovernance: &confluentcloud.EnvironmentStreamGovernanceArgs{
+//					Package: pulumi.String("ESSENTIALS"),
 //				},
-//			}, nil)
+//			})
 //			if err != nil {
 //				return err
 //			}
+//			// Loads the only Schema Registry cluster in the target environment
+//			exampleUsingEnvId := confluentcloud.GetSchemaRegistryClusterOutput(ctx, confluentcloud.GetSchemaRegistryClusterOutputArgs{
+//				Environment: &confluentcloud.GetSchemaRegistryClusterEnvironmentArgs{
+//					Id: staging.ID().ToIDOutput().ToStringOutput(),
+//				},
+//			}, nil)
 //			ctx.Export("exampleUsingEnvId", exampleUsingEnvId)
 //			exampleUsingId, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
 //				Id: pulumi.StringRef("lsrc-abc123"),

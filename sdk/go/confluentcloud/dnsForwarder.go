@@ -98,11 +98,9 @@ import (
 //				Gateway: &confluentcloud.DnsForwarderGatewayArgs{
 //					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
 //				},
-//				ForwardViaGcpZones: []map[string]map[string]string{
-//					{
-//						"domainMappings": {
-//							"example.com": "zone-1,project-1",
-//						},
+//				ForwardViaGcpDnsZones: &confluentcloud.DnsForwarderForwardViaGcpDnsZonesArgs{
+//					DomainMappings: pulumi.StringMap{
+//						"example.com": pulumi.String("zone-1,project-1"),
 //					},
 //				},
 //			})

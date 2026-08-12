@@ -148,6 +148,10 @@ export class TableflowTopic extends pulumi.CustomResource {
      */
     declare public readonly managedStorages: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
     /**
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     */
+    declare public readonly metadataColumnNamingScheme: pulumi.Output<string>;
+    /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      *
      * @deprecated This attribute is deprecated and will be removed in a future release.
@@ -198,6 +202,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["errorHandling"] = state?.errorHandling;
             resourceInputs["kafkaCluster"] = state?.kafkaCluster;
             resourceInputs["managedStorages"] = state?.managedStorages;
+            resourceInputs["metadataColumnNamingScheme"] = state?.metadataColumnNamingScheme;
             resourceInputs["recordFailureStrategy"] = state?.recordFailureStrategy;
             resourceInputs["retentionMs"] = state?.retentionMs;
             resourceInputs["suspended"] = state?.suspended;
@@ -224,6 +229,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["errorHandling"] = args?.errorHandling;
             resourceInputs["kafkaCluster"] = args?.kafkaCluster;
             resourceInputs["managedStorages"] = args?.managedStorages;
+            resourceInputs["metadataColumnNamingScheme"] = args?.metadataColumnNamingScheme;
             resourceInputs["recordFailureStrategy"] = args?.recordFailureStrategy;
             resourceInputs["retentionMs"] = args?.retentionMs;
             resourceInputs["tableFormats"] = args?.tableFormats;
@@ -282,6 +288,10 @@ export interface TableflowTopicState {
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
+    /**
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     */
+    metadataColumnNamingScheme?: pulumi.Input<string | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      *
@@ -344,6 +354,10 @@ export interface TableflowTopicArgs {
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
+    /**
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     */
+    metadataColumnNamingScheme?: pulumi.Input<string | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      *

@@ -33,7 +33,7 @@ class IdentityPoolArgs:
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: The identity provider that the resource belongs to.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
@@ -93,7 +93,7 @@ class IdentityPoolArgs:
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Input['IdentityPoolIdentityProviderArgs']:
         """
-        Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        The identity provider that the resource belongs to.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -117,7 +117,7 @@ class _IdentityPoolState:
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: The identity provider that the resource belongs to.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -182,7 +182,7 @@ class _IdentityPoolState:
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Input[Optional['IdentityPoolIdentityProviderArgs']]:
         """
-        Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        The identity provider that the resource belongs to.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -277,7 +277,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: The identity provider that the resource belongs to.
         """
         ...
     @overload
@@ -423,7 +423,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: The identity provider that the resource belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -472,7 +472,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Output['outputs.IdentityPoolIdentityProvider']:
         """
-        Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        The identity provider that the resource belongs to.
         """
         return pulumi.get(self, "identity_provider")
 

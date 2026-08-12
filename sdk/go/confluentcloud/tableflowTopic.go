@@ -140,6 +140,8 @@ type TableflowTopic struct {
 	KafkaCluster  TableflowTopicKafkaClusterOutput  `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayOutput `pulumi:"managedStorages"`
+	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme pulumi.StringOutput `pulumi:"metadataColumnNamingScheme"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	//
 	// Deprecated: This attribute is deprecated and will be removed in a future release.
@@ -222,6 +224,8 @@ type tableflowTopicState struct {
 	KafkaCluster  *TableflowTopicKafkaCluster  `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
+	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme *string `pulumi:"metadataColumnNamingScheme"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	//
 	// Deprecated: This attribute is deprecated and will be removed in a future release.
@@ -259,6 +263,8 @@ type TableflowTopicState struct {
 	KafkaCluster  TableflowTopicKafkaClusterPtrInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
+	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme pulumi.StringPtrInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	//
 	// Deprecated: This attribute is deprecated and will be removed in a future release.
@@ -296,6 +302,8 @@ type tableflowTopicArgs struct {
 	KafkaCluster  TableflowTopicKafkaCluster   `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
+	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme *string `pulumi:"metadataColumnNamingScheme"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	//
 	// Deprecated: This attribute is deprecated and will be removed in a future release.
@@ -324,6 +332,8 @@ type TableflowTopicArgs struct {
 	KafkaCluster  TableflowTopicKafkaClusterInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
+	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+	MetadataColumnNamingScheme pulumi.StringPtrInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	//
 	// Deprecated: This attribute is deprecated and will be removed in a future release.
@@ -474,6 +484,11 @@ func (o TableflowTopicOutput) KafkaCluster() TableflowTopicKafkaClusterOutput {
 // The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 func (o TableflowTopicOutput) ManagedStorages() TableflowTopicManagedStorageArrayOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicManagedStorageArrayOutput { return v.ManagedStorages }).(TableflowTopicManagedStorageArrayOutput)
+}
+
+// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+func (o TableflowTopicOutput) MetadataColumnNamingScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.MetadataColumnNamingScheme }).(pulumi.StringOutput)
 }
 
 // The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
