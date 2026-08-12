@@ -119,6 +119,10 @@ export interface GetTableflowTopicResult {
      */
     readonly managedStorages: outputs.GetTableflowTopicManagedStorage[];
     /**
+     * (Optional String) The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     */
+    readonly metadataColumnNamingScheme: string;
+    /**
      * (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      */
     readonly recordFailureStrategy: string;

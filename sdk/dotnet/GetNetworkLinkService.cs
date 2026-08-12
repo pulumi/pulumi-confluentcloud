@@ -118,12 +118,6 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetNetworkLinkServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional Configuration Block) supports the following:
-        /// </summary>
-        [Input("accept")]
-        public Inputs.GetNetworkLinkServiceAcceptArgs? Accept { get; set; }
-
-        /// <summary>
         /// The Display Name of the Network Link Service, for example, `DR Link`
         /// </summary>
         [Input("displayName")]
@@ -146,12 +140,6 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetNetworkLinkServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (Optional Configuration Block) supports the following:
-        /// </summary>
-        [Input("accept")]
-        public Input<Inputs.GetNetworkLinkServiceAcceptInputArgs>? Accept { get; set; }
-
         /// <summary>
         /// The Display Name of the Network Link Service, for example, `DR Link`
         /// </summary>

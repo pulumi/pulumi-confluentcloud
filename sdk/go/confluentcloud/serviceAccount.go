@@ -87,7 +87,7 @@ type ServiceAccount struct {
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
 	// A free-form description of the Service Account.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Must be 64 characters or fewer.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// (Required String) A kind of the Service Account, for example, `ServiceAccount`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -127,7 +127,7 @@ type serviceAccountState struct {
 	ApiVersion *string `pulumi:"apiVersion"`
 	// A free-form description of the Service Account.
 	Description *string `pulumi:"description"`
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Must be 64 characters or fewer.
 	DisplayName *string `pulumi:"displayName"`
 	// (Required String) A kind of the Service Account, for example, `ServiceAccount`.
 	Kind *string `pulumi:"kind"`
@@ -138,7 +138,7 @@ type ServiceAccountState struct {
 	ApiVersion pulumi.StringPtrInput
 	// A free-form description of the Service Account.
 	Description pulumi.StringPtrInput
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Must be 64 characters or fewer.
 	DisplayName pulumi.StringPtrInput
 	// (Required String) A kind of the Service Account, for example, `ServiceAccount`.
 	Kind pulumi.StringPtrInput
@@ -151,7 +151,7 @@ func (ServiceAccountState) ElementType() reflect.Type {
 type serviceAccountArgs struct {
 	// A free-form description of the Service Account.
 	Description *string `pulumi:"description"`
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Must be 64 characters or fewer.
 	DisplayName *string `pulumi:"displayName"`
 }
 
@@ -159,7 +159,7 @@ type serviceAccountArgs struct {
 type ServiceAccountArgs struct {
 	// A free-form description of the Service Account.
 	Description pulumi.StringPtrInput
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Must be 64 characters or fewer.
 	DisplayName pulumi.StringPtrInput
 }
 
@@ -260,7 +260,7 @@ func (o ServiceAccountOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// A human-readable name for the Service Account.
+// A human-readable name for the Service Account. Must be 64 characters or fewer.
 func (o ServiceAccountOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

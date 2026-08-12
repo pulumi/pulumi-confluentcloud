@@ -19,7 +19,7 @@ public final class DnsForwarderForwardViaGcpDnsZonesArgs extends com.pulumi.reso
     /**
      * List of Maps which contains the domain to zone and project mapping.
      * 
-     * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     * &gt; **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      * 
      * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      * 
@@ -30,7 +30,7 @@ public final class DnsForwarderForwardViaGcpDnsZonesArgs extends com.pulumi.reso
     /**
      * @return List of Maps which contains the domain to zone and project mapping.
      * 
-     * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     * &gt; **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      * 
      * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      * 
@@ -66,7 +66,7 @@ public final class DnsForwarderForwardViaGcpDnsZonesArgs extends com.pulumi.reso
         /**
          * @param domainMappings List of Maps which contains the domain to zone and project mapping.
          * 
-         * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+         * &gt; **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
          * 
          * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
          * 
@@ -81,7 +81,7 @@ public final class DnsForwarderForwardViaGcpDnsZonesArgs extends com.pulumi.reso
         /**
          * @param domainMappings List of Maps which contains the domain to zone and project mapping.
          * 
-         * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+         * &gt; **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
          * 
          * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
          * 

@@ -88,7 +88,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A human-readable name for the Service Account.
+        /// A human-readable name for the Service Account. Must be 64 characters or fewer.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A human-readable name for the Service Account.
+        /// A human-readable name for the Service Account. Must be 64 characters or fewer.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A human-readable name for the Service Account.
+        /// A human-readable name for the Service Account. Must be 64 characters or fewer.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

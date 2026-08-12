@@ -34,11 +34,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewSubjectConfig(ctx, "example", &confluentcloud.SubjectConfigArgs{
-//				SchemaRegistryCluster: &confluentcloud.SubjectConfigSchemaRegistryClusterArgs{
-//					Id: pulumi.Any(essentials.Id),
+//			essentials, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
+//				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
+//					Id: "env-xyz456",
 //				},
-//				RestEndpoint:       pulumi.Any(essentialsConfluentSchemaRegistryCluster.RestEndpoint),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewSubjectConfig(ctx, "example", &confluentcloud.SubjectConfigArgs{
+//				SchemaRegistryCluster: &confluentcloud.SubjectConfigSchemaRegistryClusterArgs{
+//					Id: pulumi.String(essentials.Id),
+//				},
+//				RestEndpoint:       pulumi.String(essentials.RestEndpoint),
 //				SubjectName:        pulumi.String("proto-purchase-value"),
 //				CompatibilityLevel: pulumi.String("BACKWARD"),
 //				CompatibilityGroup: pulumi.String("abc.cg.version"),

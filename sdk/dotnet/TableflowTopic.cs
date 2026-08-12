@@ -172,6 +172,12 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<Outputs.TableflowTopicManagedStorage>> ManagedStorages { get; private set; } = null!;
 
         /// <summary>
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// </summary>
+        [Output("metadataColumnNamingScheme")]
+        public Output<string> MetadataColumnNamingScheme { get; private set; } = null!;
+
+        /// <summary>
         /// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         /// </summary>
         [Output("recordFailureStrategy")]
@@ -322,6 +328,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// </summary>
+        [Input("metadataColumnNamingScheme")]
+        public Input<string>? MetadataColumnNamingScheme { get; set; }
+
+        /// <summary>
         /// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         /// </summary>
         [Input("recordFailureStrategy")]
@@ -428,6 +440,12 @@ namespace Pulumi.ConfluentCloud
             get => _managedStorages ?? (_managedStorages = new InputList<Inputs.TableflowTopicManagedStorageGetArgs>());
             set => _managedStorages = value;
         }
+
+        /// <summary>
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// </summary>
+        [Input("metadataColumnNamingScheme")]
+        public Input<string>? MetadataColumnNamingScheme { get; set; }
 
         /// <summary>
         /// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.

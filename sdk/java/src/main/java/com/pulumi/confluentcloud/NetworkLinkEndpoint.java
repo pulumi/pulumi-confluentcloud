@@ -148,9 +148,17 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
     public Output<NetworkLinkEndpointNetwork> network() {
         return this.network;
     }
+    /**
+     * The networkLinkService to which this belongs.
+     * 
+     */
     @Export(name="networkLinkService", refs={NetworkLinkEndpointNetworkLinkService.class}, tree="[0]")
     private Output<NetworkLinkEndpointNetworkLinkService> networkLinkService;
 
+    /**
+     * @return The networkLinkService to which this belongs.
+     * 
+     */
     public Output<NetworkLinkEndpointNetworkLinkService> networkLinkService() {
         return this.networkLinkService;
     }

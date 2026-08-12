@@ -105,6 +105,9 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/networkLinkService:NetworkLinkService")]
     public partial class NetworkLinkService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Network Link Service Accept policy
+        /// </summary>
         [Output("accept")]
         public Output<Outputs.NetworkLinkServiceAccept> Accept { get; private set; } = null!;
 
@@ -184,6 +187,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class NetworkLinkServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Network Link Service Accept policy
+        /// </summary>
         [Input("accept")]
         public Input<Inputs.NetworkLinkServiceAcceptArgs>? Accept { get; set; }
 
@@ -219,6 +225,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class NetworkLinkServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Network Link Service Accept policy
+        /// </summary>
         [Input("accept")]
         public Input<Inputs.NetworkLinkServiceAcceptGetArgs>? Accept { get; set; }
 

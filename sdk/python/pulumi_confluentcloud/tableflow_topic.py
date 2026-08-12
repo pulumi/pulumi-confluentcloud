@@ -30,6 +30,7 @@ class TableflowTopicArgs:
                  data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  error_handling: pulumi.Input[Optional['TableflowTopicErrorHandlingArgs']] = None,
                  managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]] = None,
+                 metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  table_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -43,6 +44,7 @@ class TableflowTopicArgs:
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
@@ -62,6 +64,8 @@ class TableflowTopicArgs:
             pulumi.set(__self__, "error_handling", error_handling)
         if managed_storages is not None:
             pulumi.set(__self__, "managed_storages", managed_storages)
+        if metadata_column_naming_scheme is not None:
+            pulumi.set(__self__, "metadata_column_naming_scheme", metadata_column_naming_scheme)
         if record_failure_strategy is not None:
             warnings.warn("""This attribute is deprecated and will be removed in a future release.""", DeprecationWarning)
             pulumi.log.warn("""record_failure_strategy is deprecated: This attribute is deprecated and will be removed in a future release.""")
@@ -175,6 +179,18 @@ class TableflowTopicArgs:
         pulumi.set(self, "managed_storages", value)
 
     @_builtins.property
+    @pulumi.getter(name="metadataColumnNamingScheme")
+    def metadata_column_naming_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        """
+        return pulumi.get(self, "metadata_column_naming_scheme")
+
+    @metadata_column_naming_scheme.setter
+    def metadata_column_naming_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_column_naming_scheme", value)
+
+    @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
     @_utilities.deprecated("""This attribute is deprecated and will be removed in a future release.""")
     def record_failure_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
@@ -226,6 +242,7 @@ class _TableflowTopicState:
                  error_handling: pulumi.Input[Optional['TableflowTopicErrorHandlingArgs']] = None,
                  kafka_cluster: pulumi.Input[Optional['TableflowTopicKafkaClusterArgs']] = None,
                  managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]] = None,
+                 metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  suspended: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -244,6 +261,7 @@ class _TableflowTopicState:
         :param pulumi.Input[_builtins.bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
         :param pulumi.Input['TableflowTopicEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
@@ -273,6 +291,8 @@ class _TableflowTopicState:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if managed_storages is not None:
             pulumi.set(__self__, "managed_storages", managed_storages)
+        if metadata_column_naming_scheme is not None:
+            pulumi.set(__self__, "metadata_column_naming_scheme", metadata_column_naming_scheme)
         if record_failure_strategy is not None:
             warnings.warn("""This attribute is deprecated and will be removed in a future release.""", DeprecationWarning)
             pulumi.log.warn("""record_failure_strategy is deprecated: This attribute is deprecated and will be removed in a future release.""")
@@ -416,6 +436,18 @@ class _TableflowTopicState:
         pulumi.set(self, "managed_storages", value)
 
     @_builtins.property
+    @pulumi.getter(name="metadataColumnNamingScheme")
+    def metadata_column_naming_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        """
+        return pulumi.get(self, "metadata_column_naming_scheme")
+
+    @metadata_column_naming_scheme.setter
+    def metadata_column_naming_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_column_naming_scheme", value)
+
+    @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
     @_utilities.deprecated("""This attribute is deprecated and will be removed in a future release.""")
     def record_failure_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
@@ -504,6 +536,7 @@ class TableflowTopic(pulumi.CustomResource):
                  error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
                  kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
                  managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+                 metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  table_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -591,6 +624,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
@@ -699,6 +733,7 @@ class TableflowTopic(pulumi.CustomResource):
                  error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
                  kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
                  managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+                 metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  table_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -726,6 +761,7 @@ class TableflowTopic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["managed_storages"] = managed_storages
+            __props__.__dict__["metadata_column_naming_scheme"] = metadata_column_naming_scheme
             __props__.__dict__["record_failure_strategy"] = record_failure_strategy
             __props__.__dict__["retention_ms"] = retention_ms
             __props__.__dict__["table_formats"] = table_formats
@@ -757,6 +793,7 @@ class TableflowTopic(pulumi.CustomResource):
             error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
             kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
             managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+            metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
             record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
             retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
             suspended: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -779,6 +816,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
         :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
@@ -801,6 +839,7 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["error_handling"] = error_handling
         __props__.__dict__["kafka_cluster"] = kafka_cluster
         __props__.__dict__["managed_storages"] = managed_storages
+        __props__.__dict__["metadata_column_naming_scheme"] = metadata_column_naming_scheme
         __props__.__dict__["record_failure_strategy"] = record_failure_strategy
         __props__.__dict__["retention_ms"] = retention_ms
         __props__.__dict__["suspended"] = suspended
@@ -890,6 +929,14 @@ class TableflowTopic(pulumi.CustomResource):
         The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         """
         return pulumi.get(self, "managed_storages")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataColumnNamingScheme")
+    def metadata_column_naming_scheme(self) -> pulumi.Output[_builtins.str]:
+        """
+        The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        """
+        return pulumi.get(self, "metadata_column_naming_scheme")
 
     @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")

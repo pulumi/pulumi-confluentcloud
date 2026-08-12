@@ -97,7 +97,7 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Must be 64 characters or fewer.
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface ServiceAccountState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Must be 64 characters or fewer.
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface ServiceAccountArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Must be 64 characters or fewer.
      */
     displayName?: pulumi.Input<string | undefined>;
 }

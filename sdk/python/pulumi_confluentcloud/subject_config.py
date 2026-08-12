@@ -337,11 +337,14 @@ class SubjectConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
+        essentials = confluentcloud.get_schema_registry_cluster(environment={
+            "id": "env-xyz456",
+        })
         example = confluentcloud.SubjectConfig("example",
             schema_registry_cluster={
-                "id": essentials["id"],
+                "id": essentials.id,
             },
-            rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
+            rest_endpoint=essentials.rest_endpoint,
             subject_name="proto-purchase-value",
             compatibility_level="BACKWARD",
             compatibility_group="abc.cg.version",
@@ -436,11 +439,14 @@ class SubjectConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
+        essentials = confluentcloud.get_schema_registry_cluster(environment={
+            "id": "env-xyz456",
+        })
         example = confluentcloud.SubjectConfig("example",
             schema_registry_cluster={
-                "id": essentials["id"],
+                "id": essentials.id,
             },
-            rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
+            rest_endpoint=essentials.rest_endpoint,
             subject_name="proto-purchase-value",
             compatibility_level="BACKWARD",
             compatibility_group="abc.cg.version",

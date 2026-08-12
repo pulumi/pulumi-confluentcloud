@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
+        /// `confluentcloud.SubjectConfig` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// 
@@ -24,34 +24,28 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
-        ///         SchemaRegistryCluster = new[]
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSubjectConfigSchemaRegistryClusterInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "id", essentials.Id },
-        ///             },
+        ///             Id = essentials.Id,
         ///         },
         ///         RestEndpoint = essentials.RestEndpoint,
         ///         SubjectName = "proto-purchase-value",
-        ///         Credentials = new[]
+        ///         Credentials = new ConfluentCloud.Inputs.GetSubjectConfigCredentialsInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
-        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
-        ///             },
+        ///             Key = "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;",
         ///         },
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```
@@ -62,18 +56,18 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```
@@ -84,7 +78,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
+        /// `confluentcloud.SubjectConfig` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// 
@@ -94,34 +88,28 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
-        ///         SchemaRegistryCluster = new[]
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSubjectConfigSchemaRegistryClusterInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "id", essentials.Id },
-        ///             },
+        ///             Id = essentials.Id,
         ///         },
         ///         RestEndpoint = essentials.RestEndpoint,
         ///         SubjectName = "proto-purchase-value",
-        ///         Credentials = new[]
+        ///         Credentials = new ConfluentCloud.Inputs.GetSubjectConfigCredentialsInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
-        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
-        ///             },
+        ///             Key = "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;",
         ///         },
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```
@@ -132,18 +120,18 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```
@@ -154,7 +142,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
+        /// `confluentcloud.SubjectConfig` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// 
@@ -164,34 +152,28 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
-        ///         SchemaRegistryCluster = new[]
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSubjectConfigSchemaRegistryClusterInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "id", essentials.Id },
-        ///             },
+        ///             Id = essentials.Id,
         ///         },
         ///         RestEndpoint = essentials.RestEndpoint,
         ///         SubjectName = "proto-purchase-value",
-        ///         Credentials = new[]
+        ///         Credentials = new ConfluentCloud.Inputs.GetSubjectConfigCredentialsInputArgs
         ///         {
-        ///             
-        ///             {
-        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
-        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
-        ///             },
+        ///             Key = "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;",
         ///         },
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```
@@ -202,18 +184,18 @@ namespace Pulumi.ConfluentCloud
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Confluent = Pulumi.Confluent;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Confluent.SubjectCompatibilityLevel.Invoke(new()
+        ///     var example = ConfluentCloud.GetSubjectConfig.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///         ["compatibilityLevel"] = example.Apply(getSubjectConfigResult =&gt; getSubjectConfigResult.CompatibilityLevel),
         ///     };
         /// });
         /// ```

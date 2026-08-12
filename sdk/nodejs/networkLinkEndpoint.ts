@@ -98,6 +98,9 @@ export class NetworkLinkEndpoint extends pulumi.CustomResource {
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     declare public readonly network: pulumi.Output<outputs.NetworkLinkEndpointNetwork>;
+    /**
+     * The networkLinkService to which this belongs.
+     */
     declare public readonly networkLinkService: pulumi.Output<outputs.NetworkLinkEndpointNetworkLinkService>;
     /**
      * (Required String) The Confluent Resource Name of the Network Link Endpoint.
@@ -166,6 +169,9 @@ export interface NetworkLinkEndpointState {
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.NetworkLinkEndpointNetwork | undefined>;
+    /**
+     * The networkLinkService to which this belongs.
+     */
     networkLinkService?: pulumi.Input<inputs.NetworkLinkEndpointNetworkLinkService | undefined>;
     /**
      * (Required String) The Confluent Resource Name of the Network Link Endpoint.
@@ -193,5 +199,8 @@ export interface NetworkLinkEndpointArgs {
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network: pulumi.Input<inputs.NetworkLinkEndpointNetwork>;
+    /**
+     * The networkLinkService to which this belongs.
+     */
     networkLinkService: pulumi.Input<inputs.NetworkLinkEndpointNetworkLinkService>;
 }

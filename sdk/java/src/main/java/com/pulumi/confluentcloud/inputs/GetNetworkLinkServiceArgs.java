@@ -3,7 +3,6 @@
 
 package com.pulumi.confluentcloud.inputs;
 
-import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceAcceptArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,21 +16,6 @@ import javax.annotation.Nullable;
 public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNetworkLinkServiceArgs Empty = new GetNetworkLinkServiceArgs();
-
-    /**
-     * (Optional Configuration Block) supports the following:
-     * 
-     */
-    @Import(name="accept")
-    private @Nullable Output<GetNetworkLinkServiceAcceptArgs> accept;
-
-    /**
-     * @return (Optional Configuration Block) supports the following:
-     * 
-     */
-    public Optional<Output<GetNetworkLinkServiceAcceptArgs>> accept() {
-        return Optional.ofNullable(this.accept);
-    }
 
     /**
      * The Display Name of the Network Link Service, for example, `DR Link`
@@ -73,7 +57,6 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
     private GetNetworkLinkServiceArgs() {}
 
     private GetNetworkLinkServiceArgs(GetNetworkLinkServiceArgs $) {
-        this.accept = $.accept;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.id = $.id;
@@ -95,27 +78,6 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
 
         public Builder(GetNetworkLinkServiceArgs defaults) {
             $ = new GetNetworkLinkServiceArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param accept (Optional Configuration Block) supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accept(@Nullable Output<GetNetworkLinkServiceAcceptArgs> accept) {
-            $.accept = accept;
-            return this;
-        }
-
-        /**
-         * @param accept (Optional Configuration Block) supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accept(GetNetworkLinkServiceAcceptArgs accept) {
-            return accept(Output.of(accept));
         }
 
         /**

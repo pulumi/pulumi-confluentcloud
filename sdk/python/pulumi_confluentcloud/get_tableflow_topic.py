@@ -28,7 +28,7 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, data_retention_ms=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, data_retention_ms=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, metadata_column_naming_scheme=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
         if azure_data_lake_storage_gen2s and not isinstance(azure_data_lake_storage_gen2s, list):
             raise TypeError("Expected argument 'azure_data_lake_storage_gen2s' to be a list")
         pulumi.set(__self__, "azure_data_lake_storage_gen2s", azure_data_lake_storage_gen2s)
@@ -65,6 +65,9 @@ class GetTableflowTopicResult:
         if managed_storages and not isinstance(managed_storages, list):
             raise TypeError("Expected argument 'managed_storages' to be a list")
         pulumi.set(__self__, "managed_storages", managed_storages)
+        if metadata_column_naming_scheme and not isinstance(metadata_column_naming_scheme, str):
+            raise TypeError("Expected argument 'metadata_column_naming_scheme' to be a str")
+        pulumi.set(__self__, "metadata_column_naming_scheme", metadata_column_naming_scheme)
         if record_failure_strategy and not isinstance(record_failure_strategy, str):
             raise TypeError("Expected argument 'record_failure_strategy' to be a str")
         pulumi.set(__self__, "record_failure_strategy", record_failure_strategy)
@@ -169,6 +172,14 @@ class GetTableflowTopicResult:
         return pulumi.get(self, "managed_storages")
 
     @_builtins.property
+    @pulumi.getter(name="metadataColumnNamingScheme")
+    def metadata_column_naming_scheme(self) -> _builtins.str:
+        """
+        (Optional String) The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        """
+        return pulumi.get(self, "metadata_column_naming_scheme")
+
+    @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
     def record_failure_strategy(self) -> _builtins.str:
         """
@@ -235,6 +246,7 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
             id=self.id,
             kafka_cluster=self.kafka_cluster,
             managed_storages=self.managed_storages,
+            metadata_column_naming_scheme=self.metadata_column_naming_scheme,
             record_failure_strategy=self.record_failure_strategy,
             retention_ms=self.retention_ms,
             suspended=self.suspended,
@@ -309,6 +321,7 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         id=pulumi.get(__ret__, 'id'),
         kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
         managed_storages=pulumi.get(__ret__, 'managed_storages'),
+        metadata_column_naming_scheme=pulumi.get(__ret__, 'metadata_column_naming_scheme'),
         record_failure_strategy=pulumi.get(__ret__, 'record_failure_strategy'),
         retention_ms=pulumi.get(__ret__, 'retention_ms'),
         suspended=pulumi.get(__ret__, 'suspended'),
@@ -380,6 +393,7 @@ def get_tableflow_topic_output(credentials: pulumi.Input[Optional[Optional[Union
         id=pulumi.get(__response__, 'id'),
         kafka_cluster=pulumi.get(__response__, 'kafka_cluster'),
         managed_storages=pulumi.get(__response__, 'managed_storages'),
+        metadata_column_naming_scheme=pulumi.get(__response__, 'metadata_column_naming_scheme'),
         record_failure_strategy=pulumi.get(__response__, 'record_failure_strategy'),
         retention_ms=pulumi.get(__response__, 'retention_ms'),
         suspended=pulumi.get(__response__, 'suspended'),

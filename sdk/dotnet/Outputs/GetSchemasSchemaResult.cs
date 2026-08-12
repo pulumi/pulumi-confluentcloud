@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string Schema;
         /// <summary>
-        /// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+        /// (Required String) The ID of the Schema, for example: `100003`.
         /// </summary>
         public readonly int SchemaIdentifier;
         /// <summary>

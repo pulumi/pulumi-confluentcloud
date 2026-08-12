@@ -87,8 +87,11 @@ export class DnsRecord extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     declare public readonly environment: pulumi.Output<outputs.DnsRecordEnvironment>;
+    /**
+     * The gateway to which this belongs.
+     */
     declare public readonly gateway: pulumi.Output<outputs.DnsRecordGateway>;
-    declare public readonly privateLinkAccessPoint: pulumi.Output<outputs.DnsRecordPrivateLinkAccessPoint | undefined>;
+    declare public readonly privateLinkAccessPoint: pulumi.Output<outputs.DnsRecordPrivateLinkAccessPoint>;
 
     /**
      * Create a DnsRecord resource with the given unique name, arguments, and options.
@@ -146,6 +149,9 @@ export interface DnsRecordState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.DnsRecordEnvironment | undefined>;
+    /**
+     * The gateway to which this belongs.
+     */
     gateway?: pulumi.Input<inputs.DnsRecordGateway | undefined>;
     privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint | undefined>;
 }
@@ -166,6 +172,9 @@ export interface DnsRecordArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.DnsRecordEnvironment>;
+    /**
+     * The gateway to which this belongs.
+     */
     gateway: pulumi.Input<inputs.DnsRecordGateway>;
     privateLinkAccessPoint?: pulumi.Input<inputs.DnsRecordPrivateLinkAccessPoint | undefined>;
 }

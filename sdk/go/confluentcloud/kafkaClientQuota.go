@@ -78,15 +78,16 @@ type KafkaClientQuota struct {
 	pulumi.CustomResourceState
 
 	// The description of the Kafka Client Quota.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the Kafka Client Quota.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  KafkaClientQuotaEnvironmentOutput  `pulumi:"environment"`
+	Environment KafkaClientQuotaEnvironmentOutput `pulumi:"environment"`
+	// The ID of the Dedicated Kafka cluster where the client quota is applied.
 	KafkaCluster KafkaClientQuotaKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
-	// Block for representing a Kafka Quota.
+	// Throughput for the client quota.
 	Throughput KafkaClientQuotaThroughputOutput `pulumi:"throughput"`
 }
 
@@ -140,11 +141,12 @@ type kafkaClientQuotaState struct {
 	// The name of the Kafka Client Quota.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  *KafkaClientQuotaEnvironment  `pulumi:"environment"`
+	Environment *KafkaClientQuotaEnvironment `pulumi:"environment"`
+	// The ID of the Dedicated Kafka cluster where the client quota is applied.
 	KafkaCluster *KafkaClientQuotaKafkaCluster `pulumi:"kafkaCluster"`
 	// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
 	Principals []string `pulumi:"principals"`
-	// Block for representing a Kafka Quota.
+	// Throughput for the client quota.
 	Throughput *KafkaClientQuotaThroughput `pulumi:"throughput"`
 }
 
@@ -154,11 +156,12 @@ type KafkaClientQuotaState struct {
 	// The name of the Kafka Client Quota.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  KafkaClientQuotaEnvironmentPtrInput
+	Environment KafkaClientQuotaEnvironmentPtrInput
+	// The ID of the Dedicated Kafka cluster where the client quota is applied.
 	KafkaCluster KafkaClientQuotaKafkaClusterPtrInput
 	// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
 	Principals pulumi.StringArrayInput
-	// Block for representing a Kafka Quota.
+	// Throughput for the client quota.
 	Throughput KafkaClientQuotaThroughputPtrInput
 }
 
@@ -172,11 +175,12 @@ type kafkaClientQuotaArgs struct {
 	// The name of the Kafka Client Quota.
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  KafkaClientQuotaEnvironment  `pulumi:"environment"`
+	Environment KafkaClientQuotaEnvironment `pulumi:"environment"`
+	// The ID of the Dedicated Kafka cluster where the client quota is applied.
 	KafkaCluster KafkaClientQuotaKafkaCluster `pulumi:"kafkaCluster"`
 	// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
 	Principals []string `pulumi:"principals"`
-	// Block for representing a Kafka Quota.
+	// Throughput for the client quota.
 	Throughput KafkaClientQuotaThroughput `pulumi:"throughput"`
 }
 
@@ -187,11 +191,12 @@ type KafkaClientQuotaArgs struct {
 	// The name of the Kafka Client Quota.
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  KafkaClientQuotaEnvironmentInput
+	Environment KafkaClientQuotaEnvironmentInput
+	// The ID of the Dedicated Kafka cluster where the client quota is applied.
 	KafkaCluster KafkaClientQuotaKafkaClusterInput
 	// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
 	Principals pulumi.StringArrayInput
-	// Block for representing a Kafka Quota.
+	// Throughput for the client quota.
 	Throughput KafkaClientQuotaThroughputInput
 }
 
@@ -283,8 +288,8 @@ func (o KafkaClientQuotaOutput) ToKafkaClientQuotaOutputWithContext(ctx context.
 }
 
 // The description of the Kafka Client Quota.
-func (o KafkaClientQuotaOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClientQuota) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o KafkaClientQuotaOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *KafkaClientQuota) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The name of the Kafka Client Quota.
@@ -297,6 +302,7 @@ func (o KafkaClientQuotaOutput) Environment() KafkaClientQuotaEnvironmentOutput 
 	return o.ApplyT(func(v *KafkaClientQuota) KafkaClientQuotaEnvironmentOutput { return v.Environment }).(KafkaClientQuotaEnvironmentOutput)
 }
 
+// The ID of the Dedicated Kafka cluster where the client quota is applied.
 func (o KafkaClientQuotaOutput) KafkaCluster() KafkaClientQuotaKafkaClusterOutput {
 	return o.ApplyT(func(v *KafkaClientQuota) KafkaClientQuotaKafkaClusterOutput { return v.KafkaCluster }).(KafkaClientQuotaKafkaClusterOutput)
 }
@@ -306,7 +312,7 @@ func (o KafkaClientQuotaOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClientQuota) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
 }
 
-// Block for representing a Kafka Quota.
+// Throughput for the client quota.
 func (o KafkaClientQuotaOutput) Throughput() KafkaClientQuotaThroughputOutput {
 	return o.ApplyT(func(v *KafkaClientQuota) KafkaClientQuotaThroughputOutput { return v.Throughput }).(KafkaClientQuotaThroughputOutput)
 }

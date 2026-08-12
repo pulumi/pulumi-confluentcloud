@@ -108,6 +108,7 @@ import (
 type NetworkLinkService struct {
 	pulumi.CustomResourceState
 
+	// Network Link Service Accept policy
 	Accept NetworkLinkServiceAcceptOutput `pulumi:"accept"`
 	// The description of the Network Link Service.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -157,6 +158,7 @@ func GetNetworkLinkService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkLinkService resources.
 type networkLinkServiceState struct {
+	// Network Link Service Accept policy
 	Accept *NetworkLinkServiceAccept `pulumi:"accept"`
 	// The description of the Network Link Service.
 	Description *string `pulumi:"description"`
@@ -171,6 +173,7 @@ type networkLinkServiceState struct {
 }
 
 type NetworkLinkServiceState struct {
+	// Network Link Service Accept policy
 	Accept NetworkLinkServiceAcceptPtrInput
 	// The description of the Network Link Service.
 	Description pulumi.StringPtrInput
@@ -189,6 +192,7 @@ func (NetworkLinkServiceState) ElementType() reflect.Type {
 }
 
 type networkLinkServiceArgs struct {
+	// Network Link Service Accept policy
 	Accept *NetworkLinkServiceAccept `pulumi:"accept"`
 	// The description of the Network Link Service.
 	Description *string `pulumi:"description"`
@@ -202,6 +206,7 @@ type networkLinkServiceArgs struct {
 
 // The set of arguments for constructing a NetworkLinkService resource.
 type NetworkLinkServiceArgs struct {
+	// Network Link Service Accept policy
 	Accept NetworkLinkServiceAcceptPtrInput
 	// The description of the Network Link Service.
 	Description pulumi.StringPtrInput
@@ -300,6 +305,7 @@ func (o NetworkLinkServiceOutput) ToNetworkLinkServiceOutputWithContext(ctx cont
 	return o
 }
 
+// Network Link Service Accept policy
 func (o NetworkLinkServiceOutput) Accept() NetworkLinkServiceAcceptOutput {
 	return o.ApplyT(func(v *NetworkLinkService) NetworkLinkServiceAcceptOutput { return v.Accept }).(NetworkLinkServiceAcceptOutput)
 }

@@ -2463,7 +2463,7 @@ class DnsForwarderForwardViaGcpDnsZones(dict):
         """
         :param Mapping[str, _builtins.str] domain_mappings: List of Maps which contains the domain to zone and project mapping.
                
-               > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+               > **Note:** The `forward_via_gcp_dns_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
                
                > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
         """
@@ -2476,7 +2476,7 @@ class DnsForwarderForwardViaGcpDnsZones(dict):
         """
         List of Maps which contains the domain to zone and project mapping.
 
-        > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+        > **Note:** The `forward_via_gcp_dns_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
 
         > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
         """
@@ -13491,7 +13491,7 @@ class GetSchemasSchemaResult(dict):
         """
         :param _builtins.str format: (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param _builtins.str schema: (Required String) The schema string.
-        :param _builtins.int schema_identifier: (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+        :param _builtins.int schema_identifier: (Required String) The ID of the Schema, for example: `100003`.
         :param Sequence['GetSchemasSchemaSchemaReferenceArgs'] schema_references: (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         :param _builtins.str subject_name: (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param _builtins.int version: (Required Integer) The version of the Schema, for example, `4`.
@@ -13523,7 +13523,7 @@ class GetSchemasSchemaResult(dict):
     @pulumi.getter(name="schemaIdentifier")
     def schema_identifier(self) -> _builtins.int:
         """
-        (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+        (Required String) The ID of the Schema, for example: `100003`.
         """
         return pulumi.get(self, "schema_identifier")
 

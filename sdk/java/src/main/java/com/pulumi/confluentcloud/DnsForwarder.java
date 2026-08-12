@@ -97,6 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.DnsForwarderArgs;
  * import com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.DnsForwarderGatewayArgs;
+ * import com.pulumi.confluentcloud.inputs.DnsForwarderForwardViaGcpDnsZonesArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -125,7 +126,9 @@ import javax.annotation.Nullable;
  *             .gateway(DnsForwarderGatewayArgs.builder()
  *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
- *             .forwardViaGcpZones(Arrays.asList(Map.of("domainMappings", Map.of("example.com", "zone-1,project-1"))))
+ *             .forwardViaGcpDnsZones(DnsForwarderForwardViaGcpDnsZonesArgs.builder()
+ *                 .domainMappings(Map.of("example.com", "zone-1,project-1"))
+ *                 .build())
  *             .build());
  * 
  *     }

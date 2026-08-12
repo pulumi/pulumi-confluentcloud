@@ -31,14 +31,14 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Must be 64 characters or fewer.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return A human-readable name for the Service Account.
+     * @return A human-readable name for the Service Account. Must be 64 characters or fewer.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -92,7 +92,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName A human-readable name for the Service Account.
+         * @param displayName A human-readable name for the Service Account. Must be 64 characters or fewer.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName A human-readable name for the Service Account.
+         * @param displayName A human-readable name for the Service Account. Must be 64 characters or fewer.
          * 
          * @return builder
          * 

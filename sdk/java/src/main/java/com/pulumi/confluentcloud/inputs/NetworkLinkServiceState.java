@@ -18,9 +18,17 @@ public final class NetworkLinkServiceState extends com.pulumi.resources.Resource
 
     public static final NetworkLinkServiceState Empty = new NetworkLinkServiceState();
 
+    /**
+     * Network Link Service Accept policy
+     * 
+     */
     @Import(name="accept")
     private @Nullable Output<NetworkLinkServiceAcceptArgs> accept;
 
+    /**
+     * @return Network Link Service Accept policy
+     * 
+     */
     public Optional<Output<NetworkLinkServiceAcceptArgs>> accept() {
         return Optional.ofNullable(this.accept);
     }
@@ -129,11 +137,23 @@ public final class NetworkLinkServiceState extends com.pulumi.resources.Resource
             $ = new NetworkLinkServiceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accept Network Link Service Accept policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder accept(@Nullable Output<NetworkLinkServiceAcceptArgs> accept) {
             $.accept = accept;
             return this;
         }
 
+        /**
+         * @param accept Network Link Service Accept policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder accept(NetworkLinkServiceAcceptArgs accept) {
             return accept(Output.of(accept));
         }

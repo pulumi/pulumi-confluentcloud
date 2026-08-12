@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
  *
+ * > **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you're provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -18,10 +20,21 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * export = async () => {
+ *     // If the environment (and its Schema Registry cluster) is provisioned in the
+ *     // same pulumi up command, add it to the data source's depends_on. This
+ *     // ensures the Schema Registry cluster has finished provisioning before the
+ *     // data source is queried, even though the environment.id reference below
+ *     // already creates an implicit ordering dependency.
+ *     const staging = new confluentcloud.Environment("staging", {
+ *         displayName: "staging",
+ *         streamGovernance: {
+ *             "package": "ESSENTIALS",
+ *         },
+ *     });
  *     // Loads the only Schema Registry cluster in the target environment
- *     const exampleUsingEnvId = await confluentcloud.getSchemaRegistryCluster({
+ *     const exampleUsingEnvId = confluentcloud.getSchemaRegistryClusterOutput({
  *         environment: {
- *             id: "env-xyz456",
+ *             id: staging.id,
  *         },
  *     });
  *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({
@@ -129,6 +142,8 @@ export interface GetSchemaRegistryClusterResult {
  *
  * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
  *
+ * > **Warning:** A Schema Registry cluster is provisioned automatically when a `confluentcloud.Environment` resource has a `streamGovernance` block configured. If you're provisioning the `confluentcloud.Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `confluentcloud.Environment` resource to the `dependsOn` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -136,10 +151,21 @@ export interface GetSchemaRegistryClusterResult {
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * export = async () => {
+ *     // If the environment (and its Schema Registry cluster) is provisioned in the
+ *     // same pulumi up command, add it to the data source's depends_on. This
+ *     // ensures the Schema Registry cluster has finished provisioning before the
+ *     // data source is queried, even though the environment.id reference below
+ *     // already creates an implicit ordering dependency.
+ *     const staging = new confluentcloud.Environment("staging", {
+ *         displayName: "staging",
+ *         streamGovernance: {
+ *             "package": "ESSENTIALS",
+ *         },
+ *     });
  *     // Loads the only Schema Registry cluster in the target environment
- *     const exampleUsingEnvId = await confluentcloud.getSchemaRegistryCluster({
+ *     const exampleUsingEnvId = confluentcloud.getSchemaRegistryClusterOutput({
  *         environment: {
- *             id: "env-xyz456",
+ *             id: staging.id,
  *         },
  *     });
  *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({

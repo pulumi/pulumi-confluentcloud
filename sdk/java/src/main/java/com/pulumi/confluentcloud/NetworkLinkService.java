@@ -119,9 +119,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/networkLinkService:NetworkLinkService")
 public class NetworkLinkService extends com.pulumi.resources.CustomResource {
+    /**
+     * Network Link Service Accept policy
+     * 
+     */
     @Export(name="accept", refs={NetworkLinkServiceAccept.class}, tree="[0]")
     private Output<NetworkLinkServiceAccept> accept;
 
+    /**
+     * @return Network Link Service Accept policy
+     * 
+     */
     public Output<NetworkLinkServiceAccept> accept() {
         return this.accept;
     }

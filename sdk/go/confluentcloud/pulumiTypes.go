@@ -7201,7 +7201,7 @@ func (o DnsForwarderEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 type DnsForwarderForwardViaGcpDnsZones struct {
 	// List of Maps which contains the domain to zone and project mapping.
 	//
-	// > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+	// > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
 	//
 	// > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
 	DomainMappings map[string]string `pulumi:"domainMappings"`
@@ -7221,7 +7221,7 @@ type DnsForwarderForwardViaGcpDnsZonesInput interface {
 type DnsForwarderForwardViaGcpDnsZonesArgs struct {
 	// List of Maps which contains the domain to zone and project mapping.
 	//
-	// > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+	// > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
 	//
 	// > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
 	DomainMappings pulumi.StringMapInput `pulumi:"domainMappings"`
@@ -7306,7 +7306,7 @@ func (o DnsForwarderForwardViaGcpDnsZonesOutput) ToDnsForwarderForwardViaGcpDnsZ
 
 // List of Maps which contains the domain to zone and project mapping.
 //
-// > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+// > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
 //
 // > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
 func (o DnsForwarderForwardViaGcpDnsZonesOutput) DomainMappings() pulumi.StringMapOutput {
@@ -7339,7 +7339,7 @@ func (o DnsForwarderForwardViaGcpDnsZonesPtrOutput) Elem() DnsForwarderForwardVi
 
 // List of Maps which contains the domain to zone and project mapping.
 //
-// > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+// > **Note:** The `forwardViaGcpDnsZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
 //
 // > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
 func (o DnsForwarderForwardViaGcpDnsZonesPtrOutput) DomainMappings() pulumi.StringMapOutput {
@@ -43104,47 +43104,6 @@ func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptOutput)
 }
 
-func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
-	return i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
-}
-
-func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptOutput).ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx)
-}
-
-// GetNetworkLinkServiceAcceptPtrInput is an input type that accepts GetNetworkLinkServiceAcceptArgs, GetNetworkLinkServiceAcceptPtr and GetNetworkLinkServiceAcceptPtrOutput values.
-// You can construct a concrete instance of `GetNetworkLinkServiceAcceptPtrInput` via:
-//
-//	        GetNetworkLinkServiceAcceptArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetNetworkLinkServiceAcceptPtrInput interface {
-	pulumi.Input
-
-	ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput
-	ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Context) GetNetworkLinkServiceAcceptPtrOutput
-}
-
-type getNetworkLinkServiceAcceptPtrType GetNetworkLinkServiceAcceptArgs
-
-func GetNetworkLinkServiceAcceptPtr(v *GetNetworkLinkServiceAcceptArgs) GetNetworkLinkServiceAcceptPtrInput {
-	return (*getNetworkLinkServiceAcceptPtrType)(v)
-}
-
-func (*getNetworkLinkServiceAcceptPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetNetworkLinkServiceAccept)(nil)).Elem()
-}
-
-func (i *getNetworkLinkServiceAcceptPtrType) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
-	return i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
-}
-
-func (i *getNetworkLinkServiceAcceptPtrType) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptPtrOutput)
-}
-
 type GetNetworkLinkServiceAcceptOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkServiceAcceptOutput) ElementType() reflect.Type {
@@ -43159,16 +43118,6 @@ func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptOutputWi
 	return o
 }
 
-func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
-	return o.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
-}
-
-func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNetworkLinkServiceAccept) *GetNetworkLinkServiceAccept {
-		return &v
-	}).(GetNetworkLinkServiceAcceptPtrOutput)
-}
-
 // (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
 func (o GetNetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkLinkServiceAccept) []string { return v.Environments }).(pulumi.StringArrayOutput)
@@ -43177,50 +43126,6 @@ func (o GetNetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutp
 // (Optional List of Strings) List of network ids from which connections can be accepted.
 func (o GetNetworkLinkServiceAcceptOutput) Networks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkLinkServiceAccept) []string { return v.Networks }).(pulumi.StringArrayOutput)
-}
-
-type GetNetworkLinkServiceAcceptPtrOutput struct{ *pulumi.OutputState }
-
-func (GetNetworkLinkServiceAcceptPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetNetworkLinkServiceAccept)(nil)).Elem()
-}
-
-func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
-	return o
-}
-
-func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
-	return o
-}
-
-func (o GetNetworkLinkServiceAcceptPtrOutput) Elem() GetNetworkLinkServiceAcceptOutput {
-	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) GetNetworkLinkServiceAccept {
-		if v != nil {
-			return *v
-		}
-		var ret GetNetworkLinkServiceAccept
-		return ret
-	}).(GetNetworkLinkServiceAcceptOutput)
-}
-
-// (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-func (o GetNetworkLinkServiceAcceptPtrOutput) Environments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Environments
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Optional List of Strings) List of network ids from which connections can be accepted.
-func (o GetNetworkLinkServiceAcceptPtrOutput) Networks() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Networks
-	}).(pulumi.StringArrayOutput)
 }
 
 type GetNetworkLinkServiceEnvironment struct {
@@ -49226,7 +49131,7 @@ type GetSchemasSchema struct {
 	Format string `pulumi:"format"`
 	// (Required String) The schema string.
 	Schema string `pulumi:"schema"`
-	// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+	// (Required String) The ID of the Schema, for example: `100003`.
 	SchemaIdentifier int `pulumi:"schemaIdentifier"`
 	// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences []GetSchemasSchemaSchemaReference `pulumi:"schemaReferences"`
@@ -49252,7 +49157,7 @@ type GetSchemasSchemaArgs struct {
 	Format pulumi.StringInput `pulumi:"format"`
 	// (Required String) The schema string.
 	Schema pulumi.StringInput `pulumi:"schema"`
-	// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+	// (Required String) The ID of the Schema, for example: `100003`.
 	SchemaIdentifier pulumi.IntInput `pulumi:"schemaIdentifier"`
 	// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences GetSchemasSchemaSchemaReferenceArrayInput `pulumi:"schemaReferences"`
@@ -49323,7 +49228,7 @@ func (o GetSchemasSchemaOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchema) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+// (Required String) The ID of the Schema, for example: `100003`.
 func (o GetSchemasSchemaOutput) SchemaIdentifier() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSchemasSchema) int { return v.SchemaIdentifier }).(pulumi.IntOutput)
 }
@@ -52402,7 +52307,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkServiceInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkLinkServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkServiceArrayInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkLinkServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceAcceptInput)(nil)).Elem(), GetNetworkLinkServiceAcceptArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceAcceptPtrInput)(nil)).Elem(), GetNetworkLinkServiceAcceptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceEnvironmentInput)(nil)).Elem(), GetNetworkLinkServiceEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceNetworkInput)(nil)).Elem(), GetNetworkLinkServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceNetworkArrayInput)(nil)).Elem(), GetNetworkLinkServiceNetworkArray{})
@@ -53153,7 +53057,6 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkLinkServiceOutput{})
 	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkLinkServiceArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkLinkServiceAcceptOutput{})
-	pulumi.RegisterOutputType(GetNetworkLinkServiceAcceptPtrOutput{})
 	pulumi.RegisterOutputType(GetNetworkLinkServiceEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetNetworkLinkServiceNetworkOutput{})
 	pulumi.RegisterOutputType(GetNetworkLinkServiceNetworkArrayOutput{})

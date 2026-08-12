@@ -25,7 +25,7 @@ class ServiceAccountArgs:
         The set of arguments for constructing a ServiceAccount resource.
 
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
-        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
+        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -48,7 +48,7 @@ class ServiceAccountArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A human-readable name for the Service Account.
+        A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
         return pulumi.get(self, "display_name")
 
@@ -69,7 +69,7 @@ class _ServiceAccountState:
 
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
-        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
+        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Service Account, for example, `ServiceAccount`.
         """
         if api_version is not None:
@@ -109,7 +109,7 @@ class _ServiceAccountState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A human-readable name for the Service Account.
+        A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
         return pulumi.get(self, "display_name")
 
@@ -198,7 +198,7 @@ class ServiceAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
-        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
+        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
         ...
     @overload
@@ -315,7 +315,7 @@ class ServiceAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
-        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
+        :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Service Account, for example, `ServiceAccount`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -348,7 +348,7 @@ class ServiceAccount(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         """
-        A human-readable name for the Service Account.
+        A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
         return pulumi.get(self, "display_name")
 

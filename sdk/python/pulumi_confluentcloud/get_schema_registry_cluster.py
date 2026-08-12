@@ -202,15 +202,27 @@ def get_schema_registry_cluster(display_name: Optional[_builtins.str] = None,
 
     `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
 
+    > **Warning:** A Schema Registry cluster is provisioned automatically when a `Environment` resource has a `stream_governance` block configured. If you're provisioning the `Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `Environment` resource to the `depends_on` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+
     ## Example Usage
 
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
+    # If the environment (and its Schema Registry cluster) is provisioned in the
+    # same pulumi up command, add it to the data source's depends_on. This
+    # ensures the Schema Registry cluster has finished provisioning before the
+    # data source is queried, even though the environment.id reference below
+    # already creates an implicit ordering dependency.
+    staging = confluentcloud.Environment("staging",
+        display_name="staging",
+        stream_governance={
+            "package": "ESSENTIALS",
+        })
     # Loads the only Schema Registry cluster in the target environment
-    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment={
-        "id": "env-xyz456",
+    example_using_env_id = confluentcloud.get_schema_registry_cluster_output(environment={
+        "id": staging.id,
     })
     pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
@@ -259,15 +271,27 @@ def get_schema_registry_cluster_output(display_name: pulumi.Input[Optional[Optio
 
     `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
 
+    > **Warning:** A Schema Registry cluster is provisioned automatically when a `Environment` resource has a `stream_governance` block configured. If you're provisioning the `Environment` resource and referencing `data.confluent_schema_registry_cluster` in the same pulumi up command, add the `Environment` resource to the `depends_on` argument of the data source. This ensures the Schema Registry cluster exists before the data source is queried.
+
     ## Example Usage
 
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
+    # If the environment (and its Schema Registry cluster) is provisioned in the
+    # same pulumi up command, add it to the data source's depends_on. This
+    # ensures the Schema Registry cluster has finished provisioning before the
+    # data source is queried, even though the environment.id reference below
+    # already creates an implicit ordering dependency.
+    staging = confluentcloud.Environment("staging",
+        display_name="staging",
+        stream_governance={
+            "package": "ESSENTIALS",
+        })
     # Loads the only Schema Registry cluster in the target environment
-    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment={
-        "id": "env-xyz456",
+    example_using_env_id = confluentcloud.get_schema_registry_cluster_output(environment={
+        "id": staging.id,
     })
     pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",

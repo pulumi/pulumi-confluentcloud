@@ -65,9 +65,17 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         return this.environment;
     }
 
+    /**
+     * The ID of the Dedicated Kafka cluster where the client quota is applied.
+     * 
+     */
     @Import(name="kafkaCluster", required=true)
     private Output<KafkaClientQuotaKafkaClusterArgs> kafkaCluster;
 
+    /**
+     * @return The ID of the Dedicated Kafka cluster where the client quota is applied.
+     * 
+     */
     public Output<KafkaClientQuotaKafkaClusterArgs> kafkaCluster() {
         return this.kafkaCluster;
     }
@@ -88,14 +96,14 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Block for representing a Kafka Quota.
+     * Throughput for the client quota.
      * 
      */
     @Import(name="throughput", required=true)
     private Output<KafkaClientQuotaThroughputArgs> throughput;
 
     /**
-     * @return Block for representing a Kafka Quota.
+     * @return Throughput for the client quota.
      * 
      */
     public Output<KafkaClientQuotaThroughputArgs> throughput() {
@@ -194,11 +202,23 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param kafkaCluster The ID of the Dedicated Kafka cluster where the client quota is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kafkaCluster(Output<KafkaClientQuotaKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
         }
 
+        /**
+         * @param kafkaCluster The ID of the Dedicated Kafka cluster where the client quota is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kafkaCluster(KafkaClientQuotaKafkaClusterArgs kafkaCluster) {
             return kafkaCluster(Output.of(kafkaCluster));
         }
@@ -235,7 +255,7 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughput Block for representing a Kafka Quota.
+         * @param throughput Throughput for the client quota.
          * 
          * @return builder
          * 
@@ -246,7 +266,7 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughput Block for representing a Kafka Quota.
+         * @param throughput Throughput for the client quota.
          * 
          * @return builder
          * 

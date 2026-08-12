@@ -21,11 +21,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
+ * const essentials = confluentcloud.getSchemaRegistryCluster({
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
  * const example = new confluentcloud.SubjectConfig("example", {
  *     schemaRegistryCluster: {
- *         id: essentials.id,
+ *         id: essentials.then(essentials => essentials.id),
  *     },
- *     restEndpoint: essentialsConfluentSchemaRegistryCluster.restEndpoint,
+ *     restEndpoint: essentials.then(essentials => essentials.restEndpoint),
  *     subjectName: "proto-purchase-value",
  *     compatibilityLevel: "BACKWARD",
  *     compatibilityGroup: "abc.cg.version",

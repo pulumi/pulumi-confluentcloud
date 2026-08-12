@@ -2270,6 +2270,13 @@
                     "managed_resource.$.environment": true
                 }
             }
+        },
+        "datasources": {
+            "confluent_network_link_service": {
+                "maxItemsOneOverrides": {
+                    "accept": true
+                }
+            }
         }
     },
     "renames": {

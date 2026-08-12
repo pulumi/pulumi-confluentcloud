@@ -60,11 +60,11 @@ import * as utilities from "./utilities";
  *     gateway: {
  *         id: mainConfluentNetwork.gateway[0].id,
  *     },
- *     forwardViaGcpZones: [{
+ *     forwardViaGcpDnsZones: {
  *         domainMappings: {
  *             "example.com": "zone-1,project-1",
  *         },
- *     }],
+ *     },
  * });
  * ```
  *

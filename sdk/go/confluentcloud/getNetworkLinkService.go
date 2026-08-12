@@ -56,8 +56,6 @@ func LookupNetworkLinkService(ctx *pulumi.Context, args *LookupNetworkLinkServic
 
 // A collection of arguments for invoking getNetworkLinkService.
 type LookupNetworkLinkServiceArgs struct {
-	// (Optional Configuration Block) supports the following:
-	Accept *GetNetworkLinkServiceAccept `pulumi:"accept"`
 	// The Display Name of the Network Link Service, for example, `DR Link`
 	DisplayName *string                          `pulumi:"displayName"`
 	Environment GetNetworkLinkServiceEnvironment `pulumi:"environment"`
@@ -93,8 +91,6 @@ func LookupNetworkLinkServiceOutput(ctx *pulumi.Context, args LookupNetworkLinkS
 
 // A collection of arguments for invoking getNetworkLinkService.
 type LookupNetworkLinkServiceOutputArgs struct {
-	// (Optional Configuration Block) supports the following:
-	Accept GetNetworkLinkServiceAcceptPtrInput `pulumi:"accept"`
 	// The Display Name of the Network Link Service, for example, `DR Link`
 	DisplayName pulumi.StringPtrInput                 `pulumi:"displayName"`
 	Environment GetNetworkLinkServiceEnvironmentInput `pulumi:"environment"`
