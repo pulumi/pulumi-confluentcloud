@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.25.11
+go 1.25.12
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -109,7 +109,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sts v0.0.2 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.6.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.7.0 // indirect
 	github.com/containerd/errdefs v1.0.0 // indirect
 	github.com/containerd/errdefs/pkg v0.3.0 // indirect
 	github.com/containerd/log v0.1.0 // indirect
