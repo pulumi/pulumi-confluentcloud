@@ -84,6 +84,8 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
+    /// &gt; **Warning:** With Option #2, `FlinkPrincipalId` in the `Provider` block takes precedence over the `Principal` block of the resource, which is silently ignored. To run resources under different principals, use Option #1, or declare one aliased provider per principal and select it with the `Provider` meta-argument.
+    /// 
     /// ### Example: Create a model using a Flink Connection
     /// 
     /// Use a `confluentcloud.FlinkConnection` resource to

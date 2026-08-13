@@ -620,6 +620,8 @@ class FlinkConnection(pulumi.CustomResource):
             api_key="API_Key_value")
         ```
 
+        > **Warning:** With Option #2, `flink_principal_id` in the `provider` block takes precedence over the `principal` block of the resource, which is silently ignored. To run resources under different principals, use Option #1, or declare one aliased provider per principal and select it with the `provider` meta-argument.
+
         The following arguments are supported:
 
         - `organization` (Optional Configuration Block) supports the following:
@@ -774,6 +776,8 @@ class FlinkConnection(pulumi.CustomResource):
             endpoint="https://api.openai.com/v1/chat/completions",
             api_key="API_Key_value")
         ```
+
+        > **Warning:** With Option #2, `flink_principal_id` in the `provider` block takes precedence over the `principal` block of the resource, which is silently ignored. To run resources under different principals, use Option #1, or declare one aliased provider per principal and select it with the `provider` meta-argument.
 
         The following arguments are supported:
 
