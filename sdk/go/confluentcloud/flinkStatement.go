@@ -95,6 +95,8 @@ import (
 //
 // ```
 //
+// > **Warning:** With Option #2, `flinkPrincipalId` in the `provider` block takes precedence over the `principal` block of the resource, which is silently ignored. To run resources under different principals, use Option #1, or declare one aliased provider per principal and select it with the `provider` meta-argument.
+//
 // ### Example: Create a model using a Flink Connection
 //
 // Use a `FlinkConnection` resource to
