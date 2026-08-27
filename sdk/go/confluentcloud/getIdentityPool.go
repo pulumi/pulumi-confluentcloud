@@ -91,12 +91,8 @@ type LookupIdentityPoolResult struct {
 }
 
 func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdentityPoolResultOutput, error) {
-			args := v.(LookupIdentityPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getIdentityPool:getIdentityPool", args, LookupIdentityPoolResultOutput{}, options).(LookupIdentityPoolResultOutput), nil
-		}).(LookupIdentityPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getIdentityPool:getIdentityPool", args, LookupIdentityPoolResultOutput{}, options).(LookupIdentityPoolResultOutput)
 }
 
 // A collection of arguments for invoking getIdentityPool.

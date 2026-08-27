@@ -138,12 +138,8 @@ type LookupTableflowTopicResult struct {
 }
 
 func LookupTableflowTopicOutput(ctx *pulumi.Context, args LookupTableflowTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTableflowTopicResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTableflowTopicResultOutput, error) {
-			args := v.(LookupTableflowTopicArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getTableflowTopic:getTableflowTopic", args, LookupTableflowTopicResultOutput{}, options).(LookupTableflowTopicResultOutput), nil
-		}).(LookupTableflowTopicResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getTableflowTopic:getTableflowTopic", args, LookupTableflowTopicResultOutput{}, options).(LookupTableflowTopicResultOutput)
 }
 
 // A collection of arguments for invoking getTableflowTopic.

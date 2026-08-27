@@ -128,12 +128,8 @@ type GetSchemaRegistryClusterResult struct {
 }
 
 func GetSchemaRegistryClusterOutput(ctx *pulumi.Context, args GetSchemaRegistryClusterOutputArgs, opts ...pulumi.InvokeOption) GetSchemaRegistryClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSchemaRegistryClusterResultOutput, error) {
-			args := v.(GetSchemaRegistryClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args, GetSchemaRegistryClusterResultOutput{}, options).(GetSchemaRegistryClusterResultOutput), nil
-		}).(GetSchemaRegistryClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args, GetSchemaRegistryClusterResultOutput{}, options).(GetSchemaRegistryClusterResultOutput)
 }
 
 // A collection of arguments for invoking getSchemaRegistryCluster.

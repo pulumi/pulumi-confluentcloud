@@ -99,12 +99,8 @@ type LookupFlinkComputePoolResult struct {
 }
 
 func LookupFlinkComputePoolOutput(ctx *pulumi.Context, args LookupFlinkComputePoolOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkComputePoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlinkComputePoolResultOutput, error) {
-			args := v.(LookupFlinkComputePoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args, LookupFlinkComputePoolResultOutput{}, options).(LookupFlinkComputePoolResultOutput), nil
-		}).(LookupFlinkComputePoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args, LookupFlinkComputePoolResultOutput{}, options).(LookupFlinkComputePoolResultOutput)
 }
 
 // A collection of arguments for invoking getFlinkComputePool.

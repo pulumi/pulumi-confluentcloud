@@ -70,12 +70,8 @@ type LookupByokKeyResult struct {
 }
 
 func LookupByokKeyOutput(ctx *pulumi.Context, args LookupByokKeyOutputArgs, opts ...pulumi.InvokeOption) LookupByokKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupByokKeyResultOutput, error) {
-			args := v.(LookupByokKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getByokKey:getByokKey", args, LookupByokKeyResultOutput{}, options).(LookupByokKeyResultOutput), nil
-		}).(LookupByokKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getByokKey:getByokKey", args, LookupByokKeyResultOutput{}, options).(LookupByokKeyResultOutput)
 }
 
 // A collection of arguments for invoking getByokKey.

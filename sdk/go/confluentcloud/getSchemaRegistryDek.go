@@ -126,12 +126,8 @@ type LookupSchemaRegistryDekResult struct {
 }
 
 func LookupSchemaRegistryDekOutput(ctx *pulumi.Context, args LookupSchemaRegistryDekOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryDekResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchemaRegistryDekResultOutput, error) {
-			args := v.(LookupSchemaRegistryDekArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", args, LookupSchemaRegistryDekResultOutput{}, options).(LookupSchemaRegistryDekResultOutput), nil
-		}).(LookupSchemaRegistryDekResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", args, LookupSchemaRegistryDekResultOutput{}, options).(LookupSchemaRegistryDekResultOutput)
 }
 
 // A collection of arguments for invoking getSchemaRegistryDek.

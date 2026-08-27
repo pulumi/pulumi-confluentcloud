@@ -75,12 +75,8 @@ type LookupIpFilterResult struct {
 }
 
 func LookupIpFilterOutput(ctx *pulumi.Context, args LookupIpFilterOutputArgs, opts ...pulumi.InvokeOption) LookupIpFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpFilterResultOutput, error) {
-			args := v.(LookupIpFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getIpFilter:getIpFilter", args, LookupIpFilterResultOutput{}, options).(LookupIpFilterResultOutput), nil
-		}).(LookupIpFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getIpFilter:getIpFilter", args, LookupIpFilterResultOutput{}, options).(LookupIpFilterResultOutput)
 }
 
 // A collection of arguments for invoking getIpFilter.

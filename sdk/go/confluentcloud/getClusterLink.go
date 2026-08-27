@@ -146,12 +146,8 @@ type LookupClusterLinkResult struct {
 }
 
 func LookupClusterLinkOutput(ctx *pulumi.Context, args LookupClusterLinkOutputArgs, opts ...pulumi.InvokeOption) LookupClusterLinkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterLinkResultOutput, error) {
-			args := v.(LookupClusterLinkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getClusterLink:getClusterLink", args, LookupClusterLinkResultOutput{}, options).(LookupClusterLinkResultOutput), nil
-		}).(LookupClusterLinkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getClusterLink:getClusterLink", args, LookupClusterLinkResultOutput{}, options).(LookupClusterLinkResultOutput)
 }
 
 // A collection of arguments for invoking getClusterLink.

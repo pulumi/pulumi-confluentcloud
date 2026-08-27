@@ -79,12 +79,8 @@ type LookupNetworkLinkEndpointResult struct {
 }
 
 func LookupNetworkLinkEndpointOutput(ctx *pulumi.Context, args LookupNetworkLinkEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkLinkEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkLinkEndpointResultOutput, error) {
-			args := v.(LookupNetworkLinkEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, LookupNetworkLinkEndpointResultOutput{}, options).(LookupNetworkLinkEndpointResultOutput), nil
-		}).(LookupNetworkLinkEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, LookupNetworkLinkEndpointResultOutput{}, options).(LookupNetworkLinkEndpointResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkLinkEndpoint.

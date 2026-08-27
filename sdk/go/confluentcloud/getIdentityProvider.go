@@ -85,12 +85,8 @@ type LookupIdentityProviderResult struct {
 }
 
 func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdentityProviderResultOutput, error) {
-			args := v.(LookupIdentityProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getIdentityProvider:getIdentityProvider", args, LookupIdentityProviderResultOutput{}, options).(LookupIdentityProviderResultOutput), nil
-		}).(LookupIdentityProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getIdentityProvider:getIdentityProvider", args, LookupIdentityProviderResultOutput{}, options).(LookupIdentityProviderResultOutput)
 }
 
 // A collection of arguments for invoking getIdentityProvider.

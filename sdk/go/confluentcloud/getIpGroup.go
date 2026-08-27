@@ -69,12 +69,8 @@ type LookupIpGroupResult struct {
 }
 
 func LookupIpGroupOutput(ctx *pulumi.Context, args LookupIpGroupOutputArgs, opts ...pulumi.InvokeOption) LookupIpGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpGroupResultOutput, error) {
-			args := v.(LookupIpGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getIpGroup:getIpGroup", args, LookupIpGroupResultOutput{}, options).(LookupIpGroupResultOutput), nil
-		}).(LookupIpGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getIpGroup:getIpGroup", args, LookupIpGroupResultOutput{}, options).(LookupIpGroupResultOutput)
 }
 
 // A collection of arguments for invoking getIpGroup.

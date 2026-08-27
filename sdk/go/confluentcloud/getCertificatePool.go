@@ -89,12 +89,8 @@ type LookupCertificatePoolResult struct {
 }
 
 func LookupCertificatePoolOutput(ctx *pulumi.Context, args LookupCertificatePoolOutputArgs, opts ...pulumi.InvokeOption) LookupCertificatePoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificatePoolResultOutput, error) {
-			args := v.(LookupCertificatePoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getCertificatePool:getCertificatePool", args, LookupCertificatePoolResultOutput{}, options).(LookupCertificatePoolResultOutput), nil
-		}).(LookupCertificatePoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getCertificatePool:getCertificatePool", args, LookupCertificatePoolResultOutput{}, options).(LookupCertificatePoolResultOutput)
 }
 
 // A collection of arguments for invoking getCertificatePool.

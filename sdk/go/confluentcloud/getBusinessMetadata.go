@@ -117,12 +117,8 @@ type LookupBusinessMetadataResult struct {
 }
 
 func LookupBusinessMetadataOutput(ctx *pulumi.Context, args LookupBusinessMetadataOutputArgs, opts ...pulumi.InvokeOption) LookupBusinessMetadataResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBusinessMetadataResultOutput, error) {
-			args := v.(LookupBusinessMetadataArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", args, LookupBusinessMetadataResultOutput{}, options).(LookupBusinessMetadataResultOutput), nil
-		}).(LookupBusinessMetadataResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", args, LookupBusinessMetadataResultOutput{}, options).(LookupBusinessMetadataResultOutput)
 }
 
 // A collection of arguments for invoking getBusinessMetadata.

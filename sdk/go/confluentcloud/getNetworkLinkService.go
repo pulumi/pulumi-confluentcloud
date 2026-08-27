@@ -81,12 +81,8 @@ type LookupNetworkLinkServiceResult struct {
 }
 
 func LookupNetworkLinkServiceOutput(ctx *pulumi.Context, args LookupNetworkLinkServiceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkLinkServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkLinkServiceResultOutput, error) {
-			args := v.(LookupNetworkLinkServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args, LookupNetworkLinkServiceResultOutput{}, options).(LookupNetworkLinkServiceResultOutput), nil
-		}).(LookupNetworkLinkServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args, LookupNetworkLinkServiceResultOutput{}, options).(LookupNetworkLinkServiceResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkLinkService.

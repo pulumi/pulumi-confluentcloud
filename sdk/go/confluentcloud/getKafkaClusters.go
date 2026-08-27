@@ -69,12 +69,8 @@ type GetKafkaClustersResult struct {
 }
 
 func GetKafkaClustersOutput(ctx *pulumi.Context, args GetKafkaClustersOutputArgs, opts ...pulumi.InvokeOption) GetKafkaClustersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetKafkaClustersResultOutput, error) {
-			args := v.(GetKafkaClustersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getKafkaClusters:getKafkaClusters", args, GetKafkaClustersResultOutput{}, options).(GetKafkaClustersResultOutput), nil
-		}).(GetKafkaClustersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getKafkaClusters:getKafkaClusters", args, GetKafkaClustersResultOutput{}, options).(GetKafkaClustersResultOutput)
 }
 
 // A collection of arguments for invoking getKafkaClusters.

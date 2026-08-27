@@ -89,12 +89,8 @@ type LookupRtceTopicResult struct {
 }
 
 func LookupRtceTopicOutput(ctx *pulumi.Context, args LookupRtceTopicOutputArgs, opts ...pulumi.InvokeOption) LookupRtceTopicResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRtceTopicResultOutput, error) {
-			args := v.(LookupRtceTopicArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getRtceTopic:getRtceTopic", args, LookupRtceTopicResultOutput{}, options).(LookupRtceTopicResultOutput), nil
-		}).(LookupRtceTopicResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getRtceTopic:getRtceTopic", args, LookupRtceTopicResultOutput{}, options).(LookupRtceTopicResultOutput)
 }
 
 // A collection of arguments for invoking getRtceTopic.

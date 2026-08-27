@@ -137,12 +137,8 @@ type LookupFlinkConnectionResult struct {
 }
 
 func LookupFlinkConnectionOutput(ctx *pulumi.Context, args LookupFlinkConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlinkConnectionResultOutput, error) {
-			args := v.(LookupFlinkConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getFlinkConnection:getFlinkConnection", args, LookupFlinkConnectionResultOutput{}, options).(LookupFlinkConnectionResultOutput), nil
-		}).(LookupFlinkConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getFlinkConnection:getFlinkConnection", args, LookupFlinkConnectionResultOutput{}, options).(LookupFlinkConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getFlinkConnection.

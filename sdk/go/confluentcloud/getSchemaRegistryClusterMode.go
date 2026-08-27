@@ -105,12 +105,8 @@ type LookupSchemaRegistryClusterModeResult struct {
 }
 
 func LookupSchemaRegistryClusterModeOutput(ctx *pulumi.Context, args LookupSchemaRegistryClusterModeOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryClusterModeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchemaRegistryClusterModeResultOutput, error) {
-			args := v.(LookupSchemaRegistryClusterModeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", args, LookupSchemaRegistryClusterModeResultOutput{}, options).(LookupSchemaRegistryClusterModeResultOutput), nil
-		}).(LookupSchemaRegistryClusterModeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", args, LookupSchemaRegistryClusterModeResultOutput{}, options).(LookupSchemaRegistryClusterModeResultOutput)
 }
 
 // A collection of arguments for invoking getSchemaRegistryClusterMode.
