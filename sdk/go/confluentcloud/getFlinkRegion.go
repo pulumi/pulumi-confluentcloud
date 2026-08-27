@@ -77,12 +77,8 @@ type GetFlinkRegionResult struct {
 }
 
 func GetFlinkRegionOutput(ctx *pulumi.Context, args GetFlinkRegionOutputArgs, opts ...pulumi.InvokeOption) GetFlinkRegionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFlinkRegionResultOutput, error) {
-			args := v.(GetFlinkRegionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getFlinkRegion:getFlinkRegion", args, GetFlinkRegionResultOutput{}, options).(GetFlinkRegionResultOutput), nil
-		}).(GetFlinkRegionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getFlinkRegion:getFlinkRegion", args, GetFlinkRegionResultOutput{}, options).(GetFlinkRegionResultOutput)
 }
 
 // A collection of arguments for invoking getFlinkRegion.

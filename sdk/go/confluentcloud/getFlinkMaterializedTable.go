@@ -139,12 +139,8 @@ type LookupFlinkMaterializedTableResult struct {
 }
 
 func LookupFlinkMaterializedTableOutput(ctx *pulumi.Context, args LookupFlinkMaterializedTableOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkMaterializedTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlinkMaterializedTableResultOutput, error) {
-			args := v.(LookupFlinkMaterializedTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable", args, LookupFlinkMaterializedTableResultOutput{}, options).(LookupFlinkMaterializedTableResultOutput), nil
-		}).(LookupFlinkMaterializedTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable", args, LookupFlinkMaterializedTableResultOutput{}, options).(LookupFlinkMaterializedTableResultOutput)
 }
 
 // A collection of arguments for invoking getFlinkMaterializedTable.

@@ -90,12 +90,8 @@ type LookupPrivateLinkAttachmentResult struct {
 }
 
 func LookupPrivateLinkAttachmentOutput(ctx *pulumi.Context, args LookupPrivateLinkAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateLinkAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrivateLinkAttachmentResultOutput, error) {
-			args := v.(LookupPrivateLinkAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args, LookupPrivateLinkAttachmentResultOutput{}, options).(LookupPrivateLinkAttachmentResultOutput), nil
-		}).(LookupPrivateLinkAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args, LookupPrivateLinkAttachmentResultOutput{}, options).(LookupPrivateLinkAttachmentResultOutput)
 }
 
 // A collection of arguments for invoking getPrivateLinkAttachment.

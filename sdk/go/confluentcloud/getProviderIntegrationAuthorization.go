@@ -270,12 +270,8 @@ type LookupProviderIntegrationAuthorizationResult struct {
 }
 
 func LookupProviderIntegrationAuthorizationOutput(ctx *pulumi.Context, args LookupProviderIntegrationAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupProviderIntegrationAuthorizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProviderIntegrationAuthorizationResultOutput, error) {
-			args := v.(LookupProviderIntegrationAuthorizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", args, LookupProviderIntegrationAuthorizationResultOutput{}, options).(LookupProviderIntegrationAuthorizationResultOutput), nil
-		}).(LookupProviderIntegrationAuthorizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", args, LookupProviderIntegrationAuthorizationResultOutput{}, options).(LookupProviderIntegrationAuthorizationResultOutput)
 }
 
 // A collection of arguments for invoking getProviderIntegrationAuthorization.

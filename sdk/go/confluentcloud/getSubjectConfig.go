@@ -117,12 +117,8 @@ type LookupSubjectConfigResult struct {
 }
 
 func LookupSubjectConfigOutput(ctx *pulumi.Context, args LookupSubjectConfigOutputArgs, opts ...pulumi.InvokeOption) LookupSubjectConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubjectConfigResultOutput, error) {
-			args := v.(LookupSubjectConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, LookupSubjectConfigResultOutput{}, options).(LookupSubjectConfigResultOutput), nil
-		}).(LookupSubjectConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, LookupSubjectConfigResultOutput{}, options).(LookupSubjectConfigResultOutput)
 }
 
 // A collection of arguments for invoking getSubjectConfig.

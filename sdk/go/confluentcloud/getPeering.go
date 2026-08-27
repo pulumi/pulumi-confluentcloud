@@ -93,12 +93,8 @@ type LookupPeeringResult struct {
 }
 
 func LookupPeeringOutput(ctx *pulumi.Context, args LookupPeeringOutputArgs, opts ...pulumi.InvokeOption) LookupPeeringResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPeeringResultOutput, error) {
-			args := v.(LookupPeeringArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getPeering:getPeering", args, LookupPeeringResultOutput{}, options).(LookupPeeringResultOutput), nil
-		}).(LookupPeeringResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getPeering:getPeering", args, LookupPeeringResultOutput{}, options).(LookupPeeringResultOutput)
 }
 
 // A collection of arguments for invoking getPeering.

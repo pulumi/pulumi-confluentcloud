@@ -113,12 +113,8 @@ type LookupSubjectModeResult struct {
 }
 
 func LookupSubjectModeOutput(ctx *pulumi.Context, args LookupSubjectModeOutputArgs, opts ...pulumi.InvokeOption) LookupSubjectModeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubjectModeResultOutput, error) {
-			args := v.(LookupSubjectModeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getSubjectMode:getSubjectMode", args, LookupSubjectModeResultOutput{}, options).(LookupSubjectModeResultOutput), nil
-		}).(LookupSubjectModeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getSubjectMode:getSubjectMode", args, LookupSubjectModeResultOutput{}, options).(LookupSubjectModeResultOutput)
 }
 
 // A collection of arguments for invoking getSubjectMode.

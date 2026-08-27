@@ -78,12 +78,8 @@ type LookupInvitationResult struct {
 }
 
 func LookupInvitationOutput(ctx *pulumi.Context, args LookupInvitationOutputArgs, opts ...pulumi.InvokeOption) LookupInvitationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInvitationResultOutput, error) {
-			args := v.(LookupInvitationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getInvitation:getInvitation", args, LookupInvitationResultOutput{}, options).(LookupInvitationResultOutput), nil
-		}).(LookupInvitationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getInvitation:getInvitation", args, LookupInvitationResultOutput{}, options).(LookupInvitationResultOutput)
 }
 
 // A collection of arguments for invoking getInvitation.

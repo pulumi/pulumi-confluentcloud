@@ -58,10 +58,8 @@ type GetOrganizationResult struct {
 }
 
 func GetOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("confluentcloud:index/getOrganization:getOrganization", nil, GetOrganizationResultOutput{}, options).(GetOrganizationResultOutput), nil
-	}).(GetOrganizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getOrganization:getOrganization", nil, GetOrganizationResultOutput{}, options).(GetOrganizationResultOutput)
 }
 
 // A collection of values returned by getOrganization.

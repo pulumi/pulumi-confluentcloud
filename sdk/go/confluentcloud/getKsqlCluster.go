@@ -102,12 +102,8 @@ type LookupKsqlClusterResult struct {
 }
 
 func LookupKsqlClusterOutput(ctx *pulumi.Context, args LookupKsqlClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKsqlClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKsqlClusterResultOutput, error) {
-			args := v.(LookupKsqlClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getKsqlCluster:getKsqlCluster", args, LookupKsqlClusterResultOutput{}, options).(LookupKsqlClusterResultOutput), nil
-		}).(LookupKsqlClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getKsqlCluster:getKsqlCluster", args, LookupKsqlClusterResultOutput{}, options).(LookupKsqlClusterResultOutput)
 }
 
 // A collection of arguments for invoking getKsqlCluster.

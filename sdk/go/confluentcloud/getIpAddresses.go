@@ -83,12 +83,8 @@ type GetIpAddressesResult struct {
 }
 
 func GetIpAddressesOutput(ctx *pulumi.Context, args GetIpAddressesOutputArgs, opts ...pulumi.InvokeOption) GetIpAddressesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpAddressesResultOutput, error) {
-			args := v.(GetIpAddressesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getIpAddresses:getIpAddresses", args, GetIpAddressesResultOutput{}, options).(GetIpAddressesResultOutput), nil
-		}).(GetIpAddressesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getIpAddresses:getIpAddresses", args, GetIpAddressesResultOutput{}, options).(GetIpAddressesResultOutput)
 }
 
 // A collection of arguments for invoking getIpAddresses.

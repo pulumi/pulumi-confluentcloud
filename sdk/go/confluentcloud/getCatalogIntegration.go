@@ -118,12 +118,8 @@ type LookupCatalogIntegrationResult struct {
 }
 
 func LookupCatalogIntegrationOutput(ctx *pulumi.Context, args LookupCatalogIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCatalogIntegrationResultOutput, error) {
-			args := v.(LookupCatalogIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", args, LookupCatalogIntegrationResultOutput{}, options).(LookupCatalogIntegrationResultOutput), nil
-		}).(LookupCatalogIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", args, LookupCatalogIntegrationResultOutput{}, options).(LookupCatalogIntegrationResultOutput)
 }
 
 // A collection of arguments for invoking getCatalogIntegration.

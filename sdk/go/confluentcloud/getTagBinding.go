@@ -120,12 +120,8 @@ type LookupTagBindingResult struct {
 }
 
 func LookupTagBindingOutput(ctx *pulumi.Context, args LookupTagBindingOutputArgs, opts ...pulumi.InvokeOption) LookupTagBindingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTagBindingResultOutput, error) {
-			args := v.(LookupTagBindingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getTagBinding:getTagBinding", args, LookupTagBindingResultOutput{}, options).(LookupTagBindingResultOutput), nil
-		}).(LookupTagBindingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getTagBinding:getTagBinding", args, LookupTagBindingResultOutput{}, options).(LookupTagBindingResultOutput)
 }
 
 // A collection of arguments for invoking getTagBinding.

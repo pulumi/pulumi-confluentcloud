@@ -109,12 +109,8 @@ type LookupFlinkArtifactResult struct {
 }
 
 func LookupFlinkArtifactOutput(ctx *pulumi.Context, args LookupFlinkArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkArtifactResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlinkArtifactResultOutput, error) {
-			args := v.(LookupFlinkArtifactArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args, LookupFlinkArtifactResultOutput{}, options).(LookupFlinkArtifactResultOutput), nil
-		}).(LookupFlinkArtifactResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args, LookupFlinkArtifactResultOutput{}, options).(LookupFlinkArtifactResultOutput)
 }
 
 // A collection of arguments for invoking getFlinkArtifact.

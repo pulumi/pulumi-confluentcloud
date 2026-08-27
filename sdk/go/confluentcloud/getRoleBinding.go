@@ -71,12 +71,8 @@ type LookupRoleBindingResult struct {
 }
 
 func LookupRoleBindingOutput(ctx *pulumi.Context, args LookupRoleBindingOutputArgs, opts ...pulumi.InvokeOption) LookupRoleBindingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRoleBindingResultOutput, error) {
-			args := v.(LookupRoleBindingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getRoleBinding:getRoleBinding", args, LookupRoleBindingResultOutput{}, options).(LookupRoleBindingResultOutput), nil
-		}).(LookupRoleBindingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getRoleBinding:getRoleBinding", args, LookupRoleBindingResultOutput{}, options).(LookupRoleBindingResultOutput)
 }
 
 // A collection of arguments for invoking getRoleBinding.

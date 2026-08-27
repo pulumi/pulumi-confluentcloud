@@ -81,12 +81,8 @@ type LookupConnectArtifactResult struct {
 }
 
 func LookupConnectArtifactOutput(ctx *pulumi.Context, args LookupConnectArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupConnectArtifactResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectArtifactResultOutput, error) {
-			args := v.(LookupConnectArtifactArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("confluentcloud:index/getConnectArtifact:getConnectArtifact", args, LookupConnectArtifactResultOutput{}, options).(LookupConnectArtifactResultOutput), nil
-		}).(LookupConnectArtifactResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getConnectArtifact:getConnectArtifact", args, LookupConnectArtifactResultOutput{}, options).(LookupConnectArtifactResultOutput)
 }
 
 // A collection of arguments for invoking getConnectArtifact.

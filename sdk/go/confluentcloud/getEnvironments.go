@@ -58,10 +58,8 @@ type GetEnvironmentsResult struct {
 }
 
 func GetEnvironmentsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetEnvironmentsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("confluentcloud:index/getEnvironments:getEnvironments", nil, GetEnvironmentsResultOutput{}, options).(GetEnvironmentsResultOutput), nil
-	}).(GetEnvironmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("confluentcloud:index/getEnvironments:getEnvironments", nil, GetEnvironmentsResultOutput{}, options).(GetEnvironmentsResultOutput)
 }
 
 // A collection of values returned by getEnvironments.
