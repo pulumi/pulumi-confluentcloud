@@ -273,7 +273,6 @@ provider "confluent" {
 Complete examples (with Okta and Microsoft Azure Entra ID as identity provider) for using OAuth credentials with the Confluent Pulumi Provider can be found here.
 
 > **Note:** You still need `cloudApiKey` and `cloudApiSecret` to manage below Confluent Cloud resources/data-sources as they are not supported with OAuth credentials yet:
-* `confluentcloud.ApiKey` resource.
 * `confluentcloud.CatalogIntegration` resource and data-source.
 * `confluentcloud.CustomConnectorPlugin` resource.
 * `confluentcloud.FlinkArtifact` resource.

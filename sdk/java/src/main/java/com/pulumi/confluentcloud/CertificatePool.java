@@ -76,9 +76,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/certificatePool:CertificatePool")
 public class CertificatePool extends com.pulumi.resources.CustomResource {
+    /**
+     * The certificate authority that the resource belongs to.
+     * 
+     */
     @Export(name="certificateAuthority", refs={CertificatePoolCertificateAuthority.class}, tree="[0]")
     private Output<CertificatePoolCertificateAuthority> certificateAuthority;
 
+    /**
+     * @return The certificate authority that the resource belongs to.
+     * 
+     */
     public Output<CertificatePoolCertificateAuthority> certificateAuthority() {
         return this.certificateAuthority;
     }

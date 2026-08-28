@@ -56,6 +56,9 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/certificatePool:CertificatePool")]
     public partial class CertificatePool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The certificate authority that the resource belongs to.
+        /// </summary>
         [Output("certificateAuthority")]
         public Output<Outputs.CertificatePoolCertificateAuthority> CertificateAuthority { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class CertificatePoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate authority that the resource belongs to.
+        /// </summary>
         [Input("certificateAuthority", required: true)]
         public Input<Inputs.CertificatePoolCertificateAuthorityArgs> CertificateAuthority { get; set; } = null!;
 
@@ -164,6 +170,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class CertificatePoolState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate authority that the resource belongs to.
+        /// </summary>
         [Input("certificateAuthority")]
         public Input<Inputs.CertificatePoolCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
 

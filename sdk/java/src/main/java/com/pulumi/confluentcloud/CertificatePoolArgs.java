@@ -15,9 +15,17 @@ public final class CertificatePoolArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CertificatePoolArgs Empty = new CertificatePoolArgs();
 
+    /**
+     * The certificate authority that the resource belongs to.
+     * 
+     */
     @Import(name="certificateAuthority", required=true)
     private Output<CertificatePoolCertificateAuthorityArgs> certificateAuthority;
 
+    /**
+     * @return The certificate authority that the resource belongs to.
+     * 
+     */
     public Output<CertificatePoolCertificateAuthorityArgs> certificateAuthority() {
         return this.certificateAuthority;
     }
@@ -110,11 +118,23 @@ public final class CertificatePoolArgs extends com.pulumi.resources.ResourceArgs
             $ = new CertificatePoolArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateAuthority The certificate authority that the resource belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateAuthority(Output<CertificatePoolCertificateAuthorityArgs> certificateAuthority) {
             $.certificateAuthority = certificateAuthority;
             return this;
         }
 
+        /**
+         * @param certificateAuthority The certificate authority that the resource belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateAuthority(CertificatePoolCertificateAuthorityArgs certificateAuthority) {
             return certificateAuthority(Output.of(certificateAuthority));
         }

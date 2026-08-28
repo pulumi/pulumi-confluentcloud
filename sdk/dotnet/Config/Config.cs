@@ -262,6 +262,16 @@ namespace Pulumi.ConfluentCloud
             set => _tableflowApiSecret.Set(value);
         }
 
+        private static readonly __Value<string?> _userAgentSuffix = new __Value<string?>(() => __config.Get("userAgentSuffix"));
+        /// <summary>
+        /// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        /// </summary>
+        public static string? UserAgentSuffix
+        {
+            get => _userAgentSuffix.Get();
+            set => _userAgentSuffix.Set(value);
+        }
+
         public static class Types
         {
 

@@ -111,6 +111,10 @@ export class Provider extends pulumi.ProviderResource {
      * The Tableflow API Secret.
      */
     declare public readonly tableflowApiSecret: pulumi.Output<string | undefined>;
+    /**
+     * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     */
+    declare public readonly userAgentSuffix: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -146,6 +150,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["schemaRegistryRestEndpoint"] = args?.schemaRegistryRestEndpoint;
             resourceInputs["tableflowApiKey"] = args?.tableflowApiKey ? pulumi.secret(args.tableflowApiKey) : undefined;
             resourceInputs["tableflowApiSecret"] = args?.tableflowApiSecret ? pulumi.secret(args.tableflowApiSecret) : undefined;
+            resourceInputs["userAgentSuffix"] = args?.userAgentSuffix;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret", "tableflowApiKey", "tableflowApiSecret"] };
@@ -259,6 +264,10 @@ export interface ProviderArgs {
      * The Tableflow API Secret.
      */
     tableflowApiSecret?: pulumi.Input<string | undefined>;
+    /**
+     * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     */
+    userAgentSuffix?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

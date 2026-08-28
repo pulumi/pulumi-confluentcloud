@@ -42,7 +42,8 @@ class ProviderArgs:
                  schema_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None):
+                 tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_agent_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -69,6 +70,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         :param pulumi.Input[_builtins.str] tableflow_api_key: The Tableflow API Key.
         :param pulumi.Input[_builtins.str] tableflow_api_secret: The Tableflow API Secret.
+        :param pulumi.Input[_builtins.str] user_agent_suffix: Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
         """
         if catalog_rest_endpoint is not None:
             pulumi.set(__self__, "catalog_rest_endpoint", catalog_rest_endpoint)
@@ -116,6 +118,8 @@ class ProviderArgs:
             pulumi.set(__self__, "tableflow_api_key", tableflow_api_key)
         if tableflow_api_secret is not None:
             pulumi.set(__self__, "tableflow_api_secret", tableflow_api_secret)
+        if user_agent_suffix is not None:
+            pulumi.set(__self__, "user_agent_suffix", user_agent_suffix)
 
     @_builtins.property
     @pulumi.getter(name="catalogRestEndpoint")
@@ -393,6 +397,18 @@ class ProviderArgs:
     def tableflow_api_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tableflow_api_secret", value)
 
+    @_builtins.property
+    @pulumi.getter(name="userAgentSuffix")
+    def user_agent_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        """
+        return pulumi.get(self, "user_agent_suffix")
+
+    @user_agent_suffix.setter
+    def user_agent_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_agent_suffix", value)
+
 
 @pulumi.type_token("pulumi:providers:confluentcloud")
 class Provider(pulumi.ProviderResource):
@@ -423,6 +439,7 @@ class Provider(pulumi.ProviderResource):
                  schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_agent_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the confluent package. By default, resources use package-wide configuration
@@ -456,6 +473,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         :param pulumi.Input[_builtins.str] tableflow_api_key: The Tableflow API Key.
         :param pulumi.Input[_builtins.str] tableflow_api_secret: The Tableflow API Secret.
+        :param pulumi.Input[_builtins.str] user_agent_suffix: Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
         """
         ...
     @overload
@@ -508,6 +526,7 @@ class Provider(pulumi.ProviderResource):
                  schema_registry_rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  tableflow_api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tableflow_api_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_agent_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,6 +559,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["schema_registry_rest_endpoint"] = schema_registry_rest_endpoint
             __props__.__dict__["tableflow_api_key"] = None if tableflow_api_key is None else pulumi.Output.secret(tableflow_api_key)
             __props__.__dict__["tableflow_api_secret"] = None if tableflow_api_secret is None else pulumi.Output.secret(tableflow_api_secret)
+            __props__.__dict__["user_agent_suffix"] = user_agent_suffix
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret", "tableflowApiKey", "tableflowApiSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
@@ -715,6 +735,14 @@ class Provider(pulumi.ProviderResource):
         The Tableflow API Secret.
         """
         return pulumi.get(self, "tableflow_api_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="userAgentSuffix")
+    def user_agent_suffix(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        """
+        return pulumi.get(self, "user_agent_suffix")
 
     @pulumi.output_type
     class TerraformConfigResult:

@@ -64,6 +64,7 @@ import (
 type CertificatePool struct {
 	pulumi.CustomResourceState
 
+	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -120,6 +121,7 @@ func GetCertificatePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificatePool resources.
 type certificatePoolState struct {
+	// The certificate authority that the resource belongs to.
 	CertificateAuthority *CertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
 	Description *string `pulumi:"description"`
@@ -132,6 +134,7 @@ type certificatePoolState struct {
 }
 
 type CertificatePoolState struct {
+	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityPtrInput
 	// A description of the Certificate Pool.
 	Description pulumi.StringPtrInput
@@ -148,6 +151,7 @@ func (CertificatePoolState) ElementType() reflect.Type {
 }
 
 type certificatePoolArgs struct {
+	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
 	Description string `pulumi:"description"`
@@ -161,6 +165,7 @@ type certificatePoolArgs struct {
 
 // The set of arguments for constructing a CertificatePool resource.
 type CertificatePoolArgs struct {
+	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityInput
 	// A description of the Certificate Pool.
 	Description pulumi.StringInput
@@ -259,6 +264,7 @@ func (o CertificatePoolOutput) ToCertificatePoolOutputWithContext(ctx context.Co
 	return o
 }
 
+// The certificate authority that the resource belongs to.
 func (o CertificatePoolOutput) CertificateAuthority() CertificatePoolCertificateAuthorityOutput {
 	return o.ApplyT(func(v *CertificatePool) CertificatePoolCertificateAuthorityOutput { return v.CertificateAuthority }).(CertificatePoolCertificateAuthorityOutput)
 }

@@ -173,4 +173,11 @@ public final class Config {
     public Optional<String> tableflowApiSecret() {
         return Codegen.stringProp("tableflowApiSecret").config(config).get();
     }
+/**
+ * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+ * 
+ */
+    public Optional<String> userAgentSuffix() {
+        return Codegen.stringProp("userAgentSuffix").config(config).get();
+    }
 }

@@ -30,7 +30,7 @@ class IpFilterArgs:
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
         :param pulumi.Input[_builtins.str] resource_group: Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         :param pulumi.Input[_builtins.str] resource_scope: A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
         pulumi.set(__self__, "filter_name", filter_name)
@@ -81,7 +81,7 @@ class IpFilterArgs:
     @pulumi.getter(name="operationGroups")
     def operation_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         """
         return pulumi.get(self, "operation_groups")
 
@@ -115,7 +115,7 @@ class _IpFilterState:
 
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         :param pulumi.Input[_builtins.str] resource_group: Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
         :param pulumi.Input[_builtins.str] resource_scope: A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
@@ -158,7 +158,7 @@ class _IpFilterState:
     @pulumi.getter(name="operationGroups")
     def operation_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         """
         return pulumi.get(self, "operation_groups")
 
@@ -221,14 +221,12 @@ class IpFilter(pulumi.CustomResource):
             resource_group="management",
             ip_groups=[example["id"]])
         multiple_filter = confluentcloud.IpFilter("multiple-filter",
-            filter_name="Management, Schema, Flink, Kafka, and ksqlDB API Rules",
+            filter_name="Management, Schema, Flink API Rules",
             resource_group="multiple",
             operation_groups=[
                 "MANAGEMENT",
                 "SCHEMA",
                 "FLINK",
-                "KAFKA_DATA",
-                "KSQL",
             ],
             ip_groups=[example["id"]])
         ```
@@ -252,7 +250,7 @@ class IpFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         :param pulumi.Input[_builtins.str] resource_group: Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
         :param pulumi.Input[_builtins.str] resource_scope: A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
@@ -280,14 +278,12 @@ class IpFilter(pulumi.CustomResource):
             resource_group="management",
             ip_groups=[example["id"]])
         multiple_filter = confluentcloud.IpFilter("multiple-filter",
-            filter_name="Management, Schema, Flink, Kafka, and ksqlDB API Rules",
+            filter_name="Management, Schema, Flink API Rules",
             resource_group="multiple",
             operation_groups=[
                 "MANAGEMENT",
                 "SCHEMA",
                 "FLINK",
-                "KAFKA_DATA",
-                "KSQL",
             ],
             ip_groups=[example["id"]])
         ```
@@ -371,7 +367,7 @@ class IpFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         :param pulumi.Input[_builtins.str] resource_group: Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
         :param pulumi.Input[_builtins.str] resource_scope: A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
         """
@@ -406,7 +402,7 @@ class IpFilter(pulumi.CustomResource):
     @pulumi.getter(name="operationGroups")
     def operation_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
         """
         return pulumi.get(self, "operation_groups")
 

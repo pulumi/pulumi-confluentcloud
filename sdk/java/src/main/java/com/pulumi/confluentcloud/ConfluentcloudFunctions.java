@@ -5191,6 +5191,92 @@ public final class ConfluentcloudFunctions {
      * </pre>
      * 
      */
+    public static Output<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfig() {
+        return getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfigPlain() {
+        return getFlinkComputePoolConfigPlain(GetFlinkComputePoolConfigPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs args) {
         return getFlinkComputePoolConfig(args, InvokeOptions.Empty);
     }
