@@ -182,3 +182,10 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get('tableflowApiSecret')
 
+    @_builtins.property
+    def user_agent_suffix(self) -> Optional[str]:
+        """
+        Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        """
+        return __config__.get('userAgentSuffix')
+

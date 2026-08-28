@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := confluentcloud.GetFlinkComputePoolConfig(ctx, &confluentcloud.LookupFlinkComputePoolConfigArgs{
-//				Id: "org-123",
+//				Id: pulumi.StringRef("org-123"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,7 +54,7 @@ func LookupFlinkComputePoolConfig(ctx *pulumi.Context, args *LookupFlinkComputeP
 // A collection of arguments for invoking getFlinkComputePoolConfig.
 type LookupFlinkComputePoolConfigArgs struct {
 	// The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getFlinkComputePoolConfig.
@@ -76,7 +76,7 @@ func LookupFlinkComputePoolConfigOutput(ctx *pulumi.Context, args LookupFlinkCom
 // A collection of arguments for invoking getFlinkComputePoolConfig.
 type LookupFlinkComputePoolConfigOutputArgs struct {
 	// The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (LookupFlinkComputePoolConfigOutputArgs) ElementType() reflect.Type {

@@ -317,6 +317,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> tableflowApiSecret() {
         return Codegen.optional(this.tableflowApiSecret);
     }
+    /**
+     * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     * 
+     */
+    @Export(name="userAgentSuffix", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userAgentSuffix;
+
+    /**
+     * @return Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     * 
+     */
+    public Output<Optional<String>> userAgentSuffix() {
+        return Codegen.optional(this.userAgentSuffix);
+    }
 
     /**
      *

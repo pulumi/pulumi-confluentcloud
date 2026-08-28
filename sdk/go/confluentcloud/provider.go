@@ -60,6 +60,8 @@ type Provider struct {
 	TableflowApiKey pulumi.StringPtrOutput `pulumi:"tableflowApiKey"`
 	// The Tableflow API Secret.
 	TableflowApiSecret pulumi.StringPtrOutput `pulumi:"tableflowApiSecret"`
+	// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+	UserAgentSuffix pulumi.StringPtrOutput `pulumi:"userAgentSuffix"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -168,6 +170,8 @@ type providerArgs struct {
 	TableflowApiKey *string `pulumi:"tableflowApiKey"`
 	// The Tableflow API Secret.
 	TableflowApiSecret *string `pulumi:"tableflowApiSecret"`
+	// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+	UserAgentSuffix *string `pulumi:"userAgentSuffix"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -218,6 +222,8 @@ type ProviderArgs struct {
 	TableflowApiKey pulumi.StringPtrInput
 	// The Tableflow API Secret.
 	TableflowApiSecret pulumi.StringPtrInput
+	// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+	UserAgentSuffix pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -383,6 +389,11 @@ func (o ProviderOutput) TableflowApiKey() pulumi.StringPtrOutput {
 // The Tableflow API Secret.
 func (o ProviderOutput) TableflowApiSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TableflowApiSecret }).(pulumi.StringPtrOutput)
+}
+
+// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+func (o ProviderOutput) UserAgentSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.UserAgentSuffix }).(pulumi.StringPtrOutput)
 }
 
 func init() {

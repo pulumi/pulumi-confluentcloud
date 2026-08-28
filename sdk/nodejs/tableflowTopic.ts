@@ -148,7 +148,7 @@ export class TableflowTopic extends pulumi.CustomResource {
      */
     declare public readonly managedStorages: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
     /**
-     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
      */
     declare public readonly metadataColumnNamingScheme: pulumi.Output<string>;
     /**
@@ -289,7 +289,7 @@ export interface TableflowTopicState {
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
     /**
-     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
      */
     metadataColumnNamingScheme?: pulumi.Input<string | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface TableflowTopicArgs {
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[] | undefined>;
     /**
-     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
      */
     metadataColumnNamingScheme?: pulumi.Input<string | undefined>;
     /**

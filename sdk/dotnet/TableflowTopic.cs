@@ -172,7 +172,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<Outputs.TableflowTopicManagedStorage>> ManagedStorages { get; private set; } = null!;
 
         /// <summary>
-        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
         /// </summary>
         [Output("metadataColumnNamingScheme")]
         public Output<string> MetadataColumnNamingScheme { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
         /// </summary>
         [Input("metadataColumnNamingScheme")]
         public Input<string>? MetadataColumnNamingScheme { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+        /// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
         /// </summary>
         [Input("metadataColumnNamingScheme")]
         public Input<string>? MetadataColumnNamingScheme { get; set; }

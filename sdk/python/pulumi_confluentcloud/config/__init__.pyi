@@ -130,3 +130,8 @@ tableflowApiSecret: Optional[str]
 The Tableflow API Secret.
 """
 
+userAgentSuffix: Optional[str]
+"""
+Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+"""
+

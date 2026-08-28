@@ -4,9 +4,10 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFlinkComputePoolConfigPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,15 +18,15 @@ public final class GetFlinkComputePoolConfigPlainArgs extends com.pulumi.resourc
      * The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
      * 
      */
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
      * @return The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetFlinkComputePoolConfigPlainArgs() {}
@@ -58,15 +59,12 @@ public final class GetFlinkComputePoolConfigPlainArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
         public GetFlinkComputePoolConfigPlainArgs build() {
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("GetFlinkComputePoolConfigPlainArgs", "id");
-            }
             return $;
         }
     }

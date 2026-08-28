@@ -262,3 +262,14 @@ Object.defineProperty(exports, "tableflowApiSecret", {
     enumerable: true,
 });
 
+/**
+ * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+ */
+export declare const userAgentSuffix: string | undefined;
+Object.defineProperty(exports, "userAgentSuffix", {
+    get() {
+        return __config.get("userAgentSuffix");
+    },
+    enumerable: true,
+});
+

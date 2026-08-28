@@ -70,6 +70,9 @@ export class CertificatePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificatePool.__pulumiType;
     }
 
+    /**
+     * The certificate authority that the resource belongs to.
+     */
     declare public readonly certificateAuthority: pulumi.Output<outputs.CertificatePoolCertificateAuthority>;
     /**
      * A description of the Certificate Pool.
@@ -138,6 +141,9 @@ export class CertificatePool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CertificatePool resources.
  */
 export interface CertificatePoolState {
+    /**
+     * The certificate authority that the resource belongs to.
+     */
     certificateAuthority?: pulumi.Input<inputs.CertificatePoolCertificateAuthority | undefined>;
     /**
      * A description of the Certificate Pool.
@@ -161,6 +167,9 @@ export interface CertificatePoolState {
  * The set of arguments for constructing a CertificatePool resource.
  */
 export interface CertificatePoolArgs {
+    /**
+     * The certificate authority that the resource belongs to.
+     */
     certificateAuthority: pulumi.Input<inputs.CertificatePoolCertificateAuthority>;
     /**
      * A description of the Certificate Pool.

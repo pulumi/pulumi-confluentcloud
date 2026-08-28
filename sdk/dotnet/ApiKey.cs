@@ -279,33 +279,43 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// &gt; **Note:** You must set the `API_KEY_SECRET` (`Secret`) environment variable before importing an API Key.
+    /// &gt; **Note:** You must set the `API_KEY_SECRET` (`Secret`) environment variable before importing an API Key. This applies whether the provider is authenticated with a Cloud API key/secret or OAuth credentials: the API Key Mgmt API does not return an API Key's secret after creation, so it cannot be read back on import.
+    /// 
+    /// &gt; **Note:** When authenticating with OAuth, `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` must not be set (they populate `CloudApiKey` / `CloudApiSecret`, which the provider rejects when an `oauth {}` block is present). Unset them in your shell or CI environment before importing.
     /// 
     /// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example:
+    /// 
+    /// When the provider is authenticated with a Cloud API key/secret:
     /// 
     /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
     /// ```
     /// 
-    /// Option #1: Cluster API Key
+    /// When the provider is authenticated with OAuth (configure the `oauth {}` block in the provider configuration):
     /// 
     /// ```sh
+    /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
     /// ```
     /// 
     /// You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
     /// 
+    /// When the provider is authenticated with a Cloud API key/secret:
+    /// 
     /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
     /// ```
     /// 
-    /// Option #2: Cloud or Tableflow API Key
+    /// When the provider is authenticated with OAuth (configure the `oauth {}` block in the provider configuration):
     /// 
     /// ```sh
+    /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
     /// ```
     /// 

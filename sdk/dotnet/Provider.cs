@@ -144,6 +144,12 @@ namespace Pulumi.ConfluentCloud
         [Output("tableflowApiSecret")]
         public Output<string?> TableflowApiSecret { get; private set; } = null!;
 
+        /// <summary>
+        /// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        /// </summary>
+        [Output("userAgentSuffix")]
+        public Output<string?> UserAgentSuffix { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -428,6 +434,12 @@ namespace Pulumi.ConfluentCloud
                 _tableflowApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+        /// </summary>
+        [Input("userAgentSuffix")]
+        public Input<string>? UserAgentSuffix { get; set; }
 
         public ProviderArgs()
         {

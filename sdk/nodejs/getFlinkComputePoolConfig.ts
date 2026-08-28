@@ -25,7 +25,8 @@ import * as utilities from "./utilities";
  * }
  * ```
  */
-export function getFlinkComputePoolConfig(args: GetFlinkComputePoolConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkComputePoolConfigResult> {
+export function getFlinkComputePoolConfig(args?: GetFlinkComputePoolConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkComputePoolConfigResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", {
         "id": args.id,
@@ -39,7 +40,7 @@ export interface GetFlinkComputePoolConfigArgs {
     /**
      * The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
      */
-    id: string;
+    id?: string;
 }
 
 /**
@@ -79,7 +80,8 @@ export interface GetFlinkComputePoolConfigResult {
  * }
  * ```
  */
-export function getFlinkComputePoolConfigOutput(args: GetFlinkComputePoolConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkComputePoolConfigResult> {
+export function getFlinkComputePoolConfigOutput(args?: GetFlinkComputePoolConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkComputePoolConfigResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", {
         "id": args.id,
@@ -93,5 +95,5 @@ export interface GetFlinkComputePoolConfigOutputArgs {
     /**
      * The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

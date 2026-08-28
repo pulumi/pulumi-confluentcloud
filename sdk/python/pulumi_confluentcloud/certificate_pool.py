@@ -29,6 +29,7 @@ class CertificatePoolArgs:
         """
         The set of arguments for constructing a CertificatePool resource.
 
+        :param pulumi.Input['CertificatePoolCertificateAuthorityArgs'] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -43,6 +44,9 @@ class CertificatePoolArgs:
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
     def certificate_authority(self) -> pulumi.Input['CertificatePoolCertificateAuthorityArgs']:
+        """
+        The certificate authority that the resource belongs to.
+        """
         return pulumi.get(self, "certificate_authority")
 
     @certificate_authority.setter
@@ -109,6 +113,7 @@ class _CertificatePoolState:
         """
         Input properties used for looking up and filtering CertificatePool resources.
 
+        :param pulumi.Input['CertificatePoolCertificateAuthorityArgs'] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -128,6 +133,9 @@ class _CertificatePoolState:
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
     def certificate_authority(self) -> pulumi.Input[Optional['CertificatePoolCertificateAuthorityArgs']]:
+        """
+        The certificate authority that the resource belongs to.
+        """
         return pulumi.get(self, "certificate_authority")
 
     @certificate_authority.setter
@@ -233,6 +241,7 @@ class CertificatePool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -346,6 +355,7 @@ class CertificatePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -365,6 +375,9 @@ class CertificatePool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
     def certificate_authority(self) -> pulumi.Output['outputs.CertificatePoolCertificateAuthority']:
+        """
+        The certificate authority that the resource belongs to.
+        """
         return pulumi.get(self, "certificate_authority")
 
     @_builtins.property

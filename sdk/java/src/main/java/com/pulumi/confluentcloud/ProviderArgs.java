@@ -362,6 +362,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tableflowApiSecret);
     }
 
+    /**
+     * Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     * 
+     */
+    @Import(name="userAgentSuffix")
+    private @Nullable Output<String> userAgentSuffix;
+
+    /**
+     * @return Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+     * 
+     */
+    public Optional<Output<String>> userAgentSuffix() {
+        return Optional.ofNullable(this.userAgentSuffix);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -388,6 +403,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.schemaRegistryRestEndpoint = $.schemaRegistryRestEndpoint;
         this.tableflowApiKey = $.tableflowApiKey;
         this.tableflowApiSecret = $.tableflowApiSecret;
+        this.userAgentSuffix = $.userAgentSuffix;
     }
 
     public static Builder builder() {
@@ -889,6 +905,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tableflowApiSecret(String tableflowApiSecret) {
             return tableflowApiSecret(Output.of(tableflowApiSecret));
+        }
+
+        /**
+         * @param userAgentSuffix Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAgentSuffix(@Nullable Output<String> userAgentSuffix) {
+            $.userAgentSuffix = userAgentSuffix;
+            return this;
+        }
+
+        /**
+         * @param userAgentSuffix Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAgentSuffix(String userAgentSuffix) {
+            return userAgentSuffix(Output.of(userAgentSuffix));
         }
 
         public ProviderArgs build() {

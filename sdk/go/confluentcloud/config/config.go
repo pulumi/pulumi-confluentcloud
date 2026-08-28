@@ -125,3 +125,8 @@ func GetTableflowApiKey(ctx *pulumi.Context) string {
 func GetTableflowApiSecret(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:tableflowApiSecret")
 }
+
+// Value appended to the User-Agent header, used to attribute Terraform runs to their source (e.g., a config exported from Confluent Cloud Console).
+func GetUserAgentSuffix(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:userAgentSuffix")
+}

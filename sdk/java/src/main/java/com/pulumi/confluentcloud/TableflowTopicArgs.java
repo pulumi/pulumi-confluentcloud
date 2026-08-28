@@ -144,14 +144,14 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
      * 
      */
     @Import(name="metadataColumnNamingScheme")
     private @Nullable Output<String> metadataColumnNamingScheme;
 
     /**
-     * @return The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+     * @return The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
      * 
      */
     public Optional<Output<String>> metadataColumnNamingScheme() {
@@ -423,7 +423,7 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param metadataColumnNamingScheme The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+         * @param metadataColumnNamingScheme The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param metadataColumnNamingScheme The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery.
+         * @param metadataColumnNamingScheme The naming scheme for the Tableflow-enabled topic&#39;s internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
          * 
          * @return builder
          * 

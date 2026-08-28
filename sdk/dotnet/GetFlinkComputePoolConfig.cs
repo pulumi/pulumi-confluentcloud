@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// </summary>
-        public static Task<GetFlinkComputePoolConfigResult> InvokeAsync(GetFlinkComputePoolConfigArgs args, InvokeOptions? options = null)
+        public static Task<GetFlinkComputePoolConfigResult> InvokeAsync(GetFlinkComputePoolConfigArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlinkComputePoolConfigResult>("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", args ?? new GetFlinkComputePoolConfigArgs(), options.WithDefaults());
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// </summary>
-        public static Output<GetFlinkComputePoolConfigResult> Invoke(GetFlinkComputePoolConfigInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetFlinkComputePoolConfigResult> Invoke(GetFlinkComputePoolConfigInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkComputePoolConfigResult>("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", args ?? new GetFlinkComputePoolConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         public GetFlinkComputePoolConfigArgs()
         {
@@ -122,8 +122,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Organization ID of the Flink Compute Pool Config, for example, `org-123`.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetFlinkComputePoolConfigInvokeArgs()
         {
