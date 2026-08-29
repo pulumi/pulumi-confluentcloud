@@ -38,13 +38,15 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var multiple_filter = new ConfluentCloud.IpFilter("multiple-filter", new()
     ///     {
-    ///         FilterName = "Management, Schema, Flink API Rules",
+    ///         FilterName = "Management, Schema, Flink, Kafka, and ksqlDB API Rules",
     ///         ResourceGroup = "multiple",
     ///         OperationGroups = new[]
     ///         {
     ///             "MANAGEMENT",
     ///             "SCHEMA",
     ///             "FLINK",
+    ///             "KAFKA_DATA",
+    ///             "KSQL",
     ///         },
     ///         IpGroups = new[]
     ///         {
@@ -85,7 +87,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<string>> IpGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
+        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
         /// </summary>
         [Output("operationGroups")]
         public Output<ImmutableArray<string>> OperationGroups { get; private set; } = null!;
@@ -170,7 +172,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _operationGroups;
 
         /// <summary>
-        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
+        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
         /// </summary>
         public InputList<string> OperationGroups
         {
@@ -220,7 +222,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _operationGroups;
 
         /// <summary>
-        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
+        /// Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. Available operation groups include `"MANAGEMENT"`, `"SCHEMA"`, `"CATALOG"`, `"KAFKA_DISCOVERY"`, `"KAFKA_MANAGEMENT"`, `"LOGS"`, `"METRICS"`, `"FLINK"`, `"KAFKA_DATA"`, and `"KSQL"`. IP Filtering doesn't support the `"CATALOG"`, `"LOGS"`, or `"METRICS"` operation groups. For more details, see [Operation Groups](https://docs.confluent.io/cloud/current/security/access-control/ip-filtering/overview.html#operation-group-identifiers). During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
         /// </summary>
         public InputList<string> OperationGroups
         {
