@@ -1,3 +1,0 @@
-name: confluentcloud-ts-environment
-runtime: nodejs
-description: A minimal TypeScript Pulumi program
