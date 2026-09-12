@@ -31947,6 +31947,349 @@ func (o GetConnectArtifactEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetDnsForwarderEnvironment struct {
+	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetDnsForwarderEnvironmentInput is an input type that accepts GetDnsForwarderEnvironmentArgs and GetDnsForwarderEnvironmentOutput values.
+// You can construct a concrete instance of `GetDnsForwarderEnvironmentInput` via:
+//
+//	GetDnsForwarderEnvironmentArgs{...}
+type GetDnsForwarderEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderEnvironmentOutput() GetDnsForwarderEnvironmentOutput
+	ToGetDnsForwarderEnvironmentOutputWithContext(context.Context) GetDnsForwarderEnvironmentOutput
+}
+
+type GetDnsForwarderEnvironmentArgs struct {
+	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetDnsForwarderEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderEnvironment)(nil)).Elem()
+}
+
+func (i GetDnsForwarderEnvironmentArgs) ToGetDnsForwarderEnvironmentOutput() GetDnsForwarderEnvironmentOutput {
+	return i.ToGetDnsForwarderEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderEnvironmentArgs) ToGetDnsForwarderEnvironmentOutputWithContext(ctx context.Context) GetDnsForwarderEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderEnvironmentOutput)
+}
+
+type GetDnsForwarderEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderEnvironment)(nil)).Elem()
+}
+
+func (o GetDnsForwarderEnvironmentOutput) ToGetDnsForwarderEnvironmentOutput() GetDnsForwarderEnvironmentOutput {
+	return o
+}
+
+func (o GetDnsForwarderEnvironmentOutput) ToGetDnsForwarderEnvironmentOutputWithContext(ctx context.Context) GetDnsForwarderEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+func (o GetDnsForwarderEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsForwarderEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetDnsForwarderForwardViaGcpDnsZone struct {
+	// (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+	DomainMappings map[string]string `pulumi:"domainMappings"`
+}
+
+// GetDnsForwarderForwardViaGcpDnsZoneInput is an input type that accepts GetDnsForwarderForwardViaGcpDnsZoneArgs and GetDnsForwarderForwardViaGcpDnsZoneOutput values.
+// You can construct a concrete instance of `GetDnsForwarderForwardViaGcpDnsZoneInput` via:
+//
+//	GetDnsForwarderForwardViaGcpDnsZoneArgs{...}
+type GetDnsForwarderForwardViaGcpDnsZoneInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderForwardViaGcpDnsZoneOutput() GetDnsForwarderForwardViaGcpDnsZoneOutput
+	ToGetDnsForwarderForwardViaGcpDnsZoneOutputWithContext(context.Context) GetDnsForwarderForwardViaGcpDnsZoneOutput
+}
+
+type GetDnsForwarderForwardViaGcpDnsZoneArgs struct {
+	// (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+	DomainMappings pulumi.StringMapInput `pulumi:"domainMappings"`
+}
+
+func (GetDnsForwarderForwardViaGcpDnsZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderForwardViaGcpDnsZone)(nil)).Elem()
+}
+
+func (i GetDnsForwarderForwardViaGcpDnsZoneArgs) ToGetDnsForwarderForwardViaGcpDnsZoneOutput() GetDnsForwarderForwardViaGcpDnsZoneOutput {
+	return i.ToGetDnsForwarderForwardViaGcpDnsZoneOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderForwardViaGcpDnsZoneArgs) ToGetDnsForwarderForwardViaGcpDnsZoneOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaGcpDnsZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderForwardViaGcpDnsZoneOutput)
+}
+
+// GetDnsForwarderForwardViaGcpDnsZoneArrayInput is an input type that accepts GetDnsForwarderForwardViaGcpDnsZoneArray and GetDnsForwarderForwardViaGcpDnsZoneArrayOutput values.
+// You can construct a concrete instance of `GetDnsForwarderForwardViaGcpDnsZoneArrayInput` via:
+//
+//	GetDnsForwarderForwardViaGcpDnsZoneArray{ GetDnsForwarderForwardViaGcpDnsZoneArgs{...} }
+type GetDnsForwarderForwardViaGcpDnsZoneArrayInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutput() GetDnsForwarderForwardViaGcpDnsZoneArrayOutput
+	ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutputWithContext(context.Context) GetDnsForwarderForwardViaGcpDnsZoneArrayOutput
+}
+
+type GetDnsForwarderForwardViaGcpDnsZoneArray []GetDnsForwarderForwardViaGcpDnsZoneInput
+
+func (GetDnsForwarderForwardViaGcpDnsZoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderForwardViaGcpDnsZone)(nil)).Elem()
+}
+
+func (i GetDnsForwarderForwardViaGcpDnsZoneArray) ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutput() GetDnsForwarderForwardViaGcpDnsZoneArrayOutput {
+	return i.ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderForwardViaGcpDnsZoneArray) ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaGcpDnsZoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderForwardViaGcpDnsZoneArrayOutput)
+}
+
+type GetDnsForwarderForwardViaGcpDnsZoneOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderForwardViaGcpDnsZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderForwardViaGcpDnsZone)(nil)).Elem()
+}
+
+func (o GetDnsForwarderForwardViaGcpDnsZoneOutput) ToGetDnsForwarderForwardViaGcpDnsZoneOutput() GetDnsForwarderForwardViaGcpDnsZoneOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaGcpDnsZoneOutput) ToGetDnsForwarderForwardViaGcpDnsZoneOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaGcpDnsZoneOutput {
+	return o
+}
+
+// (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+func (o GetDnsForwarderForwardViaGcpDnsZoneOutput) DomainMappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDnsForwarderForwardViaGcpDnsZone) map[string]string { return v.DomainMappings }).(pulumi.StringMapOutput)
+}
+
+type GetDnsForwarderForwardViaGcpDnsZoneArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderForwardViaGcpDnsZoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderForwardViaGcpDnsZone)(nil)).Elem()
+}
+
+func (o GetDnsForwarderForwardViaGcpDnsZoneArrayOutput) ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutput() GetDnsForwarderForwardViaGcpDnsZoneArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaGcpDnsZoneArrayOutput) ToGetDnsForwarderForwardViaGcpDnsZoneArrayOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaGcpDnsZoneArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaGcpDnsZoneArrayOutput) Index(i pulumi.IntInput) GetDnsForwarderForwardViaGcpDnsZoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsForwarderForwardViaGcpDnsZone {
+		return vs[0].([]GetDnsForwarderForwardViaGcpDnsZone)[vs[1].(int)]
+	}).(GetDnsForwarderForwardViaGcpDnsZoneOutput)
+}
+
+type GetDnsForwarderForwardViaIp struct {
+	// (Set of Strings) List of IP addresses of the DNS server
+	DnsServerIps []string `pulumi:"dnsServerIps"`
+}
+
+// GetDnsForwarderForwardViaIpInput is an input type that accepts GetDnsForwarderForwardViaIpArgs and GetDnsForwarderForwardViaIpOutput values.
+// You can construct a concrete instance of `GetDnsForwarderForwardViaIpInput` via:
+//
+//	GetDnsForwarderForwardViaIpArgs{...}
+type GetDnsForwarderForwardViaIpInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderForwardViaIpOutput() GetDnsForwarderForwardViaIpOutput
+	ToGetDnsForwarderForwardViaIpOutputWithContext(context.Context) GetDnsForwarderForwardViaIpOutput
+}
+
+type GetDnsForwarderForwardViaIpArgs struct {
+	// (Set of Strings) List of IP addresses of the DNS server
+	DnsServerIps pulumi.StringArrayInput `pulumi:"dnsServerIps"`
+}
+
+func (GetDnsForwarderForwardViaIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderForwardViaIp)(nil)).Elem()
+}
+
+func (i GetDnsForwarderForwardViaIpArgs) ToGetDnsForwarderForwardViaIpOutput() GetDnsForwarderForwardViaIpOutput {
+	return i.ToGetDnsForwarderForwardViaIpOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderForwardViaIpArgs) ToGetDnsForwarderForwardViaIpOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderForwardViaIpOutput)
+}
+
+// GetDnsForwarderForwardViaIpArrayInput is an input type that accepts GetDnsForwarderForwardViaIpArray and GetDnsForwarderForwardViaIpArrayOutput values.
+// You can construct a concrete instance of `GetDnsForwarderForwardViaIpArrayInput` via:
+//
+//	GetDnsForwarderForwardViaIpArray{ GetDnsForwarderForwardViaIpArgs{...} }
+type GetDnsForwarderForwardViaIpArrayInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderForwardViaIpArrayOutput() GetDnsForwarderForwardViaIpArrayOutput
+	ToGetDnsForwarderForwardViaIpArrayOutputWithContext(context.Context) GetDnsForwarderForwardViaIpArrayOutput
+}
+
+type GetDnsForwarderForwardViaIpArray []GetDnsForwarderForwardViaIpInput
+
+func (GetDnsForwarderForwardViaIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderForwardViaIp)(nil)).Elem()
+}
+
+func (i GetDnsForwarderForwardViaIpArray) ToGetDnsForwarderForwardViaIpArrayOutput() GetDnsForwarderForwardViaIpArrayOutput {
+	return i.ToGetDnsForwarderForwardViaIpArrayOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderForwardViaIpArray) ToGetDnsForwarderForwardViaIpArrayOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderForwardViaIpArrayOutput)
+}
+
+type GetDnsForwarderForwardViaIpOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderForwardViaIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderForwardViaIp)(nil)).Elem()
+}
+
+func (o GetDnsForwarderForwardViaIpOutput) ToGetDnsForwarderForwardViaIpOutput() GetDnsForwarderForwardViaIpOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaIpOutput) ToGetDnsForwarderForwardViaIpOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaIpOutput {
+	return o
+}
+
+// (Set of Strings) List of IP addresses of the DNS server
+func (o GetDnsForwarderForwardViaIpOutput) DnsServerIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDnsForwarderForwardViaIp) []string { return v.DnsServerIps }).(pulumi.StringArrayOutput)
+}
+
+type GetDnsForwarderForwardViaIpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderForwardViaIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderForwardViaIp)(nil)).Elem()
+}
+
+func (o GetDnsForwarderForwardViaIpArrayOutput) ToGetDnsForwarderForwardViaIpArrayOutput() GetDnsForwarderForwardViaIpArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaIpArrayOutput) ToGetDnsForwarderForwardViaIpArrayOutputWithContext(ctx context.Context) GetDnsForwarderForwardViaIpArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderForwardViaIpArrayOutput) Index(i pulumi.IntInput) GetDnsForwarderForwardViaIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsForwarderForwardViaIp {
+		return vs[0].([]GetDnsForwarderForwardViaIp)[vs[1].(int)]
+	}).(GetDnsForwarderForwardViaIpOutput)
+}
+
+type GetDnsForwarderGateway struct {
+	// The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetDnsForwarderGatewayInput is an input type that accepts GetDnsForwarderGatewayArgs and GetDnsForwarderGatewayOutput values.
+// You can construct a concrete instance of `GetDnsForwarderGatewayInput` via:
+//
+//	GetDnsForwarderGatewayArgs{...}
+type GetDnsForwarderGatewayInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderGatewayOutput() GetDnsForwarderGatewayOutput
+	ToGetDnsForwarderGatewayOutputWithContext(context.Context) GetDnsForwarderGatewayOutput
+}
+
+type GetDnsForwarderGatewayArgs struct {
+	// The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetDnsForwarderGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderGateway)(nil)).Elem()
+}
+
+func (i GetDnsForwarderGatewayArgs) ToGetDnsForwarderGatewayOutput() GetDnsForwarderGatewayOutput {
+	return i.ToGetDnsForwarderGatewayOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderGatewayArgs) ToGetDnsForwarderGatewayOutputWithContext(ctx context.Context) GetDnsForwarderGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderGatewayOutput)
+}
+
+// GetDnsForwarderGatewayArrayInput is an input type that accepts GetDnsForwarderGatewayArray and GetDnsForwarderGatewayArrayOutput values.
+// You can construct a concrete instance of `GetDnsForwarderGatewayArrayInput` via:
+//
+//	GetDnsForwarderGatewayArray{ GetDnsForwarderGatewayArgs{...} }
+type GetDnsForwarderGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetDnsForwarderGatewayArrayOutput() GetDnsForwarderGatewayArrayOutput
+	ToGetDnsForwarderGatewayArrayOutputWithContext(context.Context) GetDnsForwarderGatewayArrayOutput
+}
+
+type GetDnsForwarderGatewayArray []GetDnsForwarderGatewayInput
+
+func (GetDnsForwarderGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderGateway)(nil)).Elem()
+}
+
+func (i GetDnsForwarderGatewayArray) ToGetDnsForwarderGatewayArrayOutput() GetDnsForwarderGatewayArrayOutput {
+	return i.ToGetDnsForwarderGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetDnsForwarderGatewayArray) ToGetDnsForwarderGatewayArrayOutputWithContext(ctx context.Context) GetDnsForwarderGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsForwarderGatewayArrayOutput)
+}
+
+type GetDnsForwarderGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsForwarderGateway)(nil)).Elem()
+}
+
+func (o GetDnsForwarderGatewayOutput) ToGetDnsForwarderGatewayOutput() GetDnsForwarderGatewayOutput {
+	return o
+}
+
+func (o GetDnsForwarderGatewayOutput) ToGetDnsForwarderGatewayOutputWithContext(ctx context.Context) GetDnsForwarderGatewayOutput {
+	return o
+}
+
+// The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+func (o GetDnsForwarderGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsForwarderGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetDnsForwarderGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsForwarderGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsForwarderGateway)(nil)).Elem()
+}
+
+func (o GetDnsForwarderGatewayArrayOutput) ToGetDnsForwarderGatewayArrayOutput() GetDnsForwarderGatewayArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderGatewayArrayOutput) ToGetDnsForwarderGatewayArrayOutputWithContext(ctx context.Context) GetDnsForwarderGatewayArrayOutput {
+	return o
+}
+
+func (o GetDnsForwarderGatewayArrayOutput) Index(i pulumi.IntInput) GetDnsForwarderGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsForwarderGateway {
+		return vs[0].([]GetDnsForwarderGateway)[vs[1].(int)]
+	}).(GetDnsForwarderGatewayOutput)
+}
+
 type GetDnsRecordEnvironment struct {
 	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
 	Id string `pulumi:"id"`
@@ -32918,7 +33261,6 @@ func (o GetEndpointFilterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetEnvironmentStreamGovernance struct {
-	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
 	Package string `pulumi:"package"`
 }
 
@@ -32934,7 +33276,6 @@ type GetEnvironmentStreamGovernanceInput interface {
 }
 
 type GetEnvironmentStreamGovernanceArgs struct {
-	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
 	Package pulumi.StringInput `pulumi:"package"`
 }
 
@@ -32948,47 +33289,6 @@ func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernanceOutp
 
 func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernanceOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernanceOutput)
-}
-
-func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
-	return i.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
-}
-
-func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernanceOutput).ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx)
-}
-
-// GetEnvironmentStreamGovernancePtrInput is an input type that accepts GetEnvironmentStreamGovernanceArgs, GetEnvironmentStreamGovernancePtr and GetEnvironmentStreamGovernancePtrOutput values.
-// You can construct a concrete instance of `GetEnvironmentStreamGovernancePtrInput` via:
-//
-//	        GetEnvironmentStreamGovernanceArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetEnvironmentStreamGovernancePtrInput interface {
-	pulumi.Input
-
-	ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput
-	ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Context) GetEnvironmentStreamGovernancePtrOutput
-}
-
-type getEnvironmentStreamGovernancePtrType GetEnvironmentStreamGovernanceArgs
-
-func GetEnvironmentStreamGovernancePtr(v *GetEnvironmentStreamGovernanceArgs) GetEnvironmentStreamGovernancePtrInput {
-	return (*getEnvironmentStreamGovernancePtrType)(v)
-}
-
-func (*getEnvironmentStreamGovernancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetEnvironmentStreamGovernance)(nil)).Elem()
-}
-
-func (i *getEnvironmentStreamGovernancePtrType) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
-	return i.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
-}
-
-func (i *getEnvironmentStreamGovernancePtrType) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernancePtrOutput)
 }
 
 type GetEnvironmentStreamGovernanceOutput struct{ *pulumi.OutputState }
@@ -33005,53 +33305,8 @@ func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernanceOu
 	return o
 }
 
-func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
-	return o.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
-}
-
-func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEnvironmentStreamGovernance) *GetEnvironmentStreamGovernance {
-		return &v
-	}).(GetEnvironmentStreamGovernancePtrOutput)
-}
-
-// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
 func (o GetEnvironmentStreamGovernanceOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentStreamGovernance) string { return v.Package }).(pulumi.StringOutput)
-}
-
-type GetEnvironmentStreamGovernancePtrOutput struct{ *pulumi.OutputState }
-
-func (GetEnvironmentStreamGovernancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetEnvironmentStreamGovernance)(nil)).Elem()
-}
-
-func (o GetEnvironmentStreamGovernancePtrOutput) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
-	return o
-}
-
-func (o GetEnvironmentStreamGovernancePtrOutput) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
-	return o
-}
-
-func (o GetEnvironmentStreamGovernancePtrOutput) Elem() GetEnvironmentStreamGovernanceOutput {
-	return o.ApplyT(func(v *GetEnvironmentStreamGovernance) GetEnvironmentStreamGovernance {
-		if v != nil {
-			return *v
-		}
-		var ret GetEnvironmentStreamGovernance
-		return ret
-	}).(GetEnvironmentStreamGovernanceOutput)
-}
-
-// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-func (o GetEnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetEnvironmentStreamGovernance) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Package
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetFlinkArtifactEnvironment struct {
@@ -43898,6 +44153,58 @@ func (o GetPeeringNetworkArrayOutput) Index(i pulumi.IntInput) GetPeeringNetwork
 	}).(GetPeeringNetworkOutput)
 }
 
+type GetPluginEnvironment struct {
+	// The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPluginEnvironmentInput is an input type that accepts GetPluginEnvironmentArgs and GetPluginEnvironmentOutput values.
+// You can construct a concrete instance of `GetPluginEnvironmentInput` via:
+//
+//	GetPluginEnvironmentArgs{...}
+type GetPluginEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetPluginEnvironmentOutput() GetPluginEnvironmentOutput
+	ToGetPluginEnvironmentOutputWithContext(context.Context) GetPluginEnvironmentOutput
+}
+
+type GetPluginEnvironmentArgs struct {
+	// The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPluginEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginEnvironment)(nil)).Elem()
+}
+
+func (i GetPluginEnvironmentArgs) ToGetPluginEnvironmentOutput() GetPluginEnvironmentOutput {
+	return i.ToGetPluginEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetPluginEnvironmentArgs) ToGetPluginEnvironmentOutputWithContext(ctx context.Context) GetPluginEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPluginEnvironmentOutput)
+}
+
+type GetPluginEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetPluginEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginEnvironment)(nil)).Elem()
+}
+
+func (o GetPluginEnvironmentOutput) ToGetPluginEnvironmentOutput() GetPluginEnvironmentOutput {
+	return o
+}
+
+func (o GetPluginEnvironmentOutput) ToGetPluginEnvironmentOutputWithContext(ctx context.Context) GetPluginEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+func (o GetPluginEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetPrivateLinkAccessAw struct {
 	// (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -52125,6 +52432,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterPtrInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectArtifactEnvironmentInput)(nil)).Elem(), GetConnectArtifactEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderEnvironmentInput)(nil)).Elem(), GetDnsForwarderEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderForwardViaGcpDnsZoneInput)(nil)).Elem(), GetDnsForwarderForwardViaGcpDnsZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderForwardViaGcpDnsZoneArrayInput)(nil)).Elem(), GetDnsForwarderForwardViaGcpDnsZoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderForwardViaIpInput)(nil)).Elem(), GetDnsForwarderForwardViaIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderForwardViaIpArrayInput)(nil)).Elem(), GetDnsForwarderForwardViaIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderGatewayInput)(nil)).Elem(), GetDnsForwarderGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsForwarderGatewayArrayInput)(nil)).Elem(), GetDnsForwarderGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordEnvironmentInput)(nil)).Elem(), GetDnsRecordEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayInput)(nil)).Elem(), GetDnsRecordGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
@@ -52142,7 +52456,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterInput)(nil)).Elem(), GetEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterEnvironmentInput)(nil)).Elem(), GetEndpointFilterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactEnvironmentInput)(nil)).Elem(), GetFlinkArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionInput)(nil)).Elem(), GetFlinkArtifactVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionArrayInput)(nil)).Elem(), GetFlinkArtifactVersionArray{})
@@ -52321,6 +52634,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringGcpArrayInput)(nil)).Elem(), GetPeeringGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringNetworkInput)(nil)).Elem(), GetPeeringNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringNetworkArrayInput)(nil)).Elem(), GetPeeringNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPluginEnvironmentInput)(nil)).Elem(), GetPluginEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAwInput)(nil)).Elem(), GetPrivateLinkAccessAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAwArrayInput)(nil)).Elem(), GetPrivateLinkAccessAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAzureInput)(nil)).Elem(), GetPrivateLinkAccessAzureArgs{})
@@ -52875,6 +53189,13 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetConnectArtifactEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderForwardViaGcpDnsZoneOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderForwardViaGcpDnsZoneArrayOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderForwardViaIpOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderForwardViaIpArrayOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderGatewayOutput{})
+	pulumi.RegisterOutputType(GetDnsForwarderGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})
@@ -52892,7 +53213,6 @@ func init() {
 	pulumi.RegisterOutputType(GetEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetEndpointFilterEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
-	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactVersionOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactVersionArrayOutput{})
@@ -53071,6 +53391,7 @@ func init() {
 	pulumi.RegisterOutputType(GetPeeringGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringNetworkOutput{})
 	pulumi.RegisterOutputType(GetPeeringNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetPluginEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessAwOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessAwArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessAzureOutput{})

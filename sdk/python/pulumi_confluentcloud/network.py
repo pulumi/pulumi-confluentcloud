@@ -45,10 +45,10 @@ class NetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         :param pulumi.Input[_builtins.str] cidr: The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network.
-        :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
+        :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[_builtins.str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -179,7 +179,7 @@ class NetworkArgs:
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> pulumi.Input[Optional['NetworkDnsConfigArgs']]:
         """
-        Network DNS config. It applies only to the PRIVATELINK network connection type.
+        DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         """
         return pulumi.get(self, "dns_config")
 
@@ -215,7 +215,7 @@ class NetworkArgs:
     @pulumi.getter(name="zoneInfos")
     def zone_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
         """
-        Each item represents information related to a single zone.
+        Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         """
         return pulumi.get(self, "zone_infos")
 
@@ -271,7 +271,7 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network.
-        :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
+        :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         :param pulumi.Input[_builtins.str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         :param pulumi.Input[_builtins.str] endpoint_suffix: (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix.
                - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -283,7 +283,7 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         :param pulumi.Input[_builtins.str] resource_name: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -404,7 +404,7 @@ class _NetworkState:
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> pulumi.Input[Optional['NetworkDnsConfigArgs']]:
         """
-        Network DNS config. It applies only to the PRIVATELINK network connection type.
+        DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         """
         return pulumi.get(self, "dns_config")
 
@@ -526,7 +526,7 @@ class _NetworkState:
     @pulumi.getter(name="zoneInfos")
     def zone_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
         """
-        Each item represents information related to a single zone.
+        Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         """
         return pulumi.get(self, "zone_infos")
 
@@ -702,12 +702,12 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network.
-        :param pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
+        :param pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']] dns_config: DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         :param pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[_builtins.str] region: The cloud provider region where the network exists.
         :param pulumi.Input[_builtins.str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]] zone_infos: Each item represents information related to a single zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]] zone_infos: Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -947,7 +947,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network.
-        :param pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
+        :param pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']] dns_config: DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         :param pulumi.Input[_builtins.str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         :param pulumi.Input[_builtins.str] endpoint_suffix: (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix.
                - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
@@ -959,7 +959,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]] zone_infos: Each item represents information related to a single zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict']]]] zone_infos: Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -1043,7 +1043,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> pulumi.Output['outputs.NetworkDnsConfig']:
         """
-        Network DNS config. It applies only to the PRIVATELINK network connection type.
+        DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         """
         return pulumi.get(self, "dns_config")
 
@@ -1125,7 +1125,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="zoneInfos")
     def zone_infos(self) -> pulumi.Output[Sequence['outputs.NetworkZoneInfo']]:
         """
-        Each item represents information related to a single zone.
+        Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         """
         return pulumi.get(self, "zone_infos")
 

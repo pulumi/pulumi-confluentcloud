@@ -1380,6 +1380,34 @@ export interface GetConnectArtifactEnvironment {
     id: string;
 }
 
+export interface GetDnsForwarderEnvironment {
+    /**
+     * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetDnsForwarderForwardViaGcpDnsZone {
+    /**
+     * (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+     */
+    domainMappings: {[key: string]: string};
+}
+
+export interface GetDnsForwarderForwardViaIp {
+    /**
+     * (Set of Strings) List of IP addresses of the DNS server
+     */
+    dnsServerIps: string[];
+}
+
+export interface GetDnsForwarderGateway {
+    /**
+     * The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+     */
+    id: string;
+}
+
 export interface GetDnsRecordEnvironment {
     /**
      * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
@@ -1530,9 +1558,6 @@ export interface GetEndpointFilterEnvironment {
 }
 
 export interface GetEnvironmentStreamGovernance {
-    /**
-     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-     */
     package: string;
 }
 
@@ -2713,6 +2738,13 @@ export interface GetPeeringGcp {
 export interface GetPeeringNetwork {
     /**
      * The ID of the Peering, for example, `peer-abc123`.
+     */
+    id: string;
+}
+
+export interface GetPluginEnvironment {
+    /**
+     * The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
      */
     id: string;
 }

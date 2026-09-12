@@ -29,6 +29,7 @@ public final class GetConnectArtifactResult {
     private String displayName;
     private GetConnectArtifactEnvironment environment;
     private String id;
+    private String status;
 
     private GetConnectArtifactResult() {}
     public String cloud() {
@@ -61,6 +62,9 @@ public final class GetConnectArtifactResult {
     public String id() {
         return this.id;
     }
+    public String status() {
+        return this.status;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +81,7 @@ public final class GetConnectArtifactResult {
         private String displayName;
         private GetConnectArtifactEnvironment environment;
         private String id;
+        private String status;
         public Builder() {}
         public Builder(GetConnectArtifactResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,6 +91,7 @@ public final class GetConnectArtifactResult {
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
+    	      this.status = defaults.status;
         }
 
         @CustomType.Setter
@@ -136,6 +142,14 @@ public final class GetConnectArtifactResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder status(String status) {
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetConnectArtifactResult", "status");
+            }
+            this.status = status;
+            return this;
+        }
         public GetConnectArtifactResult build() {
             final var _resultValue = new GetConnectArtifactResult();
             _resultValue.cloud = cloud;
@@ -144,6 +158,7 @@ public final class GetConnectArtifactResult {
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;
+            _resultValue.status = status;
             return _resultValue;
         }
     }

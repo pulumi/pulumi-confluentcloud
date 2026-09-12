@@ -7,58 +7,11 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCertificateAuthorityPlainArgs Empty = new GetCertificateAuthorityPlainArgs();
-
-    /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     * 
-     */
-    @Import(name="crlSource")
-    private @Nullable String crlSource;
-
-    /**
-     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     * 
-     */
-    public Optional<String> crlSource() {
-        return Optional.ofNullable(this.crlSource);
-    }
-
-    /**
-     * (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     * 
-     */
-    @Import(name="crlUpdatedAt")
-    private @Nullable String crlUpdatedAt;
-
-    /**
-     * @return (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     * 
-     */
-    public Optional<String> crlUpdatedAt() {
-        return Optional.ofNullable(this.crlUpdatedAt);
-    }
-
-    /**
-     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     * 
-     */
-    @Import(name="crlUrl")
-    private @Nullable String crlUrl;
-
-    /**
-     * @return (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     * 
-     */
-    public Optional<String> crlUrl() {
-        return Optional.ofNullable(this.crlUrl);
-    }
 
     /**
      * The ID of the Certificate Authority, for example, `op-abc123`.
@@ -78,9 +31,6 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     private GetCertificateAuthorityPlainArgs() {}
 
     private GetCertificateAuthorityPlainArgs(GetCertificateAuthorityPlainArgs $) {
-        this.crlSource = $.crlSource;
-        this.crlUpdatedAt = $.crlUpdatedAt;
-        this.crlUrl = $.crlUrl;
         this.id = $.id;
     }
 
@@ -100,39 +50,6 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
 
         public Builder(GetCertificateAuthorityPlainArgs defaults) {
             $ = new GetCertificateAuthorityPlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param crlSource (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlSource(@Nullable String crlSource) {
-            $.crlSource = crlSource;
-            return this;
-        }
-
-        /**
-         * @param crlUpdatedAt (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUpdatedAt(@Nullable String crlUpdatedAt) {
-            $.crlUpdatedAt = crlUpdatedAt;
-            return this;
-        }
-
-        /**
-         * @param crlUrl (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUrl(@Nullable String crlUrl) {
-            $.crlUrl = crlUrl;
-            return this;
         }
 
         /**

@@ -10,17 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetEnvironmentStreamGovernanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPluginEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        /// The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
         /// </summary>
-        [Input("package", required: true)]
-        public string Package { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        public GetEnvironmentStreamGovernanceArgs()
+        public GetPluginEnvironmentArgs()
         {
         }
-        public static new GetEnvironmentStreamGovernanceArgs Empty => new GetEnvironmentStreamGovernanceArgs();
+        public static new GetPluginEnvironmentArgs Empty => new GetPluginEnvironmentArgs();
     }
 }

@@ -150,6 +150,18 @@ import javax.annotation.Nullable;
  *             .crnPattern(String.format("%s/subject=abc*", example.resourceName()))
  *             .build());
  * 
+ *         var subject_with_special_characters_example_rb = new RoleBinding("subject-with-special-characters-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=%s", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .build());
+ * 
+ *         var subject_with_special_characters_prefix_example_rb = new RoleBinding("subject-with-special-characters-prefix-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=%s*", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .build());
+ * 
  *         var kek_example_rb = new RoleBinding("kek-example-rb", RoleBindingArgs.builder()
  *             .principal(String.format("User:%s", test.id()))
  *             .roleName("DeveloperRead")
@@ -248,6 +260,88 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Example of using urlencode
+ * 
+ * A CRN is a URI, so a resource name that contains special characters must be URL encoded in `crnPattern`. Terraform&#39;s `urlencode()` function performs the encoding for you, so you do not have to hardcode the encoded form. This is particularly useful when the resource name is defined through a variable or another resource rather than a hardcoded string.
+ * 
+ * For example, to bind the `DeveloperRead` role to a Schema Registry subject named `grxevents/private/billing`:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.RoleBinding;
+ * import com.pulumi.confluentcloud.RoleBindingArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var subject_with_special_characters = new RoleBinding("subject-with-special-characters", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=%s", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * The preceding configuration sets `crnPattern` to `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123/subject=grxevents%2Fprivate%2Fbilling`.
+ * 
+ * To bind the role to every subject that starts with `grxevents/private/billing` instead, append the `*` wildcard after the encoded subject name:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.RoleBinding;
+ * import com.pulumi.confluentcloud.RoleBindingArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var subject_with_special_characters_prefix = new RoleBinding("subject-with-special-characters-prefix", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=%s*", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Warning:** Apply `urlencode()` to the resource name only, and keep the trailing `*` wildcard outside of the function. `urlencode()` percent encodes `*` as `%2A`, so `urlencode(&#34;grxevents/private/billing*&#34;)` returns `grxevents%2Fprivate%2Fbilling%2A`, where `*` is a literal character of the subject name instead of a wildcard. A percent encoded `*` may also cause Terraform to display a permanent difference for `crnPattern` and plan a replacement on every run, see #285 for more details.
+ * 
+ * &gt; **Note:** `urlencode()` encodes a space as `+` rather than as `%20`. If a resource name contains spaces, and you need the `%20` form, you can use `replace(urlencode(&#34;my subject&#34;), &#34;+&#34;, &#34;%20&#34;)` instead.
+ * 
  * ## Import
  * 
  * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Role Binding.
@@ -268,12 +362,16 @@ public class RoleBinding extends com.pulumi.resources.CustomResource {
     /**
      * A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
+     * &gt; **Note:** A CRN is a URI, so a resource name that contains special characters must be URL encoded. For example, a Schema Registry subject named `grxevents/private/billing` must appear in `crnPattern` as `subject=grxevents%2Fprivate%2Fbilling`. You can use Terraform&#39;s `urlencode()` function instead of encoding the name yourself, which is particularly useful when the resource name comes from a variable or another resource rather than a hardcoded string, see this example for more details.
+     * 
      */
     @Export(name="crnPattern", refs={String.class}, tree="[0]")
     private Output<String> crnPattern;
 
     /**
      * @return A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+     * 
+     * &gt; **Note:** A CRN is a URI, so a resource name that contains special characters must be URL encoded. For example, a Schema Registry subject named `grxevents/private/billing` must appear in `crnPattern` as `subject=grxevents%2Fprivate%2Fbilling`. You can use Terraform&#39;s `urlencode()` function instead of encoding the name yourself, which is particularly useful when the resource name comes from a variable or another resource rather than a hardcoded string, see this example for more details.
      * 
      */
     public Output<String> crnPattern() {

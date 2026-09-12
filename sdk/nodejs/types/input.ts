@@ -1275,6 +1275,20 @@ export interface GetConnectArtifactEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetDnsForwarderEnvironment {
+    /**
+     * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetDnsForwarderEnvironmentArgs {
+    /**
+     * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetDnsRecordEnvironment {
     /**
      * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
@@ -1355,20 +1369,6 @@ export interface GetEndpointFilterEnvironmentArgs {
      * The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
      */
     id: pulumi.Input<string>;
-}
-
-export interface GetEnvironmentStreamGovernance {
-    /**
-     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-     */
-    package: string;
-}
-
-export interface GetEnvironmentStreamGovernanceArgs {
-    /**
-     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-     */
-    package: pulumi.Input<string>;
 }
 
 export interface GetFlinkArtifactEnvironment {
@@ -1957,68 +1957,6 @@ export interface GetKsqlClusterEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetNetworkAw {
-    /**
-     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-     */
-    account?: string;
-    /**
-     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-     */
-    privateLinkEndpointService?: string;
-    /**
-     * (Required String) The Confluent Cloud VPC ID.
-     */
-    vpc?: string;
-}
-
-export interface GetNetworkAwArgs {
-    /**
-     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-     */
-    account?: pulumi.Input<string | undefined>;
-    /**
-     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-     */
-    privateLinkEndpointService?: pulumi.Input<string | undefined>;
-    /**
-     * (Required String) The Confluent Cloud VPC ID.
-     */
-    vpc?: pulumi.Input<string | undefined>;
-}
-
-export interface GetNetworkAzure {
-    /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-     */
-    privateLinkServiceAliases?: {[key: string]: string};
-}
-
-export interface GetNetworkAzureArgs {
-    /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-     */
-    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-}
-
-export interface GetNetworkDnsConfig {
-    /**
-     * (Required String) Network DNS resolution.
-     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-     */
-    resolution?: string;
-}
-
-export interface GetNetworkDnsConfigArgs {
-    /**
-     * (Required String) Network DNS resolution.
-     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-     */
-    resolution?: pulumi.Input<string | undefined>;
-}
-
 export interface GetNetworkEnvironment {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
@@ -2035,36 +1973,6 @@ export interface GetNetworkEnvironmentArgs {
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
-}
-
-export interface GetNetworkGcp {
-    /**
-     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-     */
-    privateServiceConnectServiceAttachments?: {[key: string]: string};
-    /**
-     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-     */
-    project?: string;
-    /**
-     * (Required String) The network name of the Confluent Cloud VPC.
-     */
-    vpcNetwork?: string;
-}
-
-export interface GetNetworkGcpArgs {
-    /**
-     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-     */
-    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    /**
-     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-     */
-    project?: pulumi.Input<string | undefined>;
-    /**
-     * (Required String) The network name of the Confluent Cloud VPC.
-     */
-    vpcNetwork?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkLinkEndpointEnvironment {
@@ -2113,6 +2021,20 @@ export interface GetPeeringEnvironmentArgs {
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetPluginEnvironment {
+    /**
+     * The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPluginEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
 }

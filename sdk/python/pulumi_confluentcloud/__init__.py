@@ -39,6 +39,7 @@ from .get_certificate_authority import *
 from .get_certificate_pool import *
 from .get_cluster_link import *
 from .get_connect_artifact import *
+from .get_dns_forwarder import *
 from .get_dns_record import *
 from .get_endpoint import *
 from .get_environment import *
@@ -68,6 +69,7 @@ from .get_network_link_endpoint import *
 from .get_network_link_service import *
 from .get_organization import *
 from .get_peering import *
+from .get_plugin import *
 from .get_private_link_access import *
 from .get_private_link_attachment import *
 from .get_private_link_attachment_connection import *

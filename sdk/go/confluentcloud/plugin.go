@@ -58,7 +58,7 @@ import (
 // ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-// $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+// $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
 // ```
 //
 // > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -70,7 +70,7 @@ type Plugin struct {
 	// Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// The description of the Plugin.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the Plugin.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -282,8 +282,8 @@ func (o PluginOutput) Cloud() pulumi.StringOutput {
 }
 
 // The description of the Plugin.
-func (o PluginOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Plugin) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o PluginOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The name of the Plugin.

@@ -53,12 +53,6 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
-	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-	CrlSource *string `pulumi:"crlSource"`
-	// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-	CrlUpdatedAt *string `pulumi:"crlUpdatedAt"`
-	// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-	CrlUrl *string `pulumi:"crlUrl"`
 	// The ID of the Certificate Authority, for example, `op-abc123`.
 	Id string `pulumi:"id"`
 }
@@ -95,12 +89,6 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityOutputArgs struct {
-	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-	CrlSource pulumi.StringPtrInput `pulumi:"crlSource"`
-	// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-	CrlUpdatedAt pulumi.StringPtrInput `pulumi:"crlUpdatedAt"`
-	// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-	CrlUrl pulumi.StringPtrInput `pulumi:"crlUrl"`
 	// The ID of the Certificate Authority, for example, `op-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }

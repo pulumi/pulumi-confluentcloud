@@ -78,6 +78,7 @@ type LookupConnectArtifactResult struct {
 	DisplayName string                        `pulumi:"displayName"`
 	Environment GetConnectArtifactEnvironment `pulumi:"environment"`
 	Id          string                        `pulumi:"id"`
+	Status      string                        `pulumi:"status"`
 }
 
 func LookupConnectArtifactOutput(ctx *pulumi.Context, args LookupConnectArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupConnectArtifactResultOutput {
@@ -138,6 +139,10 @@ func (o LookupConnectArtifactResultOutput) Environment() GetConnectArtifactEnvir
 
 func (o LookupConnectArtifactResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectArtifactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectArtifactResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectArtifactResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 func init() {

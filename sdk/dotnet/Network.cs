@@ -237,7 +237,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.NetworkDnsConfig> DnsConfig { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> ZonalSubdomains { get; private set; } = null!;
 
         /// <summary>
-        /// Each item represents information related to a single zone.
+        /// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// </summary>
         [Output("zoneInfos")]
         public Output<ImmutableArray<Outputs.NetworkZoneInfo>> ZoneInfos { get; private set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.NetworkDnsConfigArgs>? DnsConfig { get; set; }
@@ -455,7 +455,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.NetworkZoneInfoArgs>? _zoneInfos;
 
         /// <summary>
-        /// Each item represents information related to a single zone.
+        /// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// </summary>
         public InputList<Inputs.NetworkZoneInfoArgs> ZoneInfos
         {
@@ -543,7 +543,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.NetworkDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -626,7 +626,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.NetworkZoneInfoGetArgs>? _zoneInfos;
 
         /// <summary>
-        /// Each item represents information related to a single zone.
+        /// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// </summary>
         public InputList<Inputs.NetworkZoneInfoGetArgs> ZoneInfos
         {

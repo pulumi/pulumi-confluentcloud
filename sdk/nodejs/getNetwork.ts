@@ -55,12 +55,8 @@ import * as utilities from "./utilities";
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetwork:getNetwork", {
-        "aws": args.aws,
-        "azures": args.azures,
         "displayName": args.displayName,
-        "dnsConfigs": args.dnsConfigs,
         "environment": args.environment,
-        "gcps": args.gcps,
         "id": args.id,
     }, opts);
 }
@@ -70,26 +66,10 @@ export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetNetworkArgs {
     /**
-     * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-     */
-    aws?: inputs.GetNetworkAw[];
-    /**
-     * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-     */
-    azures?: inputs.GetNetworkAzure[];
-    /**
      * A human-readable name for the Network.
      */
     displayName?: string;
-    /**
-     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-     */
-    dnsConfigs?: inputs.GetNetworkDnsConfig[];
     environment: inputs.GetNetworkEnvironment;
-    /**
-     * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-     */
-    gcps?: inputs.GetNetworkGcp[];
     /**
      * The ID of the Network, for example, `n-abc123`.
      */
@@ -222,12 +202,8 @@ export interface GetNetworkResult {
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getNetwork:getNetwork", {
-        "aws": args.aws,
-        "azures": args.azures,
         "displayName": args.displayName,
-        "dnsConfigs": args.dnsConfigs,
         "environment": args.environment,
-        "gcps": args.gcps,
         "id": args.id,
     }, opts);
 }
@@ -237,26 +213,10 @@ export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.Invok
  */
 export interface GetNetworkOutputArgs {
     /**
-     * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-     */
-    aws?: pulumi.Input<pulumi.Input<inputs.GetNetworkAwArgs>[] | undefined>;
-    /**
-     * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-     */
-    azures?: pulumi.Input<pulumi.Input<inputs.GetNetworkAzureArgs>[] | undefined>;
-    /**
      * A human-readable name for the Network.
      */
     displayName?: pulumi.Input<string | undefined>;
-    /**
-     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-     */
-    dnsConfigs?: pulumi.Input<pulumi.Input<inputs.GetNetworkDnsConfigArgs>[] | undefined>;
     environment: pulumi.Input<inputs.GetNetworkEnvironmentArgs>;
-    /**
-     * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-     */
-    gcps?: pulumi.Input<pulumi.Input<inputs.GetNetworkGcpArgs>[] | undefined>;
     /**
      * The ID of the Network, for example, `n-abc123`.
      */

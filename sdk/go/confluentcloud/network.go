@@ -238,7 +238,7 @@ type Network struct {
 	ConnectionTypes pulumi.StringArrayOutput `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 	DnsConfig NetworkDnsConfigOutput `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
@@ -260,7 +260,7 @@ type Network struct {
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains pulumi.StringMapOutput `pulumi:"zonalSubdomains"`
-	// Each item represents information related to a single zone.
+	// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 	ZoneInfos NetworkZoneInfoArrayOutput `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -325,7 +325,7 @@ type networkState struct {
 	ConnectionTypes []string `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName *string `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 	DnsConfig *NetworkDnsConfig `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain *string `pulumi:"dnsDomain"`
@@ -347,7 +347,7 @@ type networkState struct {
 	ResourceName *string `pulumi:"resourceName"`
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains map[string]string `pulumi:"zonalSubdomains"`
-	// Each item represents information related to a single zone.
+	// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 	ZoneInfos []NetworkZoneInfo `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -371,7 +371,7 @@ type NetworkState struct {
 	ConnectionTypes pulumi.StringArrayInput
 	// The name of the Network.
 	DisplayName pulumi.StringPtrInput
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 	DnsConfig NetworkDnsConfigPtrInput
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringPtrInput
@@ -393,7 +393,7 @@ type NetworkState struct {
 	ResourceName pulumi.StringPtrInput
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains pulumi.StringMapInput
-	// Each item represents information related to a single zone.
+	// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 	ZoneInfos NetworkZoneInfoArrayInput
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -421,7 +421,7 @@ type networkArgs struct {
 	ConnectionTypes []string `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName *string `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 	DnsConfig *NetworkDnsConfig `pulumi:"dnsConfig"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironment `pulumi:"environment"`
@@ -431,7 +431,7 @@ type networkArgs struct {
 	Region string `pulumi:"region"`
 	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
 	ReservedCidr *string `pulumi:"reservedCidr"`
-	// Each item represents information related to a single zone.
+	// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 	ZoneInfos []NetworkZoneInfo `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -456,7 +456,7 @@ type NetworkArgs struct {
 	ConnectionTypes pulumi.StringArrayInput
 	// The name of the Network.
 	DisplayName pulumi.StringPtrInput
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 	DnsConfig NetworkDnsConfigPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironmentInput
@@ -466,7 +466,7 @@ type NetworkArgs struct {
 	Region pulumi.StringInput
 	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
 	ReservedCidr pulumi.StringPtrInput
-	// Each item represents information related to a single zone.
+	// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 	ZoneInfos NetworkZoneInfoArrayInput
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -594,7 +594,7 @@ func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Network DNS config. It applies only to the PRIVATELINK network connection type.
+// DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
 func (o NetworkOutput) DnsConfig() NetworkDnsConfigOutput {
 	return o.ApplyT(func(v *Network) NetworkDnsConfigOutput { return v.DnsConfig }).(NetworkDnsConfigOutput)
 }
@@ -646,7 +646,7 @@ func (o NetworkOutput) ZonalSubdomains() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.ZonalSubdomains }).(pulumi.StringMapOutput)
 }
 
-// Each item represents information related to a single zone.
+// Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 func (o NetworkOutput) ZoneInfos() NetworkZoneInfoArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkZoneInfoArrayOutput { return v.ZoneInfos }).(NetworkZoneInfoArrayOutput)
 }

@@ -268,7 +268,7 @@ class Plugin(pulumi.CustomResource):
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-        $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+        $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
         ```
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -319,7 +319,7 @@ class Plugin(pulumi.CustomResource):
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-        $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+        $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
         ```
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -430,7 +430,7 @@ class Plugin(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def description(self) -> pulumi.Output[_builtins.str]:
         """
         The description of the Plugin.
         """

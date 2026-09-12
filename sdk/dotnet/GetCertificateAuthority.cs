@@ -106,24 +106,6 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-        /// </summary>
-        [Input("crlSource")]
-        public string? CrlSource { get; set; }
-
-        /// <summary>
-        /// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-        /// </summary>
-        [Input("crlUpdatedAt")]
-        public string? CrlUpdatedAt { get; set; }
-
-        /// <summary>
-        /// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `CrlSource` is `URL`. When the CRL was uploaded inline via `CrlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-        /// </summary>
-        [Input("crlUrl")]
-        public string? CrlUrl { get; set; }
-
-        /// <summary>
         /// The ID of the Certificate Authority, for example, `op-abc123`.
         /// </summary>
         [Input("id", required: true)]
@@ -137,24 +119,6 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-        /// </summary>
-        [Input("crlSource")]
-        public Input<string>? CrlSource { get; set; }
-
-        /// <summary>
-        /// (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-        /// </summary>
-        [Input("crlUpdatedAt")]
-        public Input<string>? CrlUpdatedAt { get; set; }
-
-        /// <summary>
-        /// (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `CrlSource` is `URL`. When the CRL was uploaded inline via `CrlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-        /// </summary>
-        [Input("crlUrl")]
-        public Input<string>? CrlUrl { get; set; }
-
         /// <summary>
         /// The ID of the Certificate Authority, for example, `op-abc123`.
         /// </summary>

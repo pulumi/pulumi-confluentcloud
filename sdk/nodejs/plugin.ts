@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * ```sh
  * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- * $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+ * $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
  * ```
  *
  * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -82,7 +82,7 @@ export class Plugin extends pulumi.CustomResource {
     /**
      * The description of the Plugin.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Plugin.
      */

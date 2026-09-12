@@ -170,9 +170,6 @@ namespace Pulumi.ConfluentCloud
         [Input("id")]
         public string? Id { get; set; }
 
-        [Input("streamGovernance")]
-        public Inputs.GetEnvironmentStreamGovernanceArgs? StreamGovernance { get; set; }
-
         public GetEnvironmentArgs()
         {
         }
@@ -194,9 +191,6 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        [Input("streamGovernance")]
-        public Input<Inputs.GetEnvironmentStreamGovernanceInputArgs>? StreamGovernance { get; set; }
 
         public GetEnvironmentInvokeArgs()
         {

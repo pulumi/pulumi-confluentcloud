@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetEnvironmentResult',
@@ -86,7 +85,6 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
 
 def get_environment(display_name: Optional[_builtins.str] = None,
                     id: Optional[_builtins.str] = None,
-                    stream_governance: Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -118,7 +116,6 @@ def get_environment(display_name: Optional[_builtins.str] = None,
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['id'] = id
-    __args__['streamGovernance'] = stream_governance
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
@@ -129,7 +126,6 @@ def get_environment(display_name: Optional[_builtins.str] = None,
         stream_governance=pulumi.get(__ret__, 'stream_governance'))
 def get_environment_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           stream_governance: pulumi.Input[Optional[Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -161,7 +157,6 @@ def get_environment_output(display_name: pulumi.Input[Optional[Optional[_builtin
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['id'] = id
-    __args__['streamGovernance'] = stream_governance
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(

@@ -22,6 +22,8 @@ import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
 import com.pulumi.confluentcloud.inputs.GetClusterLinkPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
 import com.pulumi.confluentcloud.inputs.GetConnectArtifactPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+import com.pulumi.confluentcloud.inputs.GetDnsForwarderPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
@@ -76,6 +78,8 @@ import com.pulumi.confluentcloud.inputs.GetNetworkLinkServicePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+import com.pulumi.confluentcloud.inputs.GetPluginPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
@@ -133,6 +137,7 @@ import com.pulumi.confluentcloud.outputs.GetCertificateAuthorityResult;
 import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetClusterLinkResult;
 import com.pulumi.confluentcloud.outputs.GetConnectArtifactResult;
+import com.pulumi.confluentcloud.outputs.GetDnsForwarderResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEndpointResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
@@ -162,6 +167,7 @@ import com.pulumi.confluentcloud.outputs.GetNetworkLinkServiceResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkResult;
 import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
+import com.pulumi.confluentcloud.outputs.GetPluginResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentResult;
@@ -3390,6 +3396,266 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetConnectArtifactResult> getConnectArtifactPlain(GetConnectArtifactPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getConnectArtifact:getConnectArtifact", TypeShape.of(GetConnectArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsForwarder` describes a DNS Forwarder data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getDnsForwarder(GetDnsForwarderArgs.builder()
+     *             .id("dnsf-abc123")
+     *             .environment(GetDnsForwarderEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end example might help to get started with `confluentcloud.DnsForwarder` data source:
+     * * dns-forwarder: creates a `confluentcloud.DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `confluentcloud.Gateway` data source to look up the network&#39;s gateway.
+     * 
+     */
+    public static Output<GetDnsForwarderResult> getDnsForwarder(GetDnsForwarderArgs args) {
+        return getDnsForwarder(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsForwarder` describes a DNS Forwarder data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getDnsForwarder(GetDnsForwarderArgs.builder()
+     *             .id("dnsf-abc123")
+     *             .environment(GetDnsForwarderEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end example might help to get started with `confluentcloud.DnsForwarder` data source:
+     * * dns-forwarder: creates a `confluentcloud.DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `confluentcloud.Gateway` data source to look up the network&#39;s gateway.
+     * 
+     */
+    public static CompletableFuture<GetDnsForwarderResult> getDnsForwarderPlain(GetDnsForwarderPlainArgs args) {
+        return getDnsForwarderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsForwarder` describes a DNS Forwarder data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getDnsForwarder(GetDnsForwarderArgs.builder()
+     *             .id("dnsf-abc123")
+     *             .environment(GetDnsForwarderEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end example might help to get started with `confluentcloud.DnsForwarder` data source:
+     * * dns-forwarder: creates a `confluentcloud.DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `confluentcloud.Gateway` data source to look up the network&#39;s gateway.
+     * 
+     */
+    public static Output<GetDnsForwarderResult> getDnsForwarder(GetDnsForwarderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getDnsForwarder:getDnsForwarder", TypeShape.of(GetDnsForwarderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsForwarder` describes a DNS Forwarder data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getDnsForwarder(GetDnsForwarderArgs.builder()
+     *             .id("dnsf-abc123")
+     *             .environment(GetDnsForwarderEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end example might help to get started with `confluentcloud.DnsForwarder` data source:
+     * * dns-forwarder: creates a `confluentcloud.DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `confluentcloud.Gateway` data source to look up the network&#39;s gateway.
+     * 
+     */
+    public static Output<GetDnsForwarderResult> getDnsForwarder(GetDnsForwarderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getDnsForwarder:getDnsForwarder", TypeShape.of(GetDnsForwarderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsForwarder` describes a DNS Forwarder data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsForwarderEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getDnsForwarder(GetDnsForwarderArgs.builder()
+     *             .id("dnsf-abc123")
+     *             .environment(GetDnsForwarderEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end example might help to get started with `confluentcloud.DnsForwarder` data source:
+     * * dns-forwarder: creates a `confluentcloud.DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `confluentcloud.Gateway` data source to look up the network&#39;s gateway.
+     * 
+     */
+    public static CompletableFuture<GetDnsForwarderResult> getDnsForwarderPlain(GetDnsForwarderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getDnsForwarder:getDnsForwarder", TypeShape.of(GetDnsForwarderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -12108,6 +12374,241 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetPeeringResult> getPeeringPlain(GetPeeringPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPeering:getPeering", TypeShape.of(GetPeeringResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Plugin` describes a Plugin data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPluginEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getPlugin(GetPluginArgs.builder()
+     *             .id("ccp-abc123")
+     *             .environment(GetPluginEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPluginResult> getPlugin(GetPluginArgs args) {
+        return getPlugin(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Plugin` describes a Plugin data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPluginEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getPlugin(GetPluginArgs.builder()
+     *             .id("ccp-abc123")
+     *             .environment(GetPluginEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPluginResult> getPluginPlain(GetPluginPlainArgs args) {
+        return getPluginPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Plugin` describes a Plugin data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPluginEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getPlugin(GetPluginArgs.builder()
+     *             .id("ccp-abc123")
+     *             .environment(GetPluginEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPluginResult> getPlugin(GetPluginArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPlugin:getPlugin", TypeShape.of(GetPluginResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Plugin` describes a Plugin data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPluginEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getPlugin(GetPluginArgs.builder()
+     *             .id("ccp-abc123")
+     *             .environment(GetPluginEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPluginResult> getPlugin(GetPluginArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPlugin:getPlugin", TypeShape.of(GetPluginResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Plugin` describes a Plugin data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPluginArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPluginEnvironmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getPlugin(GetPluginArgs.builder()
+     *             .id("ccp-abc123")
+     *             .environment(GetPluginEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPluginResult> getPluginPlain(GetPluginPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getPlugin:getPlugin", TypeShape.of(GetPluginResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

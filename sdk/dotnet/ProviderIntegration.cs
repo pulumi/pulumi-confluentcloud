@@ -77,7 +77,7 @@ namespace Pulumi.ConfluentCloud
         /// (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         /// </summary>
         [Output("aws")]
-        public Output<Outputs.ProviderIntegrationAws?> Aws { get; private set; } = null!;
+        public Output<Outputs.ProviderIntegrationAws> Aws { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Provider Integration.

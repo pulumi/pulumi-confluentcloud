@@ -28,7 +28,7 @@ class GetConnectArtifactResult:
     """
     A collection of values returned by getConnectArtifact.
     """
-    def __init__(__self__, cloud=None, content_format=None, description=None, display_name=None, environment=None, id=None):
+    def __init__(__self__, cloud=None, content_format=None, description=None, display_name=None, environment=None, id=None, status=None):
         if cloud and not isinstance(cloud, str):
             raise TypeError("Expected argument 'cloud' to be a str")
         pulumi.set(__self__, "cloud", cloud)
@@ -47,6 +47,9 @@ class GetConnectArtifactResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
@@ -87,6 +90,11 @@ class GetConnectArtifactResult:
     def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
 
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
 
 class AwaitableGetConnectArtifactResult(GetConnectArtifactResult):
     # pylint: disable=using-constant-test
@@ -99,7 +107,8 @@ class AwaitableGetConnectArtifactResult(GetConnectArtifactResult):
             description=self.description,
             display_name=self.display_name,
             environment=self.environment,
-            id=self.id)
+            id=self.id,
+            status=self.status)
 
 
 def get_connect_artifact(cloud: Optional[_builtins.str] = None,
@@ -145,7 +154,8 @@ def get_connect_artifact(cloud: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 def get_connect_artifact_output(cloud: pulumi.Input[Optional[_builtins.str]] = None,
                                 environment: pulumi.Input[Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict']]] = None,
                                 id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -188,4 +198,5 @@ def get_connect_artifact_output(cloud: pulumi.Input[Optional[_builtins.str]] = N
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         environment=pulumi.get(__response__, 'environment'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status')))

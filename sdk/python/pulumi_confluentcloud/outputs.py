@@ -235,6 +235,10 @@ __all__ = [
     'GetClusterLinkCredentialsResult',
     'GetClusterLinkKafkaClusterResult',
     'GetConnectArtifactEnvironmentResult',
+    'GetDnsForwarderEnvironmentResult',
+    'GetDnsForwarderForwardViaGcpDnsZoneResult',
+    'GetDnsForwarderForwardViaIpResult',
+    'GetDnsForwarderGatewayResult',
     'GetDnsRecordEnvironmentResult',
     'GetDnsRecordGatewayResult',
     'GetDnsRecordPrivateLinkAccessPointResult',
@@ -342,6 +346,7 @@ __all__ = [
     'GetPeeringEnvironmentResult',
     'GetPeeringGcpResult',
     'GetPeeringNetworkResult',
+    'GetPluginEnvironmentResult',
     'GetPrivateLinkAccessAwResult',
     'GetPrivateLinkAccessAzureResult',
     'GetPrivateLinkAccessEnvironmentResult',
@@ -8434,6 +8439,78 @@ class GetConnectArtifactEnvironmentResult(dict):
 
 
 @pulumi.output_type
+class GetDnsForwarderEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetDnsForwarderForwardViaGcpDnsZoneResult(dict):
+    def __init__(__self__, *,
+                 domain_mappings: Mapping[str, _builtins.str]):
+        """
+        :param Mapping[str, _builtins.str] domain_mappings: (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+        """
+        pulumi.set(__self__, "domain_mappings", domain_mappings)
+
+    @_builtins.property
+    @pulumi.getter(name="domainMappings")
+    def domain_mappings(self) -> Mapping[str, _builtins.str]:
+        """
+        (Map of String) Mapping of domain names to GCP DNS Zones and Project ID.
+        """
+        return pulumi.get(self, "domain_mappings")
+
+
+@pulumi.output_type
+class GetDnsForwarderForwardViaIpResult(dict):
+    def __init__(__self__, *,
+                 dns_server_ips: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] dns_server_ips: (Set of Strings) List of IP addresses of the DNS server
+        """
+        pulumi.set(__self__, "dns_server_ips", dns_server_ips)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsServerIps")
+    def dns_server_ips(self) -> Sequence[_builtins.str]:
+        """
+        (Set of Strings) List of IP addresses of the DNS server
+        """
+        return pulumi.get(self, "dns_server_ips")
+
+
+@pulumi.output_type
+class GetDnsForwarderGatewayResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the DNS Forwarder, for example, `dnsf-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetDnsRecordEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
@@ -8836,17 +8913,11 @@ class GetEndpointFilterEnvironmentResult(dict):
 class GetEnvironmentStreamGovernanceResult(dict):
     def __init__(__self__, *,
                  package: _builtins.str):
-        """
-        :param _builtins.str package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        """
         pulumi.set(__self__, "package", package)
 
     @_builtins.property
     @pulumi.getter
     def package(self) -> _builtins.str:
-        """
-        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        """
         return pulumi.get(self, "package")
 
 
@@ -11945,6 +12016,24 @@ class GetPeeringNetworkResult(dict):
     def id(self) -> _builtins.str:
         """
         The ID of the Peering, for example, `peer-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPluginEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 

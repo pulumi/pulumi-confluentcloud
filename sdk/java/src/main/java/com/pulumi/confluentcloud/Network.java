@@ -346,14 +346,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      * 
      */
     @Export(name="dnsConfig", refs={NetworkDnsConfig.class}, tree="[0]")
     private Output<NetworkDnsConfig> dnsConfig;
 
     /**
-     * @return Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * @return DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      * 
      */
     public Output<NetworkDnsConfig> dnsConfig() {
@@ -490,14 +490,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.zonalSubdomains;
     }
     /**
-     * Each item represents information related to a single zone.
+     * Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      */
     @Export(name="zoneInfos", refs={List.class,NetworkZoneInfo.class}, tree="[0,1]")
     private Output<List<NetworkZoneInfo>> zoneInfos;
 
     /**
-     * @return Each item represents information related to a single zone.
+     * @return Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      */
     public Output<List<NetworkZoneInfo>> zoneInfos() {

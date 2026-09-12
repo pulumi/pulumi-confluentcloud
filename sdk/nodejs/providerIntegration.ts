@@ -86,7 +86,7 @@ export class ProviderIntegration extends pulumi.CustomResource {
     /**
      * (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
      */
-    declare public readonly aws: pulumi.Output<outputs.ProviderIntegrationAws | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.ProviderIntegrationAws>;
     /**
      * The name of the Provider Integration.
      */

@@ -84,17 +84,9 @@ func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getNetwork.
 type LookupNetworkArgs struct {
-	// (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-	Aws []GetNetworkAw `pulumi:"aws"`
-	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-	Azures []GetNetworkAzure `pulumi:"azures"`
 	// A human-readable name for the Network.
-	DisplayName *string `pulumi:"displayName"`
-	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-	DnsConfigs  []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
+	DisplayName *string               `pulumi:"displayName"`
 	Environment GetNetworkEnvironment `pulumi:"environment"`
-	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-	Gcps []GetNetworkGcp `pulumi:"gcps"`
 	// The ID of the Network, for example, `n-abc123`.
 	Id *string `pulumi:"id"`
 }
@@ -150,17 +142,9 @@ func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts
 
 // A collection of arguments for invoking getNetwork.
 type LookupNetworkOutputArgs struct {
-	// (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-	Aws GetNetworkAwArrayInput `pulumi:"aws"`
-	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-	Azures GetNetworkAzureArrayInput `pulumi:"azures"`
 	// A human-readable name for the Network.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-	DnsConfigs  GetNetworkDnsConfigArrayInput `pulumi:"dnsConfigs"`
-	Environment GetNetworkEnvironmentInput    `pulumi:"environment"`
-	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-	Gcps GetNetworkGcpArrayInput `pulumi:"gcps"`
+	DisplayName pulumi.StringPtrInput      `pulumi:"displayName"`
+	Environment GetNetworkEnvironmentInput `pulumi:"environment"`
 	// The ID of the Network, for example, `n-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
