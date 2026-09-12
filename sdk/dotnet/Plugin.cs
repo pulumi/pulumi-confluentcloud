@@ -49,7 +49,7 @@ namespace Pulumi.ConfluentCloud
     /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+    /// $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
     /// ```
     /// 
     /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// The description of the Plugin.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Plugin.

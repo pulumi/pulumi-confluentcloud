@@ -76,12 +76,12 @@ type ConnectArtifact struct {
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat pulumi.StringOutput `pulumi:"contentFormat"`
 	// Description of the Connect Artifact.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The unique name of the Connect Artifact per cloud, environment scope.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ConnectArtifactEnvironmentOutput `pulumi:"environment"`
-	// Status of the Connect Artifact.
+	// Specifies the current processing state of a CloudConnectArtifact.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -139,7 +139,7 @@ type connectArtifactState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *ConnectArtifactEnvironment `pulumi:"environment"`
-	// Status of the Connect Artifact.
+	// Specifies the current processing state of a CloudConnectArtifact.
 	Status *string `pulumi:"status"`
 }
 
@@ -156,7 +156,7 @@ type ConnectArtifactState struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ConnectArtifactEnvironmentPtrInput
-	// Status of the Connect Artifact.
+	// Specifies the current processing state of a CloudConnectArtifact.
 	Status pulumi.StringPtrInput
 }
 
@@ -298,8 +298,8 @@ func (o ConnectArtifactOutput) ContentFormat() pulumi.StringOutput {
 }
 
 // Description of the Connect Artifact.
-func (o ConnectArtifactOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectArtifact) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o ConnectArtifactOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectArtifact) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The unique name of the Connect Artifact per cloud, environment scope.
@@ -312,7 +312,7 @@ func (o ConnectArtifactOutput) Environment() ConnectArtifactEnvironmentOutput {
 	return o.ApplyT(func(v *ConnectArtifact) ConnectArtifactEnvironmentOutput { return v.Environment }).(ConnectArtifactEnvironmentOutput)
 }
 
-// Status of the Connect Artifact.
+// Specifies the current processing state of a CloudConnectArtifact.
 func (o ConnectArtifactOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectArtifact) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

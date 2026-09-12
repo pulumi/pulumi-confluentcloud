@@ -138,7 +138,7 @@ class _ConnectArtifactState:
         :param pulumi.Input[_builtins.str] description: Description of the Connect Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Connect Artifact per cloud, environment scope.
         :param pulumi.Input['ConnectArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[_builtins.str] status: Status of the Connect Artifact.
+        :param pulumi.Input[_builtins.str] status: Specifies the current processing state of a CloudConnectArtifact.
         """
         if artifact_file is not None:
             pulumi.set(__self__, "artifact_file", artifact_file)
@@ -231,7 +231,7 @@ class _ConnectArtifactState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Status of the Connect Artifact.
+        Specifies the current processing state of a CloudConnectArtifact.
         """
         return pulumi.get(self, "status")
 
@@ -425,7 +425,7 @@ class ConnectArtifact(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the Connect Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Connect Artifact per cloud, environment scope.
         :param pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[_builtins.str] status: Status of the Connect Artifact.
+        :param pulumi.Input[_builtins.str] status: Specifies the current processing state of a CloudConnectArtifact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -466,7 +466,7 @@ class ConnectArtifact(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def description(self) -> pulumi.Output[_builtins.str]:
         """
         Description of the Connect Artifact.
         """
@@ -492,7 +492,7 @@ class ConnectArtifact(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Status of the Connect Artifact.
+        Specifies the current processing state of a CloudConnectArtifact.
         """
         return pulumi.get(self, "status")
 

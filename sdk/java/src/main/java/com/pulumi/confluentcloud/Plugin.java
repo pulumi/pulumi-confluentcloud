@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -70,7 +69,7 @@ import javax.annotation.Nullable;
  * ```sh
  * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz
+ * $ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccp-abc123xyz
  * ```
  * 
  * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -111,14 +110,14 @@ public class Plugin extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return The description of the Plugin.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * The name of the Plugin.

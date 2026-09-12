@@ -170,6 +170,11 @@ export const getConnectArtifact: typeof import("./getConnectArtifact").getConnec
 export const getConnectArtifactOutput: typeof import("./getConnectArtifact").getConnectArtifactOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectArtifact","getConnectArtifactOutput"], () => require("./getConnectArtifact"));
 
+export { GetDnsForwarderArgs, GetDnsForwarderResult, GetDnsForwarderOutputArgs } from "./getDnsForwarder";
+export const getDnsForwarder: typeof import("./getDnsForwarder").getDnsForwarder = null as any;
+export const getDnsForwarderOutput: typeof import("./getDnsForwarder").getDnsForwarderOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsForwarder","getDnsForwarderOutput"], () => require("./getDnsForwarder"));
+
 export { GetDnsRecordArgs, GetDnsRecordResult, GetDnsRecordOutputArgs } from "./getDnsRecord";
 export const getDnsRecord: typeof import("./getDnsRecord").getDnsRecord = null as any;
 export const getDnsRecordOutput: typeof import("./getDnsRecord").getDnsRecordOutput = null as any;
@@ -314,6 +319,11 @@ export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPee
 export const getPeering: typeof import("./getPeering").getPeering = null as any;
 export const getPeeringOutput: typeof import("./getPeering").getPeeringOutput = null as any;
 utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
+
+export { GetPluginArgs, GetPluginResult, GetPluginOutputArgs } from "./getPlugin";
+export const getPlugin: typeof import("./getPlugin").getPlugin = null as any;
+export const getPluginOutput: typeof import("./getPlugin").getPluginOutput = null as any;
+utilities.lazyLoad(exports, ["getPlugin","getPluginOutput"], () => require("./getPlugin"));
 
 export { GetPrivateLinkAccessArgs, GetPrivateLinkAccessResult, GetPrivateLinkAccessOutputArgs } from "./getPrivateLinkAccess";
 export const getPrivateLinkAccess: typeof import("./getPrivateLinkAccess").getPrivateLinkAccess = null as any;

@@ -78,8 +78,7 @@ type LookupEnvironmentArgs struct {
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
-	Id               *string                         `pulumi:"id"`
-	StreamGovernance *GetEnvironmentStreamGovernance `pulumi:"streamGovernance"`
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getEnvironment.
@@ -105,8 +104,7 @@ type LookupEnvironmentOutputArgs struct {
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
-	Id               pulumi.StringPtrInput                  `pulumi:"id"`
-	StreamGovernance GetEnvironmentStreamGovernancePtrInput `pulumi:"streamGovernance"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {

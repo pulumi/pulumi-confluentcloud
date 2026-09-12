@@ -114,14 +114,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<NetworkDnsConfigArgs> dnsConfig;
 
     /**
-     * @return Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * @return DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      * 
      */
     public Optional<Output<NetworkDnsConfigArgs>> dnsConfig() {
@@ -189,14 +189,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Each item represents information related to a single zone.
+     * Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      */
     @Import(name="zoneInfos")
     private @Nullable Output<List<NetworkZoneInfoArgs>> zoneInfos;
 
     /**
-     * @return Each item represents information related to a single zone.
+     * @return Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      */
     public Optional<Output<List<NetworkZoneInfoArgs>>> zoneInfos() {
@@ -421,7 +421,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig Network DNS config. It applies only to the PRIVATELINK network connection type.
+         * @param dnsConfig DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig Network DNS config. It applies only to the PRIVATELINK network connection type.
+         * @param dnsConfig DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneInfos Each item represents information related to a single zone.
+         * @param zoneInfos Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneInfos Each item represents information related to a single zone.
+         * @param zoneInfos Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneInfos Each item represents information related to a single zone.
+         * @param zoneInfos Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
          * 
          * @return builder
          * 

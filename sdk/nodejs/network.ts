@@ -184,7 +184,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      */
     declare public readonly dnsConfig: pulumi.Output<outputs.NetworkDnsConfig>;
     /**
@@ -226,7 +226,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly zonalSubdomains: pulumi.Output<{[key: string]: string}>;
     /**
-     * Each item represents information related to a single zone.
+     * Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      */
     declare public readonly zoneInfos: pulumi.Output<outputs.NetworkZoneInfo[]>;
     /**
@@ -337,7 +337,7 @@ export interface NetworkState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      */
     dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface NetworkState {
      */
     zonalSubdomains?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Each item represents information related to a single zone.
+     * Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      */
     zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[] | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface NetworkArgs {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * DNS config only applies to PrivateLink network connection type. When resolution is CHASED_PRIVATE, clusters in this network require both public and private DNS to resolve cluster endpoints. When resolution is PRIVATE, clusters in this network only require private DNS to resolve cluster endpoints.
      */
     dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig | undefined>;
     /**
@@ -442,7 +442,7 @@ export interface NetworkArgs {
      */
     reservedCidr?: pulumi.Input<string | undefined>;
     /**
-     * Each item represents information related to a single zone.
+     * Each item represents information related to a single zone. Note - The attribute is in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      */
     zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[] | undefined>;
     /**

@@ -13,9 +13,6 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class GetEnvironmentStreamGovernanceResult
     {
-        /// <summary>
-        /// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        /// </summary>
         public readonly string Package;
 
         [OutputConstructor]

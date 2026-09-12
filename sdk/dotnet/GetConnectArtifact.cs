@@ -192,6 +192,7 @@ namespace Pulumi.ConfluentCloud
         public readonly string DisplayName;
         public readonly Outputs.GetConnectArtifactEnvironmentResult Environment;
         public readonly string Id;
+        public readonly string Status;
 
         [OutputConstructor]
         private GetConnectArtifactResult(
@@ -205,7 +206,9 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetConnectArtifactEnvironmentResult environment,
 
-            string id)
+            string id,
+
+            string status)
         {
             Cloud = cloud;
             ContentFormat = contentFormat;
@@ -213,6 +216,7 @@ namespace Pulumi.ConfluentCloud
             DisplayName = displayName;
             Environment = environment;
             Id = id;
+            Status = status;
         }
     }
 }

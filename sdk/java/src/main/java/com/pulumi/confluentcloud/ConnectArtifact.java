@@ -129,14 +129,14 @@ public class ConnectArtifact extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return Description of the Connect Artifact.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * The unique name of the Connect Artifact per cloud, environment scope.
@@ -167,14 +167,14 @@ public class ConnectArtifact extends com.pulumi.resources.CustomResource {
         return this.environment;
     }
     /**
-     * Status of the Connect Artifact.
+     * Specifies the current processing state of a CloudConnectArtifact.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Connect Artifact.
+     * @return Specifies the current processing state of a CloudConnectArtifact.
      * 
      */
     public Output<String> status() {

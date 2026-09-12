@@ -166,10 +166,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             serial_numbers=self.serial_numbers)
 
 
-def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
-                              crl_updated_at: Optional[_builtins.str] = None,
-                              crl_url: Optional[_builtins.str] = None,
-                              id: Optional[_builtins.str] = None,
+def get_certificate_authority(id: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -187,15 +184,9 @@ def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-    :param _builtins.str crl_updated_at: (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-    :param _builtins.str crl_url: (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crl_source` is `URL`. When the CRL was uploaded inline via `crl_chain` on the resource, the backend reports this attribute as `Local file uploaded`.
     :param _builtins.str id: The ID of the Certificate Authority, for example, `op-abc123`.
     """
     __args__ = dict()
-    __args__['crlSource'] = crl_source
-    __args__['crlUpdatedAt'] = crl_updated_at
-    __args__['crlUrl'] = crl_url
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
@@ -212,10 +203,7 @@ def get_certificate_authority(crl_source: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         require_crl_on_client_certificate=pulumi.get(__ret__, 'require_crl_on_client_certificate'),
         serial_numbers=pulumi.get(__ret__, 'serial_numbers'))
-def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                     crl_updated_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                     crl_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                     id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_certificate_authority_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -233,15 +221,9 @@ def get_certificate_authority_output(crl_source: pulumi.Input[Optional[Optional[
     ```
 
 
-    :param _builtins.str crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-    :param _builtins.str crl_updated_at: (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-    :param _builtins.str crl_url: (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crl_source` is `URL`. When the CRL was uploaded inline via `crl_chain` on the resource, the backend reports this attribute as `Local file uploaded`.
     :param _builtins.str id: The ID of the Certificate Authority, for example, `op-abc123`.
     """
     __args__ = dict()
-    __args__['crlSource'] = crl_source
-    __args__['crlUpdatedAt'] = crl_updated_at
-    __args__['crlUrl'] = crl_url
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)

@@ -107,14 +107,14 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Status of the Connect Artifact.
+     * Specifies the current processing state of a CloudConnectArtifact.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the Connect Artifact.
+     * @return Specifies the current processing state of a CloudConnectArtifact.
      * 
      */
     public Optional<Output<String>> status() {
@@ -278,7 +278,7 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Status of the Connect Artifact.
+         * @param status Specifies the current processing state of a CloudConnectArtifact.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Status of the Connect Artifact.
+         * @param status Specifies the current processing state of a CloudConnectArtifact.
          * 
          * @return builder
          * 

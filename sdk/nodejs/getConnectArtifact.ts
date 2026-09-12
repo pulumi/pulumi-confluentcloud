@@ -73,6 +73,7 @@ export interface GetConnectArtifactResult {
     readonly displayName: string;
     readonly environment: outputs.GetConnectArtifactEnvironment;
     readonly id: string;
+    readonly status: string;
 }
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

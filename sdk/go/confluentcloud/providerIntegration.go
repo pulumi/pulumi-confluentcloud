@@ -81,7 +81,7 @@ type ProviderIntegration struct {
 	pulumi.CustomResourceState
 
 	// (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
-	Aws ProviderIntegrationAwsPtrOutput `pulumi:"aws"`
+	Aws ProviderIntegrationAwsOutput `pulumi:"aws"`
 	// The name of the Provider Integration.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -258,8 +258,8 @@ func (o ProviderIntegrationOutput) ToProviderIntegrationOutputWithContext(ctx co
 }
 
 // (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
-func (o ProviderIntegrationOutput) Aws() ProviderIntegrationAwsPtrOutput {
-	return o.ApplyT(func(v *ProviderIntegration) ProviderIntegrationAwsPtrOutput { return v.Aws }).(ProviderIntegrationAwsPtrOutput)
+func (o ProviderIntegrationOutput) Aws() ProviderIntegrationAwsOutput {
+	return o.ApplyT(func(v *ProviderIntegration) ProviderIntegrationAwsOutput { return v.Aws }).(ProviderIntegrationAwsOutput)
 }
 
 // The name of the Provider Integration.

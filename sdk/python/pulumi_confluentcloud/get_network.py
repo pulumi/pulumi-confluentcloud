@@ -263,12 +263,8 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             zones=self.zones)
 
 
-def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]] = None,
-                azures: Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]] = None,
-                display_name: Optional[_builtins.str] = None,
-                dns_configs: Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]] = None,
+def get_network(display_name: Optional[_builtins.str] = None,
                 environment: Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']] = None,
-                gcps: Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]] = None,
                 id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
@@ -309,20 +305,12 @@ def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwAr
     ```
 
 
-    :param Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-    :param Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param _builtins.str display_name: A human-readable name for the Network.
-    :param Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-    :param Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param _builtins.str id: The ID of the Network, for example, `n-abc123`.
     """
     __args__ = dict()
-    __args__['aws'] = aws
-    __args__['azures'] = azures
     __args__['displayName'] = display_name
-    __args__['dnsConfigs'] = dns_configs
     __args__['environment'] = environment
-    __args__['gcps'] = gcps
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult).value
@@ -347,12 +335,8 @@ def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwAr
         zonal_subdomains=pulumi.get(__ret__, 'zonal_subdomains'),
         zone_infos=pulumi.get(__ret__, 'zone_infos'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_network_output(aws: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]]]] = None,
-                       azures: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]]]] = None,
-                       display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       dns_configs: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]]]] = None,
+def get_network_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        environment: pulumi.Input[Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
-                       gcps: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]]]] = None,
                        id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
@@ -393,20 +377,12 @@ def get_network_output(aws: pulumi.Input[Optional[Optional[Sequence[Union['GetNe
     ```
 
 
-    :param Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-    :param Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param _builtins.str display_name: A human-readable name for the Network.
-    :param Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-    :param Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param _builtins.str id: The ID of the Network, for example, `n-abc123`.
     """
     __args__ = dict()
-    __args__['aws'] = aws
-    __args__['azures'] = azures
     __args__['displayName'] = display_name
-    __args__['dnsConfigs'] = dns_configs
     __args__['environment'] = environment
-    __args__['gcps'] = gcps
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)

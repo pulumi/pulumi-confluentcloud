@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -102,14 +101,14 @@ public class ProviderIntegration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="aws", refs={ProviderIntegrationAws.class}, tree="[0]")
-    private Output</* @Nullable */ ProviderIntegrationAws> aws;
+    private Output<ProviderIntegrationAws> aws;
 
     /**
      * @return (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
      * 
      */
-    public Output<Optional<ProviderIntegrationAws>> aws() {
-        return Codegen.optional(this.aws);
+    public Output<ProviderIntegrationAws> aws() {
+        return this.aws;
     }
     /**
      * The name of the Provider Integration.

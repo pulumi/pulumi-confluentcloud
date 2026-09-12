@@ -3,16 +3,11 @@
 
 package com.pulumi.confluentcloud.inputs;
 
-import com.pulumi.confluentcloud.inputs.GetNetworkAwArgs;
-import com.pulumi.confluentcloud.inputs.GetNetworkAzureArgs;
-import com.pulumi.confluentcloud.inputs.GetNetworkDnsConfigArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
-import com.pulumi.confluentcloud.inputs.GetNetworkGcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,36 +16,6 @@ import javax.annotation.Nullable;
 public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNetworkArgs Empty = new GetNetworkArgs();
-
-    /**
-     * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-     * 
-     */
-    @Import(name="aws")
-    private @Nullable Output<List<GetNetworkAwArgs>> aws;
-
-    /**
-     * @return (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-     * 
-     */
-    public Optional<Output<List<GetNetworkAwArgs>>> aws() {
-        return Optional.ofNullable(this.aws);
-    }
-
-    /**
-     * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-     * 
-     */
-    @Import(name="azures")
-    private @Nullable Output<List<GetNetworkAzureArgs>> azures;
-
-    /**
-     * @return (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-     * 
-     */
-    public Optional<Output<List<GetNetworkAzureArgs>>> azures() {
-        return Optional.ofNullable(this.azures);
-    }
 
     /**
      * A human-readable name for the Network.
@@ -67,41 +32,11 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-     * 
-     */
-    @Import(name="dnsConfigs")
-    private @Nullable Output<List<GetNetworkDnsConfigArgs>> dnsConfigs;
-
-    /**
-     * @return (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-     * 
-     */
-    public Optional<Output<List<GetNetworkDnsConfigArgs>>> dnsConfigs() {
-        return Optional.ofNullable(this.dnsConfigs);
-    }
-
     @Import(name="environment", required=true)
     private Output<GetNetworkEnvironmentArgs> environment;
 
     public Output<GetNetworkEnvironmentArgs> environment() {
         return this.environment;
-    }
-
-    /**
-     * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-     * 
-     */
-    @Import(name="gcps")
-    private @Nullable Output<List<GetNetworkGcpArgs>> gcps;
-
-    /**
-     * @return (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-     * 
-     */
-    public Optional<Output<List<GetNetworkGcpArgs>>> gcps() {
-        return Optional.ofNullable(this.gcps);
     }
 
     /**
@@ -122,12 +57,8 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
     private GetNetworkArgs() {}
 
     private GetNetworkArgs(GetNetworkArgs $) {
-        this.aws = $.aws;
-        this.azures = $.azures;
         this.displayName = $.displayName;
-        this.dnsConfigs = $.dnsConfigs;
         this.environment = $.environment;
-        this.gcps = $.gcps;
         this.id = $.id;
     }
 
@@ -147,68 +78,6 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetNetworkArgs defaults) {
             $ = new GetNetworkArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param aws (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aws(@Nullable Output<List<GetNetworkAwArgs>> aws) {
-            $.aws = aws;
-            return this;
-        }
-
-        /**
-         * @param aws (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aws(List<GetNetworkAwArgs> aws) {
-            return aws(Output.of(aws));
-        }
-
-        /**
-         * @param aws (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aws(GetNetworkAwArgs... aws) {
-            return aws(List.of(aws));
-        }
-
-        /**
-         * @param azures (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder azures(@Nullable Output<List<GetNetworkAzureArgs>> azures) {
-            $.azures = azures;
-            return this;
-        }
-
-        /**
-         * @param azures (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder azures(List<GetNetworkAzureArgs> azures) {
-            return azures(Output.of(azures));
-        }
-
-        /**
-         * @param azures (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder azures(GetNetworkAzureArgs... azures) {
-            return azures(List.of(azures));
         }
 
         /**
@@ -232,37 +101,6 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param dnsConfigs (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dnsConfigs(@Nullable Output<List<GetNetworkDnsConfigArgs>> dnsConfigs) {
-            $.dnsConfigs = dnsConfigs;
-            return this;
-        }
-
-        /**
-         * @param dnsConfigs (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dnsConfigs(List<GetNetworkDnsConfigArgs> dnsConfigs) {
-            return dnsConfigs(Output.of(dnsConfigs));
-        }
-
-        /**
-         * @param dnsConfigs (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dnsConfigs(GetNetworkDnsConfigArgs... dnsConfigs) {
-            return dnsConfigs(List.of(dnsConfigs));
-        }
-
         public Builder environment(Output<GetNetworkEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
@@ -270,37 +108,6 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder environment(GetNetworkEnvironmentArgs environment) {
             return environment(Output.of(environment));
-        }
-
-        /**
-         * @param gcps (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder gcps(@Nullable Output<List<GetNetworkGcpArgs>> gcps) {
-            $.gcps = gcps;
-            return this;
-        }
-
-        /**
-         * @param gcps (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder gcps(List<GetNetworkGcpArgs> gcps) {
-            return gcps(Output.of(gcps));
-        }
-
-        /**
-         * @param gcps (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-         * 
-         * @return builder
-         * 
-         */
-        public Builder gcps(GetNetworkGcpArgs... gcps) {
-            return gcps(List.of(gcps));
         }
 
         /**

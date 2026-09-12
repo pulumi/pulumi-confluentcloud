@@ -198,62 +198,14 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetNetworkArgs : global::Pulumi.InvokeArgs
     {
-        [Input("aws")]
-        private List<Inputs.GetNetworkAwArgs>? _aws;
-
-        /// <summary>
-        /// (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-        /// </summary>
-        public List<Inputs.GetNetworkAwArgs> Aws
-        {
-            get => _aws ?? (_aws = new List<Inputs.GetNetworkAwArgs>());
-            set => _aws = value;
-        }
-
-        [Input("azures")]
-        private List<Inputs.GetNetworkAzureArgs>? _azures;
-
-        /// <summary>
-        /// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        /// </summary>
-        public List<Inputs.GetNetworkAzureArgs> Azures
-        {
-            get => _azures ?? (_azures = new List<Inputs.GetNetworkAzureArgs>());
-            set => _azures = value;
-        }
-
         /// <summary>
         /// A human-readable name for the Network.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
 
-        [Input("dnsConfigs")]
-        private List<Inputs.GetNetworkDnsConfigArgs>? _dnsConfigs;
-
-        /// <summary>
-        /// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-        /// </summary>
-        public List<Inputs.GetNetworkDnsConfigArgs> DnsConfigs
-        {
-            get => _dnsConfigs ?? (_dnsConfigs = new List<Inputs.GetNetworkDnsConfigArgs>());
-            set => _dnsConfigs = value;
-        }
-
         [Input("environment", required: true)]
         public Inputs.GetNetworkEnvironmentArgs Environment { get; set; } = null!;
-
-        [Input("gcps")]
-        private List<Inputs.GetNetworkGcpArgs>? _gcps;
-
-        /// <summary>
-        /// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-        /// </summary>
-        public List<Inputs.GetNetworkGcpArgs> Gcps
-        {
-            get => _gcps ?? (_gcps = new List<Inputs.GetNetworkGcpArgs>());
-            set => _gcps = value;
-        }
 
         /// <summary>
         /// The ID of the Network, for example, `n-abc123`.
@@ -269,62 +221,14 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("aws")]
-        private InputList<Inputs.GetNetworkAwInputArgs>? _aws;
-
-        /// <summary>
-        /// (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-        /// </summary>
-        public InputList<Inputs.GetNetworkAwInputArgs> Aws
-        {
-            get => _aws ?? (_aws = new InputList<Inputs.GetNetworkAwInputArgs>());
-            set => _aws = value;
-        }
-
-        [Input("azures")]
-        private InputList<Inputs.GetNetworkAzureInputArgs>? _azures;
-
-        /// <summary>
-        /// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        /// </summary>
-        public InputList<Inputs.GetNetworkAzureInputArgs> Azures
-        {
-            get => _azures ?? (_azures = new InputList<Inputs.GetNetworkAzureInputArgs>());
-            set => _azures = value;
-        }
-
         /// <summary>
         /// A human-readable name for the Network.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("dnsConfigs")]
-        private InputList<Inputs.GetNetworkDnsConfigInputArgs>? _dnsConfigs;
-
-        /// <summary>
-        /// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-        /// </summary>
-        public InputList<Inputs.GetNetworkDnsConfigInputArgs> DnsConfigs
-        {
-            get => _dnsConfigs ?? (_dnsConfigs = new InputList<Inputs.GetNetworkDnsConfigInputArgs>());
-            set => _dnsConfigs = value;
-        }
-
         [Input("environment", required: true)]
         public Input<Inputs.GetNetworkEnvironmentInputArgs> Environment { get; set; } = null!;
-
-        [Input("gcps")]
-        private InputList<Inputs.GetNetworkGcpInputArgs>? _gcps;
-
-        /// <summary>
-        /// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-        /// </summary>
-        public InputList<Inputs.GetNetworkGcpInputArgs> Gcps
-        {
-            get => _gcps ?? (_gcps = new InputList<Inputs.GetNetworkGcpInputArgs>());
-            set => _gcps = value;
-        }
 
         /// <summary>
         /// The ID of the Network, for example, `n-abc123`.

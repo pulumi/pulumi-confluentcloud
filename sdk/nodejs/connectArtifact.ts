@@ -90,7 +90,7 @@ export class ConnectArtifact extends pulumi.CustomResource {
     /**
      * Description of the Connect Artifact.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The unique name of the Connect Artifact per cloud, environment scope.
      */
@@ -100,7 +100,7 @@ export class ConnectArtifact extends pulumi.CustomResource {
      */
     declare public readonly environment: pulumi.Output<outputs.ConnectArtifactEnvironment>;
     /**
-     * Status of the Connect Artifact.
+     * Specifies the current processing state of a CloudConnectArtifact.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -180,7 +180,7 @@ export interface ConnectArtifactState {
      */
     environment?: pulumi.Input<inputs.ConnectArtifactEnvironment | undefined>;
     /**
-     * Status of the Connect Artifact.
+     * Specifies the current processing state of a CloudConnectArtifact.
      */
     status?: pulumi.Input<string | undefined>;
 }

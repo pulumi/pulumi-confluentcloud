@@ -24,9 +24,6 @@ import * as utilities from "./utilities";
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", {
-        "crlSource": args.crlSource,
-        "crlUpdatedAt": args.crlUpdatedAt,
-        "crlUrl": args.crlUrl,
         "id": args.id,
     }, opts);
 }
@@ -35,18 +32,6 @@ export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?
  * A collection of arguments for invoking getCertificateAuthority.
  */
 export interface GetCertificateAuthorityArgs {
-    /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     */
-    crlSource?: string;
-    /**
-     * (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     */
-    crlUpdatedAt?: string;
-    /**
-     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     */
-    crlUrl?: string;
     /**
      * The ID of the Certificate Authority, for example, `op-abc123`.
      */
@@ -119,9 +104,6 @@ export interface GetCertificateAuthorityResult {
 export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", {
-        "crlSource": args.crlSource,
-        "crlUpdatedAt": args.crlUpdatedAt,
-        "crlUrl": args.crlUrl,
         "id": args.id,
     }, opts);
 }
@@ -130,18 +112,6 @@ export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutpu
  * A collection of arguments for invoking getCertificateAuthority.
  */
 export interface GetCertificateAuthorityOutputArgs {
-    /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     */
-    crlSource?: pulumi.Input<string | undefined>;
-    /**
-     * (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     */
-    crlUpdatedAt?: pulumi.Input<string | undefined>;
-    /**
-     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     */
-    crlUrl?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Certificate Authority, for example, `op-abc123`.
      */

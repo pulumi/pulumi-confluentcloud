@@ -8,58 +8,11 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetCertificateAuthorityArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCertificateAuthorityArgs Empty = new GetCertificateAuthorityArgs();
-
-    /**
-     * (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     * 
-     */
-    @Import(name="crlSource")
-    private @Nullable Output<String> crlSource;
-
-    /**
-     * @return (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-     * 
-     */
-    public Optional<Output<String>> crlSource() {
-        return Optional.ofNullable(this.crlSource);
-    }
-
-    /**
-     * (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     * 
-     */
-    @Import(name="crlUpdatedAt")
-    private @Nullable Output<String> crlUpdatedAt;
-
-    /**
-     * @return (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-     * 
-     */
-    public Optional<Output<String>> crlUpdatedAt() {
-        return Optional.ofNullable(this.crlUpdatedAt);
-    }
-
-    /**
-     * (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     * 
-     */
-    @Import(name="crlUrl")
-    private @Nullable Output<String> crlUrl;
-
-    /**
-     * @return (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-     * 
-     */
-    public Optional<Output<String>> crlUrl() {
-        return Optional.ofNullable(this.crlUrl);
-    }
 
     /**
      * The ID of the Certificate Authority, for example, `op-abc123`.
@@ -79,9 +32,6 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
     private GetCertificateAuthorityArgs() {}
 
     private GetCertificateAuthorityArgs(GetCertificateAuthorityArgs $) {
-        this.crlSource = $.crlSource;
-        this.crlUpdatedAt = $.crlUpdatedAt;
-        this.crlUrl = $.crlUrl;
         this.id = $.id;
     }
 
@@ -101,69 +51,6 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
 
         public Builder(GetCertificateAuthorityArgs defaults) {
             $ = new GetCertificateAuthorityArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param crlSource (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlSource(@Nullable Output<String> crlSource) {
-            $.crlSource = crlSource;
-            return this;
-        }
-
-        /**
-         * @param crlSource (Optional String) The source specifies whether the Certificate Revocation List (CRL) was uploaded inline (`LOCAL`) or is fetched from a URL (`URL`). Accepted values are `LOCAL` and `URL`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlSource(String crlSource) {
-            return crlSource(Output.of(crlSource));
-        }
-
-        /**
-         * @param crlUpdatedAt (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUpdatedAt(@Nullable Output<String> crlUpdatedAt) {
-            $.crlUpdatedAt = crlUpdatedAt;
-            return this;
-        }
-
-        /**
-         * @param crlUpdatedAt (Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUpdatedAt(String crlUpdatedAt) {
-            return crlUpdatedAt(Output.of(crlUpdatedAt));
-        }
-
-        /**
-         * @param crlUrl (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUrl(@Nullable Output<String> crlUrl) {
-            $.crlUrl = crlUrl;
-            return this;
-        }
-
-        /**
-         * @param crlUrl (Optional String) The URL from which Confluent Cloud fetches the CRL for the Certificate Authority when `crlSource` is `URL`. When the CRL was uploaded inline via `crlChain` on the resource, the backend reports this attribute as `Local file uploaded`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder crlUrl(String crlUrl) {
-            return crlUrl(Output.of(crlUrl));
         }
 
         /**

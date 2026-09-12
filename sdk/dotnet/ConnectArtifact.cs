@@ -83,7 +83,7 @@ namespace Pulumi.ConfluentCloud
         /// Description of the Connect Artifact.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The unique name of the Connect Artifact per cloud, environment scope.
@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.ConnectArtifactEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the Connect Artifact.
+        /// Specifies the current processing state of a CloudConnectArtifact.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.ConnectArtifactEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// Status of the Connect Artifact.
+        /// Specifies the current processing state of a CloudConnectArtifact.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

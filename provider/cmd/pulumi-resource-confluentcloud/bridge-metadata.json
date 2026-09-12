@@ -1263,6 +1263,33 @@
                     }
                 }
             },
+            "confluent_dns_forwarder": {
+                "current": "confluentcloud:index/getDnsForwarder:getDnsForwarder",
+                "fields": {
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "forward_via_gcp_dns_zones": {
+                        "maxItemsOne": false
+                    },
+                    "forward_via_ip": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dns_server_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "gateway": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_dns_record": {
                 "current": "confluentcloud:index/getDnsRecord:getDnsRecord",
                 "fields": {
@@ -1875,6 +1902,14 @@
                     }
                 }
             },
+            "confluent_plugin": {
+                "current": "confluentcloud:index/getPlugin:getPlugin",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_private_link_access": {
                 "current": "confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess",
                 "fields": {
@@ -2272,6 +2307,11 @@
             }
         },
         "datasources": {
+            "confluent_environment": {
+                "maxItemsOneOverrides": {
+                    "stream_governance": true
+                }
+            },
             "confluent_network_link_service": {
                 "maxItemsOneOverrides": {
                     "accept": true

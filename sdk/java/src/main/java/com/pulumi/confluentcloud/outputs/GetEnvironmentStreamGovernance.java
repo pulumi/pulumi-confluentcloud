@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEnvironmentStreamGovernance {
-    /**
-     * @return Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
-     * 
-     */
     private String package_;
 
     private GetEnvironmentStreamGovernance() {}
-    /**
-     * @return Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
-     * 
-     */
     public String package_() {
         return this.package_;
     }

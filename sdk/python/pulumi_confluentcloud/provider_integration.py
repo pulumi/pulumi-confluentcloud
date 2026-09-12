@@ -337,7 +337,7 @@ class ProviderIntegration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> pulumi.Output[Optional['outputs.ProviderIntegrationAws']]:
+    def aws(self) -> pulumi.Output['outputs.ProviderIntegrationAws']:
         """
         (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         """

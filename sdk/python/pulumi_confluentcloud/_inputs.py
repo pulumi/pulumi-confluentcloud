@@ -427,14 +427,14 @@ __all__ = [
     'GetClusterLinkKafkaClusterArgsDict',
     'GetConnectArtifactEnvironmentArgs',
     'GetConnectArtifactEnvironmentArgsDict',
+    'GetDnsForwarderEnvironmentArgs',
+    'GetDnsForwarderEnvironmentArgsDict',
     'GetDnsRecordEnvironmentArgs',
     'GetDnsRecordEnvironmentArgsDict',
     'GetEndpointFilterArgs',
     'GetEndpointFilterArgsDict',
     'GetEndpointFilterEnvironmentArgs',
     'GetEndpointFilterEnvironmentArgsDict',
-    'GetEnvironmentStreamGovernanceArgs',
-    'GetEnvironmentStreamGovernanceArgsDict',
     'GetFlinkArtifactEnvironmentArgs',
     'GetFlinkArtifactEnvironmentArgsDict',
     'GetFlinkComputePoolEnvironmentArgs',
@@ -489,22 +489,16 @@ __all__ = [
     'GetKafkaTopicKafkaClusterArgsDict',
     'GetKsqlClusterEnvironmentArgs',
     'GetKsqlClusterEnvironmentArgsDict',
-    'GetNetworkAwArgs',
-    'GetNetworkAwArgsDict',
-    'GetNetworkAzureArgs',
-    'GetNetworkAzureArgsDict',
-    'GetNetworkDnsConfigArgs',
-    'GetNetworkDnsConfigArgsDict',
     'GetNetworkEnvironmentArgs',
     'GetNetworkEnvironmentArgsDict',
-    'GetNetworkGcpArgs',
-    'GetNetworkGcpArgsDict',
     'GetNetworkLinkEndpointEnvironmentArgs',
     'GetNetworkLinkEndpointEnvironmentArgsDict',
     'GetNetworkLinkServiceEnvironmentArgs',
     'GetNetworkLinkServiceEnvironmentArgsDict',
     'GetPeeringEnvironmentArgs',
     'GetPeeringEnvironmentArgsDict',
+    'GetPluginEnvironmentArgs',
+    'GetPluginEnvironmentArgsDict',
     'GetPrivateLinkAccessEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgsDict',
     'GetPrivateLinkAttachmentConnectionEnvironmentArgs',
@@ -10465,6 +10459,34 @@ class GetConnectArtifactEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+class GetDnsForwarderEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+    """
+
+@pulumi.input_type
+class GetDnsForwarderEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the DNS Forwarder belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+
 class GetDnsRecordEnvironmentArgsDict(TypedDict):
     id: _builtins.str
     """
@@ -10646,34 +10668,6 @@ class GetEndpointFilterEnvironmentArgs:
     @id.setter
     def id(self, value: _builtins.str):
         pulumi.set(self, "id", value)
-
-
-class GetEnvironmentStreamGovernanceArgsDict(TypedDict):
-    package: _builtins.str
-    """
-    Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-    """
-
-@pulumi.input_type
-class GetEnvironmentStreamGovernanceArgs:
-    def __init__(__self__, *,
-                 package: _builtins.str):
-        """
-        :param _builtins.str package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        """
-        pulumi.set(__self__, "package", package)
-
-    @_builtins.property
-    @pulumi.getter
-    def package(self) -> _builtins.str:
-        """
-        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        """
-        return pulumi.get(self, "package")
-
-    @package.setter
-    def package(self, value: _builtins.str):
-        pulumi.set(self, "package", value)
 
 
 class GetFlinkArtifactEnvironmentArgsDict(TypedDict):
@@ -11838,134 +11832,6 @@ class GetKsqlClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-class GetNetworkAwArgsDict(TypedDict):
-    account: _builtins.str
-    """
-    (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-    """
-    private_link_endpoint_service: _builtins.str
-    """
-    (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-    """
-    vpc: _builtins.str
-    """
-    (Required String) The Confluent Cloud VPC ID.
-    """
-
-@pulumi.input_type
-class GetNetworkAwArgs:
-    def __init__(__self__, *,
-                 account: _builtins.str,
-                 private_link_endpoint_service: _builtins.str,
-                 vpc: _builtins.str):
-        """
-        :param _builtins.str account: (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-        :param _builtins.str private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-        :param _builtins.str vpc: (Required String) The Confluent Cloud VPC ID.
-        """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "private_link_endpoint_service", private_link_endpoint_service)
-        pulumi.set(__self__, "vpc", vpc)
-
-    @_builtins.property
-    @pulumi.getter
-    def account(self) -> _builtins.str:
-        """
-        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-        """
-        return pulumi.get(self, "account")
-
-    @account.setter
-    def account(self, value: _builtins.str):
-        pulumi.set(self, "account", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkEndpointService")
-    def private_link_endpoint_service(self) -> _builtins.str:
-        """
-        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-        """
-        return pulumi.get(self, "private_link_endpoint_service")
-
-    @private_link_endpoint_service.setter
-    def private_link_endpoint_service(self, value: _builtins.str):
-        pulumi.set(self, "private_link_endpoint_service", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def vpc(self) -> _builtins.str:
-        """
-        (Required String) The Confluent Cloud VPC ID.
-        """
-        return pulumi.get(self, "vpc")
-
-    @vpc.setter
-    def vpc(self, value: _builtins.str):
-        pulumi.set(self, "vpc", value)
-
-
-class GetNetworkAzureArgsDict(TypedDict):
-    private_link_service_aliases: Mapping[str, _builtins.str]
-    """
-    (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-    """
-
-@pulumi.input_type
-class GetNetworkAzureArgs:
-    def __init__(__self__, *,
-                 private_link_service_aliases: Mapping[str, _builtins.str]):
-        """
-        :param Mapping[str, _builtins.str] private_link_service_aliases: (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-        """
-        pulumi.set(__self__, "private_link_service_aliases", private_link_service_aliases)
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceAliases")
-    def private_link_service_aliases(self) -> Mapping[str, _builtins.str]:
-        """
-        (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-        """
-        return pulumi.get(self, "private_link_service_aliases")
-
-    @private_link_service_aliases.setter
-    def private_link_service_aliases(self, value: Mapping[str, _builtins.str]):
-        pulumi.set(self, "private_link_service_aliases", value)
-
-
-class GetNetworkDnsConfigArgsDict(TypedDict):
-    resolution: _builtins.str
-    """
-    (Required String) Network DNS resolution.
-    When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-    When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-    """
-
-@pulumi.input_type
-class GetNetworkDnsConfigArgs:
-    def __init__(__self__, *,
-                 resolution: _builtins.str):
-        """
-        :param _builtins.str resolution: (Required String) Network DNS resolution.
-               When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-               When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-        """
-        pulumi.set(__self__, "resolution", resolution)
-
-    @_builtins.property
-    @pulumi.getter
-    def resolution(self) -> _builtins.str:
-        """
-        (Required String) Network DNS resolution.
-        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-        """
-        return pulumi.get(self, "resolution")
-
-    @resolution.setter
-    def resolution(self, value: _builtins.str):
-        pulumi.set(self, "resolution", value)
-
-
 class GetNetworkEnvironmentArgsDict(TypedDict):
     id: _builtins.str
     """
@@ -11998,72 +11864,6 @@ class GetNetworkEnvironmentArgs:
     @id.setter
     def id(self, value: _builtins.str):
         pulumi.set(self, "id", value)
-
-
-class GetNetworkGcpArgsDict(TypedDict):
-    private_service_connect_service_attachments: Mapping[str, _builtins.str]
-    """
-    (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-    """
-    project: _builtins.str
-    """
-    (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-    """
-    vpc_network: _builtins.str
-    """
-    (Required String) The network name of the Confluent Cloud VPC.
-    """
-
-@pulumi.input_type
-class GetNetworkGcpArgs:
-    def __init__(__self__, *,
-                 private_service_connect_service_attachments: Mapping[str, _builtins.str],
-                 project: _builtins.str,
-                 vpc_network: _builtins.str):
-        """
-        :param Mapping[str, _builtins.str] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        :param _builtins.str project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-        :param _builtins.str vpc_network: (Required String) The network name of the Confluent Cloud VPC.
-        """
-        pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
-        pulumi.set(__self__, "project", project)
-        pulumi.set(__self__, "vpc_network", vpc_network)
-
-    @_builtins.property
-    @pulumi.getter(name="privateServiceConnectServiceAttachments")
-    def private_service_connect_service_attachments(self) -> Mapping[str, _builtins.str]:
-        """
-        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        """
-        return pulumi.get(self, "private_service_connect_service_attachments")
-
-    @private_service_connect_service_attachments.setter
-    def private_service_connect_service_attachments(self, value: Mapping[str, _builtins.str]):
-        pulumi.set(self, "private_service_connect_service_attachments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def project(self) -> _builtins.str:
-        """
-        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-        """
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: _builtins.str):
-        pulumi.set(self, "project", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcNetwork")
-    def vpc_network(self) -> _builtins.str:
-        """
-        (Required String) The network name of the Confluent Cloud VPC.
-        """
-        return pulumi.get(self, "vpc_network")
-
-    @vpc_network.setter
-    def vpc_network(self, value: _builtins.str):
-        pulumi.set(self, "vpc_network", value)
 
 
 class GetNetworkLinkEndpointEnvironmentArgsDict(TypedDict):
@@ -12154,6 +11954,34 @@ class GetPeeringEnvironmentArgs:
         The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+
+class GetPluginEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+    """
+
+@pulumi.input_type
+class GetPluginEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Plugin belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 

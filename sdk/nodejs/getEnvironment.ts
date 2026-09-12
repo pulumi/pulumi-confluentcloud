@@ -44,7 +44,6 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
     return pulumi.runtime.invoke("confluentcloud:index/getEnvironment:getEnvironment", {
         "displayName": args.displayName,
         "id": args.id,
-        "streamGovernance": args.streamGovernance,
     }, opts);
 }
 
@@ -62,7 +61,6 @@ export interface GetEnvironmentArgs {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id?: string;
-    streamGovernance?: inputs.GetEnvironmentStreamGovernance;
 }
 
 /**
@@ -121,7 +119,6 @@ export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pul
     return pulumi.runtime.invokeOutput("confluentcloud:index/getEnvironment:getEnvironment", {
         "displayName": args.displayName,
         "id": args.id,
-        "streamGovernance": args.streamGovernance,
     }, opts);
 }
 
@@ -139,5 +136,4 @@ export interface GetEnvironmentOutputArgs {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id?: pulumi.Input<string | undefined>;
-    streamGovernance?: pulumi.Input<inputs.GetEnvironmentStreamGovernanceArgs | undefined>;
 }
