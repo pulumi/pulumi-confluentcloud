@@ -208,12 +208,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict', 'outputs.PrivateLinkAccessAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict', 'outputs.PrivateLinkAccessAzure']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict', 'outputs.PrivateLinkAccessEnvironment']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict', 'outputs.PrivateLinkAccessGcp']]] = None,
+                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict', 'outputs.PrivateLinkAccessNetwork']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -346,8 +346,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
-        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict', 'outputs.PrivateLinkAccessEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict', 'outputs.PrivateLinkAccessNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         ...
     @overload
@@ -498,12 +498,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict', 'outputs.PrivateLinkAccessAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict', 'outputs.PrivateLinkAccessAzure']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict', 'outputs.PrivateLinkAccessEnvironment']]] = None,
+                 gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict', 'outputs.PrivateLinkAccessGcp']]] = None,
+                 network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict', 'outputs.PrivateLinkAccessNetwork']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,12 +533,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
-            azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
+            aws: pulumi.Input[Optional[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict', 'outputs.PrivateLinkAccessAws']]] = None,
+            azure: pulumi.Input[Optional[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict', 'outputs.PrivateLinkAccessAzure']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
-            gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
-            network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None) -> 'PrivateLinkAccess':
+            environment: pulumi.Input[Optional[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict', 'outputs.PrivateLinkAccessEnvironment']]] = None,
+            gcp: pulumi.Input[Optional[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict', 'outputs.PrivateLinkAccessGcp']]] = None,
+            network: pulumi.Input[Optional[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict', 'outputs.PrivateLinkAccessNetwork']]] = None) -> 'PrivateLinkAccess':
         """
         Get an existing PrivateLinkAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -547,8 +547,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
-        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict', 'outputs.PrivateLinkAccessEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict', 'outputs.PrivateLinkAccessNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

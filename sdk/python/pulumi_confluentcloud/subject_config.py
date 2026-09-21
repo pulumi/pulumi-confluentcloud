@@ -316,10 +316,10 @@ class SubjectConfig(pulumi.CustomResource):
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict', 'outputs.SubjectConfigSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -409,7 +409,7 @@ class SubjectConfig(pulumi.CustomResource):
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-        :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
@@ -522,10 +522,10 @@ class SubjectConfig(pulumi.CustomResource):
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict', 'outputs.SubjectConfigSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -561,10 +561,10 @@ class SubjectConfig(pulumi.CustomResource):
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
             normalize: pulumi.Input[Optional[_builtins.bool]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict']]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SubjectConfigSchemaRegistryClusterArgs', 'SubjectConfigSchemaRegistryClusterArgsDict', 'outputs.SubjectConfigSchemaRegistryCluster']]] = None,
             subject_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubjectConfig':
         """
         Get an existing SubjectConfig resource's state with the given name, id, and optional extra
@@ -578,7 +578,7 @@ class SubjectConfig(pulumi.CustomResource):
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-        :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.

@@ -216,11 +216,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
+                 accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict', 'outputs.NetworkLinkServiceAccept']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
-                 network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict', 'outputs.NetworkLinkServiceEnvironment']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict', 'outputs.NetworkLinkServiceNetwork']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -291,11 +291,11 @@ class NetworkLinkService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']] accept: Network Link Service Accept policy
+        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict', 'outputs.NetworkLinkServiceAccept']] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
-        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict', 'outputs.NetworkLinkServiceEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict', 'outputs.NetworkLinkServiceNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         ...
     @overload
@@ -385,11 +385,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
+                 accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict', 'outputs.NetworkLinkServiceAccept']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
-                 network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict', 'outputs.NetworkLinkServiceEnvironment']]] = None,
+                 network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict', 'outputs.NetworkLinkServiceNetwork']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,11 +419,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
+            accept: pulumi.Input[Optional[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict', 'outputs.NetworkLinkServiceAccept']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
-            network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict', 'outputs.NetworkLinkServiceEnvironment']]] = None,
+            network: pulumi.Input[Optional[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict', 'outputs.NetworkLinkServiceNetwork']]] = None,
             resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkLinkService':
         """
         Get an existing NetworkLinkService resource's state with the given name, id, and optional extra
@@ -432,11 +432,11 @@ class NetworkLinkService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']] accept: Network Link Service Accept policy
+        :param pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict', 'outputs.NetworkLinkServiceAccept']] accept: Network Link Service Accept policy
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
-        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict', 'outputs.NetworkLinkServiceEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict', 'outputs.NetworkLinkServiceNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Network Link Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

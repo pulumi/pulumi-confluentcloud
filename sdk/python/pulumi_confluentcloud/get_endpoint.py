@@ -72,7 +72,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             id=self.id)
 
 
-def get_endpoint(filter: Optional[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] = None,
+def get_endpoint(filter: Optional[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -108,7 +108,7 @@ def get_endpoint(filter: Optional[Union['GetEndpointFilterArgs', 'GetEndpointFil
         endpoints=pulumi.get(__ret__, 'endpoints'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'))
-def get_endpoint_output(filter: pulumi.Input[Optional[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]] = None,
+def get_endpoint_output(filter: pulumi.Input[Optional[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

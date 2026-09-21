@@ -132,7 +132,7 @@ class AwaitableGetPrivateLinkAttachmentConnectionResult(GetPrivateLinkAttachment
             resource_name=self.resource_name)
 
 
-def get_private_link_attachment_connection(environment: Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']] = None,
+def get_private_link_attachment_connection(environment: Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict', 'outputs.GetPrivateLinkAttachmentConnectionEnvironmentResult']] = None,
                                            id: Optional[_builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAttachmentConnectionResult:
     """
@@ -177,7 +177,7 @@ def get_private_link_attachment_connection(environment: Optional[Union['GetPriva
         id=pulumi.get(__ret__, 'id'),
         private_link_attachments=pulumi.get(__ret__, 'private_link_attachments'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-def get_private_link_attachment_connection_output(environment: pulumi.Input[Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
+def get_private_link_attachment_connection_output(environment: pulumi.Input[Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict', 'outputs.GetPrivateLinkAttachmentConnectionEnvironmentResult']]] = None,
                                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAttachmentConnectionResult]:
     """

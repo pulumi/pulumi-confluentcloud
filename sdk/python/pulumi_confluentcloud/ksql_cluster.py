@@ -309,11 +309,11 @@ class KsqlCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict', 'outputs.KsqlClusterCredentialIdentity']]] = None,
                  csu: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict', 'outputs.KsqlClusterKafkaCluster']]] = None,
                  use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -342,7 +342,7 @@ class KsqlCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[_builtins.str] display_name: The name of the ksqlDB cluster.
-        :param pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.bool] use_detailed_processing_log: Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
         """
         ...
@@ -388,11 +388,11 @@ class KsqlCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+                 credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict', 'outputs.KsqlClusterCredentialIdentity']]] = None,
                  csu: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict', 'outputs.KsqlClusterKafkaCluster']]] = None,
                  use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -436,11 +436,11 @@ class KsqlCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
-            credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict']]] = None,
+            credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict', 'outputs.KsqlClusterCredentialIdentity']]] = None,
             csu: pulumi.Input[Optional[_builtins.int]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict', 'outputs.KsqlClusterKafkaCluster']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -457,7 +457,7 @@ class KsqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
         :param pulumi.Input[_builtins.int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[_builtins.str] display_name: The name of the ksqlDB cluster.
-        :param pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the ksqlDB cluster.
         :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.

@@ -527,15 +527,15 @@ class TableflowTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
-                 byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+                 azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']]] = None,
+                 byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']]] = None,
                  data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
-                 error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
-                 managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']]] = None,
+                 error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict', 'outputs.TableflowTopicErrorHandling']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict', 'outputs.TableflowTopicKafkaCluster']]] = None,
+                 managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]]] = None,
                  metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
@@ -617,13 +617,13 @@ class TableflowTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
-        :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
+        :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
-        :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
@@ -724,15 +724,15 @@ class TableflowTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
-                 byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+                 azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']]] = None,
+                 byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']]] = None,
                  data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
-                 error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
-                 managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']]] = None,
+                 error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict', 'outputs.TableflowTopicErrorHandling']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict', 'outputs.TableflowTopicKafkaCluster']]] = None,
+                 managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]]] = None,
                  metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
@@ -782,17 +782,17 @@ class TableflowTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
-            byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
-            credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
+            azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']]] = None,
+            byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']]] = None,
+            credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']]] = None,
             data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enable_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
-            environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
-            error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
-            managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
+            environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']]] = None,
+            error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict', 'outputs.TableflowTopicErrorHandling']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict', 'outputs.TableflowTopicKafkaCluster']]] = None,
+            managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]]] = None,
             metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
             record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
             retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
@@ -807,15 +807,15 @@ class TableflowTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
-        :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
+        :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] data_retention_ms: The maximum age, in milliseconds, of data to retain in the table for the Tableflow-enabled topic. The minimum allowed value is `2592000000` milliseconds (equivalent to 30 days).
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[_builtins.bool] enable_compaction: (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
-        :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
+        :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[_builtins.str] metadata_column_naming_scheme: The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
         :param pulumi.Input[_builtins.str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.

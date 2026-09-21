@@ -105,11 +105,11 @@ class AwaitableGetTagBindingResult(GetTagBindingResult):
             tag_name=self.tag_name)
 
 
-def get_tag_binding(credentials: Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict']] = None,
+def get_tag_binding(credentials: Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict', 'outputs.GetTagBindingCredentialsResult']] = None,
                     entity_name: Optional[_builtins.str] = None,
                     entity_type: Optional[_builtins.str] = None,
                     rest_endpoint: Optional[_builtins.str] = None,
-                    schema_registry_cluster: Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict']] = None,
+                    schema_registry_cluster: Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict', 'outputs.GetTagBindingSchemaRegistryClusterResult']] = None,
                     tag_name: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagBindingResult:
     """
@@ -176,11 +176,11 @@ def get_tag_binding(credentials: Optional[Union['GetTagBindingCredentialsArgs', 
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         tag_name=pulumi.get(__ret__, 'tag_name'))
-def get_tag_binding_output(credentials: pulumi.Input[Optional[Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict']]]] = None,
+def get_tag_binding_output(credentials: pulumi.Input[Optional[Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict', 'outputs.GetTagBindingCredentialsResult']]]] = None,
                            entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                            rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict']]]] = None,
+                           schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict', 'outputs.GetTagBindingSchemaRegistryClusterResult']]]] = None,
                            tag_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagBindingResult]:
     """

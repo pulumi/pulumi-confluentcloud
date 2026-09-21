@@ -189,7 +189,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             id=self.id)
 
 
-def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']] = None,
+def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict', 'outputs.GetGatewayEnvironmentResult']] = None,
                 id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
@@ -233,7 +233,7 @@ def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGat
         gcp_ingress_private_service_connect_gateways=pulumi.get(__ret__, 'gcp_ingress_private_service_connect_gateways'),
         gcp_peering_gateways=pulumi.get(__ret__, 'gcp_peering_gateways'),
         id=pulumi.get(__ret__, 'id'))
-def get_gateway_output(environment: pulumi.Input[Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']]] = None,
+def get_gateway_output(environment: pulumi.Input[Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict', 'outputs.GetGatewayEnvironmentResult']]] = None,
                        id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """

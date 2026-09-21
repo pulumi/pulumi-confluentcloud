@@ -194,7 +194,7 @@ class AwaitableGetSchemaRegistryClusterResult(GetSchemaRegistryClusterResult):
 
 
 def get_schema_registry_cluster(display_name: Optional[_builtins.str] = None,
-                                environment: Optional[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict']] = None,
+                                environment: Optional[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict', 'outputs.GetSchemaRegistryClusterEnvironmentResult']] = None,
                                 id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClusterResult:
     """
@@ -263,7 +263,7 @@ def get_schema_registry_cluster(display_name: Optional[_builtins.str] = None,
         resource_name=pulumi.get(__ret__, 'resource_name'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
 def get_schema_registry_cluster_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                       environment: pulumi.Input[Optional[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict']]] = None,
+                                       environment: pulumi.Input[Optional[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict', 'outputs.GetSchemaRegistryClusterEnvironmentResult']]] = None,
                                        id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryClusterResult]:
     """

@@ -135,9 +135,9 @@ class AwaitableGetSubjectConfigResult(GetSubjectConfigResult):
             subject_name=self.subject_name)
 
 
-def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsArgs', 'GetSubjectConfigCredentialsArgsDict']] = None,
+def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsArgs', 'GetSubjectConfigCredentialsArgsDict', 'outputs.GetSubjectConfigCredentialsResult']] = None,
                        rest_endpoint: Optional[_builtins.str] = None,
-                       schema_registry_cluster: Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict']] = None,
+                       schema_registry_cluster: Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict', 'outputs.GetSubjectConfigSchemaRegistryClusterResult']] = None,
                        subject_name: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubjectConfigResult:
     """
@@ -197,9 +197,9 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         subject_name=pulumi.get(__ret__, 'subject_name'))
-def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union['GetSubjectConfigCredentialsArgs', 'GetSubjectConfigCredentialsArgsDict']]]] = None,
+def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union['GetSubjectConfigCredentialsArgs', 'GetSubjectConfigCredentialsArgsDict', 'outputs.GetSubjectConfigCredentialsResult']]]] = None,
                               rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict']]]] = None,
+                              schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict', 'outputs.GetSubjectConfigSchemaRegistryClusterResult']]]] = None,
                               subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubjectConfigResult]:
     """

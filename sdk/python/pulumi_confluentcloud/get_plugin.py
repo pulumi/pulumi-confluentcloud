@@ -129,7 +129,7 @@ class AwaitableGetPluginResult(GetPluginResult):
             runtime_language=self.runtime_language)
 
 
-def get_plugin(environment: Optional[Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict']] = None,
+def get_plugin(environment: Optional[Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict', 'outputs.GetPluginEnvironmentResult']] = None,
                id: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginResult:
     """
@@ -151,7 +151,7 @@ def get_plugin(environment: Optional[Union['GetPluginEnvironmentArgs', 'GetPlugi
     ```
 
 
-    :param Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict'] environment: Supports the following:
+    :param Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict', 'outputs.GetPluginEnvironmentResult'] environment: Supports the following:
     :param _builtins.str id: The ID of the Plugin, for example, `ccp-abc123`.
     """
     __args__ = dict()
@@ -169,7 +169,7 @@ def get_plugin(environment: Optional[Union['GetPluginEnvironmentArgs', 'GetPlugi
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         runtime_language=pulumi.get(__ret__, 'runtime_language'))
-def get_plugin_output(environment: pulumi.Input[Optional[Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict']]] = None,
+def get_plugin_output(environment: pulumi.Input[Optional[Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict', 'outputs.GetPluginEnvironmentResult']]] = None,
                       id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPluginResult]:
     """
@@ -191,7 +191,7 @@ def get_plugin_output(environment: pulumi.Input[Optional[Union['GetPluginEnviron
     ```
 
 
-    :param Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict'] environment: Supports the following:
+    :param Union['GetPluginEnvironmentArgs', 'GetPluginEnvironmentArgsDict', 'outputs.GetPluginEnvironmentResult'] environment: Supports the following:
     :param _builtins.str id: The ID of the Plugin, for example, `ccp-abc123`.
     """
     __args__ = dict()

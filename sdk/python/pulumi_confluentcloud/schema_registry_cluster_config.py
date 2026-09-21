@@ -228,10 +228,10 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterConfigSchemaRegistryCluster']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -290,7 +290,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-        :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
@@ -370,10 +370,10 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterConfigSchemaRegistryCluster']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,10 +403,10 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']]] = None,
             normalize: pulumi.Input[Optional[_builtins.bool]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None) -> 'SchemaRegistryClusterConfig':
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterConfigSchemaRegistryCluster']]] = None) -> 'SchemaRegistryClusterConfig':
         """
         Get an existing SchemaRegistryClusterConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -416,7 +416,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-        :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """

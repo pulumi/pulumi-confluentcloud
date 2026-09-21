@@ -81,8 +81,8 @@ class AwaitableGetGatewaysResult(GetGatewaysResult):
             id=self.id)
 
 
-def get_gateways(environment: Optional[Union['GetGatewaysEnvironmentArgs', 'GetGatewaysEnvironmentArgsDict']] = None,
-                 filter: Optional[Union['GetGatewaysFilterArgs', 'GetGatewaysFilterArgsDict']] = None,
+def get_gateways(environment: Optional[Union['GetGatewaysEnvironmentArgs', 'GetGatewaysEnvironmentArgsDict', 'outputs.GetGatewaysEnvironmentResult']] = None,
+                 filter: Optional[Union['GetGatewaysFilterArgs', 'GetGatewaysFilterArgsDict', 'outputs.GetGatewaysFilterResult']] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewaysResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -127,8 +127,8 @@ def get_gateways(environment: Optional[Union['GetGatewaysEnvironmentArgs', 'GetG
         filter=pulumi.get(__ret__, 'filter'),
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'))
-def get_gateways_output(environment: pulumi.Input[Optional[Union['GetGatewaysEnvironmentArgs', 'GetGatewaysEnvironmentArgsDict']]] = None,
-                        filter: pulumi.Input[Optional[Optional[Union['GetGatewaysFilterArgs', 'GetGatewaysFilterArgsDict']]]] = None,
+def get_gateways_output(environment: pulumi.Input[Optional[Union['GetGatewaysEnvironmentArgs', 'GetGatewaysEnvironmentArgsDict', 'outputs.GetGatewaysEnvironmentResult']]] = None,
+                        filter: pulumi.Input[Optional[Optional[Union['GetGatewaysFilterArgs', 'GetGatewaysFilterArgsDict', 'outputs.GetGatewaysFilterResult']]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewaysResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

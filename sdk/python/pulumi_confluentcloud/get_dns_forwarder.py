@@ -120,7 +120,7 @@ class AwaitableGetDnsForwarderResult(GetDnsForwarderResult):
             id=self.id)
 
 
-def get_dns_forwarder(environment: Optional[Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict']] = None,
+def get_dns_forwarder(environment: Optional[Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict', 'outputs.GetDnsForwarderEnvironmentResult']] = None,
                       id: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsForwarderResult:
     """
@@ -147,7 +147,7 @@ def get_dns_forwarder(environment: Optional[Union['GetDnsForwarderEnvironmentArg
     * dns-forwarder: creates a `DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `Gateway` data source to look up the network's gateway.
 
 
-    :param Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict'] environment: Supports the following:
+    :param Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict', 'outputs.GetDnsForwarderEnvironmentResult'] environment: Supports the following:
     :param _builtins.str id: The ID of the DNS Forwarder, for example, `dnsf-abc123`.
     """
     __args__ = dict()
@@ -164,7 +164,7 @@ def get_dns_forwarder(environment: Optional[Union['GetDnsForwarderEnvironmentArg
         forward_via_ips=pulumi.get(__ret__, 'forward_via_ips'),
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'))
-def get_dns_forwarder_output(environment: pulumi.Input[Optional[Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict']]] = None,
+def get_dns_forwarder_output(environment: pulumi.Input[Optional[Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict', 'outputs.GetDnsForwarderEnvironmentResult']]] = None,
                              id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsForwarderResult]:
     """
@@ -191,7 +191,7 @@ def get_dns_forwarder_output(environment: pulumi.Input[Optional[Union['GetDnsFor
     * dns-forwarder: creates a `DnsForwarder` resource that forwards a domain via GCP DNS zones for a GCP Peering network, using a `Gateway` data source to look up the network's gateway.
 
 
-    :param Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict'] environment: Supports the following:
+    :param Union['GetDnsForwarderEnvironmentArgs', 'GetDnsForwarderEnvironmentArgsDict', 'outputs.GetDnsForwarderEnvironmentResult'] environment: Supports the following:
     :param _builtins.str id: The ID of the DNS Forwarder, for example, `dnsf-abc123`.
     """
     __args__ = dict()

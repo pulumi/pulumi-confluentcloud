@@ -118,11 +118,11 @@ class AwaitableGetBusinessMetadataBindingResult(GetBusinessMetadataBindingResult
 
 
 def get_business_metadata_binding(business_metadata_name: Optional[_builtins.str] = None,
-                                  credentials: Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']] = None,
+                                  credentials: Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict', 'outputs.GetBusinessMetadataBindingCredentialsResult']] = None,
                                   entity_name: Optional[_builtins.str] = None,
                                   entity_type: Optional[_builtins.str] = None,
                                   rest_endpoint: Optional[_builtins.str] = None,
-                                  schema_registry_cluster: Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']] = None,
+                                  schema_registry_cluster: Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict', 'outputs.GetBusinessMetadataBindingSchemaRegistryClusterResult']] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessMetadataBindingResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -188,11 +188,11 @@ def get_business_metadata_binding(business_metadata_name: Optional[_builtins.str
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
 def get_business_metadata_binding_output(business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         credentials: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']]]] = None,
+                                         credentials: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict', 'outputs.GetBusinessMetadataBindingCredentialsResult']]]] = None,
                                          entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                                          rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']]]] = None,
+                                         schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict', 'outputs.GetBusinessMetadataBindingSchemaRegistryClusterResult']]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessMetadataBindingResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

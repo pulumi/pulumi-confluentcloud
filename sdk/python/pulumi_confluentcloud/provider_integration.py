@@ -152,9 +152,9 @@ class ProviderIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict', 'outputs.ProviderIntegrationAws']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict', 'outputs.ProviderIntegrationEnvironment']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -206,9 +206,9 @@ class ProviderIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict', 'outputs.ProviderIntegrationAws']] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
-        :param pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict', 'outputs.ProviderIntegrationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         ...
     @overload
@@ -279,9 +279,9 @@ class ProviderIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict', 'outputs.ProviderIntegrationAws']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict', 'outputs.ProviderIntegrationEnvironment']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,9 +309,9 @@ class ProviderIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']]] = None,
+            aws: pulumi.Input[Optional[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict', 'outputs.ProviderIntegrationAws']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict', 'outputs.ProviderIntegrationEnvironment']]] = None,
             usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegration':
         """
         Get an existing ProviderIntegration resource's state with the given name, id, and optional extra
@@ -320,9 +320,9 @@ class ProviderIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict', 'outputs.ProviderIntegrationAws']] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
-        :param pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationEnvironmentArgs', 'ProviderIntegrationEnvironmentArgsDict', 'outputs.ProviderIntegrationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] usages: (Required List of Strings) List of resource CRNs where this provider integration is being used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

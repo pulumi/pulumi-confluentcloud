@@ -234,7 +234,7 @@ class Plugin(pulumi.CustomResource):
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict', 'outputs.PluginEnvironment']]] = None,
                  runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -279,7 +279,7 @@ class Plugin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[_builtins.str] description: The description of the Plugin.
         :param pulumi.Input[_builtins.str] display_name: The name of the Plugin.
-        :param pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict', 'outputs.PluginEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] runtime_language: (Optional String) Runtime language of the plugin.
         """
         ...
@@ -343,7 +343,7 @@ class Plugin(pulumi.CustomResource):
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict', 'outputs.PluginEnvironment']]] = None,
                  runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -381,7 +381,7 @@ class Plugin(pulumi.CustomResource):
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict', 'outputs.PluginEnvironment']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_language: pulumi.Input[Optional[_builtins.str]] = None) -> 'Plugin':
         """
@@ -395,7 +395,7 @@ class Plugin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[_builtins.str] description: The description of the Plugin.
         :param pulumi.Input[_builtins.str] display_name: The name of the Plugin.
-        :param pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PluginEnvironmentArgs', 'PluginEnvironmentArgsDict', 'outputs.PluginEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] kind: (Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.
         :param pulumi.Input[_builtins.str] runtime_language: (Optional String) Runtime language of the plugin.
         """

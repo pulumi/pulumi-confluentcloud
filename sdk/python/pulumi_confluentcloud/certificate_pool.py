@@ -197,7 +197,7 @@ class CertificatePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -241,7 +241,7 @@ class CertificatePool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -304,7 +304,7 @@ class CertificatePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,7 +343,7 @@ class CertificatePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+            certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -355,7 +355,7 @@ class CertificatePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.

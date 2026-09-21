@@ -279,12 +279,12 @@ class TagBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']]] = None,
                  disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict', 'outputs.TagBindingSchemaRegistryCluster']]] = None,
                  tag_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -350,7 +350,7 @@ class TagBinding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -445,12 +445,12 @@ class TagBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']]] = None,
                  disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict', 'outputs.TagBindingSchemaRegistryCluster']]] = None,
                  tag_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -486,12 +486,12 @@ class TagBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']]] = None,
             disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
             entity_name: pulumi.Input[Optional[_builtins.str]] = None,
             entity_type: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict', 'outputs.TagBindingSchemaRegistryCluster']]] = None,
             tag_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TagBinding':
         """
         Get an existing TagBinding resource's state with the given name, id, and optional extra
@@ -500,7 +500,7 @@ class TagBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.

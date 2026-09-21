@@ -112,7 +112,7 @@ class AwaitableGetProviderIntegrationSetupResult(GetProviderIntegrationSetupResu
 
 
 def get_provider_integration_setup(display_name: Optional[_builtins.str] = None,
-                                   environment: Optional[Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict']] = None,
+                                   environment: Optional[Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict', 'outputs.GetProviderIntegrationSetupEnvironmentResult']] = None,
                                    id: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderIntegrationSetupResult:
     """
@@ -173,7 +173,7 @@ def get_provider_integration_setup(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: The display name of the Provider Integration. Exactly one of `id` or `display_name` must be specified.
-    :param Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict', 'outputs.GetProviderIntegrationSetupEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration, for example, `cspi-4xg0q`. Exactly one of `id` or `display_name` must be specified.
     """
     __args__ = dict()
@@ -191,7 +191,7 @@ def get_provider_integration_setup(display_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         usages=pulumi.get(__ret__, 'usages'))
 def get_provider_integration_setup_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                          environment: pulumi.Input[Optional[Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+                                          environment: pulumi.Input[Optional[Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict', 'outputs.GetProviderIntegrationSetupEnvironmentResult']]] = None,
                                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationSetupResult]:
     """
@@ -252,7 +252,7 @@ def get_provider_integration_setup_output(display_name: pulumi.Input[Optional[Op
 
 
     :param _builtins.str display_name: The display name of the Provider Integration. Exactly one of `id` or `display_name` must be specified.
-    :param Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationSetupEnvironmentArgs', 'GetProviderIntegrationSetupEnvironmentArgsDict', 'outputs.GetProviderIntegrationSetupEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration, for example, `cspi-4xg0q`. Exactly one of `id` or `display_name` must be specified.
     """
     __args__ = dict()

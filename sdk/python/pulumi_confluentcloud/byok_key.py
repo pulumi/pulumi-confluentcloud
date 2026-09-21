@@ -138,9 +138,9 @@ class ByokKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -198,9 +198,9 @@ class ByokKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']] aws: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']] azure: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']] gcp: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']] gcp: (Optional Configuration Block) supports the following:
         """
         ...
     @overload
@@ -277,9 +277,9 @@ class ByokKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,9 +302,9 @@ class ByokKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
-            azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
-            gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None) -> 'ByokKey':
+            aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']]] = None,
+            azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']]] = None,
+            gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']]] = None) -> 'ByokKey':
         """
         Get an existing ByokKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -312,9 +312,9 @@ class ByokKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']] aws: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']] azure: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']] gcp: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']] gcp: (Optional Configuration Block) supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

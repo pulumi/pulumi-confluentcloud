@@ -222,12 +222,12 @@ class AwaitableGetFlinkMaterializedTableResult(GetFlinkMaterializedTableResult):
             watermarks=self.watermarks)
 
 
-def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict']] = None,
-                                 credentials: Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict']] = None,
+def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict', 'outputs.GetFlinkMaterializedTableComputePoolResult']] = None,
+                                 credentials: Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict', 'outputs.GetFlinkMaterializedTableCredentialsResult']] = None,
                                  display_name: Optional[_builtins.str] = None,
-                                 environment: Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict']] = None,
-                                 organization: Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict']] = None,
-                                 principal: Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict']] = None,
+                                 environment: Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict', 'outputs.GetFlinkMaterializedTableEnvironmentResult']] = None,
+                                 organization: Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict', 'outputs.GetFlinkMaterializedTableOrganizationResult']] = None,
+                                 principal: Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict', 'outputs.GetFlinkMaterializedTablePrincipalResult']] = None,
                                  rest_endpoint: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlinkMaterializedTableResult:
     """
@@ -304,12 +304,12 @@ def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMateriali
         stopped=pulumi.get(__ret__, 'stopped'),
         table_options=pulumi.get(__ret__, 'table_options'),
         watermarks=pulumi.get(__ret__, 'watermarks'))
-def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict']]]] = None,
-                                        credentials: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict']]]] = None,
+def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableComputePoolArgs', 'GetFlinkMaterializedTableComputePoolArgsDict', 'outputs.GetFlinkMaterializedTableComputePoolResult']]]] = None,
+                                        credentials: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableCredentialsArgs', 'GetFlinkMaterializedTableCredentialsArgsDict', 'outputs.GetFlinkMaterializedTableCredentialsResult']]]] = None,
                                         display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        environment: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict']]]] = None,
-                                        organization: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict']]]] = None,
-                                        principal: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict']]]] = None,
+                                        environment: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableEnvironmentArgs', 'GetFlinkMaterializedTableEnvironmentArgsDict', 'outputs.GetFlinkMaterializedTableEnvironmentResult']]]] = None,
+                                        organization: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTableOrganizationArgs', 'GetFlinkMaterializedTableOrganizationArgsDict', 'outputs.GetFlinkMaterializedTableOrganizationResult']]]] = None,
+                                        principal: pulumi.Input[Optional[Optional[Union['GetFlinkMaterializedTablePrincipalArgs', 'GetFlinkMaterializedTablePrincipalArgsDict', 'outputs.GetFlinkMaterializedTablePrincipalResult']]]] = None,
                                         rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkMaterializedTableResult]:
     """

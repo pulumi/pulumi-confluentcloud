@@ -281,11 +281,11 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict', 'outputs.BusinessMetadataBindingCredentials']]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict', 'outputs.BusinessMetadataBindingSchemaRegistryCluster']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -366,7 +366,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                
                > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
-        :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict', 'outputs.BusinessMetadataBindingCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -463,11 +463,11 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict', 'outputs.BusinessMetadataBindingCredentials']]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict', 'outputs.BusinessMetadataBindingSchemaRegistryCluster']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,11 +504,11 @@ class BusinessMetadataBinding(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             business_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict', 'outputs.BusinessMetadataBindingCredentials']]] = None,
             entity_name: pulumi.Input[Optional[_builtins.str]] = None,
             entity_type: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None) -> 'BusinessMetadataBinding':
+            schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict', 'outputs.BusinessMetadataBindingSchemaRegistryCluster']]] = None) -> 'BusinessMetadataBinding':
         """
         Get an existing BusinessMetadataBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -524,7 +524,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                
                > **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
-        :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict', 'outputs.BusinessMetadataBindingCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

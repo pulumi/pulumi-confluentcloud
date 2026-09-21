@@ -223,10 +223,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict', 'outputs.KafkaMirrorTopicClusterLink']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict', 'outputs.KafkaMirrorTopicKafkaCluster']]] = None,
                  mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict', 'outputs.KafkaMirrorTopicSourceKafkaTopic']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -375,10 +375,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+                 cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict', 'outputs.KafkaMirrorTopicClusterLink']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict', 'outputs.KafkaMirrorTopicKafkaCluster']]] = None,
                  mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+                 source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict', 'outputs.KafkaMirrorTopicSourceKafkaTopic']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -410,10 +410,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
+            cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict', 'outputs.KafkaMirrorTopicClusterLink']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict', 'outputs.KafkaMirrorTopicKafkaCluster']]] = None,
             mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
-            source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
+            source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict', 'outputs.KafkaMirrorTopicSourceKafkaTopic']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaMirrorTopic':
         """
         Get an existing KafkaMirrorTopic resource's state with the given name, id, and optional extra

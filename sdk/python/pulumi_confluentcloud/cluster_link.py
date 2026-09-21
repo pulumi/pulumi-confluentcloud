@@ -284,12 +284,12 @@ class ClusterLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
+                 destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict', 'outputs.ClusterLinkDestinationKafkaCluster']]] = None,
                  link: pulumi.Input[Optional[_builtins.str]] = None,
                  link_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
-                 remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
-                 source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None,
+                 local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict', 'outputs.ClusterLinkLocalKafkaCluster']]] = None,
+                 remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict', 'outputs.ClusterLinkRemoteKafkaCluster']]] = None,
+                 source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict', 'outputs.ClusterLinkSourceKafkaCluster']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -553,12 +553,12 @@ class ClusterLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
+                 destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict', 'outputs.ClusterLinkDestinationKafkaCluster']]] = None,
                  link: pulumi.Input[Optional[_builtins.str]] = None,
                  link_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
-                 remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
-                 source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None,
+                 local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict', 'outputs.ClusterLinkLocalKafkaCluster']]] = None,
+                 remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict', 'outputs.ClusterLinkRemoteKafkaCluster']]] = None,
+                 source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict', 'outputs.ClusterLinkSourceKafkaCluster']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -590,12 +590,12 @@ class ClusterLink(pulumi.CustomResource):
             cluster_link_id: pulumi.Input[Optional[_builtins.str]] = None,
             config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
+            destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict', 'outputs.ClusterLinkDestinationKafkaCluster']]] = None,
             link: pulumi.Input[Optional[_builtins.str]] = None,
             link_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
-            remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
-            source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None) -> 'ClusterLink':
+            local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict', 'outputs.ClusterLinkLocalKafkaCluster']]] = None,
+            remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict', 'outputs.ClusterLinkRemoteKafkaCluster']]] = None,
+            source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict', 'outputs.ClusterLinkSourceKafkaCluster']]] = None) -> 'ClusterLink':
         """
         Get an existing ClusterLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

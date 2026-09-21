@@ -225,11 +225,11 @@ class SubjectMode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict', 'outputs.SubjectModeCredentials']]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict', 'outputs.SubjectModeSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -287,7 +287,7 @@ class SubjectMode(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict', 'outputs.SubjectModeCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[_builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -367,11 +367,11 @@ class SubjectMode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict', 'outputs.SubjectModeCredentials']]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict', 'outputs.SubjectModeSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -402,11 +402,11 @@ class SubjectMode(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict', 'outputs.SubjectModeCredentials']]] = None,
             force: pulumi.Input[Optional[_builtins.bool]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict', 'outputs.SubjectModeSchemaRegistryCluster']]] = None,
             subject_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubjectMode':
         """
         Get an existing SubjectMode resource's state with the given name, id, and optional extra
@@ -415,7 +415,7 @@ class SubjectMode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict', 'outputs.SubjectModeCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[_builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

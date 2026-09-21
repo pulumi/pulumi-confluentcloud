@@ -251,7 +251,7 @@ class ConnectArtifact(pulumi.CustomResource):
                  content_format: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -301,7 +301,7 @@ class ConnectArtifact(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_format: Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
         :param pulumi.Input[_builtins.str] description: Description of the Connect Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Connect Artifact per cloud, environment scope.
-        :param pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         ...
     @overload
@@ -370,7 +370,7 @@ class ConnectArtifact(pulumi.CustomResource):
                  content_format: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,7 +410,7 @@ class ConnectArtifact(pulumi.CustomResource):
             content_format: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConnectArtifact':
         """
         Get an existing ConnectArtifact resource's state with the given name, id, and optional extra
@@ -424,7 +424,7 @@ class ConnectArtifact(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_format: Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
         :param pulumi.Input[_builtins.str] description: Description of the Connect Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Connect Artifact per cloud, environment scope.
-        :param pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] status: Specifies the current processing state of a CloudConnectArtifact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

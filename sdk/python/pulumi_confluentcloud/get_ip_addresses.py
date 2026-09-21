@@ -72,7 +72,7 @@ class AwaitableGetIpAddressesResult(GetIpAddressesResult):
             ip_addresses=self.ip_addresses)
 
 
-def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']] = None,
+def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict', 'outputs.GetIpAddressesFilterResult']] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAddressesResult:
     """
     [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -109,7 +109,7 @@ def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAd
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'))
-def get_ip_addresses_output(filter: pulumi.Input[Optional[Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']]]] = None,
+def get_ip_addresses_output(filter: pulumi.Input[Optional[Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict', 'outputs.GetIpAddressesFilterResult']]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAddressesResult]:
     """
     [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

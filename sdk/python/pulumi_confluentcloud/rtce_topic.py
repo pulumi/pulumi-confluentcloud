@@ -278,8 +278,8 @@ class RtceTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -328,8 +328,8 @@ class RtceTopic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud provider where the RTCE topic is deployed.
         :param pulumi.Input[_builtins.str] description: A model-readable description of the RTCE topic.
-        :param pulumi.Input[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict']] environment: The environment to which the target Kafka cluster belongs. Supports the following:
-        :param pulumi.Input[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict']] kafka_cluster: The Kafka cluster containing the topic to be materialized. Supports the following:
+        :param pulumi.Input[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']] environment: The environment to which the target Kafka cluster belongs. Supports the following:
+        :param pulumi.Input[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']] kafka_cluster: The Kafka cluster containing the topic to be materialized. Supports the following:
         :param pulumi.Input[_builtins.str] region: The cloud region where the RTCE topic is deployed.
         :param pulumi.Input[_builtins.str] topic_name: The Kafka topic name containing the data for the RTCE topic.
         """
@@ -397,8 +397,8 @@ class RtceTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -444,8 +444,8 @@ class RtceTopic(pulumi.CustomResource):
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
@@ -460,8 +460,8 @@ class RtceTopic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_version: (Required String) API Version defines the schema version of this representation of a resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud provider where the RTCE topic is deployed.
         :param pulumi.Input[_builtins.str] description: A model-readable description of the RTCE topic.
-        :param pulumi.Input[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict']] environment: The environment to which the target Kafka cluster belongs. Supports the following:
-        :param pulumi.Input[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict']] kafka_cluster: The Kafka cluster containing the topic to be materialized. Supports the following:
+        :param pulumi.Input[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']] environment: The environment to which the target Kafka cluster belongs. Supports the following:
+        :param pulumi.Input[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']] kafka_cluster: The Kafka cluster containing the topic to be materialized. Supports the following:
         :param pulumi.Input[_builtins.str] kind: (Required String) Kind defines the object this REST resource represents.
         :param pulumi.Input[_builtins.str] region: The cloud region where the RTCE topic is deployed.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the resource.

@@ -201,7 +201,7 @@ class IdentityPool(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
+                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -277,7 +277,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: The identity provider that the resource belongs to.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']] identity_provider: The identity provider that the resource belongs to.
         """
         ...
     @overload
@@ -372,7 +372,7 @@ class IdentityPool(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
+                 identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -411,7 +411,7 @@ class IdentityPool(pulumi.CustomResource):
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             filter: pulumi.Input[Optional[_builtins.str]] = None,
             identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
-            identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None) -> 'IdentityPool':
+            identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']]] = None) -> 'IdentityPool':
         """
         Get an existing IdentityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -423,7 +423,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: The identity provider that the resource belongs to.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']] identity_provider: The identity provider that the resource belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

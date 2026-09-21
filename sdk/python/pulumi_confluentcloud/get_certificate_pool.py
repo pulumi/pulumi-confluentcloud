@@ -102,7 +102,7 @@ class AwaitableGetCertificatePoolResult(GetCertificatePoolResult):
             id=self.id)
 
 
-def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']] = None,
+def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict', 'outputs.GetCertificatePoolCertificateAuthorityResult']] = None,
                          display_name: Optional[_builtins.str] = None,
                          id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificatePoolResult:
@@ -149,7 +149,7 @@ def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePo
         external_identifier=pulumi.get(__ret__, 'external_identifier'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'))
-def get_certificate_pool_output(certificate_authority: pulumi.Input[Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']]] = None,
+def get_certificate_pool_output(certificate_authority: pulumi.Input[Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict', 'outputs.GetCertificatePoolCertificateAuthorityResult']]] = None,
                                 display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificatePoolResult]:

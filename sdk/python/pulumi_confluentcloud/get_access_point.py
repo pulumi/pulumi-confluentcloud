@@ -168,8 +168,8 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             id=self.id)
 
 
-def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']] = None,
-                     gcp_egress_private_service_connect_endpoints: Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]] = None,
+def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict', 'outputs.GetAccessPointEnvironmentResult']] = None,
+                     gcp_egress_private_service_connect_endpoints: Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict', 'outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult']]] = None,
                      id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
@@ -191,7 +191,7 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
     ```
 
 
-    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
+    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict', 'outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     __args__ = dict()
@@ -213,8 +213,8 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         gcp_egress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_egress_private_service_connect_endpoints'),
         gcp_ingress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_ingress_private_service_connect_endpoints'),
         id=pulumi.get(__ret__, 'id'))
-def get_access_point_output(environment: pulumi.Input[Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
-                            gcp_egress_private_service_connect_endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]]]] = None,
+def get_access_point_output(environment: pulumi.Input[Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict', 'outputs.GetAccessPointEnvironmentResult']]] = None,
+                            gcp_egress_private_service_connect_endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict', 'outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult']]]]] = None,
                             id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -236,7 +236,7 @@ def get_access_point_output(environment: pulumi.Input[Optional[Union['GetAccessP
     ```
 
 
-    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
+    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict', 'outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     __args__ = dict()

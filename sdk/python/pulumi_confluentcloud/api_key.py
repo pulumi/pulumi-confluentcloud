@@ -220,8 +220,8 @@ class ApiKey(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']]] = None,
+                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -456,8 +456,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A free-form description of the API Account.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
-        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
+        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         """
         ...
     @overload
@@ -711,8 +711,8 @@ class ApiKey(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+                 managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']]] = None,
+                 owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -745,8 +745,8 @@ class ApiKey(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
-            owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
+            managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']]] = None,
+            owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']]] = None,
             secret: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
@@ -758,8 +758,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A free-form description of the API Account.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
-        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
+        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[_builtins.str] secret: (Required String, Sensitive) The secret of the API Key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

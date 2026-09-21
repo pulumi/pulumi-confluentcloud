@@ -249,9 +249,9 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -572,8 +572,8 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
-        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]] offsets: Connector partitions with offsets
+        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]] offsets: Connector partitions with offsets
         :param pulumi.Input[_builtins.str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
                
                For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
@@ -919,9 +919,9 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+                 offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -958,9 +958,9 @@ class Connector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-            offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+            offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Connector':
         """
         Get an existing Connector resource's state with the given name, id, and optional extra
@@ -971,8 +971,8 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
-        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]] offsets: Connector partitions with offsets
+        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]] offsets: Connector partitions with offsets
         :param pulumi.Input[_builtins.str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
                
                For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).

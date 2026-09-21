@@ -379,9 +379,9 @@ class KafkaAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']]] = None,
                  host: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict', 'outputs.KafkaAclKafkaCluster']]] = None,
                  operation: pulumi.Input[Optional[_builtins.str]] = None,
                  pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
@@ -498,7 +498,7 @@ class KafkaAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
                
                > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
@@ -643,9 +643,9 @@ class KafkaAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']]] = None,
                  host: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict', 'outputs.KafkaAclKafkaCluster']]] = None,
                  operation: pulumi.Input[Optional[_builtins.str]] = None,
                  pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
@@ -698,9 +698,9 @@ class KafkaAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']]] = None,
             host: pulumi.Input[Optional[_builtins.str]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict', 'outputs.KafkaAclKafkaCluster']]] = None,
             operation: pulumi.Input[Optional[_builtins.str]] = None,
             pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
             permission: pulumi.Input[Optional[_builtins.str]] = None,
@@ -715,7 +715,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
                
                > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.

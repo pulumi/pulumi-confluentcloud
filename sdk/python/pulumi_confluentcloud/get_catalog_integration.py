@@ -135,10 +135,10 @@ class AwaitableGetCatalogIntegrationResult(GetCatalogIntegrationResult):
             unities=self.unities)
 
 
-def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict']] = None,
-                            environment: Optional[Union['GetCatalogIntegrationEnvironmentArgs', 'GetCatalogIntegrationEnvironmentArgsDict']] = None,
+def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict', 'outputs.GetCatalogIntegrationCredentialsResult']] = None,
+                            environment: Optional[Union['GetCatalogIntegrationEnvironmentArgs', 'GetCatalogIntegrationEnvironmentArgsDict', 'outputs.GetCatalogIntegrationEnvironmentResult']] = None,
                             id: Optional[_builtins.str] = None,
-                            kafka_cluster: Optional[Union['GetCatalogIntegrationKafkaClusterArgs', 'GetCatalogIntegrationKafkaClusterArgsDict']] = None,
+                            kafka_cluster: Optional[Union['GetCatalogIntegrationKafkaClusterArgs', 'GetCatalogIntegrationKafkaClusterArgsDict', 'outputs.GetCatalogIntegrationKafkaClusterResult']] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogIntegrationResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -198,10 +198,10 @@ def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCr
         snowflakes=pulumi.get(__ret__, 'snowflakes'),
         suspended=pulumi.get(__ret__, 'suspended'),
         unities=pulumi.get(__ret__, 'unities'))
-def get_catalog_integration_output(credentials: pulumi.Input[Optional[Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict']]]] = None,
-                                   environment: pulumi.Input[Optional[Union['GetCatalogIntegrationEnvironmentArgs', 'GetCatalogIntegrationEnvironmentArgsDict']]] = None,
+def get_catalog_integration_output(credentials: pulumi.Input[Optional[Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict', 'outputs.GetCatalogIntegrationCredentialsResult']]]] = None,
+                                   environment: pulumi.Input[Optional[Union['GetCatalogIntegrationEnvironmentArgs', 'GetCatalogIntegrationEnvironmentArgsDict', 'outputs.GetCatalogIntegrationEnvironmentResult']]] = None,
                                    id: pulumi.Input[Optional[_builtins.str]] = None,
-                                   kafka_cluster: pulumi.Input[Optional[Union['GetCatalogIntegrationKafkaClusterArgs', 'GetCatalogIntegrationKafkaClusterArgsDict']]] = None,
+                                   kafka_cluster: pulumi.Input[Optional[Union['GetCatalogIntegrationKafkaClusterArgs', 'GetCatalogIntegrationKafkaClusterArgsDict', 'outputs.GetCatalogIntegrationKafkaClusterResult']]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogIntegrationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

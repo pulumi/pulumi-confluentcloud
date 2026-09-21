@@ -120,7 +120,7 @@ class AwaitableGetNetworkLinkEndpointResult(GetNetworkLinkEndpointResult):
             resource_name=self.resource_name)
 
 
-def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']] = None,
+def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict', 'outputs.GetNetworkLinkEndpointEnvironmentResult']] = None,
                               id: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkLinkEndpointResult:
     """
@@ -158,7 +158,7 @@ def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpoin
         network_link_services=pulumi.get(__ret__, 'network_link_services'),
         networks=pulumi.get(__ret__, 'networks'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-def get_network_link_endpoint_output(environment: pulumi.Input[Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']]] = None,
+def get_network_link_endpoint_output(environment: pulumi.Input[Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict', 'outputs.GetNetworkLinkEndpointEnvironmentResult']]] = None,
                                      id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkLinkEndpointResult]:
     """

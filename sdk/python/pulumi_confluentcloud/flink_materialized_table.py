@@ -504,22 +504,22 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict', 'outputs.FlinkMaterializedTableComputePool']]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict', 'outputs.FlinkMaterializedTableConstraint']]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict', 'outputs.FlinkMaterializedTableEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict', 'outputs.FlinkMaterializedTableKafkaCluster']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict', 'outputs.FlinkMaterializedTableOrganization']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict', 'outputs.FlinkMaterializedTablePrincipal']]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
+                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -639,16 +639,16 @@ class FlinkMaterializedTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
-        :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
+        :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
-        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
-        :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         ...
     @overload
@@ -787,22 +787,22 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict', 'outputs.FlinkMaterializedTableComputePool']]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict', 'outputs.FlinkMaterializedTableConstraint']]]]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+                 distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict', 'outputs.FlinkMaterializedTableEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict', 'outputs.FlinkMaterializedTableKafkaCluster']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict', 'outputs.FlinkMaterializedTableOrganization']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict', 'outputs.FlinkMaterializedTablePrincipal']]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
+                 watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -844,22 +844,22 @@ class FlinkMaterializedTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]]] = None,
-            compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict']]] = None,
-            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict']]]]] = None,
-            credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict', 'outputs.FlinkMaterializedTableComputePool']]] = None,
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict', 'outputs.FlinkMaterializedTableConstraint']]]]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']]] = None,
-            environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict']]] = None,
-            organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict']]] = None,
-            principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict']]] = None,
+            distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict', 'outputs.FlinkMaterializedTableEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict', 'outputs.FlinkMaterializedTableKafkaCluster']]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict', 'outputs.FlinkMaterializedTableOrganization']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict', 'outputs.FlinkMaterializedTablePrincipal']]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             stopped: pulumi.Input[Optional[_builtins.bool]] = None,
             table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None) -> 'FlinkMaterializedTable':
+            watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']]] = None) -> 'FlinkMaterializedTable':
         """
         Get an existing FlinkMaterializedTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -867,16 +867,16 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
-        :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]] columns: A list of column definitions. Each `columns` block supports the following sub-blocks:
+        :param pulumi.Input[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Materialized Table.
-        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']] distribution: The distribution definition for the Materialized Table. If omitted, Confluent Cloud could derive it automatically (for example, from the query's primary key when a `GROUP BY` is present) and populate it in state. Supports the following:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
-        :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
+        :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']] watermark: The watermark definition for the Materialized Table. Supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

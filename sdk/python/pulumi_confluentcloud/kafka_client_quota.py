@@ -231,10 +231,10 @@ class KafkaClientQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
+                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -289,10 +289,10 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
-        :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
+        :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Throughput for the client quota.
+        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']] throughput: Throughput for the client quota.
         """
         ...
     @overload
@@ -366,10 +366,10 @@ class KafkaClientQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None,
+                 throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,10 +407,10 @@ class KafkaClientQuota(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']]] = None,
             principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']]] = None) -> 'KafkaClientQuota':
+            throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']]] = None) -> 'KafkaClientQuota':
         """
         Get an existing KafkaClientQuota resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -420,10 +420,10 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
-        :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
+        :param pulumi.Input[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']] kafka_cluster: The ID of the Dedicated Kafka cluster where the client quota is applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
-        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict']] throughput: Throughput for the client quota.
+        :param pulumi.Input[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']] throughput: Throughput for the client quota.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
