@@ -116,6 +116,8 @@ type LookupTableflowTopicResult struct {
 	Environment        GetTableflowTopicEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) supports the following:
 	ErrorHandlings []GetTableflowTopicErrorHandling `pulumi:"errorHandlings"`
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorages []GetTableflowTopicGoogleCloudStorage `pulumi:"googleCloudStorages"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string                        `pulumi:"id"`
 	KafkaCluster GetTableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
@@ -212,6 +214,11 @@ func (o LookupTableflowTopicResultOutput) Environment() GetTableflowTopicEnviron
 // (Optional Configuration Block) supports the following:
 func (o LookupTableflowTopicResultOutput) ErrorHandlings() GetTableflowTopicErrorHandlingArrayOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicErrorHandling { return v.ErrorHandlings }).(GetTableflowTopicErrorHandlingArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupTableflowTopicResultOutput) GoogleCloudStorages() GetTableflowTopicGoogleCloudStorageArrayOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicGoogleCloudStorage { return v.GoogleCloudStorages }).(GetTableflowTopicGoogleCloudStorageArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

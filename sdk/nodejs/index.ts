@@ -310,6 +310,11 @@ export const getNetworkLinkService: typeof import("./getNetworkLinkService").get
 export const getNetworkLinkServiceOutput: typeof import("./getNetworkLinkService").getNetworkLinkServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkLinkService","getNetworkLinkServiceOutput"], () => require("./getNetworkLinkService"));
 
+export { GetNotificationsIntegrationArgs, GetNotificationsIntegrationResult, GetNotificationsIntegrationOutputArgs } from "./getNotificationsIntegration";
+export const getNotificationsIntegration: typeof import("./getNotificationsIntegration").getNotificationsIntegration = null as any;
+export const getNotificationsIntegrationOutput: typeof import("./getNotificationsIntegration").getNotificationsIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationsIntegration","getNotificationsIntegrationOutput"], () => require("./getNotificationsIntegration"));
+
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
@@ -530,6 +535,11 @@ export type NetworkLinkService = import("./networkLinkService").NetworkLinkServi
 export const NetworkLinkService: typeof import("./networkLinkService").NetworkLinkService = null as any;
 utilities.lazyLoad(exports, ["NetworkLinkService"], () => require("./networkLinkService"));
 
+export { NotificationsIntegrationArgs, NotificationsIntegrationState } from "./notificationsIntegration";
+export type NotificationsIntegration = import("./notificationsIntegration").NotificationsIntegration;
+export const NotificationsIntegration: typeof import("./notificationsIntegration").NotificationsIntegration = null as any;
+utilities.lazyLoad(exports, ["NotificationsIntegration"], () => require("./notificationsIntegration"));
+
 export { PeeringArgs, PeeringState } from "./peering";
 export type Peering = import("./peering").Peering;
 export const Peering: typeof import("./peering").Peering = null as any;
@@ -747,6 +757,8 @@ const _module = {
                 return new NetworkLinkEndpoint(name, <any>undefined, { urn })
             case "confluentcloud:index/networkLinkService:NetworkLinkService":
                 return new NetworkLinkService(name, <any>undefined, { urn })
+            case "confluentcloud:index/notificationsIntegration:NotificationsIntegration":
+                return new NotificationsIntegration(name, <any>undefined, { urn })
             case "confluentcloud:index/peering:Peering":
                 return new Peering(name, <any>undefined, { urn })
             case "confluentcloud:index/plugin:Plugin":
@@ -840,6 +852,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/ksqlCluster", _mo
 pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkEndpoint", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkService", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/notificationsIntegration", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/plugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)

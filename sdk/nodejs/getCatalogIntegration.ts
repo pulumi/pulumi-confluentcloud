@@ -86,6 +86,10 @@ export interface GetCatalogIntegrationResult {
      * (Optional Configuration Block) supports the following:
      */
     readonly awsGlues: outputs.GetCatalogIntegrationAwsGlue[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly biglakeMetastores: outputs.GetCatalogIntegrationBiglakeMetastore[];
     readonly credentials?: outputs.GetCatalogIntegrationCredentials;
     /**
      * (Required String) The name of the catalog integration.

@@ -791,6 +791,35 @@
                 "providerIntegrationId"
             ]
         },
+        "confluentcloud:index/CatalogIntegrationBiglakeMetastore:CatalogIntegrationBiglakeMetastore": {
+            "properties": {
+                "catalogName": {
+                    "type": "string",
+                    "description": "The name of the catalog within BigLake Metastore.\n",
+                    "willReplaceOnChanges": true
+                },
+                "customNamespace": {
+                    "type": "string",
+                    "description": "The custom namespace to use in BigLake Metastore.\n"
+                },
+                "gcpProjectId": {
+                    "type": "string",
+                    "description": "The GCP project id that hosts the BigLake Metastore catalog.\n",
+                    "willReplaceOnChanges": true
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "The provider integration id.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "catalogName",
+                "gcpProjectId",
+                "providerIntegrationId"
+            ]
+        },
         "confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials": {
             "properties": {
                 "key": {
@@ -2621,6 +2650,128 @@
                 }
             }
         },
+        "confluentcloud:index/NotificationsIntegrationInAppTarget:NotificationsIntegrationInAppTarget": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationInAppTargetUser:NotificationsIntegrationInAppTargetUser"
+                    },
+                    "description": "(String) Reference to the user the in-app target belongs to.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "users"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NotificationsIntegrationInAppTargetUser:NotificationsIntegrationInAppTargetUser": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Integration, for example, `int-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NotificationsIntegrationMsTeamsTarget:NotificationsIntegrationMsTeamsTarget": {
+            "properties": {
+                "webhookUrl": {
+                    "type": "string",
+                    "description": "MS Teams Webhook URL for the particular team channel\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "webhookUrl"
+            ]
+        },
+        "confluentcloud:index/NotificationsIntegrationRoleEmailTarget:NotificationsIntegrationRoleEmailTarget": {
+            "properties": {
+                "roleName": {
+                    "type": "string",
+                    "description": "(String) name of the role\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "roleName"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NotificationsIntegrationSlackTarget:NotificationsIntegrationSlackTarget": {
+            "properties": {
+                "webhookUrl": {
+                    "type": "string",
+                    "description": "Slack Webhook URL for the particular Slack channel\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "webhookUrl"
+            ]
+        },
+        "confluentcloud:index/NotificationsIntegrationUserEmailTarget:NotificationsIntegrationUserEmailTarget": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationUserEmailTargetUser:NotificationsIntegrationUserEmailTargetUser"
+                    },
+                    "description": "(String) Reference to the user the in-app target belongs to.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "users"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NotificationsIntegrationUserEmailTargetUser:NotificationsIntegrationUserEmailTargetUser": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Integration, for example, `int-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NotificationsIntegrationWebhookTarget:NotificationsIntegrationWebhookTarget": {
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "URL endpoint for the webhook\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
         "confluentcloud:index/PeeringAws:PeeringAws": {
             "properties": {
                 "account": {
@@ -3843,6 +3994,38 @@
                 }
             }
         },
+        "confluentcloud:index/TableflowTopicGoogleCloudStorage:TableflowTopicGoogleCloudStorage": {
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "The bucket name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "(Required String) The bucket region.\n"
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "The provider integration id.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketName",
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bucketName",
+                        "bucketRegion",
+                        "providerIntegrationId"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster": {
             "properties": {
                 "id": {
@@ -4456,6 +4639,38 @@
                 }
             }
         },
+        "confluentcloud:index/getCatalogIntegrationBiglakeMetastore:getCatalogIntegrationBiglakeMetastore": {
+            "properties": {
+                "catalogName": {
+                    "type": "string",
+                    "description": "(Computed String) The name of the catalog within BigLake Metastore.\n"
+                },
+                "customNamespace": {
+                    "type": "string",
+                    "description": "(Computed String) The custom namespace to use in BigLake Metastore.\n"
+                },
+                "gcpProjectId": {
+                    "type": "string",
+                    "description": "(Computed String) The GCP project id that hosts the BigLake Metastore catalog.\n"
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "(Required String) The provider integration id.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "catalogName",
+                "customNamespace",
+                "gcpProjectId",
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getCatalogIntegrationCredentials:getCatalogIntegrationCredentials": {
             "properties": {
                 "key": {
@@ -4507,7 +4722,7 @@
                 },
                 "customNamespace": {
                     "type": "string",
-                    "description": "(Computed String) The custom namespace to use in Snowflake Open Catalog.\n"
+                    "description": "(Computed String) The custom namespace to use in BigLake Metastore.\n"
                 },
                 "endpoint": {
                     "type": "string",
@@ -4535,7 +4750,7 @@
             "properties": {
                 "catalogName": {
                     "type": "string",
-                    "description": "(Required String) The name of the catalog within Unity Catalog.\n"
+                    "description": "(Computed String) The name of the catalog within BigLake Metastore.\n"
                 },
                 "customSchema": {
                     "type": "string",
@@ -7016,6 +7231,148 @@
                 }
             }
         },
+        "confluentcloud:index/getNotificationsIntegrationInAppTarget:getNotificationsIntegrationInAppTarget": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationInAppTargetUser:getNotificationsIntegrationInAppTargetUser"
+                    },
+                    "description": "(String) Reference to the user the in-app target belongs to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "users"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationInAppTargetUser:getNotificationsIntegrationInAppTargetUser": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Integration, for example, `int-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationMsTeamsTarget:getNotificationsIntegrationMsTeamsTarget": {
+            "properties": {
+                "webhookUrl": {
+                    "type": "string",
+                    "description": "(String) MS Teams Webhook URL for the particular team channel\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "webhookUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationRoleEmailTarget:getNotificationsIntegrationRoleEmailTarget": {
+            "properties": {
+                "roleName": {
+                    "type": "string",
+                    "description": "(String) name of the role\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "roleName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationSlackTarget:getNotificationsIntegrationSlackTarget": {
+            "properties": {
+                "webhookUrl": {
+                    "type": "string",
+                    "description": "(String) MS Teams Webhook URL for the particular team channel\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "webhookUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationUserEmailTarget:getNotificationsIntegrationUserEmailTarget": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationUserEmailTargetUser:getNotificationsIntegrationUserEmailTargetUser"
+                    },
+                    "description": "(String) Reference to the user the in-app target belongs to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "users"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationUserEmailTargetUser:getNotificationsIntegrationUserEmailTargetUser": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Integration, for example, `int-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsIntegrationWebhookTarget:getNotificationsIntegrationWebhookTarget": {
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "(String) URL endpoint for the webhook\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getPeeringAw:getPeeringAw": {
             "properties": {
                 "account": {
@@ -8414,6 +8771,33 @@
                 }
             }
         },
+        "confluentcloud:index/getTableflowTopicGoogleCloudStorage:getTableflowTopicGoogleCloudStorage": {
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "(Required String) The bucket name.\n"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "(Required String) The bucket region.\n"
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "(Required String) The provider integration id.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketName",
+                "bucketRegion",
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getTableflowTopicKafkaCluster:getTableflowTopicKafkaCluster": {
             "properties": {
                 "id": {
@@ -9444,6 +9828,10 @@
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
                     "description": "supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):\n"
                 },
+                "biglakeMetastore": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationBiglakeMetastore:CatalogIntegrationBiglakeMetastore",
+                    "description": "The catalog integration connection configuration for BigLake Metastore."
+                },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
                     "description": "The Cluster API Credentials.",
@@ -9484,6 +9872,10 @@
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
                     "description": "supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):\n"
                 },
+                "biglakeMetastore": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationBiglakeMetastore:CatalogIntegrationBiglakeMetastore",
+                    "description": "The catalog integration connection configuration for BigLake Metastore."
+                },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
                     "description": "The Cluster API Credentials.",
@@ -9522,6 +9914,10 @@
                     "awsGlue": {
                         "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
                         "description": "supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):\n"
+                    },
+                    "biglakeMetastore": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationBiglakeMetastore:CatalogIntegrationBiglakeMetastore",
+                        "description": "The catalog integration connection configuration for BigLake Metastore."
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
@@ -13969,6 +14365,161 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/notificationsIntegration:NotificationsIntegration": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-go=\"`NotificationsIntegration`\" pulumi-lang-python=\"`NotificationsIntegration`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-java=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-hcl=\"`confluent_notifications_integration`\"\u003e`confluentcloud.NotificationsIntegration`\u003c/span\u003e provides an Integration resource that enables creating, editing, and deleting Integrations on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental integration deletion. This setting rejects plans that would destroy or recreate the integration, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.NotificationsIntegration(\"example\", {\n    displayName: \"Slack integration\",\n    description: \"A Slack channel integration\",\n    slackTarget: {\n        webhookUrl: \"https://hooks.slack.com/services/{id}/{id}/{id}\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.NotificationsIntegration(\"example\",\n    display_name=\"Slack integration\",\n    description=\"A Slack channel integration\",\n    slack_target={\n        \"webhook_url\": \"https://hooks.slack.com/services/{id}/{id}/{id}\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.NotificationsIntegration(\"example\", new()\n    {\n        DisplayName = \"Slack integration\",\n        Description = \"A Slack channel integration\",\n        SlackTarget = new ConfluentCloud.Inputs.NotificationsIntegrationSlackTargetArgs\n        {\n            WebhookUrl = \"https://hooks.slack.com/services/{id}/{id}/{id}\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewNotificationsIntegration(ctx, \"example\", \u0026confluentcloud.NotificationsIntegrationArgs{\n\t\t\tDisplayName: pulumi.String(\"Slack integration\"),\n\t\t\tDescription: pulumi.String(\"A Slack channel integration\"),\n\t\t\tSlackTarget: \u0026confluentcloud.NotificationsIntegrationSlackTargetArgs{\n\t\t\t\tWebhookUrl: pulumi.String(\"https://hooks.slack.com/services/{id}/{id}/{id}\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_notificationsintegration\" \"example\" {\n  display_name = \"Slack integration\"\n  description  = \"A Slack channel integration\"\n  slack_target = {\n    webhook_url = \"https://hooks.slack.com/services/{id}/{id}/{id}\"\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.NotificationsIntegration;\nimport com.pulumi.confluentcloud.NotificationsIntegrationArgs;\nimport com.pulumi.confluentcloud.inputs.NotificationsIntegrationSlackTargetArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new NotificationsIntegration(\"example\", NotificationsIntegrationArgs.builder()\n            .displayName(\"Slack integration\")\n            .description(\"A Slack channel integration\")\n            .slackTarget(NotificationsIntegrationSlackTargetArgs.builder()\n                .webhookUrl(\"https://hooks.slack.com/services/{id}/{id}/{id}\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:NotificationsIntegration\n    properties:\n      displayName: Slack integration\n      description: A Slack channel integration\n      slackTarget:\n        webhookUrl: https://hooks.slack.com/services/{id}/{id}/{id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Integration.\n\nYou can import an Integration by using Integration ID, for example:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/notificationsIntegration:NotificationsIntegration example int-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A human readable description for the particular integration\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human readable name for the particular integration\n"
+                },
+                "inAppTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationInAppTarget:NotificationsIntegrationInAppTarget"
+                    },
+                    "description": "(Optional Configuration Block) Supports the following:\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                },
+                "msTeamsTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationMsTeamsTarget:NotificationsIntegrationMsTeamsTarget",
+                    "description": "Supports the following:\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Integration.\n"
+                },
+                "roleEmailTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationRoleEmailTarget:NotificationsIntegrationRoleEmailTarget"
+                    },
+                    "description": "(Optional Configuration Block) Supports the following:\n"
+                },
+                "slackTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationSlackTarget:NotificationsIntegrationSlackTarget",
+                    "description": "Supports the following:\n"
+                },
+                "userEmailTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationUserEmailTarget:NotificationsIntegrationUserEmailTarget"
+                    },
+                    "description": "(Optional Configuration Block) Supports the following:\n"
+                },
+                "webhookTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationWebhookTarget:NotificationsIntegrationWebhookTarget",
+                    "description": "Supports the following:\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "description",
+                "displayName",
+                "inAppTargets",
+                "kind",
+                "msTeamsTarget",
+                "resourceName",
+                "roleEmailTargets",
+                "slackTarget",
+                "userEmailTargets",
+                "webhookTarget"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human readable description for the particular integration\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human readable name for the particular integration\n"
+                },
+                "msTeamsTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationMsTeamsTarget:NotificationsIntegrationMsTeamsTarget",
+                    "description": "Supports the following:\n"
+                },
+                "slackTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationSlackTarget:NotificationsIntegrationSlackTarget",
+                    "description": "Supports the following:\n"
+                },
+                "webhookTarget": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsIntegrationWebhookTarget:NotificationsIntegrationWebhookTarget",
+                    "description": "Supports the following:\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationsIntegration resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A human readable description for the particular integration\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human readable name for the particular integration\n"
+                    },
+                    "inAppTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/NotificationsIntegrationInAppTarget:NotificationsIntegrationInAppTarget"
+                        },
+                        "description": "(Optional Configuration Block) Supports the following:\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                    },
+                    "msTeamsTarget": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationMsTeamsTarget:NotificationsIntegrationMsTeamsTarget",
+                        "description": "Supports the following:\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Integration.\n"
+                    },
+                    "roleEmailTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/NotificationsIntegrationRoleEmailTarget:NotificationsIntegrationRoleEmailTarget"
+                        },
+                        "description": "(Optional Configuration Block) Supports the following:\n"
+                    },
+                    "slackTarget": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationSlackTarget:NotificationsIntegrationSlackTarget",
+                        "description": "Supports the following:\n"
+                    },
+                    "userEmailTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/NotificationsIntegrationUserEmailTarget:NotificationsIntegrationUserEmailTarget"
+                        },
+                        "description": "(Optional Configuration Block) Supports the following:\n"
+                    },
+                    "webhookTarget": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsIntegrationWebhookTarget:NotificationsIntegrationWebhookTarget",
+                        "description": "Supports the following:\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/peering:Peering": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Peering`\" pulumi-lang-dotnet=\"`confluentcloud.Peering`\" pulumi-lang-go=\"`Peering`\" pulumi-lang-python=\"`Peering`\" pulumi-lang-yaml=\"`confluentcloud.Peering`\" pulumi-lang-java=\"`confluentcloud.Peering`\" pulumi-lang-hcl=\"`confluent_peering`\"\u003e`confluentcloud.Peering`\u003c/span\u003e provides a Peering resource that enables creating, editing, and deleting Peerings on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental Peering deletion. This setting rejects plans that would destroy or recreate the Peering, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Example Peering on AWS\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst aws_peering = new confluentcloud.Network(\"aws-peering\", {\n    displayName: \"AWS Peering Network\",\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst aws = new confluentcloud.Peering(\"aws\", {\n    displayName: \"AWS Peering\",\n    aws: {\n        account: \"012345678901\",\n        vpc: \"vpc-abcdef0123456789a\",\n        routes: [\"172.31.0.0/16\"],\n        customerRegion: \"us-east-2\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: aws_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\naws_peering = confluentcloud.Network(\"aws-peering\",\n    display_name=\"AWS Peering Network\",\n    cloud=\"AWS\",\n    region=\"us-east-2\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\naws = confluentcloud.Peering(\"aws\",\n    display_name=\"AWS Peering\",\n    aws={\n        \"account\": \"012345678901\",\n        \"vpc\": \"vpc-abcdef0123456789a\",\n        \"routes\": [\"172.31.0.0/16\"],\n        \"customer_region\": \"us-east-2\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": aws_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var aws_peering = new ConfluentCloud.Network(\"aws-peering\", new()\n    {\n        DisplayName = \"AWS Peering Network\",\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var aws = new ConfluentCloud.Peering(\"aws\", new()\n    {\n        DisplayName = \"AWS Peering\",\n        Aws = new ConfluentCloud.Inputs.PeeringAwsArgs\n        {\n            Account = \"012345678901\",\n            Vpc = \"vpc-abcdef0123456789a\",\n            Routes = new[]\n            {\n                \"172.31.0.0/16\",\n            },\n            CustomerRegion = \"us-east-2\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = aws_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\taws_peering, err := confluentcloud.NewNetwork(ctx, \"aws-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"AWS Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"AWS\"),\n\t\t\tRegion:      pulumi.String(\"us-east-2\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"aws\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"AWS Peering\"),\n\t\t\tAws: \u0026confluentcloud.PeeringAwsArgs{\n\t\t\t\tAccount: pulumi.String(\"012345678901\"),\n\t\t\t\tVpc:     pulumi.String(\"vpc-abcdef0123456789a\"),\n\t\t\t\tRoutes: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"172.31.0.0/16\"),\n\t\t\t\t},\n\t\t\t\tCustomerRegion: pulumi.String(\"us-east-2\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: aws_peering.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"aws-peering\" {\n  display_name     = \"AWS Peering Network\"\n  cloud            = \"AWS\"\n  region           = \"us-east-2\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"aws\" {\n  display_name = \"AWS Peering\"\n  aws = {\n    account         = \"012345678901\"\n    vpc             = \"vpc-abcdef0123456789a\"\n    routes          = [\"172.31.0.0/16\"]\n    customer_region = \"us-east-2\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.aws-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringAwsArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var aws_peering = new Network(\"aws-peering\", NetworkArgs.builder()\n            .displayName(\"AWS Peering Network\")\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var aws = new Peering(\"aws\", PeeringArgs.builder()\n            .displayName(\"AWS Peering\")\n            .aws(PeeringAwsArgs.builder()\n                .account(\"012345678901\")\n                .vpc(\"vpc-abcdef0123456789a\")\n                .routes(\"172.31.0.0/16\")\n                .customerRegion(\"us-east-2\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(aws_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  aws-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: AWS Peering Network\n      cloud: AWS\n      region: us-east-2\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  aws:\n    type: confluentcloud:Peering\n    properties:\n      displayName: AWS Peering\n      aws:\n        account: '012345678901'\n        vpc: vpc-abcdef0123456789a\n        routes:\n          - 172.31.0.0/16\n        customerRegion: us-east-2\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"aws-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Peering on Azure\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst azure_peering = new confluentcloud.Network(\"azure-peering\", {\n    displayName: \"Azure Peering Network\",\n    cloud: \"AZURE\",\n    region: \"centralus\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst azure = new confluentcloud.Peering(\"azure\", {\n    displayName: \"Azure Peering\",\n    azure: {\n        tenant: \"1111tttt-1111-1111-1111-111111tttttt\",\n        vnet: \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n        customerRegion: \"centralus\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: azure_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nazure_peering = confluentcloud.Network(\"azure-peering\",\n    display_name=\"Azure Peering Network\",\n    cloud=\"AZURE\",\n    region=\"centralus\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\nazure = confluentcloud.Peering(\"azure\",\n    display_name=\"Azure Peering\",\n    azure={\n        \"tenant\": \"1111tttt-1111-1111-1111-111111tttttt\",\n        \"vnet\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n        \"customer_region\": \"centralus\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": azure_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var azure_peering = new ConfluentCloud.Network(\"azure-peering\", new()\n    {\n        DisplayName = \"Azure Peering Network\",\n        Cloud = \"AZURE\",\n        Region = \"centralus\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var azure = new ConfluentCloud.Peering(\"azure\", new()\n    {\n        DisplayName = \"Azure Peering\",\n        Azure = new ConfluentCloud.Inputs.PeeringAzureArgs\n        {\n            Tenant = \"1111tttt-1111-1111-1111-111111tttttt\",\n            Vnet = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n            CustomerRegion = \"centralus\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = azure_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tazure_peering, err := confluentcloud.NewNetwork(ctx, \"azure-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"Azure Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"AZURE\"),\n\t\t\tRegion:      pulumi.String(\"centralus\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"azure\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"Azure Peering\"),\n\t\t\tAzure: \u0026confluentcloud.PeeringAzureArgs{\n\t\t\t\tTenant:         pulumi.String(\"1111tttt-1111-1111-1111-111111tttttt\"),\n\t\t\t\tVnet:           pulumi.String(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\"),\n\t\t\t\tCustomerRegion: pulumi.String(\"centralus\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: azure_peering.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"azure-peering\" {\n  display_name     = \"Azure Peering Network\"\n  cloud            = \"AZURE\"\n  region           = \"centralus\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"azure\" {\n  display_name = \"Azure Peering\"\n  azure = {\n    tenant          = \"1111tttt-1111-1111-1111-111111tttttt\"\n    vnet            = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\"\n    customer_region = \"centralus\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.azure-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringAzureArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var azure_peering = new Network(\"azure-peering\", NetworkArgs.builder()\n            .displayName(\"Azure Peering Network\")\n            .cloud(\"AZURE\")\n            .region(\"centralus\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var azure = new Peering(\"azure\", PeeringArgs.builder()\n            .displayName(\"Azure Peering\")\n            .azure(PeeringAzureArgs.builder()\n                .tenant(\"1111tttt-1111-1111-1111-111111tttttt\")\n                .vnet(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\")\n                .customerRegion(\"centralus\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(azure_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  azure-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: Azure Peering Network\n      cloud: AZURE\n      region: centralus\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  azure:\n    type: confluentcloud:Peering\n    properties:\n      displayName: Azure Peering\n      azure:\n        tenant: 1111tttt-1111-1111-1111-111111tttttt\n        vnet: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\n        customerRegion: centralus\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"azure-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Peering on GCP\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst gcp_peering = new confluentcloud.Network(\"gcp-peering\", {\n    displayName: \"GCP Peering Network\",\n    cloud: \"GCP\",\n    region: \"us-west4\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst gcp = new confluentcloud.Peering(\"gcp\", {\n    displayName: \"GCP Peering\",\n    gcp: {\n        project: \"temp-gear-123456\",\n        vpcNetwork: \"customer-test-vpc-network\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: gcp_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\ngcp_peering = confluentcloud.Network(\"gcp-peering\",\n    display_name=\"GCP Peering Network\",\n    cloud=\"GCP\",\n    region=\"us-west4\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\ngcp = confluentcloud.Peering(\"gcp\",\n    display_name=\"GCP Peering\",\n    gcp={\n        \"project\": \"temp-gear-123456\",\n        \"vpc_network\": \"customer-test-vpc-network\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": gcp_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var gcp_peering = new ConfluentCloud.Network(\"gcp-peering\", new()\n    {\n        DisplayName = \"GCP Peering Network\",\n        Cloud = \"GCP\",\n        Region = \"us-west4\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var gcp = new ConfluentCloud.Peering(\"gcp\", new()\n    {\n        DisplayName = \"GCP Peering\",\n        Gcp = new ConfluentCloud.Inputs.PeeringGcpArgs\n        {\n            Project = \"temp-gear-123456\",\n            VpcNetwork = \"customer-test-vpc-network\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = gcp_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgcp_peering, err := confluentcloud.NewNetwork(ctx, \"gcp-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"GCP Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"GCP\"),\n\t\t\tRegion:      pulumi.String(\"us-west4\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"gcp\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"GCP Peering\"),\n\t\t\tGcp: \u0026confluentcloud.PeeringGcpArgs{\n\t\t\t\tProject:    pulumi.String(\"temp-gear-123456\"),\n\t\t\t\tVpcNetwork: pulumi.String(\"customer-test-vpc-network\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: gcp_peering.ID().ToIDOutput().ToStringOutput(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"gcp-peering\" {\n  display_name     = \"GCP Peering Network\"\n  cloud            = \"GCP\"\n  region           = \"us-west4\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"gcp\" {\n  display_name = \"GCP Peering\"\n  gcp = {\n    project     = \"temp-gear-123456\"\n    vpc_network = \"customer-test-vpc-network\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.gcp-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringGcpArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var gcp_peering = new Network(\"gcp-peering\", NetworkArgs.builder()\n            .displayName(\"GCP Peering Network\")\n            .cloud(\"GCP\")\n            .region(\"us-west4\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var gcp = new Peering(\"gcp\", PeeringArgs.builder()\n            .displayName(\"GCP Peering\")\n            .gcp(PeeringGcpArgs.builder()\n                .project(\"temp-gear-123456\")\n                .vpcNetwork(\"customer-test-vpc-network\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(gcp_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  gcp-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: GCP Peering Network\n      cloud: GCP\n      region: us-west4\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  gcp:\n    type: confluentcloud:Peering\n    properties:\n      displayName: GCP Peering\n      gcp:\n        project: temp-gear-123456\n        vpcNetwork: customer-test-vpc-network\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"gcp-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Peering`\" pulumi-lang-dotnet=\"`confluentcloud.Peering`\" pulumi-lang-go=\"`Peering`\" pulumi-lang-python=\"`Peering`\" pulumi-lang-yaml=\"`confluentcloud.Peering`\" pulumi-lang-java=\"`confluentcloud.Peering`\" pulumi-lang-hcl=\"`confluent_peering`\"\u003e`confluentcloud.Peering`\u003c/span\u003e resource:\n  * dedicated-vnet-peering-azure-kafka-acls: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-vpc-peering-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-vpc-peering-gcp-kafka-acls: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs\n  * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC\n  * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Peering.\n\nYou can import a Peering by using Environment ID and Peering ID, in the format `\u003cEnvironment ID\u003e/\u003cPeering ID\u003e`. The following example shows how to import a Peering:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -16134,7 +16685,7 @@
             }
         },
         "confluentcloud:index/tableflowTopic:TableflowTopic": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n\u003e **Note:** Make sure to use \u003cspan pulumi-lang-nodejs=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-go=\"`CatalogIntegration`\" pulumi-lang-python=\"`CatalogIntegration`\" pulumi-lang-yaml=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-java=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-hcl=\"`confluent_catalog_integration`\"\u003e`confluentcloud.CatalogIntegration`\u003c/span\u003e resource if you want to integrate Tableflow with AWS Glue Catalog, Snowflake Open Catalog, or Unity Catalog.\n\n## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  managed_storages {\n  }\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name  = orders.topicName\n  table_formats = [\"ICEBERG\", \"DELTA\"]\n  credentials = {\n    key    = env-admin-tableflow-api-key.id\n    secret = env-admin-tableflow-api-key.secret\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages(TableflowTopicManagedStorageArgs.builder()\n                .build())\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name = orders.topicName\n  byob_aws = {\n    bucket_name             = \"bucket_1\"\n    provider_integration_id = main.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n```sh\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n\u003e **Note:** Make sure to use \u003cspan pulumi-lang-nodejs=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-go=\"`CatalogIntegration`\" pulumi-lang-python=\"`CatalogIntegration`\" pulumi-lang-yaml=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-java=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-hcl=\"`confluent_catalog_integration`\"\u003e`confluentcloud.CatalogIntegration`\u003c/span\u003e resource if you want to integrate Tableflow with AWS Glue Catalog, Snowflake Open Catalog, or Unity Catalog.\n\n## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  managed_storages {\n  }\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name  = orders.topicName\n  table_formats = [\"ICEBERG\", \"DELTA\"]\n  credentials = {\n    key    = env-admin-tableflow-api-key.id\n    secret = env-admin-tableflow-api-key.secret\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages(TableflowTopicManagedStorageArgs.builder()\n                .build())\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name = orders.topicName\n  byob_aws = {\n    bucket_name             = \"bucket_1\"\n    provider_integration_id = main.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    googleCloudStorage: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    google_cloud_storage={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    },\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        GoogleCloudStorage = new ConfluentCloud.Inputs.TableflowTopicGoogleCloudStorageArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tGoogleCloudStorage: \u0026confluentcloud.TableflowTopicGoogleCloudStorageArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name = orders.topicName\n  google_cloud_storage = {\n    bucket_name             = \"bucket_1\"\n    provider_integration_id = main.id\n  }\n  credentials = {\n    key    = env-admin-tableflow-api-key.id\n    secret = env-admin-tableflow-api-key.secret\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicGoogleCloudStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .googleCloudStorage(TableflowTopicGoogleCloudStorageArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      googleCloudStorage:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.TableflowTopic`\" pulumi-lang-dotnet=\"`confluentcloud.TableflowTopic`\" pulumi-lang-go=\"`TableflowTopic`\" pulumi-lang-python=\"`TableflowTopic`\" pulumi-lang-yaml=\"`confluentcloud.TableflowTopic`\" pulumi-lang-java=\"`confluentcloud.TableflowTopic`\" pulumi-lang-hcl=\"`confluent_tableflow_topic`\"\u003e`confluentcloud.TableflowTopic`\u003c/span\u003e resource:\n* confluent-managed-storage: Tableflow topic with Confluent-managed storage.\n* byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.\n* datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.\n* datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.\n\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n```sh\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "azureDataLakeStorageGen2": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicAzureDataLakeStorageGen2:TableflowTopicAzureDataLakeStorageGen2",
@@ -16171,6 +16722,10 @@
                 },
                 "errorHandling": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
+                },
+                "googleCloudStorage": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicGoogleCloudStorage:TableflowTopicGoogleCloudStorage",
+                    "description": "(Optional Configuration Block) supports the following:\n"
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster"
@@ -16263,6 +16818,11 @@
                 "errorHandling": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
                 },
+                "googleCloudStorage": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicGoogleCloudStorage:TableflowTopicGoogleCloudStorage",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
                     "willReplaceOnChanges": true
@@ -16342,6 +16902,11 @@
                     },
                     "errorHandling": {
                         "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
+                    },
+                    "googleCloudStorage": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicGoogleCloudStorage:TableflowTopicGoogleCloudStorage",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
@@ -17092,6 +17657,13 @@
                         },
                         "type": "array"
                     },
+                    "biglakeMetastores": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getCatalogIntegrationBiglakeMetastore:getCatalogIntegrationBiglakeMetastore"
+                        },
+                        "type": "array"
+                    },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/getCatalogIntegrationCredentials:getCatalogIntegrationCredentials",
                         "secret": true
@@ -17130,6 +17702,7 @@
                 },
                 "required": [
                     "awsGlues",
+                    "biglakeMetastores",
                     "displayName",
                     "environment",
                     "id",
@@ -19490,6 +20063,107 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-go=\"`NotificationsIntegration`\" pulumi-lang-python=\"`NotificationsIntegration`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-java=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-hcl=\"`confluent_notifications_integration`\"\u003e`confluentcloud.NotificationsIntegration`\u003c/span\u003e describes an Integration data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationsIntegration({\n        id: \"int-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notifications_integration(id=\"int-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationsIntegration.Invoke(new()\n    {\n        Id = \"int-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationsIntegration(ctx, \u0026confluentcloud.LookupNotificationsIntegrationArgs{\n\t\t\tId: \"int-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_getnotificationsintegration\" \"example\" {\n  id = \"int-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_getnotificationsintegration.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()\n            .id(\"int-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationsIntegration\n      arguments:\n        id: int-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotificationsIntegration.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Integration, for example, `int-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotificationsIntegration.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "(String) A human readable description for the particular integration\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "(String) A human readable name for the particular integration\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "inAppTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationInAppTarget:getNotificationsIntegrationInAppTarget"
+                        },
+                        "type": "array"
+                    },
+                    "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
+                        "type": "string"
+                    },
+                    "msTeamsTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationMsTeamsTarget:getNotificationsIntegrationMsTeamsTarget"
+                        },
+                        "type": "array"
+                    },
+                    "resourceName": {
+                        "description": "(String) The Confluent Resource Name of the Integration.\n",
+                        "type": "string"
+                    },
+                    "roleEmailTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationRoleEmailTarget:getNotificationsIntegrationRoleEmailTarget"
+                        },
+                        "type": "array"
+                    },
+                    "slackTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationSlackTarget:getNotificationsIntegrationSlackTarget"
+                        },
+                        "type": "array"
+                    },
+                    "userEmailTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationUserEmailTarget:getNotificationsIntegrationUserEmailTarget"
+                        },
+                        "type": "array"
+                    },
+                    "webhookTargets": {
+                        "description": "(Configuration Block) Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsIntegrationWebhookTarget:getNotificationsIntegrationWebhookTarget"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "description",
+                    "displayName",
+                    "id",
+                    "inAppTargets",
+                    "kind",
+                    "msTeamsTargets",
+                    "resourceName",
+                    "roleEmailTargets",
+                    "slackTargets",
+                    "userEmailTargets",
+                    "webhookTargets"
+                ],
+                "type": "object"
+            }
+        },
         "confluentcloud:index/getOrganization:getOrganization": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getOrganization`\" pulumi-lang-dotnet=\"`confluentcloud.getOrganization`\" pulumi-lang-go=\"`getOrganization`\" pulumi-lang-python=\"`get_organization`\" pulumi-lang-yaml=\"`confluentcloud.getOrganization`\" pulumi-lang-java=\"`confluentcloud.getOrganization`\" pulumi-lang-hcl=\"`data.confluent_organization`\"\u003e`confluentcloud.getOrganization`\u003c/span\u003e describes an Organization data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getOrganization({});\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_organization()\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetOrganization.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetOrganization(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_getorganization\" \"example\" {\n}\n\noutput \"example\" {\n  value = data.confluentcloud_getorganization.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getOrganization\n      arguments: {}\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "outputs": {
@@ -21071,6 +21745,13 @@
                         },
                         "type": "array"
                     },
+                    "googleCloudStorages": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getTableflowTopicGoogleCloudStorage:getTableflowTopicGoogleCloudStorage"
+                        },
+                        "type": "array"
+                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
@@ -21126,6 +21807,7 @@
                     "enablePartitioning",
                     "environment",
                     "errorHandlings",
+                    "googleCloudStorages",
                     "kafkaCluster",
                     "managedStorages",
                     "metadataColumnNamingScheme",

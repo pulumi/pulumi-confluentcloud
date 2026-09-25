@@ -25,6 +25,7 @@ class CatalogIntegrationArgs:
                  environment: pulumi.Input['CatalogIntegrationEnvironmentArgs'],
                  kafka_cluster: pulumi.Input['CatalogIntegrationKafkaClusterArgs'],
                  aws_glue: pulumi.Input[Optional['CatalogIntegrationAwsGlueArgs']] = None,
+                 biglake_metastore: pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']] = None,
                  credentials: pulumi.Input[Optional['CatalogIntegrationCredentialsArgs']] = None,
                  snowflake: pulumi.Input[Optional['CatalogIntegrationSnowflakeArgs']] = None,
                  unity: pulumi.Input[Optional['CatalogIntegrationUnityArgs']] = None):
@@ -34,6 +35,7 @@ class CatalogIntegrationArgs:
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
         :param pulumi.Input['CatalogIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input['CatalogIntegrationBiglakeMetastoreArgs'] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
         :param pulumi.Input['CatalogIntegrationCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input['CatalogIntegrationSnowflakeArgs'] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         :param pulumi.Input['CatalogIntegrationUnityArgs'] unity: supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
@@ -43,6 +45,8 @@ class CatalogIntegrationArgs:
         pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if aws_glue is not None:
             pulumi.set(__self__, "aws_glue", aws_glue)
+        if biglake_metastore is not None:
+            pulumi.set(__self__, "biglake_metastore", biglake_metastore)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if snowflake is not None:
@@ -96,6 +100,18 @@ class CatalogIntegrationArgs:
         pulumi.set(self, "aws_glue", value)
 
     @_builtins.property
+    @pulumi.getter(name="biglakeMetastore")
+    def biglake_metastore(self) -> pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']]:
+        """
+        The catalog integration connection configuration for BigLake Metastore.
+        """
+        return pulumi.get(self, "biglake_metastore")
+
+    @biglake_metastore.setter
+    def biglake_metastore(self, value: pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']]):
+        pulumi.set(self, "biglake_metastore", value)
+
+    @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['CatalogIntegrationCredentialsArgs']]:
         """
@@ -136,6 +152,7 @@ class CatalogIntegrationArgs:
 class _CatalogIntegrationState:
     def __init__(__self__, *,
                  aws_glue: pulumi.Input[Optional['CatalogIntegrationAwsGlueArgs']] = None,
+                 biglake_metastore: pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']] = None,
                  credentials: pulumi.Input[Optional['CatalogIntegrationCredentialsArgs']] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional['CatalogIntegrationEnvironmentArgs']] = None,
@@ -147,6 +164,7 @@ class _CatalogIntegrationState:
         Input properties used for looking up and filtering CatalogIntegration resources.
 
         :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input['CatalogIntegrationBiglakeMetastoreArgs'] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
         :param pulumi.Input['CatalogIntegrationCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
         :param pulumi.Input['CatalogIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -156,6 +174,8 @@ class _CatalogIntegrationState:
         """
         if aws_glue is not None:
             pulumi.set(__self__, "aws_glue", aws_glue)
+        if biglake_metastore is not None:
+            pulumi.set(__self__, "biglake_metastore", biglake_metastore)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if display_name is not None:
@@ -182,6 +202,18 @@ class _CatalogIntegrationState:
     @aws_glue.setter
     def aws_glue(self, value: pulumi.Input[Optional['CatalogIntegrationAwsGlueArgs']]):
         pulumi.set(self, "aws_glue", value)
+
+    @_builtins.property
+    @pulumi.getter(name="biglakeMetastore")
+    def biglake_metastore(self) -> pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']]:
+        """
+        The catalog integration connection configuration for BigLake Metastore.
+        """
+        return pulumi.get(self, "biglake_metastore")
+
+    @biglake_metastore.setter
+    def biglake_metastore(self, value: pulumi.Input[Optional['CatalogIntegrationBiglakeMetastoreArgs']]):
+        pulumi.set(self, "biglake_metastore", value)
 
     @_builtins.property
     @pulumi.getter
@@ -272,6 +304,7 @@ class CatalogIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
+                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
                  credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
@@ -356,6 +389,7 @@ class CatalogIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
         :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
         :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -458,6 +492,7 @@ class CatalogIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
+                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
                  credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
@@ -474,6 +509,7 @@ class CatalogIntegration(pulumi.CustomResource):
             __props__ = CatalogIntegrationArgs.__new__(CatalogIntegrationArgs)
 
             __props__.__dict__["aws_glue"] = aws_glue
+            __props__.__dict__["biglake_metastore"] = biglake_metastore
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -500,6 +536,7 @@ class CatalogIntegration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
+            biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
             credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
@@ -515,6 +552,7 @@ class CatalogIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
         :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
         :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -527,6 +565,7 @@ class CatalogIntegration(pulumi.CustomResource):
         __props__ = _CatalogIntegrationState.__new__(_CatalogIntegrationState)
 
         __props__.__dict__["aws_glue"] = aws_glue
+        __props__.__dict__["biglake_metastore"] = biglake_metastore
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
@@ -543,6 +582,14 @@ class CatalogIntegration(pulumi.CustomResource):
         supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         """
         return pulumi.get(self, "aws_glue")
+
+    @_builtins.property
+    @pulumi.getter(name="biglakeMetastore")
+    def biglake_metastore(self) -> pulumi.Output[Optional['outputs.CatalogIntegrationBiglakeMetastore']]:
+        """
+        The catalog integration connection configuration for BigLake Metastore.
+        """
+        return pulumi.get(self, "biglake_metastore")
 
     @_builtins.property
     @pulumi.getter

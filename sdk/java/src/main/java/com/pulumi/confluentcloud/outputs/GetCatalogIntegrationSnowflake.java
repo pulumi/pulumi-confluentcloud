@@ -16,7 +16,7 @@ public final class GetCatalogIntegrationSnowflake {
      */
     private String allowedScope;
     /**
-     * @return (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     * @return (Computed String) The custom namespace to use in BigLake Metastore.
      * 
      */
     private String customNamespace;
@@ -40,7 +40,7 @@ public final class GetCatalogIntegrationSnowflake {
         return this.allowedScope;
     }
     /**
-     * @return (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     * @return (Computed String) The custom namespace to use in BigLake Metastore.
      * 
      */
     public String customNamespace() {

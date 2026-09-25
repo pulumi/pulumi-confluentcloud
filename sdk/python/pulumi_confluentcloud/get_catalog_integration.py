@@ -28,10 +28,13 @@ class GetCatalogIntegrationResult:
     """
     A collection of values returned by getCatalogIntegration.
     """
-    def __init__(__self__, aws_glues=None, credentials=None, display_name=None, environment=None, id=None, kafka_cluster=None, snowflakes=None, suspended=None, unities=None):
+    def __init__(__self__, aws_glues=None, biglake_metastores=None, credentials=None, display_name=None, environment=None, id=None, kafka_cluster=None, snowflakes=None, suspended=None, unities=None):
         if aws_glues and not isinstance(aws_glues, list):
             raise TypeError("Expected argument 'aws_glues' to be a list")
         pulumi.set(__self__, "aws_glues", aws_glues)
+        if biglake_metastores and not isinstance(biglake_metastores, list):
+            raise TypeError("Expected argument 'biglake_metastores' to be a list")
+        pulumi.set(__self__, "biglake_metastores", biglake_metastores)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -64,6 +67,14 @@ class GetCatalogIntegrationResult:
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws_glues")
+
+    @_builtins.property
+    @pulumi.getter(name="biglakeMetastores")
+    def biglake_metastores(self) -> Sequence['outputs.GetCatalogIntegrationBiglakeMetastoreResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "biglake_metastores")
 
     @_builtins.property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetCatalogIntegrationResult(GetCatalogIntegrationResult):
             yield self
         return GetCatalogIntegrationResult(
             aws_glues=self.aws_glues,
+            biglake_metastores=self.biglake_metastores,
             credentials=self.credentials,
             display_name=self.display_name,
             environment=self.environment,
@@ -190,6 +202,7 @@ def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCr
 
     return AwaitableGetCatalogIntegrationResult(
         aws_glues=pulumi.get(__ret__, 'aws_glues'),
+        biglake_metastores=pulumi.get(__ret__, 'biglake_metastores'),
         credentials=pulumi.get(__ret__, 'credentials'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
@@ -252,6 +265,7 @@ def get_catalog_integration_output(credentials: pulumi.Input[Optional[Optional[U
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCatalogIntegration:getCatalogIntegration', __args__, opts=opts, typ=GetCatalogIntegrationResult)
     return __ret__.apply(lambda __response__: GetCatalogIntegrationResult(
         aws_glues=pulumi.get(__response__, 'aws_glues'),
+        biglake_metastores=pulumi.get(__response__, 'biglake_metastores'),
         credentials=pulumi.get(__response__, 'credentials'),
         display_name=pulumi.get(__response__, 'display_name'),
         environment=pulumi.get(__response__, 'environment'),

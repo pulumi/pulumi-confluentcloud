@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.CatalogIntegrationArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationState;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationAwsGlue;
+import com.pulumi.confluentcloud.outputs.CatalogIntegrationBiglakeMetastore;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationCredentials;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationEnvironment;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationKafkaCluster;
@@ -164,6 +165,20 @@ public class CatalogIntegration extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<CatalogIntegrationAwsGlue>> awsGlue() {
         return Codegen.optional(this.awsGlue);
+    }
+    /**
+     * The catalog integration connection configuration for BigLake Metastore.
+     * 
+     */
+    @Export(name="biglakeMetastore", refs={CatalogIntegrationBiglakeMetastore.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogIntegrationBiglakeMetastore> biglakeMetastore;
+
+    /**
+     * @return The catalog integration connection configuration for BigLake Metastore.
+     * 
+     */
+    public Output<Optional<CatalogIntegrationBiglakeMetastore>> biglakeMetastore() {
+        return Codegen.optional(this.biglakeMetastore);
     }
     /**
      * The Cluster API Credentials.

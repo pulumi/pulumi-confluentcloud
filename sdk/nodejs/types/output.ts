@@ -327,6 +327,25 @@ export interface CatalogIntegrationAwsGlue {
     providerIntegrationId: string;
 }
 
+export interface CatalogIntegrationBiglakeMetastore {
+    /**
+     * The name of the catalog within BigLake Metastore.
+     */
+    catalogName: string;
+    /**
+     * The custom namespace to use in BigLake Metastore.
+     */
+    customNamespace?: string;
+    /**
+     * The GCP project id that hosts the BigLake Metastore catalog.
+     */
+    gcpProjectId: string;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
 export interface CatalogIntegrationCredentials {
     /**
      * The Tableflow API Key.
@@ -1281,6 +1300,25 @@ export interface GetCatalogIntegrationAwsGlue {
     providerIntegrationId: string;
 }
 
+export interface GetCatalogIntegrationBiglakeMetastore {
+    /**
+     * (Computed String) The name of the catalog within BigLake Metastore.
+     */
+    catalogName: string;
+    /**
+     * (Computed String) The custom namespace to use in BigLake Metastore.
+     */
+    customNamespace: string;
+    /**
+     * (Computed String) The GCP project id that hosts the BigLake Metastore catalog.
+     */
+    gcpProjectId: string;
+    /**
+     * (Required String) The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
 export interface GetCatalogIntegrationCredentials {
     /**
      * The Tableflow API Key.
@@ -1316,7 +1354,7 @@ export interface GetCatalogIntegrationSnowflake {
      */
     allowedScope: string;
     /**
-     * (Computed String) The custom namespace to use in Snowflake Open Catalog.
+     * (Computed String) The custom namespace to use in BigLake Metastore.
      */
     customNamespace: string;
     /**
@@ -1331,7 +1369,7 @@ export interface GetCatalogIntegrationSnowflake {
 
 export interface GetCatalogIntegrationUnity {
     /**
-     * (Required String) The name of the catalog within Unity Catalog.
+     * (Computed String) The name of the catalog within BigLake Metastore.
      */
     catalogName: string;
     /**
@@ -2677,6 +2715,62 @@ export interface GetNetworkZoneInfo {
     zoneId: string;
 }
 
+export interface GetNotificationsIntegrationInAppTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users: outputs.GetNotificationsIntegrationInAppTargetUser[];
+}
+
+export interface GetNotificationsIntegrationInAppTargetUser {
+    /**
+     * The ID of the Integration, for example, `int-abc123`.
+     */
+    id: string;
+}
+
+export interface GetNotificationsIntegrationMsTeamsTarget {
+    /**
+     * (String) MS Teams Webhook URL for the particular team channel
+     */
+    webhookUrl: string;
+}
+
+export interface GetNotificationsIntegrationRoleEmailTarget {
+    /**
+     * (String) name of the role
+     */
+    roleName: string;
+}
+
+export interface GetNotificationsIntegrationSlackTarget {
+    /**
+     * (String) MS Teams Webhook URL for the particular team channel
+     */
+    webhookUrl: string;
+}
+
+export interface GetNotificationsIntegrationUserEmailTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users: outputs.GetNotificationsIntegrationUserEmailTargetUser[];
+}
+
+export interface GetNotificationsIntegrationUserEmailTargetUser {
+    /**
+     * The ID of the Integration, for example, `int-abc123`.
+     */
+    id: string;
+}
+
+export interface GetNotificationsIntegrationWebhookTarget {
+    /**
+     * (String) URL endpoint for the webhook
+     */
+    url: string;
+}
+
 export interface GetPeeringAw {
     /**
      * (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -3478,6 +3572,21 @@ export interface GetTableflowTopicErrorHandling {
     mode: string;
 }
 
+export interface GetTableflowTopicGoogleCloudStorage {
+    /**
+     * (Required String) The bucket name.
+     */
+    bucketName: string;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion: string;
+    /**
+     * (Required String) The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
 export interface GetTableflowTopicKafkaCluster {
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
@@ -3947,6 +4056,62 @@ export interface NetworkZoneInfo {
      * Cloud provider zone ID.
      */
     zoneId: string;
+}
+
+export interface NotificationsIntegrationInAppTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users: outputs.NotificationsIntegrationInAppTargetUser[];
+}
+
+export interface NotificationsIntegrationInAppTargetUser {
+    /**
+     * (Required String) The ID of the Integration, for example, `int-abc123`.
+     */
+    id: string;
+}
+
+export interface NotificationsIntegrationMsTeamsTarget {
+    /**
+     * MS Teams Webhook URL for the particular team channel
+     */
+    webhookUrl: string;
+}
+
+export interface NotificationsIntegrationRoleEmailTarget {
+    /**
+     * (String) name of the role
+     */
+    roleName: string;
+}
+
+export interface NotificationsIntegrationSlackTarget {
+    /**
+     * Slack Webhook URL for the particular Slack channel
+     */
+    webhookUrl: string;
+}
+
+export interface NotificationsIntegrationUserEmailTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users: outputs.NotificationsIntegrationUserEmailTargetUser[];
+}
+
+export interface NotificationsIntegrationUserEmailTargetUser {
+    /**
+     * (Required String) The ID of the Integration, for example, `int-abc123`.
+     */
+    id: string;
+}
+
+export interface NotificationsIntegrationWebhookTarget {
+    /**
+     * URL endpoint for the webhook
+     */
+    url: string;
 }
 
 export interface PeeringAws {
@@ -4570,6 +4735,21 @@ export interface TableflowTopicErrorHandling {
      * The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
      */
     mode: string;
+}
+
+export interface TableflowTopicGoogleCloudStorage {
+    /**
+     * The bucket name.
+     */
+    bucketName: string;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion: string;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: string;
 }
 
 export interface TableflowTopicKafkaCluster {

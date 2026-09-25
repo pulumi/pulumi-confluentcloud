@@ -110,6 +110,10 @@ export interface GetTableflowTopicResult {
      */
     readonly errorHandlings: outputs.GetTableflowTopicErrorHandling[];
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly googleCloudStorages: outputs.GetTableflowTopicGoogleCloudStorage[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

@@ -67,6 +67,7 @@ from .get_ksql_cluster import *
 from .get_network import *
 from .get_network_link_endpoint import *
 from .get_network_link_service import *
+from .get_notifications_integration import *
 from .get_organization import *
 from .get_peering import *
 from .get_plugin import *
@@ -111,6 +112,7 @@ from .ksql_cluster import *
 from .network import *
 from .network_link_endpoint import *
 from .network_link_service import *
+from .notifications_integration import *
 from .peering import *
 from .plugin import *
 from .private_link_access import *
@@ -467,6 +469,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/networkLinkService:NetworkLinkService": "NetworkLinkService"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/notificationsIntegration",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/notificationsIntegration:NotificationsIntegration": "NotificationsIntegration"
   }
  },
  {

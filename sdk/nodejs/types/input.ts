@@ -327,6 +327,25 @@ export interface CatalogIntegrationAwsGlue {
     providerIntegrationId: pulumi.Input<string>;
 }
 
+export interface CatalogIntegrationBiglakeMetastore {
+    /**
+     * The name of the catalog within BigLake Metastore.
+     */
+    catalogName: pulumi.Input<string>;
+    /**
+     * The custom namespace to use in BigLake Metastore.
+     */
+    customNamespace?: pulumi.Input<string | undefined>;
+    /**
+     * The GCP project id that hosts the BigLake Metastore catalog.
+     */
+    gcpProjectId: pulumi.Input<string>;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: pulumi.Input<string>;
+}
+
 export interface CatalogIntegrationCredentials {
     /**
      * The Tableflow API Key.
@@ -3413,6 +3432,62 @@ export interface NetworkZoneInfo {
     zoneId?: pulumi.Input<string | undefined>;
 }
 
+export interface NotificationsIntegrationInAppTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.NotificationsIntegrationInAppTargetUser>[] | undefined>;
+}
+
+export interface NotificationsIntegrationInAppTargetUser {
+    /**
+     * (Required String) The ID of the Integration, for example, `int-abc123`.
+     */
+    id?: pulumi.Input<string | undefined>;
+}
+
+export interface NotificationsIntegrationMsTeamsTarget {
+    /**
+     * MS Teams Webhook URL for the particular team channel
+     */
+    webhookUrl: pulumi.Input<string>;
+}
+
+export interface NotificationsIntegrationRoleEmailTarget {
+    /**
+     * (String) name of the role
+     */
+    roleName?: pulumi.Input<string | undefined>;
+}
+
+export interface NotificationsIntegrationSlackTarget {
+    /**
+     * Slack Webhook URL for the particular Slack channel
+     */
+    webhookUrl: pulumi.Input<string>;
+}
+
+export interface NotificationsIntegrationUserEmailTarget {
+    /**
+     * (String) Reference to the user the in-app target belongs to.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.NotificationsIntegrationUserEmailTargetUser>[] | undefined>;
+}
+
+export interface NotificationsIntegrationUserEmailTargetUser {
+    /**
+     * (Required String) The ID of the Integration, for example, `int-abc123`.
+     */
+    id?: pulumi.Input<string | undefined>;
+}
+
+export interface NotificationsIntegrationWebhookTarget {
+    /**
+     * URL endpoint for the webhook
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface PeeringAws {
     /**
      * The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -4065,6 +4140,21 @@ export interface TableflowTopicErrorHandling {
      * The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
      */
     mode?: pulumi.Input<string | undefined>;
+}
+
+export interface TableflowTopicGoogleCloudStorage {
+    /**
+     * The bucket name.
+     */
+    bucketName: pulumi.Input<string>;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion?: pulumi.Input<string | undefined>;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: pulumi.Input<string>;
 }
 
 export interface TableflowTopicKafkaCluster {

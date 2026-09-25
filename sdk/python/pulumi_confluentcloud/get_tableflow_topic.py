@@ -28,7 +28,7 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, data_retention_ms=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, metadata_column_naming_scheme=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, data_retention_ms=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, google_cloud_storages=None, id=None, kafka_cluster=None, managed_storages=None, metadata_column_naming_scheme=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
         if azure_data_lake_storage_gen2s and not isinstance(azure_data_lake_storage_gen2s, list):
             raise TypeError("Expected argument 'azure_data_lake_storage_gen2s' to be a list")
         pulumi.set(__self__, "azure_data_lake_storage_gen2s", azure_data_lake_storage_gen2s)
@@ -56,6 +56,9 @@ class GetTableflowTopicResult:
         if error_handlings and not isinstance(error_handlings, list):
             raise TypeError("Expected argument 'error_handlings' to be a list")
         pulumi.set(__self__, "error_handlings", error_handlings)
+        if google_cloud_storages and not isinstance(google_cloud_storages, list):
+            raise TypeError("Expected argument 'google_cloud_storages' to be a list")
+        pulumi.set(__self__, "google_cloud_storages", google_cloud_storages)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -151,6 +154,14 @@ class GetTableflowTopicResult:
         return pulumi.get(self, "error_handlings")
 
     @_builtins.property
+    @pulumi.getter(name="googleCloudStorages")
+    def google_cloud_storages(self) -> Sequence['outputs.GetTableflowTopicGoogleCloudStorageResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "google_cloud_storages")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -243,6 +254,7 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
             enable_partitioning=self.enable_partitioning,
             environment=self.environment,
             error_handlings=self.error_handlings,
+            google_cloud_storages=self.google_cloud_storages,
             id=self.id,
             kafka_cluster=self.kafka_cluster,
             managed_storages=self.managed_storages,
@@ -318,6 +330,7 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
         environment=pulumi.get(__ret__, 'environment'),
         error_handlings=pulumi.get(__ret__, 'error_handlings'),
+        google_cloud_storages=pulumi.get(__ret__, 'google_cloud_storages'),
         id=pulumi.get(__ret__, 'id'),
         kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
         managed_storages=pulumi.get(__ret__, 'managed_storages'),
@@ -390,6 +403,7 @@ def get_tableflow_topic_output(credentials: pulumi.Input[Optional[Optional[Union
         enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
         environment=pulumi.get(__response__, 'environment'),
         error_handlings=pulumi.get(__response__, 'error_handlings'),
+        google_cloud_storages=pulumi.get(__response__, 'google_cloud_storages'),
         id=pulumi.get(__response__, 'id'),
         kafka_cluster=pulumi.get(__response__, 'kafka_cluster'),
         managed_storages=pulumi.get(__response__, 'managed_storages'),

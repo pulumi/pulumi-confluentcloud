@@ -306,6 +306,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableflowTopicErrorHandlingResult> ErrorHandlings;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTableflowTopicGoogleCloudStorageResult> GoogleCloudStorages;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -363,6 +367,8 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetTableflowTopicErrorHandlingResult> errorHandlings,
 
+            ImmutableArray<Outputs.GetTableflowTopicGoogleCloudStorageResult> googleCloudStorages,
+
             string id,
 
             Outputs.GetTableflowTopicKafkaClusterResult kafkaCluster,
@@ -392,6 +398,7 @@ namespace Pulumi.ConfluentCloud
             EnablePartitioning = enablePartitioning;
             Environment = environment;
             ErrorHandlings = errorHandlings;
+            GoogleCloudStorages = googleCloudStorages;
             Id = id;
             KafkaCluster = kafkaCluster;
             ManagedStorages = managedStorages;

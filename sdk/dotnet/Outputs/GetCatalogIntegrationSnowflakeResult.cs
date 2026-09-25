@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string AllowedScope;
         /// <summary>
-        /// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+        /// (Computed String) The custom namespace to use in BigLake Metastore.
         /// </summary>
         public readonly string CustomNamespace;
         /// <summary>

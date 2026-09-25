@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicErrorHandlingArgs;
+import com.pulumi.confluentcloud.inputs.TableflowTopicGoogleCloudStorageArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;
 import com.pulumi.core.Output;
@@ -121,6 +122,21 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.errorHandling);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="googleCloudStorage")
+    private @Nullable Output<TableflowTopicGoogleCloudStorageArgs> googleCloudStorage;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<TableflowTopicGoogleCloudStorageArgs>> googleCloudStorage() {
+        return Optional.ofNullable(this.googleCloudStorage);
+    }
+
     @Import(name="kafkaCluster", required=true)
     private Output<TableflowTopicKafkaClusterArgs> kafkaCluster;
 
@@ -221,6 +237,7 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.errorHandling = $.errorHandling;
+        this.googleCloudStorage = $.googleCloudStorage;
         this.kafkaCluster = $.kafkaCluster;
         this.managedStorages = $.managedStorages;
         this.metadataColumnNamingScheme = $.metadataColumnNamingScheme;
@@ -380,6 +397,27 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder errorHandling(TableflowTopicErrorHandlingArgs errorHandling) {
             return errorHandling(Output.of(errorHandling));
+        }
+
+        /**
+         * @param googleCloudStorage (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleCloudStorage(@Nullable Output<TableflowTopicGoogleCloudStorageArgs> googleCloudStorage) {
+            $.googleCloudStorage = googleCloudStorage;
+            return this;
+        }
+
+        /**
+         * @param googleCloudStorage (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleCloudStorage(TableflowTopicGoogleCloudStorageArgs googleCloudStorage) {
+            return googleCloudStorage(Output.of(googleCloudStorage));
         }
 
         public Builder kafkaCluster(Output<TableflowTopicKafkaClusterArgs> kafkaCluster) {
