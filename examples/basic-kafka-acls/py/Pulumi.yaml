@@ -1,6 +1,0 @@
-name: confluentcloud-basic-kafka-acls
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: A minimal Python Pulumi program
