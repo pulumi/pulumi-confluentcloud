@@ -101,6 +101,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkLinkEndpoint{}
 	case "confluentcloud:index/networkLinkService:NetworkLinkService":
 		r = &NetworkLinkService{}
+	case "confluentcloud:index/notificationsIntegration:NotificationsIntegration":
+		r = &NotificationsIntegration{}
 	case "confluentcloud:index/peering:Peering":
 		r = &Peering{}
 	case "confluentcloud:index/plugin:Plugin":
@@ -378,6 +380,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/networkLinkService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/notificationsIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -115,6 +115,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.CatalogIntegrationAwsGlue?> AwsGlue { get; private set; } = null!;
 
         /// <summary>
+        /// The catalog integration connection configuration for BigLake Metastore.
+        /// </summary>
+        [Output("biglakeMetastore")]
+        public Output<Outputs.CatalogIntegrationBiglakeMetastore?> BiglakeMetastore { get; private set; } = null!;
+
+        /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
         [Output("credentials")]
@@ -209,6 +215,12 @@ namespace Pulumi.ConfluentCloud
         [Input("awsGlue")]
         public Input<Inputs.CatalogIntegrationAwsGlueArgs>? AwsGlue { get; set; }
 
+        /// <summary>
+        /// The catalog integration connection configuration for BigLake Metastore.
+        /// </summary>
+        [Input("biglakeMetastore")]
+        public Input<Inputs.CatalogIntegrationBiglakeMetastoreArgs>? BiglakeMetastore { get; set; }
+
         [Input("credentials")]
         private Input<Inputs.CatalogIntegrationCredentialsArgs>? _credentials;
 
@@ -265,6 +277,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("awsGlue")]
         public Input<Inputs.CatalogIntegrationAwsGlueGetArgs>? AwsGlue { get; set; }
+
+        /// <summary>
+        /// The catalog integration connection configuration for BigLake Metastore.
+        /// </summary>
+        [Input("biglakeMetastore")]
+        public Input<Inputs.CatalogIntegrationBiglakeMetastoreGetArgs>? BiglakeMetastore { get; set; }
 
         [Input("credentials")]
         private Input<Inputs.CatalogIntegrationCredentialsGetArgs>? _credentials;

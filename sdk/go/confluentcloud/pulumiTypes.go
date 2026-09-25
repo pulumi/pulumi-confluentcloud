@@ -3855,6 +3855,200 @@ func (o CatalogIntegrationAwsGluePtrOutput) ProviderIntegrationId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogIntegrationBiglakeMetastore struct {
+	// The name of the catalog within BigLake Metastore.
+	CatalogName string `pulumi:"catalogName"`
+	// The custom namespace to use in BigLake Metastore.
+	CustomNamespace *string `pulumi:"customNamespace"`
+	// The GCP project id that hosts the BigLake Metastore catalog.
+	GcpProjectId string `pulumi:"gcpProjectId"`
+	// The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// CatalogIntegrationBiglakeMetastoreInput is an input type that accepts CatalogIntegrationBiglakeMetastoreArgs and CatalogIntegrationBiglakeMetastoreOutput values.
+// You can construct a concrete instance of `CatalogIntegrationBiglakeMetastoreInput` via:
+//
+//	CatalogIntegrationBiglakeMetastoreArgs{...}
+type CatalogIntegrationBiglakeMetastoreInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationBiglakeMetastoreOutput() CatalogIntegrationBiglakeMetastoreOutput
+	ToCatalogIntegrationBiglakeMetastoreOutputWithContext(context.Context) CatalogIntegrationBiglakeMetastoreOutput
+}
+
+type CatalogIntegrationBiglakeMetastoreArgs struct {
+	// The name of the catalog within BigLake Metastore.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// The custom namespace to use in BigLake Metastore.
+	CustomNamespace pulumi.StringPtrInput `pulumi:"customNamespace"`
+	// The GCP project id that hosts the BigLake Metastore catalog.
+	GcpProjectId pulumi.StringInput `pulumi:"gcpProjectId"`
+	// The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (CatalogIntegrationBiglakeMetastoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (i CatalogIntegrationBiglakeMetastoreArgs) ToCatalogIntegrationBiglakeMetastoreOutput() CatalogIntegrationBiglakeMetastoreOutput {
+	return i.ToCatalogIntegrationBiglakeMetastoreOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationBiglakeMetastoreArgs) ToCatalogIntegrationBiglakeMetastoreOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationBiglakeMetastoreOutput)
+}
+
+func (i CatalogIntegrationBiglakeMetastoreArgs) ToCatalogIntegrationBiglakeMetastorePtrOutput() CatalogIntegrationBiglakeMetastorePtrOutput {
+	return i.ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationBiglakeMetastoreArgs) ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationBiglakeMetastoreOutput).ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationBiglakeMetastorePtrInput is an input type that accepts CatalogIntegrationBiglakeMetastoreArgs, CatalogIntegrationBiglakeMetastorePtr and CatalogIntegrationBiglakeMetastorePtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationBiglakeMetastorePtrInput` via:
+//
+//	        CatalogIntegrationBiglakeMetastoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationBiglakeMetastorePtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationBiglakeMetastorePtrOutput() CatalogIntegrationBiglakeMetastorePtrOutput
+	ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(context.Context) CatalogIntegrationBiglakeMetastorePtrOutput
+}
+
+type catalogIntegrationBiglakeMetastorePtrType CatalogIntegrationBiglakeMetastoreArgs
+
+func CatalogIntegrationBiglakeMetastorePtr(v *CatalogIntegrationBiglakeMetastoreArgs) CatalogIntegrationBiglakeMetastorePtrInput {
+	return (*catalogIntegrationBiglakeMetastorePtrType)(v)
+}
+
+func (*catalogIntegrationBiglakeMetastorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (i *catalogIntegrationBiglakeMetastorePtrType) ToCatalogIntegrationBiglakeMetastorePtrOutput() CatalogIntegrationBiglakeMetastorePtrOutput {
+	return i.ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationBiglakeMetastorePtrType) ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationBiglakeMetastorePtrOutput)
+}
+
+type CatalogIntegrationBiglakeMetastoreOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationBiglakeMetastoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (o CatalogIntegrationBiglakeMetastoreOutput) ToCatalogIntegrationBiglakeMetastoreOutput() CatalogIntegrationBiglakeMetastoreOutput {
+	return o
+}
+
+func (o CatalogIntegrationBiglakeMetastoreOutput) ToCatalogIntegrationBiglakeMetastoreOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastoreOutput {
+	return o
+}
+
+func (o CatalogIntegrationBiglakeMetastoreOutput) ToCatalogIntegrationBiglakeMetastorePtrOutput() CatalogIntegrationBiglakeMetastorePtrOutput {
+	return o.ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationBiglakeMetastoreOutput) ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationBiglakeMetastore) *CatalogIntegrationBiglakeMetastore {
+		return &v
+	}).(CatalogIntegrationBiglakeMetastorePtrOutput)
+}
+
+// The name of the catalog within BigLake Metastore.
+func (o CatalogIntegrationBiglakeMetastoreOutput) CatalogName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationBiglakeMetastore) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// The custom namespace to use in BigLake Metastore.
+func (o CatalogIntegrationBiglakeMetastoreOutput) CustomNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationBiglakeMetastore) *string { return v.CustomNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The GCP project id that hosts the BigLake Metastore catalog.
+func (o CatalogIntegrationBiglakeMetastoreOutput) GcpProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationBiglakeMetastore) string { return v.GcpProjectId }).(pulumi.StringOutput)
+}
+
+// The provider integration id.
+func (o CatalogIntegrationBiglakeMetastoreOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationBiglakeMetastore) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationBiglakeMetastorePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationBiglakeMetastorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) ToCatalogIntegrationBiglakeMetastorePtrOutput() CatalogIntegrationBiglakeMetastorePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) ToCatalogIntegrationBiglakeMetastorePtrOutputWithContext(ctx context.Context) CatalogIntegrationBiglakeMetastorePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) Elem() CatalogIntegrationBiglakeMetastoreOutput {
+	return o.ApplyT(func(v *CatalogIntegrationBiglakeMetastore) CatalogIntegrationBiglakeMetastore {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationBiglakeMetastore
+		return ret
+	}).(CatalogIntegrationBiglakeMetastoreOutput)
+}
+
+// The name of the catalog within BigLake Metastore.
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationBiglakeMetastore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The custom namespace to use in BigLake Metastore.
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) CustomNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationBiglakeMetastore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GCP project id that hosts the BigLake Metastore catalog.
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) GcpProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationBiglakeMetastore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GcpProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o CatalogIntegrationBiglakeMetastorePtrOutput) ProviderIntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationBiglakeMetastore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderIntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogIntegrationCredentials struct {
 	// The Tableflow API Key.
 	Key string `pulumi:"key"`
@@ -18581,6 +18775,904 @@ func (o NetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) NetworkZoneInfoOutp
 	}).(NetworkZoneInfoOutput)
 }
 
+type NotificationsIntegrationInAppTarget struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users []NotificationsIntegrationInAppTargetUser `pulumi:"users"`
+}
+
+// NotificationsIntegrationInAppTargetInput is an input type that accepts NotificationsIntegrationInAppTargetArgs and NotificationsIntegrationInAppTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationInAppTargetInput` via:
+//
+//	NotificationsIntegrationInAppTargetArgs{...}
+type NotificationsIntegrationInAppTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationInAppTargetOutput() NotificationsIntegrationInAppTargetOutput
+	ToNotificationsIntegrationInAppTargetOutputWithContext(context.Context) NotificationsIntegrationInAppTargetOutput
+}
+
+type NotificationsIntegrationInAppTargetArgs struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users NotificationsIntegrationInAppTargetUserArrayInput `pulumi:"users"`
+}
+
+func (NotificationsIntegrationInAppTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationInAppTargetArgs) ToNotificationsIntegrationInAppTargetOutput() NotificationsIntegrationInAppTargetOutput {
+	return i.ToNotificationsIntegrationInAppTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationInAppTargetArgs) ToNotificationsIntegrationInAppTargetOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationInAppTargetOutput)
+}
+
+// NotificationsIntegrationInAppTargetArrayInput is an input type that accepts NotificationsIntegrationInAppTargetArray and NotificationsIntegrationInAppTargetArrayOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationInAppTargetArrayInput` via:
+//
+//	NotificationsIntegrationInAppTargetArray{ NotificationsIntegrationInAppTargetArgs{...} }
+type NotificationsIntegrationInAppTargetArrayInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationInAppTargetArrayOutput() NotificationsIntegrationInAppTargetArrayOutput
+	ToNotificationsIntegrationInAppTargetArrayOutputWithContext(context.Context) NotificationsIntegrationInAppTargetArrayOutput
+}
+
+type NotificationsIntegrationInAppTargetArray []NotificationsIntegrationInAppTargetInput
+
+func (NotificationsIntegrationInAppTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationInAppTargetArray) ToNotificationsIntegrationInAppTargetArrayOutput() NotificationsIntegrationInAppTargetArrayOutput {
+	return i.ToNotificationsIntegrationInAppTargetArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationInAppTargetArray) ToNotificationsIntegrationInAppTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationInAppTargetArrayOutput)
+}
+
+type NotificationsIntegrationInAppTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationInAppTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationInAppTargetOutput) ToNotificationsIntegrationInAppTargetOutput() NotificationsIntegrationInAppTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetOutput) ToNotificationsIntegrationInAppTargetOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetOutput {
+	return o
+}
+
+// (String) Reference to the user the in-app target belongs to.
+func (o NotificationsIntegrationInAppTargetOutput) Users() NotificationsIntegrationInAppTargetUserArrayOutput {
+	return o.ApplyT(func(v NotificationsIntegrationInAppTarget) []NotificationsIntegrationInAppTargetUser { return v.Users }).(NotificationsIntegrationInAppTargetUserArrayOutput)
+}
+
+type NotificationsIntegrationInAppTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationInAppTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationInAppTargetArrayOutput) ToNotificationsIntegrationInAppTargetArrayOutput() NotificationsIntegrationInAppTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetArrayOutput) ToNotificationsIntegrationInAppTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetArrayOutput) Index(i pulumi.IntInput) NotificationsIntegrationInAppTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationsIntegrationInAppTarget {
+		return vs[0].([]NotificationsIntegrationInAppTarget)[vs[1].(int)]
+	}).(NotificationsIntegrationInAppTargetOutput)
+}
+
+type NotificationsIntegrationInAppTargetUser struct {
+	// (Required String) The ID of the Integration, for example, `int-abc123`.
+	Id *string `pulumi:"id"`
+}
+
+// NotificationsIntegrationInAppTargetUserInput is an input type that accepts NotificationsIntegrationInAppTargetUserArgs and NotificationsIntegrationInAppTargetUserOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationInAppTargetUserInput` via:
+//
+//	NotificationsIntegrationInAppTargetUserArgs{...}
+type NotificationsIntegrationInAppTargetUserInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationInAppTargetUserOutput() NotificationsIntegrationInAppTargetUserOutput
+	ToNotificationsIntegrationInAppTargetUserOutputWithContext(context.Context) NotificationsIntegrationInAppTargetUserOutput
+}
+
+type NotificationsIntegrationInAppTargetUserArgs struct {
+	// (Required String) The ID of the Integration, for example, `int-abc123`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (NotificationsIntegrationInAppTargetUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationInAppTargetUserArgs) ToNotificationsIntegrationInAppTargetUserOutput() NotificationsIntegrationInAppTargetUserOutput {
+	return i.ToNotificationsIntegrationInAppTargetUserOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationInAppTargetUserArgs) ToNotificationsIntegrationInAppTargetUserOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationInAppTargetUserOutput)
+}
+
+// NotificationsIntegrationInAppTargetUserArrayInput is an input type that accepts NotificationsIntegrationInAppTargetUserArray and NotificationsIntegrationInAppTargetUserArrayOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationInAppTargetUserArrayInput` via:
+//
+//	NotificationsIntegrationInAppTargetUserArray{ NotificationsIntegrationInAppTargetUserArgs{...} }
+type NotificationsIntegrationInAppTargetUserArrayInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationInAppTargetUserArrayOutput() NotificationsIntegrationInAppTargetUserArrayOutput
+	ToNotificationsIntegrationInAppTargetUserArrayOutputWithContext(context.Context) NotificationsIntegrationInAppTargetUserArrayOutput
+}
+
+type NotificationsIntegrationInAppTargetUserArray []NotificationsIntegrationInAppTargetUserInput
+
+func (NotificationsIntegrationInAppTargetUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationInAppTargetUserArray) ToNotificationsIntegrationInAppTargetUserArrayOutput() NotificationsIntegrationInAppTargetUserArrayOutput {
+	return i.ToNotificationsIntegrationInAppTargetUserArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationInAppTargetUserArray) ToNotificationsIntegrationInAppTargetUserArrayOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationInAppTargetUserArrayOutput)
+}
+
+type NotificationsIntegrationInAppTargetUserOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationInAppTargetUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationInAppTargetUserOutput) ToNotificationsIntegrationInAppTargetUserOutput() NotificationsIntegrationInAppTargetUserOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetUserOutput) ToNotificationsIntegrationInAppTargetUserOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetUserOutput {
+	return o
+}
+
+// (Required String) The ID of the Integration, for example, `int-abc123`.
+func (o NotificationsIntegrationInAppTargetUserOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationsIntegrationInAppTargetUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type NotificationsIntegrationInAppTargetUserArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationInAppTargetUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationInAppTargetUserArrayOutput) ToNotificationsIntegrationInAppTargetUserArrayOutput() NotificationsIntegrationInAppTargetUserArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetUserArrayOutput) ToNotificationsIntegrationInAppTargetUserArrayOutputWithContext(ctx context.Context) NotificationsIntegrationInAppTargetUserArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationInAppTargetUserArrayOutput) Index(i pulumi.IntInput) NotificationsIntegrationInAppTargetUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationsIntegrationInAppTargetUser {
+		return vs[0].([]NotificationsIntegrationInAppTargetUser)[vs[1].(int)]
+	}).(NotificationsIntegrationInAppTargetUserOutput)
+}
+
+type NotificationsIntegrationMsTeamsTarget struct {
+	// MS Teams Webhook URL for the particular team channel
+	WebhookUrl string `pulumi:"webhookUrl"`
+}
+
+// NotificationsIntegrationMsTeamsTargetInput is an input type that accepts NotificationsIntegrationMsTeamsTargetArgs and NotificationsIntegrationMsTeamsTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationMsTeamsTargetInput` via:
+//
+//	NotificationsIntegrationMsTeamsTargetArgs{...}
+type NotificationsIntegrationMsTeamsTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationMsTeamsTargetOutput() NotificationsIntegrationMsTeamsTargetOutput
+	ToNotificationsIntegrationMsTeamsTargetOutputWithContext(context.Context) NotificationsIntegrationMsTeamsTargetOutput
+}
+
+type NotificationsIntegrationMsTeamsTargetArgs struct {
+	// MS Teams Webhook URL for the particular team channel
+	WebhookUrl pulumi.StringInput `pulumi:"webhookUrl"`
+}
+
+func (NotificationsIntegrationMsTeamsTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationMsTeamsTargetArgs) ToNotificationsIntegrationMsTeamsTargetOutput() NotificationsIntegrationMsTeamsTargetOutput {
+	return i.ToNotificationsIntegrationMsTeamsTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationMsTeamsTargetArgs) ToNotificationsIntegrationMsTeamsTargetOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationMsTeamsTargetOutput)
+}
+
+func (i NotificationsIntegrationMsTeamsTargetArgs) ToNotificationsIntegrationMsTeamsTargetPtrOutput() NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return i.ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationMsTeamsTargetArgs) ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationMsTeamsTargetOutput).ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(ctx)
+}
+
+// NotificationsIntegrationMsTeamsTargetPtrInput is an input type that accepts NotificationsIntegrationMsTeamsTargetArgs, NotificationsIntegrationMsTeamsTargetPtr and NotificationsIntegrationMsTeamsTargetPtrOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationMsTeamsTargetPtrInput` via:
+//
+//	        NotificationsIntegrationMsTeamsTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationsIntegrationMsTeamsTargetPtrInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationMsTeamsTargetPtrOutput() NotificationsIntegrationMsTeamsTargetPtrOutput
+	ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(context.Context) NotificationsIntegrationMsTeamsTargetPtrOutput
+}
+
+type notificationsIntegrationMsTeamsTargetPtrType NotificationsIntegrationMsTeamsTargetArgs
+
+func NotificationsIntegrationMsTeamsTargetPtr(v *NotificationsIntegrationMsTeamsTargetArgs) NotificationsIntegrationMsTeamsTargetPtrInput {
+	return (*notificationsIntegrationMsTeamsTargetPtrType)(v)
+}
+
+func (*notificationsIntegrationMsTeamsTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (i *notificationsIntegrationMsTeamsTargetPtrType) ToNotificationsIntegrationMsTeamsTargetPtrOutput() NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return i.ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationsIntegrationMsTeamsTargetPtrType) ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationMsTeamsTargetPtrOutput)
+}
+
+type NotificationsIntegrationMsTeamsTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationMsTeamsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationMsTeamsTargetOutput) ToNotificationsIntegrationMsTeamsTargetOutput() NotificationsIntegrationMsTeamsTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationMsTeamsTargetOutput) ToNotificationsIntegrationMsTeamsTargetOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationMsTeamsTargetOutput) ToNotificationsIntegrationMsTeamsTargetPtrOutput() NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return o.ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationsIntegrationMsTeamsTargetOutput) ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationsIntegrationMsTeamsTarget) *NotificationsIntegrationMsTeamsTarget {
+		return &v
+	}).(NotificationsIntegrationMsTeamsTargetPtrOutput)
+}
+
+// MS Teams Webhook URL for the particular team channel
+func (o NotificationsIntegrationMsTeamsTargetOutput) WebhookUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationsIntegrationMsTeamsTarget) string { return v.WebhookUrl }).(pulumi.StringOutput)
+}
+
+type NotificationsIntegrationMsTeamsTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationMsTeamsTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationMsTeamsTargetPtrOutput) ToNotificationsIntegrationMsTeamsTargetPtrOutput() NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationMsTeamsTargetPtrOutput) ToNotificationsIntegrationMsTeamsTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationMsTeamsTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationMsTeamsTargetPtrOutput) Elem() NotificationsIntegrationMsTeamsTargetOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationMsTeamsTarget) NotificationsIntegrationMsTeamsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationsIntegrationMsTeamsTarget
+		return ret
+	}).(NotificationsIntegrationMsTeamsTargetOutput)
+}
+
+// MS Teams Webhook URL for the particular team channel
+func (o NotificationsIntegrationMsTeamsTargetPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationMsTeamsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebhookUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationsIntegrationRoleEmailTarget struct {
+	// (String) name of the role
+	RoleName *string `pulumi:"roleName"`
+}
+
+// NotificationsIntegrationRoleEmailTargetInput is an input type that accepts NotificationsIntegrationRoleEmailTargetArgs and NotificationsIntegrationRoleEmailTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationRoleEmailTargetInput` via:
+//
+//	NotificationsIntegrationRoleEmailTargetArgs{...}
+type NotificationsIntegrationRoleEmailTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationRoleEmailTargetOutput() NotificationsIntegrationRoleEmailTargetOutput
+	ToNotificationsIntegrationRoleEmailTargetOutputWithContext(context.Context) NotificationsIntegrationRoleEmailTargetOutput
+}
+
+type NotificationsIntegrationRoleEmailTargetArgs struct {
+	// (String) name of the role
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+}
+
+func (NotificationsIntegrationRoleEmailTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationRoleEmailTargetArgs) ToNotificationsIntegrationRoleEmailTargetOutput() NotificationsIntegrationRoleEmailTargetOutput {
+	return i.ToNotificationsIntegrationRoleEmailTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationRoleEmailTargetArgs) ToNotificationsIntegrationRoleEmailTargetOutputWithContext(ctx context.Context) NotificationsIntegrationRoleEmailTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationRoleEmailTargetOutput)
+}
+
+// NotificationsIntegrationRoleEmailTargetArrayInput is an input type that accepts NotificationsIntegrationRoleEmailTargetArray and NotificationsIntegrationRoleEmailTargetArrayOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationRoleEmailTargetArrayInput` via:
+//
+//	NotificationsIntegrationRoleEmailTargetArray{ NotificationsIntegrationRoleEmailTargetArgs{...} }
+type NotificationsIntegrationRoleEmailTargetArrayInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationRoleEmailTargetArrayOutput() NotificationsIntegrationRoleEmailTargetArrayOutput
+	ToNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(context.Context) NotificationsIntegrationRoleEmailTargetArrayOutput
+}
+
+type NotificationsIntegrationRoleEmailTargetArray []NotificationsIntegrationRoleEmailTargetInput
+
+func (NotificationsIntegrationRoleEmailTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationRoleEmailTargetArray) ToNotificationsIntegrationRoleEmailTargetArrayOutput() NotificationsIntegrationRoleEmailTargetArrayOutput {
+	return i.ToNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationRoleEmailTargetArray) ToNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationRoleEmailTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationRoleEmailTargetArrayOutput)
+}
+
+type NotificationsIntegrationRoleEmailTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationRoleEmailTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationRoleEmailTargetOutput) ToNotificationsIntegrationRoleEmailTargetOutput() NotificationsIntegrationRoleEmailTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationRoleEmailTargetOutput) ToNotificationsIntegrationRoleEmailTargetOutputWithContext(ctx context.Context) NotificationsIntegrationRoleEmailTargetOutput {
+	return o
+}
+
+// (String) name of the role
+func (o NotificationsIntegrationRoleEmailTargetOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationsIntegrationRoleEmailTarget) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+type NotificationsIntegrationRoleEmailTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationRoleEmailTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationRoleEmailTargetArrayOutput) ToNotificationsIntegrationRoleEmailTargetArrayOutput() NotificationsIntegrationRoleEmailTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationRoleEmailTargetArrayOutput) ToNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationRoleEmailTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationRoleEmailTargetArrayOutput) Index(i pulumi.IntInput) NotificationsIntegrationRoleEmailTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationsIntegrationRoleEmailTarget {
+		return vs[0].([]NotificationsIntegrationRoleEmailTarget)[vs[1].(int)]
+	}).(NotificationsIntegrationRoleEmailTargetOutput)
+}
+
+type NotificationsIntegrationSlackTarget struct {
+	// Slack Webhook URL for the particular Slack channel
+	WebhookUrl string `pulumi:"webhookUrl"`
+}
+
+// NotificationsIntegrationSlackTargetInput is an input type that accepts NotificationsIntegrationSlackTargetArgs and NotificationsIntegrationSlackTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationSlackTargetInput` via:
+//
+//	NotificationsIntegrationSlackTargetArgs{...}
+type NotificationsIntegrationSlackTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationSlackTargetOutput() NotificationsIntegrationSlackTargetOutput
+	ToNotificationsIntegrationSlackTargetOutputWithContext(context.Context) NotificationsIntegrationSlackTargetOutput
+}
+
+type NotificationsIntegrationSlackTargetArgs struct {
+	// Slack Webhook URL for the particular Slack channel
+	WebhookUrl pulumi.StringInput `pulumi:"webhookUrl"`
+}
+
+func (NotificationsIntegrationSlackTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationSlackTargetArgs) ToNotificationsIntegrationSlackTargetOutput() NotificationsIntegrationSlackTargetOutput {
+	return i.ToNotificationsIntegrationSlackTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationSlackTargetArgs) ToNotificationsIntegrationSlackTargetOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationSlackTargetOutput)
+}
+
+func (i NotificationsIntegrationSlackTargetArgs) ToNotificationsIntegrationSlackTargetPtrOutput() NotificationsIntegrationSlackTargetPtrOutput {
+	return i.ToNotificationsIntegrationSlackTargetPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationSlackTargetArgs) ToNotificationsIntegrationSlackTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationSlackTargetOutput).ToNotificationsIntegrationSlackTargetPtrOutputWithContext(ctx)
+}
+
+// NotificationsIntegrationSlackTargetPtrInput is an input type that accepts NotificationsIntegrationSlackTargetArgs, NotificationsIntegrationSlackTargetPtr and NotificationsIntegrationSlackTargetPtrOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationSlackTargetPtrInput` via:
+//
+//	        NotificationsIntegrationSlackTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationsIntegrationSlackTargetPtrInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationSlackTargetPtrOutput() NotificationsIntegrationSlackTargetPtrOutput
+	ToNotificationsIntegrationSlackTargetPtrOutputWithContext(context.Context) NotificationsIntegrationSlackTargetPtrOutput
+}
+
+type notificationsIntegrationSlackTargetPtrType NotificationsIntegrationSlackTargetArgs
+
+func NotificationsIntegrationSlackTargetPtr(v *NotificationsIntegrationSlackTargetArgs) NotificationsIntegrationSlackTargetPtrInput {
+	return (*notificationsIntegrationSlackTargetPtrType)(v)
+}
+
+func (*notificationsIntegrationSlackTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (i *notificationsIntegrationSlackTargetPtrType) ToNotificationsIntegrationSlackTargetPtrOutput() NotificationsIntegrationSlackTargetPtrOutput {
+	return i.ToNotificationsIntegrationSlackTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationsIntegrationSlackTargetPtrType) ToNotificationsIntegrationSlackTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationSlackTargetPtrOutput)
+}
+
+type NotificationsIntegrationSlackTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationSlackTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationSlackTargetOutput) ToNotificationsIntegrationSlackTargetOutput() NotificationsIntegrationSlackTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationSlackTargetOutput) ToNotificationsIntegrationSlackTargetOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationSlackTargetOutput) ToNotificationsIntegrationSlackTargetPtrOutput() NotificationsIntegrationSlackTargetPtrOutput {
+	return o.ToNotificationsIntegrationSlackTargetPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationsIntegrationSlackTargetOutput) ToNotificationsIntegrationSlackTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationsIntegrationSlackTarget) *NotificationsIntegrationSlackTarget {
+		return &v
+	}).(NotificationsIntegrationSlackTargetPtrOutput)
+}
+
+// Slack Webhook URL for the particular Slack channel
+func (o NotificationsIntegrationSlackTargetOutput) WebhookUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationsIntegrationSlackTarget) string { return v.WebhookUrl }).(pulumi.StringOutput)
+}
+
+type NotificationsIntegrationSlackTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationSlackTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationSlackTargetPtrOutput) ToNotificationsIntegrationSlackTargetPtrOutput() NotificationsIntegrationSlackTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationSlackTargetPtrOutput) ToNotificationsIntegrationSlackTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationSlackTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationSlackTargetPtrOutput) Elem() NotificationsIntegrationSlackTargetOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationSlackTarget) NotificationsIntegrationSlackTarget {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationsIntegrationSlackTarget
+		return ret
+	}).(NotificationsIntegrationSlackTargetOutput)
+}
+
+// Slack Webhook URL for the particular Slack channel
+func (o NotificationsIntegrationSlackTargetPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationSlackTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebhookUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationsIntegrationUserEmailTarget struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users []NotificationsIntegrationUserEmailTargetUser `pulumi:"users"`
+}
+
+// NotificationsIntegrationUserEmailTargetInput is an input type that accepts NotificationsIntegrationUserEmailTargetArgs and NotificationsIntegrationUserEmailTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationUserEmailTargetInput` via:
+//
+//	NotificationsIntegrationUserEmailTargetArgs{...}
+type NotificationsIntegrationUserEmailTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationUserEmailTargetOutput() NotificationsIntegrationUserEmailTargetOutput
+	ToNotificationsIntegrationUserEmailTargetOutputWithContext(context.Context) NotificationsIntegrationUserEmailTargetOutput
+}
+
+type NotificationsIntegrationUserEmailTargetArgs struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users NotificationsIntegrationUserEmailTargetUserArrayInput `pulumi:"users"`
+}
+
+func (NotificationsIntegrationUserEmailTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationUserEmailTargetArgs) ToNotificationsIntegrationUserEmailTargetOutput() NotificationsIntegrationUserEmailTargetOutput {
+	return i.ToNotificationsIntegrationUserEmailTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationUserEmailTargetArgs) ToNotificationsIntegrationUserEmailTargetOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationUserEmailTargetOutput)
+}
+
+// NotificationsIntegrationUserEmailTargetArrayInput is an input type that accepts NotificationsIntegrationUserEmailTargetArray and NotificationsIntegrationUserEmailTargetArrayOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationUserEmailTargetArrayInput` via:
+//
+//	NotificationsIntegrationUserEmailTargetArray{ NotificationsIntegrationUserEmailTargetArgs{...} }
+type NotificationsIntegrationUserEmailTargetArrayInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationUserEmailTargetArrayOutput() NotificationsIntegrationUserEmailTargetArrayOutput
+	ToNotificationsIntegrationUserEmailTargetArrayOutputWithContext(context.Context) NotificationsIntegrationUserEmailTargetArrayOutput
+}
+
+type NotificationsIntegrationUserEmailTargetArray []NotificationsIntegrationUserEmailTargetInput
+
+func (NotificationsIntegrationUserEmailTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationUserEmailTargetArray) ToNotificationsIntegrationUserEmailTargetArrayOutput() NotificationsIntegrationUserEmailTargetArrayOutput {
+	return i.ToNotificationsIntegrationUserEmailTargetArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationUserEmailTargetArray) ToNotificationsIntegrationUserEmailTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationUserEmailTargetArrayOutput)
+}
+
+type NotificationsIntegrationUserEmailTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationUserEmailTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationUserEmailTargetOutput) ToNotificationsIntegrationUserEmailTargetOutput() NotificationsIntegrationUserEmailTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetOutput) ToNotificationsIntegrationUserEmailTargetOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetOutput {
+	return o
+}
+
+// (String) Reference to the user the in-app target belongs to.
+func (o NotificationsIntegrationUserEmailTargetOutput) Users() NotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o.ApplyT(func(v NotificationsIntegrationUserEmailTarget) []NotificationsIntegrationUserEmailTargetUser {
+		return v.Users
+	}).(NotificationsIntegrationUserEmailTargetUserArrayOutput)
+}
+
+type NotificationsIntegrationUserEmailTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationUserEmailTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationUserEmailTargetArrayOutput) ToNotificationsIntegrationUserEmailTargetArrayOutput() NotificationsIntegrationUserEmailTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetArrayOutput) ToNotificationsIntegrationUserEmailTargetArrayOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetArrayOutput) Index(i pulumi.IntInput) NotificationsIntegrationUserEmailTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationsIntegrationUserEmailTarget {
+		return vs[0].([]NotificationsIntegrationUserEmailTarget)[vs[1].(int)]
+	}).(NotificationsIntegrationUserEmailTargetOutput)
+}
+
+type NotificationsIntegrationUserEmailTargetUser struct {
+	// (Required String) The ID of the Integration, for example, `int-abc123`.
+	Id *string `pulumi:"id"`
+}
+
+// NotificationsIntegrationUserEmailTargetUserInput is an input type that accepts NotificationsIntegrationUserEmailTargetUserArgs and NotificationsIntegrationUserEmailTargetUserOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationUserEmailTargetUserInput` via:
+//
+//	NotificationsIntegrationUserEmailTargetUserArgs{...}
+type NotificationsIntegrationUserEmailTargetUserInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationUserEmailTargetUserOutput() NotificationsIntegrationUserEmailTargetUserOutput
+	ToNotificationsIntegrationUserEmailTargetUserOutputWithContext(context.Context) NotificationsIntegrationUserEmailTargetUserOutput
+}
+
+type NotificationsIntegrationUserEmailTargetUserArgs struct {
+	// (Required String) The ID of the Integration, for example, `int-abc123`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (NotificationsIntegrationUserEmailTargetUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationUserEmailTargetUserArgs) ToNotificationsIntegrationUserEmailTargetUserOutput() NotificationsIntegrationUserEmailTargetUserOutput {
+	return i.ToNotificationsIntegrationUserEmailTargetUserOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationUserEmailTargetUserArgs) ToNotificationsIntegrationUserEmailTargetUserOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationUserEmailTargetUserOutput)
+}
+
+// NotificationsIntegrationUserEmailTargetUserArrayInput is an input type that accepts NotificationsIntegrationUserEmailTargetUserArray and NotificationsIntegrationUserEmailTargetUserArrayOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationUserEmailTargetUserArrayInput` via:
+//
+//	NotificationsIntegrationUserEmailTargetUserArray{ NotificationsIntegrationUserEmailTargetUserArgs{...} }
+type NotificationsIntegrationUserEmailTargetUserArrayInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationUserEmailTargetUserArrayOutput() NotificationsIntegrationUserEmailTargetUserArrayOutput
+	ToNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(context.Context) NotificationsIntegrationUserEmailTargetUserArrayOutput
+}
+
+type NotificationsIntegrationUserEmailTargetUserArray []NotificationsIntegrationUserEmailTargetUserInput
+
+func (NotificationsIntegrationUserEmailTargetUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationUserEmailTargetUserArray) ToNotificationsIntegrationUserEmailTargetUserArrayOutput() NotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return i.ToNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationUserEmailTargetUserArray) ToNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationUserEmailTargetUserArrayOutput)
+}
+
+type NotificationsIntegrationUserEmailTargetUserOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationUserEmailTargetUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationUserEmailTargetUserOutput) ToNotificationsIntegrationUserEmailTargetUserOutput() NotificationsIntegrationUserEmailTargetUserOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetUserOutput) ToNotificationsIntegrationUserEmailTargetUserOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetUserOutput {
+	return o
+}
+
+// (Required String) The ID of the Integration, for example, `int-abc123`.
+func (o NotificationsIntegrationUserEmailTargetUserOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationsIntegrationUserEmailTargetUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type NotificationsIntegrationUserEmailTargetUserArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationUserEmailTargetUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationUserEmailTargetUserArrayOutput) ToNotificationsIntegrationUserEmailTargetUserArrayOutput() NotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetUserArrayOutput) ToNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(ctx context.Context) NotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o
+}
+
+func (o NotificationsIntegrationUserEmailTargetUserArrayOutput) Index(i pulumi.IntInput) NotificationsIntegrationUserEmailTargetUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationsIntegrationUserEmailTargetUser {
+		return vs[0].([]NotificationsIntegrationUserEmailTargetUser)[vs[1].(int)]
+	}).(NotificationsIntegrationUserEmailTargetUserOutput)
+}
+
+type NotificationsIntegrationWebhookTarget struct {
+	// URL endpoint for the webhook
+	Url string `pulumi:"url"`
+}
+
+// NotificationsIntegrationWebhookTargetInput is an input type that accepts NotificationsIntegrationWebhookTargetArgs and NotificationsIntegrationWebhookTargetOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationWebhookTargetInput` via:
+//
+//	NotificationsIntegrationWebhookTargetArgs{...}
+type NotificationsIntegrationWebhookTargetInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationWebhookTargetOutput() NotificationsIntegrationWebhookTargetOutput
+	ToNotificationsIntegrationWebhookTargetOutputWithContext(context.Context) NotificationsIntegrationWebhookTargetOutput
+}
+
+type NotificationsIntegrationWebhookTargetArgs struct {
+	// URL endpoint for the webhook
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (NotificationsIntegrationWebhookTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (i NotificationsIntegrationWebhookTargetArgs) ToNotificationsIntegrationWebhookTargetOutput() NotificationsIntegrationWebhookTargetOutput {
+	return i.ToNotificationsIntegrationWebhookTargetOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationWebhookTargetArgs) ToNotificationsIntegrationWebhookTargetOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationWebhookTargetOutput)
+}
+
+func (i NotificationsIntegrationWebhookTargetArgs) ToNotificationsIntegrationWebhookTargetPtrOutput() NotificationsIntegrationWebhookTargetPtrOutput {
+	return i.ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationsIntegrationWebhookTargetArgs) ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationWebhookTargetOutput).ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(ctx)
+}
+
+// NotificationsIntegrationWebhookTargetPtrInput is an input type that accepts NotificationsIntegrationWebhookTargetArgs, NotificationsIntegrationWebhookTargetPtr and NotificationsIntegrationWebhookTargetPtrOutput values.
+// You can construct a concrete instance of `NotificationsIntegrationWebhookTargetPtrInput` via:
+//
+//	        NotificationsIntegrationWebhookTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationsIntegrationWebhookTargetPtrInput interface {
+	pulumi.Input
+
+	ToNotificationsIntegrationWebhookTargetPtrOutput() NotificationsIntegrationWebhookTargetPtrOutput
+	ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(context.Context) NotificationsIntegrationWebhookTargetPtrOutput
+}
+
+type notificationsIntegrationWebhookTargetPtrType NotificationsIntegrationWebhookTargetArgs
+
+func NotificationsIntegrationWebhookTargetPtr(v *NotificationsIntegrationWebhookTargetArgs) NotificationsIntegrationWebhookTargetPtrInput {
+	return (*notificationsIntegrationWebhookTargetPtrType)(v)
+}
+
+func (*notificationsIntegrationWebhookTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (i *notificationsIntegrationWebhookTargetPtrType) ToNotificationsIntegrationWebhookTargetPtrOutput() NotificationsIntegrationWebhookTargetPtrOutput {
+	return i.ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationsIntegrationWebhookTargetPtrType) ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsIntegrationWebhookTargetPtrOutput)
+}
+
+type NotificationsIntegrationWebhookTargetOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationWebhookTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationWebhookTargetOutput) ToNotificationsIntegrationWebhookTargetOutput() NotificationsIntegrationWebhookTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationWebhookTargetOutput) ToNotificationsIntegrationWebhookTargetOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetOutput {
+	return o
+}
+
+func (o NotificationsIntegrationWebhookTargetOutput) ToNotificationsIntegrationWebhookTargetPtrOutput() NotificationsIntegrationWebhookTargetPtrOutput {
+	return o.ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationsIntegrationWebhookTargetOutput) ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationsIntegrationWebhookTarget) *NotificationsIntegrationWebhookTarget {
+		return &v
+	}).(NotificationsIntegrationWebhookTargetPtrOutput)
+}
+
+// URL endpoint for the webhook
+func (o NotificationsIntegrationWebhookTargetOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationsIntegrationWebhookTarget) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type NotificationsIntegrationWebhookTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationsIntegrationWebhookTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (o NotificationsIntegrationWebhookTargetPtrOutput) ToNotificationsIntegrationWebhookTargetPtrOutput() NotificationsIntegrationWebhookTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationWebhookTargetPtrOutput) ToNotificationsIntegrationWebhookTargetPtrOutputWithContext(ctx context.Context) NotificationsIntegrationWebhookTargetPtrOutput {
+	return o
+}
+
+func (o NotificationsIntegrationWebhookTargetPtrOutput) Elem() NotificationsIntegrationWebhookTargetOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationWebhookTarget) NotificationsIntegrationWebhookTarget {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationsIntegrationWebhookTarget
+		return ret
+	}).(NotificationsIntegrationWebhookTargetOutput)
+}
+
+// URL endpoint for the webhook
+func (o NotificationsIntegrationWebhookTargetPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationsIntegrationWebhookTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 type PeeringAws struct {
 	// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -27520,6 +28612,181 @@ func (o TableflowTopicErrorHandlingPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TableflowTopicGoogleCloudStorage struct {
+	// The bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion *string `pulumi:"bucketRegion"`
+	// The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// TableflowTopicGoogleCloudStorageInput is an input type that accepts TableflowTopicGoogleCloudStorageArgs and TableflowTopicGoogleCloudStorageOutput values.
+// You can construct a concrete instance of `TableflowTopicGoogleCloudStorageInput` via:
+//
+//	TableflowTopicGoogleCloudStorageArgs{...}
+type TableflowTopicGoogleCloudStorageInput interface {
+	pulumi.Input
+
+	ToTableflowTopicGoogleCloudStorageOutput() TableflowTopicGoogleCloudStorageOutput
+	ToTableflowTopicGoogleCloudStorageOutputWithContext(context.Context) TableflowTopicGoogleCloudStorageOutput
+}
+
+type TableflowTopicGoogleCloudStorageArgs struct {
+	// The bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion pulumi.StringPtrInput `pulumi:"bucketRegion"`
+	// The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (TableflowTopicGoogleCloudStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (i TableflowTopicGoogleCloudStorageArgs) ToTableflowTopicGoogleCloudStorageOutput() TableflowTopicGoogleCloudStorageOutput {
+	return i.ToTableflowTopicGoogleCloudStorageOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicGoogleCloudStorageArgs) ToTableflowTopicGoogleCloudStorageOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicGoogleCloudStorageOutput)
+}
+
+func (i TableflowTopicGoogleCloudStorageArgs) ToTableflowTopicGoogleCloudStoragePtrOutput() TableflowTopicGoogleCloudStoragePtrOutput {
+	return i.ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicGoogleCloudStorageArgs) ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicGoogleCloudStorageOutput).ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(ctx)
+}
+
+// TableflowTopicGoogleCloudStoragePtrInput is an input type that accepts TableflowTopicGoogleCloudStorageArgs, TableflowTopicGoogleCloudStoragePtr and TableflowTopicGoogleCloudStoragePtrOutput values.
+// You can construct a concrete instance of `TableflowTopicGoogleCloudStoragePtrInput` via:
+//
+//	        TableflowTopicGoogleCloudStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicGoogleCloudStoragePtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicGoogleCloudStoragePtrOutput() TableflowTopicGoogleCloudStoragePtrOutput
+	ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(context.Context) TableflowTopicGoogleCloudStoragePtrOutput
+}
+
+type tableflowTopicGoogleCloudStoragePtrType TableflowTopicGoogleCloudStorageArgs
+
+func TableflowTopicGoogleCloudStoragePtr(v *TableflowTopicGoogleCloudStorageArgs) TableflowTopicGoogleCloudStoragePtrInput {
+	return (*tableflowTopicGoogleCloudStoragePtrType)(v)
+}
+
+func (*tableflowTopicGoogleCloudStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (i *tableflowTopicGoogleCloudStoragePtrType) ToTableflowTopicGoogleCloudStoragePtrOutput() TableflowTopicGoogleCloudStoragePtrOutput {
+	return i.ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicGoogleCloudStoragePtrType) ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicGoogleCloudStoragePtrOutput)
+}
+
+type TableflowTopicGoogleCloudStorageOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicGoogleCloudStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (o TableflowTopicGoogleCloudStorageOutput) ToTableflowTopicGoogleCloudStorageOutput() TableflowTopicGoogleCloudStorageOutput {
+	return o
+}
+
+func (o TableflowTopicGoogleCloudStorageOutput) ToTableflowTopicGoogleCloudStorageOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStorageOutput {
+	return o
+}
+
+func (o TableflowTopicGoogleCloudStorageOutput) ToTableflowTopicGoogleCloudStoragePtrOutput() TableflowTopicGoogleCloudStoragePtrOutput {
+	return o.ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicGoogleCloudStorageOutput) ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicGoogleCloudStorage) *TableflowTopicGoogleCloudStorage {
+		return &v
+	}).(TableflowTopicGoogleCloudStoragePtrOutput)
+}
+
+// The bucket name.
+func (o TableflowTopicGoogleCloudStorageOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicGoogleCloudStorage) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// (Required String) The bucket region.
+func (o TableflowTopicGoogleCloudStorageOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableflowTopicGoogleCloudStorage) *string { return v.BucketRegion }).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicGoogleCloudStorageOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicGoogleCloudStorage) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type TableflowTopicGoogleCloudStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicGoogleCloudStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (o TableflowTopicGoogleCloudStoragePtrOutput) ToTableflowTopicGoogleCloudStoragePtrOutput() TableflowTopicGoogleCloudStoragePtrOutput {
+	return o
+}
+
+func (o TableflowTopicGoogleCloudStoragePtrOutput) ToTableflowTopicGoogleCloudStoragePtrOutputWithContext(ctx context.Context) TableflowTopicGoogleCloudStoragePtrOutput {
+	return o
+}
+
+func (o TableflowTopicGoogleCloudStoragePtrOutput) Elem() TableflowTopicGoogleCloudStorageOutput {
+	return o.ApplyT(func(v *TableflowTopicGoogleCloudStorage) TableflowTopicGoogleCloudStorage {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicGoogleCloudStorage
+		return ret
+	}).(TableflowTopicGoogleCloudStorageOutput)
+}
+
+// The bucket name.
+func (o TableflowTopicGoogleCloudStoragePtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicGoogleCloudStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The bucket region.
+func (o TableflowTopicGoogleCloudStoragePtrOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicGoogleCloudStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicGoogleCloudStoragePtrOutput) ProviderIntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicGoogleCloudStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderIntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableflowTopicKafkaCluster struct {
 	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
@@ -31019,6 +32286,130 @@ func (o GetCatalogIntegrationAwsGlueArrayOutput) Index(i pulumi.IntInput) GetCat
 	}).(GetCatalogIntegrationAwsGlueOutput)
 }
 
+type GetCatalogIntegrationBiglakeMetastore struct {
+	// (Computed String) The name of the catalog within BigLake Metastore.
+	CatalogName string `pulumi:"catalogName"`
+	// (Computed String) The custom namespace to use in BigLake Metastore.
+	CustomNamespace string `pulumi:"customNamespace"`
+	// (Computed String) The GCP project id that hosts the BigLake Metastore catalog.
+	GcpProjectId string `pulumi:"gcpProjectId"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// GetCatalogIntegrationBiglakeMetastoreInput is an input type that accepts GetCatalogIntegrationBiglakeMetastoreArgs and GetCatalogIntegrationBiglakeMetastoreOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationBiglakeMetastoreInput` via:
+//
+//	GetCatalogIntegrationBiglakeMetastoreArgs{...}
+type GetCatalogIntegrationBiglakeMetastoreInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationBiglakeMetastoreOutput() GetCatalogIntegrationBiglakeMetastoreOutput
+	ToGetCatalogIntegrationBiglakeMetastoreOutputWithContext(context.Context) GetCatalogIntegrationBiglakeMetastoreOutput
+}
+
+type GetCatalogIntegrationBiglakeMetastoreArgs struct {
+	// (Computed String) The name of the catalog within BigLake Metastore.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// (Computed String) The custom namespace to use in BigLake Metastore.
+	CustomNamespace pulumi.StringInput `pulumi:"customNamespace"`
+	// (Computed String) The GCP project id that hosts the BigLake Metastore catalog.
+	GcpProjectId pulumi.StringInput `pulumi:"gcpProjectId"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (GetCatalogIntegrationBiglakeMetastoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationBiglakeMetastoreArgs) ToGetCatalogIntegrationBiglakeMetastoreOutput() GetCatalogIntegrationBiglakeMetastoreOutput {
+	return i.ToGetCatalogIntegrationBiglakeMetastoreOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationBiglakeMetastoreArgs) ToGetCatalogIntegrationBiglakeMetastoreOutputWithContext(ctx context.Context) GetCatalogIntegrationBiglakeMetastoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationBiglakeMetastoreOutput)
+}
+
+// GetCatalogIntegrationBiglakeMetastoreArrayInput is an input type that accepts GetCatalogIntegrationBiglakeMetastoreArray and GetCatalogIntegrationBiglakeMetastoreArrayOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationBiglakeMetastoreArrayInput` via:
+//
+//	GetCatalogIntegrationBiglakeMetastoreArray{ GetCatalogIntegrationBiglakeMetastoreArgs{...} }
+type GetCatalogIntegrationBiglakeMetastoreArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationBiglakeMetastoreArrayOutput() GetCatalogIntegrationBiglakeMetastoreArrayOutput
+	ToGetCatalogIntegrationBiglakeMetastoreArrayOutputWithContext(context.Context) GetCatalogIntegrationBiglakeMetastoreArrayOutput
+}
+
+type GetCatalogIntegrationBiglakeMetastoreArray []GetCatalogIntegrationBiglakeMetastoreInput
+
+func (GetCatalogIntegrationBiglakeMetastoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationBiglakeMetastoreArray) ToGetCatalogIntegrationBiglakeMetastoreArrayOutput() GetCatalogIntegrationBiglakeMetastoreArrayOutput {
+	return i.ToGetCatalogIntegrationBiglakeMetastoreArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationBiglakeMetastoreArray) ToGetCatalogIntegrationBiglakeMetastoreArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationBiglakeMetastoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationBiglakeMetastoreArrayOutput)
+}
+
+type GetCatalogIntegrationBiglakeMetastoreOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationBiglakeMetastoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) ToGetCatalogIntegrationBiglakeMetastoreOutput() GetCatalogIntegrationBiglakeMetastoreOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) ToGetCatalogIntegrationBiglakeMetastoreOutputWithContext(ctx context.Context) GetCatalogIntegrationBiglakeMetastoreOutput {
+	return o
+}
+
+// (Computed String) The name of the catalog within BigLake Metastore.
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) CatalogName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationBiglakeMetastore) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// (Computed String) The custom namespace to use in BigLake Metastore.
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) CustomNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationBiglakeMetastore) string { return v.CustomNamespace }).(pulumi.StringOutput)
+}
+
+// (Computed String) The GCP project id that hosts the BigLake Metastore catalog.
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) GcpProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationBiglakeMetastore) string { return v.GcpProjectId }).(pulumi.StringOutput)
+}
+
+// (Required String) The provider integration id.
+func (o GetCatalogIntegrationBiglakeMetastoreOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationBiglakeMetastore) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationBiglakeMetastoreArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationBiglakeMetastoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationBiglakeMetastore)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationBiglakeMetastoreArrayOutput) ToGetCatalogIntegrationBiglakeMetastoreArrayOutput() GetCatalogIntegrationBiglakeMetastoreArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationBiglakeMetastoreArrayOutput) ToGetCatalogIntegrationBiglakeMetastoreArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationBiglakeMetastoreArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationBiglakeMetastoreArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationBiglakeMetastoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationBiglakeMetastore {
+		return vs[0].([]GetCatalogIntegrationBiglakeMetastore)[vs[1].(int)]
+	}).(GetCatalogIntegrationBiglakeMetastoreOutput)
+}
+
 type GetCatalogIntegrationCredentials struct {
 	// The Tableflow API Key.
 	Key string `pulumi:"key"`
@@ -31298,7 +32689,7 @@ func (o GetCatalogIntegrationKafkaClusterOutput) Id() pulumi.StringOutput {
 type GetCatalogIntegrationSnowflake struct {
 	// (Required String) Allowed scope of the Snowflake Open Catalog.
 	AllowedScope string `pulumi:"allowedScope"`
-	// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+	// (Computed String) The custom namespace to use in BigLake Metastore.
 	CustomNamespace string `pulumi:"customNamespace"`
 	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint string `pulumi:"endpoint"`
@@ -31320,7 +32711,7 @@ type GetCatalogIntegrationSnowflakeInput interface {
 type GetCatalogIntegrationSnowflakeArgs struct {
 	// (Required String) Allowed scope of the Snowflake Open Catalog.
 	AllowedScope pulumi.StringInput `pulumi:"allowedScope"`
-	// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+	// (Computed String) The custom namespace to use in BigLake Metastore.
 	CustomNamespace pulumi.StringInput `pulumi:"customNamespace"`
 	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -31384,7 +32775,7 @@ func (o GetCatalogIntegrationSnowflakeOutput) AllowedScope() pulumi.StringOutput
 	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.AllowedScope }).(pulumi.StringOutput)
 }
 
-// (Computed String) The custom namespace to use in Snowflake Open Catalog.
+// (Computed String) The custom namespace to use in BigLake Metastore.
 func (o GetCatalogIntegrationSnowflakeOutput) CustomNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.CustomNamespace }).(pulumi.StringOutput)
 }
@@ -31420,7 +32811,7 @@ func (o GetCatalogIntegrationSnowflakeArrayOutput) Index(i pulumi.IntInput) GetC
 }
 
 type GetCatalogIntegrationUnity struct {
-	// (Required String) The name of the catalog within Unity Catalog.
+	// (Computed String) The name of the catalog within BigLake Metastore.
 	CatalogName string `pulumi:"catalogName"`
 	// (Computed String) The custom schema name to use in Unity Catalog.
 	CustomSchema string `pulumi:"customSchema"`
@@ -31440,7 +32831,7 @@ type GetCatalogIntegrationUnityInput interface {
 }
 
 type GetCatalogIntegrationUnityArgs struct {
-	// (Required String) The name of the catalog within Unity Catalog.
+	// (Computed String) The name of the catalog within BigLake Metastore.
 	CatalogName pulumi.StringInput `pulumi:"catalogName"`
 	// (Computed String) The custom schema name to use in Unity Catalog.
 	CustomSchema pulumi.StringInput `pulumi:"customSchema"`
@@ -31499,7 +32890,7 @@ func (o GetCatalogIntegrationUnityOutput) ToGetCatalogIntegrationUnityOutputWith
 	return o
 }
 
-// (Required String) The name of the catalog within Unity Catalog.
+// (Computed String) The name of the catalog within BigLake Metastore.
 func (o GetCatalogIntegrationUnityOutput) CatalogName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogIntegrationUnity) string { return v.CatalogName }).(pulumi.StringOutput)
 }
@@ -43644,6 +45035,786 @@ func (o GetNetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) GetNetworkZoneIn
 	}).(GetNetworkZoneInfoOutput)
 }
 
+type GetNotificationsIntegrationInAppTarget struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users []GetNotificationsIntegrationInAppTargetUser `pulumi:"users"`
+}
+
+// GetNotificationsIntegrationInAppTargetInput is an input type that accepts GetNotificationsIntegrationInAppTargetArgs and GetNotificationsIntegrationInAppTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationInAppTargetInput` via:
+//
+//	GetNotificationsIntegrationInAppTargetArgs{...}
+type GetNotificationsIntegrationInAppTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationInAppTargetOutput() GetNotificationsIntegrationInAppTargetOutput
+	ToGetNotificationsIntegrationInAppTargetOutputWithContext(context.Context) GetNotificationsIntegrationInAppTargetOutput
+}
+
+type GetNotificationsIntegrationInAppTargetArgs struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users GetNotificationsIntegrationInAppTargetUserArrayInput `pulumi:"users"`
+}
+
+func (GetNotificationsIntegrationInAppTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationInAppTargetArgs) ToGetNotificationsIntegrationInAppTargetOutput() GetNotificationsIntegrationInAppTargetOutput {
+	return i.ToGetNotificationsIntegrationInAppTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationInAppTargetArgs) ToGetNotificationsIntegrationInAppTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationInAppTargetOutput)
+}
+
+// GetNotificationsIntegrationInAppTargetArrayInput is an input type that accepts GetNotificationsIntegrationInAppTargetArray and GetNotificationsIntegrationInAppTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationInAppTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationInAppTargetArray{ GetNotificationsIntegrationInAppTargetArgs{...} }
+type GetNotificationsIntegrationInAppTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationInAppTargetArrayOutput() GetNotificationsIntegrationInAppTargetArrayOutput
+	ToGetNotificationsIntegrationInAppTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationInAppTargetArrayOutput
+}
+
+type GetNotificationsIntegrationInAppTargetArray []GetNotificationsIntegrationInAppTargetInput
+
+func (GetNotificationsIntegrationInAppTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationInAppTargetArray) ToGetNotificationsIntegrationInAppTargetArrayOutput() GetNotificationsIntegrationInAppTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationInAppTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationInAppTargetArray) ToGetNotificationsIntegrationInAppTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationInAppTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationInAppTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationInAppTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationInAppTargetOutput) ToGetNotificationsIntegrationInAppTargetOutput() GetNotificationsIntegrationInAppTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetOutput) ToGetNotificationsIntegrationInAppTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetOutput {
+	return o
+}
+
+// (String) Reference to the user the in-app target belongs to.
+func (o GetNotificationsIntegrationInAppTargetOutput) Users() GetNotificationsIntegrationInAppTargetUserArrayOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationInAppTarget) []GetNotificationsIntegrationInAppTargetUser {
+		return v.Users
+	}).(GetNotificationsIntegrationInAppTargetUserArrayOutput)
+}
+
+type GetNotificationsIntegrationInAppTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationInAppTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationInAppTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationInAppTargetArrayOutput) ToGetNotificationsIntegrationInAppTargetArrayOutput() GetNotificationsIntegrationInAppTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetArrayOutput) ToGetNotificationsIntegrationInAppTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationInAppTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationInAppTarget {
+		return vs[0].([]GetNotificationsIntegrationInAppTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationInAppTargetOutput)
+}
+
+type GetNotificationsIntegrationInAppTargetUser struct {
+	// The ID of the Integration, for example, `int-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetNotificationsIntegrationInAppTargetUserInput is an input type that accepts GetNotificationsIntegrationInAppTargetUserArgs and GetNotificationsIntegrationInAppTargetUserOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationInAppTargetUserInput` via:
+//
+//	GetNotificationsIntegrationInAppTargetUserArgs{...}
+type GetNotificationsIntegrationInAppTargetUserInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationInAppTargetUserOutput() GetNotificationsIntegrationInAppTargetUserOutput
+	ToGetNotificationsIntegrationInAppTargetUserOutputWithContext(context.Context) GetNotificationsIntegrationInAppTargetUserOutput
+}
+
+type GetNotificationsIntegrationInAppTargetUserArgs struct {
+	// The ID of the Integration, for example, `int-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNotificationsIntegrationInAppTargetUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationInAppTargetUserArgs) ToGetNotificationsIntegrationInAppTargetUserOutput() GetNotificationsIntegrationInAppTargetUserOutput {
+	return i.ToGetNotificationsIntegrationInAppTargetUserOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationInAppTargetUserArgs) ToGetNotificationsIntegrationInAppTargetUserOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationInAppTargetUserOutput)
+}
+
+// GetNotificationsIntegrationInAppTargetUserArrayInput is an input type that accepts GetNotificationsIntegrationInAppTargetUserArray and GetNotificationsIntegrationInAppTargetUserArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationInAppTargetUserArrayInput` via:
+//
+//	GetNotificationsIntegrationInAppTargetUserArray{ GetNotificationsIntegrationInAppTargetUserArgs{...} }
+type GetNotificationsIntegrationInAppTargetUserArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationInAppTargetUserArrayOutput() GetNotificationsIntegrationInAppTargetUserArrayOutput
+	ToGetNotificationsIntegrationInAppTargetUserArrayOutputWithContext(context.Context) GetNotificationsIntegrationInAppTargetUserArrayOutput
+}
+
+type GetNotificationsIntegrationInAppTargetUserArray []GetNotificationsIntegrationInAppTargetUserInput
+
+func (GetNotificationsIntegrationInAppTargetUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationInAppTargetUserArray) ToGetNotificationsIntegrationInAppTargetUserArrayOutput() GetNotificationsIntegrationInAppTargetUserArrayOutput {
+	return i.ToGetNotificationsIntegrationInAppTargetUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationInAppTargetUserArray) ToGetNotificationsIntegrationInAppTargetUserArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationInAppTargetUserArrayOutput)
+}
+
+type GetNotificationsIntegrationInAppTargetUserOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationInAppTargetUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationInAppTargetUserOutput) ToGetNotificationsIntegrationInAppTargetUserOutput() GetNotificationsIntegrationInAppTargetUserOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetUserOutput) ToGetNotificationsIntegrationInAppTargetUserOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetUserOutput {
+	return o
+}
+
+// The ID of the Integration, for example, `int-abc123`.
+func (o GetNotificationsIntegrationInAppTargetUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationInAppTargetUser) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationInAppTargetUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationInAppTargetUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationInAppTargetUser)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationInAppTargetUserArrayOutput) ToGetNotificationsIntegrationInAppTargetUserArrayOutput() GetNotificationsIntegrationInAppTargetUserArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetUserArrayOutput) ToGetNotificationsIntegrationInAppTargetUserArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationInAppTargetUserArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationInAppTargetUserArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationInAppTargetUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationInAppTargetUser {
+		return vs[0].([]GetNotificationsIntegrationInAppTargetUser)[vs[1].(int)]
+	}).(GetNotificationsIntegrationInAppTargetUserOutput)
+}
+
+type GetNotificationsIntegrationMsTeamsTarget struct {
+	// (String) MS Teams Webhook URL for the particular team channel
+	WebhookUrl string `pulumi:"webhookUrl"`
+}
+
+// GetNotificationsIntegrationMsTeamsTargetInput is an input type that accepts GetNotificationsIntegrationMsTeamsTargetArgs and GetNotificationsIntegrationMsTeamsTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationMsTeamsTargetInput` via:
+//
+//	GetNotificationsIntegrationMsTeamsTargetArgs{...}
+type GetNotificationsIntegrationMsTeamsTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationMsTeamsTargetOutput() GetNotificationsIntegrationMsTeamsTargetOutput
+	ToGetNotificationsIntegrationMsTeamsTargetOutputWithContext(context.Context) GetNotificationsIntegrationMsTeamsTargetOutput
+}
+
+type GetNotificationsIntegrationMsTeamsTargetArgs struct {
+	// (String) MS Teams Webhook URL for the particular team channel
+	WebhookUrl pulumi.StringInput `pulumi:"webhookUrl"`
+}
+
+func (GetNotificationsIntegrationMsTeamsTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationMsTeamsTargetArgs) ToGetNotificationsIntegrationMsTeamsTargetOutput() GetNotificationsIntegrationMsTeamsTargetOutput {
+	return i.ToGetNotificationsIntegrationMsTeamsTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationMsTeamsTargetArgs) ToGetNotificationsIntegrationMsTeamsTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationMsTeamsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationMsTeamsTargetOutput)
+}
+
+// GetNotificationsIntegrationMsTeamsTargetArrayInput is an input type that accepts GetNotificationsIntegrationMsTeamsTargetArray and GetNotificationsIntegrationMsTeamsTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationMsTeamsTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationMsTeamsTargetArray{ GetNotificationsIntegrationMsTeamsTargetArgs{...} }
+type GetNotificationsIntegrationMsTeamsTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationMsTeamsTargetArrayOutput() GetNotificationsIntegrationMsTeamsTargetArrayOutput
+	ToGetNotificationsIntegrationMsTeamsTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationMsTeamsTargetArrayOutput
+}
+
+type GetNotificationsIntegrationMsTeamsTargetArray []GetNotificationsIntegrationMsTeamsTargetInput
+
+func (GetNotificationsIntegrationMsTeamsTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationMsTeamsTargetArray) ToGetNotificationsIntegrationMsTeamsTargetArrayOutput() GetNotificationsIntegrationMsTeamsTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationMsTeamsTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationMsTeamsTargetArray) ToGetNotificationsIntegrationMsTeamsTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationMsTeamsTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationMsTeamsTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationMsTeamsTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationMsTeamsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationMsTeamsTargetOutput) ToGetNotificationsIntegrationMsTeamsTargetOutput() GetNotificationsIntegrationMsTeamsTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationMsTeamsTargetOutput) ToGetNotificationsIntegrationMsTeamsTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationMsTeamsTargetOutput {
+	return o
+}
+
+// (String) MS Teams Webhook URL for the particular team channel
+func (o GetNotificationsIntegrationMsTeamsTargetOutput) WebhookUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationMsTeamsTarget) string { return v.WebhookUrl }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationMsTeamsTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationMsTeamsTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationMsTeamsTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationMsTeamsTargetArrayOutput) ToGetNotificationsIntegrationMsTeamsTargetArrayOutput() GetNotificationsIntegrationMsTeamsTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationMsTeamsTargetArrayOutput) ToGetNotificationsIntegrationMsTeamsTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationMsTeamsTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationMsTeamsTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationMsTeamsTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationMsTeamsTarget {
+		return vs[0].([]GetNotificationsIntegrationMsTeamsTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationMsTeamsTargetOutput)
+}
+
+type GetNotificationsIntegrationRoleEmailTarget struct {
+	// (String) name of the role
+	RoleName string `pulumi:"roleName"`
+}
+
+// GetNotificationsIntegrationRoleEmailTargetInput is an input type that accepts GetNotificationsIntegrationRoleEmailTargetArgs and GetNotificationsIntegrationRoleEmailTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationRoleEmailTargetInput` via:
+//
+//	GetNotificationsIntegrationRoleEmailTargetArgs{...}
+type GetNotificationsIntegrationRoleEmailTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationRoleEmailTargetOutput() GetNotificationsIntegrationRoleEmailTargetOutput
+	ToGetNotificationsIntegrationRoleEmailTargetOutputWithContext(context.Context) GetNotificationsIntegrationRoleEmailTargetOutput
+}
+
+type GetNotificationsIntegrationRoleEmailTargetArgs struct {
+	// (String) name of the role
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (GetNotificationsIntegrationRoleEmailTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationRoleEmailTargetArgs) ToGetNotificationsIntegrationRoleEmailTargetOutput() GetNotificationsIntegrationRoleEmailTargetOutput {
+	return i.ToGetNotificationsIntegrationRoleEmailTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationRoleEmailTargetArgs) ToGetNotificationsIntegrationRoleEmailTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationRoleEmailTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationRoleEmailTargetOutput)
+}
+
+// GetNotificationsIntegrationRoleEmailTargetArrayInput is an input type that accepts GetNotificationsIntegrationRoleEmailTargetArray and GetNotificationsIntegrationRoleEmailTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationRoleEmailTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationRoleEmailTargetArray{ GetNotificationsIntegrationRoleEmailTargetArgs{...} }
+type GetNotificationsIntegrationRoleEmailTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationRoleEmailTargetArrayOutput() GetNotificationsIntegrationRoleEmailTargetArrayOutput
+	ToGetNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationRoleEmailTargetArrayOutput
+}
+
+type GetNotificationsIntegrationRoleEmailTargetArray []GetNotificationsIntegrationRoleEmailTargetInput
+
+func (GetNotificationsIntegrationRoleEmailTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationRoleEmailTargetArray) ToGetNotificationsIntegrationRoleEmailTargetArrayOutput() GetNotificationsIntegrationRoleEmailTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationRoleEmailTargetArray) ToGetNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationRoleEmailTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationRoleEmailTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationRoleEmailTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationRoleEmailTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationRoleEmailTargetOutput) ToGetNotificationsIntegrationRoleEmailTargetOutput() GetNotificationsIntegrationRoleEmailTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationRoleEmailTargetOutput) ToGetNotificationsIntegrationRoleEmailTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationRoleEmailTargetOutput {
+	return o
+}
+
+// (String) name of the role
+func (o GetNotificationsIntegrationRoleEmailTargetOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationRoleEmailTarget) string { return v.RoleName }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationRoleEmailTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationRoleEmailTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationRoleEmailTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationRoleEmailTargetArrayOutput) ToGetNotificationsIntegrationRoleEmailTargetArrayOutput() GetNotificationsIntegrationRoleEmailTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationRoleEmailTargetArrayOutput) ToGetNotificationsIntegrationRoleEmailTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationRoleEmailTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationRoleEmailTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationRoleEmailTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationRoleEmailTarget {
+		return vs[0].([]GetNotificationsIntegrationRoleEmailTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationRoleEmailTargetOutput)
+}
+
+type GetNotificationsIntegrationSlackTarget struct {
+	// (String) MS Teams Webhook URL for the particular team channel
+	WebhookUrl string `pulumi:"webhookUrl"`
+}
+
+// GetNotificationsIntegrationSlackTargetInput is an input type that accepts GetNotificationsIntegrationSlackTargetArgs and GetNotificationsIntegrationSlackTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationSlackTargetInput` via:
+//
+//	GetNotificationsIntegrationSlackTargetArgs{...}
+type GetNotificationsIntegrationSlackTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationSlackTargetOutput() GetNotificationsIntegrationSlackTargetOutput
+	ToGetNotificationsIntegrationSlackTargetOutputWithContext(context.Context) GetNotificationsIntegrationSlackTargetOutput
+}
+
+type GetNotificationsIntegrationSlackTargetArgs struct {
+	// (String) MS Teams Webhook URL for the particular team channel
+	WebhookUrl pulumi.StringInput `pulumi:"webhookUrl"`
+}
+
+func (GetNotificationsIntegrationSlackTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationSlackTargetArgs) ToGetNotificationsIntegrationSlackTargetOutput() GetNotificationsIntegrationSlackTargetOutput {
+	return i.ToGetNotificationsIntegrationSlackTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationSlackTargetArgs) ToGetNotificationsIntegrationSlackTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationSlackTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationSlackTargetOutput)
+}
+
+// GetNotificationsIntegrationSlackTargetArrayInput is an input type that accepts GetNotificationsIntegrationSlackTargetArray and GetNotificationsIntegrationSlackTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationSlackTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationSlackTargetArray{ GetNotificationsIntegrationSlackTargetArgs{...} }
+type GetNotificationsIntegrationSlackTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationSlackTargetArrayOutput() GetNotificationsIntegrationSlackTargetArrayOutput
+	ToGetNotificationsIntegrationSlackTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationSlackTargetArrayOutput
+}
+
+type GetNotificationsIntegrationSlackTargetArray []GetNotificationsIntegrationSlackTargetInput
+
+func (GetNotificationsIntegrationSlackTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationSlackTargetArray) ToGetNotificationsIntegrationSlackTargetArrayOutput() GetNotificationsIntegrationSlackTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationSlackTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationSlackTargetArray) ToGetNotificationsIntegrationSlackTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationSlackTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationSlackTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationSlackTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationSlackTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationSlackTargetOutput) ToGetNotificationsIntegrationSlackTargetOutput() GetNotificationsIntegrationSlackTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationSlackTargetOutput) ToGetNotificationsIntegrationSlackTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationSlackTargetOutput {
+	return o
+}
+
+// (String) MS Teams Webhook URL for the particular team channel
+func (o GetNotificationsIntegrationSlackTargetOutput) WebhookUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationSlackTarget) string { return v.WebhookUrl }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationSlackTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationSlackTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationSlackTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationSlackTargetArrayOutput) ToGetNotificationsIntegrationSlackTargetArrayOutput() GetNotificationsIntegrationSlackTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationSlackTargetArrayOutput) ToGetNotificationsIntegrationSlackTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationSlackTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationSlackTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationSlackTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationSlackTarget {
+		return vs[0].([]GetNotificationsIntegrationSlackTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationSlackTargetOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTarget struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users []GetNotificationsIntegrationUserEmailTargetUser `pulumi:"users"`
+}
+
+// GetNotificationsIntegrationUserEmailTargetInput is an input type that accepts GetNotificationsIntegrationUserEmailTargetArgs and GetNotificationsIntegrationUserEmailTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationUserEmailTargetInput` via:
+//
+//	GetNotificationsIntegrationUserEmailTargetArgs{...}
+type GetNotificationsIntegrationUserEmailTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationUserEmailTargetOutput() GetNotificationsIntegrationUserEmailTargetOutput
+	ToGetNotificationsIntegrationUserEmailTargetOutputWithContext(context.Context) GetNotificationsIntegrationUserEmailTargetOutput
+}
+
+type GetNotificationsIntegrationUserEmailTargetArgs struct {
+	// (String) Reference to the user the in-app target belongs to.
+	Users GetNotificationsIntegrationUserEmailTargetUserArrayInput `pulumi:"users"`
+}
+
+func (GetNotificationsIntegrationUserEmailTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetArgs) ToGetNotificationsIntegrationUserEmailTargetOutput() GetNotificationsIntegrationUserEmailTargetOutput {
+	return i.ToGetNotificationsIntegrationUserEmailTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetArgs) ToGetNotificationsIntegrationUserEmailTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationUserEmailTargetOutput)
+}
+
+// GetNotificationsIntegrationUserEmailTargetArrayInput is an input type that accepts GetNotificationsIntegrationUserEmailTargetArray and GetNotificationsIntegrationUserEmailTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationUserEmailTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationUserEmailTargetArray{ GetNotificationsIntegrationUserEmailTargetArgs{...} }
+type GetNotificationsIntegrationUserEmailTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationUserEmailTargetArrayOutput() GetNotificationsIntegrationUserEmailTargetArrayOutput
+	ToGetNotificationsIntegrationUserEmailTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationUserEmailTargetArrayOutput
+}
+
+type GetNotificationsIntegrationUserEmailTargetArray []GetNotificationsIntegrationUserEmailTargetInput
+
+func (GetNotificationsIntegrationUserEmailTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetArray) ToGetNotificationsIntegrationUserEmailTargetArrayOutput() GetNotificationsIntegrationUserEmailTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationUserEmailTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetArray) ToGetNotificationsIntegrationUserEmailTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationUserEmailTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationUserEmailTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetOutput) ToGetNotificationsIntegrationUserEmailTargetOutput() GetNotificationsIntegrationUserEmailTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetOutput) ToGetNotificationsIntegrationUserEmailTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetOutput {
+	return o
+}
+
+// (String) Reference to the user the in-app target belongs to.
+func (o GetNotificationsIntegrationUserEmailTargetOutput) Users() GetNotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationUserEmailTarget) []GetNotificationsIntegrationUserEmailTargetUser {
+		return v.Users
+	}).(GetNotificationsIntegrationUserEmailTargetUserArrayOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationUserEmailTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationUserEmailTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetArrayOutput) ToGetNotificationsIntegrationUserEmailTargetArrayOutput() GetNotificationsIntegrationUserEmailTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetArrayOutput) ToGetNotificationsIntegrationUserEmailTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationUserEmailTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationUserEmailTarget {
+		return vs[0].([]GetNotificationsIntegrationUserEmailTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationUserEmailTargetOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTargetUser struct {
+	// The ID of the Integration, for example, `int-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetNotificationsIntegrationUserEmailTargetUserInput is an input type that accepts GetNotificationsIntegrationUserEmailTargetUserArgs and GetNotificationsIntegrationUserEmailTargetUserOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationUserEmailTargetUserInput` via:
+//
+//	GetNotificationsIntegrationUserEmailTargetUserArgs{...}
+type GetNotificationsIntegrationUserEmailTargetUserInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationUserEmailTargetUserOutput() GetNotificationsIntegrationUserEmailTargetUserOutput
+	ToGetNotificationsIntegrationUserEmailTargetUserOutputWithContext(context.Context) GetNotificationsIntegrationUserEmailTargetUserOutput
+}
+
+type GetNotificationsIntegrationUserEmailTargetUserArgs struct {
+	// The ID of the Integration, for example, `int-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNotificationsIntegrationUserEmailTargetUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetUserArgs) ToGetNotificationsIntegrationUserEmailTargetUserOutput() GetNotificationsIntegrationUserEmailTargetUserOutput {
+	return i.ToGetNotificationsIntegrationUserEmailTargetUserOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetUserArgs) ToGetNotificationsIntegrationUserEmailTargetUserOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationUserEmailTargetUserOutput)
+}
+
+// GetNotificationsIntegrationUserEmailTargetUserArrayInput is an input type that accepts GetNotificationsIntegrationUserEmailTargetUserArray and GetNotificationsIntegrationUserEmailTargetUserArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationUserEmailTargetUserArrayInput` via:
+//
+//	GetNotificationsIntegrationUserEmailTargetUserArray{ GetNotificationsIntegrationUserEmailTargetUserArgs{...} }
+type GetNotificationsIntegrationUserEmailTargetUserArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationUserEmailTargetUserArrayOutput() GetNotificationsIntegrationUserEmailTargetUserArrayOutput
+	ToGetNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(context.Context) GetNotificationsIntegrationUserEmailTargetUserArrayOutput
+}
+
+type GetNotificationsIntegrationUserEmailTargetUserArray []GetNotificationsIntegrationUserEmailTargetUserInput
+
+func (GetNotificationsIntegrationUserEmailTargetUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetUserArray) ToGetNotificationsIntegrationUserEmailTargetUserArrayOutput() GetNotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return i.ToGetNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationUserEmailTargetUserArray) ToGetNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationUserEmailTargetUserArrayOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTargetUserOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationUserEmailTargetUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetUserOutput) ToGetNotificationsIntegrationUserEmailTargetUserOutput() GetNotificationsIntegrationUserEmailTargetUserOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetUserOutput) ToGetNotificationsIntegrationUserEmailTargetUserOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetUserOutput {
+	return o
+}
+
+// The ID of the Integration, for example, `int-abc123`.
+func (o GetNotificationsIntegrationUserEmailTargetUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationUserEmailTargetUser) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationUserEmailTargetUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationUserEmailTargetUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationUserEmailTargetUser)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetUserArrayOutput) ToGetNotificationsIntegrationUserEmailTargetUserArrayOutput() GetNotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetUserArrayOutput) ToGetNotificationsIntegrationUserEmailTargetUserArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationUserEmailTargetUserArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationUserEmailTargetUserArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationUserEmailTargetUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationUserEmailTargetUser {
+		return vs[0].([]GetNotificationsIntegrationUserEmailTargetUser)[vs[1].(int)]
+	}).(GetNotificationsIntegrationUserEmailTargetUserOutput)
+}
+
+type GetNotificationsIntegrationWebhookTarget struct {
+	// (String) URL endpoint for the webhook
+	Url string `pulumi:"url"`
+}
+
+// GetNotificationsIntegrationWebhookTargetInput is an input type that accepts GetNotificationsIntegrationWebhookTargetArgs and GetNotificationsIntegrationWebhookTargetOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationWebhookTargetInput` via:
+//
+//	GetNotificationsIntegrationWebhookTargetArgs{...}
+type GetNotificationsIntegrationWebhookTargetInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationWebhookTargetOutput() GetNotificationsIntegrationWebhookTargetOutput
+	ToGetNotificationsIntegrationWebhookTargetOutputWithContext(context.Context) GetNotificationsIntegrationWebhookTargetOutput
+}
+
+type GetNotificationsIntegrationWebhookTargetArgs struct {
+	// (String) URL endpoint for the webhook
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetNotificationsIntegrationWebhookTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationWebhookTargetArgs) ToGetNotificationsIntegrationWebhookTargetOutput() GetNotificationsIntegrationWebhookTargetOutput {
+	return i.ToGetNotificationsIntegrationWebhookTargetOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationWebhookTargetArgs) ToGetNotificationsIntegrationWebhookTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationWebhookTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationWebhookTargetOutput)
+}
+
+// GetNotificationsIntegrationWebhookTargetArrayInput is an input type that accepts GetNotificationsIntegrationWebhookTargetArray and GetNotificationsIntegrationWebhookTargetArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsIntegrationWebhookTargetArrayInput` via:
+//
+//	GetNotificationsIntegrationWebhookTargetArray{ GetNotificationsIntegrationWebhookTargetArgs{...} }
+type GetNotificationsIntegrationWebhookTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsIntegrationWebhookTargetArrayOutput() GetNotificationsIntegrationWebhookTargetArrayOutput
+	ToGetNotificationsIntegrationWebhookTargetArrayOutputWithContext(context.Context) GetNotificationsIntegrationWebhookTargetArrayOutput
+}
+
+type GetNotificationsIntegrationWebhookTargetArray []GetNotificationsIntegrationWebhookTargetInput
+
+func (GetNotificationsIntegrationWebhookTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (i GetNotificationsIntegrationWebhookTargetArray) ToGetNotificationsIntegrationWebhookTargetArrayOutput() GetNotificationsIntegrationWebhookTargetArrayOutput {
+	return i.ToGetNotificationsIntegrationWebhookTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsIntegrationWebhookTargetArray) ToGetNotificationsIntegrationWebhookTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationWebhookTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsIntegrationWebhookTargetArrayOutput)
+}
+
+type GetNotificationsIntegrationWebhookTargetOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationWebhookTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationWebhookTargetOutput) ToGetNotificationsIntegrationWebhookTargetOutput() GetNotificationsIntegrationWebhookTargetOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationWebhookTargetOutput) ToGetNotificationsIntegrationWebhookTargetOutputWithContext(ctx context.Context) GetNotificationsIntegrationWebhookTargetOutput {
+	return o
+}
+
+// (String) URL endpoint for the webhook
+func (o GetNotificationsIntegrationWebhookTargetOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsIntegrationWebhookTarget) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetNotificationsIntegrationWebhookTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsIntegrationWebhookTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsIntegrationWebhookTarget)(nil)).Elem()
+}
+
+func (o GetNotificationsIntegrationWebhookTargetArrayOutput) ToGetNotificationsIntegrationWebhookTargetArrayOutput() GetNotificationsIntegrationWebhookTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationWebhookTargetArrayOutput) ToGetNotificationsIntegrationWebhookTargetArrayOutputWithContext(ctx context.Context) GetNotificationsIntegrationWebhookTargetArrayOutput {
+	return o
+}
+
+func (o GetNotificationsIntegrationWebhookTargetArrayOutput) Index(i pulumi.IntInput) GetNotificationsIntegrationWebhookTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsIntegrationWebhookTarget {
+		return vs[0].([]GetNotificationsIntegrationWebhookTarget)[vs[1].(int)]
+	}).(GetNotificationsIntegrationWebhookTargetOutput)
+}
+
 type GetPeeringAw struct {
 	// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -50991,6 +53162,121 @@ func (o GetTableflowTopicErrorHandlingArrayOutput) Index(i pulumi.IntInput) GetT
 	}).(GetTableflowTopicErrorHandlingOutput)
 }
 
+type GetTableflowTopicGoogleCloudStorage struct {
+	// (Required String) The bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion string `pulumi:"bucketRegion"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// GetTableflowTopicGoogleCloudStorageInput is an input type that accepts GetTableflowTopicGoogleCloudStorageArgs and GetTableflowTopicGoogleCloudStorageOutput values.
+// You can construct a concrete instance of `GetTableflowTopicGoogleCloudStorageInput` via:
+//
+//	GetTableflowTopicGoogleCloudStorageArgs{...}
+type GetTableflowTopicGoogleCloudStorageInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicGoogleCloudStorageOutput() GetTableflowTopicGoogleCloudStorageOutput
+	ToGetTableflowTopicGoogleCloudStorageOutputWithContext(context.Context) GetTableflowTopicGoogleCloudStorageOutput
+}
+
+type GetTableflowTopicGoogleCloudStorageArgs struct {
+	// (Required String) The bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion pulumi.StringInput `pulumi:"bucketRegion"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (GetTableflowTopicGoogleCloudStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (i GetTableflowTopicGoogleCloudStorageArgs) ToGetTableflowTopicGoogleCloudStorageOutput() GetTableflowTopicGoogleCloudStorageOutput {
+	return i.ToGetTableflowTopicGoogleCloudStorageOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicGoogleCloudStorageArgs) ToGetTableflowTopicGoogleCloudStorageOutputWithContext(ctx context.Context) GetTableflowTopicGoogleCloudStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicGoogleCloudStorageOutput)
+}
+
+// GetTableflowTopicGoogleCloudStorageArrayInput is an input type that accepts GetTableflowTopicGoogleCloudStorageArray and GetTableflowTopicGoogleCloudStorageArrayOutput values.
+// You can construct a concrete instance of `GetTableflowTopicGoogleCloudStorageArrayInput` via:
+//
+//	GetTableflowTopicGoogleCloudStorageArray{ GetTableflowTopicGoogleCloudStorageArgs{...} }
+type GetTableflowTopicGoogleCloudStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicGoogleCloudStorageArrayOutput() GetTableflowTopicGoogleCloudStorageArrayOutput
+	ToGetTableflowTopicGoogleCloudStorageArrayOutputWithContext(context.Context) GetTableflowTopicGoogleCloudStorageArrayOutput
+}
+
+type GetTableflowTopicGoogleCloudStorageArray []GetTableflowTopicGoogleCloudStorageInput
+
+func (GetTableflowTopicGoogleCloudStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (i GetTableflowTopicGoogleCloudStorageArray) ToGetTableflowTopicGoogleCloudStorageArrayOutput() GetTableflowTopicGoogleCloudStorageArrayOutput {
+	return i.ToGetTableflowTopicGoogleCloudStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicGoogleCloudStorageArray) ToGetTableflowTopicGoogleCloudStorageArrayOutputWithContext(ctx context.Context) GetTableflowTopicGoogleCloudStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicGoogleCloudStorageArrayOutput)
+}
+
+type GetTableflowTopicGoogleCloudStorageOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicGoogleCloudStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (o GetTableflowTopicGoogleCloudStorageOutput) ToGetTableflowTopicGoogleCloudStorageOutput() GetTableflowTopicGoogleCloudStorageOutput {
+	return o
+}
+
+func (o GetTableflowTopicGoogleCloudStorageOutput) ToGetTableflowTopicGoogleCloudStorageOutputWithContext(ctx context.Context) GetTableflowTopicGoogleCloudStorageOutput {
+	return o
+}
+
+// (Required String) The bucket name.
+func (o GetTableflowTopicGoogleCloudStorageOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicGoogleCloudStorage) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// (Required String) The bucket region.
+func (o GetTableflowTopicGoogleCloudStorageOutput) BucketRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicGoogleCloudStorage) string { return v.BucketRegion }).(pulumi.StringOutput)
+}
+
+// (Required String) The provider integration id.
+func (o GetTableflowTopicGoogleCloudStorageOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicGoogleCloudStorage) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicGoogleCloudStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicGoogleCloudStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicGoogleCloudStorage)(nil)).Elem()
+}
+
+func (o GetTableflowTopicGoogleCloudStorageArrayOutput) ToGetTableflowTopicGoogleCloudStorageArrayOutput() GetTableflowTopicGoogleCloudStorageArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicGoogleCloudStorageArrayOutput) ToGetTableflowTopicGoogleCloudStorageArrayOutputWithContext(ctx context.Context) GetTableflowTopicGoogleCloudStorageArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicGoogleCloudStorageArrayOutput) Index(i pulumi.IntInput) GetTableflowTopicGoogleCloudStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableflowTopicGoogleCloudStorage {
+		return vs[0].([]GetTableflowTopicGoogleCloudStorage)[vs[1].(int)]
+	}).(GetTableflowTopicGoogleCloudStorageOutput)
+}
+
 type GetTableflowTopicKafkaCluster struct {
 	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
@@ -52043,6 +54329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterPtrInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueInput)(nil)).Elem(), CatalogIntegrationAwsGlueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGluePtrInput)(nil)).Elem(), CatalogIntegrationAwsGlueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationBiglakeMetastoreInput)(nil)).Elem(), CatalogIntegrationBiglakeMetastoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationBiglakeMetastorePtrInput)(nil)).Elem(), CatalogIntegrationBiglakeMetastoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationCredentialsInput)(nil)).Elem(), CatalogIntegrationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationCredentialsPtrInput)(nil)).Elem(), CatalogIntegrationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationEnvironmentInput)(nil)).Elem(), CatalogIntegrationEnvironmentArgs{})
@@ -52247,6 +54535,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceNetworkPtrInput)(nil)).Elem(), NetworkLinkServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoInput)(nil)).Elem(), NetworkZoneInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoArrayInput)(nil)).Elem(), NetworkZoneInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationInAppTargetInput)(nil)).Elem(), NotificationsIntegrationInAppTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationInAppTargetArrayInput)(nil)).Elem(), NotificationsIntegrationInAppTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationInAppTargetUserInput)(nil)).Elem(), NotificationsIntegrationInAppTargetUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationInAppTargetUserArrayInput)(nil)).Elem(), NotificationsIntegrationInAppTargetUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationMsTeamsTargetInput)(nil)).Elem(), NotificationsIntegrationMsTeamsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationMsTeamsTargetPtrInput)(nil)).Elem(), NotificationsIntegrationMsTeamsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationRoleEmailTargetInput)(nil)).Elem(), NotificationsIntegrationRoleEmailTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationRoleEmailTargetArrayInput)(nil)).Elem(), NotificationsIntegrationRoleEmailTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationSlackTargetInput)(nil)).Elem(), NotificationsIntegrationSlackTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationSlackTargetPtrInput)(nil)).Elem(), NotificationsIntegrationSlackTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationUserEmailTargetInput)(nil)).Elem(), NotificationsIntegrationUserEmailTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationUserEmailTargetArrayInput)(nil)).Elem(), NotificationsIntegrationUserEmailTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationUserEmailTargetUserInput)(nil)).Elem(), NotificationsIntegrationUserEmailTargetUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationUserEmailTargetUserArrayInput)(nil)).Elem(), NotificationsIntegrationUserEmailTargetUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationWebhookTargetInput)(nil)).Elem(), NotificationsIntegrationWebhookTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationWebhookTargetPtrInput)(nil)).Elem(), NotificationsIntegrationWebhookTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsPtrInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAzureInput)(nil)).Elem(), PeeringAzureArgs{})
@@ -52365,6 +54669,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicEnvironmentPtrInput)(nil)).Elem(), TableflowTopicEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicErrorHandlingInput)(nil)).Elem(), TableflowTopicErrorHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicErrorHandlingPtrInput)(nil)).Elem(), TableflowTopicErrorHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicGoogleCloudStorageInput)(nil)).Elem(), TableflowTopicGoogleCloudStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicGoogleCloudStoragePtrInput)(nil)).Elem(), TableflowTopicGoogleCloudStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterPtrInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicManagedStorageInput)(nil)).Elem(), TableflowTopicManagedStorageArgs{})
@@ -52418,6 +54724,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationAwsGlueInput)(nil)).Elem(), GetCatalogIntegrationAwsGlueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationAwsGlueArrayInput)(nil)).Elem(), GetCatalogIntegrationAwsGlueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationBiglakeMetastoreInput)(nil)).Elem(), GetCatalogIntegrationBiglakeMetastoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationBiglakeMetastoreArrayInput)(nil)).Elem(), GetCatalogIntegrationBiglakeMetastoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationCredentialsInput)(nil)).Elem(), GetCatalogIntegrationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationCredentialsPtrInput)(nil)).Elem(), GetCatalogIntegrationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationEnvironmentInput)(nil)).Elem(), GetCatalogIntegrationEnvironmentArgs{})
@@ -52625,6 +54933,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceNetworkArrayInput)(nil)).Elem(), GetNetworkLinkServiceNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoInput)(nil)).Elem(), GetNetworkZoneInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoArrayInput)(nil)).Elem(), GetNetworkZoneInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationInAppTargetInput)(nil)).Elem(), GetNotificationsIntegrationInAppTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationInAppTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationInAppTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationInAppTargetUserInput)(nil)).Elem(), GetNotificationsIntegrationInAppTargetUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationInAppTargetUserArrayInput)(nil)).Elem(), GetNotificationsIntegrationInAppTargetUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationMsTeamsTargetInput)(nil)).Elem(), GetNotificationsIntegrationMsTeamsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationMsTeamsTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationMsTeamsTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationRoleEmailTargetInput)(nil)).Elem(), GetNotificationsIntegrationRoleEmailTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationRoleEmailTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationRoleEmailTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationSlackTargetInput)(nil)).Elem(), GetNotificationsIntegrationSlackTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationSlackTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationSlackTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetInput)(nil)).Elem(), GetNotificationsIntegrationUserEmailTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationUserEmailTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetUserInput)(nil)).Elem(), GetNotificationsIntegrationUserEmailTargetUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetUserArrayInput)(nil)).Elem(), GetNotificationsIntegrationUserEmailTargetUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationWebhookTargetInput)(nil)).Elem(), GetNotificationsIntegrationWebhookTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationWebhookTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationWebhookTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwInput)(nil)).Elem(), GetPeeringAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwArrayInput)(nil)).Elem(), GetPeeringAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAzureInput)(nil)).Elem(), GetPeeringAzureArgs{})
@@ -52738,6 +55062,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicEnvironmentInput)(nil)).Elem(), GetTableflowTopicEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicErrorHandlingInput)(nil)).Elem(), GetTableflowTopicErrorHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicErrorHandlingArrayInput)(nil)).Elem(), GetTableflowTopicErrorHandlingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicGoogleCloudStorageInput)(nil)).Elem(), GetTableflowTopicGoogleCloudStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicGoogleCloudStorageArrayInput)(nil)).Elem(), GetTableflowTopicGoogleCloudStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicKafkaClusterInput)(nil)).Elem(), GetTableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageInput)(nil)).Elem(), GetTableflowTopicManagedStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageArrayInput)(nil)).Elem(), GetTableflowTopicManagedStorageArray{})
@@ -52800,6 +55126,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationAwsGluePtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationBiglakeMetastoreOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationBiglakeMetastorePtrOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationCredentialsOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationEnvironmentOutput{})
@@ -53004,6 +55332,22 @@ func init() {
 	pulumi.RegisterOutputType(NetworkLinkServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(NetworkZoneInfoOutput{})
 	pulumi.RegisterOutputType(NetworkZoneInfoArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationInAppTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationInAppTargetArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationInAppTargetUserOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationInAppTargetUserArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationMsTeamsTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationMsTeamsTargetPtrOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationRoleEmailTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationRoleEmailTargetArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationSlackTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationSlackTargetPtrOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationUserEmailTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationUserEmailTargetArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationUserEmailTargetUserOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationUserEmailTargetUserArrayOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationWebhookTargetOutput{})
+	pulumi.RegisterOutputType(NotificationsIntegrationWebhookTargetPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAwsOutput{})
 	pulumi.RegisterOutputType(PeeringAwsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAzureOutput{})
@@ -53122,6 +55466,8 @@ func init() {
 	pulumi.RegisterOutputType(TableflowTopicEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicErrorHandlingOutput{})
 	pulumi.RegisterOutputType(TableflowTopicErrorHandlingPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicGoogleCloudStorageOutput{})
+	pulumi.RegisterOutputType(TableflowTopicGoogleCloudStoragePtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(TableflowTopicKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicManagedStorageOutput{})
@@ -53175,6 +55521,8 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationAwsGlueOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationAwsGlueArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationBiglakeMetastoreOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationBiglakeMetastoreArrayOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationCredentialsOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationEnvironmentOutput{})
@@ -53382,6 +55730,22 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkLinkServiceNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkZoneInfoOutput{})
 	pulumi.RegisterOutputType(GetNetworkZoneInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationInAppTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationInAppTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationInAppTargetUserOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationInAppTargetUserArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationMsTeamsTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationMsTeamsTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationRoleEmailTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationRoleEmailTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationSlackTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationSlackTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationUserEmailTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationUserEmailTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationUserEmailTargetUserOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationUserEmailTargetUserArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationWebhookTargetOutput{})
+	pulumi.RegisterOutputType(GetNotificationsIntegrationWebhookTargetArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAzureOutput{})
@@ -53495,6 +55859,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTableflowTopicEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicErrorHandlingOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicErrorHandlingArrayOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicGoogleCloudStorageOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicGoogleCloudStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageArrayOutput{})

@@ -61,6 +61,39 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * ### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const example = new confluentcloud.TableflowTopic("example", {
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     kafkaCluster: {
+ *         id: stagingConfluentKafkaCluster.id,
+ *     },
+ *     displayName: orders.topicName,
+ *     googleCloudStorage: {
+ *         bucketName: "bucket_1",
+ *         providerIntegrationId: main.id,
+ *     },
+ *     credentials: {
+ *         key: env_admin_tableflow_api_key.id,
+ *         secret: env_admin_tableflow_api_key.secret,
+ *     },
+ * });
+ * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
+ * * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
+ * * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
+ * * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
+ * * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
+ *
  * ## Import
  *
  * You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -142,6 +175,10 @@ export class TableflowTopic extends pulumi.CustomResource {
      */
     declare public readonly environment: pulumi.Output<outputs.TableflowTopicEnvironment>;
     declare public readonly errorHandling: pulumi.Output<outputs.TableflowTopicErrorHandling>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly googleCloudStorage: pulumi.Output<outputs.TableflowTopicGoogleCloudStorage | undefined>;
     declare public readonly kafkaCluster: pulumi.Output<outputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -200,6 +237,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["enablePartitioning"] = state?.enablePartitioning;
             resourceInputs["environment"] = state?.environment;
             resourceInputs["errorHandling"] = state?.errorHandling;
+            resourceInputs["googleCloudStorage"] = state?.googleCloudStorage;
             resourceInputs["kafkaCluster"] = state?.kafkaCluster;
             resourceInputs["managedStorages"] = state?.managedStorages;
             resourceInputs["metadataColumnNamingScheme"] = state?.metadataColumnNamingScheme;
@@ -227,6 +265,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["errorHandling"] = args?.errorHandling;
+            resourceInputs["googleCloudStorage"] = args?.googleCloudStorage;
             resourceInputs["kafkaCluster"] = args?.kafkaCluster;
             resourceInputs["managedStorages"] = args?.managedStorages;
             resourceInputs["metadataColumnNamingScheme"] = args?.metadataColumnNamingScheme;
@@ -283,6 +322,10 @@ export interface TableflowTopicState {
      */
     environment?: pulumi.Input<inputs.TableflowTopicEnvironment | undefined>;
     errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling | undefined>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    googleCloudStorage?: pulumi.Input<inputs.TableflowTopicGoogleCloudStorage | undefined>;
     kafkaCluster?: pulumi.Input<inputs.TableflowTopicKafkaCluster | undefined>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -349,6 +392,10 @@ export interface TableflowTopicArgs {
      */
     environment: pulumi.Input<inputs.TableflowTopicEnvironment>;
     errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling | undefined>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    googleCloudStorage?: pulumi.Input<inputs.TableflowTopicGoogleCloudStorage | undefined>;
     kafkaCluster: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.

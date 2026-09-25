@@ -98,6 +98,54 @@ import (
 //	}
 //
 // ```
+// ### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewTableflowTopic(ctx, "example", &confluentcloud.TableflowTopicArgs{
+//				Environment: &confluentcloud.TableflowTopicEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.TableflowTopicKafkaClusterArgs{
+//					Id: pulumi.Any(stagingConfluentKafkaCluster.Id),
+//				},
+//				DisplayName: pulumi.Any(orders.TopicName),
+//				GoogleCloudStorage: &confluentcloud.TableflowTopicGoogleCloudStorageArgs{
+//					BucketName:            pulumi.String("bucket_1"),
+//					ProviderIntegrationId: pulumi.Any(main.Id),
+//				},
+//				Credentials: &confluentcloud.TableflowTopicCredentialsArgs{
+//					Key:    pulumi.Any(env_admin_tableflow_api_key.Id),
+//					Secret: pulumi.Any(env_admin_tableflow_api_key.Secret),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `TableflowTopic` resource:
+// * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
+// * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
+// * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
+// * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
+//
 // ## Import
 //
 // You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -137,7 +185,9 @@ type TableflowTopic struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment   TableflowTopicEnvironmentOutput   `pulumi:"environment"`
 	ErrorHandling TableflowTopicErrorHandlingOutput `pulumi:"errorHandling"`
-	KafkaCluster  TableflowTopicKafkaClusterOutput  `pulumi:"kafkaCluster"`
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorage TableflowTopicGoogleCloudStoragePtrOutput `pulumi:"googleCloudStorage"`
+	KafkaCluster       TableflowTopicKafkaClusterOutput          `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayOutput `pulumi:"managedStorages"`
 	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
@@ -221,7 +271,9 @@ type tableflowTopicState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment   *TableflowTopicEnvironment   `pulumi:"environment"`
 	ErrorHandling *TableflowTopicErrorHandling `pulumi:"errorHandling"`
-	KafkaCluster  *TableflowTopicKafkaCluster  `pulumi:"kafkaCluster"`
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorage *TableflowTopicGoogleCloudStorage `pulumi:"googleCloudStorage"`
+	KafkaCluster       *TableflowTopicKafkaCluster       `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
@@ -260,7 +312,9 @@ type TableflowTopicState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment   TableflowTopicEnvironmentPtrInput
 	ErrorHandling TableflowTopicErrorHandlingPtrInput
-	KafkaCluster  TableflowTopicKafkaClusterPtrInput
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorage TableflowTopicGoogleCloudStoragePtrInput
+	KafkaCluster       TableflowTopicKafkaClusterPtrInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
@@ -299,7 +353,9 @@ type tableflowTopicArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment   TableflowTopicEnvironment    `pulumi:"environment"`
 	ErrorHandling *TableflowTopicErrorHandling `pulumi:"errorHandling"`
-	KafkaCluster  TableflowTopicKafkaCluster   `pulumi:"kafkaCluster"`
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorage *TableflowTopicGoogleCloudStorage `pulumi:"googleCloudStorage"`
+	KafkaCluster       TableflowTopicKafkaCluster        `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
@@ -329,7 +385,9 @@ type TableflowTopicArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment   TableflowTopicEnvironmentInput
 	ErrorHandling TableflowTopicErrorHandlingPtrInput
-	KafkaCluster  TableflowTopicKafkaClusterInput
+	// (Optional Configuration Block) supports the following:
+	GoogleCloudStorage TableflowTopicGoogleCloudStoragePtrInput
+	KafkaCluster       TableflowTopicKafkaClusterInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The naming scheme for the Tableflow-enabled topic's internal metadata columns in the materialized table. Accepted values are `DEFAULT`, `PORTABLE`. For `DEFAULT`, the metadata columns keep their `$$`-prefixed names. For `PORTABLE`, the metadata columns use `cflt_metadata_`-prefixed names that are queryable by engines such as Google BigQuery. If not set, new Google Cloud topics default to `PORTABLE` and topics on other clouds default to `DEFAULT`.
@@ -475,6 +533,11 @@ func (o TableflowTopicOutput) Environment() TableflowTopicEnvironmentOutput {
 
 func (o TableflowTopicOutput) ErrorHandling() TableflowTopicErrorHandlingOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicErrorHandlingOutput { return v.ErrorHandling }).(TableflowTopicErrorHandlingOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o TableflowTopicOutput) GoogleCloudStorage() TableflowTopicGoogleCloudStoragePtrOutput {
+	return o.ApplyT(func(v *TableflowTopic) TableflowTopicGoogleCloudStoragePtrOutput { return v.GoogleCloudStorage }).(TableflowTopicGoogleCloudStoragePtrOutput)
 }
 
 func (o TableflowTopicOutput) KafkaCluster() TableflowTopicKafkaClusterOutput {

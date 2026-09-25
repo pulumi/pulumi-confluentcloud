@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.outputs.GetTableflowTopicByobAw;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicEnvironment;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicErrorHandling;
+import com.pulumi.confluentcloud.outputs.GetTableflowTopicGoogleCloudStorage;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicKafkaCluster;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicManagedStorage;
 import com.pulumi.core.annotations.CustomType;
@@ -54,6 +55,11 @@ public final class GetTableflowTopicResult {
      * 
      */
     private List<GetTableflowTopicErrorHandling> errorHandlings;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetTableflowTopicGoogleCloudStorage> googleCloudStorages;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -154,6 +160,13 @@ public final class GetTableflowTopicResult {
         return this.errorHandlings;
     }
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetTableflowTopicGoogleCloudStorage> googleCloudStorages() {
+        return this.googleCloudStorages;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -238,6 +251,7 @@ public final class GetTableflowTopicResult {
         private Boolean enablePartitioning;
         private GetTableflowTopicEnvironment environment;
         private List<GetTableflowTopicErrorHandling> errorHandlings;
+        private List<GetTableflowTopicGoogleCloudStorage> googleCloudStorages;
         private String id;
         private GetTableflowTopicKafkaCluster kafkaCluster;
         private List<GetTableflowTopicManagedStorage> managedStorages;
@@ -260,6 +274,7 @@ public final class GetTableflowTopicResult {
     	      this.enablePartitioning = defaults.enablePartitioning;
     	      this.environment = defaults.environment;
     	      this.errorHandlings = defaults.errorHandlings;
+    	      this.googleCloudStorages = defaults.googleCloudStorages;
     	      this.id = defaults.id;
     	      this.kafkaCluster = defaults.kafkaCluster;
     	      this.managedStorages = defaults.managedStorages;
@@ -350,6 +365,17 @@ public final class GetTableflowTopicResult {
         }
         public Builder errorHandlings(GetTableflowTopicErrorHandling... errorHandlings) {
             return errorHandlings(List.of(errorHandlings));
+        }
+        @CustomType.Setter
+        public Builder googleCloudStorages(List<GetTableflowTopicGoogleCloudStorage> googleCloudStorages) {
+            if (googleCloudStorages == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "googleCloudStorages");
+            }
+            this.googleCloudStorages = googleCloudStorages;
+            return this;
+        }
+        public Builder googleCloudStorages(GetTableflowTopicGoogleCloudStorage... googleCloudStorages) {
+            return googleCloudStorages(List.of(googleCloudStorages));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -448,6 +474,7 @@ public final class GetTableflowTopicResult {
             _resultValue.enablePartitioning = enablePartitioning;
             _resultValue.environment = environment;
             _resultValue.errorHandlings = errorHandlings;
+            _resultValue.googleCloudStorages = googleCloudStorages;
             _resultValue.id = id;
             _resultValue.kafkaCluster = kafkaCluster;
             _resultValue.managedStorages = managedStorages;

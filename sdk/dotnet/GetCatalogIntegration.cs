@@ -282,6 +282,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogIntegrationAwsGlueResult> AwsGlues;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCatalogIntegrationBiglakeMetastoreResult> BiglakeMetastores;
         public readonly Outputs.GetCatalogIntegrationCredentialsResult? Credentials;
         /// <summary>
         /// (Required String) The name of the catalog integration.
@@ -307,6 +311,8 @@ namespace Pulumi.ConfluentCloud
         private GetCatalogIntegrationResult(
             ImmutableArray<Outputs.GetCatalogIntegrationAwsGlueResult> awsGlues,
 
+            ImmutableArray<Outputs.GetCatalogIntegrationBiglakeMetastoreResult> biglakeMetastores,
+
             Outputs.GetCatalogIntegrationCredentialsResult? credentials,
 
             string displayName,
@@ -324,6 +330,7 @@ namespace Pulumi.ConfluentCloud
             ImmutableArray<Outputs.GetCatalogIntegrationUnityResult> unities)
         {
             AwsGlues = awsGlues;
+            BiglakeMetastores = biglakeMetastores;
             Credentials = credentials;
             DisplayName = displayName;
             Environment = environment;

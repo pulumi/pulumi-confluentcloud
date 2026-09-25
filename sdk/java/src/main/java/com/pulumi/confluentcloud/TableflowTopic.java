@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.TableflowTopicByobAws;
 import com.pulumi.confluentcloud.outputs.TableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.TableflowTopicEnvironment;
 import com.pulumi.confluentcloud.outputs.TableflowTopicErrorHandling;
+import com.pulumi.confluentcloud.outputs.TableflowTopicGoogleCloudStorage;
 import com.pulumi.confluentcloud.outputs.TableflowTopicKafkaCluster;
 import com.pulumi.confluentcloud.outputs.TableflowTopicManagedStorage;
 import com.pulumi.core.Output;
@@ -129,6 +130,65 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * ### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.TableflowTopic;
+ * import com.pulumi.confluentcloud.TableflowTopicArgs;
+ * import com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.TableflowTopicGoogleCloudStorageArgs;
+ * import com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TableflowTopic("example", TableflowTopicArgs.builder()
+ *             .environment(TableflowTopicEnvironmentArgs.builder()
+ *                 .id(staging.id())
+ *                 .build())
+ *             .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()
+ *                 .id(stagingConfluentKafkaCluster.id())
+ *                 .build())
+ *             .displayName(orders.topicName())
+ *             .googleCloudStorage(TableflowTopicGoogleCloudStorageArgs.builder()
+ *                 .bucketName("bucket_1")
+ *                 .providerIntegrationId(main.id())
+ *                 .build())
+ *             .credentials(TableflowTopicCredentialsArgs.builder()
+ *                 .key(env_admin_tableflow_api_key.id())
+ *                 .secret(env_admin_tableflow_api_key.secret())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
+ * * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
+ * * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
+ * * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
+ * * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
+ * 
  * ## Import
  * 
  * You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka Cluster ID&gt;/&lt;Tableflow Topic name&gt;`, for example:
@@ -269,6 +329,20 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
 
     public Output<TableflowTopicErrorHandling> errorHandling() {
         return this.errorHandling;
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="googleCloudStorage", refs={TableflowTopicGoogleCloudStorage.class}, tree="[0]")
+    private Output</* @Nullable */ TableflowTopicGoogleCloudStorage> googleCloudStorage;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<TableflowTopicGoogleCloudStorage>> googleCloudStorage() {
+        return Codegen.optional(this.googleCloudStorage);
     }
     @Export(name="kafkaCluster", refs={TableflowTopicKafkaCluster.class}, tree="[0]")
     private Output<TableflowTopicKafkaCluster> kafkaCluster;

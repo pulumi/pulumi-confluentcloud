@@ -102,8 +102,10 @@ type LookupCatalogIntegrationArgs struct {
 // A collection of values returned by getCatalogIntegration.
 type LookupCatalogIntegrationResult struct {
 	// (Optional Configuration Block) supports the following:
-	AwsGlues    []GetCatalogIntegrationAwsGlue    `pulumi:"awsGlues"`
-	Credentials *GetCatalogIntegrationCredentials `pulumi:"credentials"`
+	AwsGlues []GetCatalogIntegrationAwsGlue `pulumi:"awsGlues"`
+	// (Optional Configuration Block) supports the following:
+	BiglakeMetastores []GetCatalogIntegrationBiglakeMetastore `pulumi:"biglakeMetastores"`
+	Credentials       *GetCatalogIntegrationCredentials       `pulumi:"credentials"`
 	// (Required String) The name of the catalog integration.
 	DisplayName  string                            `pulumi:"displayName"`
 	Environment  GetCatalogIntegrationEnvironment  `pulumi:"environment"`
@@ -153,6 +155,13 @@ func (o LookupCatalogIntegrationResultOutput) ToLookupCatalogIntegrationResultOu
 // (Optional Configuration Block) supports the following:
 func (o LookupCatalogIntegrationResultOutput) AwsGlues() GetCatalogIntegrationAwsGlueArrayOutput {
 	return o.ApplyT(func(v LookupCatalogIntegrationResult) []GetCatalogIntegrationAwsGlue { return v.AwsGlues }).(GetCatalogIntegrationAwsGlueArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupCatalogIntegrationResultOutput) BiglakeMetastores() GetCatalogIntegrationBiglakeMetastoreArrayOutput {
+	return o.ApplyT(func(v LookupCatalogIntegrationResult) []GetCatalogIntegrationBiglakeMetastore {
+		return v.BiglakeMetastores
+	}).(GetCatalogIntegrationBiglakeMetastoreArrayOutput)
 }
 
 func (o LookupCatalogIntegrationResultOutput) Credentials() GetCatalogIntegrationCredentialsPtrOutput {

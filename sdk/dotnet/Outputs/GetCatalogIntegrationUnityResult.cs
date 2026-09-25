@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetCatalogIntegrationUnityResult
     {
         /// <summary>
-        /// (Required String) The name of the catalog within Unity Catalog.
+        /// (Computed String) The name of the catalog within BigLake Metastore.
         /// </summary>
         public readonly string CatalogName;
         /// <summary>

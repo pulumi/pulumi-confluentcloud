@@ -76,6 +76,8 @@ import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServicePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPluginArgs;
@@ -165,6 +167,7 @@ import com.pulumi.confluentcloud.outputs.GetKsqlClusterResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkEndpointResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkServiceResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkResult;
+import com.pulumi.confluentcloud.outputs.GetNotificationsIntegrationResult;
 import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPluginResult;
@@ -11819,6 +11822,221 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetNetworkLinkServiceResult> getNetworkLinkServicePlain(GetNetworkLinkServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", TypeShape.of(GetNetworkLinkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsIntegration` describes an Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()
+     *             .id("int-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsIntegrationResult> getNotificationsIntegration(GetNotificationsIntegrationArgs args) {
+        return getNotificationsIntegration(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsIntegration` describes an Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()
+     *             .id("int-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsIntegrationResult> getNotificationsIntegrationPlain(GetNotificationsIntegrationPlainArgs args) {
+        return getNotificationsIntegrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsIntegration` describes an Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()
+     *             .id("int-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsIntegrationResult> getNotificationsIntegration(GetNotificationsIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration", TypeShape.of(GetNotificationsIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsIntegration` describes an Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()
+     *             .id("int-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsIntegrationResult> getNotificationsIntegration(GetNotificationsIntegrationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration", TypeShape.of(GetNotificationsIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsIntegration` describes an Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()
+     *             .id("int-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsIntegrationResult> getNotificationsIntegrationPlain(GetNotificationsIntegrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration", TypeShape.of(GetNotificationsIntegrationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

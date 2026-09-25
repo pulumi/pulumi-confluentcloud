@@ -88,6 +88,50 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// ### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.TableflowTopic("example", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs
+    ///         {
+    ///             Id = stagingConfluentKafkaCluster.Id,
+    ///         },
+    ///         DisplayName = orders.TopicName,
+    ///         GoogleCloudStorage = new ConfluentCloud.Inputs.TableflowTopicGoogleCloudStorageArgs
+    ///         {
+    ///             BucketName = "bucket_1",
+    ///             ProviderIntegrationId = main.Id,
+    ///         },
+    ///         Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs
+    ///         {
+    ///             Key = env_admin_tableflow_api_key.Id,
+    ///             Secret = env_admin_tableflow_api_key.Secret,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
+    /// * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
+    /// * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
+    /// * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
+    /// * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
+    /// 
     /// ## Import
     /// 
     /// You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka Cluster ID&gt;/&lt;Tableflow Topic name&gt;`, for example:
@@ -161,6 +205,12 @@ namespace Pulumi.ConfluentCloud
 
         [Output("errorHandling")]
         public Output<Outputs.TableflowTopicErrorHandling> ErrorHandling { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("googleCloudStorage")]
+        public Output<Outputs.TableflowTopicGoogleCloudStorage?> GoogleCloudStorage { get; private set; } = null!;
 
         [Output("kafkaCluster")]
         public Output<Outputs.TableflowTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
@@ -312,6 +362,12 @@ namespace Pulumi.ConfluentCloud
         [Input("errorHandling")]
         public Input<Inputs.TableflowTopicErrorHandlingArgs>? ErrorHandling { get; set; }
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("googleCloudStorage")]
+        public Input<Inputs.TableflowTopicGoogleCloudStorageArgs>? GoogleCloudStorage { get; set; }
+
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.TableflowTopicKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
@@ -425,6 +481,12 @@ namespace Pulumi.ConfluentCloud
 
         [Input("errorHandling")]
         public Input<Inputs.TableflowTopicErrorHandlingGetArgs>? ErrorHandling { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("googleCloudStorage")]
+        public Input<Inputs.TableflowTopicGoogleCloudStorageGetArgs>? GoogleCloudStorage { get; set; }
 
         [Input("kafkaCluster")]
         public Input<Inputs.TableflowTopicKafkaClusterGetArgs>? KafkaCluster { get; set; }

@@ -61,6 +61,8 @@ __all__ = [
     'CatalogEntityAttributesSchemaRegistryClusterArgsDict',
     'CatalogIntegrationAwsGlueArgs',
     'CatalogIntegrationAwsGlueArgsDict',
+    'CatalogIntegrationBiglakeMetastoreArgs',
+    'CatalogIntegrationBiglakeMetastoreArgsDict',
     'CatalogIntegrationCredentialsArgs',
     'CatalogIntegrationCredentialsArgsDict',
     'CatalogIntegrationEnvironmentArgs',
@@ -265,6 +267,22 @@ __all__ = [
     'NetworkLinkServiceNetworkArgsDict',
     'NetworkZoneInfoArgs',
     'NetworkZoneInfoArgsDict',
+    'NotificationsIntegrationInAppTargetArgs',
+    'NotificationsIntegrationInAppTargetArgsDict',
+    'NotificationsIntegrationInAppTargetUserArgs',
+    'NotificationsIntegrationInAppTargetUserArgsDict',
+    'NotificationsIntegrationMsTeamsTargetArgs',
+    'NotificationsIntegrationMsTeamsTargetArgsDict',
+    'NotificationsIntegrationRoleEmailTargetArgs',
+    'NotificationsIntegrationRoleEmailTargetArgsDict',
+    'NotificationsIntegrationSlackTargetArgs',
+    'NotificationsIntegrationSlackTargetArgsDict',
+    'NotificationsIntegrationUserEmailTargetArgs',
+    'NotificationsIntegrationUserEmailTargetArgsDict',
+    'NotificationsIntegrationUserEmailTargetUserArgs',
+    'NotificationsIntegrationUserEmailTargetUserArgsDict',
+    'NotificationsIntegrationWebhookTargetArgs',
+    'NotificationsIntegrationWebhookTargetArgsDict',
     'PeeringAwsArgs',
     'PeeringAwsArgsDict',
     'PeeringAzureArgs',
@@ -383,6 +401,8 @@ __all__ = [
     'TableflowTopicEnvironmentArgsDict',
     'TableflowTopicErrorHandlingArgs',
     'TableflowTopicErrorHandlingArgsDict',
+    'TableflowTopicGoogleCloudStorageArgs',
+    'TableflowTopicGoogleCloudStorageArgsDict',
     'TableflowTopicKafkaClusterArgs',
     'TableflowTopicKafkaClusterArgsDict',
     'TableflowTopicManagedStorageArgs',
@@ -2012,6 +2032,92 @@ class CatalogIntegrationAwsGlueArgs:
     @custom_database.setter
     def custom_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_database", value)
+
+
+class CatalogIntegrationBiglakeMetastoreArgsDict(TypedDict):
+    catalog_name: pulumi.Input[_builtins.str]
+    """
+    The name of the catalog within BigLake Metastore.
+    """
+    gcp_project_id: pulumi.Input[_builtins.str]
+    """
+    The GCP project id that hosts the BigLake Metastore catalog.
+    """
+    provider_integration_id: pulumi.Input[_builtins.str]
+    """
+    The provider integration id.
+    """
+    custom_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The custom namespace to use in BigLake Metastore.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationBiglakeMetastoreArgs:
+    def __init__(__self__, *,
+                 catalog_name: pulumi.Input[_builtins.str],
+                 gcp_project_id: pulumi.Input[_builtins.str],
+                 provider_integration_id: pulumi.Input[_builtins.str],
+                 custom_namespace: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] catalog_name: The name of the catalog within BigLake Metastore.
+        :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project id that hosts the BigLake Metastore catalog.
+        :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
+        :param pulumi.Input[_builtins.str] custom_namespace: The custom namespace to use in BigLake Metastore.
+        """
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "gcp_project_id", gcp_project_id)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        if custom_namespace is not None:
+            pulumi.set(__self__, "custom_namespace", custom_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the catalog within BigLake Metastore.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpProjectId")
+    def gcp_project_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GCP project id that hosts the BigLake Metastore catalog.
+        """
+        return pulumi.get(self, "gcp_project_id")
+
+    @gcp_project_id.setter
+    def gcp_project_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gcp_project_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @provider_integration_id.setter
+    def provider_integration_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_integration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customNamespace")
+    def custom_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom namespace to use in BigLake Metastore.
+        """
+        return pulumi.get(self, "custom_namespace")
+
+    @custom_namespace.setter
+    def custom_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_namespace", value)
 
 
 class CatalogIntegrationCredentialsArgsDict(TypedDict):
@@ -6595,6 +6701,235 @@ class NetworkZoneInfoArgs:
         pulumi.set(self, "zone_id", value)
 
 
+class NotificationsIntegrationInAppTargetArgsDict(TypedDict):
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationInAppTargetUserArgsDict']]]]]
+    """
+    (String) Reference to the user the in-app target belongs to.
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationInAppTargetArgs:
+    def __init__(__self__, *,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationInAppTargetUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationsIntegrationInAppTargetUserArgs']]] users: (String) Reference to the user the in-app target belongs to.
+        """
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationInAppTargetUserArgs']]]]:
+        """
+        (String) Reference to the user the in-app target belongs to.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationInAppTargetUserArgs']]]]):
+        pulumi.set(self, "users", value)
+
+
+class NotificationsIntegrationInAppTargetUserArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The ID of the Integration, for example, `int-abc123`.
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationInAppTargetUserArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: (Required String) The ID of the Integration, for example, `int-abc123`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The ID of the Integration, for example, `int-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class NotificationsIntegrationMsTeamsTargetArgsDict(TypedDict):
+    webhook_url: pulumi.Input[_builtins.str]
+    """
+    MS Teams Webhook URL for the particular team channel
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationMsTeamsTargetArgs:
+    def __init__(__self__, *,
+                 webhook_url: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] webhook_url: MS Teams Webhook URL for the particular team channel
+        """
+        pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        MS Teams Webhook URL for the particular team channel
+        """
+        return pulumi.get(self, "webhook_url")
+
+    @webhook_url.setter
+    def webhook_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "webhook_url", value)
+
+
+class NotificationsIntegrationRoleEmailTargetArgsDict(TypedDict):
+    role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (String) name of the role
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationRoleEmailTargetArgs:
+    def __init__(__self__, *,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] role_name: (String) name of the role
+        """
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+
+    @_builtins.property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (String) name of the role
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_name", value)
+
+
+class NotificationsIntegrationSlackTargetArgsDict(TypedDict):
+    webhook_url: pulumi.Input[_builtins.str]
+    """
+    Slack Webhook URL for the particular Slack channel
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationSlackTargetArgs:
+    def __init__(__self__, *,
+                 webhook_url: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] webhook_url: Slack Webhook URL for the particular Slack channel
+        """
+        pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        Slack Webhook URL for the particular Slack channel
+        """
+        return pulumi.get(self, "webhook_url")
+
+    @webhook_url.setter
+    def webhook_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "webhook_url", value)
+
+
+class NotificationsIntegrationUserEmailTargetArgsDict(TypedDict):
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationUserEmailTargetUserArgsDict']]]]]
+    """
+    (String) Reference to the user the in-app target belongs to.
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationUserEmailTargetArgs:
+    def __init__(__self__, *,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationUserEmailTargetUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationsIntegrationUserEmailTargetUserArgs']]] users: (String) Reference to the user the in-app target belongs to.
+        """
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationUserEmailTargetUserArgs']]]]:
+        """
+        (String) Reference to the user the in-app target belongs to.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationsIntegrationUserEmailTargetUserArgs']]]]):
+        pulumi.set(self, "users", value)
+
+
+class NotificationsIntegrationUserEmailTargetUserArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The ID of the Integration, for example, `int-abc123`.
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationUserEmailTargetUserArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: (Required String) The ID of the Integration, for example, `int-abc123`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The ID of the Integration, for example, `int-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class NotificationsIntegrationWebhookTargetArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    URL endpoint for the webhook
+    """
+
+@pulumi.input_type
+class NotificationsIntegrationWebhookTargetArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] url: URL endpoint for the webhook
+        """
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL endpoint for the webhook
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+
 class PeeringAwsArgsDict(TypedDict):
     account: pulumi.Input[_builtins.str]
     """
@@ -9595,6 +9930,73 @@ class TableflowTopicErrorHandlingArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
+
+
+class TableflowTopicGoogleCloudStorageArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The bucket name.
+    """
+    provider_integration_id: pulumi.Input[_builtins.str]
+    """
+    The provider integration id.
+    """
+    bucket_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The bucket region.
+    """
+
+@pulumi.input_type
+class TableflowTopicGoogleCloudStorageArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[_builtins.str],
+                 provider_integration_id: pulumi.Input[_builtins.str],
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_name: The bucket name.
+        :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
+        :param pulumi.Input[_builtins.str] bucket_region: (Required String) The bucket region.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @provider_integration_id.setter
+    def provider_integration_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_integration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The bucket region.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_region", value)
 
 
 class TableflowTopicKafkaClusterArgsDict(TypedDict):

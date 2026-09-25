@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationAwsGlue;
+import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationBiglakeMetastore;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationCredentials;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationEnvironment;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationKafkaCluster;
@@ -25,6 +26,11 @@ public final class GetCatalogIntegrationResult {
      * 
      */
     private List<GetCatalogIntegrationAwsGlue> awsGlues;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetCatalogIntegrationBiglakeMetastore> biglakeMetastores;
     private @Nullable GetCatalogIntegrationCredentials credentials;
     /**
      * @return (Required String) The name of the catalog integration.
@@ -57,6 +63,13 @@ public final class GetCatalogIntegrationResult {
      */
     public List<GetCatalogIntegrationAwsGlue> awsGlues() {
         return this.awsGlues;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetCatalogIntegrationBiglakeMetastore> biglakeMetastores() {
+        return this.biglakeMetastores;
     }
     public Optional<GetCatalogIntegrationCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
@@ -109,6 +122,7 @@ public final class GetCatalogIntegrationResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetCatalogIntegrationAwsGlue> awsGlues;
+        private List<GetCatalogIntegrationBiglakeMetastore> biglakeMetastores;
         private @Nullable GetCatalogIntegrationCredentials credentials;
         private String displayName;
         private GetCatalogIntegrationEnvironment environment;
@@ -121,6 +135,7 @@ public final class GetCatalogIntegrationResult {
         public Builder(GetCatalogIntegrationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsGlues = defaults.awsGlues;
+    	      this.biglakeMetastores = defaults.biglakeMetastores;
     	      this.credentials = defaults.credentials;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
@@ -141,6 +156,17 @@ public final class GetCatalogIntegrationResult {
         }
         public Builder awsGlues(GetCatalogIntegrationAwsGlue... awsGlues) {
             return awsGlues(List.of(awsGlues));
+        }
+        @CustomType.Setter
+        public Builder biglakeMetastores(List<GetCatalogIntegrationBiglakeMetastore> biglakeMetastores) {
+            if (biglakeMetastores == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationResult", "biglakeMetastores");
+            }
+            this.biglakeMetastores = biglakeMetastores;
+            return this;
+        }
+        public Builder biglakeMetastores(GetCatalogIntegrationBiglakeMetastore... biglakeMetastores) {
+            return biglakeMetastores(List.of(biglakeMetastores));
         }
         @CustomType.Setter
         public Builder credentials(@Nullable GetCatalogIntegrationCredentials credentials) {
@@ -213,6 +239,7 @@ public final class GetCatalogIntegrationResult {
         public GetCatalogIntegrationResult build() {
             final var _resultValue = new GetCatalogIntegrationResult();
             _resultValue.awsGlues = awsGlues;
+            _resultValue.biglakeMetastores = biglakeMetastores;
             _resultValue.credentials = credentials;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;

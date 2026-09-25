@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationAwsGlueArgs;
+import com.pulumi.confluentcloud.inputs.CatalogIntegrationBiglakeMetastoreArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationKafkaClusterArgs;
@@ -35,6 +36,21 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
      */
     public Optional<Output<CatalogIntegrationAwsGlueArgs>> awsGlue() {
         return Optional.ofNullable(this.awsGlue);
+    }
+
+    /**
+     * The catalog integration connection configuration for BigLake Metastore.
+     * 
+     */
+    @Import(name="biglakeMetastore")
+    private @Nullable Output<CatalogIntegrationBiglakeMetastoreArgs> biglakeMetastore;
+
+    /**
+     * @return The catalog integration connection configuration for BigLake Metastore.
+     * 
+     */
+    public Optional<Output<CatalogIntegrationBiglakeMetastoreArgs>> biglakeMetastore() {
+        return Optional.ofNullable(this.biglakeMetastore);
     }
 
     /**
@@ -138,6 +154,7 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
 
     private CatalogIntegrationState(CatalogIntegrationState $) {
         this.awsGlue = $.awsGlue;
+        this.biglakeMetastore = $.biglakeMetastore;
         this.credentials = $.credentials;
         this.displayName = $.displayName;
         this.environment = $.environment;
@@ -184,6 +201,27 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
          */
         public Builder awsGlue(CatalogIntegrationAwsGlueArgs awsGlue) {
             return awsGlue(Output.of(awsGlue));
+        }
+
+        /**
+         * @param biglakeMetastore The catalog integration connection configuration for BigLake Metastore.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder biglakeMetastore(@Nullable Output<CatalogIntegrationBiglakeMetastoreArgs> biglakeMetastore) {
+            $.biglakeMetastore = biglakeMetastore;
+            return this;
+        }
+
+        /**
+         * @param biglakeMetastore The catalog integration connection configuration for BigLake Metastore.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder biglakeMetastore(CatalogIntegrationBiglakeMetastoreArgs biglakeMetastore) {
+            return biglakeMetastore(Output.of(biglakeMetastore));
         }
 
         /**

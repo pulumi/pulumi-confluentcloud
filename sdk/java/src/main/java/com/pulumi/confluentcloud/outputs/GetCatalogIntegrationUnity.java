@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCatalogIntegrationUnity {
     /**
-     * @return (Required String) The name of the catalog within Unity Catalog.
+     * @return (Computed String) The name of the catalog within BigLake Metastore.
      * 
      */
     private String catalogName;
@@ -28,7 +28,7 @@ public final class GetCatalogIntegrationUnity {
 
     private GetCatalogIntegrationUnity() {}
     /**
-     * @return (Required String) The name of the catalog within Unity Catalog.
+     * @return (Computed String) The name of the catalog within BigLake Metastore.
      * 
      */
     public String catalogName() {

@@ -120,6 +120,8 @@ type CatalogIntegration struct {
 
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrOutput `pulumi:"awsGlue"`
+	// The catalog integration connection configuration for BigLake Metastore.
+	BiglakeMetastore CatalogIntegrationBiglakeMetastorePtrOutput `pulumi:"biglakeMetastore"`
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrOutput `pulumi:"credentials"`
 	// The name of the catalog integration.
@@ -183,6 +185,8 @@ func GetCatalogIntegration(ctx *pulumi.Context,
 type catalogIntegrationState struct {
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue *CatalogIntegrationAwsGlue `pulumi:"awsGlue"`
+	// The catalog integration connection configuration for BigLake Metastore.
+	BiglakeMetastore *CatalogIntegrationBiglakeMetastore `pulumi:"biglakeMetastore"`
 	// The Cluster API Credentials.
 	Credentials *CatalogIntegrationCredentials `pulumi:"credentials"`
 	// The name of the catalog integration.
@@ -201,6 +205,8 @@ type catalogIntegrationState struct {
 type CatalogIntegrationState struct {
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrInput
+	// The catalog integration connection configuration for BigLake Metastore.
+	BiglakeMetastore CatalogIntegrationBiglakeMetastorePtrInput
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrInput
 	// The name of the catalog integration.
@@ -223,6 +229,8 @@ func (CatalogIntegrationState) ElementType() reflect.Type {
 type catalogIntegrationArgs struct {
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue *CatalogIntegrationAwsGlue `pulumi:"awsGlue"`
+	// The catalog integration connection configuration for BigLake Metastore.
+	BiglakeMetastore *CatalogIntegrationBiglakeMetastore `pulumi:"biglakeMetastore"`
 	// The Cluster API Credentials.
 	Credentials *CatalogIntegrationCredentials `pulumi:"credentials"`
 	// The name of the catalog integration.
@@ -240,6 +248,8 @@ type catalogIntegrationArgs struct {
 type CatalogIntegrationArgs struct {
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrInput
+	// The catalog integration connection configuration for BigLake Metastore.
+	BiglakeMetastore CatalogIntegrationBiglakeMetastorePtrInput
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrInput
 	// The name of the catalog integration.
@@ -343,6 +353,11 @@ func (o CatalogIntegrationOutput) ToCatalogIntegrationOutputWithContext(ctx cont
 // supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 func (o CatalogIntegrationOutput) AwsGlue() CatalogIntegrationAwsGluePtrOutput {
 	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationAwsGluePtrOutput { return v.AwsGlue }).(CatalogIntegrationAwsGluePtrOutput)
+}
+
+// The catalog integration connection configuration for BigLake Metastore.
+func (o CatalogIntegrationOutput) BiglakeMetastore() CatalogIntegrationBiglakeMetastorePtrOutput {
+	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationBiglakeMetastorePtrOutput { return v.BiglakeMetastore }).(CatalogIntegrationBiglakeMetastorePtrOutput)
 }
 
 // The Cluster API Credentials.

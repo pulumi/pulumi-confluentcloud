@@ -114,6 +114,10 @@ export class CatalogIntegration extends pulumi.CustomResource {
      */
     declare public readonly awsGlue: pulumi.Output<outputs.CatalogIntegrationAwsGlue | undefined>;
     /**
+     * The catalog integration connection configuration for BigLake Metastore.
+     */
+    declare public readonly biglakeMetastore: pulumi.Output<outputs.CatalogIntegrationBiglakeMetastore | undefined>;
+    /**
      * The Cluster API Credentials.
      */
     declare public readonly credentials: pulumi.Output<outputs.CatalogIntegrationCredentials | undefined>;
@@ -153,6 +157,7 @@ export class CatalogIntegration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CatalogIntegrationState | undefined;
             resourceInputs["awsGlue"] = state?.awsGlue;
+            resourceInputs["biglakeMetastore"] = state?.biglakeMetastore;
             resourceInputs["credentials"] = state?.credentials;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["environment"] = state?.environment;
@@ -172,6 +177,7 @@ export class CatalogIntegration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
             resourceInputs["awsGlue"] = args?.awsGlue;
+            resourceInputs["biglakeMetastore"] = args?.biglakeMetastore;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
@@ -195,6 +201,10 @@ export interface CatalogIntegrationState {
      * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      */
     awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue | undefined>;
+    /**
+     * The catalog integration connection configuration for BigLake Metastore.
+     */
+    biglakeMetastore?: pulumi.Input<inputs.CatalogIntegrationBiglakeMetastore | undefined>;
     /**
      * The Cluster API Credentials.
      */
@@ -230,6 +240,10 @@ export interface CatalogIntegrationArgs {
      * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      */
     awsGlue?: pulumi.Input<inputs.CatalogIntegrationAwsGlue | undefined>;
+    /**
+     * The catalog integration connection configuration for BigLake Metastore.
+     */
+    biglakeMetastore?: pulumi.Input<inputs.CatalogIntegrationBiglakeMetastore | undefined>;
     /**
      * The Cluster API Credentials.
      */
