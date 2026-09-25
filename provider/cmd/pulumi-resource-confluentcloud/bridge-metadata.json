@@ -131,6 +131,9 @@
                     "aws_glue": {
                         "maxItemsOne": true
                     },
+                    "biglake_metastore": {
+                        "maxItemsOne": true
+                    },
                     "credentials": {
                         "maxItemsOne": true
                     },
@@ -710,6 +713,43 @@
                     }
                 }
             },
+            "confluent_notifications_integration": {
+                "current": "confluentcloud:index/notificationsIntegration:NotificationsIntegration",
+                "fields": {
+                    "in_app_target": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "user": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ms_teams_target": {
+                        "maxItemsOne": true
+                    },
+                    "role_email_target": {
+                        "maxItemsOne": false
+                    },
+                    "slack_target": {
+                        "maxItemsOne": true
+                    },
+                    "user_email_target": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "user": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "webhook_target": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_peering": {
                 "current": "confluentcloud:index/peering:Peering",
                 "fields": {
@@ -1037,6 +1077,9 @@
                     "error_handling": {
                         "maxItemsOne": true
                     },
+                    "google_cloud_storage": {
+                        "maxItemsOne": true
+                    },
                     "kafka_cluster": {
                         "maxItemsOne": true
                     },
@@ -1203,6 +1246,9 @@
                 "current": "confluentcloud:index/getCatalogIntegration:getCatalogIntegration",
                 "fields": {
                     "aws_glue": {
+                        "maxItemsOne": false
+                    },
+                    "biglake_metastore": {
                         "maxItemsOne": false
                     },
                     "credentials": {
@@ -1872,6 +1918,43 @@
                     }
                 }
             },
+            "confluent_notifications_integration": {
+                "current": "confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration",
+                "fields": {
+                    "in_app_target": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "user": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ms_teams_target": {
+                        "maxItemsOne": false
+                    },
+                    "role_email_target": {
+                        "maxItemsOne": false
+                    },
+                    "slack_target": {
+                        "maxItemsOne": false
+                    },
+                    "user_email_target": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "user": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "webhook_target": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_organization": {
                 "current": "confluentcloud:index/getOrganization:getOrganization"
             },
@@ -2226,6 +2309,9 @@
                         "maxItemsOne": true
                     },
                     "error_handling": {
+                        "maxItemsOne": false
+                    },
+                    "google_cloud_storage": {
                         "maxItemsOne": false
                     },
                     "kafka_cluster": {

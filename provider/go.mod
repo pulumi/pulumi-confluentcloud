@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.25.12
+go 1.26.7
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -101,6 +101,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-gateway v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.3.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/notifications v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.12.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/provider-integration v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/rtce v0.1.0 // indirect
@@ -108,7 +109,8 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sts v0.0.2 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.7.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.8.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/terraform-usage v0.1.0 // indirect
 	github.com/containerd/errdefs v1.0.0 // indirect
 	github.com/containerd/errdefs/pkg v0.3.0 // indirect
 	github.com/containerd/log v0.1.0 // indirect
@@ -314,7 +316,7 @@ require (
 	google.golang.org/genproto v0.0.0-20260724162435-b2f20204f0df // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260819154853-08b0e4226688 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260819154853-08b0e4226688 // indirect
-	google.golang.org/grpc v1.83.1 // indirect
+	google.golang.org/grpc v1.83.2 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
