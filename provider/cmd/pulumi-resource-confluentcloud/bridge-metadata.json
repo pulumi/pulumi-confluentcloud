@@ -1059,6 +1059,29 @@
                     }
                 }
             },
+            "confluent_switchover_endpoint": {
+                "current": "confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "endpoint_filter": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "confluent_switchover_pair": {
+                "current": "confluentcloud:index/switchoverPair:SwitchoverPair",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_tableflow_topic": {
                 "current": "confluentcloud:index/tableflowTopic:TableflowTopic",
                 "fields": {
@@ -2290,6 +2313,66 @@
                     },
                     "schema_registry_cluster": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_switchover_endpoint": {
+                "current": "confluentcloud:index/getSwitchoverEndpoint:getSwitchoverEndpoint",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "endpoint_filter": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "confluent_switchover_endpoints": {
+                "current": "confluentcloud:index/getSwitchoverEndpoints:getSwitchoverEndpoints",
+                "fields": {
+                    "switchover_endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "endpoints": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "endpoint_filter": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "confluent_switchover_pair": {
+                "current": "confluentcloud:index/getSwitchoverPair:getSwitchoverPair",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_switchover_pairs": {
+                "current": "confluentcloud:index/getSwitchoverPairs:getSwitchoverPairs",
+                "fields": {
+                    "switchover_pairs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "members": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
