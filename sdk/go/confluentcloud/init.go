@@ -141,6 +141,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubjectConfig{}
 	case "confluentcloud:index/subjectMode:SubjectMode":
 		r = &SubjectMode{}
+	case "confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint":
+		r = &SwitchoverEndpoint{}
+	case "confluentcloud:index/switchoverPair:SwitchoverPair":
+		r = &SwitchoverPair{}
 	case "confluentcloud:index/tableflowTopic:TableflowTopic":
 		r = &TableflowTopic{}
 	case "confluentcloud:index/tag:Tag":
@@ -480,6 +484,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/subjectMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/switchoverEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/switchoverPair",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -90,6 +90,10 @@ from .get_schemas import *
 from .get_service_account import *
 from .get_subject_config import *
 from .get_subject_mode import *
+from .get_switchover_endpoint import *
+from .get_switchover_endpoints import *
+from .get_switchover_pair import *
+from .get_switchover_pairs import *
 from .get_tableflow_topic import *
 from .get_tag import *
 from .get_tag_binding import *
@@ -133,6 +137,8 @@ from .schema_registry_kek import *
 from .service_account import *
 from .subject_config import *
 from .subject_mode import *
+from .switchover_endpoint import *
+from .switchover_pair import *
 from .tableflow_topic import *
 from .tag import *
 from .tag_binding import *
@@ -629,6 +635,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/subjectMode:SubjectMode": "SubjectMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/switchoverEndpoint",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint": "SwitchoverEndpoint"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/switchoverPair",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/switchoverPair:SwitchoverPair": "SwitchoverPair"
   }
  },
  {

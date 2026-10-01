@@ -120,6 +120,14 @@ import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModePlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointsArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointsPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverPairPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverPairsArgs;
+import com.pulumi.confluentcloud.inputs.GetSwitchoverPairsPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
 import com.pulumi.confluentcloud.inputs.GetTableflowTopicPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTagArgs;
@@ -190,6 +198,10 @@ import com.pulumi.confluentcloud.outputs.GetSchemasResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeResult;
+import com.pulumi.confluentcloud.outputs.GetSwitchoverEndpointResult;
+import com.pulumi.confluentcloud.outputs.GetSwitchoverEndpointsResult;
+import com.pulumi.confluentcloud.outputs.GetSwitchoverPairResult;
+import com.pulumi.confluentcloud.outputs.GetSwitchoverPairsResult;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicResult;
 import com.pulumi.confluentcloud.outputs.GetTagBindingResult;
 import com.pulumi.confluentcloud.outputs.GetTagResult;
@@ -21624,6 +21636,576 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverEndpoint` describes a switchover endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()
+     *             .id("se-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverEndpoint", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverEndpointResult> getSwitchoverEndpoint(GetSwitchoverEndpointArgs args) {
+        return getSwitchoverEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverEndpoint` describes a switchover endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()
+     *             .id("se-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverEndpoint", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverEndpointResult> getSwitchoverEndpointPlain(GetSwitchoverEndpointPlainArgs args) {
+        return getSwitchoverEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverEndpoint` describes a switchover endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()
+     *             .id("se-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverEndpoint", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverEndpointResult> getSwitchoverEndpoint(GetSwitchoverEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverEndpoint:getSwitchoverEndpoint", TypeShape.of(GetSwitchoverEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverEndpoint` describes a switchover endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()
+     *             .id("se-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverEndpoint", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverEndpointResult> getSwitchoverEndpoint(GetSwitchoverEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverEndpoint:getSwitchoverEndpoint", TypeShape.of(GetSwitchoverEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverEndpoint` describes a switchover endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()
+     *             .id("se-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverEndpoint", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverEndpointResult> getSwitchoverEndpointPlain(GetSwitchoverEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSwitchoverEndpoint:getSwitchoverEndpoint", TypeShape.of(GetSwitchoverEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverEndpoints` lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.
+     * 
+     */
+    public static Output<GetSwitchoverEndpointsResult> getSwitchoverEndpoints(GetSwitchoverEndpointsArgs args) {
+        return getSwitchoverEndpoints(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverEndpoints` lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverEndpointsResult> getSwitchoverEndpointsPlain(GetSwitchoverEndpointsPlainArgs args) {
+        return getSwitchoverEndpointsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverEndpoints` lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.
+     * 
+     */
+    public static Output<GetSwitchoverEndpointsResult> getSwitchoverEndpoints(GetSwitchoverEndpointsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverEndpoints:getSwitchoverEndpoints", TypeShape.of(GetSwitchoverEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverEndpoints` lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.
+     * 
+     */
+    public static Output<GetSwitchoverEndpointsResult> getSwitchoverEndpoints(GetSwitchoverEndpointsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverEndpoints:getSwitchoverEndpoints", TypeShape.of(GetSwitchoverEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverEndpoints` lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverEndpointsResult> getSwitchoverEndpointsPlain(GetSwitchoverEndpointsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSwitchoverEndpoints:getSwitchoverEndpoints", TypeShape.of(GetSwitchoverEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverPair` describes a switchover pair data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()
+     *             .id("sw-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverPair", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverPairResult> getSwitchoverPair(GetSwitchoverPairArgs args) {
+        return getSwitchoverPair(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverPair` describes a switchover pair data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()
+     *             .id("sw-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverPair", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverPairResult> getSwitchoverPairPlain(GetSwitchoverPairPlainArgs args) {
+        return getSwitchoverPairPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverPair` describes a switchover pair data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()
+     *             .id("sw-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverPair", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverPairResult> getSwitchoverPair(GetSwitchoverPairArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverPair:getSwitchoverPair", TypeShape.of(GetSwitchoverPairResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverPair` describes a switchover pair data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()
+     *             .id("sw-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverPair", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSwitchoverPairResult> getSwitchoverPair(GetSwitchoverPairArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverPair:getSwitchoverPair", TypeShape.of(GetSwitchoverPairResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.SwitchoverPair` describes a switchover pair data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()
+     *             .id("sw-abc123")
+     *             .environmentCrn("crn://confluent.cloud/organization=org-abc/environment=env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("switchoverPair", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverPairResult> getSwitchoverPairPlain(GetSwitchoverPairPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSwitchoverPair:getSwitchoverPair", TypeShape.of(GetSwitchoverPairResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverPairs` lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.
+     * 
+     */
+    public static Output<GetSwitchoverPairsResult> getSwitchoverPairs(GetSwitchoverPairsArgs args) {
+        return getSwitchoverPairs(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverPairs` lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverPairsResult> getSwitchoverPairsPlain(GetSwitchoverPairsPlainArgs args) {
+        return getSwitchoverPairsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverPairs` lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.
+     * 
+     */
+    public static Output<GetSwitchoverPairsResult> getSwitchoverPairs(GetSwitchoverPairsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverPairs:getSwitchoverPairs", TypeShape.of(GetSwitchoverPairsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverPairs` lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.
+     * 
+     */
+    public static Output<GetSwitchoverPairsResult> getSwitchoverPairs(GetSwitchoverPairsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSwitchoverPairs:getSwitchoverPairs", TypeShape.of(GetSwitchoverPairsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.
+     * 
+     * `confluentcloud.getSwitchoverPairs` lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.
+     * 
+     */
+    public static CompletableFuture<GetSwitchoverPairsResult> getSwitchoverPairsPlain(GetSwitchoverPairsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSwitchoverPairs:getSwitchoverPairs", TypeShape.of(GetSwitchoverPairsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

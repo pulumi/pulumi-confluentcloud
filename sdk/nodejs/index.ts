@@ -425,6 +425,26 @@ export const getSubjectMode: typeof import("./getSubjectMode").getSubjectMode = 
 export const getSubjectModeOutput: typeof import("./getSubjectMode").getSubjectModeOutput = null as any;
 utilities.lazyLoad(exports, ["getSubjectMode","getSubjectModeOutput"], () => require("./getSubjectMode"));
 
+export { GetSwitchoverEndpointArgs, GetSwitchoverEndpointResult, GetSwitchoverEndpointOutputArgs } from "./getSwitchoverEndpoint";
+export const getSwitchoverEndpoint: typeof import("./getSwitchoverEndpoint").getSwitchoverEndpoint = null as any;
+export const getSwitchoverEndpointOutput: typeof import("./getSwitchoverEndpoint").getSwitchoverEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getSwitchoverEndpoint","getSwitchoverEndpointOutput"], () => require("./getSwitchoverEndpoint"));
+
+export { GetSwitchoverEndpointsArgs, GetSwitchoverEndpointsResult, GetSwitchoverEndpointsOutputArgs } from "./getSwitchoverEndpoints";
+export const getSwitchoverEndpoints: typeof import("./getSwitchoverEndpoints").getSwitchoverEndpoints = null as any;
+export const getSwitchoverEndpointsOutput: typeof import("./getSwitchoverEndpoints").getSwitchoverEndpointsOutput = null as any;
+utilities.lazyLoad(exports, ["getSwitchoverEndpoints","getSwitchoverEndpointsOutput"], () => require("./getSwitchoverEndpoints"));
+
+export { GetSwitchoverPairArgs, GetSwitchoverPairResult, GetSwitchoverPairOutputArgs } from "./getSwitchoverPair";
+export const getSwitchoverPair: typeof import("./getSwitchoverPair").getSwitchoverPair = null as any;
+export const getSwitchoverPairOutput: typeof import("./getSwitchoverPair").getSwitchoverPairOutput = null as any;
+utilities.lazyLoad(exports, ["getSwitchoverPair","getSwitchoverPairOutput"], () => require("./getSwitchoverPair"));
+
+export { GetSwitchoverPairsArgs, GetSwitchoverPairsResult, GetSwitchoverPairsOutputArgs } from "./getSwitchoverPairs";
+export const getSwitchoverPairs: typeof import("./getSwitchoverPairs").getSwitchoverPairs = null as any;
+export const getSwitchoverPairsOutput: typeof import("./getSwitchoverPairs").getSwitchoverPairsOutput = null as any;
+utilities.lazyLoad(exports, ["getSwitchoverPairs","getSwitchoverPairsOutput"], () => require("./getSwitchoverPairs"));
+
 export { GetTableflowTopicArgs, GetTableflowTopicResult, GetTableflowTopicOutputArgs } from "./getTableflowTopic";
 export const getTableflowTopic: typeof import("./getTableflowTopic").getTableflowTopic = null as any;
 export const getTableflowTopicOutput: typeof import("./getTableflowTopic").getTableflowTopicOutput = null as any;
@@ -638,6 +658,16 @@ export type SubjectMode = import("./subjectMode").SubjectMode;
 export const SubjectMode: typeof import("./subjectMode").SubjectMode = null as any;
 utilities.lazyLoad(exports, ["SubjectMode"], () => require("./subjectMode"));
 
+export { SwitchoverEndpointArgs, SwitchoverEndpointState } from "./switchoverEndpoint";
+export type SwitchoverEndpoint = import("./switchoverEndpoint").SwitchoverEndpoint;
+export const SwitchoverEndpoint: typeof import("./switchoverEndpoint").SwitchoverEndpoint = null as any;
+utilities.lazyLoad(exports, ["SwitchoverEndpoint"], () => require("./switchoverEndpoint"));
+
+export { SwitchoverPairArgs, SwitchoverPairState } from "./switchoverPair";
+export type SwitchoverPair = import("./switchoverPair").SwitchoverPair;
+export const SwitchoverPair: typeof import("./switchoverPair").SwitchoverPair = null as any;
+utilities.lazyLoad(exports, ["SwitchoverPair"], () => require("./switchoverPair"));
+
 export { TableflowTopicArgs, TableflowTopicState } from "./tableflowTopic";
 export type TableflowTopic = import("./tableflowTopic").TableflowTopic;
 export const TableflowTopic: typeof import("./tableflowTopic").TableflowTopic = null as any;
@@ -797,6 +827,10 @@ const _module = {
                 return new SubjectConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/subjectMode:SubjectMode":
                 return new SubjectMode(name, <any>undefined, { urn })
+            case "confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint":
+                return new SwitchoverEndpoint(name, <any>undefined, { urn })
+            case "confluentcloud:index/switchoverPair:SwitchoverPair":
+                return new SwitchoverPair(name, <any>undefined, { urn })
             case "confluentcloud:index/tableflowTopic:TableflowTopic":
                 return new TableflowTopic(name, <any>undefined, { urn })
             case "confluentcloud:index/tag:Tag":
@@ -872,6 +906,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryKek
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectMode", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/switchoverEndpoint", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/switchoverPair", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tableflowTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tag", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tagBinding", _module)

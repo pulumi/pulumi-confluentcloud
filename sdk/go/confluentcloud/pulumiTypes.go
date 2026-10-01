@@ -27762,6 +27762,342 @@ func (o SubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SwitchoverEndpointEndpoint struct {
+	// (Required String) The cloud provider this endpoint resolves to.
+	Cloud *string `pulumi:"cloud"`
+	// (Required String) The connection type this endpoint resolves to.
+	ConnectionType *string `pulumi:"connectionType"`
+	// Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+	EndpointFilter SwitchoverEndpointEndpointEndpointFilter `pulumi:"endpointFilter"`
+	// (Required String) The resolved hostname for this endpoint.
+	Hostname *string `pulumi:"hostname"`
+	// A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+	Name string `pulumi:"name"`
+	// (Required String) The cloud region this endpoint resolves to.
+	Region *string `pulumi:"region"`
+}
+
+// SwitchoverEndpointEndpointInput is an input type that accepts SwitchoverEndpointEndpointArgs and SwitchoverEndpointEndpointOutput values.
+// You can construct a concrete instance of `SwitchoverEndpointEndpointInput` via:
+//
+//	SwitchoverEndpointEndpointArgs{...}
+type SwitchoverEndpointEndpointInput interface {
+	pulumi.Input
+
+	ToSwitchoverEndpointEndpointOutput() SwitchoverEndpointEndpointOutput
+	ToSwitchoverEndpointEndpointOutputWithContext(context.Context) SwitchoverEndpointEndpointOutput
+}
+
+type SwitchoverEndpointEndpointArgs struct {
+	// (Required String) The cloud provider this endpoint resolves to.
+	Cloud pulumi.StringPtrInput `pulumi:"cloud"`
+	// (Required String) The connection type this endpoint resolves to.
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
+	// Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+	EndpointFilter SwitchoverEndpointEndpointEndpointFilterInput `pulumi:"endpointFilter"`
+	// (Required String) The resolved hostname for this endpoint.
+	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
+	// A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required String) The cloud region this endpoint resolves to.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (SwitchoverEndpointEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i SwitchoverEndpointEndpointArgs) ToSwitchoverEndpointEndpointOutput() SwitchoverEndpointEndpointOutput {
+	return i.ToSwitchoverEndpointEndpointOutputWithContext(context.Background())
+}
+
+func (i SwitchoverEndpointEndpointArgs) ToSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwitchoverEndpointEndpointOutput)
+}
+
+// SwitchoverEndpointEndpointArrayInput is an input type that accepts SwitchoverEndpointEndpointArray and SwitchoverEndpointEndpointArrayOutput values.
+// You can construct a concrete instance of `SwitchoverEndpointEndpointArrayInput` via:
+//
+//	SwitchoverEndpointEndpointArray{ SwitchoverEndpointEndpointArgs{...} }
+type SwitchoverEndpointEndpointArrayInput interface {
+	pulumi.Input
+
+	ToSwitchoverEndpointEndpointArrayOutput() SwitchoverEndpointEndpointArrayOutput
+	ToSwitchoverEndpointEndpointArrayOutputWithContext(context.Context) SwitchoverEndpointEndpointArrayOutput
+}
+
+type SwitchoverEndpointEndpointArray []SwitchoverEndpointEndpointInput
+
+func (SwitchoverEndpointEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i SwitchoverEndpointEndpointArray) ToSwitchoverEndpointEndpointArrayOutput() SwitchoverEndpointEndpointArrayOutput {
+	return i.ToSwitchoverEndpointEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i SwitchoverEndpointEndpointArray) ToSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwitchoverEndpointEndpointArrayOutput)
+}
+
+type SwitchoverEndpointEndpointOutput struct{ *pulumi.OutputState }
+
+func (SwitchoverEndpointEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o SwitchoverEndpointEndpointOutput) ToSwitchoverEndpointEndpointOutput() SwitchoverEndpointEndpointOutput {
+	return o
+}
+
+func (o SwitchoverEndpointEndpointOutput) ToSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointOutput {
+	return o
+}
+
+// (Required String) The cloud provider this endpoint resolves to.
+func (o SwitchoverEndpointEndpointOutput) Cloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The connection type this endpoint resolves to.
+func (o SwitchoverEndpointEndpointOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+func (o SwitchoverEndpointEndpointOutput) EndpointFilter() SwitchoverEndpointEndpointEndpointFilterOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) SwitchoverEndpointEndpointEndpointFilter { return v.EndpointFilter }).(SwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+// (Required String) The resolved hostname for this endpoint.
+func (o SwitchoverEndpointEndpointOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+func (o SwitchoverEndpointEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud region this endpoint resolves to.
+func (o SwitchoverEndpointEndpointOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type SwitchoverEndpointEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (SwitchoverEndpointEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o SwitchoverEndpointEndpointArrayOutput) ToSwitchoverEndpointEndpointArrayOutput() SwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o SwitchoverEndpointEndpointArrayOutput) ToSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o SwitchoverEndpointEndpointArrayOutput) Index(i pulumi.IntInput) SwitchoverEndpointEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SwitchoverEndpointEndpoint {
+		return vs[0].([]SwitchoverEndpointEndpoint)[vs[1].(int)]
+	}).(SwitchoverEndpointEndpointOutput)
+}
+
+type SwitchoverEndpointEndpointEndpointFilter struct {
+	// The CRN of the network access point, for access-point (PNI) endpoints.
+	AccessPointCrn *string `pulumi:"accessPointCrn"`
+	// The CRN of the network, for network-based private endpoints.
+	NetworkCrn *string `pulumi:"networkCrn"`
+	// Whether the endpoint is `private` or `public`.
+	Type string `pulumi:"type"`
+}
+
+// SwitchoverEndpointEndpointEndpointFilterInput is an input type that accepts SwitchoverEndpointEndpointEndpointFilterArgs and SwitchoverEndpointEndpointEndpointFilterOutput values.
+// You can construct a concrete instance of `SwitchoverEndpointEndpointEndpointFilterInput` via:
+//
+//	SwitchoverEndpointEndpointEndpointFilterArgs{...}
+type SwitchoverEndpointEndpointEndpointFilterInput interface {
+	pulumi.Input
+
+	ToSwitchoverEndpointEndpointEndpointFilterOutput() SwitchoverEndpointEndpointEndpointFilterOutput
+	ToSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Context) SwitchoverEndpointEndpointEndpointFilterOutput
+}
+
+type SwitchoverEndpointEndpointEndpointFilterArgs struct {
+	// The CRN of the network access point, for access-point (PNI) endpoints.
+	AccessPointCrn pulumi.StringPtrInput `pulumi:"accessPointCrn"`
+	// The CRN of the network, for network-based private endpoints.
+	NetworkCrn pulumi.StringPtrInput `pulumi:"networkCrn"`
+	// Whether the endpoint is `private` or `public`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SwitchoverEndpointEndpointEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (i SwitchoverEndpointEndpointEndpointFilterArgs) ToSwitchoverEndpointEndpointEndpointFilterOutput() SwitchoverEndpointEndpointEndpointFilterOutput {
+	return i.ToSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i SwitchoverEndpointEndpointEndpointFilterArgs) ToSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+type SwitchoverEndpointEndpointEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (SwitchoverEndpointEndpointEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (o SwitchoverEndpointEndpointEndpointFilterOutput) ToSwitchoverEndpointEndpointEndpointFilterOutput() SwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+func (o SwitchoverEndpointEndpointEndpointFilterOutput) ToSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) SwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+// The CRN of the network access point, for access-point (PNI) endpoints.
+func (o SwitchoverEndpointEndpointEndpointFilterOutput) AccessPointCrn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpointEndpointFilter) *string { return v.AccessPointCrn }).(pulumi.StringPtrOutput)
+}
+
+// The CRN of the network, for network-based private endpoints.
+func (o SwitchoverEndpointEndpointEndpointFilterOutput) NetworkCrn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpointEndpointFilter) *string { return v.NetworkCrn }).(pulumi.StringPtrOutput)
+}
+
+// Whether the endpoint is `private` or `public`.
+func (o SwitchoverEndpointEndpointEndpointFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SwitchoverEndpointEndpointEndpointFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SwitchoverPairMember struct {
+	// (Required String) The cloud provider of the member's cluster.
+	Cloud *string `pulumi:"cloud"`
+	// The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+	MemberCrn string `pulumi:"memberCrn"`
+	// A logical name for this member (for example, `west` or `east`), unique within the pair.
+	Name string `pulumi:"name"`
+	// (Required String) The cloud region of the member's cluster.
+	Region *string `pulumi:"region"`
+}
+
+// SwitchoverPairMemberInput is an input type that accepts SwitchoverPairMemberArgs and SwitchoverPairMemberOutput values.
+// You can construct a concrete instance of `SwitchoverPairMemberInput` via:
+//
+//	SwitchoverPairMemberArgs{...}
+type SwitchoverPairMemberInput interface {
+	pulumi.Input
+
+	ToSwitchoverPairMemberOutput() SwitchoverPairMemberOutput
+	ToSwitchoverPairMemberOutputWithContext(context.Context) SwitchoverPairMemberOutput
+}
+
+type SwitchoverPairMemberArgs struct {
+	// (Required String) The cloud provider of the member's cluster.
+	Cloud pulumi.StringPtrInput `pulumi:"cloud"`
+	// The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+	MemberCrn pulumi.StringInput `pulumi:"memberCrn"`
+	// A logical name for this member (for example, `west` or `east`), unique within the pair.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required String) The cloud region of the member's cluster.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (SwitchoverPairMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverPairMember)(nil)).Elem()
+}
+
+func (i SwitchoverPairMemberArgs) ToSwitchoverPairMemberOutput() SwitchoverPairMemberOutput {
+	return i.ToSwitchoverPairMemberOutputWithContext(context.Background())
+}
+
+func (i SwitchoverPairMemberArgs) ToSwitchoverPairMemberOutputWithContext(ctx context.Context) SwitchoverPairMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwitchoverPairMemberOutput)
+}
+
+// SwitchoverPairMemberArrayInput is an input type that accepts SwitchoverPairMemberArray and SwitchoverPairMemberArrayOutput values.
+// You can construct a concrete instance of `SwitchoverPairMemberArrayInput` via:
+//
+//	SwitchoverPairMemberArray{ SwitchoverPairMemberArgs{...} }
+type SwitchoverPairMemberArrayInput interface {
+	pulumi.Input
+
+	ToSwitchoverPairMemberArrayOutput() SwitchoverPairMemberArrayOutput
+	ToSwitchoverPairMemberArrayOutputWithContext(context.Context) SwitchoverPairMemberArrayOutput
+}
+
+type SwitchoverPairMemberArray []SwitchoverPairMemberInput
+
+func (SwitchoverPairMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SwitchoverPairMember)(nil)).Elem()
+}
+
+func (i SwitchoverPairMemberArray) ToSwitchoverPairMemberArrayOutput() SwitchoverPairMemberArrayOutput {
+	return i.ToSwitchoverPairMemberArrayOutputWithContext(context.Background())
+}
+
+func (i SwitchoverPairMemberArray) ToSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) SwitchoverPairMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwitchoverPairMemberArrayOutput)
+}
+
+type SwitchoverPairMemberOutput struct{ *pulumi.OutputState }
+
+func (SwitchoverPairMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwitchoverPairMember)(nil)).Elem()
+}
+
+func (o SwitchoverPairMemberOutput) ToSwitchoverPairMemberOutput() SwitchoverPairMemberOutput {
+	return o
+}
+
+func (o SwitchoverPairMemberOutput) ToSwitchoverPairMemberOutputWithContext(ctx context.Context) SwitchoverPairMemberOutput {
+	return o
+}
+
+// (Required String) The cloud provider of the member's cluster.
+func (o SwitchoverPairMemberOutput) Cloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverPairMember) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+}
+
+// The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+func (o SwitchoverPairMemberOutput) MemberCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v SwitchoverPairMember) string { return v.MemberCrn }).(pulumi.StringOutput)
+}
+
+// A logical name for this member (for example, `west` or `east`), unique within the pair.
+func (o SwitchoverPairMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SwitchoverPairMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud region of the member's cluster.
+func (o SwitchoverPairMemberOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SwitchoverPairMember) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type SwitchoverPairMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (SwitchoverPairMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SwitchoverPairMember)(nil)).Elem()
+}
+
+func (o SwitchoverPairMemberArrayOutput) ToSwitchoverPairMemberArrayOutput() SwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o SwitchoverPairMemberArrayOutput) ToSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) SwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o SwitchoverPairMemberArrayOutput) Index(i pulumi.IntInput) SwitchoverPairMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SwitchoverPairMember {
+		return vs[0].([]SwitchoverPairMember)[vs[1].(int)]
+	}).(SwitchoverPairMemberOutput)
+}
+
 type TableflowTopicAzureDataLakeStorageGen2 struct {
 	// The container name.
 	ContainerName string `pulumi:"containerName"`
@@ -52584,6 +52920,1037 @@ func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSwitchoverEndpointEndpoint struct {
+	// (Required String) The cloud provider this endpoint resolves to.
+	Cloud string `pulumi:"cloud"`
+	// (Required String) The connection type this endpoint resolves to.
+	ConnectionType string `pulumi:"connectionType"`
+	// (Required Configuration Block) Supports the following:
+	EndpointFilters []GetSwitchoverEndpointEndpointEndpointFilter `pulumi:"endpointFilters"`
+	// (Required String) The resolved hostname for this endpoint.
+	Hostname string `pulumi:"hostname"`
+	// (Required String) A logical name for this endpoint side.
+	Name string `pulumi:"name"`
+	// (Required String) The cloud region this endpoint resolves to.
+	Region string `pulumi:"region"`
+}
+
+// GetSwitchoverEndpointEndpointInput is an input type that accepts GetSwitchoverEndpointEndpointArgs and GetSwitchoverEndpointEndpointOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointEndpointInput` via:
+//
+//	GetSwitchoverEndpointEndpointArgs{...}
+type GetSwitchoverEndpointEndpointInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointEndpointOutput
+	ToGetSwitchoverEndpointEndpointOutputWithContext(context.Context) GetSwitchoverEndpointEndpointOutput
+}
+
+type GetSwitchoverEndpointEndpointArgs struct {
+	// (Required String) The cloud provider this endpoint resolves to.
+	Cloud pulumi.StringInput `pulumi:"cloud"`
+	// (Required String) The connection type this endpoint resolves to.
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// (Required Configuration Block) Supports the following:
+	EndpointFilters GetSwitchoverEndpointEndpointEndpointFilterArrayInput `pulumi:"endpointFilters"`
+	// (Required String) The resolved hostname for this endpoint.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// (Required String) A logical name for this endpoint side.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required String) The cloud region this endpoint resolves to.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetSwitchoverEndpointEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointEndpointArgs) ToGetSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointEndpointOutput {
+	return i.ToGetSwitchoverEndpointEndpointOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointEndpointArgs) ToGetSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointEndpointOutput)
+}
+
+// GetSwitchoverEndpointEndpointArrayInput is an input type that accepts GetSwitchoverEndpointEndpointArray and GetSwitchoverEndpointEndpointArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointEndpointArrayInput` via:
+//
+//	GetSwitchoverEndpointEndpointArray{ GetSwitchoverEndpointEndpointArgs{...} }
+type GetSwitchoverEndpointEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointEndpointArrayOutput
+	ToGetSwitchoverEndpointEndpointArrayOutputWithContext(context.Context) GetSwitchoverEndpointEndpointArrayOutput
+}
+
+type GetSwitchoverEndpointEndpointArray []GetSwitchoverEndpointEndpointInput
+
+func (GetSwitchoverEndpointEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointEndpointArray) ToGetSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointEndpointArrayOutput {
+	return i.ToGetSwitchoverEndpointEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointEndpointArray) ToGetSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointEndpointArrayOutput)
+}
+
+type GetSwitchoverEndpointEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointEndpointOutput) ToGetSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointEndpointOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointOutput) ToGetSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointOutput {
+	return o
+}
+
+// (Required String) The cloud provider this endpoint resolves to.
+func (o GetSwitchoverEndpointEndpointOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Required String) The connection type this endpoint resolves to.
+func (o GetSwitchoverEndpointEndpointOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// (Required Configuration Block) Supports the following:
+func (o GetSwitchoverEndpointEndpointOutput) EndpointFilters() GetSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) []GetSwitchoverEndpointEndpointEndpointFilter {
+		return v.EndpointFilters
+	}).(GetSwitchoverEndpointEndpointEndpointFilterArrayOutput)
+}
+
+// (Required String) The resolved hostname for this endpoint.
+func (o GetSwitchoverEndpointEndpointOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// (Required String) A logical name for this endpoint side.
+func (o GetSwitchoverEndpointEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud region this endpoint resolves to.
+func (o GetSwitchoverEndpointEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpoint) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverEndpointEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointEndpointArrayOutput) ToGetSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointArrayOutput) ToGetSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointArrayOutput) Index(i pulumi.IntInput) GetSwitchoverEndpointEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverEndpointEndpoint {
+		return vs[0].([]GetSwitchoverEndpointEndpoint)[vs[1].(int)]
+	}).(GetSwitchoverEndpointEndpointOutput)
+}
+
+type GetSwitchoverEndpointEndpointEndpointFilter struct {
+	// (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+	AccessPointCrn string `pulumi:"accessPointCrn"`
+	// (Required String) The CRN of the network, for network-based private endpoints.
+	NetworkCrn string `pulumi:"networkCrn"`
+	// (Required String) Whether the endpoint is `private` or `public`.
+	Type string `pulumi:"type"`
+}
+
+// GetSwitchoverEndpointEndpointEndpointFilterInput is an input type that accepts GetSwitchoverEndpointEndpointEndpointFilterArgs and GetSwitchoverEndpointEndpointEndpointFilterOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointEndpointEndpointFilterInput` via:
+//
+//	GetSwitchoverEndpointEndpointEndpointFilterArgs{...}
+type GetSwitchoverEndpointEndpointEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointEndpointEndpointFilterOutput
+	ToGetSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Context) GetSwitchoverEndpointEndpointEndpointFilterOutput
+}
+
+type GetSwitchoverEndpointEndpointEndpointFilterArgs struct {
+	// (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+	AccessPointCrn pulumi.StringInput `pulumi:"accessPointCrn"`
+	// (Required String) The CRN of the network, for network-based private endpoints.
+	NetworkCrn pulumi.StringInput `pulumi:"networkCrn"`
+	// (Required String) Whether the endpoint is `private` or `public`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSwitchoverEndpointEndpointEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointEndpointEndpointFilterArgs) ToGetSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointEndpointEndpointFilterOutput {
+	return i.ToGetSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointEndpointEndpointFilterArgs) ToGetSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+// GetSwitchoverEndpointEndpointEndpointFilterArrayInput is an input type that accepts GetSwitchoverEndpointEndpointEndpointFilterArray and GetSwitchoverEndpointEndpointEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointEndpointEndpointFilterArrayInput` via:
+//
+//	GetSwitchoverEndpointEndpointEndpointFilterArray{ GetSwitchoverEndpointEndpointEndpointFilterArgs{...} }
+type GetSwitchoverEndpointEndpointEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointEndpointEndpointFilterArrayOutput
+	ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(context.Context) GetSwitchoverEndpointEndpointEndpointFilterArrayOutput
+}
+
+type GetSwitchoverEndpointEndpointEndpointFilterArray []GetSwitchoverEndpointEndpointEndpointFilterInput
+
+func (GetSwitchoverEndpointEndpointEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointEndpointEndpointFilterArray) ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return i.ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointEndpointEndpointFilterArray) ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointEndpointEndpointFilterArrayOutput)
+}
+
+type GetSwitchoverEndpointEndpointEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointEndpointEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointEndpointEndpointFilterOutput) ToGetSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointEndpointFilterOutput) ToGetSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+// (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+func (o GetSwitchoverEndpointEndpointEndpointFilterOutput) AccessPointCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpointEndpointFilter) string { return v.AccessPointCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) The CRN of the network, for network-based private endpoints.
+func (o GetSwitchoverEndpointEndpointEndpointFilterOutput) NetworkCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpointEndpointFilter) string { return v.NetworkCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) Whether the endpoint is `private` or `public`.
+func (o GetSwitchoverEndpointEndpointEndpointFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointEndpointEndpointFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverEndpointEndpointEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointEndpointEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointEndpointEndpointFilterArrayOutput) ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointEndpointFilterArrayOutput) ToGetSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointEndpointEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetSwitchoverEndpointEndpointEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverEndpointEndpointEndpointFilter {
+		return vs[0].([]GetSwitchoverEndpointEndpointEndpointFilter)[vs[1].(int)]
+	}).(GetSwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpoint struct {
+	// (Required String) A human-readable name for the switchover endpoint.
+	DisplayName string `pulumi:"displayName"`
+	// (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connectionType`, and an `endpointFilter` object with `type`, `networkCrn`, and `accessPointCrn`.
+	Endpoints []GetSwitchoverEndpointsSwitchoverEndpointEndpoint `pulumi:"endpoints"`
+	// (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+	Id string `pulumi:"id"`
+	// (Required String) The CRN of the switchover pair this endpoint is bound to.
+	ParentResourceCrn string `pulumi:"parentResourceCrn"`
+	// (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+	Phase string `pulumi:"phase"`
+	// (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+	Target string `pulumi:"target"`
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointArgs and GetSwitchoverEndpointsSwitchoverEndpointOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointArgs{...}
+type GetSwitchoverEndpointsSwitchoverEndpointInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointArgs struct {
+	// (Required String) A human-readable name for the switchover endpoint.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connectionType`, and an `endpointFilter` object with `type`, `networkCrn`, and `accessPointCrn`.
+	Endpoints GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayInput `pulumi:"endpoints"`
+	// (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Required String) The CRN of the switchover pair this endpoint is bound to.
+	ParentResourceCrn pulumi.StringInput `pulumi:"parentResourceCrn"`
+	// (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+	Phase pulumi.StringInput `pulumi:"phase"`
+	// (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (GetSwitchoverEndpointsSwitchoverEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointArgs) ToGetSwitchoverEndpointsSwitchoverEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointArgs) ToGetSwitchoverEndpointsSwitchoverEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointOutput)
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointArrayInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointArray and GetSwitchoverEndpointsSwitchoverEndpointArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointArrayInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointArray{ GetSwitchoverEndpointsSwitchoverEndpointArgs{...} }
+type GetSwitchoverEndpointsSwitchoverEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointArrayOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointArrayOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointArray []GetSwitchoverEndpointsSwitchoverEndpointInput
+
+func (GetSwitchoverEndpointsSwitchoverEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointArray) ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointArrayOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointArray) ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointArrayOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) ToGetSwitchoverEndpointsSwitchoverEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) ToGetSwitchoverEndpointsSwitchoverEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointOutput {
+	return o
+}
+
+// (Required String) A human-readable name for the switchover endpoint.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connectionType`, and an `endpointFilter` object with `type`, `networkCrn`, and `accessPointCrn`.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) Endpoints() GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) []GetSwitchoverEndpointsSwitchoverEndpointEndpoint {
+		return v.Endpoints
+	}).(GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput)
+}
+
+// (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required String) The CRN of the switchover pair this endpoint is bound to.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) ParentResourceCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) string { return v.ParentResourceCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) Phase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) string { return v.Phase }).(pulumi.StringOutput)
+}
+
+// (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+func (o GetSwitchoverEndpointsSwitchoverEndpointOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpoint) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointArrayOutput) Index(i pulumi.IntInput) GetSwitchoverEndpointsSwitchoverEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverEndpointsSwitchoverEndpoint {
+		return vs[0].([]GetSwitchoverEndpointsSwitchoverEndpoint)[vs[1].(int)]
+	}).(GetSwitchoverEndpointsSwitchoverEndpointOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpoint struct {
+	Cloud           string                                                           `pulumi:"cloud"`
+	ConnectionType  string                                                           `pulumi:"connectionType"`
+	EndpointFilters []GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter `pulumi:"endpointFilters"`
+	Hostname        string                                                           `pulumi:"hostname"`
+	Name            string                                                           `pulumi:"name"`
+	Region          string                                                           `pulumi:"region"`
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointEndpointInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs and GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointEndpointInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs{...}
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs struct {
+	Cloud           pulumi.StringInput                                                       `pulumi:"cloud"`
+	ConnectionType  pulumi.StringInput                                                       `pulumi:"connectionType"`
+	EndpointFilters GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayInput `pulumi:"endpointFilters"`
+	Hostname        pulumi.StringInput                                                       `pulumi:"hostname"`
+	Name            pulumi.StringInput                                                       `pulumi:"name"`
+	Region          pulumi.StringInput                                                       `pulumi:"region"`
+}
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput)
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointEndpointArray and GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointEndpointArray{ GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs{...} }
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointArray []GetSwitchoverEndpointsSwitchoverEndpointEndpointInput
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointArray) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointArray) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) EndpointFilters() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) []GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter {
+		return v.EndpointFilters
+	}).(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpoint) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput) Index(i pulumi.IntInput) GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverEndpointsSwitchoverEndpointEndpoint {
+		return vs[0].([]GetSwitchoverEndpointsSwitchoverEndpointEndpoint)[vs[1].(int)]
+	}).(GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter struct {
+	AccessPointCrn string `pulumi:"accessPointCrn"`
+	NetworkCrn     string `pulumi:"networkCrn"`
+	Type           string `pulumi:"type"`
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs and GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs{...}
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs struct {
+	AccessPointCrn pulumi.StringInput `pulumi:"accessPointCrn"`
+	NetworkCrn     pulumi.StringInput `pulumi:"networkCrn"`
+	Type           pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+// GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayInput is an input type that accepts GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray and GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayInput` via:
+//
+//	GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray{ GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs{...} }
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput
+	ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray []GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterInput
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return i.ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) AccessPointCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter) string { return v.AccessPointCrn }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) NetworkCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter) string { return v.NetworkCrn }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter)(nil)).Elem()
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput() GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput) ToGetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutputWithContext(ctx context.Context) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter {
+		return vs[0].([]GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter)[vs[1].(int)]
+	}).(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput)
+}
+
+type GetSwitchoverPairMember struct {
+	// (Required String) The cloud provider of the member's cluster.
+	Cloud string `pulumi:"cloud"`
+	// (Required String) The CRN of the cluster this member represents.
+	MemberCrn string `pulumi:"memberCrn"`
+	// (Required String) A logical name for this member, unique within the pair.
+	Name string `pulumi:"name"`
+	// (Required String) The cloud region of the member's cluster.
+	Region string `pulumi:"region"`
+}
+
+// GetSwitchoverPairMemberInput is an input type that accepts GetSwitchoverPairMemberArgs and GetSwitchoverPairMemberOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairMemberInput` via:
+//
+//	GetSwitchoverPairMemberArgs{...}
+type GetSwitchoverPairMemberInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairMemberOutput() GetSwitchoverPairMemberOutput
+	ToGetSwitchoverPairMemberOutputWithContext(context.Context) GetSwitchoverPairMemberOutput
+}
+
+type GetSwitchoverPairMemberArgs struct {
+	// (Required String) The cloud provider of the member's cluster.
+	Cloud pulumi.StringInput `pulumi:"cloud"`
+	// (Required String) The CRN of the cluster this member represents.
+	MemberCrn pulumi.StringInput `pulumi:"memberCrn"`
+	// (Required String) A logical name for this member, unique within the pair.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required String) The cloud region of the member's cluster.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetSwitchoverPairMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairMember)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairMemberArgs) ToGetSwitchoverPairMemberOutput() GetSwitchoverPairMemberOutput {
+	return i.ToGetSwitchoverPairMemberOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairMemberArgs) ToGetSwitchoverPairMemberOutputWithContext(ctx context.Context) GetSwitchoverPairMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairMemberOutput)
+}
+
+// GetSwitchoverPairMemberArrayInput is an input type that accepts GetSwitchoverPairMemberArray and GetSwitchoverPairMemberArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairMemberArrayInput` via:
+//
+//	GetSwitchoverPairMemberArray{ GetSwitchoverPairMemberArgs{...} }
+type GetSwitchoverPairMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairMemberArrayOutput() GetSwitchoverPairMemberArrayOutput
+	ToGetSwitchoverPairMemberArrayOutputWithContext(context.Context) GetSwitchoverPairMemberArrayOutput
+}
+
+type GetSwitchoverPairMemberArray []GetSwitchoverPairMemberInput
+
+func (GetSwitchoverPairMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairMember)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairMemberArray) ToGetSwitchoverPairMemberArrayOutput() GetSwitchoverPairMemberArrayOutput {
+	return i.ToGetSwitchoverPairMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairMemberArray) ToGetSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) GetSwitchoverPairMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairMemberArrayOutput)
+}
+
+type GetSwitchoverPairMemberOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairMember)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairMemberOutput) ToGetSwitchoverPairMemberOutput() GetSwitchoverPairMemberOutput {
+	return o
+}
+
+func (o GetSwitchoverPairMemberOutput) ToGetSwitchoverPairMemberOutputWithContext(ctx context.Context) GetSwitchoverPairMemberOutput {
+	return o
+}
+
+// (Required String) The cloud provider of the member's cluster.
+func (o GetSwitchoverPairMemberOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairMember) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Required String) The CRN of the cluster this member represents.
+func (o GetSwitchoverPairMemberOutput) MemberCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairMember) string { return v.MemberCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) A logical name for this member, unique within the pair.
+func (o GetSwitchoverPairMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud region of the member's cluster.
+func (o GetSwitchoverPairMemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairMember) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverPairMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairMember)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairMemberArrayOutput) ToGetSwitchoverPairMemberArrayOutput() GetSwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairMemberArrayOutput) ToGetSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) GetSwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairMemberArrayOutput) Index(i pulumi.IntInput) GetSwitchoverPairMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverPairMember {
+		return vs[0].([]GetSwitchoverPairMember)[vs[1].(int)]
+	}).(GetSwitchoverPairMemberOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPair struct {
+	// (Required String) The name of the member that is currently active.
+	ActiveMember string `pulumi:"activeMember"`
+	// (Required String) A human-readable name for the switchover pair.
+	DisplayName string `pulumi:"displayName"`
+	// The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+	EnvironmentCrn string `pulumi:"environmentCrn"`
+	// (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+	FailoverType string `pulumi:"failoverType"`
+	// (Required String) The name of the member that was active when the pair was first created. Differs from `activeMember` while the pair is failed over.
+	FirstActive string `pulumi:"firstActive"`
+	// (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+	Id string `pulumi:"id"`
+	// (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `memberCrn`, `cloud`, and `region`.
+	Members []GetSwitchoverPairsSwitchoverPairMember `pulumi:"members"`
+	// (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+	Phase string `pulumi:"phase"`
+}
+
+// GetSwitchoverPairsSwitchoverPairInput is an input type that accepts GetSwitchoverPairsSwitchoverPairArgs and GetSwitchoverPairsSwitchoverPairOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairsSwitchoverPairInput` via:
+//
+//	GetSwitchoverPairsSwitchoverPairArgs{...}
+type GetSwitchoverPairsSwitchoverPairInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairsSwitchoverPairOutput() GetSwitchoverPairsSwitchoverPairOutput
+	ToGetSwitchoverPairsSwitchoverPairOutputWithContext(context.Context) GetSwitchoverPairsSwitchoverPairOutput
+}
+
+type GetSwitchoverPairsSwitchoverPairArgs struct {
+	// (Required String) The name of the member that is currently active.
+	ActiveMember pulumi.StringInput `pulumi:"activeMember"`
+	// (Required String) A human-readable name for the switchover pair.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+	EnvironmentCrn pulumi.StringInput `pulumi:"environmentCrn"`
+	// (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+	FailoverType pulumi.StringInput `pulumi:"failoverType"`
+	// (Required String) The name of the member that was active when the pair was first created. Differs from `activeMember` while the pair is failed over.
+	FirstActive pulumi.StringInput `pulumi:"firstActive"`
+	// (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `memberCrn`, `cloud`, and `region`.
+	Members GetSwitchoverPairsSwitchoverPairMemberArrayInput `pulumi:"members"`
+	// (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+	Phase pulumi.StringInput `pulumi:"phase"`
+}
+
+func (GetSwitchoverPairsSwitchoverPairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairsSwitchoverPair)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairsSwitchoverPairArgs) ToGetSwitchoverPairsSwitchoverPairOutput() GetSwitchoverPairsSwitchoverPairOutput {
+	return i.ToGetSwitchoverPairsSwitchoverPairOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairsSwitchoverPairArgs) ToGetSwitchoverPairsSwitchoverPairOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairsSwitchoverPairOutput)
+}
+
+// GetSwitchoverPairsSwitchoverPairArrayInput is an input type that accepts GetSwitchoverPairsSwitchoverPairArray and GetSwitchoverPairsSwitchoverPairArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairsSwitchoverPairArrayInput` via:
+//
+//	GetSwitchoverPairsSwitchoverPairArray{ GetSwitchoverPairsSwitchoverPairArgs{...} }
+type GetSwitchoverPairsSwitchoverPairArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairsSwitchoverPairArrayOutput() GetSwitchoverPairsSwitchoverPairArrayOutput
+	ToGetSwitchoverPairsSwitchoverPairArrayOutputWithContext(context.Context) GetSwitchoverPairsSwitchoverPairArrayOutput
+}
+
+type GetSwitchoverPairsSwitchoverPairArray []GetSwitchoverPairsSwitchoverPairInput
+
+func (GetSwitchoverPairsSwitchoverPairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairsSwitchoverPair)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairsSwitchoverPairArray) ToGetSwitchoverPairsSwitchoverPairArrayOutput() GetSwitchoverPairsSwitchoverPairArrayOutput {
+	return i.ToGetSwitchoverPairsSwitchoverPairArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairsSwitchoverPairArray) ToGetSwitchoverPairsSwitchoverPairArrayOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairsSwitchoverPairArrayOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPairOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairsSwitchoverPairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairsSwitchoverPair)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairsSwitchoverPairOutput) ToGetSwitchoverPairsSwitchoverPairOutput() GetSwitchoverPairsSwitchoverPairOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairOutput) ToGetSwitchoverPairsSwitchoverPairOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairOutput {
+	return o
+}
+
+// (Required String) The name of the member that is currently active.
+func (o GetSwitchoverPairsSwitchoverPairOutput) ActiveMember() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.ActiveMember }).(pulumi.StringOutput)
+}
+
+// (Required String) A human-readable name for the switchover pair.
+func (o GetSwitchoverPairsSwitchoverPairOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+func (o GetSwitchoverPairsSwitchoverPairOutput) EnvironmentCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.EnvironmentCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+func (o GetSwitchoverPairsSwitchoverPairOutput) FailoverType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.FailoverType }).(pulumi.StringOutput)
+}
+
+// (Required String) The name of the member that was active when the pair was first created. Differs from `activeMember` while the pair is failed over.
+func (o GetSwitchoverPairsSwitchoverPairOutput) FirstActive() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.FirstActive }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+func (o GetSwitchoverPairsSwitchoverPairOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `memberCrn`, `cloud`, and `region`.
+func (o GetSwitchoverPairsSwitchoverPairOutput) Members() GetSwitchoverPairsSwitchoverPairMemberArrayOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) []GetSwitchoverPairsSwitchoverPairMember { return v.Members }).(GetSwitchoverPairsSwitchoverPairMemberArrayOutput)
+}
+
+// (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+func (o GetSwitchoverPairsSwitchoverPairOutput) Phase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPair) string { return v.Phase }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPairArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairsSwitchoverPairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairsSwitchoverPair)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairsSwitchoverPairArrayOutput) ToGetSwitchoverPairsSwitchoverPairArrayOutput() GetSwitchoverPairsSwitchoverPairArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairArrayOutput) ToGetSwitchoverPairsSwitchoverPairArrayOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairArrayOutput) Index(i pulumi.IntInput) GetSwitchoverPairsSwitchoverPairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverPairsSwitchoverPair {
+		return vs[0].([]GetSwitchoverPairsSwitchoverPair)[vs[1].(int)]
+	}).(GetSwitchoverPairsSwitchoverPairOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPairMember struct {
+	Cloud     string `pulumi:"cloud"`
+	MemberCrn string `pulumi:"memberCrn"`
+	Name      string `pulumi:"name"`
+	Region    string `pulumi:"region"`
+}
+
+// GetSwitchoverPairsSwitchoverPairMemberInput is an input type that accepts GetSwitchoverPairsSwitchoverPairMemberArgs and GetSwitchoverPairsSwitchoverPairMemberOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairsSwitchoverPairMemberInput` via:
+//
+//	GetSwitchoverPairsSwitchoverPairMemberArgs{...}
+type GetSwitchoverPairsSwitchoverPairMemberInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairsSwitchoverPairMemberOutput() GetSwitchoverPairsSwitchoverPairMemberOutput
+	ToGetSwitchoverPairsSwitchoverPairMemberOutputWithContext(context.Context) GetSwitchoverPairsSwitchoverPairMemberOutput
+}
+
+type GetSwitchoverPairsSwitchoverPairMemberArgs struct {
+	Cloud     pulumi.StringInput `pulumi:"cloud"`
+	MemberCrn pulumi.StringInput `pulumi:"memberCrn"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	Region    pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetSwitchoverPairsSwitchoverPairMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairMember)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairsSwitchoverPairMemberArgs) ToGetSwitchoverPairsSwitchoverPairMemberOutput() GetSwitchoverPairsSwitchoverPairMemberOutput {
+	return i.ToGetSwitchoverPairsSwitchoverPairMemberOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairsSwitchoverPairMemberArgs) ToGetSwitchoverPairsSwitchoverPairMemberOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairsSwitchoverPairMemberOutput)
+}
+
+// GetSwitchoverPairsSwitchoverPairMemberArrayInput is an input type that accepts GetSwitchoverPairsSwitchoverPairMemberArray and GetSwitchoverPairsSwitchoverPairMemberArrayOutput values.
+// You can construct a concrete instance of `GetSwitchoverPairsSwitchoverPairMemberArrayInput` via:
+//
+//	GetSwitchoverPairsSwitchoverPairMemberArray{ GetSwitchoverPairsSwitchoverPairMemberArgs{...} }
+type GetSwitchoverPairsSwitchoverPairMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetSwitchoverPairsSwitchoverPairMemberArrayOutput() GetSwitchoverPairsSwitchoverPairMemberArrayOutput
+	ToGetSwitchoverPairsSwitchoverPairMemberArrayOutputWithContext(context.Context) GetSwitchoverPairsSwitchoverPairMemberArrayOutput
+}
+
+type GetSwitchoverPairsSwitchoverPairMemberArray []GetSwitchoverPairsSwitchoverPairMemberInput
+
+func (GetSwitchoverPairsSwitchoverPairMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairsSwitchoverPairMember)(nil)).Elem()
+}
+
+func (i GetSwitchoverPairsSwitchoverPairMemberArray) ToGetSwitchoverPairsSwitchoverPairMemberArrayOutput() GetSwitchoverPairsSwitchoverPairMemberArrayOutput {
+	return i.ToGetSwitchoverPairsSwitchoverPairMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetSwitchoverPairsSwitchoverPairMemberArray) ToGetSwitchoverPairsSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSwitchoverPairsSwitchoverPairMemberArrayOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPairMemberOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairsSwitchoverPairMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairMember)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) ToGetSwitchoverPairsSwitchoverPairMemberOutput() GetSwitchoverPairsSwitchoverPairMemberOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) ToGetSwitchoverPairsSwitchoverPairMemberOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairMemberOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPairMember) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) MemberCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPairMember) string { return v.MemberCrn }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPairMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSwitchoverPairsSwitchoverPairMember) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetSwitchoverPairsSwitchoverPairMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSwitchoverPairsSwitchoverPairMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSwitchoverPairsSwitchoverPairMember)(nil)).Elem()
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberArrayOutput) ToGetSwitchoverPairsSwitchoverPairMemberArrayOutput() GetSwitchoverPairsSwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberArrayOutput) ToGetSwitchoverPairsSwitchoverPairMemberArrayOutputWithContext(ctx context.Context) GetSwitchoverPairsSwitchoverPairMemberArrayOutput {
+	return o
+}
+
+func (o GetSwitchoverPairsSwitchoverPairMemberArrayOutput) Index(i pulumi.IntInput) GetSwitchoverPairsSwitchoverPairMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSwitchoverPairsSwitchoverPairMember {
+		return vs[0].([]GetSwitchoverPairsSwitchoverPairMember)[vs[1].(int)]
+	}).(GetSwitchoverPairsSwitchoverPairMemberOutput)
+}
+
 type GetTableflowTopicAzureDataLakeStorageGen2 struct {
 	// (Required String) The container name.
 	ContainerName string `pulumi:"containerName"`
@@ -54659,6 +56026,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsPtrInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwitchoverEndpointEndpointInput)(nil)).Elem(), SwitchoverEndpointEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwitchoverEndpointEndpointArrayInput)(nil)).Elem(), SwitchoverEndpointEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwitchoverEndpointEndpointEndpointFilterInput)(nil)).Elem(), SwitchoverEndpointEndpointEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwitchoverPairMemberInput)(nil)).Elem(), SwitchoverPairMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwitchoverPairMemberArrayInput)(nil)).Elem(), SwitchoverPairMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2Input)(nil)).Elem(), TableflowTopicAzureDataLakeStorageGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2PtrInput)(nil)).Elem(), TableflowTopicAzureDataLakeStorageGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicByobAwsInput)(nil)).Elem(), TableflowTopicByobAwsArgs{})
@@ -55053,6 +56425,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsPtrInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointEndpointInput)(nil)).Elem(), GetSwitchoverEndpointEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointEndpointArrayInput)(nil)).Elem(), GetSwitchoverEndpointEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointEndpointEndpointFilterInput)(nil)).Elem(), GetSwitchoverEndpointEndpointEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointEndpointEndpointFilterArrayInput)(nil)).Elem(), GetSwitchoverEndpointEndpointEndpointFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointArrayInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayInput)(nil)).Elem(), GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairMemberInput)(nil)).Elem(), GetSwitchoverPairMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairMemberArrayInput)(nil)).Elem(), GetSwitchoverPairMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairInput)(nil)).Elem(), GetSwitchoverPairsSwitchoverPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairArrayInput)(nil)).Elem(), GetSwitchoverPairsSwitchoverPairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairMemberInput)(nil)).Elem(), GetSwitchoverPairsSwitchoverPairMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSwitchoverPairsSwitchoverPairMemberArrayInput)(nil)).Elem(), GetSwitchoverPairsSwitchoverPairMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2Input)(nil)).Elem(), GetTableflowTopicAzureDataLakeStorageGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2ArrayInput)(nil)).Elem(), GetTableflowTopicAzureDataLakeStorageGen2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicByobAwInput)(nil)).Elem(), GetTableflowTopicByobAwArgs{})
@@ -55456,6 +56844,11 @@ func init() {
 	pulumi.RegisterOutputType(SubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SwitchoverEndpointEndpointOutput{})
+	pulumi.RegisterOutputType(SwitchoverEndpointEndpointArrayOutput{})
+	pulumi.RegisterOutputType(SwitchoverEndpointEndpointEndpointFilterOutput{})
+	pulumi.RegisterOutputType(SwitchoverPairMemberOutput{})
+	pulumi.RegisterOutputType(SwitchoverPairMemberArrayOutput{})
 	pulumi.RegisterOutputType(TableflowTopicAzureDataLakeStorageGen2Output{})
 	pulumi.RegisterOutputType(TableflowTopicAzureDataLakeStorageGen2PtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicByobAwsOutput{})
@@ -55850,6 +57243,22 @@ func init() {
 	pulumi.RegisterOutputType(GetSubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointEndpointOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointEndpointEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointEndpointEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointEndpointOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairMemberOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairsSwitchoverPairOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairsSwitchoverPairArrayOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairsSwitchoverPairMemberOutput{})
+	pulumi.RegisterOutputType(GetSwitchoverPairsSwitchoverPairMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicAzureDataLakeStorageGen2Output{})
 	pulumi.RegisterOutputType(GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicByobAwOutput{})

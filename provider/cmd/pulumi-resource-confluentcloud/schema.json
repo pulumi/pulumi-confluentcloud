@@ -3870,6 +3870,113 @@
                 "id"
             ]
         },
+        "confluentcloud:index/SwitchoverEndpointEndpoint:SwitchoverEndpointEndpoint": {
+            "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "(Required String) The cloud provider this endpoint resolves to.\n"
+                },
+                "connectionType": {
+                    "type": "string",
+                    "description": "(Required String) The connection type this endpoint resolves to.\n"
+                },
+                "endpointFilter": {
+                    "$ref": "#/types/confluentcloud:index/SwitchoverEndpointEndpointEndpointFilter:SwitchoverEndpointEndpointEndpointFilter",
+                    "description": "Filter criteria that identify a network endpoint for this side of the pair. Supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "(Required String) The resolved hostname for this endpoint.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A logical name for this endpoint side (for example, `west-platt`), unique within the resource.\n",
+                    "willReplaceOnChanges": true
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) The cloud region this endpoint resolves to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "endpointFilter",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cloud",
+                        "connectionType",
+                        "endpointFilter",
+                        "hostname",
+                        "name",
+                        "region"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/SwitchoverEndpointEndpointEndpointFilter:SwitchoverEndpointEndpointEndpointFilter": {
+            "properties": {
+                "accessPointCrn": {
+                    "type": "string",
+                    "description": "The CRN of the network access point, for access-point (PNI) endpoints.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkCrn": {
+                    "type": "string",
+                    "description": "The CRN of the network, for network-based private endpoints.\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Whether the endpoint is \u003cspan pulumi-lang-nodejs=\"`private`\" pulumi-lang-dotnet=\"`Private`\" pulumi-lang-go=\"`private`\" pulumi-lang-python=\"`private`\" pulumi-lang-yaml=\"`private`\" pulumi-lang-java=\"`private`\" pulumi-lang-hcl=\"`private`\"\u003e`private`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`public`\" pulumi-lang-dotnet=\"`Public`\" pulumi-lang-go=\"`public`\" pulumi-lang-python=\"`public`\" pulumi-lang-yaml=\"`public`\" pulumi-lang-java=\"`public`\" pulumi-lang-hcl=\"`public`\"\u003e`public`\u003c/span\u003e.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "confluentcloud:index/SwitchoverPairMember:SwitchoverPairMember": {
+            "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "(Required String) The cloud provider of the member's cluster.\n"
+                },
+                "memberCrn": {
+                    "type": "string",
+                    "description": "The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A logical name for this member (for example, \u003cspan pulumi-lang-nodejs=\"`west`\" pulumi-lang-dotnet=\"`West`\" pulumi-lang-go=\"`west`\" pulumi-lang-python=\"`west`\" pulumi-lang-yaml=\"`west`\" pulumi-lang-java=\"`west`\" pulumi-lang-hcl=\"`west`\"\u003e`west`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`east`\" pulumi-lang-dotnet=\"`East`\" pulumi-lang-go=\"`east`\" pulumi-lang-python=\"`east`\" pulumi-lang-yaml=\"`east`\" pulumi-lang-java=\"`east`\" pulumi-lang-hcl=\"`east`\"\u003e`east`\u003c/span\u003e), unique within the pair.\n",
+                    "willReplaceOnChanges": true
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) The cloud region of the member's cluster.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "memberCrn",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cloud",
+                        "memberCrn",
+                        "name",
+                        "region"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/TableflowTopicAzureDataLakeStorageGen2:TableflowTopicAzureDataLakeStorageGen2": {
             "properties": {
                 "containerName": {
@@ -8653,6 +8760,301 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/getSwitchoverEndpointEndpoint:getSwitchoverEndpointEndpoint": {
+            "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "(Required String) The cloud provider this endpoint resolves to.\n"
+                },
+                "connectionType": {
+                    "type": "string",
+                    "description": "(Required String) The connection type this endpoint resolves to.\n"
+                },
+                "endpointFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSwitchoverEndpointEndpointEndpointFilter:getSwitchoverEndpointEndpointEndpointFilter"
+                    },
+                    "description": "(Required Configuration Block) Supports the following:\n"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "(Required String) The resolved hostname for this endpoint.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(Required String) A logical name for this endpoint side.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) The cloud region this endpoint resolves to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloud",
+                "connectionType",
+                "endpointFilters",
+                "hostname",
+                "name",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpointEndpointEndpointFilter:getSwitchoverEndpointEndpointEndpointFilter": {
+            "properties": {
+                "accessPointCrn": {
+                    "type": "string",
+                    "description": "(Required String) The CRN of the network access point, for access-point (PNI) endpoints.\n"
+                },
+                "networkCrn": {
+                    "type": "string",
+                    "description": "(Required String) The CRN of the network, for network-based private endpoints.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required String) Whether the endpoint is \u003cspan pulumi-lang-nodejs=\"`private`\" pulumi-lang-dotnet=\"`Private`\" pulumi-lang-go=\"`private`\" pulumi-lang-python=\"`private`\" pulumi-lang-yaml=\"`private`\" pulumi-lang-java=\"`private`\" pulumi-lang-hcl=\"`private`\"\u003e`private`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`public`\" pulumi-lang-dotnet=\"`Public`\" pulumi-lang-go=\"`public`\" pulumi-lang-python=\"`public`\" pulumi-lang-yaml=\"`public`\" pulumi-lang-java=\"`public`\" pulumi-lang-hcl=\"`public`\"\u003e`public`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessPointCrn",
+                "networkCrn",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpoint:getSwitchoverEndpointsSwitchoverEndpoint": {
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "(Required String) A human-readable name for the switchover endpoint.\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpointEndpoint:getSwitchoverEndpointsSwitchoverEndpointEndpoint"
+                    },
+                    "description": "(Required List of Object) The endpoint definitions, one per side. Each exports \u003cspan pulumi-lang-nodejs=\"`name`\" pulumi-lang-dotnet=\"`Name`\" pulumi-lang-go=\"`name`\" pulumi-lang-python=\"`name`\" pulumi-lang-yaml=\"`name`\" pulumi-lang-java=\"`name`\" pulumi-lang-hcl=\"`name`\"\u003e`name`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hostname`\" pulumi-lang-dotnet=\"`Hostname`\" pulumi-lang-go=\"`hostname`\" pulumi-lang-python=\"`hostname`\" pulumi-lang-yaml=\"`hostname`\" pulumi-lang-java=\"`hostname`\" pulumi-lang-hcl=\"`hostname`\"\u003e`hostname`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`cloud`\" pulumi-lang-dotnet=\"`Cloud`\" pulumi-lang-go=\"`cloud`\" pulumi-lang-python=\"`cloud`\" pulumi-lang-yaml=\"`cloud`\" pulumi-lang-java=\"`cloud`\" pulumi-lang-hcl=\"`cloud`\"\u003e`cloud`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`region`\" pulumi-lang-dotnet=\"`Region`\" pulumi-lang-go=\"`region`\" pulumi-lang-python=\"`region`\" pulumi-lang-yaml=\"`region`\" pulumi-lang-java=\"`region`\" pulumi-lang-hcl=\"`region`\"\u003e`region`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`connectionType`\" pulumi-lang-dotnet=\"`ConnectionType`\" pulumi-lang-go=\"`connectionType`\" pulumi-lang-python=\"`connection_type`\" pulumi-lang-yaml=\"`connectionType`\" pulumi-lang-java=\"`connectionType`\" pulumi-lang-hcl=\"`connection_type`\"\u003e`connectionType`\u003c/span\u003e, and an \u003cspan pulumi-lang-nodejs=\"`endpointFilter`\" pulumi-lang-dotnet=\"`EndpointFilter`\" pulumi-lang-go=\"`endpointFilter`\" pulumi-lang-python=\"`endpoint_filter`\" pulumi-lang-yaml=\"`endpointFilter`\" pulumi-lang-java=\"`endpointFilter`\" pulumi-lang-hcl=\"`endpoint_filter`\"\u003e`endpointFilter`\u003c/span\u003e object with \u003cspan pulumi-lang-nodejs=\"`type`\" pulumi-lang-dotnet=\"`Type`\" pulumi-lang-go=\"`type`\" pulumi-lang-python=\"`type`\" pulumi-lang-yaml=\"`type`\" pulumi-lang-java=\"`type`\" pulumi-lang-hcl=\"`type`\"\u003e`type`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`networkCrn`\" pulumi-lang-dotnet=\"`NetworkCrn`\" pulumi-lang-go=\"`networkCrn`\" pulumi-lang-python=\"`network_crn`\" pulumi-lang-yaml=\"`networkCrn`\" pulumi-lang-java=\"`networkCrn`\" pulumi-lang-hcl=\"`network_crn`\"\u003e`networkCrn`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`accessPointCrn`\" pulumi-lang-dotnet=\"`AccessPointCrn`\" pulumi-lang-go=\"`accessPointCrn`\" pulumi-lang-python=\"`access_point_crn`\" pulumi-lang-yaml=\"`accessPointCrn`\" pulumi-lang-java=\"`accessPointCrn`\" pulumi-lang-hcl=\"`access_point_crn`\"\u003e`accessPointCrn`\u003c/span\u003e.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the switchover endpoint, for example, `se-abc123`.\n"
+                },
+                "parentResourceCrn": {
+                    "type": "string",
+                    "description": "(Required String) The CRN of the switchover pair this endpoint is bound to.\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "(Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(Required String) The name of the endpoint side that is currently active; follows the pair's active member.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "displayName",
+                "endpoints",
+                "id",
+                "parentResourceCrn",
+                "phase",
+                "target"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpointEndpoint:getSwitchoverEndpointsSwitchoverEndpointEndpoint": {
+            "properties": {
+                "cloud": {
+                    "type": "string"
+                },
+                "connectionType": {
+                    "type": "string"
+                },
+                "endpointFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter:getSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter"
+                    }
+                },
+                "hostname": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloud",
+                "connectionType",
+                "endpointFilters",
+                "hostname",
+                "name",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter:getSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter": {
+            "properties": {
+                "accessPointCrn": {
+                    "type": "string"
+                },
+                "networkCrn": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessPointCrn",
+                "networkCrn",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverPairMember:getSwitchoverPairMember": {
+            "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "(Required String) The cloud provider of the member's cluster.\n"
+                },
+                "memberCrn": {
+                    "type": "string",
+                    "description": "(Required String) The CRN of the cluster this member represents.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(Required String) A logical name for this member, unique within the pair.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) The cloud region of the member's cluster.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloud",
+                "memberCrn",
+                "name",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverPairsSwitchoverPair:getSwitchoverPairsSwitchoverPair": {
+            "properties": {
+                "activeMember": {
+                    "type": "string",
+                    "description": "(Required String) The name of the member that is currently active.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "(Required String) A human-readable name for the switchover pair.\n"
+                },
+                "environmentCrn": {
+                    "type": "string",
+                    "description": "The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                },
+                "failoverType": {
+                    "type": "string",
+                    "description": "(Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.\n"
+                },
+                "firstActive": {
+                    "type": "string",
+                    "description": "(Required String) The name of the member that was active when the pair was first created. Differs from \u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e while the pair is failed over.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the switchover pair, for example, `sw-abc123`.\n"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSwitchoverPairsSwitchoverPairMember:getSwitchoverPairsSwitchoverPairMember"
+                    },
+                    "description": "(Required List of Object) The two clusters participating in the pair. Each member exports \u003cspan pulumi-lang-nodejs=\"`name`\" pulumi-lang-dotnet=\"`Name`\" pulumi-lang-go=\"`name`\" pulumi-lang-python=\"`name`\" pulumi-lang-yaml=\"`name`\" pulumi-lang-java=\"`name`\" pulumi-lang-hcl=\"`name`\"\u003e`name`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`memberCrn`\" pulumi-lang-dotnet=\"`MemberCrn`\" pulumi-lang-go=\"`memberCrn`\" pulumi-lang-python=\"`member_crn`\" pulumi-lang-yaml=\"`memberCrn`\" pulumi-lang-java=\"`memberCrn`\" pulumi-lang-hcl=\"`member_crn`\"\u003e`memberCrn`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`cloud`\" pulumi-lang-dotnet=\"`Cloud`\" pulumi-lang-go=\"`cloud`\" pulumi-lang-python=\"`cloud`\" pulumi-lang-yaml=\"`cloud`\" pulumi-lang-java=\"`cloud`\" pulumi-lang-hcl=\"`cloud`\"\u003e`cloud`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`region`\" pulumi-lang-dotnet=\"`Region`\" pulumi-lang-go=\"`region`\" pulumi-lang-python=\"`region`\" pulumi-lang-yaml=\"`region`\" pulumi-lang-java=\"`region`\" pulumi-lang-hcl=\"`region`\"\u003e`region`\u003c/span\u003e.\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "(Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "activeMember",
+                "displayName",
+                "environmentCrn",
+                "failoverType",
+                "firstActive",
+                "id",
+                "members",
+                "phase"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSwitchoverPairsSwitchoverPairMember:getSwitchoverPairsSwitchoverPairMember": {
+            "properties": {
+                "cloud": {
+                    "type": "string"
+                },
+                "memberCrn": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloud",
+                "memberCrn",
+                "name",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getTableflowTopicAzureDataLakeStorageGen2:getTableflowTopicAzureDataLakeStorageGen2": {
             "properties": {
@@ -16684,6 +17086,211 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-go=\"`SwitchoverEndpoint`\" pulumi-lang-python=\"`SwitchoverEndpoint`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-java=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-hcl=\"`confluent_switchover_endpoint`\"\u003e`confluentcloud.SwitchoverEndpoint`\u003c/span\u003e provides a switchover endpoint resource that models a sticky disaster recovery (DR) endpoint bound to a \u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-go=\"`SwitchoverPair`\" pulumi-lang-python=\"`SwitchoverPair`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-java=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-hcl=\"`confluent_switchover_pair`\"\u003e`confluentcloud.SwitchoverPair`\u003c/span\u003e. The endpoint follows the pair's active member so that clients keep a stable connection target across a failover.\n\nDeleting an endpoint is asynchronous on the API side; the resource waits until the endpoint is gone before completing, so a `terraform destroy` that removes the endpoint and its pair together succeeds in one run (the pair cannot be deleted while an endpoint still exists).\n\nThe side the endpoint points at is owned by the Switchover service and reported in the computed \u003cspan pulumi-lang-nodejs=\"`target`\" pulumi-lang-dotnet=\"`Target`\" pulumi-lang-go=\"`target`\" pulumi-lang-python=\"`target`\" pulumi-lang-yaml=\"`target`\" pulumi-lang-java=\"`target`\" pulumi-lang-hcl=\"`target`\"\u003e`target`\u003c/span\u003e attribute: it starts on the side matching the pair's active member, and a failover moves it without showing drift or forcing a replacement (which would hand clients a new hostname). Keep the endpoint in the same Terraform configuration as its pair. See the complete example.\n\n\u003e **Note:** For PrivateLink Attachment (Enterprise) clusters, use \u003cspan pulumi-lang-nodejs=\"`accessPointCrn`\" pulumi-lang-dotnet=\"`AccessPointCrn`\" pulumi-lang-go=\"`accessPointCrn`\" pulumi-lang-python=\"`access_point_crn`\" pulumi-lang-yaml=\"`accessPointCrn`\" pulumi-lang-java=\"`accessPointCrn`\" pulumi-lang-hcl=\"`access_point_crn`\"\u003e`accessPointCrn`\u003c/span\u003e in the form `crn://confluent.cloud/organization=\u003corg\u003e/environment=\u003cenv\u003e/gateway=\u003cplatt-id\u003e/access-point=\u003cplattc-id\u003e`. For Dedicated clusters on a Confluent-managed network, use \u003cspan pulumi-lang-nodejs=\"`networkCrn`\" pulumi-lang-dotnet=\"`NetworkCrn`\" pulumi-lang-go=\"`networkCrn`\" pulumi-lang-python=\"`network_crn`\" pulumi-lang-yaml=\"`networkCrn`\" pulumi-lang-java=\"`networkCrn`\" pulumi-lang-hcl=\"`network_crn`\"\u003e`networkCrn`\u003c/span\u003e.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SwitchoverEndpoint(\"example\", {\n    displayName: \"prod-kafka-dr-endpoint\",\n    parentResourceCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\",\n    endpoints: [\n        {\n            name: \"west-platt\",\n            endpointFilter: {\n                type: \"private\",\n                networkCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\",\n            },\n        },\n        {\n            name: \"east-platt\",\n            endpointFilter: {\n                type: \"private\",\n                networkCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\",\n            },\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SwitchoverEndpoint(\"example\",\n    display_name=\"prod-kafka-dr-endpoint\",\n    parent_resource_crn=\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\",\n    endpoints=[\n        {\n            \"name\": \"west-platt\",\n            \"endpoint_filter\": {\n                \"type\": \"private\",\n                \"network_crn\": \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\",\n            },\n        },\n        {\n            \"name\": \"east-platt\",\n            \"endpoint_filter\": {\n                \"type\": \"private\",\n                \"network_crn\": \"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\",\n            },\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SwitchoverEndpoint(\"example\", new()\n    {\n        DisplayName = \"prod-kafka-dr-endpoint\",\n        ParentResourceCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\",\n        Endpoints = new[]\n        {\n            new ConfluentCloud.Inputs.SwitchoverEndpointEndpointArgs\n            {\n                Name = \"west-platt\",\n                EndpointFilter = new ConfluentCloud.Inputs.SwitchoverEndpointEndpointEndpointFilterArgs\n                {\n                    Type = \"private\",\n                    NetworkCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\",\n                },\n            },\n            new ConfluentCloud.Inputs.SwitchoverEndpointEndpointArgs\n            {\n                Name = \"east-platt\",\n                EndpointFilter = new ConfluentCloud.Inputs.SwitchoverEndpointEndpointEndpointFilterArgs\n                {\n                    Type = \"private\",\n                    NetworkCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSwitchoverEndpoint(ctx, \"example\", \u0026confluentcloud.SwitchoverEndpointArgs{\n\t\t\tDisplayName:       pulumi.String(\"prod-kafka-dr-endpoint\"),\n\t\t\tParentResourceCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\"),\n\t\t\tEndpoints: confluentcloud.SwitchoverEndpointEndpointArray{\n\t\t\t\t\u0026confluentcloud.SwitchoverEndpointEndpointArgs{\n\t\t\t\t\tName: pulumi.String(\"west-platt\"),\n\t\t\t\t\tEndpointFilter: \u0026confluentcloud.SwitchoverEndpointEndpointEndpointFilterArgs{\n\t\t\t\t\t\tType:       pulumi.String(\"private\"),\n\t\t\t\t\t\tNetworkCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026confluentcloud.SwitchoverEndpointEndpointArgs{\n\t\t\t\t\tName: pulumi.String(\"east-platt\"),\n\t\t\t\t\tEndpointFilter: \u0026confluentcloud.SwitchoverEndpointEndpointEndpointFilterArgs{\n\t\t\t\t\t\tType:       pulumi.String(\"private\"),\n\t\t\t\t\t\tNetworkCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_switchoverendpoint\" \"example\" {\n  display_name        = \"prod-kafka-dr-endpoint\"\n  parent_resource_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\"\n  endpoints {\n    name = \"west-platt\"\n    endpoint_filter = {\n      type        = \"private\"\n      network_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\"\n    }\n  }\n  endpoints {\n    name = \"east-platt\"\n    endpoint_filter = {\n      type        = \"private\"\n      network_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\"\n    }\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SwitchoverEndpoint;\nimport com.pulumi.confluentcloud.SwitchoverEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.SwitchoverEndpointEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.SwitchoverEndpointEndpointEndpointFilterArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SwitchoverEndpoint(\"example\", SwitchoverEndpointArgs.builder()\n            .displayName(\"prod-kafka-dr-endpoint\")\n            .parentResourceCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\")\n            .endpoints(            \n                SwitchoverEndpointEndpointArgs.builder()\n                    .name(\"west-platt\")\n                    .endpointFilter(SwitchoverEndpointEndpointEndpointFilterArgs.builder()\n                        .type(\"private\")\n                        .networkCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\")\n                        .build())\n                    .build(),\n                SwitchoverEndpointEndpointArgs.builder()\n                    .name(\"east-platt\")\n                    .endpointFilter(SwitchoverEndpointEndpointEndpointFilterArgs.builder()\n                        .type(\"private\")\n                        .networkCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\")\n                        .build())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SwitchoverEndpoint\n    properties:\n      displayName: prod-kafka-dr-endpoint\n      parentResourceCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123\n      endpoints:\n        - name: west-platt\n          endpointFilter:\n            type: private\n            networkCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123/network=n-west01\n        - name: east-platt\n          endpointFilter:\n            type: private\n            networkCrn: crn://confluent.cloud/organization=org-abc/environment=env-def456/network=n-east01\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a switchover endpoint.\n\nYou can import a switchover endpoint by using the parent resource CRN and switchover endpoint ID, in the format `\u003cParent Resource CRN\u003e/\u003cSwitchover Endpoint ID\u003e`. The following example shows how to import a switchover endpoint:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint example crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123/se-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the switchover endpoint.\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SwitchoverEndpointEndpoint:SwitchoverEndpointEndpoint"
+                    },
+                    "description": "(Required Configuration Block) In addition to the arguments above, each endpoint exports the following:\n"
+                },
+                "parentResourceCrn": {
+                    "type": "string",
+                    "description": "The CRN of the switchover pair this endpoint is bound to, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123`. The CRN carries the pair's environment.\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "(Required String) The lifecycle phase of the switchover endpoint.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "(Required String) Read-only. The name of the endpoint that is currently active. The Switchover service derives it from the pair's active member at create time and moves it on every failover; it cannot be set (the API marks it `readOnly`).\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "endpoints",
+                "parentResourceCrn",
+                "phase",
+                "target"
+            ],
+            "inputProperties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the switchover endpoint.\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SwitchoverEndpointEndpoint:SwitchoverEndpointEndpoint"
+                    },
+                    "description": "(Required Configuration Block) In addition to the arguments above, each endpoint exports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentResourceCrn": {
+                    "type": "string",
+                    "description": "The CRN of the switchover pair this endpoint is bound to, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123`. The CRN carries the pair's environment.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "endpoints",
+                "parentResourceCrn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SwitchoverEndpoint resources.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the switchover endpoint.\n"
+                    },
+                    "endpoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/SwitchoverEndpointEndpoint:SwitchoverEndpointEndpoint"
+                        },
+                        "description": "(Required Configuration Block) In addition to the arguments above, each endpoint exports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentResourceCrn": {
+                        "type": "string",
+                        "description": "The CRN of the switchover pair this endpoint is bound to, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123`. The CRN carries the pair's environment.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "phase": {
+                        "type": "string",
+                        "description": "(Required String) The lifecycle phase of the switchover endpoint.\n"
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "(Required String) Read-only. The name of the endpoint that is currently active. The Switchover service derives it from the pair's active member at create time and moves it on every failover; it cannot be set (the API marks it `readOnly`).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/switchoverPair:SwitchoverPair": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-go=\"`SwitchoverPair`\" pulumi-lang-python=\"`SwitchoverPair`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-java=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-hcl=\"`confluent_switchover_pair`\"\u003e`confluentcloud.SwitchoverPair`\u003c/span\u003e provides a switchover pair resource that models a cluster-level disaster recovery (DR) pairing between two Kafka clusters (an active member and a passive member) on Confluent Cloud.\n\nCreating a pair is asynchronous on the API side; the resource waits until the pair reaches `READY_TO_FAILOVER` (up to 30 minutes) before completing, so a \u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-go=\"`SwitchoverEndpoint`\" pulumi-lang-python=\"`SwitchoverEndpoint`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-java=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-hcl=\"`confluent_switchover_endpoint`\"\u003e`confluentcloud.SwitchoverEndpoint`\u003c/span\u003e created in the same apply is not rejected while the pair is still `PROVISIONING`.\n\n\u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e chooses which member is active when the pair is created. After that the Switchover service owns it: a failover (the Switchover API's `:failover` operation, for example `confluent switchover pair failover \u003cid\u003e --active-member \u003cname\u003e`) changes the active member on the server, and the resource reads the current value back without showing drift or forcing a replacement. Editing \u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e in the configuration of an existing pair has no effect — the difference is suppressed, and no plan is produced. See the complete example.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SwitchoverPair(\"example\", {\n    displayName: \"prod-kafka-dr\",\n    activeMember: \"west\",\n    members: [\n        {\n            name: \"west\",\n            memberCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\",\n        },\n        {\n            name: \"east\",\n            memberCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\",\n        },\n    ],\n    environmentCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SwitchoverPair(\"example\",\n    display_name=\"prod-kafka-dr\",\n    active_member=\"west\",\n    members=[\n        {\n            \"name\": \"west\",\n            \"member_crn\": \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\",\n        },\n        {\n            \"name\": \"east\",\n            \"member_crn\": \"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\",\n        },\n    ],\n    environment_crn=\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SwitchoverPair(\"example\", new()\n    {\n        DisplayName = \"prod-kafka-dr\",\n        ActiveMember = \"west\",\n        Members = new[]\n        {\n            new ConfluentCloud.Inputs.SwitchoverPairMemberArgs\n            {\n                Name = \"west\",\n                MemberCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\",\n            },\n            new ConfluentCloud.Inputs.SwitchoverPairMemberArgs\n            {\n                Name = \"east\",\n                MemberCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\",\n            },\n        },\n        EnvironmentCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSwitchoverPair(ctx, \"example\", \u0026confluentcloud.SwitchoverPairArgs{\n\t\t\tDisplayName:  pulumi.String(\"prod-kafka-dr\"),\n\t\t\tActiveMember: pulumi.String(\"west\"),\n\t\t\tMembers: confluentcloud.SwitchoverPairMemberArray{\n\t\t\t\t\u0026confluentcloud.SwitchoverPairMemberArgs{\n\t\t\t\t\tName:      pulumi.String(\"west\"),\n\t\t\t\t\tMemberCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\"),\n\t\t\t\t},\n\t\t\t\t\u0026confluentcloud.SwitchoverPairMemberArgs{\n\t\t\t\t\tName:      pulumi.String(\"east\"),\n\t\t\t\t\tMemberCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnvironmentCrn: pulumi.String(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_switchoverpair\" \"example\" {\n  display_name  = \"prod-kafka-dr\"\n  active_member = \"west\"\n  members {\n    name       = \"west\"\n    member_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\"\n  }\n  members {\n    name       = \"east\"\n    member_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\"\n  }\n  environment_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SwitchoverPair;\nimport com.pulumi.confluentcloud.SwitchoverPairArgs;\nimport com.pulumi.confluentcloud.inputs.SwitchoverPairMemberArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SwitchoverPair(\"example\", SwitchoverPairArgs.builder()\n            .displayName(\"prod-kafka-dr\")\n            .activeMember(\"west\")\n            .members(            \n                SwitchoverPairMemberArgs.builder()\n                    .name(\"west\")\n                    .memberCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\")\n                    .build(),\n                SwitchoverPairMemberArgs.builder()\n                    .name(\"east\")\n                    .memberCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\")\n                    .build())\n            .environmentCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SwitchoverPair\n    properties:\n      displayName: prod-kafka-dr\n      activeMember: west\n      members:\n        - name: west\n          memberCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01\n        - name: east\n          memberCrn: crn://confluent.cloud/organization=org-abc/environment=env-def456/cloud-cluster=lkc-east01\n      environmentCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a switchover pair.\n\nYou can import a switchover pair by using the environment CRN and switchover pair ID, in the format `\u003cEnvironment CRN\u003e/\u003cSwitchover Pair ID\u003e`. The following example shows how to import a switchover pair:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/switchoverPair:SwitchoverPair example crn://confluent.cloud/organization=org-abc/environment=env-abc123/sw-abc123\n```\n\nOn import, \u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e is read from the API and any value in your configuration is accepted without a planned replacement; use the currently active member (or \u003cspan pulumi-lang-nodejs=\"`firstActive`\" pulumi-lang-dotnet=\"`FirstActive`\" pulumi-lang-go=\"`firstActive`\" pulumi-lang-python=\"`first_active`\" pulumi-lang-yaml=\"`firstActive`\" pulumi-lang-java=\"`firstActive`\" pulumi-lang-hcl=\"`first_active`\"\u003e`firstActive`\u003c/span\u003e) for clarity.\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "activeMember": {
+                    "type": "string",
+                    "description": "The name of the member that is active when the pair is created; must match one of the `members[].name` values. After creation the Switchover service owns this value: it is read back from the API and always reflects the currently active member, and changing it in the configuration has no effect (no plan is produced). To change which member is active, trigger a failover through the Switchover API's `:failover` operation (for example with the Confluent CLI).\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the switchover pair.\n"
+                },
+                "environmentCrn": {
+                    "type": "string",
+                    "description": "The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                },
+                "failoverType": {
+                    "type": "string",
+                    "description": "(Required String) The failover semantics most recently applied to this pair (`PLANNED`, `UNPLANNED`, or `RESTORE`). Empty until a failover has been triggered.\n"
+                },
+                "firstActive": {
+                    "type": "string",
+                    "description": "(Required String) The name of the member that was active when the pair was first created. Compare with \u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e to tell whether the pair is currently failed over.\n"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SwitchoverPairMember:SwitchoverPairMember"
+                    },
+                    "description": "(Required Configuration Block) In addition to the arguments above, each member exports the following:\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "(Required String) The lifecycle phase of the switchover pair, for example, `PROVISIONING`, `READY_TO_FAILOVER`, `UPDATING`, `READY_TO_RESTORE`, `FAILED`, or `DEPROVISIONING`.\n"
+                }
+            },
+            "required": [
+                "activeMember",
+                "displayName",
+                "environmentCrn",
+                "failoverType",
+                "firstActive",
+                "members",
+                "phase"
+            ],
+            "inputProperties": {
+                "activeMember": {
+                    "type": "string",
+                    "description": "The name of the member that is active when the pair is created; must match one of the `members[].name` values. After creation the Switchover service owns this value: it is read back from the API and always reflects the currently active member, and changing it in the configuration has no effect (no plan is produced). To change which member is active, trigger a failover through the Switchover API's `:failover` operation (for example with the Confluent CLI).\n",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the switchover pair.\n"
+                },
+                "environmentCrn": {
+                    "type": "string",
+                    "description": "The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SwitchoverPairMember:SwitchoverPairMember"
+                    },
+                    "description": "(Required Configuration Block) In addition to the arguments above, each member exports the following:\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "activeMember",
+                "displayName",
+                "environmentCrn",
+                "members"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SwitchoverPair resources.\n",
+                "properties": {
+                    "activeMember": {
+                        "type": "string",
+                        "description": "The name of the member that is active when the pair is created; must match one of the `members[].name` values. After creation the Switchover service owns this value: it is read back from the API and always reflects the currently active member, and changing it in the configuration has no effect (no plan is produced). To change which member is active, trigger a failover through the Switchover API's `:failover` operation (for example with the Confluent CLI).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the switchover pair.\n"
+                    },
+                    "environmentCrn": {
+                        "type": "string",
+                        "description": "The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "failoverType": {
+                        "type": "string",
+                        "description": "(Required String) The failover semantics most recently applied to this pair (`PLANNED`, `UNPLANNED`, or `RESTORE`). Empty until a failover has been triggered.\n"
+                    },
+                    "firstActive": {
+                        "type": "string",
+                        "description": "(Required String) The name of the member that was active when the pair was first created. Compare with \u003cspan pulumi-lang-nodejs=\"`activeMember`\" pulumi-lang-dotnet=\"`ActiveMember`\" pulumi-lang-go=\"`activeMember`\" pulumi-lang-python=\"`active_member`\" pulumi-lang-yaml=\"`activeMember`\" pulumi-lang-java=\"`activeMember`\" pulumi-lang-hcl=\"`active_member`\"\u003e`activeMember`\u003c/span\u003e to tell whether the pair is currently failed over.\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/SwitchoverPairMember:SwitchoverPairMember"
+                        },
+                        "description": "(Required Configuration Block) In addition to the arguments above, each member exports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "phase": {
+                        "type": "string",
+                        "description": "(Required String) The lifecycle phase of the switchover pair, for example, `PROVISIONING`, `READY_TO_FAILOVER`, `UPDATING`, `READY_TO_RESTORE`, `FAILED`, or `DEPROVISIONING`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/tableflowTopic:TableflowTopic": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n\u003e **Note:** Make sure to use \u003cspan pulumi-lang-nodejs=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-go=\"`CatalogIntegration`\" pulumi-lang-python=\"`CatalogIntegration`\" pulumi-lang-yaml=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-java=\"`confluentcloud.CatalogIntegration`\" pulumi-lang-hcl=\"`confluent_catalog_integration`\"\u003e`confluentcloud.CatalogIntegration`\u003c/span\u003e resource if you want to integrate Tableflow with AWS Glue Catalog, Snowflake Open Catalog, or Unity Catalog.\n\n## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  managed_storages {\n  }\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name  = orders.topicName\n  table_formats = [\"ICEBERG\", \"DELTA\"]\n  credentials = {\n    key    = env-admin-tableflow-api-key.id\n    secret = env-admin-tableflow-api-key.secret\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages(TableflowTopicManagedStorageArgs.builder()\n                .build())\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name = orders.topicName\n  byob_aws = {\n    bucket_name             = \"bucket_1\"\n    provider_integration_id = main.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n### Option #4: Manage Google Cloud Storage Tableflow Topics in Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    googleCloudStorage: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    google_cloud_storage={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    },\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        GoogleCloudStorage = new ConfluentCloud.Inputs.TableflowTopicGoogleCloudStorageArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tGoogleCloudStorage: \u0026confluentcloud.TableflowTopicGoogleCloudStorageArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_tableflowtopic\" \"example\" {\n  environment = {\n    id = staging.id\n  }\n  kafka_cluster = {\n    id = stagingConfluentKafkaCluster.id\n  }\n  display_name = orders.topicName\n  google_cloud_storage = {\n    bucket_name             = \"bucket_1\"\n    provider_integration_id = main.id\n  }\n  credentials = {\n    key    = env-admin-tableflow-api-key.id\n    secret = env-admin-tableflow-api-key.secret\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicGoogleCloudStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .googleCloudStorage(TableflowTopicGoogleCloudStorageArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      googleCloudStorage:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.TableflowTopic`\" pulumi-lang-dotnet=\"`confluentcloud.TableflowTopic`\" pulumi-lang-go=\"`TableflowTopic`\" pulumi-lang-python=\"`TableflowTopic`\" pulumi-lang-yaml=\"`confluentcloud.TableflowTopic`\" pulumi-lang-java=\"`confluentcloud.TableflowTopic`\" pulumi-lang-hcl=\"`confluent_tableflow_topic`\"\u003e`confluentcloud.TableflowTopic`\u003c/span\u003e resource:\n* confluent-managed-storage: Tableflow topic with Confluent-managed storage.\n* byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.\n* datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.\n* datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.\n\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n```sh\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -21667,6 +22274,231 @@
                 "required": [
                     "mode",
                     "subjectName",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpoint:getSwitchoverEndpoint": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-go=\"`SwitchoverEndpoint`\" pulumi-lang-python=\"`SwitchoverEndpoint`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-java=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-hcl=\"`confluent_switchover_endpoint`\"\u003e`confluentcloud.SwitchoverEndpoint`\u003c/span\u003e describes a switchover endpoint data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = confluentcloud.getSwitchoverEndpoint({\n    id: \"se-abc123\",\n    environmentCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n});\nexport const switchoverEndpoint = example;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_switchover_endpoint(id=\"se-abc123\",\n    environment_crn=\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\npulumi.export(\"switchoverEndpoint\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetSwitchoverEndpoint.Invoke(new()\n    {\n        Id = \"se-abc123\",\n        EnvironmentCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"switchoverEndpoint\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetSwitchoverEndpoint(ctx, \u0026confluentcloud.LookupSwitchoverEndpointArgs{\n\t\t\tId:             \"se-abc123\",\n\t\t\tEnvironmentCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"switchoverEndpoint\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_getswitchoverendpoint\" \"example\" {\n  id              = \"se-abc123\"\n  environment_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\"\n}\n\noutput \"switchoverEndpoint\" {\n  value = data.confluentcloud_getswitchoverendpoint.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSwitchoverEndpointArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getSwitchoverEndpoint(GetSwitchoverEndpointArgs.builder()\n            .id(\"se-abc123\")\n            .environmentCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\n            .build());\n\n        ctx.export(\"switchoverEndpoint\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getSwitchoverEndpoint\n      arguments:\n        id: se-abc123\n        environmentCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123\noutputs:\n  switchoverEndpoint: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSwitchoverEndpoint.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "type": "string",
+                        "description": "The CRN of the environment that owns this switchover endpoint, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the switchover endpoint, for example, `se-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environmentCrn",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSwitchoverEndpoint.\n",
+                "properties": {
+                    "displayName": {
+                        "description": "(Required String) A human-readable name for the switchover endpoint.\n",
+                        "type": "string"
+                    },
+                    "endpoints": {
+                        "description": "(Required Configuration Block) The endpoint definitions, one per side. Each block exports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSwitchoverEndpointEndpoint:getSwitchoverEndpointEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "environmentCrn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "parentResourceCrn": {
+                        "description": "(Required String) The CRN of the switchover pair this endpoint is bound to.\n",
+                        "type": "string"
+                    },
+                    "phase": {
+                        "description": "(Required String) The lifecycle phase of the switchover endpoint.\n",
+                        "type": "string"
+                    },
+                    "target": {
+                        "description": "(Required String) The name of the endpoint that is currently active.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "displayName",
+                    "endpoints",
+                    "environmentCrn",
+                    "id",
+                    "parentResourceCrn",
+                    "phase",
+                    "target"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getSwitchoverEndpoints:getSwitchoverEndpoints": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getSwitchoverEndpoints`\" pulumi-lang-dotnet=\"`confluentcloud.getSwitchoverEndpoints`\" pulumi-lang-go=\"`getSwitchoverEndpoints`\" pulumi-lang-python=\"`get_switchover_endpoints`\" pulumi-lang-yaml=\"`confluentcloud.getSwitchoverEndpoints`\" pulumi-lang-java=\"`confluentcloud.getSwitchoverEndpoints`\" pulumi-lang-hcl=\"`data.confluent_switchover_endpoints`\"\u003e`confluentcloud.getSwitchoverEndpoints`\u003c/span\u003e lists the switchover endpoints in an environment, optionally only those bound to one switchover pair.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSwitchoverEndpoints.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "type": "string",
+                        "description": "The CRN of the environment whose switchover endpoints to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                    },
+                    "switchoverPairId": {
+                        "type": "string",
+                        "description": "Only list endpoints bound to this switchover pair, for example, `sw-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environmentCrn"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSwitchoverEndpoints.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "switchoverEndpoints": {
+                        "description": "(Required List of Object) The matching switchover endpoints. Each object exports the same attributes as the \u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-go=\"`SwitchoverEndpoint`\" pulumi-lang-python=\"`SwitchoverEndpoint`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-java=\"`confluentcloud.SwitchoverEndpoint`\" pulumi-lang-hcl=\"`confluent_switchover_endpoint`\"\u003e`confluentcloud.SwitchoverEndpoint`\u003c/span\u003e data source:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSwitchoverEndpointsSwitchoverEndpoint:getSwitchoverEndpointsSwitchoverEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "switchoverPairId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "environmentCrn",
+                    "switchoverEndpoints",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getSwitchoverPair:getSwitchoverPair": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-go=\"`SwitchoverPair`\" pulumi-lang-python=\"`SwitchoverPair`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-java=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-hcl=\"`confluent_switchover_pair`\"\u003e`confluentcloud.SwitchoverPair`\u003c/span\u003e describes a switchover pair data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = confluentcloud.getSwitchoverPair({\n    id: \"sw-abc123\",\n    environmentCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n});\nexport const switchoverPair = example;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_switchover_pair(id=\"sw-abc123\",\n    environment_crn=\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\npulumi.export(\"switchoverPair\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetSwitchoverPair.Invoke(new()\n    {\n        Id = \"sw-abc123\",\n        EnvironmentCrn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"switchoverPair\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetSwitchoverPair(ctx, \u0026confluentcloud.LookupSwitchoverPairArgs{\n\t\t\tId:             \"sw-abc123\",\n\t\t\tEnvironmentCrn: \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"switchoverPair\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_getswitchoverpair\" \"example\" {\n  id              = \"sw-abc123\"\n  environment_crn = \"crn://confluent.cloud/organization=org-abc/environment=env-abc123\"\n}\n\noutput \"switchoverPair\" {\n  value = data.confluentcloud_getswitchoverpair.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSwitchoverPairArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getSwitchoverPair(GetSwitchoverPairArgs.builder()\n            .id(\"sw-abc123\")\n            .environmentCrn(\"crn://confluent.cloud/organization=org-abc/environment=env-abc123\")\n            .build());\n\n        ctx.export(\"switchoverPair\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getSwitchoverPair\n      arguments:\n        id: sw-abc123\n        environmentCrn: crn://confluent.cloud/organization=org-abc/environment=env-abc123\noutputs:\n  switchoverPair: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSwitchoverPair.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "type": "string",
+                        "description": "The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the switchover pair, for example, `sw-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environmentCrn",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSwitchoverPair.\n",
+                "properties": {
+                    "activeMember": {
+                        "description": "(Required String) The name of the member that is currently active.\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "(Required String) A human-readable name for the switchover pair.\n",
+                        "type": "string"
+                    },
+                    "environmentCrn": {
+                        "type": "string"
+                    },
+                    "failoverType": {
+                        "description": "(Required String) The failover semantics most recently applied to this pair.\n",
+                        "type": "string"
+                    },
+                    "firstActive": {
+                        "description": "(Required String) The name of the member that was active when the pair was first created.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "members": {
+                        "description": "(Required Configuration Block) The two clusters participating in this switchover pair. Each block exports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSwitchoverPairMember:getSwitchoverPairMember"
+                        },
+                        "type": "array"
+                    },
+                    "phase": {
+                        "description": "(Required String) The lifecycle phase of the switchover pair.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "activeMember",
+                    "displayName",
+                    "environmentCrn",
+                    "failoverType",
+                    "firstActive",
+                    "id",
+                    "members",
+                    "phase"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getSwitchoverPairs:getSwitchoverPairs": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Warning:** Switchover is a preview feature. Preview features are introduced to gather customer feedback and may change based on that feedback. They are intended for evaluation and non-production use only, and are not covered by Confluent SLAs. Preview features may be discontinued at any time.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getSwitchoverPairs`\" pulumi-lang-dotnet=\"`confluentcloud.getSwitchoverPairs`\" pulumi-lang-go=\"`getSwitchoverPairs`\" pulumi-lang-python=\"`get_switchover_pairs`\" pulumi-lang-yaml=\"`confluentcloud.getSwitchoverPairs`\" pulumi-lang-java=\"`confluentcloud.getSwitchoverPairs`\" pulumi-lang-hcl=\"`data.confluent_switchover_pairs`\"\u003e`confluentcloud.getSwitchoverPairs`\u003c/span\u003e lists every switchover pair in an environment. Use it to discover pairs without knowing their IDs — for example, to find the pair for a given cluster, or to see which pairs are currently failed over, from a configuration that did not create them.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSwitchoverPairs.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "type": "string",
+                        "description": "The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environmentCrn"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSwitchoverPairs.\n",
+                "properties": {
+                    "environmentCrn": {
+                        "description": "(Required String) The CRN of the environment that owns the pair.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "switchoverPairs": {
+                        "description": "(Required List of Object) The switchover pairs in the environment. Each object exports the same attributes as the \u003cspan pulumi-lang-nodejs=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-dotnet=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-go=\"`SwitchoverPair`\" pulumi-lang-python=\"`SwitchoverPair`\" pulumi-lang-yaml=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-java=\"`confluentcloud.SwitchoverPair`\" pulumi-lang-hcl=\"`confluent_switchover_pair`\"\u003e`confluentcloud.SwitchoverPair`\u003c/span\u003e data source:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSwitchoverPairsSwitchoverPair:getSwitchoverPairsSwitchoverPair"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "environmentCrn",
+                    "switchoverPairs",
                     "id"
                 ],
                 "type": "object"
