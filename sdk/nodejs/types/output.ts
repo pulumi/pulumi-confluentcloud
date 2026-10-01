@@ -3501,6 +3501,151 @@ export interface GetSubjectModeSchemaRegistryCluster {
     id: string;
 }
 
+export interface GetSwitchoverEndpointEndpoint {
+    /**
+     * (Required String) The cloud provider this endpoint resolves to.
+     */
+    cloud: string;
+    /**
+     * (Required String) The connection type this endpoint resolves to.
+     */
+    connectionType: string;
+    /**
+     * (Required Configuration Block) Supports the following:
+     */
+    endpointFilters: outputs.GetSwitchoverEndpointEndpointEndpointFilter[];
+    /**
+     * (Required String) The resolved hostname for this endpoint.
+     */
+    hostname: string;
+    /**
+     * (Required String) A logical name for this endpoint side.
+     */
+    name: string;
+    /**
+     * (Required String) The cloud region this endpoint resolves to.
+     */
+    region: string;
+}
+
+export interface GetSwitchoverEndpointEndpointEndpointFilter {
+    /**
+     * (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+     */
+    accessPointCrn: string;
+    /**
+     * (Required String) The CRN of the network, for network-based private endpoints.
+     */
+    networkCrn: string;
+    /**
+     * (Required String) Whether the endpoint is `private` or `public`.
+     */
+    type: string;
+}
+
+export interface GetSwitchoverEndpointsSwitchoverEndpoint {
+    /**
+     * (Required String) A human-readable name for the switchover endpoint.
+     */
+    displayName: string;
+    /**
+     * (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connectionType`, and an `endpointFilter` object with `type`, `networkCrn`, and `accessPointCrn`.
+     */
+    endpoints: outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpoint[];
+    /**
+     * (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+     */
+    id: string;
+    /**
+     * (Required String) The CRN of the switchover pair this endpoint is bound to.
+     */
+    parentResourceCrn: string;
+    /**
+     * (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+     */
+    phase: string;
+    /**
+     * (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+     */
+    target: string;
+}
+
+export interface GetSwitchoverEndpointsSwitchoverEndpointEndpoint {
+    cloud: string;
+    connectionType: string;
+    endpointFilters: outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter[];
+    hostname: string;
+    name: string;
+    region: string;
+}
+
+export interface GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilter {
+    accessPointCrn: string;
+    networkCrn: string;
+    type: string;
+}
+
+export interface GetSwitchoverPairMember {
+    /**
+     * (Required String) The cloud provider of the member's cluster.
+     */
+    cloud: string;
+    /**
+     * (Required String) The CRN of the cluster this member represents.
+     */
+    memberCrn: string;
+    /**
+     * (Required String) A logical name for this member, unique within the pair.
+     */
+    name: string;
+    /**
+     * (Required String) The cloud region of the member's cluster.
+     */
+    region: string;
+}
+
+export interface GetSwitchoverPairsSwitchoverPair {
+    /**
+     * (Required String) The name of the member that is currently active.
+     */
+    activeMember: string;
+    /**
+     * (Required String) A human-readable name for the switchover pair.
+     */
+    displayName: string;
+    /**
+     * The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+     */
+    environmentCrn: string;
+    /**
+     * (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+     */
+    failoverType: string;
+    /**
+     * (Required String) The name of the member that was active when the pair was first created. Differs from `activeMember` while the pair is failed over.
+     */
+    firstActive: string;
+    /**
+     * (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+     */
+    id: string;
+    /**
+     * (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `memberCrn`, `cloud`, and `region`.
+     */
+    members: outputs.GetSwitchoverPairsSwitchoverPairMember[];
+    /**
+     * (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+     */
+    phase: string;
+}
+
+export interface GetSwitchoverPairsSwitchoverPairMember {
+    cloud: string;
+    memberCrn: string;
+    name: string;
+    region: string;
+}
+
 export interface GetTableflowTopicAzureDataLakeStorageGen2 {
     /**
      * (Required String) The container name.
@@ -4664,6 +4809,67 @@ export interface SubjectModeSchemaRegistryCluster {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
+}
+
+export interface SwitchoverEndpointEndpoint {
+    /**
+     * (Required String) The cloud provider this endpoint resolves to.
+     */
+    cloud: string;
+    /**
+     * (Required String) The connection type this endpoint resolves to.
+     */
+    connectionType: string;
+    /**
+     * Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+     */
+    endpointFilter: outputs.SwitchoverEndpointEndpointEndpointFilter;
+    /**
+     * (Required String) The resolved hostname for this endpoint.
+     */
+    hostname: string;
+    /**
+     * A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+     */
+    name: string;
+    /**
+     * (Required String) The cloud region this endpoint resolves to.
+     */
+    region: string;
+}
+
+export interface SwitchoverEndpointEndpointEndpointFilter {
+    /**
+     * The CRN of the network access point, for access-point (PNI) endpoints.
+     */
+    accessPointCrn?: string;
+    /**
+     * The CRN of the network, for network-based private endpoints.
+     */
+    networkCrn?: string;
+    /**
+     * Whether the endpoint is `private` or `public`.
+     */
+    type: string;
+}
+
+export interface SwitchoverPairMember {
+    /**
+     * (Required String) The cloud provider of the member's cluster.
+     */
+    cloud: string;
+    /**
+     * The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+     */
+    memberCrn: string;
+    /**
+     * A logical name for this member (for example, `west` or `east`), unique within the pair.
+     */
+    name: string;
+    /**
+     * (Required String) The cloud region of the member's cluster.
+     */
+    region: string;
 }
 
 export interface TableflowTopicAzureDataLakeStorageGen2 {

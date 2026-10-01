@@ -203,6 +203,9 @@ __all__ = [
     'SubjectConfigSchemaRegistryCluster',
     'SubjectModeCredentials',
     'SubjectModeSchemaRegistryCluster',
+    'SwitchoverEndpointEndpoint',
+    'SwitchoverEndpointEndpointEndpointFilter',
+    'SwitchoverPairMember',
     'TableflowTopicAzureDataLakeStorageGen2',
     'TableflowTopicByobAws',
     'TableflowTopicCredentials',
@@ -418,6 +421,14 @@ __all__ = [
     'GetSubjectConfigSchemaRegistryClusterResult',
     'GetSubjectModeCredentialsResult',
     'GetSubjectModeSchemaRegistryClusterResult',
+    'GetSwitchoverEndpointEndpointResult',
+    'GetSwitchoverEndpointEndpointEndpointFilterResult',
+    'GetSwitchoverEndpointsSwitchoverEndpointResult',
+    'GetSwitchoverEndpointsSwitchoverEndpointEndpointResult',
+    'GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterResult',
+    'GetSwitchoverPairMemberResult',
+    'GetSwitchoverPairsSwitchoverPairResult',
+    'GetSwitchoverPairsSwitchoverPairMemberResult',
     'GetTableflowTopicAzureDataLakeStorageGen2Result',
     'GetTableflowTopicByobAwResult',
     'GetTableflowTopicCredentialsResult',
@@ -7298,6 +7309,233 @@ class SubjectModeSchemaRegistryCluster(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SwitchoverEndpointEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointFilter":
+            suggest = "endpoint_filter"
+        elif key == "connectionType":
+            suggest = "connection_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SwitchoverEndpointEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SwitchoverEndpointEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SwitchoverEndpointEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_filter: 'outputs.SwitchoverEndpointEndpointEndpointFilter',
+                 name: _builtins.str,
+                 cloud: Optional[_builtins.str] = None,
+                 connection_type: Optional[_builtins.str] = None,
+                 hostname: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        """
+        :param 'SwitchoverEndpointEndpointEndpointFilterArgs' endpoint_filter: Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+        :param _builtins.str name: A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+        :param _builtins.str cloud: (Required String) The cloud provider this endpoint resolves to.
+        :param _builtins.str connection_type: (Required String) The connection type this endpoint resolves to.
+        :param _builtins.str hostname: (Required String) The resolved hostname for this endpoint.
+        :param _builtins.str region: (Required String) The cloud region this endpoint resolves to.
+        """
+        pulumi.set(__self__, "endpoint_filter", endpoint_filter)
+        pulumi.set(__self__, "name", name)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointFilter")
+    def endpoint_filter(self) -> 'outputs.SwitchoverEndpointEndpointEndpointFilter':
+        """
+        Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+        """
+        return pulumi.get(self, "endpoint_filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The cloud provider this endpoint resolves to.
+        """
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The connection type this endpoint resolves to.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def hostname(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The resolved hostname for this endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The cloud region this endpoint resolves to.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class SwitchoverEndpointEndpointEndpointFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointCrn":
+            suggest = "access_point_crn"
+        elif key == "networkCrn":
+            suggest = "network_crn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SwitchoverEndpointEndpointEndpointFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SwitchoverEndpointEndpointEndpointFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SwitchoverEndpointEndpointEndpointFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 access_point_crn: Optional[_builtins.str] = None,
+                 network_crn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: Whether the endpoint is `private` or `public`.
+        :param _builtins.str access_point_crn: The CRN of the network access point, for access-point (PNI) endpoints.
+        :param _builtins.str network_crn: The CRN of the network, for network-based private endpoints.
+        """
+        pulumi.set(__self__, "type", type)
+        if access_point_crn is not None:
+            pulumi.set(__self__, "access_point_crn", access_point_crn)
+        if network_crn is not None:
+            pulumi.set(__self__, "network_crn", network_crn)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Whether the endpoint is `private` or `public`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointCrn")
+    def access_point_crn(self) -> Optional[_builtins.str]:
+        """
+        The CRN of the network access point, for access-point (PNI) endpoints.
+        """
+        return pulumi.get(self, "access_point_crn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCrn")
+    def network_crn(self) -> Optional[_builtins.str]:
+        """
+        The CRN of the network, for network-based private endpoints.
+        """
+        return pulumi.get(self, "network_crn")
+
+
+@pulumi.output_type
+class SwitchoverPairMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memberCrn":
+            suggest = "member_crn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SwitchoverPairMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SwitchoverPairMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SwitchoverPairMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 member_crn: _builtins.str,
+                 name: _builtins.str,
+                 cloud: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str member_crn: The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+        :param _builtins.str name: A logical name for this member (for example, `west` or `east`), unique within the pair.
+        :param _builtins.str cloud: (Required String) The cloud provider of the member's cluster.
+        :param _builtins.str region: (Required String) The cloud region of the member's cluster.
+        """
+        pulumi.set(__self__, "member_crn", member_crn)
+        pulumi.set(__self__, "name", name)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="memberCrn")
+    def member_crn(self) -> _builtins.str:
+        """
+        The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+        """
+        return pulumi.get(self, "member_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        A logical name for this member (for example, `west` or `east`), unique within the pair.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The cloud provider of the member's cluster.
+        """
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The cloud region of the member's cluster.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -14343,6 +14581,444 @@ class GetSubjectModeSchemaRegistryClusterResult(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSwitchoverEndpointEndpointResult(dict):
+    def __init__(__self__, *,
+                 cloud: _builtins.str,
+                 connection_type: _builtins.str,
+                 endpoint_filters: Sequence['outputs.GetSwitchoverEndpointEndpointEndpointFilterResult'],
+                 hostname: _builtins.str,
+                 name: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str cloud: (Required String) The cloud provider this endpoint resolves to.
+        :param _builtins.str connection_type: (Required String) The connection type this endpoint resolves to.
+        :param Sequence['GetSwitchoverEndpointEndpointEndpointFilterArgs'] endpoint_filters: (Required Configuration Block) Supports the following:
+        :param _builtins.str hostname: (Required String) The resolved hostname for this endpoint.
+        :param _builtins.str name: (Required String) A logical name for this endpoint side.
+        :param _builtins.str region: (Required String) The cloud region this endpoint resolves to.
+        """
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "endpoint_filters", endpoint_filters)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        """
+        (Required String) The cloud provider this endpoint resolves to.
+        """
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> _builtins.str:
+        """
+        (Required String) The connection type this endpoint resolves to.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointFilters")
+    def endpoint_filters(self) -> Sequence['outputs.GetSwitchoverEndpointEndpointEndpointFilterResult']:
+        """
+        (Required Configuration Block) Supports the following:
+        """
+        return pulumi.get(self, "endpoint_filters")
+
+    @_builtins.property
+    @pulumi.getter
+    def hostname(self) -> _builtins.str:
+        """
+        (Required String) The resolved hostname for this endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (Required String) A logical name for this endpoint side.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) The cloud region this endpoint resolves to.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetSwitchoverEndpointEndpointEndpointFilterResult(dict):
+    def __init__(__self__, *,
+                 access_point_crn: _builtins.str,
+                 network_crn: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str access_point_crn: (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+        :param _builtins.str network_crn: (Required String) The CRN of the network, for network-based private endpoints.
+        :param _builtins.str type: (Required String) Whether the endpoint is `private` or `public`.
+        """
+        pulumi.set(__self__, "access_point_crn", access_point_crn)
+        pulumi.set(__self__, "network_crn", network_crn)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointCrn")
+    def access_point_crn(self) -> _builtins.str:
+        """
+        (Required String) The CRN of the network access point, for access-point (PNI) endpoints.
+        """
+        return pulumi.get(self, "access_point_crn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCrn")
+    def network_crn(self) -> _builtins.str:
+        """
+        (Required String) The CRN of the network, for network-based private endpoints.
+        """
+        return pulumi.get(self, "network_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        (Required String) Whether the endpoint is `private` or `public`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetSwitchoverEndpointsSwitchoverEndpointResult(dict):
+    def __init__(__self__, *,
+                 display_name: _builtins.str,
+                 endpoints: Sequence['outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpointResult'],
+                 id: _builtins.str,
+                 parent_resource_crn: _builtins.str,
+                 phase: _builtins.str,
+                 target: _builtins.str):
+        """
+        :param _builtins.str display_name: (Required String) A human-readable name for the switchover endpoint.
+        :param Sequence['GetSwitchoverEndpointsSwitchoverEndpointEndpointArgs'] endpoints: (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connection_type`, and an `endpoint_filter` object with `type`, `network_crn`, and `access_point_crn`.
+        :param _builtins.str id: (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+        :param _builtins.str parent_resource_crn: (Required String) The CRN of the switchover pair this endpoint is bound to.
+        :param _builtins.str phase: (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+        :param _builtins.str target: (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parent_resource_crn", parent_resource_crn)
+        pulumi.set(__self__, "phase", phase)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        (Required String) A human-readable name for the switchover endpoint.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> Sequence['outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpointResult']:
+        """
+        (Required List of Object) The endpoint definitions, one per side. Each exports `name`, `hostname`, `cloud`, `region`, `connection_type`, and an `endpoint_filter` object with `type`, `network_crn`, and `access_point_crn`.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the switchover endpoint, for example, `se-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentResourceCrn")
+    def parent_resource_crn(self) -> _builtins.str:
+        """
+        (Required String) The CRN of the switchover pair this endpoint is bound to.
+        """
+        return pulumi.get(self, "parent_resource_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def phase(self) -> _builtins.str:
+        """
+        (Required String) The lifecycle phase of the switchover endpoint, for example, `READY`.
+        """
+        return pulumi.get(self, "phase")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        (Required String) The name of the endpoint side that is currently active; follows the pair's active member.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class GetSwitchoverEndpointsSwitchoverEndpointEndpointResult(dict):
+    def __init__(__self__, *,
+                 cloud: _builtins.str,
+                 connection_type: _builtins.str,
+                 endpoint_filters: Sequence['outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterResult'],
+                 hostname: _builtins.str,
+                 name: _builtins.str,
+                 region: _builtins.str):
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "endpoint_filters", endpoint_filters)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> _builtins.str:
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointFilters")
+    def endpoint_filters(self) -> Sequence['outputs.GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterResult']:
+        return pulumi.get(self, "endpoint_filters")
+
+    @_builtins.property
+    @pulumi.getter
+    def hostname(self) -> _builtins.str:
+        return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetSwitchoverEndpointsSwitchoverEndpointEndpointEndpointFilterResult(dict):
+    def __init__(__self__, *,
+                 access_point_crn: _builtins.str,
+                 network_crn: _builtins.str,
+                 type: _builtins.str):
+        pulumi.set(__self__, "access_point_crn", access_point_crn)
+        pulumi.set(__self__, "network_crn", network_crn)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointCrn")
+    def access_point_crn(self) -> _builtins.str:
+        return pulumi.get(self, "access_point_crn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCrn")
+    def network_crn(self) -> _builtins.str:
+        return pulumi.get(self, "network_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetSwitchoverPairMemberResult(dict):
+    def __init__(__self__, *,
+                 cloud: _builtins.str,
+                 member_crn: _builtins.str,
+                 name: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str cloud: (Required String) The cloud provider of the member's cluster.
+        :param _builtins.str member_crn: (Required String) The CRN of the cluster this member represents.
+        :param _builtins.str name: (Required String) A logical name for this member, unique within the pair.
+        :param _builtins.str region: (Required String) The cloud region of the member's cluster.
+        """
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "member_crn", member_crn)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        """
+        (Required String) The cloud provider of the member's cluster.
+        """
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="memberCrn")
+    def member_crn(self) -> _builtins.str:
+        """
+        (Required String) The CRN of the cluster this member represents.
+        """
+        return pulumi.get(self, "member_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (Required String) A logical name for this member, unique within the pair.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) The cloud region of the member's cluster.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetSwitchoverPairsSwitchoverPairResult(dict):
+    def __init__(__self__, *,
+                 active_member: _builtins.str,
+                 display_name: _builtins.str,
+                 environment_crn: _builtins.str,
+                 failover_type: _builtins.str,
+                 first_active: _builtins.str,
+                 id: _builtins.str,
+                 members: Sequence['outputs.GetSwitchoverPairsSwitchoverPairMemberResult'],
+                 phase: _builtins.str):
+        """
+        :param _builtins.str active_member: (Required String) The name of the member that is currently active.
+        :param _builtins.str display_name: (Required String) A human-readable name for the switchover pair.
+        :param _builtins.str environment_crn: The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+        :param _builtins.str failover_type: (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+        :param _builtins.str first_active: (Required String) The name of the member that was active when the pair was first created. Differs from `active_member` while the pair is failed over.
+        :param _builtins.str id: (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+        :param Sequence['GetSwitchoverPairsSwitchoverPairMemberArgs'] members: (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `member_crn`, `cloud`, and `region`.
+        :param _builtins.str phase: (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+        """
+        pulumi.set(__self__, "active_member", active_member)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "environment_crn", environment_crn)
+        pulumi.set(__self__, "failover_type", failover_type)
+        pulumi.set(__self__, "first_active", first_active)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "phase", phase)
+
+    @_builtins.property
+    @pulumi.getter(name="activeMember")
+    def active_member(self) -> _builtins.str:
+        """
+        (Required String) The name of the member that is currently active.
+        """
+        return pulumi.get(self, "active_member")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        (Required String) A human-readable name for the switchover pair.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentCrn")
+    def environment_crn(self) -> _builtins.str:
+        """
+        The CRN of the environment whose switchover pairs to list, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
+        """
+        return pulumi.get(self, "environment_crn")
+
+    @_builtins.property
+    @pulumi.getter(name="failoverType")
+    def failover_type(self) -> _builtins.str:
+        """
+        (Required String) The failover semantics most recently applied (`PLANNED`, `UNPLANNED`, or `RESTORE`); empty until a failover has been triggered.
+        """
+        return pulumi.get(self, "failover_type")
+
+    @_builtins.property
+    @pulumi.getter(name="firstActive")
+    def first_active(self) -> _builtins.str:
+        """
+        (Required String) The name of the member that was active when the pair was first created. Differs from `active_member` while the pair is failed over.
+        """
+        return pulumi.get(self, "first_active")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the switchover pair, for example, `sw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Sequence['outputs.GetSwitchoverPairsSwitchoverPairMemberResult']:
+        """
+        (Required List of Object) The two clusters participating in the pair. Each member exports `name`, `member_crn`, `cloud`, and `region`.
+        """
+        return pulumi.get(self, "members")
+
+    @_builtins.property
+    @pulumi.getter
+    def phase(self) -> _builtins.str:
+        """
+        (Required String) The lifecycle phase of the switchover pair, for example, `READY_TO_FAILOVER`.
+        """
+        return pulumi.get(self, "phase")
+
+
+@pulumi.output_type
+class GetSwitchoverPairsSwitchoverPairMemberResult(dict):
+    def __init__(__self__, *,
+                 cloud: _builtins.str,
+                 member_crn: _builtins.str,
+                 name: _builtins.str,
+                 region: _builtins.str):
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "member_crn", member_crn)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="memberCrn")
+    def member_crn(self) -> _builtins.str:
+        return pulumi.get(self, "member_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

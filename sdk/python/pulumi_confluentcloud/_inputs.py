@@ -391,6 +391,12 @@ __all__ = [
     'SubjectModeCredentialsArgsDict',
     'SubjectModeSchemaRegistryClusterArgs',
     'SubjectModeSchemaRegistryClusterArgsDict',
+    'SwitchoverEndpointEndpointArgs',
+    'SwitchoverEndpointEndpointArgsDict',
+    'SwitchoverEndpointEndpointEndpointFilterArgs',
+    'SwitchoverEndpointEndpointEndpointFilterArgsDict',
+    'SwitchoverPairMemberArgs',
+    'SwitchoverPairMemberArgsDict',
     'TableflowTopicAzureDataLakeStorageGen2Args',
     'TableflowTopicAzureDataLakeStorageGen2ArgsDict',
     'TableflowTopicByobAwsArgs',
@@ -9629,6 +9635,288 @@ class SubjectModeSchemaRegistryClusterArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+
+class SwitchoverEndpointEndpointArgsDict(TypedDict):
+    endpoint_filter: pulumi.Input['SwitchoverEndpointEndpointEndpointFilterArgsDict']
+    """
+    Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+    """
+    cloud: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The cloud provider this endpoint resolves to.
+    """
+    connection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The connection type this endpoint resolves to.
+    """
+    hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The resolved hostname for this endpoint.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The cloud region this endpoint resolves to.
+    """
+
+@pulumi.input_type
+class SwitchoverEndpointEndpointArgs:
+    def __init__(__self__, *,
+                 endpoint_filter: pulumi.Input['SwitchoverEndpointEndpointEndpointFilterArgs'],
+                 name: pulumi.Input[_builtins.str],
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['SwitchoverEndpointEndpointEndpointFilterArgs'] endpoint_filter: Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+        :param pulumi.Input[_builtins.str] name: A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+        :param pulumi.Input[_builtins.str] cloud: (Required String) The cloud provider this endpoint resolves to.
+        :param pulumi.Input[_builtins.str] connection_type: (Required String) The connection type this endpoint resolves to.
+        :param pulumi.Input[_builtins.str] hostname: (Required String) The resolved hostname for this endpoint.
+        :param pulumi.Input[_builtins.str] region: (Required String) The cloud region this endpoint resolves to.
+        """
+        pulumi.set(__self__, "endpoint_filter", endpoint_filter)
+        pulumi.set(__self__, "name", name)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointFilter")
+    def endpoint_filter(self) -> pulumi.Input['SwitchoverEndpointEndpointEndpointFilterArgs']:
+        """
+        Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+        """
+        return pulumi.get(self, "endpoint_filter")
+
+    @endpoint_filter.setter
+    def endpoint_filter(self, value: pulumi.Input['SwitchoverEndpointEndpointEndpointFilterArgs']):
+        pulumi.set(self, "endpoint_filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The cloud provider this endpoint resolves to.
+        """
+        return pulumi.get(self, "cloud")
+
+    @cloud.setter
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The connection type this endpoint resolves to.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The resolved hostname for this endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hostname", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The cloud region this endpoint resolves to.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
+class SwitchoverEndpointEndpointEndpointFilterArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Whether the endpoint is `private` or `public`.
+    """
+    access_point_crn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CRN of the network access point, for access-point (PNI) endpoints.
+    """
+    network_crn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CRN of the network, for network-based private endpoints.
+    """
+
+@pulumi.input_type
+class SwitchoverEndpointEndpointEndpointFilterArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 access_point_crn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_crn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Whether the endpoint is `private` or `public`.
+        :param pulumi.Input[_builtins.str] access_point_crn: The CRN of the network access point, for access-point (PNI) endpoints.
+        :param pulumi.Input[_builtins.str] network_crn: The CRN of the network, for network-based private endpoints.
+        """
+        pulumi.set(__self__, "type", type)
+        if access_point_crn is not None:
+            pulumi.set(__self__, "access_point_crn", access_point_crn)
+        if network_crn is not None:
+            pulumi.set(__self__, "network_crn", network_crn)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether the endpoint is `private` or `public`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointCrn")
+    def access_point_crn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CRN of the network access point, for access-point (PNI) endpoints.
+        """
+        return pulumi.get(self, "access_point_crn")
+
+    @access_point_crn.setter
+    def access_point_crn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_point_crn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkCrn")
+    def network_crn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CRN of the network, for network-based private endpoints.
+        """
+        return pulumi.get(self, "network_crn")
+
+    @network_crn.setter
+    def network_crn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_crn", value)
+
+
+class SwitchoverPairMemberArgsDict(TypedDict):
+    member_crn: pulumi.Input[_builtins.str]
+    """
+    The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A logical name for this member (for example, `west` or `east`), unique within the pair.
+    """
+    cloud: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The cloud provider of the member's cluster.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Required String) The cloud region of the member's cluster.
+    """
+
+@pulumi.input_type
+class SwitchoverPairMemberArgs:
+    def __init__(__self__, *,
+                 member_crn: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] member_crn: The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+        :param pulumi.Input[_builtins.str] name: A logical name for this member (for example, `west` or `east`), unique within the pair.
+        :param pulumi.Input[_builtins.str] cloud: (Required String) The cloud provider of the member's cluster.
+        :param pulumi.Input[_builtins.str] region: (Required String) The cloud region of the member's cluster.
+        """
+        pulumi.set(__self__, "member_crn", member_crn)
+        pulumi.set(__self__, "name", name)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="memberCrn")
+    def member_crn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+        """
+        return pulumi.get(self, "member_crn")
+
+    @member_crn.setter
+    def member_crn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "member_crn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A logical name for this member (for example, `west` or `east`), unique within the pair.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The cloud provider of the member's cluster.
+        """
+        return pulumi.get(self, "cloud")
+
+    @cloud.setter
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Required String) The cloud region of the member's cluster.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 class TableflowTopicAzureDataLakeStorageGen2ArgsDict(TypedDict):

@@ -4071,6 +4071,67 @@ export interface SubjectModeSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 
+export interface SwitchoverEndpointEndpoint {
+    /**
+     * (Required String) The cloud provider this endpoint resolves to.
+     */
+    cloud?: pulumi.Input<string | undefined>;
+    /**
+     * (Required String) The connection type this endpoint resolves to.
+     */
+    connectionType?: pulumi.Input<string | undefined>;
+    /**
+     * Filter criteria that identify a network endpoint for this side of the pair. Supports the following:
+     */
+    endpointFilter: pulumi.Input<inputs.SwitchoverEndpointEndpointEndpointFilter>;
+    /**
+     * (Required String) The resolved hostname for this endpoint.
+     */
+    hostname?: pulumi.Input<string | undefined>;
+    /**
+     * A logical name for this endpoint side (for example, `west-platt`), unique within the resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Required String) The cloud region this endpoint resolves to.
+     */
+    region?: pulumi.Input<string | undefined>;
+}
+
+export interface SwitchoverEndpointEndpointEndpointFilter {
+    /**
+     * The CRN of the network access point, for access-point (PNI) endpoints.
+     */
+    accessPointCrn?: pulumi.Input<string | undefined>;
+    /**
+     * The CRN of the network, for network-based private endpoints.
+     */
+    networkCrn?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the endpoint is `private` or `public`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface SwitchoverPairMember {
+    /**
+     * (Required String) The cloud provider of the member's cluster.
+     */
+    cloud?: pulumi.Input<string | undefined>;
+    /**
+     * The CRN of the cluster this member represents, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/cloud-cluster=lkc-west01`. The CRN carries the member's own environment, so the two members may live in different environments.
+     */
+    memberCrn: pulumi.Input<string>;
+    /**
+     * A logical name for this member (for example, `west` or `east`), unique within the pair.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Required String) The cloud region of the member's cluster.
+     */
+    region?: pulumi.Input<string | undefined>;
+}
+
 export interface TableflowTopicAzureDataLakeStorageGen2 {
     /**
      * The container name.
