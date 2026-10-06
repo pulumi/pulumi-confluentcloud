@@ -13,6 +13,9 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class GetEnvironmentStreamGovernanceResult
     {
+        /// <summary>
+        /// (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+        /// </summary>
         public readonly string Package;
 
         [OutputConstructor]

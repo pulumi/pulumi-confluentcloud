@@ -111,7 +111,7 @@ public final class Config {
         return Codegen.stringProp("kafkaRestEndpoint").config(config).get();
     }
 /**
- * Maximum number of retries of HTTP client. Defaults to 4.
+ * Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
  * 
  */
     public Optional<Integer> maxRetries() {

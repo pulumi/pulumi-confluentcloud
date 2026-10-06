@@ -34988,6 +34988,7 @@ func (o GetEndpointFilterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetEnvironmentStreamGovernance struct {
+	// (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
 	Package string `pulumi:"package"`
 }
 
@@ -35003,6 +35004,7 @@ type GetEnvironmentStreamGovernanceInput interface {
 }
 
 type GetEnvironmentStreamGovernanceArgs struct {
+	// (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
 	Package pulumi.StringInput `pulumi:"package"`
 }
 
@@ -35032,6 +35034,7 @@ func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernanceOu
 	return o
 }
 
+// (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
 func (o GetEnvironmentStreamGovernanceOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentStreamGovernance) string { return v.Package }).(pulumi.StringOutput)
 }

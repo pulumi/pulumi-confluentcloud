@@ -174,7 +174,7 @@ namespace Pulumi.ConfluentCloud
 
         private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
         /// <summary>
-        /// Maximum number of retries of HTTP client. Defaults to 4.
+        /// Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         /// </summary>
         public static int? MaxRetries
         {

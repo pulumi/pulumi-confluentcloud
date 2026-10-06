@@ -47,6 +47,9 @@ export interface GetFlinkComputePoolConfigArgs {
  * A collection of values returned by getFlinkComputePoolConfig.
  */
 export interface GetFlinkComputePoolConfigResult {
+    /**
+     * (String) API Version defines the schema version of this representation of a resource.
+     */
     readonly apiVersion: string;
     /**
      * (Required Boolean) Whether default compute pools are enabled for the organization.
@@ -57,6 +60,9 @@ export interface GetFlinkComputePoolConfigResult {
      */
     readonly defaultMaxCfu: number;
     readonly id: string;
+    /**
+     * (String) Kind defines the object this REST resource represents.
+     */
     readonly kind: string;
 }
 /**

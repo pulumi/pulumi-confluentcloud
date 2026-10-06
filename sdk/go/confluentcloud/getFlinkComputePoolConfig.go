@@ -59,13 +59,15 @@ type LookupFlinkComputePoolConfigArgs struct {
 
 // A collection of values returned by getFlinkComputePoolConfig.
 type LookupFlinkComputePoolConfigResult struct {
+	// (String) API Version defines the schema version of this representation of a resource.
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required Boolean) Whether default compute pools are enabled for the organization.
 	DefaultComputePoolEnabled bool `pulumi:"defaultComputePoolEnabled"`
 	// (Required Integer) Maximum number of Confluent Flink Units (CFU).
 	DefaultMaxCfu int    `pulumi:"defaultMaxCfu"`
 	Id            string `pulumi:"id"`
-	Kind          string `pulumi:"kind"`
+	// (String) Kind defines the object this REST resource represents.
+	Kind string `pulumi:"kind"`
 }
 
 func LookupFlinkComputePoolConfigOutput(ctx *pulumi.Context, args LookupFlinkComputePoolConfigOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkComputePoolConfigResultOutput {
@@ -98,6 +100,7 @@ func (o LookupFlinkComputePoolConfigResultOutput) ToLookupFlinkComputePoolConfig
 	return o
 }
 
+// (String) API Version defines the schema version of this representation of a resource.
 func (o LookupFlinkComputePoolConfigResultOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkComputePoolConfigResult) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
@@ -116,6 +119,7 @@ func (o LookupFlinkComputePoolConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkComputePoolConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (String) Kind defines the object this REST resource represents.
 func (o LookupFlinkComputePoolConfigResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkComputePoolConfigResult) string { return v.Kind }).(pulumi.StringOutput)
 }

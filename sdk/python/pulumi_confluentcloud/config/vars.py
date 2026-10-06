@@ -122,7 +122,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def max_retries(self) -> Optional[int]:
         """
-        Maximum number of retries of HTTP client. Defaults to 4.
+        Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         """
         return __config__.get_int('maxRetries')
 

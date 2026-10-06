@@ -229,7 +229,7 @@ export interface ProviderArgs {
      */
     kafkaRestEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * Maximum number of retries of HTTP client. Defaults to 4.
+     * Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
      */
     maxRetries?: pulumi.Input<number | undefined>;
     /**

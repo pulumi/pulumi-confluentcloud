@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFlinkComputePoolConfigResult {
+    /**
+     * @return (String) API Version defines the schema version of this representation of a resource.
+     * 
+     */
     private String apiVersion;
     /**
      * @return (Required Boolean) Whether default compute pools are enabled for the organization.
@@ -24,9 +28,17 @@ public final class GetFlinkComputePoolConfigResult {
      */
     private Integer defaultMaxCfu;
     private String id;
+    /**
+     * @return (String) Kind defines the object this REST resource represents.
+     * 
+     */
     private String kind;
 
     private GetFlinkComputePoolConfigResult() {}
+    /**
+     * @return (String) API Version defines the schema version of this representation of a resource.
+     * 
+     */
     public String apiVersion() {
         return this.apiVersion;
     }
@@ -47,6 +59,10 @@ public final class GetFlinkComputePoolConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (String) Kind defines the object this REST resource represents.
+     * 
+     */
     public String kind() {
         return this.kind;
     }
