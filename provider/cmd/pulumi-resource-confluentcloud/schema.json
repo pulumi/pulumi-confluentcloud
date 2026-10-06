@@ -118,7 +118,7 @@
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4."
+                "description": "Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:config/oauth:oauth",
@@ -5262,7 +5262,8 @@
         "confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance": {
             "properties": {
                 "package": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).\n"
                 }
             },
             "type": "object",
@@ -9409,7 +9410,7 @@
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4."
+                "description": "Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
@@ -9517,7 +9518,7 @@
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4."
+                "description": "Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
@@ -18812,7 +18813,8 @@
                         "type": "string"
                     },
                     "streamGovernance": {
-                        "$ref": "#/types/confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance"
+                        "$ref": "#/types/confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance",
+                        "description": "(Configuration Block) Stream Governance configurations for the environment. Supports the following:\n"
                     }
                 },
                 "required": [
@@ -19054,6 +19056,7 @@
                 "description": "A collection of values returned by getFlinkComputePoolConfig.\n",
                 "properties": {
                     "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
                         "type": "string"
                     },
                     "defaultComputePoolEnabled": {
@@ -19068,6 +19071,7 @@
                         "type": "string"
                     },
                     "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
                         "type": "string"
                     }
                 },
