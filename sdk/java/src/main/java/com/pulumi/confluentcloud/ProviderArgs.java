@@ -228,14 +228,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maximum number of retries of HTTP client. Defaults to 4.
+     * Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
      * 
      */
     @Import(name="maxRetries", json=true)
     private @Nullable Output<Integer> maxRetries;
 
     /**
-     * @return Maximum number of retries of HTTP client. Defaults to 4.
+     * @return Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
      * 
      */
     public Optional<Output<Integer>> maxRetries() {
@@ -719,7 +719,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4.
+         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4.
+         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
          * 
          * @return builder
          * 

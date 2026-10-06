@@ -342,7 +342,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? KafkaRestEndpoint { get; set; }
 
         /// <summary>
-        /// Maximum number of retries of HTTP client. Defaults to 4.
+        /// Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }

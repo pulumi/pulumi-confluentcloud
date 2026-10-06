@@ -1596,6 +1596,9 @@ export interface GetEndpointFilterEnvironment {
 }
 
 export interface GetEnvironmentStreamGovernance {
+    /**
+     * (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+     */
     package: string;
 }
 

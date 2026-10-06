@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEnvironmentStreamGovernance {
+    /**
+     * @return (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+     * 
+     */
     private String package_;
 
     private GetEnvironmentStreamGovernance() {}
+    /**
+     * @return (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+     * 
+     */
     public String package_() {
         return this.package_;
     }

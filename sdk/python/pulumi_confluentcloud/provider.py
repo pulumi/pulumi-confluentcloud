@@ -61,7 +61,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[_builtins.str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[_builtins.str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
-        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         :param pulumi.Input['ProviderOauthArgs'] oauth: OAuth config settings
         :param pulumi.Input[_builtins.str] organization_id: The Flink Organization ID.
         :param pulumi.Input[_builtins.str] schema_registry_api_key: The Schema Registry Cluster API Key.
@@ -293,7 +293,7 @@ class ProviderArgs:
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum number of retries of HTTP client. Defaults to 4.
+        Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         """
         return pulumi.get(self, "max_retries")
 
@@ -464,7 +464,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[_builtins.str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[_builtins.str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
-        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
         :param pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']] oauth: OAuth config settings
         :param pulumi.Input[_builtins.str] organization_id: The Flink Organization ID.
         :param pulumi.Input[_builtins.str] schema_registry_api_key: The Schema Registry Cluster API Key.

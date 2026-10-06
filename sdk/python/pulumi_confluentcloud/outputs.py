@@ -9559,11 +9559,17 @@ class GetEndpointFilterEnvironmentResult(dict):
 class GetEnvironmentStreamGovernanceResult(dict):
     def __init__(__self__, *,
                  package: _builtins.str):
+        """
+        :param _builtins.str package: (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+        """
         pulumi.set(__self__, "package", package)
 
     @_builtins.property
     @pulumi.getter
     def package(self) -> _builtins.str:
+        """
+        (String) Stream Governance Package. Supported values are ESSENTIALS and ADVANCED. Package comparison can be found [here](https://docs.confluent.io/cloud/current/stream-governance/packages.html#features-by-package-type).
+        """
         return pulumi.get(self, "package")
 
 

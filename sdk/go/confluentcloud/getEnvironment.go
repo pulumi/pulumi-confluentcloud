@@ -88,7 +88,8 @@ type LookupEnvironmentResult struct {
 	// (Required String) The ID of the Environment, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
-	ResourceName     string                         `pulumi:"resourceName"`
+	ResourceName string `pulumi:"resourceName"`
+	// (Configuration Block) Stream Governance configurations for the environment. Supports the following:
 	StreamGovernance GetEnvironmentStreamGovernance `pulumi:"streamGovernance"`
 }
 
@@ -141,6 +142,7 @@ func (o LookupEnvironmentResultOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ResourceName }).(pulumi.StringOutput)
 }
 
+// (Configuration Block) Stream Governance configurations for the environment. Supports the following:
 func (o LookupEnvironmentResultOutput) StreamGovernance() GetEnvironmentStreamGovernanceOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) GetEnvironmentStreamGovernance { return v.StreamGovernance }).(GetEnvironmentStreamGovernanceOutput)
 }

@@ -81,7 +81,7 @@ func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:kafkaRestEndpoint")
 }
 
-// Maximum number of retries of HTTP client. Defaults to 4.
+// Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "confluentcloud:maxRetries")
 }

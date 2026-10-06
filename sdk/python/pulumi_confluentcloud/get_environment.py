@@ -68,6 +68,9 @@ class GetEnvironmentResult:
     @_builtins.property
     @pulumi.getter(name="streamGovernance")
     def stream_governance(self) -> 'outputs.GetEnvironmentStreamGovernanceResult':
+        """
+        (Configuration Block) Stream Governance configurations for the environment. Supports the following:
+        """
         return pulumi.get(self, "stream_governance")
 
 

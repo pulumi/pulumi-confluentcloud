@@ -214,6 +214,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
         /// </summary>
         public readonly string ResourceName;
+        /// <summary>
+        /// (Configuration Block) Stream Governance configurations for the environment. Supports the following:
+        /// </summary>
         public readonly Outputs.GetEnvironmentStreamGovernanceResult StreamGovernance;
 
         [OutputConstructor]

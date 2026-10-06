@@ -26,6 +26,10 @@ public final class GetEnvironmentResult {
      * 
      */
     private String resourceName;
+    /**
+     * @return (Configuration Block) Stream Governance configurations for the environment. Supports the following:
+     * 
+     */
     private GetEnvironmentStreamGovernance streamGovernance;
 
     private GetEnvironmentResult() {}
@@ -50,6 +54,10 @@ public final class GetEnvironmentResult {
     public String resourceName() {
         return this.resourceName;
     }
+    /**
+     * @return (Configuration Block) Stream Governance configurations for the environment. Supports the following:
+     * 
+     */
     public GetEnvironmentStreamGovernance streamGovernance() {
         return this.streamGovernance;
     }

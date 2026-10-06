@@ -152,7 +152,7 @@ type providerArgs struct {
 	KafkaId *string `pulumi:"kafkaId"`
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
-	// Maximum number of retries of HTTP client. Defaults to 4.
+	// Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
 	MaxRetries *int `pulumi:"maxRetries"`
 	// OAuth config settings
 	Oauth *ProviderOauth `pulumi:"oauth"`
@@ -204,7 +204,7 @@ type ProviderArgs struct {
 	KafkaId pulumi.StringPtrInput
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint pulumi.StringPtrInput
-	// Maximum number of retries of HTTP client. Defaults to 4.
+	// Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
 	MaxRetries pulumi.IntPtrInput
 	// OAuth config settings
 	Oauth ProviderOauthPtrInput

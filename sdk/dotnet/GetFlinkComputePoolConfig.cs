@@ -135,6 +135,9 @@ namespace Pulumi.ConfluentCloud
     [OutputType]
     public sealed class GetFlinkComputePoolConfigResult
     {
+        /// <summary>
+        /// (String) API Version defines the schema version of this representation of a resource.
+        /// </summary>
         public readonly string ApiVersion;
         /// <summary>
         /// (Required Boolean) Whether default compute pools are enabled for the organization.
@@ -145,6 +148,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly int DefaultMaxCfu;
         public readonly string Id;
+        /// <summary>
+        /// (String) Kind defines the object this REST resource represents.
+        /// </summary>
         public readonly string Kind;
 
         [OutputConstructor]

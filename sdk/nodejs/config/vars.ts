@@ -164,7 +164,7 @@ Object.defineProperty(exports, "kafkaRestEndpoint", {
 });
 
 /**
- * Maximum number of retries of HTTP client. Defaults to 4.
+ * Maximum number of retries of HTTP client. Defaults to 4. Connect, IAM, API keys and RBAC API requests retry at least 12 times.
  */
 export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {

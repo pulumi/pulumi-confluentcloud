@@ -46,6 +46,9 @@ class GetFlinkComputePoolConfigResult:
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> _builtins.str:
+        """
+        (String) API Version defines the schema version of this representation of a resource.
+        """
         return pulumi.get(self, "api_version")
 
     @_builtins.property
@@ -72,6 +75,9 @@ class GetFlinkComputePoolConfigResult:
     @_builtins.property
     @pulumi.getter
     def kind(self) -> _builtins.str:
+        """
+        (String) Kind defines the object this REST resource represents.
+        """
         return pulumi.get(self, "kind")
 
 
