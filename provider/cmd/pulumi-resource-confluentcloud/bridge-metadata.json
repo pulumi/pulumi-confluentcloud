@@ -410,6 +410,16 @@
                     "principal": {
                         "maxItemsOne": true
                     },
+                    "start_mode": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "time_interval": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "watermark": {
                         "maxItemsOne": true
                     }
@@ -1521,6 +1531,16 @@
                     },
                     "principal": {
                         "maxItemsOne": true
+                    },
+                    "start_mode": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "time_interval": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "watermark": {
                         "maxItemsOne": false
