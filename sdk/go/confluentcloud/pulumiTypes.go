@@ -11191,6 +11191,339 @@ func (o FlinkMaterializedTablePrincipalPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlinkMaterializedTableStartMode struct {
+	// The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+	Kind string `pulumi:"kind"`
+	// Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+	TimeInterval *FlinkMaterializedTableStartModeTimeInterval `pulumi:"timeInterval"`
+	// Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+	Timestamp *string `pulumi:"timestamp"`
+}
+
+// FlinkMaterializedTableStartModeInput is an input type that accepts FlinkMaterializedTableStartModeArgs and FlinkMaterializedTableStartModeOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableStartModeInput` via:
+//
+//	FlinkMaterializedTableStartModeArgs{...}
+type FlinkMaterializedTableStartModeInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableStartModeOutput() FlinkMaterializedTableStartModeOutput
+	ToFlinkMaterializedTableStartModeOutputWithContext(context.Context) FlinkMaterializedTableStartModeOutput
+}
+
+type FlinkMaterializedTableStartModeArgs struct {
+	// The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+	TimeInterval FlinkMaterializedTableStartModeTimeIntervalPtrInput `pulumi:"timeInterval"`
+	// Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+}
+
+func (FlinkMaterializedTableStartModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableStartModeArgs) ToFlinkMaterializedTableStartModeOutput() FlinkMaterializedTableStartModeOutput {
+	return i.ToFlinkMaterializedTableStartModeOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableStartModeArgs) ToFlinkMaterializedTableStartModeOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModeOutput)
+}
+
+func (i FlinkMaterializedTableStartModeArgs) ToFlinkMaterializedTableStartModePtrOutput() FlinkMaterializedTableStartModePtrOutput {
+	return i.ToFlinkMaterializedTableStartModePtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableStartModeArgs) ToFlinkMaterializedTableStartModePtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModeOutput).ToFlinkMaterializedTableStartModePtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableStartModePtrInput is an input type that accepts FlinkMaterializedTableStartModeArgs, FlinkMaterializedTableStartModePtr and FlinkMaterializedTableStartModePtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableStartModePtrInput` via:
+//
+//	        FlinkMaterializedTableStartModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableStartModePtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableStartModePtrOutput() FlinkMaterializedTableStartModePtrOutput
+	ToFlinkMaterializedTableStartModePtrOutputWithContext(context.Context) FlinkMaterializedTableStartModePtrOutput
+}
+
+type flinkMaterializedTableStartModePtrType FlinkMaterializedTableStartModeArgs
+
+func FlinkMaterializedTableStartModePtr(v *FlinkMaterializedTableStartModeArgs) FlinkMaterializedTableStartModePtrInput {
+	return (*flinkMaterializedTableStartModePtrType)(v)
+}
+
+func (*flinkMaterializedTableStartModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableStartModePtrType) ToFlinkMaterializedTableStartModePtrOutput() FlinkMaterializedTableStartModePtrOutput {
+	return i.ToFlinkMaterializedTableStartModePtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableStartModePtrType) ToFlinkMaterializedTableStartModePtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModePtrOutput)
+}
+
+type FlinkMaterializedTableStartModeOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableStartModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableStartModeOutput) ToFlinkMaterializedTableStartModeOutput() FlinkMaterializedTableStartModeOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeOutput) ToFlinkMaterializedTableStartModeOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeOutput) ToFlinkMaterializedTableStartModePtrOutput() FlinkMaterializedTableStartModePtrOutput {
+	return o.ToFlinkMaterializedTableStartModePtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableStartModeOutput) ToFlinkMaterializedTableStartModePtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableStartMode) *FlinkMaterializedTableStartMode {
+		return &v
+	}).(FlinkMaterializedTableStartModePtrOutput)
+}
+
+// The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+func (o FlinkMaterializedTableStartModeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableStartMode) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+func (o FlinkMaterializedTableStartModeOutput) TimeInterval() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableStartMode) *FlinkMaterializedTableStartModeTimeInterval {
+		return v.TimeInterval
+	}).(FlinkMaterializedTableStartModeTimeIntervalPtrOutput)
+}
+
+// Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+func (o FlinkMaterializedTableStartModeOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableStartMode) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableStartModePtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableStartModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableStartModePtrOutput) ToFlinkMaterializedTableStartModePtrOutput() FlinkMaterializedTableStartModePtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModePtrOutput) ToFlinkMaterializedTableStartModePtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModePtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModePtrOutput) Elem() FlinkMaterializedTableStartModeOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartMode) FlinkMaterializedTableStartMode {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableStartMode
+		return ret
+	}).(FlinkMaterializedTableStartModeOutput)
+}
+
+// The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+func (o FlinkMaterializedTableStartModePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+func (o FlinkMaterializedTableStartModePtrOutput) TimeInterval() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartMode) *FlinkMaterializedTableStartModeTimeInterval {
+		if v == nil {
+			return nil
+		}
+		return v.TimeInterval
+	}).(FlinkMaterializedTableStartModeTimeIntervalPtrOutput)
+}
+
+// Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+func (o FlinkMaterializedTableStartModePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableStartModeTimeInterval struct {
+	// Numeric value of the time interval. Must be at least `1`.
+	Interval int `pulumi:"interval"`
+	// Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+	TimeUnit string `pulumi:"timeUnit"`
+}
+
+// FlinkMaterializedTableStartModeTimeIntervalInput is an input type that accepts FlinkMaterializedTableStartModeTimeIntervalArgs and FlinkMaterializedTableStartModeTimeIntervalOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableStartModeTimeIntervalInput` via:
+//
+//	FlinkMaterializedTableStartModeTimeIntervalArgs{...}
+type FlinkMaterializedTableStartModeTimeIntervalInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableStartModeTimeIntervalOutput() FlinkMaterializedTableStartModeTimeIntervalOutput
+	ToFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(context.Context) FlinkMaterializedTableStartModeTimeIntervalOutput
+}
+
+type FlinkMaterializedTableStartModeTimeIntervalArgs struct {
+	// Numeric value of the time interval. Must be at least `1`.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
+}
+
+func (FlinkMaterializedTableStartModeTimeIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableStartModeTimeIntervalArgs) ToFlinkMaterializedTableStartModeTimeIntervalOutput() FlinkMaterializedTableStartModeTimeIntervalOutput {
+	return i.ToFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableStartModeTimeIntervalArgs) ToFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModeTimeIntervalOutput)
+}
+
+func (i FlinkMaterializedTableStartModeTimeIntervalArgs) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutput() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return i.ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableStartModeTimeIntervalArgs) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModeTimeIntervalOutput).ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableStartModeTimeIntervalPtrInput is an input type that accepts FlinkMaterializedTableStartModeTimeIntervalArgs, FlinkMaterializedTableStartModeTimeIntervalPtr and FlinkMaterializedTableStartModeTimeIntervalPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableStartModeTimeIntervalPtrInput` via:
+//
+//	        FlinkMaterializedTableStartModeTimeIntervalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableStartModeTimeIntervalPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableStartModeTimeIntervalPtrOutput() FlinkMaterializedTableStartModeTimeIntervalPtrOutput
+	ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(context.Context) FlinkMaterializedTableStartModeTimeIntervalPtrOutput
+}
+
+type flinkMaterializedTableStartModeTimeIntervalPtrType FlinkMaterializedTableStartModeTimeIntervalArgs
+
+func FlinkMaterializedTableStartModeTimeIntervalPtr(v *FlinkMaterializedTableStartModeTimeIntervalArgs) FlinkMaterializedTableStartModeTimeIntervalPtrInput {
+	return (*flinkMaterializedTableStartModeTimeIntervalPtrType)(v)
+}
+
+func (*flinkMaterializedTableStartModeTimeIntervalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableStartModeTimeIntervalPtrType) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutput() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return i.ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableStartModeTimeIntervalPtrType) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableStartModeTimeIntervalPtrOutput)
+}
+
+type FlinkMaterializedTableStartModeTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableStartModeTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) ToFlinkMaterializedTableStartModeTimeIntervalOutput() FlinkMaterializedTableStartModeTimeIntervalOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) ToFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutput() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o.ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableStartModeTimeInterval) *FlinkMaterializedTableStartModeTimeInterval {
+		return &v
+	}).(FlinkMaterializedTableStartModeTimeIntervalPtrOutput)
+}
+
+// Numeric value of the time interval. Must be at least `1`.
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableStartModeTimeInterval) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+func (o FlinkMaterializedTableStartModeTimeIntervalOutput) TimeUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableStartModeTimeInterval) string { return v.TimeUnit }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableStartModeTimeIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableStartModeTimeIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalPtrOutput) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutput() FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalPtrOutput) ToFlinkMaterializedTableStartModeTimeIntervalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableStartModeTimeIntervalPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableStartModeTimeIntervalPtrOutput) Elem() FlinkMaterializedTableStartModeTimeIntervalOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartModeTimeInterval) FlinkMaterializedTableStartModeTimeInterval {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableStartModeTimeInterval
+		return ret
+	}).(FlinkMaterializedTableStartModeTimeIntervalOutput)
+}
+
+// Numeric value of the time interval. Must be at least `1`.
+func (o FlinkMaterializedTableStartModeTimeIntervalPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartModeTimeInterval) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+func (o FlinkMaterializedTableStartModeTimeIntervalPtrOutput) TimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableStartModeTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeUnit
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlinkMaterializedTableWatermark struct {
 	// The name of the watermark column.
 	Column *string `pulumi:"column"`
@@ -37136,7 +37469,7 @@ type GetFlinkMaterializedTableDistribution struct {
 	BucketCount int `pulumi:"bucketCount"`
 	// (Set of Strings) The names of the columns the table is distributed by.
 	Keys []string `pulumi:"keys"`
-	// (String) The kind of distribution, for example, `HASH`.
+	// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
 	Kind string `pulumi:"kind"`
 }
 
@@ -37156,7 +37489,7 @@ type GetFlinkMaterializedTableDistributionArgs struct {
 	BucketCount pulumi.IntInput `pulumi:"bucketCount"`
 	// (Set of Strings) The names of the columns the table is distributed by.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// (String) The kind of distribution, for example, `HASH`.
+	// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -37221,7 +37554,7 @@ func (o GetFlinkMaterializedTableDistributionOutput) Keys() pulumi.StringArrayOu
 	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// (String) The kind of distribution, for example, `HASH`.
+// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
 func (o GetFlinkMaterializedTableDistributionOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -37752,6 +38085,229 @@ func (o GetFlinkMaterializedTablePrincipalPtrOutput) Id() pulumi.StringPtrOutput
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableStartMode struct {
+	// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+	Kind string `pulumi:"kind"`
+	// (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+	TimeIntervals []GetFlinkMaterializedTableStartModeTimeInterval `pulumi:"timeIntervals"`
+	// (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// GetFlinkMaterializedTableStartModeInput is an input type that accepts GetFlinkMaterializedTableStartModeArgs and GetFlinkMaterializedTableStartModeOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableStartModeInput` via:
+//
+//	GetFlinkMaterializedTableStartModeArgs{...}
+type GetFlinkMaterializedTableStartModeInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableStartModeOutput() GetFlinkMaterializedTableStartModeOutput
+	ToGetFlinkMaterializedTableStartModeOutputWithContext(context.Context) GetFlinkMaterializedTableStartModeOutput
+}
+
+type GetFlinkMaterializedTableStartModeArgs struct {
+	// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+	TimeIntervals GetFlinkMaterializedTableStartModeTimeIntervalArrayInput `pulumi:"timeIntervals"`
+	// (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+}
+
+func (GetFlinkMaterializedTableStartModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableStartModeArgs) ToGetFlinkMaterializedTableStartModeOutput() GetFlinkMaterializedTableStartModeOutput {
+	return i.ToGetFlinkMaterializedTableStartModeOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableStartModeArgs) ToGetFlinkMaterializedTableStartModeOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableStartModeOutput)
+}
+
+// GetFlinkMaterializedTableStartModeArrayInput is an input type that accepts GetFlinkMaterializedTableStartModeArray and GetFlinkMaterializedTableStartModeArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableStartModeArrayInput` via:
+//
+//	GetFlinkMaterializedTableStartModeArray{ GetFlinkMaterializedTableStartModeArgs{...} }
+type GetFlinkMaterializedTableStartModeArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableStartModeArrayOutput() GetFlinkMaterializedTableStartModeArrayOutput
+	ToGetFlinkMaterializedTableStartModeArrayOutputWithContext(context.Context) GetFlinkMaterializedTableStartModeArrayOutput
+}
+
+type GetFlinkMaterializedTableStartModeArray []GetFlinkMaterializedTableStartModeInput
+
+func (GetFlinkMaterializedTableStartModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableStartModeArray) ToGetFlinkMaterializedTableStartModeArrayOutput() GetFlinkMaterializedTableStartModeArrayOutput {
+	return i.ToGetFlinkMaterializedTableStartModeArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableStartModeArray) ToGetFlinkMaterializedTableStartModeArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableStartModeArrayOutput)
+}
+
+type GetFlinkMaterializedTableStartModeOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableStartModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableStartModeOutput) ToGetFlinkMaterializedTableStartModeOutput() GetFlinkMaterializedTableStartModeOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeOutput) ToGetFlinkMaterializedTableStartModeOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeOutput {
+	return o
+}
+
+// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+func (o GetFlinkMaterializedTableStartModeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableStartMode) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+func (o GetFlinkMaterializedTableStartModeOutput) TimeIntervals() GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableStartMode) []GetFlinkMaterializedTableStartModeTimeInterval {
+		return v.TimeIntervals
+	}).(GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput)
+}
+
+// (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+func (o GetFlinkMaterializedTableStartModeOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableStartMode) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableStartModeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableStartModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableStartMode)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableStartModeArrayOutput) ToGetFlinkMaterializedTableStartModeArrayOutput() GetFlinkMaterializedTableStartModeArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeArrayOutput) ToGetFlinkMaterializedTableStartModeArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableStartModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableStartMode {
+		return vs[0].([]GetFlinkMaterializedTableStartMode)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableStartModeOutput)
+}
+
+type GetFlinkMaterializedTableStartModeTimeInterval struct {
+	// (Integer) Numeric value of the time interval.
+	Interval int `pulumi:"interval"`
+	// (String) Unit of time for the interval, for example, `HOURS`.
+	TimeUnit string `pulumi:"timeUnit"`
+}
+
+// GetFlinkMaterializedTableStartModeTimeIntervalInput is an input type that accepts GetFlinkMaterializedTableStartModeTimeIntervalArgs and GetFlinkMaterializedTableStartModeTimeIntervalOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableStartModeTimeIntervalInput` via:
+//
+//	GetFlinkMaterializedTableStartModeTimeIntervalArgs{...}
+type GetFlinkMaterializedTableStartModeTimeIntervalInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableStartModeTimeIntervalOutput() GetFlinkMaterializedTableStartModeTimeIntervalOutput
+	ToGetFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(context.Context) GetFlinkMaterializedTableStartModeTimeIntervalOutput
+}
+
+type GetFlinkMaterializedTableStartModeTimeIntervalArgs struct {
+	// (Integer) Numeric value of the time interval.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// (String) Unit of time for the interval, for example, `HOURS`.
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
+}
+
+func (GetFlinkMaterializedTableStartModeTimeIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableStartModeTimeIntervalArgs) ToGetFlinkMaterializedTableStartModeTimeIntervalOutput() GetFlinkMaterializedTableStartModeTimeIntervalOutput {
+	return i.ToGetFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableStartModeTimeIntervalArgs) ToGetFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeTimeIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableStartModeTimeIntervalOutput)
+}
+
+// GetFlinkMaterializedTableStartModeTimeIntervalArrayInput is an input type that accepts GetFlinkMaterializedTableStartModeTimeIntervalArray and GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableStartModeTimeIntervalArrayInput` via:
+//
+//	GetFlinkMaterializedTableStartModeTimeIntervalArray{ GetFlinkMaterializedTableStartModeTimeIntervalArgs{...} }
+type GetFlinkMaterializedTableStartModeTimeIntervalArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutput() GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput
+	ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutputWithContext(context.Context) GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput
+}
+
+type GetFlinkMaterializedTableStartModeTimeIntervalArray []GetFlinkMaterializedTableStartModeTimeIntervalInput
+
+func (GetFlinkMaterializedTableStartModeTimeIntervalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableStartModeTimeIntervalArray) ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutput() GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput {
+	return i.ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableStartModeTimeIntervalArray) ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput)
+}
+
+type GetFlinkMaterializedTableStartModeTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableStartModeTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableStartModeTimeIntervalOutput) ToGetFlinkMaterializedTableStartModeTimeIntervalOutput() GetFlinkMaterializedTableStartModeTimeIntervalOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeTimeIntervalOutput) ToGetFlinkMaterializedTableStartModeTimeIntervalOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeTimeIntervalOutput {
+	return o
+}
+
+// (Integer) Numeric value of the time interval.
+func (o GetFlinkMaterializedTableStartModeTimeIntervalOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableStartModeTimeInterval) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// (String) Unit of time for the interval, for example, `HOURS`.
+func (o GetFlinkMaterializedTableStartModeTimeIntervalOutput) TimeUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableStartModeTimeInterval) string { return v.TimeUnit }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableStartModeTimeInterval)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput) ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutput() GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput) ToGetFlinkMaterializedTableStartModeTimeIntervalArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableStartModeTimeIntervalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableStartModeTimeInterval {
+		return vs[0].([]GetFlinkMaterializedTableStartModeTimeInterval)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableStartModeTimeIntervalOutput)
 }
 
 type GetFlinkMaterializedTableWatermark struct {
@@ -55797,6 +56353,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableOrganizationPtrInput)(nil)).Elem(), FlinkMaterializedTableOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTablePrincipalInput)(nil)).Elem(), FlinkMaterializedTablePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTablePrincipalPtrInput)(nil)).Elem(), FlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableStartModeInput)(nil)).Elem(), FlinkMaterializedTableStartModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableStartModePtrInput)(nil)).Elem(), FlinkMaterializedTableStartModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableStartModeTimeIntervalInput)(nil)).Elem(), FlinkMaterializedTableStartModeTimeIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableStartModeTimeIntervalPtrInput)(nil)).Elem(), FlinkMaterializedTableStartModeTimeIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableWatermarkInput)(nil)).Elem(), FlinkMaterializedTableWatermarkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableWatermarkPtrInput)(nil)).Elem(), FlinkMaterializedTableWatermarkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
@@ -56177,6 +56737,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableOrganizationPtrInput)(nil)).Elem(), GetFlinkMaterializedTableOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTablePrincipalInput)(nil)).Elem(), GetFlinkMaterializedTablePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTablePrincipalPtrInput)(nil)).Elem(), GetFlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableStartModeInput)(nil)).Elem(), GetFlinkMaterializedTableStartModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableStartModeArrayInput)(nil)).Elem(), GetFlinkMaterializedTableStartModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableStartModeTimeIntervalInput)(nil)).Elem(), GetFlinkMaterializedTableStartModeTimeIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableStartModeTimeIntervalArrayInput)(nil)).Elem(), GetFlinkMaterializedTableStartModeTimeIntervalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableWatermarkInput)(nil)).Elem(), GetFlinkMaterializedTableWatermarkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableWatermarkArrayInput)(nil)).Elem(), GetFlinkMaterializedTableWatermarkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
@@ -56615,6 +57179,10 @@ func init() {
 	pulumi.RegisterOutputType(FlinkMaterializedTableOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(FlinkMaterializedTablePrincipalOutput{})
 	pulumi.RegisterOutputType(FlinkMaterializedTablePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableStartModeOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableStartModePtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableStartModeTimeIntervalOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableStartModeTimeIntervalPtrOutput{})
 	pulumi.RegisterOutputType(FlinkMaterializedTableWatermarkOutput{})
 	pulumi.RegisterOutputType(FlinkMaterializedTableWatermarkPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
@@ -56995,6 +57563,10 @@ func init() {
 	pulumi.RegisterOutputType(GetFlinkMaterializedTableOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkMaterializedTablePrincipalOutput{})
 	pulumi.RegisterOutputType(GetFlinkMaterializedTablePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableStartModeOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableStartModeArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableStartModeTimeIntervalOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableStartModeTimeIntervalArrayOutput{})
 	pulumi.RegisterOutputType(GetFlinkMaterializedTableWatermarkOutput{})
 	pulumi.RegisterOutputType(GetFlinkMaterializedTableWatermarkArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})

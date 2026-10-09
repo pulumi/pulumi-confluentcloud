@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -127,19 +128,69 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Identity Pool.
  * 
+ * &gt; **Note:** If your configuration sets `assignedResourceOwner`, set the `IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Identity Pool. The variable applies to every Identity Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+ * 
  * You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `&lt;Identity Provider ID&gt;/&lt;Identity Pool ID&gt;`. The following example shows how to import an Identity Pool:
  * 
  * ```sh
  * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * ```
+ * 
+ * Only if your configuration sets assigned_resource_owner:
+ * 
+ * ```sh
+ * $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER=&#34;&lt;assigned_resource_owner&gt;&#34;
  * $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
  * ```
+ * 
+ * To add `assignedResourceOwner` to an Identity Pool that Terraform already manages, re-import the Identity Pool. Adding the attribute to its configuration alone plans a replacement:
+ * 
+ * 1. Add assignedResourceOwner to the Identity Pool&#39;s configuration.
+ * 2. Remove the Identity Pool from Terraform state. This does not delete it.
+ * 
+ * ```sh
+ * $ terraform state rm confluent_identity_pool.example
+ * ```
+ * 
+ * 3. With the credentials above still exported, import it again with the variable set to the configured value.
+ * 
+ * ```sh
+ * $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER=&#34;&lt;assigned_resource_owner&gt;&#34;
+ * $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+ * ```
+ * 
+ * 4. Confirm that the plan shows no changes.
+ * 
+ * ```sh
+ * $ pulumi preview
+ * ```
+ * 
+ * Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Identity Pool, for example the one assigned when the Identity Pool was created outside Terraform.
  * 
  * &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/identityPool:IdentityPool")
 public class IdentityPool extends com.pulumi.resources.CustomResource {
+    /**
+     * The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+     * 
+     */
+    @Export(name="assignedResourceOwner", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> assignedResourceOwner;
+
+    /**
+     * @return The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+     * 
+     */
+    public Output<Optional<String>> assignedResourceOwner() {
+        return Codegen.optional(this.assignedResourceOwner);
+    }
     /**
      * A description for the Identity Pool.
      * 

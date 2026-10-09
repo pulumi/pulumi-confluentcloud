@@ -108,18 +108,54 @@ import (
 //
 // > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Identity Pool.
 //
+// > **Note:** If your configuration sets `assignedResourceOwner`, set the `IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Identity Pool. The variable applies to every Identity Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+//
 // You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
 //
 // ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// ```
+//
+// Only if your configuration sets assigned_resource_owner:
+//
+// ```sh
+// $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
 // $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
 // ```
+//
+// To add `assignedResourceOwner` to an Identity Pool that Terraform already manages, re-import the Identity Pool. Adding the attribute to its configuration alone plans a replacement:
+//
+// 1. Add assignedResourceOwner to the Identity Pool's configuration.
+// 2. Remove the Identity Pool from Terraform state. This does not delete it.
+//
+// ```sh
+// $ terraform state rm confluent_identity_pool.example
+// ```
+//
+// 3. With the credentials above still exported, import it again with the variable set to the configured value.
+//
+// ```sh
+// $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+// $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+// ```
+//
+// 4. Confirm that the plan shows no changes.
+//
+// ```sh
+// $ pulumi preview
+// ```
+//
+// Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Identity Pool, for example the one assigned when the Identity Pool was created outside Terraform.
 //
 // > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type IdentityPool struct {
 	pulumi.CustomResourceState
 
+	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrOutput `pulumi:"assignedResourceOwner"`
 	// A description for the Identity Pool.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A human-readable name for the Identity Pool.
@@ -177,6 +213,10 @@ func GetIdentityPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPool resources.
 type identityPoolState struct {
+	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// A description for the Identity Pool.
 	Description *string `pulumi:"description"`
 	// A human-readable name for the Identity Pool.
@@ -190,6 +230,10 @@ type identityPoolState struct {
 }
 
 type IdentityPoolState struct {
+	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// A description for the Identity Pool.
 	Description pulumi.StringPtrInput
 	// A human-readable name for the Identity Pool.
@@ -207,6 +251,10 @@ func (IdentityPoolState) ElementType() reflect.Type {
 }
 
 type identityPoolArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// A description for the Identity Pool.
 	Description string `pulumi:"description"`
 	// A human-readable name for the Identity Pool.
@@ -221,6 +269,10 @@ type identityPoolArgs struct {
 
 // The set of arguments for constructing a IdentityPool resource.
 type IdentityPoolArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// A description for the Identity Pool.
 	Description pulumi.StringInput
 	// A human-readable name for the Identity Pool.
@@ -318,6 +370,13 @@ func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {
 
 func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
 	return o
+}
+
+// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+//
+// > **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+func (o IdentityPoolOutput) AssignedResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.AssignedResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // A description for the Identity Pool.

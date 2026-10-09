@@ -50,13 +50,45 @@ import * as utilities from "./utilities";
  *
  * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
  *
+ * > **Note:** If your configuration sets `assignedResourceOwner`, set the `IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Service Account. The variable applies to every Service Account imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+ *
  * You can import a Service Account by using Service Account ID, for example:
  *
  * ```sh
  * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+ * ```
+ *
+ * Only if your configuration sets assigned_resource_owner:
+ *
+ * ```sh
+ * $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
  * $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
  * ```
+ *
+ * To add `assignedResourceOwner` to a Service Account that Terraform already manages, re-import the Service Account. Adding the attribute to its configuration alone plans a replacement:
+ *
+ * 1. Add assignedResourceOwner to the Service Account's configuration.
+ * 2. Remove the Service Account from Terraform state. This does not delete it.
+ *
+ * ```sh
+ * $ terraform state rm confluent_service_account.my_sa
+ * ```
+ *
+ * 3. With the credentials above still exported, import it again with the variable set to the configured value.
+ *
+ * ```sh
+ * $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+ * $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+ * ```
+ *
+ * 4. Confirm that the plan shows no changes.
+ *
+ * ```sh
+ * $ pulumi preview
+ * ```
+ *
+ * Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Service Account, for example the one assigned when the Service Account was created outside Terraform.
  *
  * > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
@@ -93,6 +125,12 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
+     * The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     *
+     * > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+     */
+    declare public readonly assignedResourceOwner: pulumi.Output<string | undefined>;
+    /**
      * A free-form description of the Service Account.
      */
     declare public readonly description: pulumi.Output<string>;
@@ -119,11 +157,13 @@ export class ServiceAccount extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceAccountState | undefined;
             resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["assignedResourceOwner"] = state?.assignedResourceOwner;
             resourceInputs["description"] = state?.description;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["kind"] = state?.kind;
         } else {
             const args = argsOrState as ServiceAccountArgs | undefined;
+            resourceInputs["assignedResourceOwner"] = args?.assignedResourceOwner;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["apiVersion"] = undefined /*out*/;
@@ -143,6 +183,12 @@ export interface ServiceAccountState {
      */
     apiVersion?: pulumi.Input<string | undefined>;
     /**
+     * The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     *
+     * > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+     */
+    assignedResourceOwner?: pulumi.Input<string | undefined>;
+    /**
      * A free-form description of the Service Account.
      */
     description?: pulumi.Input<string | undefined>;
@@ -160,6 +206,12 @@ export interface ServiceAccountState {
  * The set of arguments for constructing a ServiceAccount resource.
  */
 export interface ServiceAccountArgs {
+    /**
+     * The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     *
+     * > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+     */
+    assignedResourceOwner?: pulumi.Input<string | undefined>;
     /**
      * A free-form description of the Service Account.
      */

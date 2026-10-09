@@ -71,13 +71,45 @@ import (
 //
 // > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
 //
+// > **Note:** If your configuration sets `assignedResourceOwner`, set the `IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Service Account. The variable applies to every Service Account imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+//
 // You can import a Service Account by using Service Account ID, for example:
 //
 // ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// ```
+//
+// Only if your configuration sets assigned_resource_owner:
+//
+// ```sh
+// $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
 // $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
 // ```
+//
+// To add `assignedResourceOwner` to a Service Account that Terraform already manages, re-import the Service Account. Adding the attribute to its configuration alone plans a replacement:
+//
+// 1. Add assignedResourceOwner to the Service Account's configuration.
+// 2. Remove the Service Account from Terraform state. This does not delete it.
+//
+// ```sh
+// $ terraform state rm confluent_service_account.my_sa
+// ```
+//
+// 3. With the credentials above still exported, import it again with the variable set to the configured value.
+//
+// ```sh
+// $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+// ```
+//
+// 4. Confirm that the plan shows no changes.
+//
+// ```sh
+// $ pulumi preview
+// ```
+//
+// Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Service Account, for example the one assigned when the Service Account was created outside Terraform.
 //
 // > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type ServiceAccount struct {
@@ -85,6 +117,10 @@ type ServiceAccount struct {
 
 	// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
+	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrOutput `pulumi:"assignedResourceOwner"`
 	// A free-form description of the Service Account.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A human-readable name for the Service Account. Must be 64 characters or fewer.
@@ -125,6 +161,10 @@ func GetServiceAccount(ctx *pulumi.Context,
 type serviceAccountState struct {
 	// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
 	ApiVersion *string `pulumi:"apiVersion"`
+	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// A free-form description of the Service Account.
 	Description *string `pulumi:"description"`
 	// A human-readable name for the Service Account. Must be 64 characters or fewer.
@@ -136,6 +176,10 @@ type serviceAccountState struct {
 type ServiceAccountState struct {
 	// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
 	ApiVersion pulumi.StringPtrInput
+	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// A free-form description of the Service Account.
 	Description pulumi.StringPtrInput
 	// A human-readable name for the Service Account. Must be 64 characters or fewer.
@@ -149,6 +193,10 @@ func (ServiceAccountState) ElementType() reflect.Type {
 }
 
 type serviceAccountArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// A free-form description of the Service Account.
 	Description *string `pulumi:"description"`
 	// A human-readable name for the Service Account. Must be 64 characters or fewer.
@@ -157,6 +205,10 @@ type serviceAccountArgs struct {
 
 // The set of arguments for constructing a ServiceAccount resource.
 type ServiceAccountArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// A free-form description of the Service Account.
 	Description pulumi.StringPtrInput
 	// A human-readable name for the Service Account. Must be 64 characters or fewer.
@@ -253,6 +305,13 @@ func (o ServiceAccountOutput) ToServiceAccountOutputWithContext(ctx context.Cont
 // (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
 func (o ServiceAccountOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+//
+// > **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+func (o ServiceAccountOutput) AssignedResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccount) pulumi.StringPtrOutput { return v.AssignedResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // A free-form description of the Service Account.

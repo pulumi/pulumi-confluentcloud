@@ -62,13 +62,45 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
     /// 
+    /// &gt; **Note:** If your configuration sets `AssignedResourceOwner`, set the `IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Service Account. The variable applies to every Service Account imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+    /// 
     /// You can import a Service Account by using Service Account ID, for example:
     /// 
     /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// ```
+    /// 
+    /// Only if your configuration sets assigned_resource_owner:
+    /// 
+    /// ```sh
+    /// $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="&lt;assigned_resource_owner&gt;"
     /// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
     /// ```
+    /// 
+    /// To add `AssignedResourceOwner` to a Service Account that Terraform already manages, re-import the Service Account. Adding the attribute to its configuration alone plans a replacement:
+    /// 
+    /// 1. Add AssignedResourceOwner to the Service Account's configuration.
+    /// 2. Remove the Service Account from Terraform state. This does not delete it.
+    /// 
+    /// ```sh
+    /// $ terraform state rm confluent_service_account.my_sa
+    /// ```
+    /// 
+    /// 3. With the credentials above still exported, import it again with the variable set to the configured value.
+    /// 
+    /// ```sh
+    /// $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="&lt;assigned_resource_owner&gt;"
+    /// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+    /// ```
+    /// 
+    /// 4. Confirm that the plan shows no changes.
+    /// 
+    /// ```sh
+    /// $ pulumi preview
+    /// ```
+    /// 
+    /// Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Service Account, for example the one assigned when the Service Account was created outside Terraform.
     /// 
     /// &gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
@@ -80,6 +112,14 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("apiVersion")]
         public Output<string> ApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The ResourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+        /// 
+        /// &gt; **Note:** `AssignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        /// </summary>
+        [Output("assignedResourceOwner")]
+        public Output<string?> AssignedResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// A free-form description of the Service Account.
@@ -146,6 +186,14 @@ namespace Pulumi.ConfluentCloud
     public sealed class ServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ResourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+        /// 
+        /// &gt; **Note:** `AssignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        /// </summary>
+        [Input("assignedResourceOwner")]
+        public Input<string>? AssignedResourceOwner { get; set; }
+
+        /// <summary>
         /// A free-form description of the Service Account.
         /// </summary>
         [Input("description")]
@@ -170,6 +218,14 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
+
+        /// <summary>
+        /// The ResourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+        /// 
+        /// &gt; **Note:** `AssignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        /// </summary>
+        [Input("assignedResourceOwner")]
+        public Input<string>? AssignedResourceOwner { get; set; }
 
         /// <summary>
         /// A free-form description of the Service Account.

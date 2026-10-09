@@ -34,6 +34,7 @@ class FlinkMaterializedTableArgs:
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 start_mode: pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
@@ -47,6 +48,7 @@ class FlinkMaterializedTableArgs:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        :param pulumi.Input['FlinkMaterializedTableStartModeArgs'] start_mode: Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
@@ -75,6 +77,8 @@ class FlinkMaterializedTableArgs:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if session_options is not None:
             pulumi.set(__self__, "session_options", session_options)
+        if start_mode is not None:
+            pulumi.set(__self__, "start_mode", start_mode)
         if stopped is not None:
             pulumi.set(__self__, "stopped", stopped)
         if table_options is not None:
@@ -221,6 +225,18 @@ class FlinkMaterializedTableArgs:
         pulumi.set(self, "session_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="startMode")
+    def start_mode(self) -> pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']]:
+        """
+        Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        """
+        return pulumi.get(self, "start_mode")
+
+    @start_mode.setter
+    def start_mode(self, value: pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']]):
+        pulumi.set(self, "start_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -273,6 +289,7 @@ class _FlinkMaterializedTableState:
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 start_mode: pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional['FlinkMaterializedTableWatermarkArgs']] = None):
@@ -286,6 +303,7 @@ class _FlinkMaterializedTableState:
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        :param pulumi.Input['FlinkMaterializedTableStartModeArgs'] start_mode: Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input['FlinkMaterializedTableWatermarkArgs'] watermark: The watermark definition for the Materialized Table. Supports the following:
@@ -316,6 +334,8 @@ class _FlinkMaterializedTableState:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if session_options is not None:
             pulumi.set(__self__, "session_options", session_options)
+        if start_mode is not None:
+            pulumi.set(__self__, "start_mode", start_mode)
         if stopped is not None:
             pulumi.set(__self__, "stopped", stopped)
         if table_options is not None:
@@ -462,6 +482,18 @@ class _FlinkMaterializedTableState:
         pulumi.set(self, "session_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="startMode")
+    def start_mode(self) -> pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']]:
+        """
+        Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        """
+        return pulumi.get(self, "start_mode")
+
+    @start_mode.setter
+    def start_mode(self, value: pulumi.Input[Optional['FlinkMaterializedTableStartModeArgs']]):
+        pulumi.set(self, "start_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -517,6 +549,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 start_mode: pulumi.Input[Optional[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict']]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
@@ -611,6 +644,45 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             stopped=False)
         ```
 
+        ### Controlling the Start Mode
+
+        Use the optional `start_mode` block to control where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`).
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkMaterializedTable("example",
+            display_name="my_materialized_table",
+            kafka_cluster={
+                "id": basic_cluster["id"],
+            },
+            query="SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;",
+            start_mode={
+                "kind": "FROM_NOW",
+                "time_interval": {
+                    "interval": 1,
+                    "time_unit": "HOURS",
+                },
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkMaterializedTable("example",
+            display_name="my_materialized_table",
+            kafka_cluster={
+                "id": basic_cluster["id"],
+            },
+            query="SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;",
+            start_mode={
+                "kind": "FROM_TIMESTAMP",
+                "timestamp": "2026-04-01T00:00:00Z",
+            })
+        ```
+
         ## Import
 
         You can import a Flink Materialized Table by using the Materialized Table name, for example:
@@ -646,6 +718,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        :param pulumi.Input[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict']] start_mode: Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
@@ -746,6 +819,45 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             stopped=False)
         ```
 
+        ### Controlling the Start Mode
+
+        Use the optional `start_mode` block to control where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`).
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkMaterializedTable("example",
+            display_name="my_materialized_table",
+            kafka_cluster={
+                "id": basic_cluster["id"],
+            },
+            query="SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;",
+            start_mode={
+                "kind": "FROM_NOW",
+                "time_interval": {
+                    "interval": 1,
+                    "time_unit": "HOURS",
+                },
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkMaterializedTable("example",
+            display_name="my_materialized_table",
+            kafka_cluster={
+                "id": basic_cluster["id"],
+            },
+            query="SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;",
+            start_mode={
+                "kind": "FROM_TIMESTAMP",
+                "timestamp": "2026-04-01T00:00:00Z",
+            })
+        ```
+
         ## Import
 
         You can import a Flink Materialized Table by using the Materialized Table name, for example:
@@ -800,6 +912,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 start_mode: pulumi.Input[Optional[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict']]] = None,
                  stopped: pulumi.Input[Optional[_builtins.bool]] = None,
                  table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None,
@@ -829,6 +942,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             __props__.__dict__["query"] = query
             __props__.__dict__["rest_endpoint"] = rest_endpoint
             __props__.__dict__["session_options"] = session_options
+            __props__.__dict__["start_mode"] = start_mode
             __props__.__dict__["stopped"] = stopped
             __props__.__dict__["table_options"] = table_options
             __props__.__dict__["watermark"] = watermark
@@ -857,6 +971,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            start_mode: pulumi.Input[Optional[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict']]] = None,
             stopped: pulumi.Input[Optional[_builtins.bool]] = None,
             table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']]] = None) -> 'FlinkMaterializedTable':
@@ -874,6 +989,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_options: Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
+        :param pulumi.Input[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict']] start_mode: Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
         :param pulumi.Input[_builtins.bool] stopped: Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] table_options: Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
         :param pulumi.Input[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict']] watermark: The watermark definition for the Materialized Table. Supports the following:
@@ -895,6 +1011,7 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         __props__.__dict__["query"] = query
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["session_options"] = session_options
+        __props__.__dict__["start_mode"] = start_mode
         __props__.__dict__["stopped"] = stopped
         __props__.__dict__["table_options"] = table_options
         __props__.__dict__["watermark"] = watermark
@@ -985,6 +1102,14 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
         """
         return pulumi.get(self, "session_options")
+
+    @_builtins.property
+    @pulumi.getter(name="startMode")
+    def start_mode(self) -> pulumi.Output['outputs.FlinkMaterializedTableStartMode']:
+        """
+        Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        """
+        return pulumi.get(self, "start_mode")
 
     @_builtins.property
     @pulumi.getter

@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Keys;
         /// <summary>
-        /// (String) The kind of distribution, for example, `HASH`.
+        /// (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
         /// </summary>
         public readonly string Kind;
 

@@ -130,6 +130,8 @@ type LookupFlinkMaterializedTableResult struct {
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// (Map) Session configurations equivalent to the SQL `SET` statement.
 	SessionOptions map[string]string `pulumi:"sessionOptions"`
+	// (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+	StartModes []GetFlinkMaterializedTableStartMode `pulumi:"startModes"`
 	// (Boolean) Whether the Materialized Table is stopped.
 	Stopped bool `pulumi:"stopped"`
 	// (Map) Configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -242,6 +244,11 @@ func (o LookupFlinkMaterializedTableResultOutput) RestEndpoint() pulumi.StringPt
 // (Map) Session configurations equivalent to the SQL `SET` statement.
 func (o LookupFlinkMaterializedTableResultOutput) SessionOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) map[string]string { return v.SessionOptions }).(pulumi.StringMapOutput)
+}
+
+// (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+func (o LookupFlinkMaterializedTableResultOutput) StartModes() GetFlinkMaterializedTableStartModeArrayOutput {
+	return o.ApplyT(func(v LookupFlinkMaterializedTableResult) []GetFlinkMaterializedTableStartMode { return v.StartModes }).(GetFlinkMaterializedTableStartModeArrayOutput)
 }
 
 // (Boolean) Whether the Materialized Table is stopped.

@@ -23,7 +23,7 @@ public final class GetFlinkMaterializedTableDistribution {
      */
     private List<String> keys;
     /**
-     * @return (String) The kind of distribution, for example, `HASH`.
+     * @return (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
      * 
      */
     private String kind;
@@ -44,7 +44,7 @@ public final class GetFlinkMaterializedTableDistribution {
         return this.keys;
     }
     /**
-     * @return (String) The kind of distribution, for example, `HASH`.
+     * @return (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
      * 
      */
     public String kind() {

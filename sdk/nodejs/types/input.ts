@@ -901,6 +901,32 @@ export interface FlinkMaterializedTablePrincipal {
     id: pulumi.Input<string>;
 }
 
+export interface FlinkMaterializedTableStartMode {
+    /**
+     * The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+     */
+    kind: pulumi.Input<string>;
+    /**
+     * Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+     */
+    timeInterval?: pulumi.Input<inputs.FlinkMaterializedTableStartModeTimeInterval | undefined>;
+    /**
+     * Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+     */
+    timestamp?: pulumi.Input<string | undefined>;
+}
+
+export interface FlinkMaterializedTableStartModeTimeInterval {
+    /**
+     * Numeric value of the time interval. Must be at least `1`.
+     */
+    interval: pulumi.Input<number>;
+    /**
+     * Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+     */
+    timeUnit: pulumi.Input<string>;
+}
+
 export interface FlinkMaterializedTableWatermark {
     /**
      * The name of the watermark column.

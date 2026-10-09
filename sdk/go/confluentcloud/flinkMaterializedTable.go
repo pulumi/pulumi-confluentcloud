@@ -149,6 +149,77 @@ import (
 //
 // ```
 //
+// ### Controlling the Start Mode
+//
+// Use the optional `startMode` block to control where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewFlinkMaterializedTable(ctx, "example", &confluentcloud.FlinkMaterializedTableArgs{
+//				DisplayName: pulumi.String("my_materialized_table"),
+//				KafkaCluster: &confluentcloud.FlinkMaterializedTableKafkaClusterArgs{
+//					Id: pulumi.Any(basic_cluster.Id),
+//				},
+//				Query: pulumi.String("SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;"),
+//				StartMode: &confluentcloud.FlinkMaterializedTableStartModeArgs{
+//					Kind: pulumi.String("FROM_NOW"),
+//					TimeInterval: &confluentcloud.FlinkMaterializedTableStartModeTimeIntervalArgs{
+//						Interval: pulumi.Int(1),
+//						TimeUnit: pulumi.String("HOURS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewFlinkMaterializedTable(ctx, "example", &confluentcloud.FlinkMaterializedTableArgs{
+//				DisplayName: pulumi.String("my_materialized_table"),
+//				KafkaCluster: &confluentcloud.FlinkMaterializedTableKafkaClusterArgs{
+//					Id: pulumi.Any(basic_cluster.Id),
+//				},
+//				Query: pulumi.String("SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;"),
+//				StartMode: &confluentcloud.FlinkMaterializedTableStartModeArgs{
+//					Kind:      pulumi.String("FROM_TIMESTAMP"),
+//					Timestamp: pulumi.String("2026-04-01T00:00:00Z"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Flink Materialized Table by using the Materialized Table name, for example:
@@ -196,6 +267,8 @@ type FlinkMaterializedTable struct {
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 	SessionOptions pulumi.StringMapOutput `pulumi:"sessionOptions"`
+	// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+	StartMode FlinkMaterializedTableStartModeOutput `pulumi:"startMode"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrOutput `pulumi:"stopped"`
 	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -267,6 +340,8 @@ type flinkMaterializedTableState struct {
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 	SessionOptions map[string]string `pulumi:"sessionOptions"`
+	// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+	StartMode *FlinkMaterializedTableStartMode `pulumi:"startMode"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
 	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -296,6 +371,8 @@ type FlinkMaterializedTableState struct {
 	RestEndpoint pulumi.StringPtrInput
 	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 	SessionOptions pulumi.StringMapInput
+	// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+	StartMode FlinkMaterializedTableStartModePtrInput
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
 	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -329,6 +406,8 @@ type flinkMaterializedTableArgs struct {
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 	SessionOptions map[string]string `pulumi:"sessionOptions"`
+	// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+	StartMode *FlinkMaterializedTableStartMode `pulumi:"startMode"`
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped *bool `pulumi:"stopped"`
 	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -359,6 +438,8 @@ type FlinkMaterializedTableArgs struct {
 	RestEndpoint pulumi.StringPtrInput
 	// Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 	SessionOptions pulumi.StringMapInput
+	// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+	StartMode FlinkMaterializedTableStartModePtrInput
 	// Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
 	Stopped pulumi.BoolPtrInput
 	// Defines configuration properties for the Materialized Table, equivalent to the SQL `WITH` clause.
@@ -511,6 +592,11 @@ func (o FlinkMaterializedTableOutput) RestEndpoint() pulumi.StringPtrOutput {
 // Session configurations equivalent to the SQL `SET` statement. Only applicable on creation; ignored on update.
 func (o FlinkMaterializedTableOutput) SessionOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkMaterializedTable) pulumi.StringMapOutput { return v.SessionOptions }).(pulumi.StringMapOutput)
+}
+
+// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+func (o FlinkMaterializedTableOutput) StartMode() FlinkMaterializedTableStartModeOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTable) FlinkMaterializedTableStartModeOutput { return v.StartMode }).(FlinkMaterializedTableStartModeOutput)
 }
 
 // Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.

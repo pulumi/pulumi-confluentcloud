@@ -88,6 +88,8 @@ __all__ = [
     'FlinkMaterializedTableKafkaCluster',
     'FlinkMaterializedTableOrganization',
     'FlinkMaterializedTablePrincipal',
+    'FlinkMaterializedTableStartMode',
+    'FlinkMaterializedTableStartModeTimeInterval',
     'FlinkMaterializedTableWatermark',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
@@ -284,6 +286,8 @@ __all__ = [
     'GetFlinkMaterializedTableKafkaClusterResult',
     'GetFlinkMaterializedTableOrganizationResult',
     'GetFlinkMaterializedTablePrincipalResult',
+    'GetFlinkMaterializedTableStartModeResult',
+    'GetFlinkMaterializedTableStartModeTimeIntervalResult',
     'GetFlinkMaterializedTableWatermarkResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsIngressPrivateLinkGatewayResult',
@@ -3472,6 +3476,111 @@ class FlinkMaterializedTablePrincipal(dict):
         The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableStartMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInterval":
+            suggest = "time_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableStartMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableStartMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableStartMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kind: _builtins.str,
+                 time_interval: Optional['outputs.FlinkMaterializedTableStartModeTimeInterval'] = None,
+                 timestamp: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kind: The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+        :param 'FlinkMaterializedTableStartModeTimeIntervalArgs' time_interval: Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+        :param _builtins.str timestamp: Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional['outputs.FlinkMaterializedTableStartModeTimeInterval']:
+        """
+        Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+        """
+        return pulumi.get(self, "time_interval")
+
+    @_builtins.property
+    @pulumi.getter
+    def timestamp(self) -> Optional[_builtins.str]:
+        """
+        Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableStartModeTimeInterval(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeUnit":
+            suggest = "time_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableStartModeTimeInterval. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableStartModeTimeInterval.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableStartModeTimeInterval.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: _builtins.int,
+                 time_unit: _builtins.str):
+        """
+        :param _builtins.int interval: Numeric value of the time interval. Must be at least `1`.
+        :param _builtins.str time_unit: Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_unit", time_unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> _builtins.int:
+        """
+        Numeric value of the time interval. Must be at least `1`.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> _builtins.str:
+        """
+        Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+        """
+        return pulumi.get(self, "time_unit")
 
 
 @pulumi.output_type
@@ -10126,7 +10235,7 @@ class GetFlinkMaterializedTableDistributionResult(dict):
         """
         :param _builtins.int bucket_count: (Integer) The number of buckets the table is distributed by.
         :param Sequence[_builtins.str] keys: (Set of Strings) The names of the columns the table is distributed by.
-        :param _builtins.str kind: (String) The kind of distribution, for example, `HASH`.
+        :param _builtins.str kind: (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
         """
         pulumi.set(__self__, "bucket_count", bucket_count)
         pulumi.set(__self__, "keys", keys)
@@ -10152,7 +10261,7 @@ class GetFlinkMaterializedTableDistributionResult(dict):
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-        (String) The kind of distribution, for example, `HASH`.
+        (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
         """
         return pulumi.get(self, "kind")
 
@@ -10227,6 +10336,75 @@ class GetFlinkMaterializedTablePrincipalResult(dict):
         The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableStartModeResult(dict):
+    def __init__(__self__, *,
+                 kind: _builtins.str,
+                 time_intervals: Sequence['outputs.GetFlinkMaterializedTableStartModeTimeIntervalResult'],
+                 timestamp: _builtins.str):
+        """
+        :param _builtins.str kind: (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+        :param Sequence['GetFlinkMaterializedTableStartModeTimeIntervalArgs'] time_intervals: (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+        :param _builtins.str timestamp: (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "time_intervals", time_intervals)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter(name="timeIntervals")
+    def time_intervals(self) -> Sequence['outputs.GetFlinkMaterializedTableStartModeTimeIntervalResult']:
+        """
+        (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+        """
+        return pulumi.get(self, "time_intervals")
+
+    @_builtins.property
+    @pulumi.getter
+    def timestamp(self) -> _builtins.str:
+        """
+        (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableStartModeTimeIntervalResult(dict):
+    def __init__(__self__, *,
+                 interval: _builtins.int,
+                 time_unit: _builtins.str):
+        """
+        :param _builtins.int interval: (Integer) Numeric value of the time interval.
+        :param _builtins.str time_unit: (String) Unit of time for the interval, for example, `HOURS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_unit", time_unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> _builtins.int:
+        """
+        (Integer) Numeric value of the time interval.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> _builtins.str:
+        """
+        (String) Unit of time for the interval, for example, `HOURS`.
+        """
+        return pulumi.get(self, "time_unit")
 
 
 @pulumi.output_type

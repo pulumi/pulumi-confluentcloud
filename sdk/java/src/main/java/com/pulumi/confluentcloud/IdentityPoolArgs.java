@@ -9,11 +9,32 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final IdentityPoolArgs Empty = new IdentityPoolArgs();
+
+    /**
+     * The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+     * 
+     */
+    @Import(name="assignedResourceOwner")
+    private @Nullable Output<String> assignedResourceOwner;
+
+    /**
+     * @return The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+     * 
+     */
+    public Optional<Output<String>> assignedResourceOwner() {
+        return Optional.ofNullable(this.assignedResourceOwner);
+    }
 
     /**
      * A description for the Identity Pool.
@@ -93,6 +114,7 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
     private IdentityPoolArgs() {}
 
     private IdentityPoolArgs(IdentityPoolArgs $) {
+        this.assignedResourceOwner = $.assignedResourceOwner;
         this.description = $.description;
         this.displayName = $.displayName;
         this.filter = $.filter;
@@ -116,6 +138,31 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(IdentityPoolArgs defaults) {
             $ = new IdentityPoolArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(@Nullable Output<String> assignedResourceOwner) {
+            $.assignedResourceOwner = assignedResourceOwner;
+            return this;
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(String assignedResourceOwner) {
+            return assignedResourceOwner(Output.of(assignedResourceOwner));
         }
 
         /**
