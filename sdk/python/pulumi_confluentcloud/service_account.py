@@ -19,18 +19,38 @@ __all__ = ['ServiceAccountArgs', 'ServiceAccount']
 @pulumi.input_type
 class ServiceAccountArgs:
     def __init__(__self__, *,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAccount resource.
 
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
 
     @_builtins.property
     @pulumi.getter
@@ -61,6 +81,7 @@ class ServiceAccountArgs:
 class _ServiceAccountState:
     def __init__(__self__, *,
                  api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None):
@@ -68,12 +89,17 @@ class _ServiceAccountState:
         Input properties used for looking up and filtering ServiceAccount resources.
 
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Service Account, for example, `ServiceAccount`.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -92,6 +118,20 @@ class _ServiceAccountState:
     @api_version.setter
     def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +176,7 @@ class ServiceAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -184,19 +225,54 @@ class ServiceAccount(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Service Account. The variable applies to every Service Account imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import a Service Account by using Service Account ID, for example:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
         ```
+
+        To add `assigned_resource_owner` to a Service Account that Terraform already manages, re-import the Service Account. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Service Account's configuration.
+        2. Remove the Service Account from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_service_account.my_sa
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Service Account, for example the one assigned when the Service Account was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         """
@@ -251,13 +327,45 @@ class ServiceAccount(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Service Account. The variable applies to every Service Account imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import a Service Account by using Service Account ID, for example:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
         ```
+
+        To add `assigned_resource_owner` to a Service Account that Terraform already manages, re-import the Service Account. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Service Account's configuration.
+        2. Remove the Service Account from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_service_account.my_sa
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_SERVICE_ACCOUNT_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Service Account, for example the one assigned when the Service Account was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
@@ -277,6 +385,7 @@ class ServiceAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -288,6 +397,7 @@ class ServiceAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceAccountArgs.__new__(ServiceAccountArgs)
 
+            __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["api_version"] = None
@@ -303,6 +413,7 @@ class ServiceAccount(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceAccount':
@@ -314,6 +425,9 @@ class ServiceAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account. Must be 64 characters or fewer.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Service Account, for example, `ServiceAccount`.
@@ -323,6 +437,7 @@ class ServiceAccount(pulumi.CustomResource):
         __props__ = _ServiceAccountState.__new__(_ServiceAccountState)
 
         __props__.__dict__["api_version"] = api_version
+        __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["kind"] = kind
@@ -335,6 +450,16 @@ class ServiceAccount(pulumi.CustomResource):
         (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
         """
         return pulumi.get(self, "api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
 
     @_builtins.property
     @pulumi.getter

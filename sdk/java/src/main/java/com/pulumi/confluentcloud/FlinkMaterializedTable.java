@@ -15,6 +15,7 @@ import com.pulumi.confluentcloud.outputs.FlinkMaterializedTableEnvironment;
 import com.pulumi.confluentcloud.outputs.FlinkMaterializedTableKafkaCluster;
 import com.pulumi.confluentcloud.outputs.FlinkMaterializedTableOrganization;
 import com.pulumi.confluentcloud.outputs.FlinkMaterializedTablePrincipal;
+import com.pulumi.confluentcloud.outputs.FlinkMaterializedTableStartMode;
 import com.pulumi.confluentcloud.outputs.FlinkMaterializedTableWatermark;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -199,6 +200,96 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Controlling the Start Mode
+ * 
+ * Use the optional `startMode` block to control where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`).
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkMaterializedTable;
+ * import com.pulumi.confluentcloud.FlinkMaterializedTableArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableStartModeArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableStartModeTimeIntervalArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FlinkMaterializedTable("example", FlinkMaterializedTableArgs.builder()
+ *             .displayName("my_materialized_table")
+ *             .kafkaCluster(FlinkMaterializedTableKafkaClusterArgs.builder()
+ *                 .id(basic_cluster.id())
+ *                 .build())
+ *             .query("SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;")
+ *             .startMode(FlinkMaterializedTableStartModeArgs.builder()
+ *                 .kind("FROM_NOW")
+ *                 .timeInterval(FlinkMaterializedTableStartModeTimeIntervalArgs.builder()
+ *                     .interval(1)
+ *                     .timeUnit("HOURS")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkMaterializedTable;
+ * import com.pulumi.confluentcloud.FlinkMaterializedTableArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableStartModeArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FlinkMaterializedTable("example", FlinkMaterializedTableArgs.builder()
+ *             .displayName("my_materialized_table")
+ *             .kafkaCluster(FlinkMaterializedTableKafkaClusterArgs.builder()
+ *                 .id(basic_cluster.id())
+ *                 .build())
+ *             .query("SELECT user_id, product_id, price, quantity FROM orders WHERE price > 1000;")
+ *             .startMode(FlinkMaterializedTableStartModeArgs.builder()
+ *                 .kind("FROM_TIMESTAMP")
+ *                 .timestamp("2026-04-01T00:00:00Z")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You can import a Flink Materialized Table by using the Materialized Table name, for example:
@@ -360,6 +451,20 @@ public class FlinkMaterializedTable extends com.pulumi.resources.CustomResource 
      */
     public Output<Map<String,String>> sessionOptions() {
         return this.sessionOptions;
+    }
+    /**
+     * Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+     * 
+     */
+    @Export(name="startMode", refs={FlinkMaterializedTableStartMode.class}, tree="[0]")
+    private Output<FlinkMaterializedTableStartMode> startMode;
+
+    /**
+     * @return Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+     * 
+     */
+    public Output<FlinkMaterializedTableStartMode> startMode() {
+        return this.startMode;
     }
     /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.

@@ -9,11 +9,32 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CertificatePoolArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificatePoolArgs Empty = new CertificatePoolArgs();
+
+    /**
+     * The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+     * 
+     */
+    @Import(name="assignedResourceOwner")
+    private @Nullable Output<String> assignedResourceOwner;
+
+    /**
+     * @return The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+     * 
+     */
+    public Optional<Output<String>> assignedResourceOwner() {
+        return Optional.ofNullable(this.assignedResourceOwner);
+    }
 
     /**
      * The certificate authority that the resource belongs to.
@@ -93,6 +114,7 @@ public final class CertificatePoolArgs extends com.pulumi.resources.ResourceArgs
     private CertificatePoolArgs() {}
 
     private CertificatePoolArgs(CertificatePoolArgs $) {
+        this.assignedResourceOwner = $.assignedResourceOwner;
         this.certificateAuthority = $.certificateAuthority;
         this.description = $.description;
         this.displayName = $.displayName;
@@ -116,6 +138,31 @@ public final class CertificatePoolArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(CertificatePoolArgs defaults) {
             $ = new CertificatePoolArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(@Nullable Output<String> assignedResourceOwner) {
+            $.assignedResourceOwner = assignedResourceOwner;
+            return this;
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(String assignedResourceOwner) {
+            return assignedResourceOwner(Output.of(assignedResourceOwner));
         }
 
         /**

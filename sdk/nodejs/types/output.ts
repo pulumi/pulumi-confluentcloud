@@ -901,6 +901,32 @@ export interface FlinkMaterializedTablePrincipal {
     id: string;
 }
 
+export interface FlinkMaterializedTableStartMode {
+    /**
+     * The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+     */
+    kind: string;
+    /**
+     * Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+     */
+    timeInterval?: outputs.FlinkMaterializedTableStartModeTimeInterval;
+    /**
+     * Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+     */
+    timestamp?: string;
+}
+
+export interface FlinkMaterializedTableStartModeTimeInterval {
+    /**
+     * Numeric value of the time interval. Must be at least `1`.
+     */
+    interval: number;
+    /**
+     * Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+     */
+    timeUnit: string;
+}
+
 export interface FlinkMaterializedTableWatermark {
     /**
      * The name of the watermark column.
@@ -1824,7 +1850,7 @@ export interface GetFlinkMaterializedTableDistribution {
      */
     keys: string[];
     /**
-     * (String) The kind of distribution, for example, `HASH`.
+     * (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
      */
     kind: string;
 }
@@ -1855,6 +1881,32 @@ export interface GetFlinkMaterializedTablePrincipal {
      * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
      */
     id: string;
+}
+
+export interface GetFlinkMaterializedTableStartMode {
+    /**
+     * (String) The start mode strategy, for example, `RESUME_OR_FROM_BEGINNING`.
+     */
+    kind: string;
+    /**
+     * (Configuration Block) The lookback interval applied to the `FROM_NOW` semantics. Supports the following:
+     */
+    timeIntervals: outputs.GetFlinkMaterializedTableStartModeTimeInterval[];
+    /**
+     * (String) Absolute point in time the Materialized Table starts processing from, as an RFC 3339 timestamp.
+     */
+    timestamp: string;
+}
+
+export interface GetFlinkMaterializedTableStartModeTimeInterval {
+    /**
+     * (Integer) Numeric value of the time interval.
+     */
+    interval: number;
+    /**
+     * (String) Unit of time for the interval, for example, `HOURS`.
+     */
+    timeUnit: string;
 }
 
 export interface GetFlinkMaterializedTableWatermark {

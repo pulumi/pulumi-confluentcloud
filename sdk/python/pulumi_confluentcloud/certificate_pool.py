@@ -25,7 +25,8 @@ class CertificatePoolArgs:
                  description: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  external_identifier: pulumi.Input[_builtins.str],
-                 filter: pulumi.Input[_builtins.str]):
+                 filter: pulumi.Input[_builtins.str],
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificatePool resource.
 
@@ -34,12 +35,17 @@ class CertificatePoolArgs:
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
         """
         pulumi.set(__self__, "certificate_authority", certificate_authority)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "external_identifier", external_identifier)
         pulumi.set(__self__, "filter", filter)
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
@@ -101,10 +107,25 @@ class CertificatePoolArgs:
     def filter(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "filter", value)
 
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
+
 
 @pulumi.input_type
 class _CertificatePoolState:
     def __init__(__self__, *,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_authority: pulumi.Input[Optional['CertificatePoolCertificateAuthorityArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -113,12 +134,17 @@ class _CertificatePoolState:
         """
         Input properties used for looking up and filtering CertificatePool resources.
 
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
         :param pulumi.Input['CertificatePoolCertificateAuthorityArgs'] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.
         """
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
         if certificate_authority is not None:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
         if description is not None:
@@ -129,6 +155,20 @@ class _CertificatePoolState:
             pulumi.set(__self__, "external_identifier", external_identifier)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
@@ -197,6 +237,7 @@ class CertificatePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -228,19 +269,54 @@ class CertificatePool(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Certificate Pool.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Certificate Pool. The variable applies to every Certificate Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import a Certificate Pool by using Certificate Authority ID and Certificate Pool ID, in the format `<Certificate Authority ID>/<Certificate Pool ID>`. The following example shows how to import a Certificate Pool:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
         ```
+
+        To add `assigned_resource_owner` to a Certificate Pool that Terraform already manages, re-import the Certificate Pool. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Certificate Pool's configuration.
+        2. Remove the Certificate Pool from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_certificate_pool.main
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Certificate Pool, for example the one assigned when the Certificate Pool was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
         :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
@@ -278,13 +354,45 @@ class CertificatePool(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Certificate Pool.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Certificate Pool. The variable applies to every Certificate Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import a Certificate Pool by using Certificate Authority ID and Certificate Pool ID, in the format `<Certificate Authority ID>/<Certificate Pool ID>`. The following example shows how to import a Certificate Pool:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
         ```
+
+        To add `assigned_resource_owner` to a Certificate Pool that Terraform already manages, re-import the Certificate Pool. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Certificate Pool's configuration.
+        2. Remove the Certificate Pool from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_certificate_pool.main
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Certificate Pool, for example the one assigned when the Certificate Pool was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
@@ -304,6 +412,7 @@ class CertificatePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -318,6 +427,7 @@ class CertificatePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificatePoolArgs.__new__(CertificatePoolArgs)
 
+            __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
             if certificate_authority is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority'")
             __props__.__dict__["certificate_authority"] = certificate_authority
@@ -343,6 +453,7 @@ class CertificatePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
             certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -355,6 +466,9 @@ class CertificatePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
         :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
@@ -365,12 +479,23 @@ class CertificatePool(pulumi.CustomResource):
 
         __props__ = _CertificatePoolState.__new__(_CertificatePoolState)
 
+        __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["external_identifier"] = external_identifier
         __props__.__dict__["filter"] = filter
         return CertificatePool(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")

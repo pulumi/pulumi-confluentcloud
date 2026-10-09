@@ -12,6 +12,7 @@ import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableOrganizationArgs;
 import com.pulumi.confluentcloud.inputs.FlinkMaterializedTablePrincipalArgs;
+import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableStartModeArgs;
 import com.pulumi.confluentcloud.inputs.FlinkMaterializedTableWatermarkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -176,6 +177,21 @@ public final class FlinkMaterializedTableState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+     * 
+     */
+    @Import(name="startMode")
+    private @Nullable Output<FlinkMaterializedTableStartModeArgs> startMode;
+
+    /**
+     * @return Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+     * 
+     */
+    public Optional<Output<FlinkMaterializedTableStartModeArgs>> startMode() {
+        return Optional.ofNullable(this.startMode);
+    }
+
+    /**
      * Indicates whether the Materialized Table is stopped. Defaults to `false`. Update it to `true` to stop the Materialized Table; subsequently update it to `false` to resume it.
      * 
      */
@@ -236,6 +252,7 @@ public final class FlinkMaterializedTableState extends com.pulumi.resources.Reso
         this.query = $.query;
         this.restEndpoint = $.restEndpoint;
         this.sessionOptions = $.sessionOptions;
+        this.startMode = $.startMode;
         this.stopped = $.stopped;
         this.tableOptions = $.tableOptions;
         this.watermark = $.watermark;
@@ -472,6 +489,27 @@ public final class FlinkMaterializedTableState extends com.pulumi.resources.Reso
          */
         public Builder sessionOptions(Map<String,String> sessionOptions) {
             return sessionOptions(Output.of(sessionOptions));
+        }
+
+        /**
+         * @param startMode Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startMode(@Nullable Output<FlinkMaterializedTableStartModeArgs> startMode) {
+            $.startMode = startMode;
+            return this;
+        }
+
+        /**
+         * @param startMode Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startMode(FlinkMaterializedTableStartModeArgs startMode) {
+            return startMode(Output.of(startMode));
         }
 
         /**

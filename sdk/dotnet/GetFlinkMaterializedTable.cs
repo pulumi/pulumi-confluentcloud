@@ -353,6 +353,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableDictionary<string, string> SessionOptions;
         /// <summary>
+        /// (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFlinkMaterializedTableStartModeResult> StartModes;
+        /// <summary>
         /// (Boolean) Whether the Materialized Table is stopped.
         /// </summary>
         public readonly bool Stopped;
@@ -395,6 +399,8 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableDictionary<string, string> sessionOptions,
 
+            ImmutableArray<Outputs.GetFlinkMaterializedTableStartModeResult> startModes,
+
             bool stopped,
 
             ImmutableDictionary<string, string> tableOptions,
@@ -415,6 +421,7 @@ namespace Pulumi.ConfluentCloud
             Query = query;
             RestEndpoint = restEndpoint;
             SessionOptions = sessionOptions;
+            StartModes = startModes;
             Stopped = stopped;
             TableOptions = tableOptions;
             Watermarks = watermarks;

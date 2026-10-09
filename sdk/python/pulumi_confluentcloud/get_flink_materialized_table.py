@@ -28,7 +28,7 @@ class GetFlinkMaterializedTableResult:
     """
     A collection of values returned by getFlinkMaterializedTable.
     """
-    def __init__(__self__, columns=None, compute_pool=None, constraints=None, credentials=None, display_name=None, distributions=None, environment=None, id=None, kafka_clusters=None, organization=None, principal=None, query=None, rest_endpoint=None, session_options=None, stopped=None, table_options=None, watermarks=None):
+    def __init__(__self__, columns=None, compute_pool=None, constraints=None, credentials=None, display_name=None, distributions=None, environment=None, id=None, kafka_clusters=None, organization=None, principal=None, query=None, rest_endpoint=None, session_options=None, start_modes=None, stopped=None, table_options=None, watermarks=None):
         if columns and not isinstance(columns, list):
             raise TypeError("Expected argument 'columns' to be a list")
         pulumi.set(__self__, "columns", columns)
@@ -71,6 +71,9 @@ class GetFlinkMaterializedTableResult:
         if session_options and not isinstance(session_options, dict):
             raise TypeError("Expected argument 'session_options' to be a dict")
         pulumi.set(__self__, "session_options", session_options)
+        if start_modes and not isinstance(start_modes, list):
+            raise TypeError("Expected argument 'start_modes' to be a list")
+        pulumi.set(__self__, "start_modes", start_modes)
         if stopped and not isinstance(stopped, bool):
             raise TypeError("Expected argument 'stopped' to be a bool")
         pulumi.set(__self__, "stopped", stopped)
@@ -173,6 +176,14 @@ class GetFlinkMaterializedTableResult:
         return pulumi.get(self, "session_options")
 
     @_builtins.property
+    @pulumi.getter(name="startModes")
+    def start_modes(self) -> Sequence['outputs.GetFlinkMaterializedTableStartModeResult']:
+        """
+        (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+        """
+        return pulumi.get(self, "start_modes")
+
+    @_builtins.property
     @pulumi.getter
     def stopped(self) -> _builtins.bool:
         """
@@ -217,6 +228,7 @@ class AwaitableGetFlinkMaterializedTableResult(GetFlinkMaterializedTableResult):
             query=self.query,
             rest_endpoint=self.rest_endpoint,
             session_options=self.session_options,
+            start_modes=self.start_modes,
             stopped=self.stopped,
             table_options=self.table_options,
             watermarks=self.watermarks)
@@ -301,6 +313,7 @@ def get_flink_materialized_table(compute_pool: Optional[Union['GetFlinkMateriali
         query=pulumi.get(__ret__, 'query'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         session_options=pulumi.get(__ret__, 'session_options'),
+        start_modes=pulumi.get(__ret__, 'start_modes'),
         stopped=pulumi.get(__ret__, 'stopped'),
         table_options=pulumi.get(__ret__, 'table_options'),
         watermarks=pulumi.get(__ret__, 'watermarks'))
@@ -382,6 +395,7 @@ def get_flink_materialized_table_output(compute_pool: pulumi.Input[Optional[Opti
         query=pulumi.get(__response__, 'query'),
         rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
         session_options=pulumi.get(__response__, 'session_options'),
+        start_modes=pulumi.get(__response__, 'start_modes'),
         stopped=pulumi.get(__response__, 'stopped'),
         table_options=pulumi.get(__response__, 'table_options'),
         watermarks=pulumi.get(__response__, 'watermarks')))

@@ -31,6 +31,25 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+     * 
+     */
+    @Import(name="assignedResourceOwner")
+    private @Nullable Output<String> assignedResourceOwner;
+
+    /**
+     * @return The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+     * 
+     * &gt; **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+     * 
+     */
+    public Optional<Output<String>> assignedResourceOwner() {
+        return Optional.ofNullable(this.assignedResourceOwner);
+    }
+
+    /**
      * A free-form description of the Service Account.
      * 
      */
@@ -79,6 +98,7 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
 
     private ServiceAccountState(ServiceAccountState $) {
         this.apiVersion = $.apiVersion;
+        this.assignedResourceOwner = $.assignedResourceOwner;
         this.description = $.description;
         this.displayName = $.displayName;
         this.kind = $.kind;
@@ -121,6 +141,31 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder apiVersion(String apiVersion) {
             return apiVersion(Output.of(apiVersion));
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(@Nullable Output<String> assignedResourceOwner) {
+            $.assignedResourceOwner = assignedResourceOwner;
+            return this;
+        }
+
+        /**
+         * @param assignedResourceOwner The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+         * 
+         * &gt; **Note:** `assignedResourceOwner` takes effect only when the Service Account is created. Adding it to the configuration of an existing Service Account, or changing it, replaces the Service Account; removing it from the configuration leaves the Service Account unchanged. To add it to a Service Account that already exists without replacing it, re-import the Service Account instead; see Import.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assignedResourceOwner(String assignedResourceOwner) {
+            return assignedResourceOwner(Output.of(assignedResourceOwner));
         }
 
         /**

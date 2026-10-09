@@ -123,6 +123,10 @@ export interface GetFlinkMaterializedTableResult {
      */
     readonly sessionOptions: {[key: string]: string};
     /**
+     * (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+     */
+    readonly startModes: outputs.GetFlinkMaterializedTableStartMode[];
+    /**
      * (Boolean) Whether the Materialized Table is stopped.
      */
     readonly stopped: boolean;

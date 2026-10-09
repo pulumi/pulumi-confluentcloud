@@ -12,6 +12,7 @@ import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableEnvironment;
 import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableKafkaCluster;
 import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableOrganization;
 import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTablePrincipal;
+import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableStartMode;
 import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableWatermark;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -67,6 +68,11 @@ public final class GetFlinkMaterializedTableResult {
      * 
      */
     private Map<String,String> sessionOptions;
+    /**
+     * @return (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+     * 
+     */
+    private List<GetFlinkMaterializedTableStartMode> startModes;
     /**
      * @return (Boolean) Whether the Materialized Table is stopped.
      * 
@@ -155,6 +161,13 @@ public final class GetFlinkMaterializedTableResult {
         return this.sessionOptions;
     }
     /**
+     * @return (Configuration Block) The start mode that controls where the Materialized Table begins reading source data. Supports the following:
+     * 
+     */
+    public List<GetFlinkMaterializedTableStartMode> startModes() {
+        return this.startModes;
+    }
+    /**
      * @return (Boolean) Whether the Materialized Table is stopped.
      * 
      */
@@ -199,6 +212,7 @@ public final class GetFlinkMaterializedTableResult {
         private String query;
         private @Nullable String restEndpoint;
         private Map<String,String> sessionOptions;
+        private List<GetFlinkMaterializedTableStartMode> startModes;
         private Boolean stopped;
         private Map<String,String> tableOptions;
         private List<GetFlinkMaterializedTableWatermark> watermarks;
@@ -219,6 +233,7 @@ public final class GetFlinkMaterializedTableResult {
     	      this.query = defaults.query;
     	      this.restEndpoint = defaults.restEndpoint;
     	      this.sessionOptions = defaults.sessionOptions;
+    	      this.startModes = defaults.startModes;
     	      this.stopped = defaults.stopped;
     	      this.tableOptions = defaults.tableOptions;
     	      this.watermarks = defaults.watermarks;
@@ -345,6 +360,17 @@ public final class GetFlinkMaterializedTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder startModes(List<GetFlinkMaterializedTableStartMode> startModes) {
+            if (startModes == null) {
+              throw new MissingRequiredPropertyException("GetFlinkMaterializedTableResult", "startModes");
+            }
+            this.startModes = startModes;
+            return this;
+        }
+        public Builder startModes(GetFlinkMaterializedTableStartMode... startModes) {
+            return startModes(List.of(startModes));
+        }
+        @CustomType.Setter
         public Builder stopped(Boolean stopped) {
             if (stopped == null) {
               throw new MissingRequiredPropertyException("GetFlinkMaterializedTableResult", "stopped");
@@ -387,6 +413,7 @@ public final class GetFlinkMaterializedTableResult {
             _resultValue.query = query;
             _resultValue.restEndpoint = restEndpoint;
             _resultValue.sessionOptions = sessionOptions;
+            _resultValue.startModes = startModes;
             _resultValue.stopped = stopped;
             _resultValue.tableOptions = tableOptions;
             _resultValue.watermarks = watermarks;

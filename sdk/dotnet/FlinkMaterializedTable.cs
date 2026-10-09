@@ -136,6 +136,66 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
+    /// ### Controlling the Start Mode
+    /// 
+    /// Use the optional `StartMode` block to control where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.FlinkMaterializedTable("example", new()
+    ///     {
+    ///         DisplayName = "my_materialized_table",
+    ///         KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs
+    ///         {
+    ///             Id = basic_cluster.Id,
+    ///         },
+    ///         Query = "SELECT user_id, product_id, price, quantity FROM orders WHERE price &gt; 1000;",
+    ///         StartMode = new ConfluentCloud.Inputs.FlinkMaterializedTableStartModeArgs
+    ///         {
+    ///             Kind = "FROM_NOW",
+    ///             TimeInterval = new ConfluentCloud.Inputs.FlinkMaterializedTableStartModeTimeIntervalArgs
+    ///             {
+    ///                 Interval = 1,
+    ///                 TimeUnit = "HOURS",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.FlinkMaterializedTable("example", new()
+    ///     {
+    ///         DisplayName = "my_materialized_table",
+    ///         KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs
+    ///         {
+    ///             Id = basic_cluster.Id,
+    ///         },
+    ///         Query = "SELECT user_id, product_id, price, quantity FROM orders WHERE price &gt; 1000;",
+    ///         StartMode = new ConfluentCloud.Inputs.FlinkMaterializedTableStartModeArgs
+    ///         {
+    ///             Kind = "FROM_TIMESTAMP",
+    ///             Timestamp = "2026-04-01T00:00:00Z",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a Flink Materialized Table by using the Materialized Table name, for example:
@@ -223,6 +283,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("sessionOptions")]
         public Output<ImmutableDictionary<string, string>> SessionOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `Kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        /// </summary>
+        [Output("startMode")]
+        public Output<Outputs.FlinkMaterializedTableStartMode> StartMode { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
@@ -380,6 +446,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `Kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        /// </summary>
+        [Input("startMode")]
+        public Input<Inputs.FlinkMaterializedTableStartModeArgs>? StartMode { get; set; }
+
+        /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.
         /// </summary>
         [Input("stopped")]
@@ -497,6 +569,12 @@ namespace Pulumi.ConfluentCloud
             get => _sessionOptions ?? (_sessionOptions = new InputMap<string>());
             set => _sessionOptions = value;
         }
+
+        /// <summary>
+        /// Controls where the Materialized Table begins reading source data on creation and on each evolution. When omitted, Confluent Cloud uses its default (`RESUME_OR_FROM_BEGINNING`) and may populate the effective value in state. Because the effective value is retained in state, removing the block after it has been set is not detected as a change; to return to the default, set `Kind` explicitly to `RESUME_OR_FROM_BEGINNING`. Supports the following:
+        /// </summary>
+        [Input("startMode")]
+        public Input<Inputs.FlinkMaterializedTableStartModeGetArgs>? StartMode { get; set; }
 
         /// <summary>
         /// Indicates whether the Materialized Table is stopped. Defaults to `False`. Update it to `True` to stop the Materialized Table; subsequently update it to `False` to resume it.

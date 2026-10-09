@@ -25,7 +25,8 @@ class IdentityPoolArgs:
                  display_name: pulumi.Input[_builtins.str],
                  filter: pulumi.Input[_builtins.str],
                  identity_claim: pulumi.Input[_builtins.str],
-                 identity_provider: pulumi.Input['IdentityPoolIdentityProviderArgs']):
+                 identity_provider: pulumi.Input['IdentityPoolIdentityProviderArgs'],
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
 
@@ -34,12 +35,17 @@ class IdentityPoolArgs:
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: The identity provider that the resource belongs to.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "identity_claim", identity_claim)
         pulumi.set(__self__, "identity_provider", identity_provider)
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
 
     @_builtins.property
     @pulumi.getter
@@ -101,10 +107,25 @@ class IdentityPoolArgs:
     def identity_provider(self, value: pulumi.Input['IdentityPoolIdentityProviderArgs']):
         pulumi.set(self, "identity_provider", value)
 
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
+
 
 @pulumi.input_type
 class _IdentityPoolState:
     def __init__(__self__, *,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -113,12 +134,17 @@ class _IdentityPoolState:
         """
         Input properties used for looking up and filtering IdentityPool resources.
 
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: The identity provider that the resource belongs to.
         """
+        if assigned_resource_owner is not None:
+            pulumi.set(__self__, "assigned_resource_owner", assigned_resource_owner)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -129,6 +155,20 @@ class _IdentityPoolState:
             pulumi.set(__self__, "identity_claim", identity_claim)
         if identity_provider is not None:
             pulumi.set(__self__, "identity_provider", identity_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
+
+    @assigned_resource_owner.setter
+    def assigned_resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assigned_resource_owner", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,6 +237,7 @@ class IdentityPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -260,19 +301,54 @@ class IdentityPool(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Identity Pool.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Identity Pool. The variable applies to every Identity Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
+
+        To add `assigned_resource_owner` to an Identity Pool that Terraform already manages, re-import the Identity Pool. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Identity Pool's configuration.
+        2. Remove the Identity Pool from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_identity_pool.example
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Identity Pool, for example the one assigned when the Identity Pool was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
@@ -342,13 +418,45 @@ class IdentityPool(pulumi.CustomResource):
 
         > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Identity Pool.
 
+        > **Note:** If your configuration sets `assigned_resource_owner`, set the `IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Identity Pool. The variable applies to every Identity Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+
         You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
 
         ```sh
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        ```
+
+        Only if your configuration sets assigned_resource_owner:
+
+        ```sh
+        $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
+
+        To add `assigned_resource_owner` to an Identity Pool that Terraform already manages, re-import the Identity Pool. Adding the attribute to its configuration alone plans a replacement:
+
+        1. Add assigned_resource_owner to the Identity Pool's configuration.
+        2. Remove the Identity Pool from Terraform state. This does not delete it.
+
+        ```sh
+        $ terraform state rm confluent_identity_pool.example
+        ```
+
+        3. With the credentials above still exported, import it again with the variable set to the configured value.
+
+        ```sh
+        $ export IMPORT_IDENTITY_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+        $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+        ```
+
+        4. Confirm that the plan shows no changes.
+
+        ```sh
+        $ pulumi preview
+        ```
+
+        Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Identity Pool, for example the one assigned when the Identity Pool was created outside Terraform.
 
         > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
@@ -368,6 +476,7 @@ class IdentityPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -382,6 +491,7 @@ class IdentityPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentityPoolArgs.__new__(IdentityPoolArgs)
 
+            __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
@@ -407,6 +517,7 @@ class IdentityPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -419,6 +530,9 @@ class IdentityPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+               
+               > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
@@ -429,12 +543,23 @@ class IdentityPool(pulumi.CustomResource):
 
         __props__ = _IdentityPoolState.__new__(_IdentityPoolState)
 
+        __props__.__dict__["assigned_resource_owner"] = assigned_resource_owner
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["filter"] = filter
         __props__.__dict__["identity_claim"] = identity_claim
         __props__.__dict__["identity_provider"] = identity_provider
         return IdentityPool(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedResourceOwner")
+    def assigned_resource_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource_id of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+
+        > **Note:** `assigned_resource_owner` takes effect only when the Identity Pool is created. Adding it to the configuration of an existing Identity Pool, or changing it, replaces the Identity Pool; removing it from the configuration leaves the Identity Pool unchanged. To add it to an Identity Pool that already exists without replacing it, re-import the Identity Pool instead; see Import.
+        """
+        return pulumi.get(self, "assigned_resource_owner")
 
     @_builtins.property
     @pulumi.getter

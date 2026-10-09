@@ -52,18 +52,54 @@ import (
 //
 // > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Certificate Pool.
 //
+// > **Note:** If your configuration sets `assignedResourceOwner`, set the `IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER` environment variable to that same value before importing. The API never returns it, so without it the attribute is empty in imported state and the first plan after importing will want to replace the Certificate Pool. The variable applies to every Certificate Pool imported in the same run, so import ones with different values in separate runs. Terraform cannot verify the value you supply.
+//
 // You can import a Certificate Pool by using Certificate Authority ID and Certificate Pool ID, in the format `<Certificate Authority ID>/<Certificate Pool ID>`. The following example shows how to import a Certificate Pool:
 //
 // ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// ```
+//
+// Only if your configuration sets assigned_resource_owner:
+//
+// ```sh
+// $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
 // $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
 // ```
+//
+// To add `assignedResourceOwner` to a Certificate Pool that Terraform already manages, re-import the Certificate Pool. Adding the attribute to its configuration alone plans a replacement:
+//
+// 1. Add assignedResourceOwner to the Certificate Pool's configuration.
+// 2. Remove the Certificate Pool from Terraform state. This does not delete it.
+//
+// ```sh
+// $ terraform state rm confluent_certificate_pool.main
+// ```
+//
+// 3. With the credentials above still exported, import it again with the variable set to the configured value.
+//
+// ```sh
+// $ export IMPORT_CERTIFICATE_POOL_ASSIGNED_RESOURCE_OWNER="<assigned_resource_owner>"
+// $ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123
+// ```
+//
+// 4. Confirm that the plan shows no changes.
+//
+// ```sh
+// $ pulumi preview
+// ```
+//
+// Re-importing only records the value in Terraform state; it does not grant ownership. Set it to the principal that already owns the Certificate Pool, for example the one assigned when the Certificate Pool was created outside Terraform.
 //
 // > **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type CertificatePool struct {
 	pulumi.CustomResourceState
 
+	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrOutput `pulumi:"assignedResourceOwner"`
 	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
@@ -121,6 +157,10 @@ func GetCertificatePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificatePool resources.
 type certificatePoolState struct {
+	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// The certificate authority that the resource belongs to.
 	CertificateAuthority *CertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
@@ -134,6 +174,10 @@ type certificatePoolState struct {
 }
 
 type CertificatePoolState struct {
+	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityPtrInput
 	// A description of the Certificate Pool.
@@ -151,6 +195,10 @@ func (CertificatePoolState) ElementType() reflect.Type {
 }
 
 type certificatePoolArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+	AssignedResourceOwner *string `pulumi:"assignedResourceOwner"`
 	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
 	// A description of the Certificate Pool.
@@ -165,6 +213,10 @@ type certificatePoolArgs struct {
 
 // The set of arguments for constructing a CertificatePool resource.
 type CertificatePoolArgs struct {
+	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+	//
+	// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+	AssignedResourceOwner pulumi.StringPtrInput
 	// The certificate authority that the resource belongs to.
 	CertificateAuthority CertificatePoolCertificateAuthorityInput
 	// A description of the Certificate Pool.
@@ -262,6 +314,13 @@ func (o CertificatePoolOutput) ToCertificatePoolOutput() CertificatePoolOutput {
 
 func (o CertificatePoolOutput) ToCertificatePoolOutputWithContext(ctx context.Context) CertificatePoolOutput {
 	return o
+}
+
+// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
+//
+// > **Note:** `assignedResourceOwner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
+func (o CertificatePoolOutput) AssignedResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificatePool) pulumi.StringPtrOutput { return v.AssignedResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // The certificate authority that the resource belongs to.

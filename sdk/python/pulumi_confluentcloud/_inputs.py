@@ -159,6 +159,10 @@ __all__ = [
     'FlinkMaterializedTableOrganizationArgsDict',
     'FlinkMaterializedTablePrincipalArgs',
     'FlinkMaterializedTablePrincipalArgsDict',
+    'FlinkMaterializedTableStartModeArgs',
+    'FlinkMaterializedTableStartModeArgsDict',
+    'FlinkMaterializedTableStartModeTimeIntervalArgs',
+    'FlinkMaterializedTableStartModeTimeIntervalArgsDict',
     'FlinkMaterializedTableWatermarkArgs',
     'FlinkMaterializedTableWatermarkArgsDict',
     'FlinkStatementComputePoolArgs',
@@ -4513,6 +4517,121 @@ class FlinkMaterializedTablePrincipalArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+
+class FlinkMaterializedTableStartModeArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    """
+    The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+    """
+    time_interval: NotRequired[pulumi.Input[Optional['FlinkMaterializedTableStartModeTimeIntervalArgsDict']]]
+    """
+    Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+    """
+    timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+    """
+
+@pulumi.input_type
+class FlinkMaterializedTableStartModeArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[_builtins.str],
+                 time_interval: pulumi.Input[Optional['FlinkMaterializedTableStartModeTimeIntervalArgs']] = None,
+                 timestamp: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] kind: The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+        :param pulumi.Input['FlinkMaterializedTableStartModeTimeIntervalArgs'] time_interval: Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+        :param pulumi.Input[_builtins.str] timestamp: Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[_builtins.str]:
+        """
+        The start mode strategy. One of `FROM_BEGINNING`, `FROM_NOW`, `FROM_TIMESTAMP`, `RESUME_OR_FROM_BEGINNING`, `RESUME_OR_FROM_NOW`, or `RESUME_OR_FROM_TIMESTAMP`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> pulumi.Input[Optional['FlinkMaterializedTableStartModeTimeIntervalArgs']]:
+        """
+        Lookback interval applied to the `FROM_NOW` semantics. Valid only when `kind` is `FROM_NOW` or `RESUME_OR_FROM_NOW` — setting it for any other `kind` is rejected at plan time. Supports the following:
+        """
+        return pulumi.get(self, "time_interval")
+
+    @time_interval.setter
+    def time_interval(self, value: pulumi.Input[Optional['FlinkMaterializedTableStartModeTimeIntervalArgs']]):
+        pulumi.set(self, "time_interval", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Absolute point in time to start processing from, as an RFC 3339 timestamp that includes a time offset (for example, `2026-04-01T00:00:00Z`). Required when `kind` is `FROM_TIMESTAMP` or `RESUME_OR_FROM_TIMESTAMP`, and valid only for those kinds — setting it for any other `kind` is rejected at plan time.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timestamp", value)
+
+
+class FlinkMaterializedTableStartModeTimeIntervalArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.int]
+    """
+    Numeric value of the time interval. Must be at least `1`.
+    """
+    time_unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+    """
+
+@pulumi.input_type
+class FlinkMaterializedTableStartModeTimeIntervalArgs:
+    def __init__(__self__, *,
+                 interval: pulumi.Input[_builtins.int],
+                 time_unit: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] interval: Numeric value of the time interval. Must be at least `1`.
+        :param pulumi.Input[_builtins.str] time_unit: Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_unit", time_unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[_builtins.int]:
+        """
+        Numeric value of the time interval. Must be at least `1`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unit of time for the interval. One of `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`, `QUARTERS`, or `YEARS`.
+        """
+        return pulumi.get(self, "time_unit")
+
+    @time_unit.setter
+    def time_unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time_unit", value)
 
 
 class FlinkMaterializedTableWatermarkArgsDict(TypedDict):
