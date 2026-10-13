@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         var gcp = new ProviderIntegrationSetup("gcp", ProviderIntegrationSetupArgs.builder()
  *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .displayName("gcp-integration")
  *             .cloud("GCP")
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *         var gcpProviderIntegrationAuthorization = new ProviderIntegrationAuthorization("gcpProviderIntegrationAuthorization", ProviderIntegrationAuthorizationArgs.builder()
  *             .providerIntegrationId(gcp.id())
  *             .environment(ProviderIntegrationAuthorizationEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .gcp(ProviderIntegrationAuthorizationGcpArgs.builder()
  *                 .customerGoogleServiceAccount("my-sa}{@literal @}{@code my-project.iam.gserviceaccount.com")

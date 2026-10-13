@@ -361,12 +361,12 @@ class SchemaRegistryDek(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']]] = None,
                  encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  kek_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryDekSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -431,7 +431,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
-        :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[_builtins.bool] hard_delete: An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
                
@@ -525,12 +525,12 @@ class SchemaRegistryDek(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']]] = None,
                  encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  kek_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryDekSchemaRegistryCluster']]] = None,
                  subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -569,13 +569,13 @@ class SchemaRegistryDek(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']]] = None,
             encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
             hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
             kek_name: pulumi.Input[Optional[_builtins.str]] = None,
             key_material: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict']]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryDekSchemaRegistryCluster']]] = None,
             subject_name: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'SchemaRegistryDek':
         """
@@ -586,7 +586,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
-        :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[_builtins.bool] hard_delete: An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `false`.
                

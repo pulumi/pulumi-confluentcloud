@@ -162,8 +162,8 @@ class KafkaClusterConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict', 'outputs.KafkaClusterConfigCredentials']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict', 'outputs.KafkaClusterConfigKafkaCluster']]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -231,7 +231,7 @@ class KafkaClusterConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster settings to set:
-        :param pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict', 'outputs.KafkaClusterConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         ...
@@ -318,8 +318,8 @@ class KafkaClusterConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict', 'outputs.KafkaClusterConfigCredentials']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict', 'outputs.KafkaClusterConfigKafkaCluster']]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -349,8 +349,8 @@ class KafkaClusterConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict', 'outputs.KafkaClusterConfigCredentials']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaClusterConfigKafkaClusterArgs', 'KafkaClusterConfigKafkaClusterArgsDict', 'outputs.KafkaClusterConfigKafkaCluster']]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'KafkaClusterConfig':
         """
         Get an existing KafkaClusterConfig resource's state with the given name, id, and optional extra
@@ -360,7 +360,7 @@ class KafkaClusterConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster settings to set:
-        :param pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaClusterConfigCredentialsArgs', 'KafkaClusterConfigCredentialsArgsDict', 'outputs.KafkaClusterConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

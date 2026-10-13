@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
     ///         DocumentationLink = "https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",
     ///         ConnectorClass = "io.confluent.kafka.connect.datagen.DatagenConnector",
     ///         ConnectorType = "SOURCE",
-    ///         SensitiveConfigProperties = new[] {},
+    ///         SensitiveConfigProperties = new() {},
     ///         Filename = "confluentinc-kafka-connect-datagen-0.6.2.zip",
     ///     });
     /// 

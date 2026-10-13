@@ -248,7 +248,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -297,7 +297,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment.
-        :param pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         """
         ...
@@ -365,7 +365,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -403,13 +403,13 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict']]]]] = None,
-            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict']]]]] = None,
+            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict', 'outputs.PrivateLinkAttachmentAw']]]]] = None,
+            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict', 'outputs.PrivateLinkAttachmentAzure']]]]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']]] = None,
-            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict']]]]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']]] = None,
+            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict', 'outputs.PrivateLinkAttachmentGcp']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrivateLinkAttachment':
         """
@@ -419,13 +419,13 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict']]]] aws: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict']]]] azures: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict', 'outputs.PrivateLinkAttachmentAw']]]] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict', 'outputs.PrivateLinkAttachmentAzure']]]] azures: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[_builtins.str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
-        :param pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict']]]] gcps: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict', 'outputs.PrivateLinkAttachmentGcp']]]] gcps: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
         """

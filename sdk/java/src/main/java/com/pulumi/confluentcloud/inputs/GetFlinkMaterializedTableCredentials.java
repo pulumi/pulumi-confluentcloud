@@ -62,7 +62,7 @@ public final class GetFlinkMaterializedTableCredentials extends com.pulumi.resou
      *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
      *             .principal("User:pool-abc123")
      *             .roleName("Assigner")
-     *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+     *             .crnPattern(String.format("%s/service-account=sa-def456", main.get("resourceName")))
      *             .build());
      * 
      *     }
@@ -108,7 +108,7 @@ public final class GetFlinkMaterializedTableCredentials extends com.pulumi.resou
      *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
      *             .principal("User:pool-abc123")
      *             .roleName("Assigner")
-     *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+     *             .crnPattern(String.format("%s/service-account=sa-def456", main.get("resourceName")))
      *             .build());
      * 
      *     }
@@ -191,7 +191,7 @@ public final class GetFlinkMaterializedTableCredentials extends com.pulumi.resou
          *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
          *             .principal("User:pool-abc123")
          *             .roleName("Assigner")
-         *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+         *             .crnPattern(String.format("%s/service-account=sa-def456", main.get("resourceName")))
          *             .build());
          * 
          *     }

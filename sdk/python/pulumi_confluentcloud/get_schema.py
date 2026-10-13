@@ -198,12 +198,12 @@ class AwaitableGetSchemaResult(GetSchemaResult):
             version=self.version)
 
 
-def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict']] = None,
-               metadata: Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict']] = None,
+def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict', 'outputs.GetSchemaCredentialsResult']] = None,
+               metadata: Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict', 'outputs.GetSchemaMetadataResult']] = None,
                rest_endpoint: Optional[_builtins.str] = None,
-               ruleset: Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict']] = None,
+               ruleset: Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict', 'outputs.GetSchemaRulesetResult']] = None,
                schema_identifier: Optional[_builtins.int] = None,
-               schema_registry_cluster: Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict']] = None,
+               schema_registry_cluster: Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict', 'outputs.GetSchemaSchemaRegistryClusterResult']] = None,
                subject_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
@@ -244,9 +244,9 @@ def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchem
     ```
 
 
-    :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+    :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict', 'outputs.GetSchemaMetadataResult'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param _builtins.str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-    :param Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+    :param Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict', 'outputs.GetSchemaRulesetResult'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
     :param _builtins.int schema_identifier: The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
            
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -279,12 +279,12 @@ def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchem
         skip_validation_during_plan=pulumi.get(__ret__, 'skip_validation_during_plan'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
         version=pulumi.get(__ret__, 'version'))
-def get_schema_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict']]]] = None,
-                      metadata: pulumi.Input[Optional[Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict']]]] = None,
+def get_schema_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict', 'outputs.GetSchemaCredentialsResult']]]] = None,
+                      metadata: pulumi.Input[Optional[Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict', 'outputs.GetSchemaMetadataResult']]]] = None,
                       rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      ruleset: pulumi.Input[Optional[Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict']]]] = None,
+                      ruleset: pulumi.Input[Optional[Optional[Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict', 'outputs.GetSchemaRulesetResult']]]] = None,
                       schema_identifier: pulumi.Input[Optional[_builtins.int]] = None,
-                      schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict']]]] = None,
+                      schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict', 'outputs.GetSchemaSchemaRegistryClusterResult']]]] = None,
                       subject_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
@@ -325,9 +325,9 @@ def get_schema_output(credentials: pulumi.Input[Optional[Optional[Union['GetSche
     ```
 
 
-    :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+    :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict', 'outputs.GetSchemaMetadataResult'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param _builtins.str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-    :param Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+    :param Union['GetSchemaRulesetArgs', 'GetSchemaRulesetArgsDict', 'outputs.GetSchemaRulesetResult'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
     :param _builtins.int schema_identifier: The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
            
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.

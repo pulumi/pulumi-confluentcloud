@@ -55,9 +55,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SchemaRegistryClusterMode("example", SchemaRegistryClusterModeArgs.builder()
  *             .schemaRegistryCluster(SchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .mode("READONLY")
  *             .credentials(SchemaRegistryClusterModeCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")

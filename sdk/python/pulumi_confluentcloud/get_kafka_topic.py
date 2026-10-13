@@ -111,8 +111,8 @@ class AwaitableGetKafkaTopicResult(GetKafkaTopicResult):
             topic_name=self.topic_name)
 
 
-def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict']] = None,
-                    kafka_cluster: Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']] = None,
+def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict', 'outputs.GetKafkaTopicCredentialsResult']] = None,
+                    kafka_cluster: Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict', 'outputs.GetKafkaTopicKafkaClusterResult']] = None,
                     rest_endpoint: Optional[_builtins.str] = None,
                     topic_name: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaTopicResult:
@@ -171,8 +171,8 @@ def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 
         partitions_count=pulumi.get(__ret__, 'partitions_count'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-def get_kafka_topic_output(credentials: pulumi.Input[Optional[Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict']]]] = None,
-                           kafka_cluster: pulumi.Input[Optional[Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']]]] = None,
+def get_kafka_topic_output(credentials: pulumi.Input[Optional[Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict', 'outputs.GetKafkaTopicCredentialsResult']]]] = None,
+                           kafka_cluster: pulumi.Input[Optional[Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict', 'outputs.GetKafkaTopicKafkaClusterResult']]]] = None,
                            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                            topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaTopicResult]:

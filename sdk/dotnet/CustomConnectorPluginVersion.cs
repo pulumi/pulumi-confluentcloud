@@ -39,7 +39,7 @@ namespace Pulumi.ConfluentCloud
     ///                 ConnectorType = "SOURCE",
     ///             },
     ///         },
-    ///         SensitiveConfigProperties = new[] {},
+    ///         SensitiveConfigProperties = new() {},
     ///         Filename = "confluentinc-kafka-connect-datagen-0.6.2.zip",
     ///         PluginId = "ccp-dev-123",
     ///         Environment = new ConfluentCloud.Inputs.CustomConnectorPluginVersionEnvironmentArgs

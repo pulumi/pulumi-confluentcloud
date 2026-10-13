@@ -108,7 +108,7 @@ class AwaitableGetDnsRecordResult(GetDnsRecordResult):
             private_link_access_points=self.private_link_access_points)
 
 
-def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']] = None,
+def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict', 'outputs.GetDnsRecordEnvironmentResult']] = None,
                    id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsRecordResult:
     """
@@ -145,7 +145,7 @@ def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'G
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'),
         private_link_access_points=pulumi.get(__ret__, 'private_link_access_points'))
-def get_dns_record_output(environment: pulumi.Input[Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
+def get_dns_record_output(environment: pulumi.Input[Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict', 'outputs.GetDnsRecordEnvironmentResult']]] = None,
                           id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsRecordResult]:
     """

@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *             .cloud("AWS")
  *             .region("us-east-1")
  *             .environment(KafkaClusterEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .build());
  * 

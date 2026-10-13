@@ -75,7 +75,7 @@ class AwaitableGetSchemaRegistryClustersResult(GetSchemaRegistryClustersResult):
             id=self.id)
 
 
-def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict']] = None,
+def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict', 'outputs.GetSchemaRegistryClustersEnvironmentResult']] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClustersResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -94,7 +94,7 @@ def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryC
     ```
 
 
-    :param Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict'] environment: (Required Object) exports the following attributes:
+    :param Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict', 'outputs.GetSchemaRegistryClustersEnvironmentResult'] environment: (Required Object) exports the following attributes:
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -105,7 +105,7 @@ def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryC
         clusters=pulumi.get(__ret__, 'clusters'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
-def get_schema_registry_clusters_output(environment: pulumi.Input[Optional[Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict']]]] = None,
+def get_schema_registry_clusters_output(environment: pulumi.Input[Optional[Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict', 'outputs.GetSchemaRegistryClustersEnvironmentResult']]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryClustersResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -124,7 +124,7 @@ def get_schema_registry_clusters_output(environment: pulumi.Input[Optional[Optio
     ```
 
 
-    :param Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict'] environment: (Required Object) exports the following attributes:
+    :param Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict', 'outputs.GetSchemaRegistryClustersEnvironmentResult'] environment: (Required Object) exports the following attributes:
     """
     __args__ = dict()
     __args__['environment'] = environment

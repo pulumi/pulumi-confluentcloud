@@ -543,18 +543,18 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: pulumi.Input[Optional[_builtins.str]] = None,
-                 basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']]] = None,
-                 byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
+                 basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']]] = None,
+                 byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict', 'outputs.KafkaClusterByokKey']]] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
-                 dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+                 dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
-                 environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
-                 freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]]] = None,
-                 network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+                 enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']]] = None,
+                 freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]]] = None,
+                 network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']]] = None,
+                 standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -752,17 +752,17 @@ class KafkaCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
-        :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']] basic: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-        :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
-        :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]] freights: The configuration of the Freight Kafka cluster.
-        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]] enterprises: The configuration of the Enterprise Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]] freights: The configuration of the Freight Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
-        :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']] standard: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']] standard: The configuration of the Standard Kafka cluster.
         """
         ...
     @overload
@@ -979,18 +979,18 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: pulumi.Input[Optional[_builtins.str]] = None,
-                 basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']]] = None,
-                 byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
+                 basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']]] = None,
+                 byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict', 'outputs.KafkaClusterByokKey']]] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
-                 dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+                 dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
-                 environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
-                 freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]]] = None,
-                 network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+                 enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]]] = None,
+                 environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']]] = None,
+                 freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]]] = None,
+                 network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']]] = None,
+                 standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1039,23 +1039,23 @@ class KafkaCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
             availability: pulumi.Input[Optional[_builtins.str]] = None,
-            basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']]] = None,
+            basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']]] = None,
             bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict']]] = None,
+            byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict', 'outputs.KafkaClusterByokKey']]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
-            dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
+            dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']]] = None,
             deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]]] = None,
-            enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
-            environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
-            freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict', 'outputs.KafkaClusterEndpoint']]]]] = None,
+            enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]]] = None,
+            environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']]] = None,
+            freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']]] = None,
             rbac_crn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']]] = None) -> 'KafkaCluster':
+            standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']]] = None) -> 'KafkaCluster':
         """
         Get an existing KafkaCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1065,22 +1065,22 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
-        :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']] basic: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-        :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the Kafka cluster. When set to `true`, the Kafka cluster cannot be deleted until this attribute is set back to `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
-        :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]] freights: The configuration of the Freight Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict', 'outputs.KafkaClusterEndpoint']]]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]] enterprises: The configuration of the Enterprise Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
-        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] rbac_crn: (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see RoleBinding Resource.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
-        :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']] standard: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']] standard: The configuration of the Standard Kafka cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

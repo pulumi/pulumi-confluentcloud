@@ -55,9 +55,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SubjectMode("example", SubjectModeArgs.builder()
  *             .schemaRegistryCluster(SubjectModeSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .subjectName("proto-purchase-value")
  *             .mode("READONLY")
  *             .credentials(SubjectModeCredentialsArgs.builder()

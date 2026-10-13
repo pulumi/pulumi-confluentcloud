@@ -178,7 +178,7 @@ class AwaitableGetFlinkArtifactResult(GetFlinkArtifactResult):
 def get_flink_artifact(class_: Optional[_builtins.str] = None,
                        cloud: Optional[_builtins.str] = None,
                        display_name: Optional[_builtins.str] = None,
-                       environment: Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']] = None,
+                       environment: Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict', 'outputs.GetFlinkArtifactEnvironmentResult']] = None,
                        id: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlinkArtifactResult:
@@ -241,7 +241,7 @@ def get_flink_artifact(class_: Optional[_builtins.str] = None,
 def get_flink_artifact_output(class_: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               cloud: pulumi.Input[Optional[_builtins.str]] = None,
                               display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              environment: pulumi.Input[Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
+                              environment: pulumi.Input[Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict', 'outputs.GetFlinkArtifactEnvironmentResult']]] = None,
                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               region: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkArtifactResult]:

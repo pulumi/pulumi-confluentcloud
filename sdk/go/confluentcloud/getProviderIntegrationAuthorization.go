@@ -46,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Create the service principal using Azure Terraform Provider
+//			// Create the service principal using Azure Pulumi Provider
 //			confluent, err := azuread.NewServicePrincipal(ctx, "confluent", &azuread.ServicePrincipalArgs{
 //				ClientId: azure.Azures[0].ConfluentMultiTenantAppId,
 //			})
@@ -123,7 +123,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Grant IAM permissions using Google Terraform Provider
+//			// Grant IAM permissions using Google Pulumi Provider
 //			_, err = google.NewProjectIamMember(ctx, "confluent_token_creator", &google.ProjectIamMemberArgs{
 //				Project: gcpProjectId,
 //				Role:    "roles/iam.serviceAccountTokenCreator",

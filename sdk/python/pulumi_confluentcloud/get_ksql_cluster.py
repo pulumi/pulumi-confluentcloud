@@ -190,7 +190,7 @@ class AwaitableGetKsqlClusterResult(GetKsqlClusterResult):
 
 
 def get_ksql_cluster(display_name: Optional[_builtins.str] = None,
-                     environment: Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']] = None,
+                     environment: Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict', 'outputs.GetKsqlClusterEnvironmentResult']] = None,
                      id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKsqlClusterResult:
     """
@@ -242,7 +242,7 @@ def get_ksql_cluster(display_name: Optional[_builtins.str] = None,
         topic_prefix=pulumi.get(__ret__, 'topic_prefix'),
         use_detailed_processing_log=pulumi.get(__ret__, 'use_detailed_processing_log'))
 def get_ksql_cluster_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                            environment: pulumi.Input[Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
+                            environment: pulumi.Input[Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict', 'outputs.GetKsqlClusterEnvironmentResult']]] = None,
                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """

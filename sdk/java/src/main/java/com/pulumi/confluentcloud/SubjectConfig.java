@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *         var original = new Schema("original", SchemaArgs.builder()
  *             .subjectName("orders-long-subject-name-value")
  *             .format("AVRO")
- *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/orders.avsc")).result())
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/orders.avsc")).get("result"))
  *             .build());
  * 
  *         // Create an alias that points to the original subject

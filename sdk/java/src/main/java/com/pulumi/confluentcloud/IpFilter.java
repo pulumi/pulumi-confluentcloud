@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var management_filter = new IpFilter("management-filter", IpFilterArgs.builder()
  *             .filterName("Management API Rules")
  *             .resourceGroup("management")
- *             .ipGroups(example.id())
+ *             .ipGroups(example.get("id"))
  *             .build());
  * 
  *         var multiple_filter = new IpFilter("multiple-filter", IpFilterArgs.builder()
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 "FLINK",
  *                 "KAFKA_DATA",
  *                 "KSQL")
- *             .ipGroups(example.id())
+ *             .ipGroups(example.get("id"))
  *             .build());
  * 
  *     }

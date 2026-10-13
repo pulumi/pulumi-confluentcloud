@@ -21,9 +21,9 @@ import * as utilities from "./utilities";
  *
  * export = async () => {
  *     // If the environment (and its Schema Registry cluster) is provisioned in the
- *     // same pulumi up command, add it to the data source's depends_on. This
+ *     // same pulumi up command, add it to the function's depends_on. This
  *     // ensures the Schema Registry cluster has finished provisioning before the
- *     // data source is queried, even though the environment.id reference below
+ *     // function is queried, even though the environment.id reference below
  *     // already creates an implicit ordering dependency.
  *     const staging = new confluentcloud.Environment("staging", {
  *         displayName: "staging",
@@ -152,9 +152,9 @@ export interface GetSchemaRegistryClusterResult {
  *
  * export = async () => {
  *     // If the environment (and its Schema Registry cluster) is provisioned in the
- *     // same pulumi up command, add it to the data source's depends_on. This
+ *     // same pulumi up command, add it to the function's depends_on. This
  *     // ensures the Schema Registry cluster has finished provisioning before the
- *     // data source is queried, even though the environment.id reference below
+ *     // function is queried, even though the environment.id reference below
  *     // already creates an implicit ordering dependency.
  *     const staging = new confluentcloud.Environment("staging", {
  *         displayName: "staging",

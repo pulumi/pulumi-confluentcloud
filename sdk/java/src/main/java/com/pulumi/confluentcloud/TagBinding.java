@@ -59,9 +59,9 @@ import javax.annotation.Nullable;
  * 
  *         var mainTagBinding = new TagBinding("mainTagBinding", TagBindingArgs.builder()
  *             .schemaRegistryCluster(TagBindingSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(TagBindingCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")

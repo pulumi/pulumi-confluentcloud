@@ -299,9 +299,9 @@ class NotificationsIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict']]] = None,
-                 slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict']]] = None,
-                 webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict']]] = None,
+                 ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']]] = None,
+                 slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']]] = None,
+                 webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -343,9 +343,9 @@ class NotificationsIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human readable description for the particular integration
         :param pulumi.Input[_builtins.str] display_name: A human readable name for the particular integration
-        :param pulumi.Input[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict']] ms_teams_target: Supports the following:
-        :param pulumi.Input[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict']] slack_target: Supports the following:
-        :param pulumi.Input[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict']] webhook_target: Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']] ms_teams_target: Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']] slack_target: Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']] webhook_target: Supports the following:
         """
         ...
     @overload
@@ -406,9 +406,9 @@ class NotificationsIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict']]] = None,
-                 slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict']]] = None,
-                 webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict']]] = None,
+                 ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']]] = None,
+                 slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']]] = None,
+                 webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -444,14 +444,14 @@ class NotificationsIntegration(pulumi.CustomResource):
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            in_app_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationInAppTargetArgs', 'NotificationsIntegrationInAppTargetArgsDict']]]]] = None,
+            in_app_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationInAppTargetArgs', 'NotificationsIntegrationInAppTargetArgsDict', 'outputs.NotificationsIntegrationInAppTarget']]]]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict']]] = None,
+            ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']]] = None,
             resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-            role_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationRoleEmailTargetArgs', 'NotificationsIntegrationRoleEmailTargetArgsDict']]]]] = None,
-            slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict']]] = None,
-            user_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationUserEmailTargetArgs', 'NotificationsIntegrationUserEmailTargetArgsDict']]]]] = None,
-            webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict']]] = None) -> 'NotificationsIntegration':
+            role_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationRoleEmailTargetArgs', 'NotificationsIntegrationRoleEmailTargetArgsDict', 'outputs.NotificationsIntegrationRoleEmailTarget']]]]] = None,
+            slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']]] = None,
+            user_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationUserEmailTargetArgs', 'NotificationsIntegrationUserEmailTargetArgsDict', 'outputs.NotificationsIntegrationUserEmailTarget']]]]] = None,
+            webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']]] = None) -> 'NotificationsIntegration':
         """
         Get an existing NotificationsIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,14 +462,14 @@ class NotificationsIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_version: (Required String) API Version defines the schema version of this representation of a resource.
         :param pulumi.Input[_builtins.str] description: A human readable description for the particular integration
         :param pulumi.Input[_builtins.str] display_name: A human readable name for the particular integration
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationInAppTargetArgs', 'NotificationsIntegrationInAppTargetArgsDict']]]] in_app_targets: (Optional Configuration Block) Supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationInAppTargetArgs', 'NotificationsIntegrationInAppTargetArgsDict', 'outputs.NotificationsIntegrationInAppTarget']]]] in_app_targets: (Optional Configuration Block) Supports the following:
         :param pulumi.Input[_builtins.str] kind: (Required String) Kind defines the object this REST resource represents.
-        :param pulumi.Input[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict']] ms_teams_target: Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']] ms_teams_target: Supports the following:
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationRoleEmailTargetArgs', 'NotificationsIntegrationRoleEmailTargetArgsDict']]]] role_email_targets: (Optional Configuration Block) Supports the following:
-        :param pulumi.Input[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict']] slack_target: Supports the following:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationUserEmailTargetArgs', 'NotificationsIntegrationUserEmailTargetArgsDict']]]] user_email_targets: (Optional Configuration Block) Supports the following:
-        :param pulumi.Input[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict']] webhook_target: Supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationRoleEmailTargetArgs', 'NotificationsIntegrationRoleEmailTargetArgsDict', 'outputs.NotificationsIntegrationRoleEmailTarget']]]] role_email_targets: (Optional Configuration Block) Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']] slack_target: Supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsIntegrationUserEmailTargetArgs', 'NotificationsIntegrationUserEmailTargetArgsDict', 'outputs.NotificationsIntegrationUserEmailTarget']]]] user_email_targets: (Optional Configuration Block) Supports the following:
+        :param pulumi.Input[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']] webhook_target: Supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

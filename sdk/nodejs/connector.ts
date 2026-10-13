@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
  * const source = new confluentcloud.Connector("source", {
  *     environment: {
  *         id: staging.id,
@@ -56,7 +56,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
  *         id: staging.id,
@@ -101,7 +101,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
  *         id: staging.id,
@@ -147,7 +147,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
  *         id: staging.id,
@@ -191,7 +191,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
  *         id: staging.id,
@@ -267,7 +267,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
+ * // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
  * const source = new confluentcloud.Connector("source", {
  *     environment: {
  *         id: staging.id,

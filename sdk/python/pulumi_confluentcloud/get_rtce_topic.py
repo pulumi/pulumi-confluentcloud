@@ -150,8 +150,8 @@ class AwaitableGetRtceTopicResult(GetRtceTopicResult):
             topic_name=self.topic_name)
 
 
-def get_rtce_topic(environment: Optional[Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict']] = None,
-                   kafka_cluster: Optional[Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict']] = None,
+def get_rtce_topic(environment: Optional[Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict', 'outputs.GetRtceTopicEnvironmentResult']] = None,
+                   kafka_cluster: Optional[Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict', 'outputs.GetRtceTopicKafkaClusterResult']] = None,
                    topic_name: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRtceTopicResult:
     """
@@ -176,8 +176,8 @@ def get_rtce_topic(environment: Optional[Union['GetRtceTopicEnvironmentArgs', 'G
     ```
 
 
-    :param Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict'] environment: Supports the following:
-    :param Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict'] kafka_cluster: The Kafka Cluster for the RtceTopic. Supports the following:
+    :param Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict', 'outputs.GetRtceTopicEnvironmentResult'] environment: Supports the following:
+    :param Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict', 'outputs.GetRtceTopicKafkaClusterResult'] kafka_cluster: The Kafka Cluster for the RtceTopic. Supports the following:
     :param _builtins.str topic_name: The Kafka topic name containing the data for the RTCE topic.
     """
     __args__ = dict()
@@ -198,8 +198,8 @@ def get_rtce_topic(environment: Optional[Union['GetRtceTopicEnvironmentArgs', 'G
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-def get_rtce_topic_output(environment: pulumi.Input[Optional[Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict']]] = None,
-                          kafka_cluster: pulumi.Input[Optional[Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict']]] = None,
+def get_rtce_topic_output(environment: pulumi.Input[Optional[Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict', 'outputs.GetRtceTopicEnvironmentResult']]] = None,
+                          kafka_cluster: pulumi.Input[Optional[Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict', 'outputs.GetRtceTopicKafkaClusterResult']]] = None,
                           topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRtceTopicResult]:
     """
@@ -224,8 +224,8 @@ def get_rtce_topic_output(environment: pulumi.Input[Optional[Union['GetRtceTopic
     ```
 
 
-    :param Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict'] environment: Supports the following:
-    :param Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict'] kafka_cluster: The Kafka Cluster for the RtceTopic. Supports the following:
+    :param Union['GetRtceTopicEnvironmentArgs', 'GetRtceTopicEnvironmentArgsDict', 'outputs.GetRtceTopicEnvironmentResult'] environment: Supports the following:
+    :param Union['GetRtceTopicKafkaClusterArgs', 'GetRtceTopicKafkaClusterArgsDict', 'outputs.GetRtceTopicKafkaClusterResult'] kafka_cluster: The Kafka Cluster for the RtceTopic. Supports the following:
     :param _builtins.str topic_name: The Kafka topic name containing the data for the RTCE topic.
     """
     __args__ = dict()

@@ -124,7 +124,7 @@ class AwaitableGetPeeringResult(GetPeeringResult):
 
 
 def get_peering(display_name: Optional[_builtins.str] = None,
-                environment: Optional[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict']] = None,
+                environment: Optional[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict', 'outputs.GetPeeringEnvironmentResult']] = None,
                 id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
@@ -152,7 +152,7 @@ def get_peering(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: A human-readable name for the Peering.
-    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict', 'outputs.GetPeeringEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Peering, for example, `peer-abc123`.
     """
     __args__ = dict()
@@ -171,7 +171,7 @@ def get_peering(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
 def get_peering_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       environment: pulumi.Input[Optional[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict']]] = None,
+                       environment: pulumi.Input[Optional[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict', 'outputs.GetPeeringEnvironmentResult']]] = None,
                        id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringResult]:
     """
@@ -199,7 +199,7 @@ def get_peering_output(display_name: pulumi.Input[Optional[Optional[_builtins.st
 
 
     :param _builtins.str display_name: A human-readable name for the Peering.
-    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict', 'outputs.GetPeeringEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Peering, for example, `peer-abc123`.
     """
     __args__ = dict()

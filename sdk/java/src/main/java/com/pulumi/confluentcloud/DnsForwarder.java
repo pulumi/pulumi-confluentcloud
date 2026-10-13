@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 "example.com",
  *                 "domainname.com")
  *             .gateway(DnsForwarderGatewayArgs.builder()
- *                 .id(mainConfluentNetwork.gateway()[0].id())
+ *                 .id(mainConfluentNetwork.get("gateway")[0].get("id"))
  *                 .build())
  *             .forwardViaIp(DnsForwarderForwardViaIpArgs.builder()
  *                 .dnsServerIps(                
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *                 "example.com",
  *                 "domainname.com")
  *             .gateway(DnsForwarderGatewayArgs.builder()
- *                 .id(mainConfluentNetwork.gateway()[0].id())
+ *                 .id(mainConfluentNetwork.get("gateway")[0].get("id"))
  *                 .build())
  *             .forwardViaGcpDnsZones(DnsForwarderForwardViaGcpDnsZonesArgs.builder()
  *                 .domainMappings(Map.of("example.com", "zone-1,project-1"))

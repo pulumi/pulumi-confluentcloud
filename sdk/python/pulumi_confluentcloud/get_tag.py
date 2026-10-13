@@ -123,10 +123,10 @@ class AwaitableGetTagResult(GetTagResult):
             version=self.version)
 
 
-def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict']] = None,
+def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict', 'outputs.GetTagCredentialsResult']] = None,
             name: Optional[_builtins.str] = None,
             rest_endpoint: Optional[_builtins.str] = None,
-            schema_registry_cluster: Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict']] = None,
+            schema_registry_cluster: Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict', 'outputs.GetTagSchemaRegistryClusterResult']] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -185,10 +185,10 @@ def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredenti
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         version=pulumi.get(__ret__, 'version'))
-def get_tag_output(credentials: pulumi.Input[Optional[Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict']]]] = None,
+def get_tag_output(credentials: pulumi.Input[Optional[Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict', 'outputs.GetTagCredentialsResult']]]] = None,
                    name: pulumi.Input[Optional[_builtins.str]] = None,
                    rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                   schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict']]]] = None,
+                   schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict', 'outputs.GetTagSchemaRegistryClusterResult']]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

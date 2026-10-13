@@ -493,11 +493,11 @@ class FlinkStatement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict', 'outputs.FlinkStatementComputePool']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict', 'outputs.FlinkStatementEnvironment']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict', 'outputs.FlinkStatementOrganization']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict', 'outputs.FlinkStatementPrincipal']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -653,7 +653,7 @@ class FlinkStatement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties_sensitive: Block for sensitive statement properties. Prefer using `FlinkConnection` to manage credentials for external services like OpenAI. See the [Manage Flink Connections](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/manage-connections.html) documentation for details.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
@@ -850,11 +850,11 @@ class FlinkStatement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict', 'outputs.FlinkStatementComputePool']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict', 'outputs.FlinkStatementEnvironment']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict', 'outputs.FlinkStatementOrganization']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict', 'outputs.FlinkStatementPrincipal']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -897,13 +897,13 @@ class FlinkStatement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
-            credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
-            environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict', 'outputs.FlinkStatementComputePool']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict', 'outputs.FlinkStatementEnvironment']]] = None,
             latest_offsets: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             latest_offsets_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
-            organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
-            principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict', 'outputs.FlinkStatementOrganization']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict', 'outputs.FlinkStatementPrincipal']]] = None,
             properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -917,7 +917,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] latest_offsets: (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
                ```bash
                "latest_offsets": {

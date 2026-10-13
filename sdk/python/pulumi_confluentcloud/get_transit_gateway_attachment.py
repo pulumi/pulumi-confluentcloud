@@ -100,7 +100,7 @@ class AwaitableGetTransitGatewayAttachmentResult(GetTransitGatewayAttachmentResu
 
 
 def get_transit_gateway_attachment(display_name: Optional[_builtins.str] = None,
-                                   environment: Optional[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']] = None,
+                                   environment: Optional[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict', 'outputs.GetTransitGatewayAttachmentEnvironmentResult']] = None,
                                    id: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayAttachmentResult:
     """
@@ -128,7 +128,7 @@ def get_transit_gateway_attachment(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: A human-readable name for the Transit Gateway Attachment.
-    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict', 'outputs.GetTransitGatewayAttachmentEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Peering, for example, `tgwa-abc123`.
     """
     __args__ = dict()
@@ -145,7 +145,7 @@ def get_transit_gateway_attachment(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
 def get_transit_gateway_attachment_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                          environment: pulumi.Input[Optional[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+                                          environment: pulumi.Input[Optional[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict', 'outputs.GetTransitGatewayAttachmentEnvironmentResult']]] = None,
                                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
@@ -173,7 +173,7 @@ def get_transit_gateway_attachment_output(display_name: pulumi.Input[Optional[Op
 
 
     :param _builtins.str display_name: A human-readable name for the Transit Gateway Attachment.
-    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict', 'outputs.GetTransitGatewayAttachmentEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Peering, for example, `tgwa-abc123`.
     """
     __args__ = dict()

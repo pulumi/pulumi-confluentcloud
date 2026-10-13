@@ -89,7 +89,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Use the integration with authorization data source
+        ///     // Use the integration with authorization function
         ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
@@ -190,7 +190,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Use the integration with authorization data source
+        ///     // Use the integration with authorization function
         ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
@@ -291,7 +291,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Use the integration with authorization data source
+        ///     // Use the integration with authorization function
         ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),

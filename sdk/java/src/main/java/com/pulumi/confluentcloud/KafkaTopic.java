@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var orders = new KafkaTopic("orders", KafkaTopicArgs.builder()
  *             .kafkaCluster(KafkaTopicKafkaClusterArgs.builder()
- *                 .id(basic_cluster.id())
+ *                 .id(basic_cluster.get("id"))
  *                 .build())
  *             .topicName("orders")
- *             .restEndpoint(basic_cluster.restEndpoint())
+ *             .restEndpoint(basic_cluster.get("restEndpoint"))
  *             .credentials(KafkaTopicCredentialsArgs.builder()
- *                 .key(app_manager_kafka_api_key.id())
- *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .key(app_manager_kafka_api_key.get("id"))
+ *                 .secret(app_manager_kafka_api_key.get("secret"))
  *                 .build())
  *             .build());
  * 

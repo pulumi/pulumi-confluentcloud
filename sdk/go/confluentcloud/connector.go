@@ -35,7 +35,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
 //			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
@@ -82,7 +82,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
@@ -140,7 +140,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
@@ -199,7 +199,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
@@ -256,7 +256,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
@@ -345,7 +345,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
+//			// https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
 //			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),

@@ -79,13 +79,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         // Automatically create the service principal using Azure Terraform Provider
+ *         // Automatically create the service principal using Azure Pulumi Provider
  *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
  *             .clientId(azureProviderIntegrationAuthorization.azure().confluentMultiTenantAppId())
  *             .build());
  * 
  *         ctx.export("azureAppId", azureProviderIntegrationAuthorization.azure().applyValue(_azure -> _azure.confluentMultiTenantAppId()));
- *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+ *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
  *     }
  * }
  * }
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         // Grant IAM permissions using Google Terraform Provider
+ *         // Grant IAM permissions using Google Pulumi Provider
  *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
  *             .project(gcpProjectId)
  *             .role("roles/iam.serviceAccountTokenCreator")

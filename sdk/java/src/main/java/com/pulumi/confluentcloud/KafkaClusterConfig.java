@@ -53,16 +53,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var orders = new KafkaClusterConfig("orders", KafkaClusterConfigArgs.builder()
  *             .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()
- *                 .id(dedicated.id())
+ *                 .id(dedicated.get("id"))
  *                 .build())
- *             .restEndpoint(dedicated.restEndpoint())
+ *             .restEndpoint(dedicated.get("restEndpoint"))
  *             .config(Map.ofEntries(
  *                 Map.entry("auto.create.topics.enable", "true"),
  *                 Map.entry("log.retention.ms", "604800123")
  *             ))
  *             .credentials(KafkaClusterConfigCredentialsArgs.builder()
- *                 .key(app_manager_kafka_api_key.id())
- *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .key(app_manager_kafka_api_key.get("id"))
+ *                 .secret(app_manager_kafka_api_key.get("secret"))
  *                 .build())
  *             .build());
  * 

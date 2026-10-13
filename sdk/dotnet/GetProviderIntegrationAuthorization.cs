@@ -43,7 +43,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Create the service principal using Azure Terraform Provider
+        ///     // Create the service principal using Azure Pulumi Provider
         ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
@@ -109,7 +109,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     // Grant IAM permissions using Google Pulumi Provider
         ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,
@@ -252,7 +252,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Create the service principal using Azure Terraform Provider
+        ///     // Create the service principal using Azure Pulumi Provider
         ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
@@ -318,7 +318,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     // Grant IAM permissions using Google Pulumi Provider
         ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,
@@ -461,7 +461,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Create the service principal using Azure Terraform Provider
+        ///     // Create the service principal using Azure Pulumi Provider
         ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
@@ -527,7 +527,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     // Grant IAM permissions using Google Pulumi Provider
         ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,

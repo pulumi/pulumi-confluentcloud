@@ -122,7 +122,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://github.com/confluentinc/terraform-provider-confluent/issues/241
+//			// https://github.com/confluentinc/pulumi-provider-confluent/issues/241
 //			_, err := confluentcloud.NewKafkaAcl(ctx, "app-producer-write-on-topic", &confluentcloud.KafkaAclArgs{
 //				ResourceType: pulumi.String("TOPIC"),
 //				ResourceName: pulumi.Any(orders.TopicName),

@@ -123,8 +123,8 @@ class AwaitableGetClusterLinkResult(GetClusterLinkResult):
             rest_endpoint=self.rest_endpoint)
 
 
-def get_cluster_link(credentials: Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict']] = None,
-                     kafka_cluster: Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict']] = None,
+def get_cluster_link(credentials: Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict', 'outputs.GetClusterLinkCredentialsResult']] = None,
+                     kafka_cluster: Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict', 'outputs.GetClusterLinkKafkaClusterResult']] = None,
                      link_name: Optional[_builtins.str] = None,
                      rest_endpoint: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterLinkResult:
@@ -198,8 +198,8 @@ def get_cluster_link(credentials: Optional[Union['GetClusterLinkCredentialsArgs'
         link_name=pulumi.get(__ret__, 'link_name'),
         link_state=pulumi.get(__ret__, 'link_state'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
-def get_cluster_link_output(credentials: pulumi.Input[Optional[Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict']]]] = None,
-                            kafka_cluster: pulumi.Input[Optional[Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict']]]] = None,
+def get_cluster_link_output(credentials: pulumi.Input[Optional[Optional[Union['GetClusterLinkCredentialsArgs', 'GetClusterLinkCredentialsArgsDict', 'outputs.GetClusterLinkCredentialsResult']]]] = None,
+                            kafka_cluster: pulumi.Input[Optional[Optional[Union['GetClusterLinkKafkaClusterArgs', 'GetClusterLinkKafkaClusterArgsDict', 'outputs.GetClusterLinkKafkaClusterResult']]]] = None,
                             link_name: pulumi.Input[Optional[_builtins.str]] = None,
                             rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterLinkResult]:
