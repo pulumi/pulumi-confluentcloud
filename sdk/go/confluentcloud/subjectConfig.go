@@ -119,7 +119,7 @@ import (
 //			original, err := confluentcloud.NewSchema(ctx, "original", &confluentcloud.SchemaArgs{
 //				SubjectName: pulumi.String("orders-long-subject-name-value"),
 //				Format:      pulumi.String("AVRO"),
-//				Schema:      invokeFile.Result,
+//				Schema:      invokeFile.Result.(pulumi.String),
 //			})
 //			if err != nil {
 //				return err

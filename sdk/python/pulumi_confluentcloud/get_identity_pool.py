@@ -113,7 +113,7 @@ class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
 
 def get_identity_pool(display_name: Optional[_builtins.str] = None,
                       id: Optional[_builtins.str] = None,
-                      identity_provider: Optional[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict']] = None,
+                      identity_provider: Optional[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict', 'outputs.GetIdentityPoolIdentityProviderResult']] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -141,7 +141,7 @@ def get_identity_pool(display_name: Optional[_builtins.str] = None,
 
     :param _builtins.str display_name: A human-readable name for the Identity Pool.
     :param _builtins.str id: The ID of the Identity Pool, for example, `pool-xyz456`.
-    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict'] identity_provider: (Required Configuration Block) supports the following:
+    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict', 'outputs.GetIdentityPoolIdentityProviderResult'] identity_provider: (Required Configuration Block) supports the following:
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -159,7 +159,7 @@ def get_identity_pool(display_name: Optional[_builtins.str] = None,
         identity_provider=pulumi.get(__ret__, 'identity_provider'))
 def get_identity_pool_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             identity_provider: pulumi.Input[Optional[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict']]] = None,
+                             identity_provider: pulumi.Input[Optional[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict', 'outputs.GetIdentityPoolIdentityProviderResult']]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -187,7 +187,7 @@ def get_identity_pool_output(display_name: pulumi.Input[Optional[Optional[_built
 
     :param _builtins.str display_name: A human-readable name for the Identity Pool.
     :param _builtins.str id: The ID of the Identity Pool, for example, `pool-xyz456`.
-    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict'] identity_provider: (Required Configuration Block) supports the following:
+    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict', 'outputs.GetIdentityPoolIdentityProviderResult'] identity_provider: (Required Configuration Block) supports the following:
     """
     __args__ = dict()
     __args__['displayName'] = display_name

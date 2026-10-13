@@ -100,7 +100,7 @@ class AwaitableGetProviderIntegrationResult(GetProviderIntegrationResult):
 
 
 def get_provider_integration(display_name: Optional[_builtins.str] = None,
-                             environment: Optional[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']] = None,
+                             environment: Optional[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict', 'outputs.GetProviderIntegrationEnvironmentResult']] = None,
                              id: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderIntegrationResult:
     """
@@ -133,7 +133,7 @@ def get_provider_integration(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: A human-readable name for the Provider Integration.
-    :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict', 'outputs.GetProviderIntegrationEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration, for example, `cspi-4xg0q`.
     """
     __args__ = dict()
@@ -150,7 +150,7 @@ def get_provider_integration(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         usages=pulumi.get(__ret__, 'usages'))
 def get_provider_integration_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                    environment: pulumi.Input[Optional[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']]] = None,
+                                    environment: pulumi.Input[Optional[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict', 'outputs.GetProviderIntegrationEnvironmentResult']]] = None,
                                     id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationResult]:
     """
@@ -183,7 +183,7 @@ def get_provider_integration_output(display_name: pulumi.Input[Optional[Optional
 
 
     :param _builtins.str display_name: A human-readable name for the Provider Integration.
-    :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict', 'outputs.GetProviderIntegrationEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration, for example, `cspi-4xg0q`.
     """
     __args__ = dict()

@@ -124,7 +124,7 @@ class AwaitableGetPrivateLinkAccessResult(GetPrivateLinkAccessResult):
 
 
 def get_private_link_access(display_name: Optional[_builtins.str] = None,
-                            environment: Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']] = None,
+                            environment: Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict', 'outputs.GetPrivateLinkAccessEnvironmentResult']] = None,
                             id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAccessResult:
     """
@@ -152,7 +152,7 @@ def get_private_link_access(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: A human-readable name for the Private Link Access.
-    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict', 'outputs.GetPrivateLinkAccessEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     __args__ = dict()
@@ -171,7 +171,7 @@ def get_private_link_access(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
 def get_private_link_access_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                   environment: pulumi.Input[Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']]] = None,
+                                   environment: pulumi.Input[Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict', 'outputs.GetPrivateLinkAccessEnvironmentResult']]] = None,
                                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAccessResult]:
     """
@@ -199,7 +199,7 @@ def get_private_link_access_output(display_name: pulumi.Input[Optional[Optional[
 
 
     :param _builtins.str display_name: A human-readable name for the Private Link Access.
-    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict', 'outputs.GetPrivateLinkAccessEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     __args__ = dict()

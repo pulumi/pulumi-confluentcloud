@@ -99,10 +99,10 @@ class AwaitableGetSchemasResult(GetSchemasResult):
             schemas=self.schemas)
 
 
-def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict']] = None,
-                filter: Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict']] = None,
+def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict', 'outputs.GetSchemasCredentialsResult']] = None,
+                filter: Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict', 'outputs.GetSchemasFilterResult']] = None,
                 rest_endpoint: Optional[_builtins.str] = None,
-                schema_registry_cluster: Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']] = None,
+                schema_registry_cluster: Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict', 'outputs.GetSchemasSchemaRegistryClusterResult']] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemasResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -165,10 +165,10 @@ def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSch
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         schemas=pulumi.get(__ret__, 'schemas'))
-def get_schemas_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict']]]] = None,
-                       filter: pulumi.Input[Optional[Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict']]]] = None,
+def get_schemas_output(credentials: pulumi.Input[Optional[Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict', 'outputs.GetSchemasCredentialsResult']]]] = None,
+                       filter: pulumi.Input[Optional[Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict', 'outputs.GetSchemasFilterResult']]]] = None,
                        rest_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']]]] = None,
+                       schema_registry_cluster: pulumi.Input[Optional[Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict', 'outputs.GetSchemasSchemaRegistryClusterResult']]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemasResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

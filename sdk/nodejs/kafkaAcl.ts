@@ -79,7 +79,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * // https://github.com/confluentinc/terraform-provider-confluent/issues/241
+ * // https://github.com/confluentinc/pulumi-provider-confluent/issues/241
  * const app_producer_write_on_topic = new confluentcloud.KafkaAcl("app-producer-write-on-topic", {
  *     resourceType: "TOPIC",
  *     resourceName: orders.topicName,

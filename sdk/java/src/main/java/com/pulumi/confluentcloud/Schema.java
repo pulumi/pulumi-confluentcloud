@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
  *             .schemaRegistryCluster(SchemaSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .subjectName("avro-purchase-value")
  *             .format("AVRO")
- *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).get("result"))
  *             .credentials(SchemaCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
  *             .subjectName("avro-purchase-value")
  *             .format("AVRO")
- *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).get("result"))
  *             .build());
  * 
  *     }
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
  *             .subjectName("avro-purchase-value")
  *             .format("AVRO")
- *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).get("result"))
  *             .metadata(SchemaMetadataArgs.builder()
  *                 .properties(Map.ofEntries(
  *                     Map.entry("owner", "Bob Jones"),
@@ -253,7 +253,7 @@ import javax.annotation.Nullable;
  *         var avro_user_cspe = new Schema("avro-user-cspe", SchemaArgs.builder()
  *             .subjectName("avro-user-value")
  *             .format("AVRO")
- *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/user.avsc")).result())
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/user.avsc")).get("result"))
  *             .ruleset(SchemaRulesetArgs.builder()
  *                 .encodingRules(                
  *                     SchemaRulesetEncodingRuleArgs.builder()

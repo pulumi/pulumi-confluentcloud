@@ -238,7 +238,7 @@ class CertificatePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -317,7 +317,7 @@ class CertificatePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
                
                > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
-        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -413,7 +413,7 @@ class CertificatePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -454,7 +454,7 @@ class CertificatePool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']]] = None,
+            certificate_authority: pulumi.Input[Optional[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             external_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -469,7 +469,7 @@ class CertificatePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] assigned_resource_owner: The resource_id of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
                
                > **Note:** `assigned_resource_owner` takes effect only when the Certificate Pool is created. Adding it to the configuration of an existing Certificate Pool, or changing it, replaces the Certificate Pool; removing it from the configuration leaves the Certificate Pool unchanged. To add it to a Certificate Pool that already exists without replacing it, re-import the Certificate Pool instead; see Import.
-        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict']] certificate_authority: The certificate authority that the resource belongs to.
+        :param pulumi.Input[Union['CertificatePoolCertificateAuthorityArgs', 'CertificatePoolCertificateAuthorityArgsDict', 'outputs.CertificatePoolCertificateAuthority']] certificate_authority: The certificate authority that the resource belongs to.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.

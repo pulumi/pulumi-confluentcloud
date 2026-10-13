@@ -112,7 +112,7 @@ class AwaitableGetConnectArtifactResult(GetConnectArtifactResult):
 
 
 def get_connect_artifact(cloud: Optional[_builtins.str] = None,
-                         environment: Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict']] = None,
+                         environment: Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict', 'outputs.GetConnectArtifactEnvironmentResult']] = None,
                          id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectArtifactResult:
     """
@@ -157,7 +157,7 @@ def get_connect_artifact(cloud: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
 def get_connect_artifact_output(cloud: pulumi.Input[Optional[_builtins.str]] = None,
-                                environment: pulumi.Input[Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict']]] = None,
+                                environment: pulumi.Input[Optional[Union['GetConnectArtifactEnvironmentArgs', 'GetConnectArtifactEnvironmentArgsDict', 'outputs.GetConnectArtifactEnvironmentResult']]] = None,
                                 id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectArtifactResult]:
     """

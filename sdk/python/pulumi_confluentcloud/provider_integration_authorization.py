@@ -168,9 +168,9 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']]] = None,
                  provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -207,7 +207,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             azure={
                 "customer_azure_tenant_id": azure_tenant_id,
             })
-        # Automatically create the service principal using Azure Terraform Provider
+        # Automatically create the service principal using Azure Pulumi Provider
         confluent = azuread.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("servicePrincipalObjectId", confluent["objectId"])
@@ -261,7 +261,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             gcp={
                 "customer_google_service_account": gcp_service_account,
             })
-        # Grant IAM permissions using Google Terraform Provider
+        # Grant IAM permissions using Google Pulumi Provider
         confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
             project=gcp_project_id,
             role=roles/iam.serviceAccountTokenCreator,
@@ -340,9 +340,9 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']] gcp: (Optional Configuration Block) GCP-specific configuration details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']] gcp: (Optional Configuration Block) GCP-specific configuration details. It supports the following:
         :param pulumi.Input[_builtins.str] provider_integration_id: The ID of the provider integration to authorize.
         """
         ...
@@ -385,7 +385,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             azure={
                 "customer_azure_tenant_id": azure_tenant_id,
             })
-        # Automatically create the service principal using Azure Terraform Provider
+        # Automatically create the service principal using Azure Pulumi Provider
         confluent = azuread.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("servicePrincipalObjectId", confluent["objectId"])
@@ -439,7 +439,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
             gcp={
                 "customer_google_service_account": gcp_service_account,
             })
-        # Grant IAM permissions using Google Terraform Provider
+        # Grant IAM permissions using Google Pulumi Provider
         confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
             project=gcp_project_id,
             role=roles/iam.serviceAccountTokenCreator,
@@ -531,9 +531,9 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']]] = None,
                  provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -562,9 +562,9 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']]] = None,
-            environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
-            gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']]] = None,
+            gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']]] = None,
             provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProviderIntegrationAuthorization':
         """
         Get an existing ProviderIntegrationAuthorization resource's state with the given name, id, and optional extra
@@ -573,9 +573,9 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict']] gcp: (Optional Configuration Block) GCP-specific configuration details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']] gcp: (Optional Configuration Block) GCP-specific configuration details. It supports the following:
         :param pulumi.Input[_builtins.str] provider_integration_id: The ID of the provider integration to authorize.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -169,7 +169,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict', 'outputs.ProviderIntegrationSetupEnvironment']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -258,7 +258,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider. Supported values are `AZURE` and `GCP`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
-        :param pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict', 'outputs.ProviderIntegrationSetupEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         ...
     @overload
@@ -366,7 +366,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict', 'outputs.ProviderIntegrationSetupEnvironment']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,7 +399,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict', 'outputs.ProviderIntegrationSetupEnvironment']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             usages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProviderIntegrationSetup':
         """
@@ -411,7 +411,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider. Supported values are `AZURE` and `GCP`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
-        :param pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict', 'outputs.ProviderIntegrationSetupEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] status: (Required String) The status of the Provider Integration. Values are `DRAFT` and `CREATED`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] usages: (Required List of Strings) List of resource CRNs where this provider integration is being used.
         """

@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  *         id: "env-xyz456",
  *     },
  * });
- * // Use the integration with authorization data source
+ * // Use the integration with authorization function
  * const mainGetProviderIntegrationAuthorization = main.then(main => confluentcloud.getProviderIntegrationAuthorization({
  *     id: main.id,
  *     environment: {
@@ -175,7 +175,7 @@ export interface GetProviderIntegrationSetupResult {
  *         id: "env-xyz456",
  *     },
  * });
- * // Use the integration with authorization data source
+ * // Use the integration with authorization function
  * const mainGetProviderIntegrationAuthorization = main.then(main => confluentcloud.getProviderIntegrationAuthorization({
  *     id: main.id,
  *     environment: {

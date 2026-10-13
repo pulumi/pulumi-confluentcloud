@@ -303,14 +303,14 @@ class CatalogIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
-                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
+                 aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']]] = None,
+                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']]] = None,
+                 credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict']]] = None,
-                 snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']]] = None,
-                 unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict', 'outputs.CatalogIntegrationKafkaCluster']]] = None,
+                 snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']]] = None,
+                 unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -388,13 +388,13 @@ class CatalogIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
-        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
-        :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
+        :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
-        :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
-        :param pulumi.Input[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict']] unity: supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']] unity: supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
         """
         ...
     @overload
@@ -491,14 +491,14 @@ class CatalogIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
-                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
+                 aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']]] = None,
+                 biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']]] = None,
+                 credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict']]] = None,
-                 snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']]] = None,
-                 unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict', 'outputs.CatalogIntegrationKafkaCluster']]] = None,
+                 snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']]] = None,
+                 unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,15 +535,15 @@ class CatalogIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']]] = None,
-            biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']]] = None,
-            credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']]] = None,
+            aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']]] = None,
+            biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']]] = None,
+            credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']]] = None,
-            kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict']]] = None,
-            snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict', 'outputs.CatalogIntegrationKafkaCluster']]] = None,
+            snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']]] = None,
             suspended: pulumi.Input[Optional[_builtins.bool]] = None,
-            unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict']]] = None) -> 'CatalogIntegration':
+            unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']]] = None) -> 'CatalogIntegration':
         """
         Get an existing CatalogIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -551,14 +551,14 @@ class CatalogIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
-        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
-        :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']] biglake_metastore: The catalog integration connection configuration for BigLake Metastore.
+        :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
-        :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         :param pulumi.Input[_builtins.bool] suspended: (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
-        :param pulumi.Input[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict']] unity: supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+        :param pulumi.Input[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']] unity: supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

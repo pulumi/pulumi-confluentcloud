@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/issues/241
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/issues/241
     ///     var app_producer_write_on_topic = new ConfluentCloud.KafkaAcl("app-producer-write-on-topic", new()
     ///     {
     ///         ResourceType = "TOPIC",

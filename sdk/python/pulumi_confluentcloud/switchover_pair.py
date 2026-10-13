@@ -217,7 +217,7 @@ class SwitchoverPair(pulumi.CustomResource):
                  active_member: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_crn: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict', 'outputs.SwitchoverPairMember']]]]] = None,
                  __props__=None):
         """
         [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -274,7 +274,7 @@ class SwitchoverPair(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] active_member: The name of the member that is active when the pair is created; must match one of the `members[].name` values. After creation the Switchover service owns this value: it is read back from the API and always reflects the currently active member, and changing it in the configuration has no effect (no plan is produced). To change which member is active, trigger a failover through the Switchover API's `:failover` operation (for example with the Confluent CLI).
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the switchover pair.
         :param pulumi.Input[_builtins.str] environment_crn: The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict']]]] members: (Required Configuration Block) In addition to the arguments above, each member exports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict', 'outputs.SwitchoverPairMember']]]] members: (Required Configuration Block) In addition to the arguments above, each member exports the following:
         """
         ...
     @overload
@@ -350,7 +350,7 @@ class SwitchoverPair(pulumi.CustomResource):
                  active_member: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_crn: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict', 'outputs.SwitchoverPairMember']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -390,7 +390,7 @@ class SwitchoverPair(pulumi.CustomResource):
             environment_crn: pulumi.Input[Optional[_builtins.str]] = None,
             failover_type: pulumi.Input[Optional[_builtins.str]] = None,
             first_active: pulumi.Input[Optional[_builtins.str]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict', 'outputs.SwitchoverPairMember']]]]] = None,
             phase: pulumi.Input[Optional[_builtins.str]] = None) -> 'SwitchoverPair':
         """
         Get an existing SwitchoverPair resource's state with the given name, id, and optional extra
@@ -404,7 +404,7 @@ class SwitchoverPair(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_crn: The CRN of the environment that owns this switchover pair, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123`.
         :param pulumi.Input[_builtins.str] failover_type: (Required String) The failover semantics most recently applied to this pair (`PLANNED`, `UNPLANNED`, or `RESTORE`). Empty until a failover has been triggered.
         :param pulumi.Input[_builtins.str] first_active: (Required String) The name of the member that was active when the pair was first created. Compare with `active_member` to tell whether the pair is currently failed over.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict']]]] members: (Required Configuration Block) In addition to the arguments above, each member exports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverPairMemberArgs', 'SwitchoverPairMemberArgsDict', 'outputs.SwitchoverPairMember']]]] members: (Required Configuration Block) In addition to the arguments above, each member exports the following:
         :param pulumi.Input[_builtins.str] phase: (Required String) The lifecycle phase of the switchover pair, for example, `PROVISIONING`, `READY_TO_FAILOVER`, `UPDATING`, `READY_TO_RESTORE`, `FAILED`, or `DEPROVISIONING`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

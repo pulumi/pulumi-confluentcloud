@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .domain("example.com")
  *             .gateway(DnsRecordGatewayArgs.builder()
- *                 .id(mainConfluentNetwork.gateway()[0].id())
+ *                 .id(mainConfluentNetwork.get("gateway")[0].get("id"))
  *                 .build())
  *             .privateLinkAccessPoint(DnsRecordPrivateLinkAccessPointArgs.builder()
- *                 .id(mainConfluentAccessPoint.id())
+ *                 .id(mainConfluentAccessPoint.get("id"))
  *                 .build())
  *             .build());
  * 

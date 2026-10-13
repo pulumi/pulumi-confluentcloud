@@ -55,42 +55,42 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         var environment = new CatalogEntityAttributes("environment", CatalogEntityAttributesArgs.builder()
  *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
- *             .entityName(main.id())
+ *             .entityName(main.get("id"))
  *             .entityType("cf_environment")
  *             .attributes(Map.of("description", "Environment description"))
  *             .build());
  * 
  *         var kafka_cluster = new CatalogEntityAttributes("kafka-cluster", CatalogEntityAttributesArgs.builder()
  *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
- *             .entityName(basic.id())
+ *             .entityName(basic.get("id"))
  *             .entityType("kafka_logical_cluster")
  *             .attributes(Map.of("description", "Kafka Cluster description"))
  *             .build());
  * 
  *         var topic = new CatalogEntityAttributes("topic", CatalogEntityAttributesArgs.builder()
  *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
- *             .entityName(String.format("%s:%s", basic.id(),purchase.topicName()))
+ *             .entityName(String.format("%s:%s", basic.get("id"),purchase.get("topicName")))
  *             .entityType("kafka_topic")
  *             .attributes(Map.ofEntries(
  *                 Map.entry("owner", "dev"),
@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
  * 
  *         var schema = new CatalogEntityAttributes("schema", CatalogEntityAttributesArgs.builder()
  *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
- *             .entityName(String.format("%s:.:%s", essentials.id(),purchaseConfluentSchema.schemaIdentifier()))
+ *             .entityName(String.format("%s:.:%s", essentials.get("id"),purchaseConfluentSchema.get("schemaIdentifier")))
  *             .entityType("sr_schema")
  *             .attributes(Map.of("description", "Schema description"))
  *             .build());
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var schema = new CatalogEntityAttributes("schema", CatalogEntityAttributesArgs.builder()
- *             .entityName(String.format("%s:.:%s", schemaRegistryClusterId,purchase.schemaIdentifier()))
+ *             .entityName(String.format("%s:.:%s", schemaRegistryClusterId,purchase.get("schemaIdentifier")))
  *             .entityType("sr_schema")
  *             .attributes(Map.of("description", "Schema description"))
  *             .build());

@@ -264,7 +264,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
 
 
 def get_network(display_name: Optional[_builtins.str] = None,
-                environment: Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']] = None,
+                environment: Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict', 'outputs.GetNetworkEnvironmentResult']] = None,
                 id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
@@ -336,7 +336,7 @@ def get_network(display_name: Optional[_builtins.str] = None,
         zone_infos=pulumi.get(__ret__, 'zone_infos'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_network_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       environment: pulumi.Input[Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
+                       environment: pulumi.Input[Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict', 'outputs.GetNetworkEnvironmentResult']]] = None,
                        id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """

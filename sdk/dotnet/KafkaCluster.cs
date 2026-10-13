@@ -39,7 +39,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AWS",
     ///         Region = "us-east-2",
-    ///         Basic = null,
+    ///         Basic = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AWS",
     ///         Region = "us-east-2",
-    ///         Standard = null,
+    ///         Standard = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -131,7 +131,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
-    ///         Basic = null,
+    ///         Basic = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -144,7 +144,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
-    ///         Standard = null,
+    ///         Standard = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -207,7 +207,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "GCP",
     ///         Region = "us-central1",
-    ///         Basic = null,
+    ///         Basic = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -220,7 +220,7 @@ namespace Pulumi.ConfluentCloud
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "GCP",
     ///         Region = "us-central1",
-    ///         Standard = null,
+    ///         Standard = new() { },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,

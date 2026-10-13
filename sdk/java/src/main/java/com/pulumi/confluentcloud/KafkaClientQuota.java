@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *                 .egressByteRate("200")
  *                 .build())
  *             .principals(            
- *                 appManager.id(),
- *                 appManager2.id())
+ *                 appManager.get("id"),
+ *                 appManager2.get("id"))
  *             .kafkaCluster(KafkaClientQuotaKafkaClusterArgs.builder()
- *                 .id(dedicated.id())
+ *                 .id(dedicated.get("id"))
  *                 .build())
  *             .environment(KafkaClientQuotaEnvironmentArgs.builder()
- *                 .id(development.id())
+ *                 .id(development.get("id"))
  *                 .build())
  *             .build());
  * 

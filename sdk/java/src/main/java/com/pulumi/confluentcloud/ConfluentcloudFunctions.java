@@ -487,9 +487,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -575,9 +575,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -663,9 +663,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -751,9 +751,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -839,9 +839,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -927,15 +927,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
      *                 .build())
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -969,8 +969,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1019,15 +1019,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
      *                 .build())
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1061,8 +1061,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1111,15 +1111,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
      *                 .build())
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1153,8 +1153,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1203,15 +1203,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
      *                 .build())
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1245,8 +1245,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1295,15 +1295,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
      *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
      *                 .build())
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1337,8 +1337,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
-     *             .businessMetadataName(pii.name())
-     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .businessMetadataName(pii.get("name"))
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.get("topicName")))
      *             .entityType("kafka_topic")
      *             .build());
      * 
@@ -1603,15 +1603,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
      *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .id("tci-abc123")
      *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -1695,15 +1695,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
      *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .id("tci-abc123")
      *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -1787,15 +1787,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
      *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .id("tci-abc123")
      *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -1879,15 +1879,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
      *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .id("tci-abc123")
      *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -1971,15 +1971,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
      *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .id("tci-abc123")
      *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -2552,13 +2552,13 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .credentials(GetClusterLinkCredentialsArgs.builder()
-     *                 .key(app_manager_west_cluster_api_key.id())
-     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .key(app_manager_west_cluster_api_key.get("id"))
+     *                 .secret(app_manager_west_cluster_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -2629,9 +2629,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -2680,13 +2680,13 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .credentials(GetClusterLinkCredentialsArgs.builder()
-     *                 .key(app_manager_west_cluster_api_key.id())
-     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .key(app_manager_west_cluster_api_key.get("id"))
+     *                 .secret(app_manager_west_cluster_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -2757,9 +2757,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -2808,13 +2808,13 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .credentials(GetClusterLinkCredentialsArgs.builder()
-     *                 .key(app_manager_west_cluster_api_key.id())
-     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .key(app_manager_west_cluster_api_key.get("id"))
+     *                 .secret(app_manager_west_cluster_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -2885,9 +2885,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -2936,13 +2936,13 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .credentials(GetClusterLinkCredentialsArgs.builder()
-     *                 .key(app_manager_west_cluster_api_key.id())
-     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .key(app_manager_west_cluster_api_key.get("id"))
+     *                 .secret(app_manager_west_cluster_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -3013,9 +3013,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -3064,13 +3064,13 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .credentials(GetClusterLinkCredentialsArgs.builder()
-     *                 .key(app_manager_west_cluster_api_key.id())
-     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .key(app_manager_west_cluster_api_key.get("id"))
+     *                 .secret(app_manager_west_cluster_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -3141,9 +3141,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
      *             .linkName("main-link")
-     *             .restEndpoint(west.restEndpoint())
+     *             .restEndpoint(west.get("restEndpoint"))
      *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
-     *                 .id(west.id())
+     *                 .id(west.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -5771,21 +5771,21 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
      *             .organization(GetFlinkConnectionOrganizationArgs.builder()
-     *                 .id(mainConfluentOrganization.id())
+     *                 .id(mainConfluentOrganization.get("id"))
      *                 .build())
      *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
-     *                 .id(example.id())
+     *                 .id(example.get("id"))
      *                 .build())
      *             .principal(GetFlinkConnectionPrincipalArgs.builder()
-     *                 .id(app_manager_flink.id())
+     *                 .id(app_manager_flink.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
-     *                 .key(env_admin_flink_api_key.id())
-     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .key(env_admin_flink_api_key.get("id"))
+     *                 .secret(env_admin_flink_api_key.get("secret"))
      *                 .build())
      *             .displayName("connection1")
      *             .type("OPENAI")
@@ -5874,21 +5874,21 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
      *             .organization(GetFlinkConnectionOrganizationArgs.builder()
-     *                 .id(mainConfluentOrganization.id())
+     *                 .id(mainConfluentOrganization.get("id"))
      *                 .build())
      *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
-     *                 .id(example.id())
+     *                 .id(example.get("id"))
      *                 .build())
      *             .principal(GetFlinkConnectionPrincipalArgs.builder()
-     *                 .id(app_manager_flink.id())
+     *                 .id(app_manager_flink.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
-     *                 .key(env_admin_flink_api_key.id())
-     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .key(env_admin_flink_api_key.get("id"))
+     *                 .secret(env_admin_flink_api_key.get("secret"))
      *                 .build())
      *             .displayName("connection1")
      *             .type("OPENAI")
@@ -5977,21 +5977,21 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
      *             .organization(GetFlinkConnectionOrganizationArgs.builder()
-     *                 .id(mainConfluentOrganization.id())
+     *                 .id(mainConfluentOrganization.get("id"))
      *                 .build())
      *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
-     *                 .id(example.id())
+     *                 .id(example.get("id"))
      *                 .build())
      *             .principal(GetFlinkConnectionPrincipalArgs.builder()
-     *                 .id(app_manager_flink.id())
+     *                 .id(app_manager_flink.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
-     *                 .key(env_admin_flink_api_key.id())
-     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .key(env_admin_flink_api_key.get("id"))
+     *                 .secret(env_admin_flink_api_key.get("secret"))
      *                 .build())
      *             .displayName("connection1")
      *             .type("OPENAI")
@@ -6080,21 +6080,21 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
      *             .organization(GetFlinkConnectionOrganizationArgs.builder()
-     *                 .id(mainConfluentOrganization.id())
+     *                 .id(mainConfluentOrganization.get("id"))
      *                 .build())
      *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
-     *                 .id(example.id())
+     *                 .id(example.get("id"))
      *                 .build())
      *             .principal(GetFlinkConnectionPrincipalArgs.builder()
-     *                 .id(app_manager_flink.id())
+     *                 .id(app_manager_flink.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
-     *                 .key(env_admin_flink_api_key.id())
-     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .key(env_admin_flink_api_key.get("id"))
+     *                 .secret(env_admin_flink_api_key.get("secret"))
      *                 .build())
      *             .displayName("connection1")
      *             .type("OPENAI")
@@ -6183,21 +6183,21 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
      *             .organization(GetFlinkConnectionOrganizationArgs.builder()
-     *                 .id(mainConfluentOrganization.id())
+     *                 .id(mainConfluentOrganization.get("id"))
      *                 .build())
      *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
-     *                 .id(example.id())
+     *                 .id(example.get("id"))
      *                 .build())
      *             .principal(GetFlinkConnectionPrincipalArgs.builder()
-     *                 .id(app_manager_flink.id())
+     *                 .id(app_manager_flink.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
-     *                 .key(env_admin_flink_api_key.id())
-     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .key(env_admin_flink_api_key.get("id"))
+     *                 .secret(env_admin_flink_api_key.get("secret"))
      *                 .build())
      *             .displayName("connection1")
      *             .type("OPENAI")
@@ -6285,18 +6285,18 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
      *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
-     *                 .id(main.id())
+     *                 .id(main.get("id"))
      *                 .build())
      *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
-     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .id(exampleConfluentFlinkComputePool.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
-     *                 .key(flink.id())
-     *                 .secret(flink.secret())
+     *                 .key(flink.get("id"))
+     *                 .secret(flink.get("secret"))
      *                 .build())
      *             .displayName("my_materialized_table")
      *             .build());
@@ -6382,18 +6382,18 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
      *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
-     *                 .id(main.id())
+     *                 .id(main.get("id"))
      *                 .build())
      *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
-     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .id(exampleConfluentFlinkComputePool.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
-     *                 .key(flink.id())
-     *                 .secret(flink.secret())
+     *                 .key(flink.get("id"))
+     *                 .secret(flink.get("secret"))
      *                 .build())
      *             .displayName("my_materialized_table")
      *             .build());
@@ -6479,18 +6479,18 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
      *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
-     *                 .id(main.id())
+     *                 .id(main.get("id"))
      *                 .build())
      *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
-     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .id(exampleConfluentFlinkComputePool.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
-     *                 .key(flink.id())
-     *                 .secret(flink.secret())
+     *                 .key(flink.get("id"))
+     *                 .secret(flink.get("secret"))
      *                 .build())
      *             .displayName("my_materialized_table")
      *             .build());
@@ -6576,18 +6576,18 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
      *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
-     *                 .id(main.id())
+     *                 .id(main.get("id"))
      *                 .build())
      *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
-     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .id(exampleConfluentFlinkComputePool.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
-     *                 .key(flink.id())
-     *                 .secret(flink.secret())
+     *                 .key(flink.get("id"))
+     *                 .secret(flink.get("secret"))
      *                 .build())
      *             .displayName("my_materialized_table")
      *             .build());
@@ -6673,18 +6673,18 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
      *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
-     *                 .id(main.id())
+     *                 .id(main.get("id"))
      *                 .build())
      *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
-     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .id(exampleConfluentFlinkComputePool.get("id"))
      *                 .build())
-     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .restEndpoint(mainConfluentFlinkRegion.get("restEndpoint"))
      *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
-     *                 .key(flink.id())
-     *                 .secret(flink.secret())
+     *                 .key(flink.get("id"))
+     *                 .secret(flink.get("secret"))
      *                 .build())
      *             .displayName("my_materialized_table")
      *             .build());
@@ -10315,10 +10315,10 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
      *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(basic_cluster.id())
+     *                 .id(basic_cluster.get("id"))
      *                 .build())
      *             .topicName("orders")
-     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .restEndpoint(basic_cluster.get("restEndpoint"))
      *             .credentials(GetKafkaTopicCredentialsArgs.builder()
      *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
      *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
@@ -10404,10 +10404,10 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
      *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(basic_cluster.id())
+     *                 .id(basic_cluster.get("id"))
      *                 .build())
      *             .topicName("orders")
-     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .restEndpoint(basic_cluster.get("restEndpoint"))
      *             .credentials(GetKafkaTopicCredentialsArgs.builder()
      *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
      *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
@@ -10493,10 +10493,10 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
      *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(basic_cluster.id())
+     *                 .id(basic_cluster.get("id"))
      *                 .build())
      *             .topicName("orders")
-     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .restEndpoint(basic_cluster.get("restEndpoint"))
      *             .credentials(GetKafkaTopicCredentialsArgs.builder()
      *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
      *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
@@ -10582,10 +10582,10 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
      *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(basic_cluster.id())
+     *                 .id(basic_cluster.get("id"))
      *                 .build())
      *             .topicName("orders")
-     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .restEndpoint(basic_cluster.get("restEndpoint"))
      *             .credentials(GetKafkaTopicCredentialsArgs.builder()
      *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
      *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
@@ -10671,10 +10671,10 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
      *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(basic_cluster.id())
+     *                 .id(basic_cluster.get("id"))
      *                 .build())
      *             .topicName("orders")
-     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .restEndpoint(basic_cluster.get("restEndpoint"))
      *             .credentials(GetKafkaTopicCredentialsArgs.builder()
      *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
      *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
@@ -13991,13 +13991,13 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Create the service principal using Azure Terraform Provider
+     *         // Create the service principal using Azure Pulumi Provider
      *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
      *             .clientId(azure.azures()[0].confluentMultiTenantAppId())
      *             .build());
      * 
      *         ctx.export("azureAppId", azure.azures()[0].confluentMultiTenantAppId());
-     *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+     *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
      *     }
      * }
      * }
@@ -14081,7 +14081,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Grant IAM permissions using Google Terraform Provider
+     *         // Grant IAM permissions using Google Pulumi Provider
      *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
@@ -14249,13 +14249,13 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Create the service principal using Azure Terraform Provider
+     *         // Create the service principal using Azure Pulumi Provider
      *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
      *             .clientId(azure.azures()[0].confluentMultiTenantAppId())
      *             .build());
      * 
      *         ctx.export("azureAppId", azure.azures()[0].confluentMultiTenantAppId());
-     *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+     *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
      *     }
      * }
      * }
@@ -14339,7 +14339,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Grant IAM permissions using Google Terraform Provider
+     *         // Grant IAM permissions using Google Pulumi Provider
      *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
@@ -14507,13 +14507,13 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Create the service principal using Azure Terraform Provider
+     *         // Create the service principal using Azure Pulumi Provider
      *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
      *             .clientId(azure.azures()[0].confluentMultiTenantAppId())
      *             .build());
      * 
      *         ctx.export("azureAppId", azure.azures()[0].confluentMultiTenantAppId());
-     *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+     *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
      *     }
      * }
      * }
@@ -14597,7 +14597,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Grant IAM permissions using Google Terraform Provider
+     *         // Grant IAM permissions using Google Pulumi Provider
      *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
@@ -14765,13 +14765,13 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Create the service principal using Azure Terraform Provider
+     *         // Create the service principal using Azure Pulumi Provider
      *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
      *             .clientId(azure.azures()[0].confluentMultiTenantAppId())
      *             .build());
      * 
      *         ctx.export("azureAppId", azure.azures()[0].confluentMultiTenantAppId());
-     *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+     *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
      *     }
      * }
      * }
@@ -14855,7 +14855,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Grant IAM permissions using Google Terraform Provider
+     *         // Grant IAM permissions using Google Pulumi Provider
      *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
@@ -15023,13 +15023,13 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Create the service principal using Azure Terraform Provider
+     *         // Create the service principal using Azure Pulumi Provider
      *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
      *             .clientId(azure.azures()[0].confluentMultiTenantAppId())
      *             .build());
      * 
      *         ctx.export("azureAppId", azure.azures()[0].confluentMultiTenantAppId());
-     *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+     *         ctx.export("servicePrincipalObjectId", confluent.get("objectId"));
      *     }
      * }
      * }
@@ -15113,7 +15113,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Grant IAM permissions using Google Terraform Provider
+     *         // Grant IAM permissions using Google Pulumi Provider
      *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
      *             .project(gcpProjectId)
      *             .role("roles/iam.serviceAccountTokenCreator")
@@ -15352,7 +15352,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Use the integration with authorization data source
+     *         // Use the integration with authorization function
      *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id(main.id())
      *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
@@ -15492,7 +15492,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Use the integration with authorization data source
+     *         // Use the integration with authorization function
      *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id(main.id())
      *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
@@ -15632,7 +15632,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Use the integration with authorization data source
+     *         // Use the integration with authorization function
      *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id(main.id())
      *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
@@ -15772,7 +15772,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Use the integration with authorization data source
+     *         // Use the integration with authorization function
      *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id(main.id())
      *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
@@ -15912,7 +15912,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         // Use the integration with authorization data source
+     *         // Use the integration with authorization function
      *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id(main.id())
      *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
@@ -16450,9 +16450,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
      *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .schemaIdentifier(10001)
      *             .credentials(GetSchemaCredentialsArgs.builder()
@@ -16541,9 +16541,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
      *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .schemaIdentifier(10001)
      *             .credentials(GetSchemaCredentialsArgs.builder()
@@ -16632,9 +16632,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
      *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .schemaIdentifier(10001)
      *             .credentials(GetSchemaCredentialsArgs.builder()
@@ -16723,9 +16723,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
      *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .schemaIdentifier(10001)
      *             .credentials(GetSchemaCredentialsArgs.builder()
@@ -16814,9 +16814,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
      *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .schemaIdentifier(10001)
      *             .credentials(GetSchemaCredentialsArgs.builder()
@@ -16906,9 +16906,9 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // If the environment (and its Schema Registry cluster) is provisioned in the
-     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // same pulumi up command, add it to the function's depends_on. This
      *         // ensures the Schema Registry cluster has finished provisioning before the
-     *         // data source is queried, even though the environment.id reference below
+     *         // function is queried, even though the environment.id reference below
      *         // already creates an implicit ordering dependency.
      *         var staging = new Environment("staging", EnvironmentArgs.builder()
      *             .displayName("staging")
@@ -16986,9 +16986,9 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // If the environment (and its Schema Registry cluster) is provisioned in the
-     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // same pulumi up command, add it to the function's depends_on. This
      *         // ensures the Schema Registry cluster has finished provisioning before the
-     *         // data source is queried, even though the environment.id reference below
+     *         // function is queried, even though the environment.id reference below
      *         // already creates an implicit ordering dependency.
      *         var staging = new Environment("staging", EnvironmentArgs.builder()
      *             .displayName("staging")
@@ -17066,9 +17066,9 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // If the environment (and its Schema Registry cluster) is provisioned in the
-     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // same pulumi up command, add it to the function's depends_on. This
      *         // ensures the Schema Registry cluster has finished provisioning before the
-     *         // data source is queried, even though the environment.id reference below
+     *         // function is queried, even though the environment.id reference below
      *         // already creates an implicit ordering dependency.
      *         var staging = new Environment("staging", EnvironmentArgs.builder()
      *             .displayName("staging")
@@ -17146,9 +17146,9 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // If the environment (and its Schema Registry cluster) is provisioned in the
-     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // same pulumi up command, add it to the function's depends_on. This
      *         // ensures the Schema Registry cluster has finished provisioning before the
-     *         // data source is queried, even though the environment.id reference below
+     *         // function is queried, even though the environment.id reference below
      *         // already creates an implicit ordering dependency.
      *         var staging = new Environment("staging", EnvironmentArgs.builder()
      *             .displayName("staging")
@@ -17226,9 +17226,9 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // If the environment (and its Schema Registry cluster) is provisioned in the
-     *         // same pulumi up command, add it to the data source's depends_on. This
+     *         // same pulumi up command, add it to the function's depends_on. This
      *         // ensures the Schema Registry cluster has finished provisioning before the
-     *         // data source is queried, even though the environment.id reference below
+     *         // function is queried, even though the environment.id reference below
      *         // already creates an implicit ordering dependency.
      *         var staging = new Environment("staging", EnvironmentArgs.builder()
      *             .displayName("staging")
@@ -17305,9 +17305,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17392,9 +17392,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17479,9 +17479,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17566,9 +17566,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17653,9 +17653,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17740,9 +17740,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17827,9 +17827,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -17914,9 +17914,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18001,9 +18001,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18088,9 +18088,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18175,9 +18175,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18262,9 +18262,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18349,9 +18349,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18436,9 +18436,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18838,9 +18838,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -18927,9 +18927,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19016,9 +19016,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19105,9 +19105,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19194,9 +19194,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19283,9 +19283,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19370,9 +19370,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19457,9 +19457,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19544,9 +19544,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19631,9 +19631,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
      *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -19719,9 +19719,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -19818,9 +19818,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -19917,9 +19917,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -20016,9 +20016,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -20115,9 +20115,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -20214,9 +20214,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -20313,9 +20313,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
      *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .filter(GetSchemasFilterArgs.builder()
      *                 .subjectPrefix("examples.record")
      *                 .latestOnly(false)
@@ -20782,9 +20782,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
      *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
@@ -20871,9 +20871,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
      *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
@@ -20960,9 +20960,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
      *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
@@ -21049,9 +21049,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
      *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
@@ -21138,9 +21138,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSubjectConfig(GetSubjectConfigArgs.builder()
      *             .schemaRegistryCluster(GetSubjectConfigSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectConfigCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for confluent_schema_registry_region.essentials>")
@@ -21227,9 +21227,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
      *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
@@ -21316,9 +21316,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
      *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
@@ -21405,9 +21405,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
      *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
@@ -21494,9 +21494,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
      *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
@@ -21583,9 +21583,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
      *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .subjectName("proto-purchase-value")
      *             .credentials(GetSubjectModeCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
@@ -22243,15 +22243,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
      *             .environment(GetTableflowTopicEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .displayName("tableflow-example")
      *             .credentials(GetTableflowTopicCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -22335,15 +22335,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
      *             .environment(GetTableflowTopicEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .displayName("tableflow-example")
      *             .credentials(GetTableflowTopicCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -22427,15 +22427,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
      *             .environment(GetTableflowTopicEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .displayName("tableflow-example")
      *             .credentials(GetTableflowTopicCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -22519,15 +22519,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
      *             .environment(GetTableflowTopicEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .displayName("tableflow-example")
      *             .credentials(GetTableflowTopicCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -22611,15 +22611,15 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
      *             .environment(GetTableflowTopicEnvironmentArgs.builder()
-     *                 .id(staging.id())
+     *                 .id(staging.get("id"))
      *                 .build())
      *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
-     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .id(stagingConfluentKafkaCluster.get("id"))
      *                 .build())
      *             .displayName("tableflow-example")
      *             .credentials(GetTableflowTopicCredentialsArgs.builder()
-     *                 .key(env_admin_tableflow_api_key.id())
-     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .key(env_admin_tableflow_api_key.get("id"))
+     *                 .secret(env_admin_tableflow_api_key.get("secret"))
      *                 .build())
      *             .build());
      * 
@@ -22702,9 +22702,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
      *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -22790,9 +22790,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
      *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -22878,9 +22878,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
      *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -22966,9 +22966,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
      *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23054,9 +23054,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
      *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23142,9 +23142,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
      *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23234,9 +23234,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
      *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23326,9 +23326,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
      *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23418,9 +23418,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
      *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -23510,9 +23510,9 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
      *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
-     *                 .id(essentials.id())
+     *                 .id(essentials.get("id"))
      *                 .build())
-     *             .restEndpoint(essentials.restEndpoint())
+     *             .restEndpoint(essentials.get("restEndpoint"))
      *             .credentials(GetTagBindingCredentialsArgs.builder()
      *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
      *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")

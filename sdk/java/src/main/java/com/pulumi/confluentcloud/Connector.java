@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
  *         var source = new Connector("source", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *             ))
@@ -70,8 +70,8 @@ import javax.annotation.Nullable;
  *                 Map.entry("connector.class", "DatagenSource"),
  *                 Map.entry("name", "DatagenSourceConnector_0"),
  *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
- *                 Map.entry("kafka.service.account.id", app_connector.id()),
- *                 Map.entry("kafka.topic", orders.topicName()),
+ *                 Map.entry("kafka.service.account.id", app_connector.get("id")),
+ *                 Map.entry("kafka.topic", orders.get("topicName")),
  *                 Map.entry("output.data.format", "JSON"),
  *                 Map.entry("quickstart", "ORDERS"),
  *                 Map.entry("tasks.max", "1")
@@ -115,25 +115,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
  *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry("aws.access.key.id", "***REDACTED***"),
  *                 Map.entry("aws.secret.access.key", "***REDACTED***")
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("topics", orders.get("topicName")),
  *                 Map.entry("input.data.format", "JSON"),
  *                 Map.entry("connector.class", "S3_SINK"),
  *                 Map.entry("name", "S3_SINKConnector_0"),
  *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
- *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("kafka.service.account.id", app_connector.get("id")),
  *                 Map.entry("s3.bucket.name", "<s3-bucket-name>"),
  *                 Map.entry("output.data.format", "JSON"),
  *                 Map.entry("time.interval", "DAILY"),
@@ -184,30 +184,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
  *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("topics", orders.get("topicName")),
  *                 Map.entry("input.data.format", "JSON"),
  *                 Map.entry("connector.class", "S3_SINK"),
  *                 Map.entry("name", "S3_SINKConnector_0"),
  *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
- *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("kafka.service.account.id", app_connector.get("id")),
  *                 Map.entry("s3.bucket.name", "<s3-bucket-name>"),
  *                 Map.entry("output.data.format", "JSON"),
  *                 Map.entry("time.interval", "DAILY"),
  *                 Map.entry("flush.size", "1000"),
  *                 Map.entry("tasks.max", "1"),
  *                 Map.entry("authentication.method", "IAM Roles"),
- *                 Map.entry("provider.integration.id", main.id())
+ *                 Map.entry("provider.integration.id", main.get("id"))
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -255,25 +255,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
  *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry("aws.access.key.id", "***REDACTED***"),
  *                 Map.entry("aws.secret.access.key", "***REDACTED***")
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("topics", orders.get("topicName")),
  *                 Map.entry("input.data.format", "JSON"),
  *                 Map.entry("connector.class", "DynamoDbSink"),
  *                 Map.entry("name", "DynamoDbSinkConnector_0"),
  *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
- *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("kafka.service.account.id", app_connector.get("id")),
  *                 Map.entry("aws.dynamodb.pk.hash", "value.userid"),
  *                 Map.entry("aws.dynamodb.pk.sort", "value.pageid"),
  *                 Map.entry("tasks.max", "1")
@@ -324,22 +324,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
  *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.of("connection.password", "***REDACTED***"))
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry("connector.class", "MySqlSink"),
  *                 Map.entry("name", "MySQLSinkConnector_0"),
- *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("topics", orders.get("topicName")),
  *                 Map.entry("input.data.format", "AVRO"),
  *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
- *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("kafka.service.account.id", app_connector.get("id")),
  *                 Map.entry("db.name", "test_database"),
  *                 Map.entry("connection.user", "confluent_user"),
  *                 Map.entry("connection.host", "dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com"),
@@ -353,21 +353,21 @@ import javax.annotation.Nullable;
  *                 ConnectorOffsetArgs.builder()
  *                     .partition(Map.ofEntries(
  *                         Map.entry("kafka_partition", "0"),
- *                         Map.entry("kafka_topic", orders.topicName())
+ *                         Map.entry("kafka_topic", orders.get("topicName"))
  *                     ))
  *                     .offset(Map.of("kafka_offset", "100"))
  *                     .build(),
  *                 ConnectorOffsetArgs.builder()
  *                     .partition(Map.ofEntries(
  *                         Map.entry("kafka_partition", "1"),
- *                         Map.entry("kafka_topic", orders.topicName())
+ *                         Map.entry("kafka_topic", orders.get("topicName"))
  *                     ))
  *                     .offset(Map.of("kafka_offset", "200"))
  *                     .build(),
  *                 ConnectorOffsetArgs.builder()
  *                     .partition(Map.ofEntries(
  *                         Map.entry("kafka_partition", "2"),
- *                         Map.entry("kafka_topic", orders.topicName())
+ *                         Map.entry("kafka_topic", orders.get("topicName"))
  *                     ))
  *                     .offset(Map.of("kafka_offset", "300"))
  *                     .build())
@@ -415,13 +415,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
  *         var source = new Connector("source", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(staging.id())
+ *                 .id(staging.get("id"))
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(basic.id())
+ *                 .id(basic.get("id"))
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry("kafka.api.key", "***REDACTED***"),
@@ -429,13 +429,13 @@ import javax.annotation.Nullable;
  *             ))
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry("confluent.connector.type", "CUSTOM"),
- *                 Map.entry("connector.class", sourceConfluentCustomConnectorPlugin.connectorClass()),
+ *                 Map.entry("connector.class", sourceConfluentCustomConnectorPlugin.get("connectorClass")),
  *                 Map.entry("name", "DatagenConnectorExampleName"),
  *                 Map.entry("kafka.auth.mode", "KAFKA_API_KEY"),
- *                 Map.entry("kafka.topic", orders.topicName()),
+ *                 Map.entry("kafka.topic", orders.get("topicName")),
  *                 Map.entry("output.data.format", "JSON"),
  *                 Map.entry("quickstart", "ORDERS"),
- *                 Map.entry("confluent.custom.plugin.id", sourceConfluentCustomConnectorPlugin.id()),
+ *                 Map.entry("confluent.custom.plugin.id", sourceConfluentCustomConnectorPlugin.get("id")),
  *                 Map.entry("min.interval", "1000"),
  *                 Map.entry("max.interval", "2000"),
  *                 Map.entry("tasks.max", "1")

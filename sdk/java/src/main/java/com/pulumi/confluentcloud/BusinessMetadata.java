@@ -55,9 +55,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var pii = new BusinessMetadata("pii", BusinessMetadataArgs.builder()
  *             .schemaRegistryCluster(BusinessMetadataSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(BusinessMetadataCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")

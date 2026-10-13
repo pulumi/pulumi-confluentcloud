@@ -250,11 +250,11 @@ class Tag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict', 'outputs.TagSchemaRegistryCluster']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -315,7 +315,7 @@ class Tag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the tag.
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -404,11 +404,11 @@ class Tag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict', 'outputs.TagSchemaRegistryCluster']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -437,12 +437,12 @@ class Tag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict', 'outputs.TagSchemaRegistryCluster']]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
@@ -451,7 +451,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the tag.
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.

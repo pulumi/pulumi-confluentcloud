@@ -194,11 +194,11 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterModeSchemaRegistryCluster']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -252,7 +252,7 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
         :param pulumi.Input[_builtins.str] mode: The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -328,11 +328,11 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict']]] = None,
+                 schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterModeSchemaRegistryCluster']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,11 +359,11 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']]] = None,
             force: pulumi.Input[Optional[_builtins.bool]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict']]] = None) -> 'SchemaRegistryClusterMode':
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterModeSchemaRegistryCluster']]] = None) -> 'SchemaRegistryClusterMode':
         """
         Get an existing SchemaRegistryClusterMode resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -371,7 +371,7 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when using `pulumi import`.
         :param pulumi.Input[_builtins.str] mode: The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

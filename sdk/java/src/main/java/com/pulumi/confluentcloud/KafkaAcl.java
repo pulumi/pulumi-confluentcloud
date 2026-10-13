@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var describe_basic_cluster = new KafkaAcl("describe-basic-cluster", KafkaAclArgs.builder()
  *             .kafkaCluster(KafkaAclKafkaClusterArgs.builder()
- *                 .id(basic_cluster.id())
+ *                 .id(basic_cluster.get("id"))
  *                 .build())
  *             .resourceType("CLUSTER")
  *             .resourceName("kafka-cluster")
@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  *             .host("*")
  *             .operation("DESCRIBE")
  *             .permission("ALLOW")
- *             .restEndpoint(basic_cluster.restEndpoint())
+ *             .restEndpoint(basic_cluster.get("restEndpoint"))
  *             .credentials(KafkaAclCredentialsArgs.builder()
- *                 .key(app_manager_kafka_api_key.id())
- *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .key(app_manager_kafka_api_key.get("id"))
+ *                 .secret(app_manager_kafka_api_key.get("secret"))
  *                 .build())
  *             .build());
  * 
@@ -154,12 +154,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // https://github.com/confluentinc/terraform-provider-confluent/issues/241
+ *         // https://github.com/confluentinc/pulumi-provider-confluent/issues/241
  *         var app_producer_write_on_topic = new KafkaAcl("app-producer-write-on-topic", KafkaAclArgs.builder()
  *             .resourceType("TOPIC")
- *             .resourceName(orders.topicName())
+ *             .resourceName(orders.get("topicName"))
  *             .patternType("LITERAL")
- *             .principal(String.format("User:%s", this_.id()))
+ *             .principal(String.format("User:%s", this_.get("id")))
  *             .host("*")
  *             .operation("WRITE")
  *             .permission("ALLOW")

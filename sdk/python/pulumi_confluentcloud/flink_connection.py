@@ -555,14 +555,14 @@ class FlinkConnection(pulumi.CustomResource):
                  aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict', 'outputs.FlinkConnectionComputePool']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict', 'outputs.FlinkConnectionEnvironment']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict', 'outputs.FlinkConnectionOrganization']]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict', 'outputs.FlinkConnectionPrincipal']]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  service_key: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -710,7 +710,7 @@ class FlinkConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_access_key: Access key for the type.
         :param pulumi.Input[_builtins.str] aws_secret_key: Secret key for the type.
         :param pulumi.Input[_builtins.str] aws_session_token: Session token for the type.
-        :param pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Connection per organization, environment scope.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] password: Password for the type.
@@ -880,14 +880,14 @@ class FlinkConnection(pulumi.CustomResource):
                  aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+                 compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict', 'outputs.FlinkConnectionComputePool']]] = None,
+                 credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
-                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict', 'outputs.FlinkConnectionEnvironment']]] = None,
+                 organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict', 'outputs.FlinkConnectionOrganization']]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict', 'outputs.FlinkConnectionPrincipal']]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  service_key: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -942,15 +942,15 @@ class FlinkConnection(pulumi.CustomResource):
             aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
             aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict']]] = None,
-            credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict', 'outputs.FlinkConnectionComputePool']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict', 'outputs.FlinkConnectionEnvironment']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict']]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict', 'outputs.FlinkConnectionOrganization']]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
-            principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict', 'outputs.FlinkConnectionPrincipal']]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             service_key: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -967,7 +967,7 @@ class FlinkConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_access_key: Access key for the type.
         :param pulumi.Input[_builtins.str] aws_secret_key: Secret key for the type.
         :param pulumi.Input[_builtins.str] aws_session_token: Session token for the type.
-        :param pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Connection per organization, environment scope.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] kind: The object this REST resource represents.

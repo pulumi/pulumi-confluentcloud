@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *         customerAzureTenantId: azureTenantId,
  *     },
  * });
- * // Automatically create the service principal using Azure Terraform Provider
+ * // Automatically create the service principal using Azure Pulumi Provider
  * const confluent = new azuread.index.ServicePrincipal("confluent", {clientId: azureProviderIntegrationAuthorization.azure?.confluentMultiTenantAppId});
  * export const azureAppId = azureProviderIntegrationAuthorization.azure.apply(azure => azure?.confluentMultiTenantAppId);
  * export const servicePrincipalObjectId = confluent.objectId;
@@ -100,7 +100,7 @@ import * as utilities from "./utilities";
  *         customerGoogleServiceAccount: gcpServiceAccount,
  *     },
  * });
- * // Grant IAM permissions using Google Terraform Provider
+ * // Grant IAM permissions using Google Pulumi Provider
  * const confluentTokenCreator = new google.index.ProjectIamMember("confluent_token_creator", {
  *     project: gcpProjectId,
  *     role: "roles/iam.serviceAccountTokenCreator",

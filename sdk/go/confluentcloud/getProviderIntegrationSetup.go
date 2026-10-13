@@ -100,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Use the integration with authorization data source
+//			// Use the integration with authorization function
 //			_, err = confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: main.Id,
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{

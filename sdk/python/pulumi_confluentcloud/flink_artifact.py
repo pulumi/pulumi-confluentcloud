@@ -421,7 +421,7 @@ class FlinkArtifact(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -476,7 +476,7 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input[_builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
-        :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region that hosts the Flink Artifact.
         :param pulumi.Input[_builtins.str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
@@ -550,7 +550,7 @@ class FlinkArtifact(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -601,11 +601,11 @@ class FlinkArtifact(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
-            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]]] = None) -> 'FlinkArtifact':
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict', 'outputs.FlinkArtifactVersion']]]]] = None) -> 'FlinkArtifact':
         """
         Get an existing FlinkArtifact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -621,11 +621,11 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input[_builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
-        :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] kind: (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region that hosts the Flink Artifact.
         :param pulumi.Input[_builtins.str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]] versions: List of versions for this Flink Artifact.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict', 'outputs.FlinkArtifactVersion']]]] versions: List of versions for this Flink Artifact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

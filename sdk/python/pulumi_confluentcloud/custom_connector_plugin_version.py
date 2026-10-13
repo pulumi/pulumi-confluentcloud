@@ -325,9 +325,9 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]]] = None,
                  documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']]] = None,
                  filename: pulumi.Input[Optional[_builtins.str]] = None,
                  plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -385,9 +385,9 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[_builtins.str] documentation_link: The documentation link of the Custom Connector Plugin Version.
-        :param pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] filename: The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
         :param pulumi.Input[_builtins.str] plugin_id: The ID of the plugin created using `Plugin` resource, or through other ways.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sensitive_config_properties: The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
@@ -464,9 +464,9 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+                 connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]]] = None,
                  documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']]] = None,
                  filename: pulumi.Input[Optional[_builtins.str]] = None,
                  plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -514,9 +514,9 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: pulumi.Input[Optional[_builtins.str]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
-            connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]]] = None,
+            connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]]] = None,
             documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
-            environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']]] = None,
+            environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']]] = None,
             filename: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -531,9 +531,9 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict']]]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[_builtins.str] documentation_link: The documentation link of the Custom Connector Plugin Version.
-        :param pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] filename: The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
         :param pulumi.Input[_builtins.str] kind: (Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.
         :param pulumi.Input[_builtins.str] plugin_id: The ID of the plugin created using `Plugin` resource, or through other ways.

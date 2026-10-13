@@ -99,7 +99,7 @@ class AwaitableGetProviderIntegrationAuthorizationResult(GetProviderIntegrationA
             provider_integration_id=self.provider_integration_id)
 
 
-def get_provider_integration_authorization(environment: Optional[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict']] = None,
+def get_provider_integration_authorization(environment: Optional[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.GetProviderIntegrationAuthorizationEnvironmentResult']] = None,
                                            id: Optional[_builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderIntegrationAuthorizationResult:
     """
@@ -125,7 +125,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
         environment={
             "id": "env-xyz456",
         })
-    # Create the service principal using Azure Terraform Provider
+    # Create the service principal using Azure Pulumi Provider
     confluent = azuread.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("azureAppId", azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("servicePrincipalObjectId", confluent["objectId"])
@@ -161,7 +161,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
         environment={
             "id": "env-xyz456",
         })
-    # Grant IAM permissions using Google Terraform Provider
+    # Grant IAM permissions using Google Pulumi Provider
     confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
         project=gcp_project_id,
         role=roles/iam.serviceAccountTokenCreator,
@@ -220,7 +220,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
     * provider-integration-gcp: Complete GCP Provider Integration setup
 
 
-    :param Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.GetProviderIntegrationAuthorizationEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration Authorization, for example, `cspi-4xg0q`.
     """
     __args__ = dict()
@@ -235,7 +235,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'),
         provider_integration_id=pulumi.get(__ret__, 'provider_integration_id'))
-def get_provider_integration_authorization_output(environment: pulumi.Input[Optional[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict']]] = None,
+def get_provider_integration_authorization_output(environment: pulumi.Input[Optional[Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.GetProviderIntegrationAuthorizationEnvironmentResult']]] = None,
                                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationAuthorizationResult]:
     """
@@ -261,7 +261,7 @@ def get_provider_integration_authorization_output(environment: pulumi.Input[Opti
         environment={
             "id": "env-xyz456",
         })
-    # Create the service principal using Azure Terraform Provider
+    # Create the service principal using Azure Pulumi Provider
     confluent = azuread.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("azureAppId", azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("servicePrincipalObjectId", confluent["objectId"])
@@ -297,7 +297,7 @@ def get_provider_integration_authorization_output(environment: pulumi.Input[Opti
         environment={
             "id": "env-xyz456",
         })
-    # Grant IAM permissions using Google Terraform Provider
+    # Grant IAM permissions using Google Pulumi Provider
     confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
         project=gcp_project_id,
         role=roles/iam.serviceAccountTokenCreator,
@@ -356,7 +356,7 @@ def get_provider_integration_authorization_output(environment: pulumi.Input[Opti
     * provider-integration-gcp: Complete GCP Provider Integration setup
 
 
-    :param Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetProviderIntegrationAuthorizationEnvironmentArgs', 'GetProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.GetProviderIntegrationAuthorizationEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Provider Integration Authorization, for example, `cspi-4xg0q`.
     """
     __args__ = dict()

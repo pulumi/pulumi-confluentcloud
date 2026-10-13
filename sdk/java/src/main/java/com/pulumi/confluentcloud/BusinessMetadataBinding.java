@@ -59,14 +59,14 @@ import javax.annotation.Nullable;
  * 
  *         var mainBusinessMetadataBinding = new BusinessMetadataBinding("mainBusinessMetadataBinding", BusinessMetadataBindingArgs.builder()
  *             .schemaRegistryCluster(BusinessMetadataBindingSchemaRegistryClusterArgs.builder()
- *                 .id(essentials.id())
+ *                 .id(essentials.get("id"))
  *                 .build())
- *             .restEndpoint(essentials.restEndpoint())
+ *             .restEndpoint(essentials.get("restEndpoint"))
  *             .credentials(BusinessMetadataBindingCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
- *             .businessMetadataName(pii.name())
+ *             .businessMetadataName(pii.get("name"))
  *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .attributes(Map.ofEntries(
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mainBusinessMetadataBinding = new BusinessMetadataBinding("mainBusinessMetadataBinding", BusinessMetadataBindingArgs.builder()
- *             .businessMetadataName(pii.name())
+ *             .businessMetadataName(pii.get("name"))
  *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .attributes(Map.ofEntries(

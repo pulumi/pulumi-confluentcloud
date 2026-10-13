@@ -29,7 +29,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
     ///     var source = new ConfluentCloud.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -40,7 +40,7 @@ namespace Pulumi.ConfluentCloud
     ///         {
     ///             Id = basic.Id,
     ///         },
-    ///         ConfigSensitive = null,
+    ///         ConfigSensitive = new() { },
     ///         ConfigNonsensitive = 
     ///         {
     ///             { "connector.class", "DatagenSource" },
@@ -75,7 +75,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -133,7 +133,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -144,7 +144,7 @@ namespace Pulumi.ConfluentCloud
     ///         {
     ///             Id = basic.Id,
     ///         },
-    ///         ConfigSensitive = null,
+    ///         ConfigSensitive = new() { },
     ///         ConfigNonsensitive = 
     ///         {
     ///             { "topics", orders.TopicName },
@@ -191,7 +191,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -248,7 +248,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -347,7 +347,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
+    ///     // https://github.com/confluentinc/pulumi-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
     ///     var source = new ConfluentCloud.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs

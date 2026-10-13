@@ -50,7 +50,7 @@ import (
 //				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
 //				SubjectName:  pulumi.String("avro-purchase-value"),
 //				Format:       pulumi.String("AVRO"),
-//				Schema:       invokeFile.Result,
+//				Schema:       invokeFile.Result.(pulumi.String),
 //				Credentials: &confluentcloud.SchemaCredentialsArgs{
 //					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
 //					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
@@ -89,7 +89,7 @@ import (
 //			_, err = confluentcloud.NewSchema(ctx, "avro-purchase", &confluentcloud.SchemaArgs{
 //				SubjectName: pulumi.String("avro-purchase-value"),
 //				Format:      pulumi.String("AVRO"),
-//				Schema:      invokeFile.Result,
+//				Schema:      invokeFile.Result.(pulumi.String),
 //			})
 //			if err != nil {
 //				return err
@@ -137,7 +137,7 @@ import (
 //			_, err = confluentcloud.NewSchema(ctx, "avro-purchase", &confluentcloud.SchemaArgs{
 //				SubjectName: pulumi.String("avro-purchase-value"),
 //				Format:      pulumi.String("AVRO"),
-//				Schema:      invokeFile.Result,
+//				Schema:      invokeFile.Result.(pulumi.String),
 //				Metadata: &confluentcloud.SchemaMetadataArgs{
 //					Properties: pulumi.StringMap{
 //						"owner": pulumi.String("Bob Jones"),
@@ -252,7 +252,7 @@ import (
 //			_, err = confluentcloud.NewSchema(ctx, "avro-user-cspe", &confluentcloud.SchemaArgs{
 //				SubjectName: pulumi.String("avro-user-value"),
 //				Format:      pulumi.String("AVRO"),
-//				Schema:      invokeFile.Result,
+//				Schema:      invokeFile.Result.(pulumi.String),
 //				Ruleset: &confluentcloud.SchemaRulesetArgs{
 //					EncodingRules: confluentcloud.SchemaRulesetEncodingRuleArray{
 //						&confluentcloud.SchemaRulesetEncodingRuleArgs{

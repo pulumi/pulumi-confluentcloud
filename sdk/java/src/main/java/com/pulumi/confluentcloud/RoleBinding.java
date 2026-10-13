@@ -48,130 +48,130 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var org_example_rb = new RoleBinding("org-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("MetricsViewer")
- *             .crnPattern(demo.resourceName())
+ *             .crnPattern(demo.get("resourceName"))
  *             .build());
  * 
  *         var environment_example_rb = new RoleBinding("environment-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("EnvironmentAdmin")
- *             .crnPattern(stag.resourceName())
+ *             .crnPattern(stag.get("resourceName"))
  *             .build());
  * 
  *         var environment_example_rb_skip_sync = new RoleBinding("environment-example-rb-skip-sync", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("EnvironmentAdmin")
- *             .crnPattern(stag.resourceName())
+ *             .crnPattern(stag.get("resourceName"))
  *             .disableWaitForReady(true)
  *             .build());
  * 
  *         var environment_example_rb_2 = new RoleBinding("environment-example-rb-2", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", testConfluentIdentityPool.id()))
+ *             .principal(String.format("User:%s", testConfluentIdentityPool.get("id")))
  *             .roleName("EnvironmentAdmin")
- *             .crnPattern(stag.resourceName())
+ *             .crnPattern(stag.get("resourceName"))
  *             .build());
  * 
  *         var data_discovery_example_rb = new RoleBinding("data-discovery-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DataDiscovery")
- *             .crnPattern(stag.resourceName())
+ *             .crnPattern(stag.get("resourceName"))
  *             .build());
  * 
  *         var network_example_rb = new RoleBinding("network-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("NetworkAdmin")
- *             .crnPattern(demo.resourceName())
+ *             .crnPattern(demo.get("resourceName"))
  *             .build());
  * 
  *         var cluster_example_rb = new RoleBinding("cluster-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("CloudClusterAdmin")
- *             .crnPattern(basic.rbacCrn())
+ *             .crnPattern(basic.get("rbacCrn"))
  *             .build());
  * 
  *         var topic_example_rb = new RoleBinding("topic-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperWrite")
- *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.rbacCrn(),standard.id(),orders.topicName()))
+ *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.get("rbacCrn"),standard.get("id"),orders.get("topicName")))
  *             .build());
  * 
  *         var topic_example_rb_2 = new RoleBinding("topic-example-rb-2", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", testConfluentIdentityPool.id()))
+ *             .principal(String.format("User:%s", testConfluentIdentityPool.get("id")))
  *             .roleName("DeveloperWrite")
- *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.rbacCrn(),standard.id(),orders.topicName()))
+ *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.get("rbacCrn"),standard.get("id"),orders.get("topicName")))
  *             .build());
  * 
  *         var group_example_rb = new RoleBinding("group-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/kafka=%s/group=confluent_cli_consumer_*", basic.rbacCrn(),standard.id()))
+ *             .crnPattern(String.format("%s/kafka=%s/group=confluent_cli_consumer_*", basic.get("rbacCrn"),standard.get("id")))
  *             .build());
  * 
  *         var group_mapping_example_rb = new RoleBinding("group-mapping-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", application_developers.id()))
+ *             .principal(String.format("User:%s", application_developers.get("id")))
  *             .roleName("EnvironmentAdmin")
- *             .crnPattern(stag.resourceName())
+ *             .crnPattern(stag.get("resourceName"))
  *             .build());
  * 
  *         var transaction_example_rb = new RoleBinding("transaction-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/kafka=%s/transactional-id=my_transaction", basic.rbacCrn(),standard.id()))
+ *             .crnPattern(String.format("%s/kafka=%s/transactional-id=my_transaction", basic.get("rbacCrn"),standard.get("id")))
  *             .build());
  * 
  *         final var connectorName = StdFunctions.lookup(Map.ofEntries(
- *             Map.entry("map", testConfluentConnector.configNonsensitive()),
+ *             Map.entry("map", testConfluentConnector.get("configNonsensitive")),
  *             Map.entry("key", "name"),
  *             Map.entry("default", "\"name\" attribute is missing")
- *         )).result();
+ *         )).get("result");
  * 
  *         var connector_example_rb = new RoleBinding("connector-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/connector=%s", standard.rbacCrn(),connectorName))
+ *             .crnPattern(String.format("%s/connector=%s", standard.get("rbacCrn"),connectorName))
  *             .build());
  * 
  *         var all_subjects_example_rb = new RoleBinding("all-subjects-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=*", example.resourceName()))
+ *             .crnPattern(String.format("%s/subject=*", example.get("resourceName")))
  *             .build());
  * 
  *         var subject_foo_example_rb = new RoleBinding("subject-foo-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=foo", example.resourceName()))
+ *             .crnPattern(String.format("%s/subject=foo", example.get("resourceName")))
  *             .build());
  * 
  *         var subject_with_abc_prefix_example_rb = new RoleBinding("subject-with-abc-prefix-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=abc*", example.resourceName()))
+ *             .crnPattern(String.format("%s/subject=abc*", example.get("resourceName")))
  *             .build());
  * 
  *         var subject_with_special_characters_example_rb = new RoleBinding("subject-with-special-characters-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=%s", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .crnPattern(String.format("%s/subject=%s", example.get("resourceName"),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).get("result")))
  *             .build());
  * 
  *         var subject_with_special_characters_prefix_example_rb = new RoleBinding("subject-with-special-characters-prefix-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=%s*", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .crnPattern(String.format("%s/subject=%s*", example.get("resourceName"),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).get("result")))
  *             .build());
  * 
  *         var kek_example_rb = new RoleBinding("kek-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/kek=kek-name", example.resourceName()))
+ *             .crnPattern(String.format("%s/kek=kek-name", example.get("resourceName")))
  *             .build());
  * 
  *         var flink_developer_compute_pool_example_rb = new RoleBinding("flink-developer-compute-pool-example-rb", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("FlinkDeveloper")
- *             .crnPattern(String.format("%s/flink-region=%s.%s/compute-pool=%s", stag.resourceName(),exampleConfluentFlinkComputePool.cloud(),exampleConfluentFlinkComputePool.region(),exampleConfluentFlinkComputePool.id()))
+ *             .crnPattern(String.format("%s/flink-region=%s.%s/compute-pool=%s", stag.get("resourceName"),exampleConfluentFlinkComputePool.get("cloud"),exampleConfluentFlinkComputePool.get("region"),exampleConfluentFlinkComputePool.get("id")))
  *             .build());
  * 
  *     }
@@ -229,9 +229,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var app_manager_kafka_cluster_admin_skip_sync = new RoleBinding("app-manager-kafka-cluster-admin-skip-sync", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", app_manager.id()))
+ *             .principal(String.format("User:%s", app_manager.get("id")))
  *             .roleName("CloudClusterAdmin")
- *             .crnPattern(standard.rbacCrn())
+ *             .crnPattern(standard.get("rbacCrn"))
  *             .disableWaitForReady(true)
  *             .build());
  * 
@@ -243,13 +243,13 @@ import javax.annotation.Nullable;
  * 
  *         var orders = new KafkaTopic("orders", KafkaTopicArgs.builder()
  *             .kafkaCluster(KafkaTopicKafkaClusterArgs.builder()
- *                 .id(standard.id())
+ *                 .id(standard.get("id"))
  *                 .build())
  *             .topicName("orders")
- *             .restEndpoint(standard.restEndpoint())
+ *             .restEndpoint(standard.get("restEndpoint"))
  *             .credentials(KafkaTopicCredentialsArgs.builder()
- *                 .key(app_manager_kafka_api_key.id())
- *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .key(app_manager_kafka_api_key.get("id"))
+ *                 .secret(app_manager_kafka_api_key.get("secret"))
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(wait360SecondsAfterRoleBinding)
@@ -290,9 +290,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var subject_with_special_characters = new RoleBinding("subject-with-special-characters", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=%s", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .crnPattern(String.format("%s/subject=%s", example.get("resourceName"),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).get("result")))
  *             .build());
  * 
  *     }
@@ -328,9 +328,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var subject_with_special_characters_prefix = new RoleBinding("subject-with-special-characters-prefix", RoleBindingArgs.builder()
- *             .principal(String.format("User:%s", test.id()))
+ *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("DeveloperRead")
- *             .crnPattern(String.format("%s/subject=%s*", example.resourceName(),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).result()))
+ *             .crnPattern(String.format("%s/subject=%s*", example.get("resourceName"),StdFunctions.urlencode(Map.of("input", "grxevents/private/billing")).get("result")))
  *             .build());
  * 
  *     }

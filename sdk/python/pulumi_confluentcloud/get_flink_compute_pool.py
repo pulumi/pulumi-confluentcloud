@@ -160,7 +160,7 @@ class AwaitableGetFlinkComputePoolResult(GetFlinkComputePoolResult):
 
 
 def get_flink_compute_pool(display_name: Optional[_builtins.str] = None,
-                           environment: Optional[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']] = None,
+                           environment: Optional[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict', 'outputs.GetFlinkComputePoolEnvironmentResult']] = None,
                            id: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlinkComputePoolResult:
     """
@@ -188,7 +188,7 @@ def get_flink_compute_pool(display_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str display_name: A human-readable name for the Flink Compute Pool.
-    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict', 'outputs.GetFlinkComputePoolEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     __args__ = dict()
@@ -210,7 +210,7 @@ def get_flink_compute_pool(display_name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
 def get_flink_compute_pool_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                  environment: pulumi.Input[Optional[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']]] = None,
+                                  environment: pulumi.Input[Optional[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict', 'outputs.GetFlinkComputePoolEnvironmentResult']]] = None,
                                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkComputePoolResult]:
     """
@@ -238,7 +238,7 @@ def get_flink_compute_pool_output(display_name: pulumi.Input[Optional[Optional[_
 
 
     :param _builtins.str display_name: A human-readable name for the Flink Compute Pool.
-    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict', 'outputs.GetFlinkComputePoolEnvironmentResult'] environment: (Required Configuration Block) supports the following:
     :param _builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     __args__ = dict()

@@ -276,14 +276,14 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             standards=self.standards)
 
 
-def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]] = None,
-                      dedicated: Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']] = None,
+def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict', 'outputs.GetKafkaClusterBasicResult']]] = None,
+                      dedicated: Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict', 'outputs.GetKafkaClusterDedicatedResult']] = None,
                       display_name: Optional[_builtins.str] = None,
-                      enterprises: Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]] = None,
-                      environment: Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']] = None,
-                      freights: Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]] = None,
+                      enterprises: Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict', 'outputs.GetKafkaClusterEnterpriseResult']]] = None,
+                      environment: Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict', 'outputs.GetKafkaClusterEnvironmentResult']] = None,
+                      freights: Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict', 'outputs.GetKafkaClusterFreightResult']]] = None,
                       id: Optional[_builtins.str] = None,
-                      standards: Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]] = None,
+                      standards: Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict', 'outputs.GetKafkaClusterStandardResult']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaClusterResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -311,13 +311,13 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
     ```
 
 
-    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
-    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict', 'outputs.GetKafkaClusterBasicResult']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict', 'outputs.GetKafkaClusterDedicatedResult'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param _builtins.str display_name: A human-readable name for the Kafka cluster.
-    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
-    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict', 'outputs.GetKafkaClusterEnterpriseResult']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict', 'outputs.GetKafkaClusterFreightResult']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param _builtins.str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
-    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict', 'outputs.GetKafkaClusterStandardResult']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     __args__ = dict()
     __args__['basics'] = basics
@@ -352,14 +352,14 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         standards=pulumi.get(__ret__, 'standards'))
-def get_kafka_cluster_output(basics: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]]]] = None,
-                             dedicated: pulumi.Input[Optional[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']]]] = None,
+def get_kafka_cluster_output(basics: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict', 'outputs.GetKafkaClusterBasicResult']]]]] = None,
+                             dedicated: pulumi.Input[Optional[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict', 'outputs.GetKafkaClusterDedicatedResult']]]] = None,
                              display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             enterprises: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]]]] = None,
-                             environment: pulumi.Input[Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']]] = None,
-                             freights: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]]]] = None,
+                             enterprises: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict', 'outputs.GetKafkaClusterEnterpriseResult']]]]] = None,
+                             environment: pulumi.Input[Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict', 'outputs.GetKafkaClusterEnvironmentResult']]] = None,
+                             freights: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict', 'outputs.GetKafkaClusterFreightResult']]]]] = None,
                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             standards: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]]]] = None,
+                             standards: pulumi.Input[Optional[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict', 'outputs.GetKafkaClusterStandardResult']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClusterResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -387,13 +387,13 @@ def get_kafka_cluster_output(basics: pulumi.Input[Optional[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
-    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict', 'outputs.GetKafkaClusterBasicResult']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict', 'outputs.GetKafkaClusterDedicatedResult'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param _builtins.str display_name: A human-readable name for the Kafka cluster.
-    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
-    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict', 'outputs.GetKafkaClusterEnterpriseResult']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict', 'outputs.GetKafkaClusterFreightResult']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param _builtins.str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
-    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict', 'outputs.GetKafkaClusterStandardResult']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     __args__ = dict()
     __args__['basics'] = basics

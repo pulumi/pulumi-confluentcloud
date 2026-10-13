@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var main = new CertificatePool("main", CertificatePoolArgs.builder()
  *             .certificateAuthority(CertificatePoolCertificateAuthorityArgs.builder()
- *                 .id(mainConfluentCertificateAuthority.id())
+ *                 .id(mainConfluentCertificateAuthority.get("id"))
  *                 .build())
  *             .displayName("my-certificate-pool")
  *             .description("example description")

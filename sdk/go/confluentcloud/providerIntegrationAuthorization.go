@@ -61,7 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Automatically create the service principal using Azure Terraform Provider
+//			// Automatically create the service principal using Azure Pulumi Provider
 //			confluent, err := azuread.NewServicePrincipal(ctx, "confluent", &azuread.ServicePrincipalArgs{
 //				ClientId: azureProviderIntegrationAuthorization.Azure.ConfluentMultiTenantAppId,
 //			})
@@ -164,13 +164,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Grant IAM permissions using Google Terraform Provider
+//			// Grant IAM permissions using Google Pulumi Provider
 //			_, err = google.NewProjectIamMember(ctx, "confluent_token_creator", &google.ProjectIamMemberArgs{
 //				Project: gcpProjectId,
 //				Role:    "roles/iam.serviceAccountTokenCreator",
 //				Member:  pulumi.Sprintf("serviceAccount:%v", gcpProviderIntegrationAuthorization.Gcp.GoogleServiceAccount),
 //				Condition: []map[string]interface{}{
-//					map[string]interface{}{
+//					map[string]string{
 //						"title":       "Confluent Cloud Access",
 //						"description": "Allow Confluent Cloud to impersonate the customer service account",
 //						"expression":  pulumi.Sprintf("request.auth.claims.sub == '%v'", gcpProviderIntegrationAuthorization.Gcp.GoogleServiceAccount),

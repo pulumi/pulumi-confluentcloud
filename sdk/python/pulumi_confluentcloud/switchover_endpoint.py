@@ -168,7 +168,7 @@ class SwitchoverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]]] = None,
                  parent_resource_crn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -229,7 +229,7 @@ class SwitchoverEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the switchover endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict']]]] endpoints: (Required Configuration Block) In addition to the arguments above, each endpoint exports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]] endpoints: (Required Configuration Block) In addition to the arguments above, each endpoint exports the following:
         :param pulumi.Input[_builtins.str] parent_resource_crn: The CRN of the switchover pair this endpoint is bound to, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123`. The CRN carries the pair's environment.
         """
         ...
@@ -309,7 +309,7 @@ class SwitchoverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]]] = None,
                  parent_resource_crn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -342,7 +342,7 @@ class SwitchoverEndpoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict']]]]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]]] = None,
             parent_resource_crn: pulumi.Input[Optional[_builtins.str]] = None,
             phase: pulumi.Input[Optional[_builtins.str]] = None,
             target: pulumi.Input[Optional[_builtins.str]] = None) -> 'SwitchoverEndpoint':
@@ -354,7 +354,7 @@ class SwitchoverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the switchover endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict']]]] endpoints: (Required Configuration Block) In addition to the arguments above, each endpoint exports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]] endpoints: (Required Configuration Block) In addition to the arguments above, each endpoint exports the following:
         :param pulumi.Input[_builtins.str] parent_resource_crn: The CRN of the switchover pair this endpoint is bound to, for example, `crn://confluent.cloud/organization=org-abc/environment=env-abc123/switchover-pair=sw-abc123`. The CRN carries the pair's environment.
         :param pulumi.Input[_builtins.str] phase: (Required String) The lifecycle phase of the switchover endpoint.
         :param pulumi.Input[_builtins.str] target: (Required String) Read-only. The name of the endpoint that is currently active. The Switchover service derives it from the pair's active member at create time and moves it on every failover; it cannot be set (the API marks it `readOnly`).
