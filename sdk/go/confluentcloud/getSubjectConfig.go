@@ -105,8 +105,10 @@ type LookupSubjectConfigResult struct {
 	// (Optional String) The Compatibility Group of the specified subject.
 	CompatibilityGroup string `pulumi:"compatibilityGroup"`
 	// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-	CompatibilityLevel string                       `pulumi:"compatibilityLevel"`
-	Credentials        *GetSubjectConfigCredentials `pulumi:"credentials"`
+	CompatibilityLevel string `pulumi:"compatibilityLevel"`
+	// (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy string                       `pulumi:"compatibilityPolicy"`
+	Credentials         *GetSubjectConfigCredentials `pulumi:"credentials"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
@@ -163,6 +165,11 @@ func (o LookupSubjectConfigResultOutput) CompatibilityGroup() pulumi.StringOutpu
 // (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o LookupSubjectConfigResultOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.CompatibilityLevel }).(pulumi.StringOutput)
+}
+
+// (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+func (o LookupSubjectConfigResultOutput) CompatibilityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.CompatibilityPolicy }).(pulumi.StringOutput)
 }
 
 func (o LookupSubjectConfigResultOutput) Credentials() GetSubjectConfigCredentialsPtrOutput {

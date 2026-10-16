@@ -230,6 +230,20 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
         return this.compatibilityLevel;
     }
     /**
+     * The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    @Export(name="compatibilityPolicy", refs={String.class}, tree="[0]")
+    private Output<String> compatibilityPolicy;
+
+    /**
+     * @return The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    public Output<String> compatibilityPolicy() {
+        return this.compatibilityPolicy;
+    }
+    /**
      * The Cluster API Credentials.
      * 
      */

@@ -28,7 +28,7 @@ class GetSubjectConfigResult:
     """
     A collection of values returned by getSubjectConfig.
     """
-    def __init__(__self__, alias=None, compatibility_group=None, compatibility_level=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+    def __init__(__self__, alias=None, compatibility_group=None, compatibility_level=None, compatibility_policy=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -38,6 +38,9 @@ class GetSubjectConfigResult:
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if compatibility_policy and not isinstance(compatibility_policy, str):
+            raise TypeError("Expected argument 'compatibility_policy' to be a str")
+        pulumi.set(__self__, "compatibility_policy", compatibility_policy)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -80,6 +83,14 @@ class GetSubjectConfigResult:
         (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @_builtins.property
+    @pulumi.getter(name="compatibilityPolicy")
+    def compatibility_policy(self) -> _builtins.str:
+        """
+        (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        """
+        return pulumi.get(self, "compatibility_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -127,6 +138,7 @@ class AwaitableGetSubjectConfigResult(GetSubjectConfigResult):
             alias=self.alias,
             compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
+            compatibility_policy=self.compatibility_policy,
             credentials=self.credentials,
             id=self.id,
             normalize=self.normalize,
@@ -191,6 +203,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
         alias=pulumi.get(__ret__, 'alias'),
         compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
+        compatibility_policy=pulumi.get(__ret__, 'compatibility_policy'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
         normalize=pulumi.get(__ret__, 'normalize'),
@@ -252,6 +265,7 @@ def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union[
         alias=pulumi.get(__response__, 'alias'),
         compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
+        compatibility_policy=pulumi.get(__response__, 'compatibility_policy'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),
         normalize=pulumi.get(__response__, 'normalize'),

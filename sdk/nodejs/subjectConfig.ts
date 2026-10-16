@@ -137,6 +137,10 @@ export class SubjectConfig extends pulumi.CustomResource {
      */
     declare public readonly compatibilityLevel: pulumi.Output<string>;
     /**
+     * The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    declare public readonly compatibilityPolicy: pulumi.Output<string>;
+    /**
      * The Cluster API Credentials.
      */
     declare public readonly credentials: pulumi.Output<outputs.SubjectConfigCredentials | undefined>;
@@ -174,6 +178,7 @@ export class SubjectConfig extends pulumi.CustomResource {
             resourceInputs["alias"] = state?.alias;
             resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
+            resourceInputs["compatibilityPolicy"] = state?.compatibilityPolicy;
             resourceInputs["credentials"] = state?.credentials;
             resourceInputs["normalize"] = state?.normalize;
             resourceInputs["restEndpoint"] = state?.restEndpoint;
@@ -187,6 +192,7 @@ export class SubjectConfig extends pulumi.CustomResource {
             resourceInputs["alias"] = args?.alias;
             resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
+            resourceInputs["compatibilityPolicy"] = args?.compatibilityPolicy;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["normalize"] = args?.normalize;
             resourceInputs["restEndpoint"] = args?.restEndpoint;
@@ -218,6 +224,10 @@ export interface SubjectConfigState {
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     compatibilityLevel?: pulumi.Input<string | undefined>;
+    /**
+     * The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    compatibilityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
@@ -259,6 +269,10 @@ export interface SubjectConfigArgs {
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     compatibilityLevel?: pulumi.Input<string | undefined>;
+    /**
+     * The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    compatibilityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */

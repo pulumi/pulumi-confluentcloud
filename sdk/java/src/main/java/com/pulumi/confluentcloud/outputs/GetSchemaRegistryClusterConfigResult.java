@@ -25,6 +25,11 @@ public final class GetSchemaRegistryClusterConfigResult {
      * 
      */
     private String compatibilityLevel;
+    /**
+     * @return (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    private String compatibilityPolicy;
     private @Nullable GetSchemaRegistryClusterConfigCredentials credentials;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -53,6 +58,13 @@ public final class GetSchemaRegistryClusterConfigResult {
      */
     public String compatibilityLevel() {
         return this.compatibilityLevel;
+    }
+    /**
+     * @return (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    public String compatibilityPolicy() {
+        return this.compatibilityPolicy;
     }
     public Optional<GetSchemaRegistryClusterConfigCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
@@ -89,6 +101,7 @@ public final class GetSchemaRegistryClusterConfigResult {
     public static final class Builder {
         private String compatibilityGroup;
         private String compatibilityLevel;
+        private String compatibilityPolicy;
         private @Nullable GetSchemaRegistryClusterConfigCredentials credentials;
         private String id;
         private Boolean normalize;
@@ -99,6 +112,7 @@ public final class GetSchemaRegistryClusterConfigResult {
     	      Objects.requireNonNull(defaults);
     	      this.compatibilityGroup = defaults.compatibilityGroup;
     	      this.compatibilityLevel = defaults.compatibilityLevel;
+    	      this.compatibilityPolicy = defaults.compatibilityPolicy;
     	      this.credentials = defaults.credentials;
     	      this.id = defaults.id;
     	      this.normalize = defaults.normalize;
@@ -120,6 +134,14 @@ public final class GetSchemaRegistryClusterConfigResult {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "compatibilityLevel");
             }
             this.compatibilityLevel = compatibilityLevel;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder compatibilityPolicy(String compatibilityPolicy) {
+            if (compatibilityPolicy == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "compatibilityPolicy");
+            }
+            this.compatibilityPolicy = compatibilityPolicy;
             return this;
         }
         @CustomType.Setter
@@ -160,6 +182,7 @@ public final class GetSchemaRegistryClusterConfigResult {
             final var _resultValue = new GetSchemaRegistryClusterConfigResult();
             _resultValue.compatibilityGroup = compatibilityGroup;
             _resultValue.compatibilityLevel = compatibilityLevel;
+            _resultValue.compatibilityPolicy = compatibilityPolicy;
             _resultValue.credentials = credentials;
             _resultValue.id = id;
             _resultValue.normalize = normalize;

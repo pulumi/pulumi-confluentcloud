@@ -76,6 +76,10 @@ export interface GetSchemaRegistryClusterConfigResult {
      * (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     readonly compatibilityLevel: string;
+    /**
+     * (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    readonly compatibilityPolicy: string;
     readonly credentials?: outputs.GetSchemaRegistryClusterConfigCredentials;
     /**
      * The provider-assigned unique ID for this managed resource.

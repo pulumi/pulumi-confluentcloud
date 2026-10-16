@@ -28,13 +28,16 @@ class GetSchemaRegistryClusterConfigResult:
     """
     A collection of values returned by getSchemaRegistryClusterConfig.
     """
-    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None):
+    def __init__(__self__, compatibility_group=None, compatibility_level=None, compatibility_policy=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None):
         if compatibility_group and not isinstance(compatibility_group, str):
             raise TypeError("Expected argument 'compatibility_group' to be a str")
         pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if compatibility_policy and not isinstance(compatibility_policy, str):
+            raise TypeError("Expected argument 'compatibility_policy' to be a str")
+        pulumi.set(__self__, "compatibility_policy", compatibility_policy)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -66,6 +69,14 @@ class GetSchemaRegistryClusterConfigResult:
         (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @_builtins.property
+    @pulumi.getter(name="compatibilityPolicy")
+    def compatibility_policy(self) -> _builtins.str:
+        """
+        (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        """
+        return pulumi.get(self, "compatibility_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetSchemaRegistryClusterConfigResult(GetSchemaRegistryClusterConf
         return GetSchemaRegistryClusterConfigResult(
             compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
+            compatibility_policy=self.compatibility_policy,
             credentials=self.credentials,
             id=self.id,
             normalize=self.normalize,
@@ -165,6 +177,7 @@ def get_schema_registry_cluster_config(credentials: Optional[Union['GetSchemaReg
     return AwaitableGetSchemaRegistryClusterConfigResult(
         compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
+        compatibility_policy=pulumi.get(__ret__, 'compatibility_policy'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
         normalize=pulumi.get(__ret__, 'normalize'),
@@ -220,6 +233,7 @@ def get_schema_registry_cluster_config_output(credentials: pulumi.Input[Optional
     return __ret__.apply(lambda __response__: GetSchemaRegistryClusterConfigResult(
         compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
+        compatibility_policy=pulumi.get(__response__, 'compatibility_policy'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),
         normalize=pulumi.get(__response__, 'normalize'),

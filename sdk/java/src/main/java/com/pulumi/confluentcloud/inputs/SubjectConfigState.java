@@ -68,6 +68,21 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    @Import(name="compatibilityPolicy")
+    private @Nullable Output<String> compatibilityPolicy;
+
+    /**
+     * @return The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    public Optional<Output<String>> compatibilityPolicy() {
+        return Optional.ofNullable(this.compatibilityPolicy);
+    }
+
+    /**
      * The Cluster API Credentials.
      * 
      */
@@ -148,6 +163,7 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
         this.alias = $.alias;
         this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
+        this.compatibilityPolicy = $.compatibilityPolicy;
         this.credentials = $.credentials;
         this.normalize = $.normalize;
         this.restEndpoint = $.restEndpoint;
@@ -238,6 +254,27 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder compatibilityLevel(String compatibilityLevel) {
             return compatibilityLevel(Output.of(compatibilityLevel));
+        }
+
+        /**
+         * @param compatibilityPolicy The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityPolicy(@Nullable Output<String> compatibilityPolicy) {
+            $.compatibilityPolicy = compatibilityPolicy;
+            return this;
+        }
+
+        /**
+         * @param compatibilityPolicy The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityPolicy(String compatibilityPolicy) {
+            return compatibilityPolicy(Output.of(compatibilityPolicy));
         }
 
         /**

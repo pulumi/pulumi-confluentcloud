@@ -98,8 +98,10 @@ type LookupSchemaRegistryClusterConfigResult struct {
 	// (Optional String) The global Schema Registry compatibility group.
 	CompatibilityGroup string `pulumi:"compatibilityGroup"`
 	// (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
-	CompatibilityLevel string                                     `pulumi:"compatibilityLevel"`
-	Credentials        *GetSchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
+	CompatibilityLevel string `pulumi:"compatibilityLevel"`
+	// (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy string                                     `pulumi:"compatibilityPolicy"`
+	Credentials         *GetSchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
@@ -148,6 +150,11 @@ func (o LookupSchemaRegistryClusterConfigResultOutput) CompatibilityGroup() pulu
 // (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o LookupSchemaRegistryClusterConfigResultOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) string { return v.CompatibilityLevel }).(pulumi.StringOutput)
+}
+
+// (Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+func (o LookupSchemaRegistryClusterConfigResultOutput) CompatibilityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) string { return v.CompatibilityPolicy }).(pulumi.StringOutput)
 }
 
 func (o LookupSchemaRegistryClusterConfigResultOutput) Credentials() GetSchemaRegistryClusterConfigCredentialsPtrOutput {

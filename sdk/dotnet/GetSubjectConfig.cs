@@ -287,6 +287,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
         public readonly string CompatibilityLevel;
+        /// <summary>
+        /// (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        /// </summary>
+        public readonly string CompatibilityPolicy;
         public readonly Outputs.GetSubjectConfigCredentialsResult? Credentials;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -308,6 +312,8 @@ namespace Pulumi.ConfluentCloud
 
             string compatibilityLevel,
 
+            string compatibilityPolicy,
+
             Outputs.GetSubjectConfigCredentialsResult? credentials,
 
             string id,
@@ -323,6 +329,7 @@ namespace Pulumi.ConfluentCloud
             Alias = alias;
             CompatibilityGroup = compatibilityGroup;
             CompatibilityLevel = compatibilityLevel;
+            CompatibilityPolicy = compatibilityPolicy;
             Credentials = credentials;
             Id = id;
             Normalize = normalize;
