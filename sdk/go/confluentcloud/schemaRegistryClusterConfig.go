@@ -100,6 +100,8 @@ type SchemaRegistryClusterConfig struct {
 	CompatibilityGroup pulumi.StringOutput `pulumi:"compatibilityGroup"`
 	// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
+	// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringOutput `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrOutput `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -150,6 +152,8 @@ type schemaRegistryClusterConfigState struct {
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy *string `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -164,6 +168,8 @@ type SchemaRegistryClusterConfigState struct {
 	CompatibilityGroup pulumi.StringPtrInput
 	// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrInput
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -182,6 +188,8 @@ type schemaRegistryClusterConfigArgs struct {
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy *string `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -197,6 +205,8 @@ type SchemaRegistryClusterConfigArgs struct {
 	CompatibilityGroup pulumi.StringPtrInput
 	// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrInput
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -301,6 +311,11 @@ func (o SchemaRegistryClusterConfigOutput) CompatibilityGroup() pulumi.StringOut
 // The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o SchemaRegistryClusterConfigOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterConfig) pulumi.StringOutput { return v.CompatibilityLevel }).(pulumi.StringOutput)
+}
+
+// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+func (o SchemaRegistryClusterConfigOutput) CompatibilityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfig) pulumi.StringOutput { return v.CompatibilityPolicy }).(pulumi.StringOutput)
 }
 
 // The Cluster API Credentials.

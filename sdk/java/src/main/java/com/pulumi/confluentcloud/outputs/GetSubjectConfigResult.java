@@ -30,6 +30,11 @@ public final class GetSubjectConfigResult {
      * 
      */
     private String compatibilityLevel;
+    /**
+     * @return (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    private String compatibilityPolicy;
     private @Nullable GetSubjectConfigCredentials credentials;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -66,6 +71,13 @@ public final class GetSubjectConfigResult {
      */
     public String compatibilityLevel() {
         return this.compatibilityLevel;
+    }
+    /**
+     * @return (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    public String compatibilityPolicy() {
+        return this.compatibilityPolicy;
     }
     public Optional<GetSubjectConfigCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
@@ -106,6 +118,7 @@ public final class GetSubjectConfigResult {
         private String alias;
         private String compatibilityGroup;
         private String compatibilityLevel;
+        private String compatibilityPolicy;
         private @Nullable GetSubjectConfigCredentials credentials;
         private String id;
         private Boolean normalize;
@@ -118,6 +131,7 @@ public final class GetSubjectConfigResult {
     	      this.alias = defaults.alias;
     	      this.compatibilityGroup = defaults.compatibilityGroup;
     	      this.compatibilityLevel = defaults.compatibilityLevel;
+    	      this.compatibilityPolicy = defaults.compatibilityPolicy;
     	      this.credentials = defaults.credentials;
     	      this.id = defaults.id;
     	      this.normalize = defaults.normalize;
@@ -148,6 +162,14 @@ public final class GetSubjectConfigResult {
               throw new MissingRequiredPropertyException("GetSubjectConfigResult", "compatibilityLevel");
             }
             this.compatibilityLevel = compatibilityLevel;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder compatibilityPolicy(String compatibilityPolicy) {
+            if (compatibilityPolicy == null) {
+              throw new MissingRequiredPropertyException("GetSubjectConfigResult", "compatibilityPolicy");
+            }
+            this.compatibilityPolicy = compatibilityPolicy;
             return this;
         }
         @CustomType.Setter
@@ -197,6 +219,7 @@ public final class GetSubjectConfigResult {
             _resultValue.alias = alias;
             _resultValue.compatibilityGroup = compatibilityGroup;
             _resultValue.compatibilityLevel = compatibilityLevel;
+            _resultValue.compatibilityPolicy = compatibilityPolicy;
             _resultValue.credentials = credentials;
             _resultValue.id = id;
             _resultValue.normalize = normalize;

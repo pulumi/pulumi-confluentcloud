@@ -16464,6 +16464,10 @@
                     "type": "string",
                     "description": "The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
                 },
+                "compatibilityPolicy": {
+                    "type": "string",
+                    "description": "The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
+                },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
                     "description": "The Cluster API Credentials.",
@@ -16484,6 +16488,7 @@
             "required": [
                 "compatibilityGroup",
                 "compatibilityLevel",
+                "compatibilityPolicy",
                 "normalize"
             ],
             "inputProperties": {
@@ -16494,6 +16499,10 @@
                 "compatibilityLevel": {
                     "type": "string",
                     "description": "The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
+                },
+                "compatibilityPolicy": {
+                    "type": "string",
+                    "description": "The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
@@ -16524,6 +16533,10 @@
                     "compatibilityLevel": {
                         "type": "string",
                         "description": "The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
+                    },
+                    "compatibilityPolicy": {
+                        "type": "string",
+                        "description": "The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
@@ -17023,6 +17036,10 @@
                     "type": "string",
                     "description": "The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
                 },
+                "compatibilityPolicy": {
+                    "type": "string",
+                    "description": "The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
+                },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
                     "description": "The Cluster API Credentials.",
@@ -17048,6 +17065,7 @@
                 "alias",
                 "compatibilityGroup",
                 "compatibilityLevel",
+                "compatibilityPolicy",
                 "normalize",
                 "subjectName"
             ],
@@ -17063,6 +17081,10 @@
                 "compatibilityLevel": {
                     "type": "string",
                     "description": "The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
+                },
+                "compatibilityPolicy": {
+                    "type": "string",
+                    "description": "The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
@@ -17105,6 +17127,10 @@
                     "compatibilityLevel": {
                         "type": "string",
                         "description": "The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n"
+                    },
+                    "compatibilityPolicy": {
+                        "type": "string",
+                        "description": "The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
@@ -21896,6 +21922,10 @@
                         "description": "(Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
                         "type": "string"
                     },
+                    "compatibilityPolicy": {
+                        "description": "(Optional String) The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n",
+                        "type": "string"
+                    },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryClusterConfigCredentials:getSchemaRegistryClusterConfigCredentials",
                         "secret": true
@@ -21918,6 +21948,7 @@
                 "required": [
                     "compatibilityGroup",
                     "compatibilityLevel",
+                    "compatibilityPolicy",
                     "normalize",
                     "id"
                 ],
@@ -22342,6 +22373,10 @@
                         "description": "(Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
                         "type": "string"
                     },
+                    "compatibilityPolicy": {
+                        "description": "(Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.\n",
+                        "type": "string"
+                    },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/getSubjectConfigCredentials:getSubjectConfigCredentials",
                         "secret": true
@@ -22368,6 +22403,7 @@
                     "alias",
                     "compatibilityGroup",
                     "compatibilityLevel",
+                    "compatibilityPolicy",
                     "normalize",
                     "subjectName",
                     "id"

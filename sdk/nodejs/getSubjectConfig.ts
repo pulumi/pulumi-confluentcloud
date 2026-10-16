@@ -87,6 +87,10 @@ export interface GetSubjectConfigResult {
      * (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     readonly compatibilityLevel: string;
+    /**
+     * (Optional String) The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    readonly compatibilityPolicy: string;
     readonly credentials?: outputs.GetSubjectConfigCredentials;
     /**
      * The provider-assigned unique ID for this managed resource.

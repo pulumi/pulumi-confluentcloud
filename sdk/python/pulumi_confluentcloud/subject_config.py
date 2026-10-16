@@ -25,6 +25,7 @@ class SubjectConfigArgs:
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional['SubjectConfigCredentialsArgs']] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,6 +43,7 @@ class SubjectConfigArgs:
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -53,6 +55,8 @@ class SubjectConfigArgs:
             pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if compatibility_policy is not None:
+            pulumi.set(__self__, "compatibility_policy", compatibility_policy)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if normalize is not None:
@@ -117,6 +121,18 @@ class SubjectConfigArgs:
         pulumi.set(self, "compatibility_level", value)
 
     @_builtins.property
+    @pulumi.getter(name="compatibilityPolicy")
+    def compatibility_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        """
+        return pulumi.get(self, "compatibility_policy")
+
+    @compatibility_policy.setter
+    def compatibility_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compatibility_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['SubjectConfigCredentialsArgs']]:
         """
@@ -168,6 +184,7 @@ class _SubjectConfigState:
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional['SubjectConfigCredentialsArgs']] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -181,6 +198,7 @@ class _SubjectConfigState:
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -196,6 +214,8 @@ class _SubjectConfigState:
             pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if compatibility_policy is not None:
+            pulumi.set(__self__, "compatibility_policy", compatibility_policy)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if normalize is not None:
@@ -244,6 +264,18 @@ class _SubjectConfigState:
     @compatibility_level.setter
     def compatibility_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compatibilityPolicy")
+    def compatibility_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        """
+        return pulumi.get(self, "compatibility_policy")
+
+    @compatibility_policy.setter
+    def compatibility_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compatibility_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -316,6 +348,7 @@ class SubjectConfig(pulumi.CustomResource):
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -409,6 +442,7 @@ class SubjectConfig(pulumi.CustomResource):
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -522,6 +556,7 @@ class SubjectConfig(pulumi.CustomResource):
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
                  normalize: pulumi.Input[Optional[_builtins.bool]] = None,
                  rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -539,6 +574,7 @@ class SubjectConfig(pulumi.CustomResource):
             __props__.__dict__["alias"] = alias
             __props__.__dict__["compatibility_group"] = compatibility_group
             __props__.__dict__["compatibility_level"] = compatibility_level
+            __props__.__dict__["compatibility_policy"] = compatibility_policy
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             __props__.__dict__["normalize"] = normalize
             __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -561,6 +597,7 @@ class SubjectConfig(pulumi.CustomResource):
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
             credentials: pulumi.Input[Optional[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']]] = None,
             normalize: pulumi.Input[Optional[_builtins.bool]] = None,
             rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -578,6 +615,7 @@ class SubjectConfig(pulumi.CustomResource):
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict', 'outputs.SubjectConfigCredentials']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -594,6 +632,7 @@ class SubjectConfig(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["compatibility_group"] = compatibility_group
         __props__.__dict__["compatibility_level"] = compatibility_level
+        __props__.__dict__["compatibility_policy"] = compatibility_policy
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["normalize"] = normalize
         __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -626,6 +665,14 @@ class SubjectConfig(pulumi.CustomResource):
         The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @_builtins.property
+    @pulumi.getter(name="compatibilityPolicy")
+    def compatibility_policy(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        """
+        return pulumi.get(self, "compatibility_policy")
 
     @_builtins.property
     @pulumi.getter

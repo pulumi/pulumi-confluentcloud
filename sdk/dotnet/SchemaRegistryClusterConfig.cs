@@ -95,6 +95,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> CompatibilityLevel { get; private set; } = null!;
 
         /// <summary>
+        /// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        /// </summary>
+        [Output("compatibilityPolicy")]
+        public Output<string> CompatibilityPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
         [Output("credentials")]
@@ -177,6 +183,12 @@ namespace Pulumi.ConfluentCloud
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
 
+        /// <summary>
+        /// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        /// </summary>
+        [Input("compatibilityPolicy")]
+        public Input<string>? CompatibilityPolicy { get; set; }
+
         [Input("credentials")]
         private Input<Inputs.SchemaRegistryClusterConfigCredentialsArgs>? _credentials;
 
@@ -227,6 +239,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+        /// </summary>
+        [Input("compatibilityPolicy")]
+        public Input<string>? CompatibilityPolicy { get; set; }
 
         [Input("credentials")]
         private Input<Inputs.SchemaRegistryClusterConfigCredentialsGetArgs>? _credentials;

@@ -164,6 +164,8 @@ type SubjectConfig struct {
 	CompatibilityGroup pulumi.StringOutput `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
+	// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringOutput `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrOutput `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -227,6 +229,8 @@ type subjectConfigState struct {
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy *string `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials *SubjectConfigCredentials `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -251,6 +255,8 @@ type SubjectConfigState struct {
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrInput
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -279,6 +285,8 @@ type subjectConfigArgs struct {
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy *string `pulumi:"compatibilityPolicy"`
 	// The Cluster API Credentials.
 	Credentials *SubjectConfigCredentials `pulumi:"credentials"`
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -304,6 +312,8 @@ type SubjectConfigArgs struct {
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+	CompatibilityPolicy pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrInput
 	// Whether schemas are automatically normalized when registered or passed during lookups.
@@ -421,6 +431,11 @@ func (o SubjectConfigOutput) CompatibilityGroup() pulumi.StringOutput {
 // The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o SubjectConfigOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.CompatibilityLevel }).(pulumi.StringOutput)
+}
+
+// The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+func (o SubjectConfigOutput) CompatibilityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.CompatibilityPolicy }).(pulumi.StringOutput)
 }
 
 // The Cluster API Credentials.

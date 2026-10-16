@@ -97,6 +97,10 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
      */
     declare public readonly compatibilityLevel: pulumi.Output<string>;
     /**
+     * The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    declare public readonly compatibilityPolicy: pulumi.Output<string>;
+    /**
      * The Cluster API Credentials.
      */
     declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryClusterConfigCredentials | undefined>;
@@ -125,6 +129,7 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
             const state = argsOrState as SchemaRegistryClusterConfigState | undefined;
             resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
+            resourceInputs["compatibilityPolicy"] = state?.compatibilityPolicy;
             resourceInputs["credentials"] = state?.credentials;
             resourceInputs["normalize"] = state?.normalize;
             resourceInputs["restEndpoint"] = state?.restEndpoint;
@@ -133,6 +138,7 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
             const args = argsOrState as SchemaRegistryClusterConfigArgs | undefined;
             resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
+            resourceInputs["compatibilityPolicy"] = args?.compatibilityPolicy;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["normalize"] = args?.normalize;
             resourceInputs["restEndpoint"] = args?.restEndpoint;
@@ -157,6 +163,10 @@ export interface SchemaRegistryClusterConfigState {
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     compatibilityLevel?: pulumi.Input<string | undefined>;
+    /**
+     * The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    compatibilityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
@@ -184,6 +194,10 @@ export interface SchemaRegistryClusterConfigArgs {
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     compatibilityLevel?: pulumi.Input<string | undefined>;
+    /**
+     * The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     */
+    compatibilityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Cluster API Credentials.
      */

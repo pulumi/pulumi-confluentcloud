@@ -49,6 +49,21 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
     }
 
     /**
+     * The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    @Import(name="compatibilityPolicy")
+    private @Nullable Output<String> compatibilityPolicy;
+
+    /**
+     * @return The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+     * 
+     */
+    public Optional<Output<String>> compatibilityPolicy() {
+        return Optional.ofNullable(this.compatibilityPolicy);
+    }
+
+    /**
      * The Cluster API Credentials.
      * 
      */
@@ -105,6 +120,7 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
     private SchemaRegistryClusterConfigState(SchemaRegistryClusterConfigState $) {
         this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
+        this.compatibilityPolicy = $.compatibilityPolicy;
         this.credentials = $.credentials;
         this.normalize = $.normalize;
         this.restEndpoint = $.restEndpoint;
@@ -169,6 +185,27 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
          */
         public Builder compatibilityLevel(String compatibilityLevel) {
             return compatibilityLevel(Output.of(compatibilityLevel));
+        }
+
+        /**
+         * @param compatibilityPolicy The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityPolicy(@Nullable Output<String> compatibilityPolicy) {
+            $.compatibilityPolicy = compatibilityPolicy;
+            return this;
+        }
+
+        /**
+         * @param compatibilityPolicy The global Schema Registry compatibility policy. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityPolicy(String compatibilityPolicy) {
+            return compatibilityPolicy(Output.of(compatibilityPolicy));
         }
 
         /**
