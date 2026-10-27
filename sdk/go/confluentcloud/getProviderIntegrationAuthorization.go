@@ -214,7 +214,7 @@ import (
 //				return err
 //			}
 //			var tmp0 map[string]interface{}
-//			if main.Cloud == "AZURE" {
+//			if bool(main.Cloud == "AZURE") {
 //				tmp0 = map[string]interface{}{
 //					"appId":   mainGetProviderIntegrationAuthorization.Azures[0].ConfluentMultiTenantAppId,
 //					"command": fmt.Sprintf("az ad sp create --id %v", mainGetProviderIntegrationAuthorization.Azures[0].ConfluentMultiTenantAppId),

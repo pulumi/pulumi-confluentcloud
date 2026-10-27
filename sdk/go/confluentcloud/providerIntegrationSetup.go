@@ -47,7 +47,7 @@ import (
 //			}
 //			azure, err := confluentcloud.NewProviderIntegrationSetup(ctx, "azure", &confluentcloud.ProviderIntegrationSetupArgs{
 //				Environment: &confluentcloud.ProviderIntegrationSetupEnvironmentArgs{
-//					Id: staging.ID().ToIDOutput().ToStringOutput(),
+//					Id: staging.ID(),
 //				},
 //				DisplayName: pulumi.String("azure-integration"),
 //				Cloud:       pulumi.String("AZURE"),
@@ -57,9 +57,9 @@ import (
 //			}
 //			// Configure and validate the Azure integration
 //			_, err = confluentcloud.NewProviderIntegrationAuthorization(ctx, "azure", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: azure.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: azure.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
-//					Id: staging.ID().ToIDOutput().ToStringOutput(),
+//					Id: staging.ID(),
 //				},
 //				Azure: &confluentcloud.ProviderIntegrationAuthorizationAzureArgs{
 //					CustomerAzureTenantId: pulumi.String("12345678-1234-1234-1234-123456789abc"),
@@ -100,7 +100,7 @@ import (
 //			}
 //			// Configure and validate the GCP integration
 //			_, err = confluentcloud.NewProviderIntegrationAuthorization(ctx, "gcp", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: gcp.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: gcp.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
 //				},

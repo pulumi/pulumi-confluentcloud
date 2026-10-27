@@ -43,7 +43,7 @@ import (
 //			}
 //			_, err = confluentcloud.NewProviderIntegration(ctx, "main", &confluentcloud.ProviderIntegrationArgs{
 //				Environment: &confluentcloud.ProviderIntegrationEnvironmentArgs{
-//					Id: staging.ID().ToIDOutput().ToStringOutput(),
+//					Id: staging.ID(),
 //				},
 //				Aws: &confluentcloud.ProviderIntegrationAwsArgs{
 //					CustomerRoleArn: pulumi.Any(customerRoleArn),

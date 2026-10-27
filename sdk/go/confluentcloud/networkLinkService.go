@@ -53,7 +53,7 @@ import (
 //					pulumi.String("use1-az6"),
 //				},
 //				Environment: &confluentcloud.NetworkEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -62,10 +62,10 @@ import (
 //			_, err = confluentcloud.NewNetworkLinkService(ctx, "aws_nls", &confluentcloud.NetworkLinkServiceArgs{
 //				DisplayName: pulumi.String("AWS Private Link network link service"),
 //				Environment: &confluentcloud.NetworkLinkServiceEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //				Network: &confluentcloud.NetworkLinkServiceNetworkArgs{
-//					Id: aws_private_link.ID().ToIDOutput().ToStringOutput(),
+//					Id: aws_private_link.ID(),
 //				},
 //				Description: pulumi.String("Test NL service"),
 //				Accept: &confluentcloud.NetworkLinkServiceAcceptArgs{

@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			azureProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "azure", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: azure.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: azure.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			azureProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "azure", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: azure.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: azure.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -153,7 +153,7 @@ import (
 //				return err
 //			}
 //			gcpProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "gcp", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: gcp.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: gcp.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},
@@ -214,7 +214,7 @@ import (
 //				return err
 //			}
 //			gcpProviderIntegrationAuthorization, err := confluentcloud.NewProviderIntegrationAuthorization(ctx, "gcp", &confluentcloud.ProviderIntegrationAuthorizationArgs{
-//				ProviderIntegrationId: gcp.ID().ToIDOutput().ToStringOutput(),
+//				ProviderIntegrationId: gcp.ID(),
 //				Environment: &confluentcloud.ProviderIntegrationAuthorizationEnvironmentArgs{
 //					Id: pulumi.Any(environmentId),
 //				},

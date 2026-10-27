@@ -45,7 +45,7 @@ import (
 //				MaxCfu:      pulumi.Int(5),
 //				DefaultPool: pulumi.Bool(true),
 //				Environment: &confluentcloud.FlinkComputePoolEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //			})
 //			if err != nil {
