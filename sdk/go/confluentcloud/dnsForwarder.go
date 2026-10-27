@@ -41,7 +41,7 @@ import (
 //			_, err = confluentcloud.NewDnsForwarder(ctx, "main", &confluentcloud.DnsForwarderArgs{
 //				DisplayName: pulumi.String("dns_forwarder"),
 //				Environment: &confluentcloud.DnsForwarderEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),
@@ -89,7 +89,7 @@ import (
 //			_, err = confluentcloud.NewDnsForwarder(ctx, "main", &confluentcloud.DnsForwarderArgs{
 //				DisplayName: pulumi.String("dns_forwarder"),
 //				Environment: &confluentcloud.DnsForwarderEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),

@@ -39,7 +39,7 @@ import (
 //			_, err = confluentcloud.NewGateway(ctx, "main", &confluentcloud.GatewayArgs{
 //				DisplayName: pulumi.String("my_egress_gateway"),
 //				Environment: &confluentcloud.GatewayEnvironmentArgs{
-//					Id: development.ID().ToIDOutput().ToStringOutput(),
+//					Id: development.ID(),
 //				},
 //				AwsEgressPrivateLinkGateway: &confluentcloud.GatewayAwsEgressPrivateLinkGatewayArgs{
 //					Region: pulumi.String("us-west-2"),

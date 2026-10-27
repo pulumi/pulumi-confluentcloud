@@ -48,7 +48,7 @@ import (
 //			// Loads the only Schema Registry cluster in the target environment
 //			exampleUsingEnvId := confluentcloud.GetSchemaRegistryClusterOutput(ctx, confluentcloud.GetSchemaRegistryClusterOutputArgs{
 //				Environment: &confluentcloud.GetSchemaRegistryClusterEnvironmentArgs{
-//					Id: staging.ID().ToIDOutput().ToStringOutput(),
+//					Id: staging.ID(),
 //				},
 //			}, nil)
 //			ctx.Export("exampleUsingEnvId", exampleUsingEnvId)
