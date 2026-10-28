@@ -44,6 +44,8 @@ class SchemaExporterArgs:
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
                
                > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+               
+               > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -149,6 +151,8 @@ class SchemaExporterArgs:
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 
         > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+
+        > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         """
         return pulumi.get(self, "reset_on_update")
 
@@ -240,6 +244,8 @@ class _SchemaExporterState:
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
                
                > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+               
+               > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -346,6 +352,8 @@ class _SchemaExporterState:
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 
         > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+
+        > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         """
         return pulumi.get(self, "reset_on_update")
 
@@ -527,6 +535,8 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
                
                > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+               
+               > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -714,6 +724,8 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
                
                > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+               
+               > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -789,6 +801,8 @@ class SchemaExporter(pulumi.CustomResource):
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 
         > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+
+        > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
         """
         return pulumi.get(self, "reset_on_update")
 

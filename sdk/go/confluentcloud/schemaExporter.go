@@ -167,6 +167,8 @@ type SchemaExporter struct {
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	//
 	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 	ResetOnUpdate pulumi.BoolPtrOutput `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                       `pulumi:"restEndpoint"`
@@ -233,6 +235,8 @@ type schemaExporterState struct {
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	//
 	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
@@ -260,6 +264,8 @@ type SchemaExporterState struct {
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	//
 	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 	ResetOnUpdate pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -291,6 +297,8 @@ type schemaExporterArgs struct {
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	//
 	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
@@ -319,6 +327,8 @@ type SchemaExporterArgs struct {
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	//
 	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 	ResetOnUpdate pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -452,6 +462,8 @@ func (o SchemaExporterOutput) Name() pulumi.StringOutput {
 // The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 //
 // > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+//
+// > **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider's OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren't written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
 func (o SchemaExporterOutput) ResetOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaExporter) pulumi.BoolPtrOutput { return v.ResetOnUpdate }).(pulumi.BoolPtrOutput)
 }
