@@ -267,6 +267,8 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider&#39;s OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren&#39;t written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
+     * 
      */
     @Export(name="resetOnUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> resetOnUpdate;
@@ -275,6 +277,8 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
      * @return The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      * 
      * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+     * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, Confluent Cloud stores the provider&#39;s OAuth client ID and client secret on the exporter object, so the exporter can keep authenticating to the destination Schema Registry cluster on its own after `pulumi up`. They aren&#39;t written to Terraform state. If `bearer.auth.client.id` and `bearer.auth.client.secret` are set in `config`, those values are used instead.
      * 
      */
     public Output<Optional<Boolean>> resetOnUpdate() {
