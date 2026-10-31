@@ -21,6 +21,11 @@ public final class GetSubjectConfigResult {
      */
     private String alias;
     /**
+     * @return (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    private String aliasForDeks;
+    /**
      * @return (Optional String) The Compatibility Group of the specified subject.
      * 
      */
@@ -57,6 +62,13 @@ public final class GetSubjectConfigResult {
      */
     public String alias() {
         return this.alias;
+    }
+    /**
+     * @return (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    public String aliasForDeks() {
+        return this.aliasForDeks;
     }
     /**
      * @return (Optional String) The Compatibility Group of the specified subject.
@@ -116,6 +128,7 @@ public final class GetSubjectConfigResult {
     @CustomType.Builder
     public static final class Builder {
         private String alias;
+        private String aliasForDeks;
         private String compatibilityGroup;
         private String compatibilityLevel;
         private String compatibilityPolicy;
@@ -129,6 +142,7 @@ public final class GetSubjectConfigResult {
         public Builder(GetSubjectConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
+    	      this.aliasForDeks = defaults.aliasForDeks;
     	      this.compatibilityGroup = defaults.compatibilityGroup;
     	      this.compatibilityLevel = defaults.compatibilityLevel;
     	      this.compatibilityPolicy = defaults.compatibilityPolicy;
@@ -146,6 +160,14 @@ public final class GetSubjectConfigResult {
               throw new MissingRequiredPropertyException("GetSubjectConfigResult", "alias");
             }
             this.alias = alias;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder aliasForDeks(String aliasForDeks) {
+            if (aliasForDeks == null) {
+              throw new MissingRequiredPropertyException("GetSubjectConfigResult", "aliasForDeks");
+            }
+            this.aliasForDeks = aliasForDeks;
             return this;
         }
         @CustomType.Setter
@@ -217,6 +239,7 @@ public final class GetSubjectConfigResult {
         public GetSubjectConfigResult build() {
             final var _resultValue = new GetSubjectConfigResult();
             _resultValue.alias = alias;
+            _resultValue.aliasForDeks = aliasForDeks;
             _resultValue.compatibilityGroup = compatibilityGroup;
             _resultValue.compatibilityLevel = compatibilityLevel;
             _resultValue.compatibilityPolicy = compatibilityPolicy;

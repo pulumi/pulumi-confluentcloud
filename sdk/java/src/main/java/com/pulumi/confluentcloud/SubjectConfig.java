@@ -202,6 +202,20 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
         return this.alias;
     }
     /**
+     * The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    @Export(name="aliasForDeks", refs={String.class}, tree="[0]")
+    private Output<String> aliasForDeks;
+
+    /**
+     * @return The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    public Output<String> aliasForDeks() {
+        return this.aliasForDeks;
+    }
+    /**
      * The Compatibility Group of the specified subject.
      * 
      */

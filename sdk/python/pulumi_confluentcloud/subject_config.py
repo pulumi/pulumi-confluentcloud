@@ -23,6 +23,7 @@ class SubjectConfigArgs:
     def __init__(__self__, *,
                  subject_name: pulumi.Input[_builtins.str],
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_for_deks: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class SubjectConfigArgs:
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
                
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
+        :param pulumi.Input[_builtins.str] alias_for_deks: The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
@@ -51,6 +53,8 @@ class SubjectConfigArgs:
         pulumi.set(__self__, "subject_name", subject_name)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if alias_for_deks is not None:
+            pulumi.set(__self__, "alias_for_deks", alias_for_deks)
         if compatibility_group is not None:
             pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
@@ -95,6 +99,18 @@ class SubjectConfigArgs:
     @alias.setter
     def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasForDeks")
+    def alias_for_deks(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        """
+        return pulumi.get(self, "alias_for_deks")
+
+    @alias_for_deks.setter
+    def alias_for_deks(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alias_for_deks", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
@@ -182,6 +198,7 @@ class SubjectConfigArgs:
 class _SubjectConfigState:
     def __init__(__self__, *,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_for_deks: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -196,6 +213,7 @@ class _SubjectConfigState:
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
                
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
+        :param pulumi.Input[_builtins.str] alias_for_deks: The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
@@ -210,6 +228,8 @@ class _SubjectConfigState:
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if alias_for_deks is not None:
+            pulumi.set(__self__, "alias_for_deks", alias_for_deks)
         if compatibility_group is not None:
             pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
@@ -240,6 +260,18 @@ class _SubjectConfigState:
     @alias.setter
     def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasForDeks")
+    def alias_for_deks(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        """
+        return pulumi.get(self, "alias_for_deks")
+
+    @alias_for_deks.setter
+    def alias_for_deks(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alias_for_deks", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
@@ -346,6 +378,7 @@ class SubjectConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_for_deks: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -440,6 +473,7 @@ class SubjectConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
                
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
+        :param pulumi.Input[_builtins.str] alias_for_deks: The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
@@ -554,6 +588,7 @@ class SubjectConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_for_deks: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
                  compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -572,6 +607,7 @@ class SubjectConfig(pulumi.CustomResource):
             __props__ = SubjectConfigArgs.__new__(SubjectConfigArgs)
 
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["alias_for_deks"] = alias_for_deks
             __props__.__dict__["compatibility_group"] = compatibility_group
             __props__.__dict__["compatibility_level"] = compatibility_level
             __props__.__dict__["compatibility_policy"] = compatibility_policy
@@ -595,6 +631,7 @@ class SubjectConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
+            alias_for_deks: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
             compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -613,6 +650,7 @@ class SubjectConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
                
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
+        :param pulumi.Input[_builtins.str] alias_for_deks: The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
         :param pulumi.Input[_builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[_builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[_builtins.str] compatibility_policy: The Compatibility Policy of the specified subject. Accepted values are: `LENIENT`, `LOGICAL`, and `STRICT`.
@@ -630,6 +668,7 @@ class SubjectConfig(pulumi.CustomResource):
         __props__ = _SubjectConfigState.__new__(_SubjectConfigState)
 
         __props__.__dict__["alias"] = alias
+        __props__.__dict__["alias_for_deks"] = alias_for_deks
         __props__.__dict__["compatibility_group"] = compatibility_group
         __props__.__dict__["compatibility_level"] = compatibility_level
         __props__.__dict__["compatibility_policy"] = compatibility_policy
@@ -649,6 +688,14 @@ class SubjectConfig(pulumi.CustomResource):
         > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
         """
         return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter(name="aliasForDeks")
+    def alias_for_deks(self) -> pulumi.Output[_builtins.str]:
+        """
+        The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        """
+        return pulumi.get(self, "alias_for_deks")
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")

@@ -102,6 +102,8 @@ type LookupSubjectConfigArgs struct {
 type LookupSubjectConfigResult struct {
 	// (Optional String) The subject name that this subject is an alias for.
 	Alias string `pulumi:"alias"`
+	// (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks string `pulumi:"aliasForDeks"`
 	// (Optional String) The Compatibility Group of the specified subject.
 	CompatibilityGroup string `pulumi:"compatibilityGroup"`
 	// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -155,6 +157,11 @@ func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutputWithCo
 // (Optional String) The subject name that this subject is an alias for.
 func (o LookupSubjectConfigResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+func (o LookupSubjectConfigResultOutput) AliasForDeks() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.AliasForDeks }).(pulumi.StringOutput)
 }
 
 // (Optional String) The Compatibility Group of the specified subject.
