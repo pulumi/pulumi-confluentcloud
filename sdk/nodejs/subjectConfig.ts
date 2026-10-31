@@ -129,6 +129,10 @@ export class SubjectConfig extends pulumi.CustomResource {
      */
     declare public readonly alias: pulumi.Output<string>;
     /**
+     * The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     */
+    declare public readonly aliasForDeks: pulumi.Output<string>;
+    /**
      * The Compatibility Group of the specified subject.
      */
     declare public readonly compatibilityGroup: pulumi.Output<string>;
@@ -176,6 +180,7 @@ export class SubjectConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubjectConfigState | undefined;
             resourceInputs["alias"] = state?.alias;
+            resourceInputs["aliasForDeks"] = state?.aliasForDeks;
             resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
             resourceInputs["compatibilityPolicy"] = state?.compatibilityPolicy;
@@ -190,6 +195,7 @@ export class SubjectConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subjectName'");
             }
             resourceInputs["alias"] = args?.alias;
+            resourceInputs["aliasForDeks"] = args?.aliasForDeks;
             resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
             resourceInputs["compatibilityPolicy"] = args?.compatibilityPolicy;
@@ -216,6 +222,10 @@ export interface SubjectConfigState {
      * > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
      */
     alias?: pulumi.Input<string | undefined>;
+    /**
+     * The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     */
+    aliasForDeks?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Group of the specified subject.
      */
@@ -261,6 +271,10 @@ export interface SubjectConfigArgs {
      * > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
      */
     alias?: pulumi.Input<string | undefined>;
+    /**
+     * The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     */
+    aliasForDeks?: pulumi.Input<string | undefined>;
     /**
      * The Compatibility Group of the specified subject.
      */

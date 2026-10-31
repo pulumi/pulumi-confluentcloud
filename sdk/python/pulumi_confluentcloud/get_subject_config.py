@@ -28,10 +28,13 @@ class GetSubjectConfigResult:
     """
     A collection of values returned by getSubjectConfig.
     """
-    def __init__(__self__, alias=None, compatibility_group=None, compatibility_level=None, compatibility_policy=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+    def __init__(__self__, alias=None, alias_for_deks=None, compatibility_group=None, compatibility_level=None, compatibility_policy=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
+        if alias_for_deks and not isinstance(alias_for_deks, str):
+            raise TypeError("Expected argument 'alias_for_deks' to be a str")
+        pulumi.set(__self__, "alias_for_deks", alias_for_deks)
         if compatibility_group and not isinstance(compatibility_group, str):
             raise TypeError("Expected argument 'compatibility_group' to be a str")
         pulumi.set(__self__, "compatibility_group", compatibility_group)
@@ -67,6 +70,14 @@ class GetSubjectConfigResult:
         (Optional String) The subject name that this subject is an alias for.
         """
         return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter(name="aliasForDeks")
+    def alias_for_deks(self) -> _builtins.str:
+        """
+        (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        """
+        return pulumi.get(self, "alias_for_deks")
 
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
@@ -136,6 +147,7 @@ class AwaitableGetSubjectConfigResult(GetSubjectConfigResult):
             yield self
         return GetSubjectConfigResult(
             alias=self.alias,
+            alias_for_deks=self.alias_for_deks,
             compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
             compatibility_policy=self.compatibility_policy,
@@ -201,6 +213,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
 
     return AwaitableGetSubjectConfigResult(
         alias=pulumi.get(__ret__, 'alias'),
+        alias_for_deks=pulumi.get(__ret__, 'alias_for_deks'),
         compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         compatibility_policy=pulumi.get(__ret__, 'compatibility_policy'),
@@ -263,6 +276,7 @@ def get_subject_config_output(credentials: pulumi.Input[Optional[Optional[Union[
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult)
     return __ret__.apply(lambda __response__: GetSubjectConfigResult(
         alias=pulumi.get(__response__, 'alias'),
+        alias_for_deks=pulumi.get(__response__, 'alias_for_deks'),
         compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         compatibility_policy=pulumi.get(__response__, 'compatibility_policy'),

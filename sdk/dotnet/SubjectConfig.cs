@@ -142,6 +142,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
+        /// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        /// </summary>
+        [Output("aliasForDeks")]
+        public Output<string> AliasForDeks { get; private set; } = null!;
+
+        /// <summary>
         /// The Compatibility Group of the specified subject.
         /// </summary>
         [Output("compatibilityGroup")]
@@ -249,6 +255,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Alias { get; set; }
 
         /// <summary>
+        /// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        /// </summary>
+        [Input("aliasForDeks")]
+        public Input<string>? AliasForDeks { get; set; }
+
+        /// <summary>
         /// The Compatibility Group of the specified subject.
         /// </summary>
         [Input("compatibilityGroup")]
@@ -322,6 +334,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
+
+        /// <summary>
+        /// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        /// </summary>
+        [Input("aliasForDeks")]
+        public Input<string>? AliasForDeks { get; set; }
 
         /// <summary>
         /// The Compatibility Group of the specified subject.

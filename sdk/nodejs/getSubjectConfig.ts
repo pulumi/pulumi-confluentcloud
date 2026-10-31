@@ -80,6 +80,10 @@ export interface GetSubjectConfigResult {
      */
     readonly alias: string;
     /**
+     * (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     */
+    readonly aliasForDeks: string;
+    /**
      * (Optional String) The Compatibility Group of the specified subject.
      */
     readonly compatibilityGroup: string;

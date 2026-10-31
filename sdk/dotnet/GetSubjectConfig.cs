@@ -280,6 +280,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Alias;
         /// <summary>
+        /// (Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+        /// </summary>
+        public readonly string AliasForDeks;
+        /// <summary>
         /// (Optional String) The Compatibility Group of the specified subject.
         /// </summary>
         public readonly string CompatibilityGroup;
@@ -308,6 +312,8 @@ namespace Pulumi.ConfluentCloud
         private GetSubjectConfigResult(
             string alias,
 
+            string aliasForDeks,
+
             string compatibilityGroup,
 
             string compatibilityLevel,
@@ -327,6 +333,7 @@ namespace Pulumi.ConfluentCloud
             string subjectName)
         {
             Alias = alias;
+            AliasForDeks = aliasForDeks;
             CompatibilityGroup = compatibilityGroup;
             CompatibilityLevel = compatibilityLevel;
             CompatibilityPolicy = compatibilityPolicy;

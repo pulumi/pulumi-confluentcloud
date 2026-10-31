@@ -160,6 +160,8 @@ type SubjectConfig struct {
 	//
 	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 	Alias pulumi.StringOutput `pulumi:"alias"`
+	// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks pulumi.StringOutput `pulumi:"aliasForDeks"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringOutput `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -225,6 +227,8 @@ type subjectConfigState struct {
 	//
 	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 	Alias *string `pulumi:"alias"`
+	// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks *string `pulumi:"aliasForDeks"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -251,6 +255,8 @@ type SubjectConfigState struct {
 	//
 	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 	Alias pulumi.StringPtrInput
+	// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks pulumi.StringPtrInput
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -281,6 +287,8 @@ type subjectConfigArgs struct {
 	//
 	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 	Alias *string `pulumi:"alias"`
+	// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks *string `pulumi:"aliasForDeks"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -308,6 +316,8 @@ type SubjectConfigArgs struct {
 	//
 	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 	Alias pulumi.StringPtrInput
+	// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+	AliasForDeks pulumi.StringPtrInput
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -421,6 +431,11 @@ func (o SubjectConfigOutput) ToSubjectConfigOutputWithContext(ctx context.Contex
 // > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
 func (o SubjectConfigOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+func (o SubjectConfigOutput) AliasForDeks() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.AliasForDeks }).(pulumi.StringOutput)
 }
 
 // The Compatibility Group of the specified subject.

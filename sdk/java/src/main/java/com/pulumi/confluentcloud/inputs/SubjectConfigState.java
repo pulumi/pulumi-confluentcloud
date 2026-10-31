@@ -38,6 +38,21 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    @Import(name="aliasForDeks")
+    private @Nullable Output<String> aliasForDeks;
+
+    /**
+     * @return The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+     * 
+     */
+    public Optional<Output<String>> aliasForDeks() {
+        return Optional.ofNullable(this.aliasForDeks);
+    }
+
+    /**
      * The Compatibility Group of the specified subject.
      * 
      */
@@ -161,6 +176,7 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
 
     private SubjectConfigState(SubjectConfigState $) {
         this.alias = $.alias;
+        this.aliasForDeks = $.aliasForDeks;
         this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
         this.compatibilityPolicy = $.compatibilityPolicy;
@@ -212,6 +228,27 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
+        }
+
+        /**
+         * @param aliasForDeks The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliasForDeks(@Nullable Output<String> aliasForDeks) {
+            $.aliasForDeks = aliasForDeks;
+            return this;
+        }
+
+        /**
+         * @param aliasForDeks The subject name that this subject is an alias for, but only in the context of DEK Registry calls.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliasForDeks(String aliasForDeks) {
+            return aliasForDeks(Output.of(aliasForDeks));
         }
 
         /**
