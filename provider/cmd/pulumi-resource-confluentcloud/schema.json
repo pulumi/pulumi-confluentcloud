@@ -17028,6 +17028,10 @@
                     "type": "string",
                     "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\" pulumi-lang-hcl=\"`subject_name`\"\u003e`subjectName`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\" pulumi-lang-hcl=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \" pulumi-lang-hcl=\"`subject_name \"\u003e`subjectName \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
                 },
+                "aliasForDeks": {
+                    "type": "string",
+                    "description": "The subject name that this subject is an alias for, but only in the context of DEK Registry calls.\n"
+                },
                 "compatibilityGroup": {
                     "type": "string",
                     "description": "The Compatibility Group of the specified subject.\n"
@@ -17063,6 +17067,7 @@
             },
             "required": [
                 "alias",
+                "aliasForDeks",
                 "compatibilityGroup",
                 "compatibilityLevel",
                 "compatibilityPolicy",
@@ -17073,6 +17078,10 @@
                 "alias": {
                     "type": "string",
                     "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\" pulumi-lang-hcl=\"`subject_name`\"\u003e`subjectName`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\" pulumi-lang-hcl=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \" pulumi-lang-hcl=\"`subject_name \"\u003e`subjectName \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
+                },
+                "aliasForDeks": {
+                    "type": "string",
+                    "description": "The subject name that this subject is an alias for, but only in the context of DEK Registry calls.\n"
                 },
                 "compatibilityGroup": {
                     "type": "string",
@@ -17119,6 +17128,10 @@
                     "alias": {
                         "type": "string",
                         "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\" pulumi-lang-hcl=\"`subject_name`\"\u003e`subjectName`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\" pulumi-lang-hcl=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \" pulumi-lang-hcl=\"`subject_name \"\u003e`subjectName \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
+                    },
+                    "aliasForDeks": {
+                        "type": "string",
+                        "description": "The subject name that this subject is an alias for, but only in the context of DEK Registry calls.\n"
                     },
                     "compatibilityGroup": {
                         "type": "string",
@@ -22365,6 +22378,10 @@
                         "description": "(Optional String) The subject name that this subject is an alias for.\n",
                         "type": "string"
                     },
+                    "aliasForDeks": {
+                        "description": "(Optional String) The subject name that this subject is an alias for, but only in the context of DEK Registry calls.\n",
+                        "type": "string"
+                    },
                     "compatibilityGroup": {
                         "description": "(Optional String) The Compatibility Group of the specified subject.\n",
                         "type": "string"
@@ -22401,6 +22418,7 @@
                 },
                 "required": [
                     "alias",
+                    "aliasForDeks",
                     "compatibilityGroup",
                     "compatibilityLevel",
                     "compatibilityPolicy",
