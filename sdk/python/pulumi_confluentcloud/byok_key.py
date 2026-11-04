@@ -325,6 +325,18 @@ class ByokKey(pulumi.CustomResource):
         __props__.__dict__["gcp"] = gcp
         return ByokKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict', 'outputs.ByokKeyAws']]] = None,
+            azure: pulumi.Input[Optional[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict', 'outputs.ByokKeyAzure']]] = None,
+            gcp: pulumi.Input[Optional[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict', 'outputs.ByokKeyGcp']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azure"] = azure
+        __props__["gcp"] = gcp
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/byokKey:ByokKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output['outputs.ByokKeyAws']:

@@ -79,6 +79,17 @@ export class SchemaRegistryDek extends pulumi.CustomResource {
         return new SchemaRegistryDek(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing SchemaRegistryDek resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: SchemaRegistryDekState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'confluentcloud:index/schemaRegistryDek:SchemaRegistryDek';
 

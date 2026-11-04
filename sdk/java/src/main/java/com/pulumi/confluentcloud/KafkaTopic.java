@@ -215,11 +215,10 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
+     * @deprecated This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+    @Deprecated
     @Export(name="httpEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpEndpoint;
 

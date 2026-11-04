@@ -496,6 +496,28 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         __props__.__dict__["sensitive_config_properties"] = sensitive_config_properties
         return CustomConnectorPlugin(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_class: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloud"] = cloud
+        __props__["connectorClass"] = connector_class
+        __props__["connectorType"] = connector_type
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["documentationLink"] = documentation_link
+        __props__["filename"] = filename
+        __props__["sensitiveConfigProperties"] = sensitive_config_properties
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cloud(self) -> pulumi.Output[_builtins.str]:

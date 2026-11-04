@@ -157,6 +157,12 @@ func (InvitationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invitationState)(nil)).Elem()
 }
 
+// InvitationExists checks whether an existing Invitation resource with the given ID exists.
+func InvitationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvitationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/invitation:Invitation", id, state, "", opts...)
+}
+
 type invitationArgs struct {
 	// Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
 	AllowDeletion *bool `pulumi:"allowDeletion"`

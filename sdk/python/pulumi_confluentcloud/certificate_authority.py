@@ -543,6 +543,36 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["serial_numbers"] = serial_numbers
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain_filename: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_source: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fingerprints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            require_crl_on_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
+            serial_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateChain"] = certificate_chain
+        __props__["certificateChainFilename"] = certificate_chain_filename
+        __props__["crlChain"] = crl_chain
+        __props__["crlSource"] = crl_source
+        __props__["crlUpdatedAt"] = crl_updated_at
+        __props__["crlUrl"] = crl_url
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["expirationDates"] = expiration_dates
+        __props__["fingerprints"] = fingerprints
+        __props__["requireCrlOnClientCertificate"] = require_crl_on_client_certificate
+        __props__["serialNumbers"] = serial_numbers
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/certificateAuthority:CertificateAuthority', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[_builtins.str]:

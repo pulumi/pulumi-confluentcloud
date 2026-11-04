@@ -182,6 +182,12 @@ func (RtceTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rtceTopicState)(nil)).Elem()
 }
 
+// RtceTopicExists checks whether an existing RtceTopic resource with the given ID exists.
+func RtceTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RtceTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/rtceTopic:RtceTopic", id, state, "", opts...)
+}
+
 type rtceTopicArgs struct {
 	// The cloud provider where the RTCE topic is deployed.
 	Cloud string `pulumi:"cloud"`

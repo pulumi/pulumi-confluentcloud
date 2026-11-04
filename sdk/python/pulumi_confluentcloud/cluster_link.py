@@ -624,6 +624,30 @@ class ClusterLink(pulumi.CustomResource):
         __props__.__dict__["source_kafka_cluster"] = source_kafka_cluster
         return ClusterLink(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict', 'outputs.ClusterLinkDestinationKafkaCluster']]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            link_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            local_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict', 'outputs.ClusterLinkLocalKafkaCluster']]] = None,
+            remote_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict', 'outputs.ClusterLinkRemoteKafkaCluster']]] = None,
+            source_kafka_cluster: pulumi.Input[Optional[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict', 'outputs.ClusterLinkSourceKafkaCluster']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterLinkId"] = cluster_link_id
+        __props__["config"] = config
+        __props__["connectionMode"] = connection_mode
+        __props__["destinationKafkaCluster"] = destination_kafka_cluster
+        __props__["link"] = link
+        __props__["linkMode"] = link_mode
+        __props__["localKafkaCluster"] = local_kafka_cluster
+        __props__["remoteKafkaCluster"] = remote_kafka_cluster
+        __props__["sourceKafkaCluster"] = source_kafka_cluster
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/clusterLink:ClusterLink', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterLinkId")
     def cluster_link_id(self) -> pulumi.Output[_builtins.str]:

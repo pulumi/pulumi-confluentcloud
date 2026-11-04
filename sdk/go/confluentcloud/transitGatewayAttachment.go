@@ -176,6 +176,12 @@ func (TransitGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayAttachmentState)(nil)).Elem()
 }
 
+// TransitGatewayAttachmentExists checks whether an existing TransitGatewayAttachment resource with the given ID exists.
+func TransitGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment", id, state, "", opts...)
+}
+
 type transitGatewayAttachmentArgs struct {
 	// (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
 	Aws *TransitGatewayAttachmentAws `pulumi:"aws"`

@@ -290,6 +290,20 @@ class FlinkComputePoolConfig(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         return FlinkComputePoolConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            default_compute_pool_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_max_cfu: pulumi.Input[Optional[_builtins.int]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["defaultComputePoolEnabled"] = default_compute_pool_enabled
+        __props__["defaultMaxCfu"] = default_max_cfu
+        __props__["kind"] = kind
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

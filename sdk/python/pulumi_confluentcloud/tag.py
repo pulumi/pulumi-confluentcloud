@@ -477,6 +477,26 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Tag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['TagCredentialsArgs', 'TagCredentialsArgsDict', 'outputs.TagCredentials']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict', 'outputs.TagSchemaRegistryCluster']]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["description"] = description
+        __props__["entityTypes"] = entity_types
+        __props__["name"] = name
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/tag:Tag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.TagCredentials']]:

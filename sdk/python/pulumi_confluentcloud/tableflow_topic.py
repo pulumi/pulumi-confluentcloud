@@ -951,6 +951,50 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["write_mode"] = write_mode
         return TableflowTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_data_lake_storage_gen2: pulumi.Input[Optional[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict', 'outputs.TableflowTopicAzureDataLakeStorageGen2']]] = None,
+            byob_aws: pulumi.Input[Optional[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict', 'outputs.TableflowTopicByobAws']]] = None,
+            credentials: pulumi.Input[Optional[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict', 'outputs.TableflowTopicCredentials']]] = None,
+            data_retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment: pulumi.Input[Optional[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict', 'outputs.TableflowTopicEnvironment']]] = None,
+            error_handling: pulumi.Input[Optional[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict', 'outputs.TableflowTopicErrorHandling']]] = None,
+            google_cloud_storage: pulumi.Input[Optional[Union['TableflowTopicGoogleCloudStorageArgs', 'TableflowTopicGoogleCloudStorageArgsDict', 'outputs.TableflowTopicGoogleCloudStorage']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict', 'outputs.TableflowTopicKafkaCluster']]] = None,
+            managed_storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict', 'outputs.TableflowTopicManagedStorage']]]]] = None,
+            metadata_column_naming_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            record_failure_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_ms: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended: pulumi.Input[Optional[_builtins.bool]] = None,
+            table_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            table_path: pulumi.Input[Optional[_builtins.str]] = None,
+            write_mode: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureDataLakeStorageGen2"] = azure_data_lake_storage_gen2
+        __props__["byobAws"] = byob_aws
+        __props__["credentials"] = credentials
+        __props__["dataRetentionMs"] = data_retention_ms
+        __props__["displayName"] = display_name
+        __props__["enableCompaction"] = enable_compaction
+        __props__["enablePartitioning"] = enable_partitioning
+        __props__["environment"] = environment
+        __props__["errorHandling"] = error_handling
+        __props__["googleCloudStorage"] = google_cloud_storage
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["managedStorages"] = managed_storages
+        __props__["metadataColumnNamingScheme"] = metadata_column_naming_scheme
+        __props__["recordFailureStrategy"] = record_failure_strategy
+        __props__["retentionMs"] = retention_ms
+        __props__["suspended"] = suspended
+        __props__["tableFormats"] = table_formats
+        __props__["tablePath"] = table_path
+        __props__["writeMode"] = write_mode
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/tableflowTopic:TableflowTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureDataLakeStorageGen2")
     def azure_data_lake_storage_gen2(self) -> pulumi.Output[Optional['outputs.TableflowTopicAzureDataLakeStorageGen2']]:

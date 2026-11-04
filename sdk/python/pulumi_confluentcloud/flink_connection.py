@@ -1001,6 +1001,48 @@ class FlinkConnection(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return FlinkConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkConnectionComputePoolArgs', 'FlinkConnectionComputePoolArgsDict', 'outputs.FlinkConnectionComputePool']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkConnectionCredentialsArgs', 'FlinkConnectionCredentialsArgsDict', 'outputs.FlinkConnectionCredentials']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkConnectionEnvironmentArgs', 'FlinkConnectionEnvironmentArgsDict', 'outputs.FlinkConnectionEnvironment']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkConnectionOrganizationArgs', 'FlinkConnectionOrganizationArgsDict', 'outputs.FlinkConnectionOrganization']]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkConnectionPrincipalArgs', 'FlinkConnectionPrincipalArgsDict', 'outputs.FlinkConnectionPrincipal']]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["apiVersion"] = api_version
+        __props__["awsAccessKey"] = aws_access_key
+        __props__["awsSecretKey"] = aws_secret_key
+        __props__["awsSessionToken"] = aws_session_token
+        __props__["computePool"] = compute_pool
+        __props__["credentials"] = credentials
+        __props__["displayName"] = display_name
+        __props__["endpoint"] = endpoint
+        __props__["environment"] = environment
+        __props__["kind"] = kind
+        __props__["organization"] = organization
+        __props__["password"] = password
+        __props__["principal"] = principal
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["serviceKey"] = service_key
+        __props__["type"] = type
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/flinkConnection:FlinkConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:

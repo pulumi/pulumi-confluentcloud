@@ -444,6 +444,12 @@ func (ApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyState)(nil)).Elem()
 }
 
+// ApiKeyExists checks whether an existing ApiKey resource with the given ID exists.
+func ApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/apiKey:ApiKey", id, state, "", opts...)
+}
+
 type apiKeyArgs struct {
 	// A free-form description of the API Account.
 	Description *string `pulumi:"description"`

@@ -206,6 +206,12 @@ func (DnsForwarderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsForwarderState)(nil)).Elem()
 }
 
+// DnsForwarderExists checks whether an existing DnsForwarder resource with the given ID exists.
+func DnsForwarderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnsForwarderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/dnsForwarder:DnsForwarder", id, state, "", opts...)
+}
+
 type dnsForwarderArgs struct {
 	// The name of the DNS Forwarder.
 	DisplayName *string `pulumi:"displayName"`

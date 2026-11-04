@@ -774,6 +774,24 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["secret"] = secret
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource: pulumi.Input[Optional[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict', 'outputs.ApiKeyManagedResource']]] = None,
+            owner: pulumi.Input[Optional[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict', 'outputs.ApiKeyOwner']]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["disableWaitForReady"] = disable_wait_for_ready
+        __props__["displayName"] = display_name
+        __props__["managedResource"] = managed_resource
+        __props__["owner"] = owner
+        __props__["secret"] = secret
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

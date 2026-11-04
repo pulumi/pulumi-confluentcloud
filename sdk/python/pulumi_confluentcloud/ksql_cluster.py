@@ -483,6 +483,36 @@ class KsqlCluster(pulumi.CustomResource):
         __props__.__dict__["use_detailed_processing_log"] = use_detailed_processing_log
         return KsqlCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_identity: pulumi.Input[Optional[Union['KsqlClusterCredentialIdentityArgs', 'KsqlClusterCredentialIdentityArgsDict', 'outputs.KsqlClusterCredentialIdentity']]] = None,
+            csu: pulumi.Input[Optional[_builtins.int]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['KsqlClusterEnvironmentArgs', 'KsqlClusterEnvironmentArgsDict', 'outputs.KsqlClusterEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KsqlClusterKafkaClusterArgs', 'KsqlClusterKafkaClusterArgsDict', 'outputs.KsqlClusterKafkaCluster']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[_builtins.int]] = None,
+            topic_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            use_detailed_processing_log: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["credentialIdentity"] = credential_identity
+        __props__["csu"] = csu
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["kind"] = kind
+        __props__["resourceName"] = resource_name_
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["storage"] = storage
+        __props__["topicPrefix"] = topic_prefix
+        __props__["useDetailedProcessingLog"] = use_detailed_processing_log
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/ksqlCluster:KsqlCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

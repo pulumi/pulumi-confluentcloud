@@ -139,6 +139,12 @@ func (GroupMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMappingState)(nil)).Elem()
 }
 
+// GroupMappingExists checks whether an existing GroupMapping resource with the given ID exists.
+func GroupMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/groupMapping:GroupMapping", id, state, "", opts...)
+}
+
 type groupMappingArgs struct {
 	// A description explaining the purpose and use of the group mapping.
 	Description *string `pulumi:"description"`

@@ -191,6 +191,12 @@ func (NetworkLinkServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkLinkServiceState)(nil)).Elem()
 }
 
+// NetworkLinkServiceExists checks whether an existing NetworkLinkService resource with the given ID exists.
+func NetworkLinkServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkLinkServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/networkLinkService:NetworkLinkService", id, state, "", opts...)
+}
+
 type networkLinkServiceArgs struct {
 	// Network Link Service Accept policy
 	Accept *NetworkLinkServiceAccept `pulumi:"accept"`

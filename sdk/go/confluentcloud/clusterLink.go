@@ -230,6 +230,12 @@ func (ClusterLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterLinkState)(nil)).Elem()
 }
 
+// ClusterLinkExists checks whether an existing ClusterLink resource with the given ID exists.
+func ClusterLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/clusterLink:ClusterLink", id, state, "", opts...)
+}
+
 type clusterLinkArgs struct {
 	// The custom cluster link settings to set:
 	Config map[string]string `pulumi:"config"`

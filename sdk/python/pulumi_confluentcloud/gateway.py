@@ -500,6 +500,28 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["gcp_ingress_private_service_connect_gateway"] = gcp_ingress_private_service_connect_gateway
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_egress_private_link_gateway: pulumi.Input[Optional[Union['GatewayAwsEgressPrivateLinkGatewayArgs', 'GatewayAwsEgressPrivateLinkGatewayArgsDict', 'outputs.GatewayAwsEgressPrivateLinkGateway']]] = None,
+            aws_ingress_private_link_gateway: pulumi.Input[Optional[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict', 'outputs.GatewayAwsIngressPrivateLinkGateway']]] = None,
+            aws_private_network_interface_gateway: pulumi.Input[Optional[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict', 'outputs.GatewayAwsPrivateNetworkInterfaceGateway']]] = None,
+            azure_egress_private_link_gateway: pulumi.Input[Optional[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict', 'outputs.GatewayAzureEgressPrivateLinkGateway']]] = None,
+            azure_ingress_private_link_gateway: pulumi.Input[Optional[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict', 'outputs.GatewayAzureIngressPrivateLinkGateway']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict', 'outputs.GatewayEnvironment']]] = None,
+            gcp_ingress_private_service_connect_gateway: pulumi.Input[Optional[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict', 'outputs.GatewayGcpIngressPrivateServiceConnectGateway']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsEgressPrivateLinkGateway"] = aws_egress_private_link_gateway
+        __props__["awsIngressPrivateLinkGateway"] = aws_ingress_private_link_gateway
+        __props__["awsPrivateNetworkInterfaceGateway"] = aws_private_network_interface_gateway
+        __props__["azureEgressPrivateLinkGateway"] = azure_egress_private_link_gateway
+        __props__["azureIngressPrivateLinkGateway"] = azure_ingress_private_link_gateway
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["gcpIngressPrivateServiceConnectGateway"] = gcp_ingress_private_service_connect_gateway
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/gateway:Gateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsEgressPrivateLinkGateway")
     def aws_egress_private_link_gateway(self) -> pulumi.Output['outputs.GatewayAwsEgressPrivateLinkGateway']:

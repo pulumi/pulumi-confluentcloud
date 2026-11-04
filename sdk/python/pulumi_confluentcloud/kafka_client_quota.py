@@ -437,6 +437,24 @@ class KafkaClientQuota(pulumi.CustomResource):
         __props__.__dict__["throughput"] = throughput
         return KafkaClientQuota(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['KafkaClientQuotaEnvironmentArgs', 'KafkaClientQuotaEnvironmentArgsDict', 'outputs.KafkaClientQuotaEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaClientQuotaKafkaClusterArgs', 'KafkaClientQuotaKafkaClusterArgsDict', 'outputs.KafkaClientQuotaKafkaCluster']]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            throughput: pulumi.Input[Optional[Union['KafkaClientQuotaThroughputArgs', 'KafkaClientQuotaThroughputArgsDict', 'outputs.KafkaClientQuotaThroughput']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["principals"] = principals
+        __props__["throughput"] = throughput
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/kafkaClientQuota:KafkaClientQuota', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

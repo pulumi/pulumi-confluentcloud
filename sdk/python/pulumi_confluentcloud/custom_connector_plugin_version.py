@@ -556,6 +556,32 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CustomConnectorPluginVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_classes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomConnectorPluginVersionConnectorClassArgs', 'CustomConnectorPluginVersionConnectorClassArgsDict', 'outputs.CustomConnectorPluginVersionConnectorClass']]]]] = None,
+            documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['CustomConnectorPluginVersionEnvironmentArgs', 'CustomConnectorPluginVersionEnvironmentArgsDict', 'outputs.CustomConnectorPluginVersionEnvironment']]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_config_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["cloud"] = cloud
+        __props__["connectorClasses"] = connector_classes
+        __props__["documentationLink"] = documentation_link
+        __props__["environment"] = environment
+        __props__["filename"] = filename
+        __props__["kind"] = kind
+        __props__["pluginId"] = plugin_id
+        __props__["sensitiveConfigProperties"] = sensitive_config_properties
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

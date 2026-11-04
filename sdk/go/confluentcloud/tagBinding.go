@@ -229,6 +229,12 @@ func (TagBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagBindingState)(nil)).Elem()
 }
 
+// TagBindingExists checks whether an existing TagBinding resource with the given ID exists.
+func TagBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/tagBinding:TagBinding", id, state, "", opts...)
+}
+
 type tagBindingArgs struct {
 	// The Cluster API Credentials.
 	Credentials *TagBindingCredentials `pulumi:"credentials"`

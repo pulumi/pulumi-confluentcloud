@@ -526,6 +526,26 @@ class TagBinding(pulumi.CustomResource):
         __props__.__dict__["tag_name"] = tag_name
         return TagBinding(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict', 'outputs.TagBindingCredentials']]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict', 'outputs.TagBindingSchemaRegistryCluster']]] = None,
+            tag_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["disableWaitForReady"] = disable_wait_for_ready
+        __props__["entityName"] = entity_name
+        __props__["entityType"] = entity_type
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["tagName"] = tag_name
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/tagBinding:TagBinding', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.TagBindingCredentials']]:

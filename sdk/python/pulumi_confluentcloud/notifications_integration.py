@@ -488,6 +488,34 @@ class NotificationsIntegration(pulumi.CustomResource):
         __props__.__dict__["webhook_target"] = webhook_target
         return NotificationsIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            in_app_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationInAppTargetArgs', 'NotificationsIntegrationInAppTargetArgsDict', 'outputs.NotificationsIntegrationInAppTarget']]]]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            ms_teams_target: pulumi.Input[Optional[Union['NotificationsIntegrationMsTeamsTargetArgs', 'NotificationsIntegrationMsTeamsTargetArgsDict', 'outputs.NotificationsIntegrationMsTeamsTarget']]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            role_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationRoleEmailTargetArgs', 'NotificationsIntegrationRoleEmailTargetArgsDict', 'outputs.NotificationsIntegrationRoleEmailTarget']]]]] = None,
+            slack_target: pulumi.Input[Optional[Union['NotificationsIntegrationSlackTargetArgs', 'NotificationsIntegrationSlackTargetArgsDict', 'outputs.NotificationsIntegrationSlackTarget']]] = None,
+            user_email_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsIntegrationUserEmailTargetArgs', 'NotificationsIntegrationUserEmailTargetArgsDict', 'outputs.NotificationsIntegrationUserEmailTarget']]]]] = None,
+            webhook_target: pulumi.Input[Optional[Union['NotificationsIntegrationWebhookTargetArgs', 'NotificationsIntegrationWebhookTargetArgsDict', 'outputs.NotificationsIntegrationWebhookTarget']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["inAppTargets"] = in_app_targets
+        __props__["kind"] = kind
+        __props__["msTeamsTarget"] = ms_teams_target
+        __props__["resourceName"] = resource_name_
+        __props__["roleEmailTargets"] = role_email_targets
+        __props__["slackTarget"] = slack_target
+        __props__["userEmailTargets"] = user_email_targets
+        __props__["webhookTarget"] = webhook_target
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/notificationsIntegration:NotificationsIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

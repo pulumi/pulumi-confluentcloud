@@ -1017,6 +1017,46 @@ class FlinkMaterializedTable(pulumi.CustomResource):
         __props__.__dict__["watermark"] = watermark
         return FlinkMaterializedTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableColumnArgs', 'FlinkMaterializedTableColumnArgsDict', 'outputs.FlinkMaterializedTableColumn']]]]] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkMaterializedTableComputePoolArgs', 'FlinkMaterializedTableComputePoolArgsDict', 'outputs.FlinkMaterializedTableComputePool']]] = None,
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkMaterializedTableConstraintArgs', 'FlinkMaterializedTableConstraintArgsDict', 'outputs.FlinkMaterializedTableConstraint']]]]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkMaterializedTableCredentialsArgs', 'FlinkMaterializedTableCredentialsArgsDict', 'outputs.FlinkMaterializedTableCredentials']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution: pulumi.Input[Optional[Union['FlinkMaterializedTableDistributionArgs', 'FlinkMaterializedTableDistributionArgsDict', 'outputs.FlinkMaterializedTableDistribution']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkMaterializedTableEnvironmentArgs', 'FlinkMaterializedTableEnvironmentArgsDict', 'outputs.FlinkMaterializedTableEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['FlinkMaterializedTableKafkaClusterArgs', 'FlinkMaterializedTableKafkaClusterArgsDict', 'outputs.FlinkMaterializedTableKafkaCluster']]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkMaterializedTableOrganizationArgs', 'FlinkMaterializedTableOrganizationArgsDict', 'outputs.FlinkMaterializedTableOrganization']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkMaterializedTablePrincipalArgs', 'FlinkMaterializedTablePrincipalArgsDict', 'outputs.FlinkMaterializedTablePrincipal']]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            session_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            start_mode: pulumi.Input[Optional[Union['FlinkMaterializedTableStartModeArgs', 'FlinkMaterializedTableStartModeArgsDict', 'outputs.FlinkMaterializedTableStartMode']]] = None,
+            stopped: pulumi.Input[Optional[_builtins.bool]] = None,
+            table_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            watermark: pulumi.Input[Optional[Union['FlinkMaterializedTableWatermarkArgs', 'FlinkMaterializedTableWatermarkArgsDict', 'outputs.FlinkMaterializedTableWatermark']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["columns"] = columns
+        __props__["computePool"] = compute_pool
+        __props__["constraints"] = constraints
+        __props__["credentials"] = credentials
+        __props__["displayName"] = display_name
+        __props__["distribution"] = distribution
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["organization"] = organization
+        __props__["principal"] = principal
+        __props__["query"] = query
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["sessionOptions"] = session_options
+        __props__["startMode"] = start_mode
+        __props__["stopped"] = stopped
+        __props__["tableOptions"] = table_options
+        __props__["watermark"] = watermark
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def columns(self) -> pulumi.Output[Optional[Sequence['outputs.FlinkMaterializedTableColumn']]]:

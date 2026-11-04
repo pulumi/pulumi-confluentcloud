@@ -121,11 +121,10 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      * 
-     * @deprecated
-     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * @deprecated The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      * 
      */
-    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+    @Deprecated
     @Export(name="class", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> class_;
 

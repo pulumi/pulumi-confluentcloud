@@ -210,7 +210,6 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// 
-        /// 
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
@@ -419,7 +418,6 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// 
-        /// 
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
@@ -627,7 +625,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// 
         /// 
         /// ## Getting Started
         /// 

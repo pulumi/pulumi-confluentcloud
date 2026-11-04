@@ -566,6 +566,24 @@ class Peering(pulumi.CustomResource):
         __props__.__dict__["network"] = network
         return Peering(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Union['PeeringAwsArgs', 'PeeringAwsArgsDict', 'outputs.PeeringAws']]] = None,
+            azure: pulumi.Input[Optional[Union['PeeringAzureArgs', 'PeeringAzureArgsDict', 'outputs.PeeringAzure']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict', 'outputs.PeeringEnvironment']]] = None,
+            gcp: pulumi.Input[Optional[Union['PeeringGcpArgs', 'PeeringGcpArgsDict', 'outputs.PeeringGcp']]] = None,
+            network: pulumi.Input[Optional[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict', 'outputs.PeeringNetwork']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azure"] = azure
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["gcp"] = gcp
+        __props__["network"] = network
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/peering:Peering', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output[Optional['outputs.PeeringAws']]:

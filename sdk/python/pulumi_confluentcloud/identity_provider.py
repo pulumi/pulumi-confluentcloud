@@ -425,6 +425,22 @@ class IdentityProvider(pulumi.CustomResource):
         __props__.__dict__["jwks_uri"] = jwks_uri
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["identityClaim"] = identity_claim
+        __props__["issuer"] = issuer
+        __props__["jwksUri"] = jwks_uri
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/identityProvider:IdentityProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

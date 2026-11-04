@@ -169,6 +169,12 @@ func (SchemaRegistryClusterModeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaRegistryClusterModeState)(nil)).Elem()
 }
 
+// SchemaRegistryClusterModeExists checks whether an existing SchemaRegistryClusterMode resource with the given ID exists.
+func SchemaRegistryClusterModeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaRegistryClusterModeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode", id, state, "", opts...)
+}
+
 type schemaRegistryClusterModeArgs struct {
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryClusterModeCredentials `pulumi:"credentials"`

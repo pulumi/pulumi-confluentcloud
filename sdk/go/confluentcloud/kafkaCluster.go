@@ -474,6 +474,12 @@ func (KafkaClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaClusterState)(nil)).Elem()
 }
 
+// KafkaClusterExists checks whether an existing KafkaCluster resource with the given ID exists.
+func KafkaClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaCluster:KafkaCluster", id, state, "", opts...)
+}
+
 type kafkaClusterArgs struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability string `pulumi:"availability"`

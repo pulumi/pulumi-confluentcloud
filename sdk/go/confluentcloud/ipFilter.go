@@ -161,6 +161,12 @@ func (IpFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipFilterState)(nil)).Elem()
 }
 
+// IpFilterExists checks whether an existing IpFilter resource with the given ID exists.
+func IpFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/ipFilter:IpFilter", id, state, "", opts...)
+}
+
 type ipFilterArgs struct {
 	// A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
 	FilterName string `pulumi:"filterName"`

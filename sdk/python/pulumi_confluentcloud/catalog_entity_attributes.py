@@ -644,6 +644,24 @@ class CatalogEntityAttributes(pulumi.CustomResource):
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         return CatalogEntityAttributes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            credentials: pulumi.Input[Optional[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict', 'outputs.CatalogEntityAttributesCredentials']]] = None,
+            entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['CatalogEntityAttributesSchemaRegistryClusterArgs', 'CatalogEntityAttributesSchemaRegistryClusterArgsDict', 'outputs.CatalogEntityAttributesSchemaRegistryCluster']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["credentials"] = credentials
+        __props__["entityName"] = entity_name
+        __props__["entityType"] = entity_type
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

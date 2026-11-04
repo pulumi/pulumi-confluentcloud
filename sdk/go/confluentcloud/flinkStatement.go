@@ -437,6 +437,12 @@ func (FlinkStatementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkStatementState)(nil)).Elem()
 }
 
+// FlinkStatementExists checks whether an existing FlinkStatement resource with the given ID exists.
+func FlinkStatementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkStatementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkStatement:FlinkStatement", id, state, "", opts...)
+}
+
 type flinkStatementArgs struct {
 	ComputePool *FlinkStatementComputePool `pulumi:"computePool"`
 	// The Cluster API Credentials.

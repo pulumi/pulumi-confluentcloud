@@ -489,6 +489,12 @@ func (RoleBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleBindingState)(nil)).Elem()
 }
 
+// RoleBindingExists checks whether an existing RoleBinding resource with the given ID exists.
+func RoleBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/roleBinding:RoleBinding", id, state, "", opts...)
+}
+
 type roleBindingArgs struct {
 	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
 	//

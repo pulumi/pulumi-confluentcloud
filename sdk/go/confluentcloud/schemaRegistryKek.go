@@ -246,6 +246,12 @@ func (SchemaRegistryKekState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaRegistryKekState)(nil)).Elem()
 }
 
+// SchemaRegistryKekExists checks whether an existing SchemaRegistryKek resource with the given ID exists.
+func SchemaRegistryKekExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaRegistryKekState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek", id, state, "", opts...)
+}
+
 type schemaRegistryKekArgs struct {
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryKekCredentials `pulumi:"credentials"`

@@ -749,6 +749,36 @@ class SchemaExporter(pulumi.CustomResource):
         __props__.__dict__["subjects"] = subjects
         return SchemaExporter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            context_type: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict', 'outputs.SchemaExporterCredentials']]] = None,
+            destination_schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict', 'outputs.SchemaExporterDestinationSchemaRegistryCluster']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reset_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict', 'outputs.SchemaExporterSchemaRegistryCluster']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_rename_format: pulumi.Input[Optional[_builtins.str]] = None,
+            subjects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["config"] = config
+        __props__["context"] = context
+        __props__["contextType"] = context_type
+        __props__["credentials"] = credentials
+        __props__["destinationSchemaRegistryCluster"] = destination_schema_registry_cluster
+        __props__["name"] = name
+        __props__["resetOnUpdate"] = reset_on_update
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["status"] = status
+        __props__["subjectRenameFormat"] = subject_rename_format
+        __props__["subjects"] = subjects
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schemaExporter:SchemaExporter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def config(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

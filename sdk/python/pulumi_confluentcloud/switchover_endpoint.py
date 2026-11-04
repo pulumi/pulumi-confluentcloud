@@ -370,6 +370,22 @@ class SwitchoverEndpoint(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return SwitchoverEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SwitchoverEndpointEndpointArgs', 'SwitchoverEndpointEndpointArgsDict', 'outputs.SwitchoverEndpointEndpoint']]]]] = None,
+            parent_resource_crn: pulumi.Input[Optional[_builtins.str]] = None,
+            phase: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["endpoints"] = endpoints
+        __props__["parentResourceCrn"] = parent_resource_crn
+        __props__["phase"] = phase
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

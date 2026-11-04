@@ -709,6 +709,20 @@ class RoleBinding(pulumi.CustomResource):
         __props__.__dict__["role_name"] = role_name
         return RoleBinding(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            crn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_wait_for_ready: pulumi.Input[Optional[_builtins.bool]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["crnPattern"] = crn_pattern
+        __props__["disableWaitForReady"] = disable_wait_for_ready
+        __props__["principal"] = principal
+        __props__["roleName"] = role_name
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/roleBinding:RoleBinding', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="crnPattern")
     def crn_pattern(self) -> pulumi.Output[_builtins.str]:

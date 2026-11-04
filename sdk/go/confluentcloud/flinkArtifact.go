@@ -212,6 +212,12 @@ func (FlinkArtifactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkArtifactState)(nil)).Elem()
 }
 
+// FlinkArtifactExists checks whether an existing FlinkArtifact resource with the given ID exists.
+func FlinkArtifactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkArtifactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkArtifact:FlinkArtifact", id, state, "", opts...)
+}
+
 type flinkArtifactArgs struct {
 	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`

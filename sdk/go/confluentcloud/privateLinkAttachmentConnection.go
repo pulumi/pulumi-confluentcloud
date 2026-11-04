@@ -187,6 +187,12 @@ func (PrivateLinkAttachmentConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkAttachmentConnectionState)(nil)).Elem()
 }
 
+// PrivateLinkAttachmentConnectionExists checks whether an existing PrivateLinkAttachmentConnection resource with the given ID exists.
+func PrivateLinkAttachmentConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkAttachmentConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", id, state, "", opts...)
+}
+
 type privateLinkAttachmentConnectionArgs struct {
 	Aws   *PrivateLinkAttachmentConnectionAws   `pulumi:"aws"`
 	Azure *PrivateLinkAttachmentConnectionAzure `pulumi:"azure"`

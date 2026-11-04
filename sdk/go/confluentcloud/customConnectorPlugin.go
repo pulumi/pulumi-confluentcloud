@@ -170,6 +170,12 @@ func (CustomConnectorPluginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customConnectorPluginState)(nil)).Elem()
 }
 
+// CustomConnectorPluginExists checks whether an existing CustomConnectorPlugin resource with the given ID exists.
+func CustomConnectorPluginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomConnectorPluginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin", id, state, "", opts...)
+}
+
 type customConnectorPluginArgs struct {
 	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
 	Cloud *string `pulumi:"cloud"`

@@ -183,6 +183,12 @@ func (SchemaRegistryClusterConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaRegistryClusterConfigState)(nil)).Elem()
 }
 
+// SchemaRegistryClusterConfigExists checks whether an existing SchemaRegistryClusterConfig resource with the given ID exists.
+func SchemaRegistryClusterConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaRegistryClusterConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", id, state, "", opts...)
+}
+
 type schemaRegistryClusterConfigArgs struct {
 	// The global Schema Registry compatibility group.
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`

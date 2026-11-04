@@ -295,6 +295,12 @@ func (PrivateLinkAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkAccessState)(nil)).Elem()
 }
 
+// PrivateLinkAccessExists checks whether an existing PrivateLinkAccess resource with the given ID exists.
+func PrivateLinkAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/privateLinkAccess:PrivateLinkAccess", id, state, "", opts...)
+}
+
 type privateLinkAccessArgs struct {
 	Aws   *PrivateLinkAccessAws   `pulumi:"aws"`
 	Azure *PrivateLinkAccessAzure `pulumi:"azure"`

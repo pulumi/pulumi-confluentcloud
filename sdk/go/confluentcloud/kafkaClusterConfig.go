@@ -179,6 +179,12 @@ func (KafkaClusterConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaClusterConfigState)(nil)).Elem()
 }
 
+// KafkaClusterConfigExists checks whether an existing KafkaClusterConfig resource with the given ID exists.
+func KafkaClusterConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaClusterConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig", id, state, "", opts...)
+}
+
 type kafkaClusterConfigArgs struct {
 	// The custom cluster settings to set:
 	Config map[string]string `pulumi:"config"`

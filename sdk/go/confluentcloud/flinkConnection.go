@@ -353,6 +353,12 @@ func (FlinkConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkConnectionState)(nil)).Elem()
 }
 
+// FlinkConnectionExists checks whether an existing FlinkConnection resource with the given ID exists.
+func FlinkConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkConnection:FlinkConnection", id, state, "", opts...)
+}
+
 type flinkConnectionArgs struct {
 	// API key for the type.
 	ApiKey *string `pulumi:"apiKey"`

@@ -60,11 +60,10 @@ public final class GetSchemaRegistryClustersCluster {
     /**
      * @return (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
      * 
-     * @deprecated
-     * Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
+     * @deprecated Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
      * 
      */
-    @Deprecated /* Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute. */
+    @Deprecated
     private String privateRestEndpoint;
     /**
      * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
@@ -149,11 +148,10 @@ public final class GetSchemaRegistryClustersCluster {
     /**
      * @return (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
      * 
-     * @deprecated
-     * Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
+     * @deprecated Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
      * 
      */
-    @Deprecated /* Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute. */
+    @Deprecated
     public String privateRestEndpoint() {
         return this.privateRestEndpoint;
     }

@@ -42,7 +42,6 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// 
-        /// 
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
@@ -83,7 +82,6 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// 
-        /// 
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
@@ -123,7 +121,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// 
         /// 
         /// ## Getting Started
         /// 

@@ -169,6 +169,12 @@ func (KafkaClientQuotaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaClientQuotaState)(nil)).Elem()
 }
 
+// KafkaClientQuotaExists checks whether an existing KafkaClientQuota resource with the given ID exists.
+func KafkaClientQuotaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaClientQuotaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", id, state, "", opts...)
+}
+
 type kafkaClientQuotaArgs struct {
 	// The description of the Kafka Client Quota.
 	Description *string `pulumi:"description"`

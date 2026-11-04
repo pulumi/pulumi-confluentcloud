@@ -993,6 +993,24 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return Connector(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_nonsensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            config_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict', 'outputs.ConnectorEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+            offsets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict', 'outputs.ConnectorOffset']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configNonsensitive"] = config_nonsensitive
+        __props__["configSensitive"] = config_sensitive
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["offsets"] = offsets
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/connector:Connector', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configNonsensitive")
     def config_nonsensitive(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

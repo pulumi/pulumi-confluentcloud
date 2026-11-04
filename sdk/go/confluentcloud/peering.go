@@ -299,6 +299,12 @@ func (PeeringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringState)(nil)).Elem()
 }
 
+// PeeringExists checks whether an existing Peering resource with the given ID exists.
+func PeeringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PeeringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/peering:Peering", id, state, "", opts...)
+}
+
 type peeringArgs struct {
 	Aws   *PeeringAws   `pulumi:"aws"`
 	Azure *PeeringAzure `pulumi:"azure"`

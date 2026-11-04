@@ -219,6 +219,12 @@ func (ProviderIntegrationSetupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerIntegrationSetupState)(nil)).Elem()
 }
 
+// ProviderIntegrationSetupExists checks whether an existing ProviderIntegrationSetup resource with the given ID exists.
+func ProviderIntegrationSetupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProviderIntegrationSetupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup", id, state, "", opts...)
+}
+
 type providerIntegrationSetupArgs struct {
 	// The cloud service provider. Supported values are `AZURE` and `GCP`.
 	Cloud string `pulumi:"cloud"`

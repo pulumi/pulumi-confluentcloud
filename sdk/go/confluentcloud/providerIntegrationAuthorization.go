@@ -114,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azureSetupCommand", azureProviderIntegrationAuthorization.Azure.ApplyT(func(azure confluentcloud.ProviderIntegrationAuthorizationAzure) (string, error) {
+//			ctx.Export("azureSetupCommand", azureProviderIntegrationAuthorization.Azure.ApplyT(func(azure *confluentcloud.ProviderIntegrationAuthorizationAzure) (string, error) {
 //				return fmt.Sprintf("az ad sp create --id %v", azure.ConfluentMultiTenantAppId), nil
 //			}).(pulumi.StringOutput))
 //			return nil
@@ -225,7 +225,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("gcpIamCommand", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp confluentcloud.ProviderIntegrationAuthorizationGcp) (string, error) {
+//			ctx.Export("gcpIamCommand", gcpProviderIntegrationAuthorization.Gcp.ApplyT(func(gcp *confluentcloud.ProviderIntegrationAuthorizationGcp) (string, error) {
 //				return fmt.Sprintf("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%v\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%v'\"", gcp.GoogleServiceAccount, gcp.GoogleServiceAccount), nil
 //			}).(pulumi.StringOutput))
 //			ctx.Export("confluentServiceAccount", gcpProviderIntegrationAuthorization.Gcp.GoogleServiceAccount())
@@ -346,6 +346,12 @@ type ProviderIntegrationAuthorizationState struct {
 
 func (ProviderIntegrationAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerIntegrationAuthorizationState)(nil)).Elem()
+}
+
+// ProviderIntegrationAuthorizationExists checks whether an existing ProviderIntegrationAuthorization resource with the given ID exists.
+func ProviderIntegrationAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProviderIntegrationAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization", id, state, "", opts...)
 }
 
 type providerIntegrationAuthorizationArgs struct {

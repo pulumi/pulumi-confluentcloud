@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var main = new CertificatePool("main", CertificatePoolArgs.builder()
  *             .certificateAuthority(CertificatePoolCertificateAuthorityArgs.builder()
  *                 .id(mainConfluentCertificateAuthority.get("id"))
@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *             .displayName("my-certificate-pool")
  *             .description("example description")
  *             .externalIdentifier("CN")
- *             .filter("CN == \"test\"")
+ *             .filter("CN == }&#92;{@code "test}&#92;{@code "")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

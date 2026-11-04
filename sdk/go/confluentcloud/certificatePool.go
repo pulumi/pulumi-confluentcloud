@@ -194,6 +194,12 @@ func (CertificatePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificatePoolState)(nil)).Elem()
 }
 
+// CertificatePoolExists checks whether an existing CertificatePool resource with the given ID exists.
+func CertificatePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificatePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/certificatePool:CertificatePool", id, state, "", opts...)
+}
+
 type certificatePoolArgs struct {
 	// The resourceId of the principal who will be assigned resource owner on the created certificate identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
 	//

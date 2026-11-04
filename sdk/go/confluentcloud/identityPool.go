@@ -250,6 +250,12 @@ func (IdentityPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolState)(nil)).Elem()
 }
 
+// IdentityPoolExists checks whether an existing IdentityPool resource with the given ID exists.
+func IdentityPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/identityPool:IdentityPool", id, state, "", opts...)
+}
+
 type identityPoolArgs struct {
 	// The resourceId of the principal who will be assigned resource owner on the created identity pool. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
 	//

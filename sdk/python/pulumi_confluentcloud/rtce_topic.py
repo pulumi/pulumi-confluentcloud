@@ -482,6 +482,30 @@ class RtceTopic(pulumi.CustomResource):
         __props__.__dict__["topic_name"] = topic_name
         return RtceTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['RtceTopicEnvironmentArgs', 'RtceTopicEnvironmentArgsDict', 'outputs.RtceTopicEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['RtceTopicKafkaClusterArgs', 'RtceTopicKafkaClusterArgsDict', 'outputs.RtceTopicKafkaCluster']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["cloud"] = cloud
+        __props__["description"] = description
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["kind"] = kind
+        __props__["region"] = region
+        __props__["resourceName"] = resource_name_
+        __props__["topicName"] = topic_name
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/rtceTopic:RtceTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

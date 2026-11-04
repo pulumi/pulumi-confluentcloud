@@ -414,6 +414,24 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         __props__.__dict__["resource_name"] = resource_name_
         return NetworkLinkEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict', 'outputs.NetworkLinkEndpointEnvironment']]] = None,
+            network: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict', 'outputs.NetworkLinkEndpointNetwork']]] = None,
+            network_link_service: pulumi.Input[Optional[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict', 'outputs.NetworkLinkEndpointNetworkLinkService']]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["network"] = network
+        __props__["networkLinkService"] = network_link_service
+        __props__["resourceName"] = resource_name_
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
