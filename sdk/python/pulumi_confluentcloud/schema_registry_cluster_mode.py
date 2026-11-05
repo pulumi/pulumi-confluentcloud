@@ -387,6 +387,22 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         return SchemaRegistryClusterMode(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict', 'outputs.SchemaRegistryClusterModeCredentials']]] = None,
+            force: pulumi.Input[Optional[_builtins.bool]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterModeSchemaRegistryClusterArgs', 'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterModeSchemaRegistryCluster']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["force"] = force
+        __props__["mode"] = mode
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.SchemaRegistryClusterModeCredentials']]:

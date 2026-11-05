@@ -151,6 +151,12 @@ func (DnsRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsRecordState)(nil)).Elem()
 }
 
+// DnsRecordExists checks whether an existing DnsRecord resource with the given ID exists.
+func DnsRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnsRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/dnsRecord:DnsRecord", id, state, "", opts...)
+}
+
 type dnsRecordArgs struct {
 	// The name of the DNS Record.
 	DisplayName *string `pulumi:"displayName"`

@@ -991,6 +991,48 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Network(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAwArgs', 'NetworkAwArgsDict', 'outputs.NetworkAw']]]]] = None,
+            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAzureArgs', 'NetworkAzureArgsDict', 'outputs.NetworkAzure']]]]] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_config: pulumi.Input[Optional[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict', 'outputs.NetworkDnsConfig']]] = None,
+            dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict', 'outputs.NetworkEnvironment']]] = None,
+            gateways: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGatewayArgs', 'NetworkGatewayArgsDict', 'outputs.NetworkGateway']]]]] = None,
+            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict', 'outputs.NetworkGcp']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reserved_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            zonal_subdomains: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkZoneInfoArgs', 'NetworkZoneInfoArgsDict', 'outputs.NetworkZoneInfo']]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azures"] = azures
+        __props__["cidr"] = cidr
+        __props__["cloud"] = cloud
+        __props__["connectionTypes"] = connection_types
+        __props__["displayName"] = display_name
+        __props__["dnsConfig"] = dns_config
+        __props__["dnsDomain"] = dns_domain
+        __props__["endpointSuffix"] = endpoint_suffix
+        __props__["environment"] = environment
+        __props__["gateways"] = gateways
+        __props__["gcps"] = gcps
+        __props__["region"] = region
+        __props__["reservedCidr"] = reserved_cidr
+        __props__["resourceName"] = resource_name_
+        __props__["zonalSubdomains"] = zonal_subdomains
+        __props__["zoneInfos"] = zone_infos
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/network:Network', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output[Sequence['outputs.NetworkAw']]:

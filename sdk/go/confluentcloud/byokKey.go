@@ -158,6 +158,12 @@ func (ByokKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*byokKeyState)(nil)).Elem()
 }
 
+// ByokKeyExists checks whether an existing ByokKey resource with the given ID exists.
+func ByokKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ByokKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/byokKey:ByokKey", id, state, "", opts...)
+}
+
 type byokKeyArgs struct {
 	// (Optional Configuration Block) supports the following:
 	Aws *ByokKeyAws `pulumi:"aws"`

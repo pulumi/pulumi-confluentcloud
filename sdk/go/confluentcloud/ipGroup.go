@@ -123,6 +123,12 @@ func (IpGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipGroupState)(nil)).Elem()
 }
 
+// IpGroupExists checks whether an existing IpGroup resource with the given ID exists.
+func IpGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/ipGroup:IpGroup", id, state, "", opts...)
+}
+
 type ipGroupArgs struct {
 	// A list of CIDRs.
 	CidrBlocks []string `pulumi:"cidrBlocks"`

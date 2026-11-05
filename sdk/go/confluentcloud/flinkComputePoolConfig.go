@@ -129,6 +129,12 @@ func (FlinkComputePoolConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkComputePoolConfigState)(nil)).Elem()
 }
 
+// FlinkComputePoolConfigExists checks whether an existing FlinkComputePoolConfig resource with the given ID exists.
+func FlinkComputePoolConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkComputePoolConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig", id, state, "", opts...)
+}
+
 type flinkComputePoolConfigArgs struct {
 	// Whether default compute pools are enabled for the organization.
 	DefaultComputePoolEnabled *bool `pulumi:"defaultComputePoolEnabled"`

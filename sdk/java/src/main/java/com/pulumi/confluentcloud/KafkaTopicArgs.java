@@ -51,20 +51,18 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
+     * @deprecated This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+    @Deprecated
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
+     * @deprecated This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+    @Deprecated
     public Optional<Output<String>> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
@@ -196,11 +194,10 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
+         * @deprecated This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
          * 
          */
-        @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+        @Deprecated
         public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
             $.httpEndpoint = httpEndpoint;
             return this;
@@ -209,11 +206,10 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
+         * @deprecated This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
          * 
          */
-        @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+        @Deprecated
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
         }

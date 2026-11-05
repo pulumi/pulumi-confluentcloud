@@ -189,6 +189,12 @@ func (KafkaMirrorTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaMirrorTopicState)(nil)).Elem()
 }
 
+// KafkaMirrorTopicExists checks whether an existing KafkaMirrorTopic resource with the given ID exists.
+func KafkaMirrorTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaMirrorTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", id, state, "", opts...)
+}
+
 type kafkaMirrorTopicArgs struct {
 	ClusterLink  KafkaMirrorTopicClusterLink  `pulumi:"clusterLink"`
 	KafkaCluster KafkaMirrorTopicKafkaCluster `pulumi:"kafkaCluster"`

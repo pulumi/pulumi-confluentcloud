@@ -226,6 +226,12 @@ func (CatalogIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogIntegrationState)(nil)).Elem()
 }
 
+// CatalogIntegrationExists checks whether an existing CatalogIntegration resource with the given ID exists.
+func CatalogIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/catalogIntegration:CatalogIntegration", id, state, "", opts...)
+}
+
 type catalogIntegrationArgs struct {
 	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue *CatalogIntegrationAwsGlue `pulumi:"awsGlue"`

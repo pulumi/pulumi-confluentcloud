@@ -174,6 +174,12 @@ func (NotificationsIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationsIntegrationState)(nil)).Elem()
 }
 
+// NotificationsIntegrationExists checks whether an existing NotificationsIntegration resource with the given ID exists.
+func NotificationsIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationsIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/notificationsIntegration:NotificationsIntegration", id, state, "", opts...)
+}
+
 type notificationsIntegrationArgs struct {
 	// A human readable description for the particular integration
 	Description *string `pulumi:"description"`

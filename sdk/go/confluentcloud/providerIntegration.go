@@ -151,6 +151,12 @@ func (ProviderIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerIntegrationState)(nil)).Elem()
 }
 
+// ProviderIntegrationExists checks whether an existing ProviderIntegration resource with the given ID exists.
+func ProviderIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProviderIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/providerIntegration:ProviderIntegration", id, state, "", opts...)
+}
+
 type providerIntegrationArgs struct {
 	// (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
 	Aws *ProviderIntegrationAws `pulumi:"aws"`

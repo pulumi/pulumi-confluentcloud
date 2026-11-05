@@ -40,16 +40,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var application_developers = new GroupMapping("application-developers", GroupMappingArgs.builder()
  *             .displayName("Application Developers")
  *             .description("Admin access to production environment for Engineering")
- *             .filter("\"engineering\" in groups")
+ *             .filter("}&#92;{@code "engineering}&#92;{@code " in groups")
  *             .build());
  * 
  *         var envadmin = new RoleBinding("envadmin", RoleBindingArgs.builder()
@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  *             .crnPattern(prod.get("resourceName"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

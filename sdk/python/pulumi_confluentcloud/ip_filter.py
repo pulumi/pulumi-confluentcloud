@@ -386,6 +386,22 @@ class IpFilter(pulumi.CustomResource):
         __props__.__dict__["resource_scope"] = resource_scope
         return IpFilter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            operation_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["filterName"] = filter_name
+        __props__["ipGroups"] = ip_groups
+        __props__["operationGroups"] = operation_groups
+        __props__["resourceGroup"] = resource_group
+        __props__["resourceScope"] = resource_scope
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/ipFilter:IpFilter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="filterName")
     def filter_name(self) -> pulumi.Output[_builtins.str]:

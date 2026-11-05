@@ -192,6 +192,12 @@ func (ServiceAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceAccountState)(nil)).Elem()
 }
 
+// ServiceAccountExists checks whether an existing ServiceAccount resource with the given ID exists.
+func ServiceAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/serviceAccount:ServiceAccount", id, state, "", opts...)
+}
+
 type serviceAccountArgs struct {
 	// The resourceId of the principal who will be assigned resource owner on the created service account. Principal can be group-mapping (group-xxx), user (u-xxx), service-account (sa-xxx) or identity-pool (pool-xxx).
 	//

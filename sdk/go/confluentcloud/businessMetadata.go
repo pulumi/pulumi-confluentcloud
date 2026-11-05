@@ -203,6 +203,12 @@ func (BusinessMetadataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*businessMetadataState)(nil)).Elem()
 }
 
+// BusinessMetadataExists checks whether an existing BusinessMetadata resource with the given ID exists.
+func BusinessMetadataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BusinessMetadataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/businessMetadata:BusinessMetadata", id, state, "", opts...)
+}
+
 type businessMetadataArgs struct {
 	// The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
 	AttributeDefinitions []BusinessMetadataAttributeDefinition `pulumi:"attributeDefinitions"`

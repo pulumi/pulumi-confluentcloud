@@ -551,6 +551,24 @@ class IdentityPool(pulumi.CustomResource):
         __props__.__dict__["identity_provider"] = identity_provider
         return IdentityPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_claim: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider: pulumi.Input[Optional[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict', 'outputs.IdentityPoolIdentityProvider']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignedResourceOwner"] = assigned_resource_owner
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["filter"] = filter
+        __props__["identityClaim"] = identity_claim
+        __props__["identityProvider"] = identity_provider
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/identityPool:IdentityPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignedResourceOwner")
     def assigned_resource_owner(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -141,6 +141,12 @@ func (TfImporterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tfImporterState)(nil)).Elem()
 }
 
+// TfImporterExists checks whether an existing TfImporter resource with the given ID exists.
+func TfImporterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TfImporterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/tfImporter:TfImporter", id, state, "", opts...)
+}
+
 type tfImporterArgs struct {
 	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
 	//

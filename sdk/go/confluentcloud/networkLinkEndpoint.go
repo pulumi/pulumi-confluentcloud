@@ -162,6 +162,12 @@ func (NetworkLinkEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkLinkEndpointState)(nil)).Elem()
 }
 
+// NetworkLinkEndpointExists checks whether an existing NetworkLinkEndpoint resource with the given ID exists.
+func NetworkLinkEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkLinkEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint", id, state, "", opts...)
+}
+
 type networkLinkEndpointArgs struct {
 	// The description of the Network Link Endpoint.
 	Description *string `pulumi:"description"`

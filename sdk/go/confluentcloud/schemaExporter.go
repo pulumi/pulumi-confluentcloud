@@ -282,6 +282,12 @@ func (SchemaExporterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaExporterState)(nil)).Elem()
 }
 
+// SchemaExporterExists checks whether an existing SchemaExporter resource with the given ID exists.
+func SchemaExporterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaExporterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/schemaExporter:SchemaExporter", id, state, "", opts...)
+}
+
 type schemaExporterArgs struct {
 	// Block for custom *nonsensitive* configuration properties:
 	Config map[string]string `pulumi:"config"`

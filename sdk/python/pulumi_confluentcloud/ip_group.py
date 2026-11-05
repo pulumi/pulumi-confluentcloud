@@ -250,6 +250,16 @@ class IpGroup(pulumi.CustomResource):
         __props__.__dict__["group_name"] = group_name
         return IpGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrBlocks"] = cidr_blocks
+        __props__["groupName"] = group_name
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/ipGroup:IpGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Sequence[_builtins.str]]:

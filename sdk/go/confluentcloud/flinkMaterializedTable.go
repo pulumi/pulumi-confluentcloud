@@ -385,6 +385,12 @@ func (FlinkMaterializedTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkMaterializedTableState)(nil)).Elem()
 }
 
+// FlinkMaterializedTableExists checks whether an existing FlinkMaterializedTable resource with the given ID exists.
+func FlinkMaterializedTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkMaterializedTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable", id, state, "", opts...)
+}
+
 type flinkMaterializedTableArgs struct {
 	// A list of column definitions. Each `columns` block supports the following sub-blocks:
 	Columns     []FlinkMaterializedTableColumn     `pulumi:"columns"`

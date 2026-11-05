@@ -253,6 +253,12 @@ func (KafkaTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaTopicState)(nil)).Elem()
 }
 
+// KafkaTopicExists checks whether an existing KafkaTopic resource with the given ID exists.
+func KafkaTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaTopic:KafkaTopic", id, state, "", opts...)
+}
+
 type kafkaTopicArgs struct {
 	// The custom topic settings to set:
 	Config map[string]string `pulumi:"config"`

@@ -463,6 +463,26 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
         __props__.__dict__["resource_name"] = resource_name_
         return PrivateLinkAttachmentConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAwsArgs', 'PrivateLinkAttachmentConnectionAwsArgsDict', 'outputs.PrivateLinkAttachmentConnectionAws']]] = None,
+            azure: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionAzureArgs', 'PrivateLinkAttachmentConnectionAzureArgsDict', 'outputs.PrivateLinkAttachmentConnectionAzure']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionEnvironmentArgs', 'PrivateLinkAttachmentConnectionEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentConnectionEnvironment']]] = None,
+            gcp: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionGcpArgs', 'PrivateLinkAttachmentConnectionGcpArgsDict', 'outputs.PrivateLinkAttachmentConnectionGcp']]] = None,
+            private_link_attachment: pulumi.Input[Optional[Union['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs', 'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict', 'outputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment']]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azure"] = azure
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["gcp"] = gcp
+        __props__["privateLinkAttachment"] = private_link_attachment
+        __props__["resourceName"] = resource_name_
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output[Optional['outputs.PrivateLinkAttachmentConnectionAws']]:

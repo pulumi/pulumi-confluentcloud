@@ -492,6 +492,26 @@ class BusinessMetadata(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return BusinessMetadata(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict', 'outputs.BusinessMetadataAttributeDefinition']]]]] = None,
+            credentials: pulumi.Input[Optional[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict', 'outputs.BusinessMetadataCredentials']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['BusinessMetadataSchemaRegistryClusterArgs', 'BusinessMetadataSchemaRegistryClusterArgsDict', 'outputs.BusinessMetadataSchemaRegistryCluster']]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributeDefinitions"] = attribute_definitions
+        __props__["credentials"] = credentials
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/businessMetadata:BusinessMetadata', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Output[Sequence['outputs.BusinessMetadataAttributeDefinition']]:

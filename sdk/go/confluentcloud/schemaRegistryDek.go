@@ -231,6 +231,12 @@ func (SchemaRegistryDekState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaRegistryDekState)(nil)).Elem()
 }
 
+// SchemaRegistryDekExists checks whether an existing SchemaRegistryDek resource with the given ID exists.
+func SchemaRegistryDekExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaRegistryDekState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", id, state, "", opts...)
+}
+
 type schemaRegistryDekArgs struct {
 	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm *string `pulumi:"algorithm"`

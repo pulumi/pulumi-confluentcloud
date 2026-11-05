@@ -318,6 +318,18 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["stream_governance"] = stream_governance
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_governance: pulumi.Input[Optional[Union['EnvironmentStreamGovernanceArgs', 'EnvironmentStreamGovernanceArgsDict', 'outputs.EnvironmentStreamGovernance']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["resourceName"] = resource_name_
+        __props__["streamGovernance"] = stream_governance
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/environment:Environment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

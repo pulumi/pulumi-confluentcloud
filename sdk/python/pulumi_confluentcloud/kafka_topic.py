@@ -596,6 +596,26 @@ class KafkaTopic(pulumi.CustomResource):
         __props__.__dict__["topic_name"] = topic_name
         return KafkaTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict', 'outputs.KafkaTopicCredentials']]] = None,
+            http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict', 'outputs.KafkaTopicKafkaCluster']]] = None,
+            partitions_count: pulumi.Input[Optional[_builtins.int]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["config"] = config
+        __props__["credentials"] = credentials
+        __props__["httpEndpoint"] = http_endpoint
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["partitionsCount"] = partitions_count
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["topicName"] = topic_name
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/kafkaTopic:KafkaTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def config(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

@@ -992,6 +992,40 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Schema(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict', 'outputs.SchemaCredentials']]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict', 'outputs.SchemaMetadata']]] = None,
+            recreate_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ruleset: pulumi.Input[Optional[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict', 'outputs.SchemaRuleset']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_identifier: pulumi.Input[Optional[_builtins.int]] = None,
+            schema_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict', 'outputs.SchemaSchemaReference']]]]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict', 'outputs.SchemaSchemaRegistryCluster']]] = None,
+            skip_validation_during_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["format"] = format
+        __props__["hardDelete"] = hard_delete
+        __props__["metadata"] = metadata
+        __props__["recreateOnUpdate"] = recreate_on_update
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["ruleset"] = ruleset
+        __props__["schema"] = schema
+        __props__["schemaIdentifier"] = schema_identifier
+        __props__["schemaReferences"] = schema_references
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["skipValidationDuringPlan"] = skip_validation_during_plan
+        __props__["subjectName"] = subject_name
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schema:Schema', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.SchemaCredentials']]:

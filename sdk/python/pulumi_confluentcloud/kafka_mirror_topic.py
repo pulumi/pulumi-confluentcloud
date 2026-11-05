@@ -448,6 +448,22 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return KafkaMirrorTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_link: pulumi.Input[Optional[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict', 'outputs.KafkaMirrorTopicClusterLink']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict', 'outputs.KafkaMirrorTopicKafkaCluster']]] = None,
+            mirror_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_kafka_topic: pulumi.Input[Optional[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict', 'outputs.KafkaMirrorTopicSourceKafkaTopic']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterLink"] = cluster_link
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["mirrorTopicName"] = mirror_topic_name
+        __props__["sourceKafkaTopic"] = source_kafka_topic
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterLink")
     def cluster_link(self) -> pulumi.Output['outputs.KafkaMirrorTopicClusterLink']:

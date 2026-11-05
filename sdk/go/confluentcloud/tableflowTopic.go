@@ -339,6 +339,12 @@ func (TableflowTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableflowTopicState)(nil)).Elem()
 }
 
+// TableflowTopicExists checks whether an existing TableflowTopic resource with the given ID exists.
+func TableflowTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableflowTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/tableflowTopic:TableflowTopic", id, state, "", opts...)
+}
+
 type tableflowTopicArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AzureDataLakeStorageGen2 *TableflowTopicAzureDataLakeStorageGen2 `pulumi:"azureDataLakeStorageGen2"`

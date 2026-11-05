@@ -282,6 +282,12 @@ func (SubjectConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subjectConfigState)(nil)).Elem()
 }
 
+// SubjectConfigExists checks whether an existing SubjectConfig resource with the given ID exists.
+func SubjectConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubjectConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/subjectConfig:SubjectConfig", id, state, "", opts...)
+}
+
 type subjectConfigArgs struct {
 	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
 	//

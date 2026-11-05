@@ -646,6 +646,38 @@ class FlinkArtifact(pulumi.CustomResource):
         __props__.__dict__["versions"] = versions
         return FlinkArtifact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+            class_: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            content_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_link: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict', 'outputs.FlinkArtifactEnvironment']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_language: pulumi.Input[Optional[_builtins.str]] = None,
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict', 'outputs.FlinkArtifactVersion']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["artifactFile"] = artifact_file
+        __props__["class"] = class_
+        __props__["cloud"] = cloud
+        __props__["contentFormat"] = content_format
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["documentationLink"] = documentation_link
+        __props__["environment"] = environment
+        __props__["kind"] = kind
+        __props__["region"] = region
+        __props__["runtimeLanguage"] = runtime_language
+        __props__["versions"] = versions
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/flinkArtifact:FlinkArtifact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

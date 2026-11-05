@@ -296,6 +296,16 @@ class TfImporter(pulumi.CustomResource):
         __props__.__dict__["resources"] = resources
         return TfImporter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            output_path: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["outputPath"] = output_path
+        __props__["resources"] = resources
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/tfImporter:TfImporter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="outputPath")
     def output_path(self) -> pulumi.Output[Optional[_builtins.str]]:

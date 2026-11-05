@@ -749,6 +749,32 @@ class KafkaAcl(pulumi.CustomResource):
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         return KafkaAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict', 'outputs.KafkaAclCredentials']]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict', 'outputs.KafkaAclKafkaCluster']]] = None,
+            operation: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+            permission: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["host"] = host
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["operation"] = operation
+        __props__["patternType"] = pattern_type
+        __props__["permission"] = permission
+        __props__["principal"] = principal
+        __props__["resourceName"] = resource_name_
+        __props__["resourceType"] = resource_type
+        __props__["restEndpoint"] = rest_endpoint
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/kafkaAcl:KafkaAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.KafkaAclCredentials']]:

@@ -163,6 +163,12 @@ func (SwitchoverEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*switchoverEndpointState)(nil)).Elem()
 }
 
+// SwitchoverEndpointExists checks whether an existing SwitchoverEndpoint resource with the given ID exists.
+func SwitchoverEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SwitchoverEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/switchoverEndpoint:SwitchoverEndpoint", id, state, "", opts...)
+}
+
 type switchoverEndpointArgs struct {
 	// A human-readable name for the switchover endpoint.
 	DisplayName string `pulumi:"displayName"`

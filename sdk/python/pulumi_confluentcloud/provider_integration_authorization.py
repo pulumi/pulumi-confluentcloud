@@ -588,6 +588,20 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
         __props__.__dict__["provider_integration_id"] = provider_integration_id
         return ProviderIntegrationAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict', 'outputs.ProviderIntegrationAuthorizationAzure']]] = None,
+            environment: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationEnvironmentArgs', 'ProviderIntegrationAuthorizationEnvironmentArgsDict', 'outputs.ProviderIntegrationAuthorizationEnvironment']]] = None,
+            gcp: pulumi.Input[Optional[Union['ProviderIntegrationAuthorizationGcpArgs', 'ProviderIntegrationAuthorizationGcpArgsDict', 'outputs.ProviderIntegrationAuthorizationGcp']]] = None,
+            provider_integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azure"] = azure
+        __props__["environment"] = environment
+        __props__["gcp"] = gcp
+        __props__["providerIntegrationId"] = provider_integration_id
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def azure(self) -> pulumi.Output[Optional['outputs.ProviderIntegrationAuthorizationAzure']]:

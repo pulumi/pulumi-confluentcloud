@@ -8700,7 +8700,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -8754,7 +8754,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -8808,7 +8808,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -8862,7 +8862,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -8916,7 +8916,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -8970,7 +8970,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -9024,7 +9024,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.&#92;
      * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
@@ -14119,12 +14119,12 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // Get the authorization data
      *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id("cspi-def456")
@@ -14133,10 +14133,10 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
+     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
      *         ctx.export("confluentServiceAccount", gcp.gcps()[0].googleServiceAccount());
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -14377,12 +14377,12 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // Get the authorization data
      *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id("cspi-def456")
@@ -14391,10 +14391,10 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
+     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
      *         ctx.export("confluentServiceAccount", gcp.gcps()[0].googleServiceAccount());
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -14635,12 +14635,12 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // Get the authorization data
      *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id("cspi-def456")
@@ -14649,10 +14649,10 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
+     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
      *         ctx.export("confluentServiceAccount", gcp.gcps()[0].googleServiceAccount());
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -14893,12 +14893,12 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // Get the authorization data
      *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id("cspi-def456")
@@ -14907,10 +14907,10 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
+     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
      *         ctx.export("confluentServiceAccount", gcp.gcps()[0].googleServiceAccount());
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -15151,12 +15151,12 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // Get the authorization data
      *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
      *             .id("cspi-def456")
@@ -15165,10 +15165,10 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
+     *         ctx.export("gcpIamCommand", String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", gcp.gcps()[0].googleServiceAccount(),gcp.gcps()[0].googleServiceAccount()));
      *         ctx.export("confluentServiceAccount", gcp.gcps()[0].googleServiceAccount());
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

@@ -181,6 +181,12 @@ func (SubjectModeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subjectModeState)(nil)).Elem()
 }
 
+// SubjectModeExists checks whether an existing SubjectMode resource with the given ID exists.
+func SubjectModeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubjectModeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/subjectMode:SubjectMode", id, state, "", opts...)
+}
+
 type subjectModeArgs struct {
 	// The Cluster API Credentials.
 	Credentials *SubjectModeCredentials `pulumi:"credentials"`

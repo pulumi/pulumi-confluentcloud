@@ -974,6 +974,38 @@ class FlinkStatement(pulumi.CustomResource):
         __props__.__dict__["stopped"] = stopped
         return FlinkStatement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compute_pool: pulumi.Input[Optional[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict', 'outputs.FlinkStatementComputePool']]] = None,
+            credentials: pulumi.Input[Optional[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict', 'outputs.FlinkStatementCredentials']]] = None,
+            environment: pulumi.Input[Optional[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict', 'outputs.FlinkStatementEnvironment']]] = None,
+            latest_offsets: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            latest_offsets_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict', 'outputs.FlinkStatementOrganization']]] = None,
+            principal: pulumi.Input[Optional[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict', 'outputs.FlinkStatementPrincipal']]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            properties_sensitive: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            statement: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stopped: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["computePool"] = compute_pool
+        __props__["credentials"] = credentials
+        __props__["environment"] = environment
+        __props__["latestOffsets"] = latest_offsets
+        __props__["latestOffsetsTimestamp"] = latest_offsets_timestamp
+        __props__["organization"] = organization
+        __props__["principal"] = principal
+        __props__["properties"] = properties
+        __props__["propertiesSensitive"] = properties_sensitive
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["statement"] = statement
+        __props__["statementName"] = statement_name
+        __props__["stopped"] = stopped
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/flinkStatement:FlinkStatement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="computePool")
     def compute_pool(self) -> pulumi.Output['outputs.FlinkStatementComputePool']:

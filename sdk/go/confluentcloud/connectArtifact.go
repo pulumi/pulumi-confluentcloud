@@ -164,6 +164,12 @@ func (ConnectArtifactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectArtifactState)(nil)).Elem()
 }
 
+// ConnectArtifactExists checks whether an existing ConnectArtifact resource with the given ID exists.
+func ConnectArtifactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectArtifactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/connectArtifact:ConnectArtifact", id, state, "", opts...)
+}
+
 type connectArtifactArgs struct {
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`

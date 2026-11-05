@@ -173,6 +173,12 @@ func (SwitchoverPairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*switchoverPairState)(nil)).Elem()
 }
 
+// SwitchoverPairExists checks whether an existing SwitchoverPair resource with the given ID exists.
+func SwitchoverPairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SwitchoverPairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/switchoverPair:SwitchoverPair", id, state, "", opts...)
+}
+
 type switchoverPairArgs struct {
 	// The name of the member that is active when the pair is created; must match one of the `members[].name` values. After creation the Switchover service owns this value: it is read back from the API and always reflects the currently active member, and changing it in the configuration has no effect (no plan is produced). To change which member is active, trigger a failover through the Switchover API's `:failover` operation (for example with the Confluent CLI).
 	ActiveMember string `pulumi:"activeMember"`

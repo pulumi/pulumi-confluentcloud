@@ -666,6 +666,32 @@ class SchemaRegistryKek(pulumi.CustomResource):
         __props__.__dict__["shared"] = shared
         return SchemaRegistryKek(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict', 'outputs.SchemaRegistryKekCredentials']]] = None,
+            doc: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryKekSchemaRegistryCluster']]] = None,
+            shared: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentials"] = credentials
+        __props__["doc"] = doc
+        __props__["hardDelete"] = hard_delete
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["kmsType"] = kms_type
+        __props__["name"] = name
+        __props__["properties"] = properties
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["shared"] = shared
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schemaRegistryKek:SchemaRegistryKek', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.SchemaRegistryKekCredentials']]:

@@ -237,6 +237,12 @@ func (BusinessMetadataBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*businessMetadataBindingState)(nil)).Elem()
 }
 
+// BusinessMetadataBindingExists checks whether an existing BusinessMetadataBinding resource with the given ID exists.
+func BusinessMetadataBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BusinessMetadataBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding", id, state, "", opts...)
+}
+
 type businessMetadataBindingArgs struct {
 	// The block of key-value pair attributes.
 	//

@@ -617,6 +617,32 @@ class SchemaRegistryDek(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return SchemaRegistryDek(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict', 'outputs.SchemaRegistryDekCredentials']]] = None,
+            encrypted_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            kek_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_material: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryDekSchemaRegistryClusterArgs', 'SchemaRegistryDekSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryDekSchemaRegistryCluster']]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["algorithm"] = algorithm
+        __props__["credentials"] = credentials
+        __props__["encryptedKeyMaterial"] = encrypted_key_material
+        __props__["hardDelete"] = hard_delete
+        __props__["kekName"] = kek_name
+        __props__["keyMaterial"] = key_material
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        __props__["subjectName"] = subject_name
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schemaRegistryDek:SchemaRegistryDek', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:

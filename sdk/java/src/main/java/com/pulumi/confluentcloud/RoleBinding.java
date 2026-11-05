@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var org_example_rb = new RoleBinding("org-example-rb", RoleBindingArgs.builder()
  *             .principal(String.format("User:%s", test.get("id")))
  *             .roleName("MetricsViewer")
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *         final var connectorName = StdFunctions.lookup(Map.ofEntries(
  *             Map.entry("map", testConfluentConnector.get("configNonsensitive")),
  *             Map.entry("key", "name"),
- *             Map.entry("default", "\"name\" attribute is missing")
+ *             Map.entry("default", "}&#92;{@code "name}&#92;{@code " attribute is missing")
  *         )).get("result");
  * 
  *         var connector_example_rb = new RoleBinding("connector-example-rb", RoleBindingArgs.builder()
@@ -174,8 +174,8 @@ import javax.annotation.Nullable;
  *             .crnPattern(String.format("%s/flink-region=%s.%s/compute-pool=%s", stag.get("resourceName"),exampleConfluentFlinkComputePool.get("cloud"),exampleConfluentFlinkComputePool.get("region"),exampleConfluentFlinkComputePool.get("id")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

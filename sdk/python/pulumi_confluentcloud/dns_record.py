@@ -370,6 +370,22 @@ class DnsRecord(pulumi.CustomResource):
         __props__.__dict__["private_link_access_point"] = private_link_access_point
         return DnsRecord(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict', 'outputs.DnsRecordEnvironment']]] = None,
+            gateway: pulumi.Input[Optional[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict', 'outputs.DnsRecordGateway']]] = None,
+            private_link_access_point: pulumi.Input[Optional[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict', 'outputs.DnsRecordPrivateLinkAccessPoint']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["domain"] = domain
+        __props__["environment"] = environment
+        __props__["gateway"] = gateway
+        __props__["privateLinkAccessPoint"] = private_link_access_point
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/dnsRecord:DnsRecord', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

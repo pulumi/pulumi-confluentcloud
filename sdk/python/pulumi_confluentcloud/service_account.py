@@ -443,6 +443,22 @@ class ServiceAccount(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         return ServiceAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            assigned_resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["assignedResourceOwner"] = assigned_resource_owner
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["kind"] = kind
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/serviceAccount:ServiceAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

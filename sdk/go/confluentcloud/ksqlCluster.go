@@ -156,6 +156,12 @@ func (KsqlClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ksqlClusterState)(nil)).Elem()
 }
 
+// KsqlClusterExists checks whether an existing KsqlCluster resource with the given ID exists.
+func KsqlClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KsqlClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/ksqlCluster:KsqlCluster", id, state, "", opts...)
+}
+
 type ksqlClusterArgs struct {
 	CredentialIdentity KsqlClusterCredentialIdentity `pulumi:"credentialIdentity"`
 	// The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.

@@ -720,6 +720,32 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["gcp_ingress_private_service_connect_endpoint"] = gcp_ingress_private_service_connect_endpoint
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_egress_private_link_endpoint: pulumi.Input[Optional[Union['AccessPointAwsEgressPrivateLinkEndpointArgs', 'AccessPointAwsEgressPrivateLinkEndpointArgsDict', 'outputs.AccessPointAwsEgressPrivateLinkEndpoint']]] = None,
+            aws_ingress_private_link_endpoint: pulumi.Input[Optional[Union['AccessPointAwsIngressPrivateLinkEndpointArgs', 'AccessPointAwsIngressPrivateLinkEndpointArgsDict', 'outputs.AccessPointAwsIngressPrivateLinkEndpoint']]] = None,
+            aws_private_network_interface: pulumi.Input[Optional[Union['AccessPointAwsPrivateNetworkInterfaceArgs', 'AccessPointAwsPrivateNetworkInterfaceArgsDict', 'outputs.AccessPointAwsPrivateNetworkInterface']]] = None,
+            azure_egress_private_link_endpoint: pulumi.Input[Optional[Union['AccessPointAzureEgressPrivateLinkEndpointArgs', 'AccessPointAzureEgressPrivateLinkEndpointArgsDict', 'outputs.AccessPointAzureEgressPrivateLinkEndpoint']]] = None,
+            azure_ingress_private_link_endpoint: pulumi.Input[Optional[Union['AccessPointAzureIngressPrivateLinkEndpointArgs', 'AccessPointAzureIngressPrivateLinkEndpointArgsDict', 'outputs.AccessPointAzureIngressPrivateLinkEndpoint']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['AccessPointEnvironmentArgs', 'AccessPointEnvironmentArgsDict', 'outputs.AccessPointEnvironment']]] = None,
+            gateway: pulumi.Input[Optional[Union['AccessPointGatewayArgs', 'AccessPointGatewayArgsDict', 'outputs.AccessPointGateway']]] = None,
+            gcp_egress_private_service_connect_endpoint: pulumi.Input[Optional[Union['AccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict', 'outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint']]] = None,
+            gcp_ingress_private_service_connect_endpoint: pulumi.Input[Optional[Union['AccessPointGcpIngressPrivateServiceConnectEndpointArgs', 'AccessPointGcpIngressPrivateServiceConnectEndpointArgsDict', 'outputs.AccessPointGcpIngressPrivateServiceConnectEndpoint']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsEgressPrivateLinkEndpoint"] = aws_egress_private_link_endpoint
+        __props__["awsIngressPrivateLinkEndpoint"] = aws_ingress_private_link_endpoint
+        __props__["awsPrivateNetworkInterface"] = aws_private_network_interface
+        __props__["azureEgressPrivateLinkEndpoint"] = azure_egress_private_link_endpoint
+        __props__["azureIngressPrivateLinkEndpoint"] = azure_ingress_private_link_endpoint
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["gateway"] = gateway
+        __props__["gcpEgressPrivateServiceConnectEndpoint"] = gcp_egress_private_service_connect_endpoint
+        __props__["gcpIngressPrivateServiceConnectEndpoint"] = gcp_ingress_private_service_connect_endpoint
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/accessPoint:AccessPoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsEgressPrivateLinkEndpoint")
     def aws_egress_private_link_endpoint(self) -> pulumi.Output[Optional['outputs.AccessPointAwsEgressPrivateLinkEndpoint']]:

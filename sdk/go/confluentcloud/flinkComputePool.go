@@ -180,6 +180,12 @@ func (FlinkComputePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flinkComputePoolState)(nil)).Elem()
 }
 
+// FlinkComputePoolExists checks whether an existing FlinkComputePool resource with the given ID exists.
+func FlinkComputePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlinkComputePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/flinkComputePool:FlinkComputePool", id, state, "", opts...)
+}
+
 type flinkComputePoolArgs struct {
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud string `pulumi:"cloud"`

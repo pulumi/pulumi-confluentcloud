@@ -43,16 +43,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var azure = new IdentityProvider("azure", IdentityProviderArgs.builder()
  *             .displayName("My OIDC Provider: Azure AD")
  *             .description("My description")
- *             .issuer("https://login.microsoftonline.com/{tenant_id}/v2.0")
+ *             .issuer("https://login.microsoftonline.com/}{{@code tenant_id}}{@code /v2.0")
  *             .jwksUri("https://login.microsoftonline.com/common/discovery/v2.0/keys")
  *             .build());
  * 
@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  *             .displayName("My Identity Pool")
  *             .description("Prod Access to Kafka clusters to Release Engineering")
  *             .identityClaim("claims.sub")
- *             .filter("claims.aud==\"confluent\" && claims.group!=\"invalid_group\"")
+ *             .filter("claims.aud==}&#92;{@code "confluent}&#92;{@code " && claims.group!=}&#92;{@code "invalid_group}&#92;{@code "")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -92,12 +92,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var okta = new IdentityProvider("okta", IdentityProviderArgs.builder()
  *             .displayName("My OIDC Provider: Okta")
  *             .description("My description")
@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  *             .displayName("My Identity Pool")
  *             .description("Prod Access to Kafka clusters to Release Engineering")
  *             .identityClaim("claims.sub")
- *             .filter("claims.aud==\"confluent\" && claims.group!=\"invalid_group\"")
+ *             .filter("claims.aud==}&#92;{@code "confluent}&#92;{@code " && claims.group!=}&#92;{@code "invalid_group}&#92;{@code "")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -313,6 +313,12 @@ func (CatalogEntityAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogEntityAttributesState)(nil)).Elem()
 }
 
+// CatalogEntityAttributesExists checks whether an existing CatalogEntityAttributes resource with the given ID exists.
+func CatalogEntityAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogEntityAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes", id, state, "", opts...)
+}
+
 type catalogEntityAttributesArgs struct {
 	// The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
 	//

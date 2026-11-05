@@ -316,6 +316,12 @@ func (KafkaAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaAclState)(nil)).Elem()
 }
 
+// KafkaAclExists checks whether an existing KafkaAcl resource with the given ID exists.
+func KafkaAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("confluentcloud:index/kafkaAcl:KafkaAcl", id, state, "", opts...)
+}
+
 type kafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`

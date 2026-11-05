@@ -575,6 +575,30 @@ class CatalogIntegration(pulumi.CustomResource):
         __props__.__dict__["unity"] = unity
         return CatalogIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_glue: pulumi.Input[Optional[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict', 'outputs.CatalogIntegrationAwsGlue']]] = None,
+            biglake_metastore: pulumi.Input[Optional[Union['CatalogIntegrationBiglakeMetastoreArgs', 'CatalogIntegrationBiglakeMetastoreArgsDict', 'outputs.CatalogIntegrationBiglakeMetastore']]] = None,
+            credentials: pulumi.Input[Optional[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict', 'outputs.CatalogIntegrationCredentials']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict', 'outputs.CatalogIntegrationEnvironment']]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['CatalogIntegrationKafkaClusterArgs', 'CatalogIntegrationKafkaClusterArgsDict', 'outputs.CatalogIntegrationKafkaCluster']]] = None,
+            snowflake: pulumi.Input[Optional[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict', 'outputs.CatalogIntegrationSnowflake']]] = None,
+            suspended: pulumi.Input[Optional[_builtins.bool]] = None,
+            unity: pulumi.Input[Optional[Union['CatalogIntegrationUnityArgs', 'CatalogIntegrationUnityArgsDict', 'outputs.CatalogIntegrationUnity']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsGlue"] = aws_glue
+        __props__["biglakeMetastore"] = biglake_metastore
+        __props__["credentials"] = credentials
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["snowflake"] = snowflake
+        __props__["suspended"] = suspended
+        __props__["unity"] = unity
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/catalogIntegration:CatalogIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsGlue")
     def aws_glue(self) -> pulumi.Output[Optional['outputs.CatalogIntegrationAwsGlue']]:

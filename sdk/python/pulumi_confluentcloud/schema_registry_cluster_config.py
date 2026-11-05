@@ -471,6 +471,26 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         return SchemaRegistryClusterConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compatibility_group: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict', 'outputs.SchemaRegistryClusterConfigCredentials']]] = None,
+            normalize: pulumi.Input[Optional[_builtins.bool]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_registry_cluster: pulumi.Input[Optional[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict', 'outputs.SchemaRegistryClusterConfigSchemaRegistryCluster']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["compatibilityGroup"] = compatibility_group
+        __props__["compatibilityLevel"] = compatibility_level
+        __props__["compatibilityPolicy"] = compatibility_policy
+        __props__["credentials"] = credentials
+        __props__["normalize"] = normalize
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["schemaRegistryCluster"] = schema_registry_cluster
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
     def compatibility_group(self) -> pulumi.Output[_builtins.str]:

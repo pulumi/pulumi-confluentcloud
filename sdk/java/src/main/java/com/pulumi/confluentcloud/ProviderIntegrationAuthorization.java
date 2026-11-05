@@ -238,12 +238,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var gcp = new ProviderIntegrationSetup("gcp", ProviderIntegrationSetupArgs.builder()
  *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
  *                 .id(environmentId)
@@ -262,10 +262,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export("gcpIamCommand", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", _gcp.googleServiceAccount(),_gcp.googleServiceAccount())));
+ *         ctx.export("gcpIamCommand", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=}&#92;{@code "serviceAccount:%s}&#92;{@code " --role=}&#92;{@code "roles/iam.serviceAccountTokenCreator}&#92;{@code " --condition=}&#92;{@code "expression=request.auth.claims.sub=='%s'}&#92;{@code "", _gcp.googleServiceAccount(),_gcp.googleServiceAccount())));
  *         ctx.export("confluentServiceAccount", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> _gcp.googleServiceAccount()));
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

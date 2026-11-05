@@ -444,6 +444,30 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         __props__.__dict__["resource_name"] = resource_name_
         return PrivateLinkAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict', 'outputs.PrivateLinkAttachmentAw']]]]] = None,
+            azures: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict', 'outputs.PrivateLinkAttachmentAzure']]]]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict', 'outputs.PrivateLinkAttachmentEnvironment']]] = None,
+            gcps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict', 'outputs.PrivateLinkAttachmentGcp']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azures"] = azures
+        __props__["cloud"] = cloud
+        __props__["displayName"] = display_name
+        __props__["dnsDomain"] = dns_domain
+        __props__["environment"] = environment
+        __props__["gcps"] = gcps
+        __props__["region"] = region
+        __props__["resourceName"] = resource_name_
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output[Sequence['outputs.PrivateLinkAttachmentAw']]:

@@ -1107,6 +1107,50 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["standard"] = standard
         return KafkaCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            availability: pulumi.Input[Optional[_builtins.str]] = None,
+            basic: pulumi.Input[Optional[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict', 'outputs.KafkaClusterBasic']]] = None,
+            bootstrap_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            byok_key: pulumi.Input[Optional[Union['KafkaClusterByokKeyArgs', 'KafkaClusterByokKeyArgsDict', 'outputs.KafkaClusterByokKey']]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            dedicated: pulumi.Input[Optional[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict', 'outputs.KafkaClusterDedicated']]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict', 'outputs.KafkaClusterEndpoint']]]]] = None,
+            enterprises: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict', 'outputs.KafkaClusterEnterprise']]]]] = None,
+            environment: pulumi.Input[Optional[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict', 'outputs.KafkaClusterEnvironment']]] = None,
+            freights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict', 'outputs.KafkaClusterFreight']]]]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']]] = None,
+            rbac_crn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            standard: pulumi.Input[Optional[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict', 'outputs.KafkaClusterStandard']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiVersion"] = api_version
+        __props__["availability"] = availability
+        __props__["basic"] = basic
+        __props__["bootstrapEndpoint"] = bootstrap_endpoint
+        __props__["byokKey"] = byok_key
+        __props__["cloud"] = cloud
+        __props__["dedicated"] = dedicated
+        __props__["deletionProtection"] = deletion_protection
+        __props__["displayName"] = display_name
+        __props__["endpoints"] = endpoints
+        __props__["enterprises"] = enterprises
+        __props__["environment"] = environment
+        __props__["freights"] = freights
+        __props__["kind"] = kind
+        __props__["network"] = network
+        __props__["rbacCrn"] = rbac_crn
+        __props__["region"] = region
+        __props__["restEndpoint"] = rest_endpoint
+        __props__["standard"] = standard
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/kafkaCluster:KafkaCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[_builtins.str]:

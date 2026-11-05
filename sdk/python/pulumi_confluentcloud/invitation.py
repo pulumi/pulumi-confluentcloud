@@ -382,6 +382,28 @@ class Invitation(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return Invitation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accepted_at: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            creators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvitationCreatorArgs', 'InvitationCreatorArgsDict', 'outputs.InvitationCreator']]]]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvitationUserArgs', 'InvitationUserArgsDict', 'outputs.InvitationUser']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptedAt"] = accepted_at
+        __props__["allowDeletion"] = allow_deletion
+        __props__["authType"] = auth_type
+        __props__["creators"] = creators
+        __props__["email"] = email
+        __props__["expiresAt"] = expires_at
+        __props__["status"] = status
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/invitation:Invitation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptedAt")
     def accepted_at(self) -> pulumi.Output[_builtins.str]:

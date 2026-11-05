@@ -440,6 +440,26 @@ class ConnectArtifact(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return ConnectArtifact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            artifact_file: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            content_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ConnectArtifactEnvironmentArgs', 'ConnectArtifactEnvironmentArgsDict', 'outputs.ConnectArtifactEnvironment']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["artifactFile"] = artifact_file
+        __props__["cloud"] = cloud
+        __props__["contentFormat"] = content_format
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["environment"] = environment
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'confluentcloud:index/connectArtifact:ConnectArtifact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="artifactFile")
     def artifact_file(self) -> pulumi.Output[Optional[_builtins.str]]:
