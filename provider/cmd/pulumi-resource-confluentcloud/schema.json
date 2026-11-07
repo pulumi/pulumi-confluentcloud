@@ -2809,6 +2809,32 @@
                 "url"
             ]
         },
+        "confluentcloud:index/NotificationsResourceSubscriptionNotificationType:NotificationsResourceSubscriptionNotificationType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Notification Type.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/NotificationsSubscriptionNotificationType:NotificationsSubscriptionNotificationType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Notification Type.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/PeeringAws:PeeringAws": {
             "properties": {
                 "account": {
@@ -7563,6 +7589,40 @@
             "type": "object",
             "required": [
                 "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsResourceSubscriptionNotificationType:getNotificationsResourceSubscriptionNotificationType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Resource Subscription, for example, `res-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNotificationsSubscriptionNotificationType:getNotificationsSubscriptionNotificationType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Subscription, for example, `sub-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ],
             "language": {
                 "nodejs": {
@@ -15053,6 +15113,311 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-go=\"`NotificationsResourcePreference`\" pulumi-lang-python=\"`NotificationsResourcePreference`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-java=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-hcl=\"`confluent_notifications_resource_preference`\"\u003e`confluentcloud.NotificationsResourcePreference`\u003c/span\u003e provides a Resource Preference resource that enables creating, editing, and deleting Resource Preferences on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental resource preference deletion. This setting rejects plans that would destroy or recreate the resource preference, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.Environment(\"example\", {displayName: \"example\"});\nconst exampleNotificationsResourcePreference = new confluentcloud.NotificationsResourcePreference(\"example\", {\n    resource: example.resourceName,\n    resourceType: \"ENVIRONMENT\",\n    currentState: \"DISABLED\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.Environment(\"example\", display_name=\"example\")\nexample_notifications_resource_preference = confluentcloud.NotificationsResourcePreference(\"example\",\n    resource=example.resource_name,\n    resource_type=\"ENVIRONMENT\",\n    current_state=\"DISABLED\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Environment(\"example\", new()\n    {\n        DisplayName = \"example\",\n    });\n\n    var exampleNotificationsResourcePreference = new ConfluentCloud.NotificationsResourcePreference(\"example\", new()\n    {\n        Resource = example.ResourceName,\n        ResourceType = \"ENVIRONMENT\",\n        CurrentState = \"DISABLED\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.NewEnvironment(ctx, \"example\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewNotificationsResourcePreference(ctx, \"example\", \u0026confluentcloud.NotificationsResourcePreferenceArgs{\n\t\t\tResource:     example.ResourceName,\n\t\t\tResourceType: pulumi.String(\"ENVIRONMENT\"),\n\t\t\tCurrentState: pulumi.String(\"DISABLED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"example\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"example\"\n}\nresource \"confluentcloud_notifications_resource_preference\" \"example\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  resource      = confluentcloud_environment.example.resource_name\n  resource_type = \"ENVIRONMENT\"\n  current_state = \"DISABLED\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.NotificationsResourcePreference;\nimport com.pulumi.confluentcloud.NotificationsResourcePreferenceArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Environment(\"example\", EnvironmentArgs.builder()\n            .displayName(\"example\")\n            .build());\n\n        var exampleNotificationsResourcePreference = new NotificationsResourcePreference(\"exampleNotificationsResourcePreference\", NotificationsResourcePreferenceArgs.builder()\n            .resource(example.resourceName())\n            .resourceType(\"ENVIRONMENT\")\n            .currentState(\"DISABLED\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:Environment\n    properties:\n      displayName: example\n  exampleNotificationsResourcePreference:\n    type: confluentcloud:NotificationsResourcePreference\n    name: example\n    properties:\n      resource: ${example.resourceName}\n      resourceType: ENVIRONMENT\n      currentState: DISABLED\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Resource Preference.\n\nYou can import a Resource Preference by using Resource Preference ID, for example:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference example res-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                },
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the resource preference. When the resource preference is ENABLED, the user will receive notifications for the Confluent Cloud resource. If the resource preference is DISABLED, the user will not receive any notification for the resource. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource definition.\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Resource Preference.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource type.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "currentState",
+                "kind",
+                "resource",
+                "resourceName",
+                "resourceType"
+            ],
+            "inputProperties": {
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the resource preference. When the resource preference is ENABLED, the user will receive notifications for the Confluent Cloud resource. If the resource preference is DISABLED, the user will not receive any notification for the resource. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource definition.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource type.\n"
+                }
+            },
+            "requiredInputs": [
+                "resource",
+                "resourceType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationsResourcePreference resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                    },
+                    "currentState": {
+                        "type": "string",
+                        "description": "Denotes the state of the resource preference. When the resource preference is ENABLED, the user will receive notifications for the Confluent Cloud resource. If the resource preference is DISABLED, the user will not receive any notification for the resource. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                    },
+                    "resource": {
+                        "type": "string",
+                        "description": "Denotes the Confluent Cloud resource definition.\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Resource Preference.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Denotes the Confluent Cloud resource type.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-go=\"`NotificationsResourceSubscription`\" pulumi-lang-python=\"`NotificationsResourceSubscription`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-java=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-hcl=\"`confluent_notifications_resource_subscription`\"\u003e`confluentcloud.NotificationsResourceSubscription`\u003c/span\u003e provides a Resource Subscription resource that enables creating, editing, and deleting Resource Subscriptions on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental resource subscription deletion. This setting rejects plans that would destroy or recreate the resource subscription, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.NotificationsResourceSubscription(\"example\", {\n    resource: `${exampleConfluentKafkaCluster.rbacCrn}/connector=${exampleConfluentConnector.configNonsensitive.name}`,\n    resourceType: \"CONNECTOR\",\n    notificationType: {\n        id: \"nt-Bp3ab\",\n    },\n    integrations: [exampleConfluentNotificationsIntegration.id],\n    currentState: \"ENABLED\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.NotificationsResourceSubscription(\"example\",\n    resource=f\"{example_confluent_kafka_cluster['rbacCrn']}/connector={example_confluent_connector['configNonsensitive']['name']}\",\n    resource_type=\"CONNECTOR\",\n    notification_type={\n        \"id\": \"nt-Bp3ab\",\n    },\n    integrations=[example_confluent_notifications_integration[\"id\"]],\n    current_state=\"ENABLED\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.NotificationsResourceSubscription(\"example\", new()\n    {\n        Resource = $\"{exampleConfluentKafkaCluster.RbacCrn}/connector={exampleConfluentConnector.ConfigNonsensitive.Name}\",\n        ResourceType = \"CONNECTOR\",\n        NotificationType = new ConfluentCloud.Inputs.NotificationsResourceSubscriptionNotificationTypeArgs\n        {\n            Id = \"nt-Bp3ab\",\n        },\n        Integrations = new[]\n        {\n            exampleConfluentNotificationsIntegration.Id,\n        },\n        CurrentState = \"ENABLED\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewNotificationsResourceSubscription(ctx, \"example\", \u0026confluentcloud.NotificationsResourceSubscriptionArgs{\n\t\t\tResource:     pulumi.Sprintf(\"%v/connector=%v\", exampleConfluentKafkaCluster.RbacCrn, exampleConfluentConnector.ConfigNonsensitive.Name),\n\t\t\tResourceType: pulumi.String(\"CONNECTOR\"),\n\t\t\tNotificationType: \u0026confluentcloud.NotificationsResourceSubscriptionNotificationTypeArgs{\n\t\t\t\tId: pulumi.String(\"nt-Bp3ab\"),\n\t\t\t},\n\t\t\tIntegrations: pulumi.StringArray{\n\t\t\t\texampleConfluentNotificationsIntegration.Id,\n\t\t\t},\n\t\t\tCurrentState: pulumi.String(\"ENABLED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_notifications_resource_subscription\" \"example\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  resource      =\"${exampleConfluentKafkaCluster.rbacCrn}/connector=${exampleConfluentConnector.configNonsensitive[\"name\"]}\"\n  resource_type = \"CONNECTOR\"\n  notification_type = {\n    id = \"nt-Bp3ab\"\n  }\n  integrations  = [exampleConfluentNotificationsIntegration.id]\n  current_state = \"ENABLED\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.NotificationsResourceSubscription;\nimport com.pulumi.confluentcloud.NotificationsResourceSubscriptionArgs;\nimport com.pulumi.confluentcloud.inputs.NotificationsResourceSubscriptionNotificationTypeArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new NotificationsResourceSubscription(\"example\", NotificationsResourceSubscriptionArgs.builder()\n            .resource(String.format(\"%s/connector=%s\", exampleConfluentKafkaCluster.get(\"rbacCrn\"),exampleConfluentConnector.get(\"configNonsensitive\").get(\"name\")))\n            .resourceType(\"CONNECTOR\")\n            .notificationType(NotificationsResourceSubscriptionNotificationTypeArgs.builder()\n                .id(\"nt-Bp3ab\")\n                .build())\n            .integrations(exampleConfluentNotificationsIntegration.get(\"id\"))\n            .currentState(\"ENABLED\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:NotificationsResourceSubscription\n    properties:\n      resource: ${exampleConfluentKafkaCluster.rbacCrn}/connector=${exampleConfluentConnector.configNonsensitive[\"name\"]}\n      resourceType: CONNECTOR\n      notificationType:\n        id: nt-Bp3ab\n      integrations:\n        - ${exampleConfluentNotificationsIntegration.id}\n      currentState: ENABLED\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Resource Subscription.\n\nYou can import a Resource Subscription by using Resource Subscription ID, for example:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription example res-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                },
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the resource subscription. When the resource subscription is ENABLED, the user will receive notifications of the configured notification type for the Confluent Cloud resource. If the resource subscription is DISABLED, the user will not receive them. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Integrations to which notifications are to be sent.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                },
+                "notificationType": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsResourceSubscriptionNotificationType:NotificationsResourceSubscriptionNotificationType",
+                    "description": "The type of notification to subscribe to. Supports the following:\n"
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource definition.\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Resource Subscription.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource type.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "currentState",
+                "integrations",
+                "kind",
+                "notificationType",
+                "resource",
+                "resourceName",
+                "resourceType"
+            ],
+            "inputProperties": {
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the resource subscription. When the resource subscription is ENABLED, the user will receive notifications of the configured notification type for the Confluent Cloud resource. If the resource subscription is DISABLED, the user will not receive them. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Integrations to which notifications are to be sent.\n"
+                },
+                "notificationType": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsResourceSubscriptionNotificationType:NotificationsResourceSubscriptionNotificationType",
+                    "description": "The type of notification to subscribe to. Supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource definition.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Denotes the Confluent Cloud resource type.\n"
+                }
+            },
+            "requiredInputs": [
+                "integrations",
+                "notificationType",
+                "resource",
+                "resourceType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationsResourceSubscription resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                    },
+                    "currentState": {
+                        "type": "string",
+                        "description": "Denotes the state of the resource subscription. When the resource subscription is ENABLED, the user will receive notifications of the configured notification type for the Confluent Cloud resource. If the resource subscription is DISABLED, the user will not receive them. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n"
+                    },
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Integrations to which notifications are to be sent.\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                    },
+                    "notificationType": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsResourceSubscriptionNotificationType:NotificationsResourceSubscriptionNotificationType",
+                        "description": "The type of notification to subscribe to. Supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resource": {
+                        "type": "string",
+                        "description": "Denotes the Confluent Cloud resource definition.\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Resource Subscription.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Denotes the Confluent Cloud resource type.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/notificationsSubscription:NotificationsSubscription": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-go=\"`NotificationsSubscription`\" pulumi-lang-python=\"`NotificationsSubscription`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-java=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-hcl=\"`confluent_notifications_subscription`\"\u003e`confluentcloud.NotificationsSubscription`\u003c/span\u003e provides a Subscription resource that enables creating, editing, and deleting Subscriptions on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental subscription deletion. This setting rejects plans that would destroy or recreate the subscription, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.NotificationsSubscription(\"example\", {\n    notificationType: {\n        id: \"not-abc123\",\n    },\n    integrations: [\"\"],\n    currentState: \"ENABLED\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.NotificationsSubscription(\"example\",\n    notification_type={\n        \"id\": \"not-abc123\",\n    },\n    integrations=[\"\"],\n    current_state=\"ENABLED\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.NotificationsSubscription(\"example\", new()\n    {\n        NotificationType = new ConfluentCloud.Inputs.NotificationsSubscriptionNotificationTypeArgs\n        {\n            Id = \"not-abc123\",\n        },\n        Integrations = new[]\n        {\n            \"\",\n        },\n        CurrentState = \"ENABLED\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewNotificationsSubscription(ctx, \"example\", \u0026confluentcloud.NotificationsSubscriptionArgs{\n\t\t\tNotificationType: \u0026confluentcloud.NotificationsSubscriptionNotificationTypeArgs{\n\t\t\t\tId: pulumi.String(\"not-abc123\"),\n\t\t\t},\n\t\t\tIntegrations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\"),\n\t\t\t},\n\t\t\tCurrentState: pulumi.String(\"ENABLED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_notifications_subscription\" \"example\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  notification_type = {\n    id = \"not-abc123\"\n  }\n  integrations  = [\"\"]\n  current_state = \"ENABLED\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.NotificationsSubscription;\nimport com.pulumi.confluentcloud.NotificationsSubscriptionArgs;\nimport com.pulumi.confluentcloud.inputs.NotificationsSubscriptionNotificationTypeArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new NotificationsSubscription(\"example\", NotificationsSubscriptionArgs.builder()\n            .notificationType(NotificationsSubscriptionNotificationTypeArgs.builder()\n                .id(\"not-abc123\")\n                .build())\n            .integrations(\"\")\n            .currentState(\"ENABLED\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:NotificationsSubscription\n    properties:\n      notificationType:\n        id: not-abc123\n      integrations:\n        - \"\"\n      currentState: ENABLED\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Subscription.\n\nYou can import a Subscription by using Subscription ID, for example:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/notificationsSubscription:NotificationsSubscription example sub-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                },
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the subscription. When the subscription is ENABLED, the user will receive notification on the configured integrations. If the subscription is DISABLED, the user will not receive any notification for the configured notification type. Note that, you cannot disable a subscription for `REQUIRED` notification type.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Integrations to which notifications are to be sent.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                },
+                "notificationType": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsSubscriptionNotificationType:NotificationsSubscriptionNotificationType",
+                    "description": "The type of notification to subscribe to. Supports the following:\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Subscription.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "currentState",
+                "integrations",
+                "kind",
+                "notificationType",
+                "resourceName"
+            ],
+            "inputProperties": {
+                "currentState": {
+                    "type": "string",
+                    "description": "Denotes the state of the subscription. When the subscription is ENABLED, the user will receive notification on the configured integrations. If the subscription is DISABLED, the user will not receive any notification for the configured notification type. Note that, you cannot disable a subscription for `REQUIRED` notification type.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Integrations to which notifications are to be sent.\n"
+                },
+                "notificationType": {
+                    "$ref": "#/types/confluentcloud:index/NotificationsSubscriptionNotificationType:NotificationsSubscriptionNotificationType",
+                    "description": "The type of notification to subscribe to. Supports the following:\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "integrations",
+                "notificationType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationsSubscription resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) API Version defines the schema version of this representation of a resource.\n"
+                    },
+                    "currentState": {
+                        "type": "string",
+                        "description": "Denotes the state of the subscription. When the subscription is ENABLED, the user will receive notification on the configured integrations. If the subscription is DISABLED, the user will not receive any notification for the configured notification type. Note that, you cannot disable a subscription for `REQUIRED` notification type.\n"
+                    },
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Integrations to which notifications are to be sent.\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) Kind defines the object this REST resource represents.\n"
+                    },
+                    "notificationType": {
+                        "$ref": "#/types/confluentcloud:index/NotificationsSubscriptionNotificationType:NotificationsSubscriptionNotificationType",
+                        "description": "The type of notification to subscribe to. Supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Subscription.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/peering:Peering": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Peering`\" pulumi-lang-dotnet=\"`confluentcloud.Peering`\" pulumi-lang-go=\"`Peering`\" pulumi-lang-python=\"`Peering`\" pulumi-lang-yaml=\"`confluentcloud.Peering`\" pulumi-lang-java=\"`confluentcloud.Peering`\" pulumi-lang-hcl=\"`confluent_peering`\"\u003e`confluentcloud.Peering`\u003c/span\u003e provides a Peering resource that enables creating, editing, and deleting Peerings on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \" pulumi-lang-hcl=\" prevent_destroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental Peering deletion. This setting rejects plans that would destroy or recreate the Peering, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Example Peering on AWS\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst aws_peering = new confluentcloud.Network(\"aws-peering\", {\n    displayName: \"AWS Peering Network\",\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst aws = new confluentcloud.Peering(\"aws\", {\n    displayName: \"AWS Peering\",\n    aws: {\n        account: \"012345678901\",\n        vpc: \"vpc-abcdef0123456789a\",\n        routes: [\"172.31.0.0/16\"],\n        customerRegion: \"us-east-2\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: aws_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\naws_peering = confluentcloud.Network(\"aws-peering\",\n    display_name=\"AWS Peering Network\",\n    cloud=\"AWS\",\n    region=\"us-east-2\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\naws = confluentcloud.Peering(\"aws\",\n    display_name=\"AWS Peering\",\n    aws={\n        \"account\": \"012345678901\",\n        \"vpc\": \"vpc-abcdef0123456789a\",\n        \"routes\": [\"172.31.0.0/16\"],\n        \"customer_region\": \"us-east-2\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": aws_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var aws_peering = new ConfluentCloud.Network(\"aws-peering\", new()\n    {\n        DisplayName = \"AWS Peering Network\",\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var aws = new ConfluentCloud.Peering(\"aws\", new()\n    {\n        DisplayName = \"AWS Peering\",\n        Aws = new ConfluentCloud.Inputs.PeeringAwsArgs\n        {\n            Account = \"012345678901\",\n            Vpc = \"vpc-abcdef0123456789a\",\n            Routes = new[]\n            {\n                \"172.31.0.0/16\",\n            },\n            CustomerRegion = \"us-east-2\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = aws_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\taws_peering, err := confluentcloud.NewNetwork(ctx, \"aws-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"AWS Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"AWS\"),\n\t\t\tRegion:      pulumi.String(\"us-east-2\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"aws\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"AWS Peering\"),\n\t\t\tAws: \u0026confluentcloud.PeeringAwsArgs{\n\t\t\t\tAccount: pulumi.String(\"012345678901\"),\n\t\t\t\tVpc:     pulumi.String(\"vpc-abcdef0123456789a\"),\n\t\t\t\tRoutes: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"172.31.0.0/16\"),\n\t\t\t\t},\n\t\t\t\tCustomerRegion: pulumi.String(\"us-east-2\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: aws_peering.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"aws-peering\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name     = \"AWS Peering Network\"\n  cloud            = \"AWS\"\n  region           = \"us-east-2\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"aws\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"AWS Peering\"\n  aws = {\n    account         = \"012345678901\"\n    vpc             = \"vpc-abcdef0123456789a\"\n    routes          = [\"172.31.0.0/16\"]\n    customer_region = \"us-east-2\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.aws-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringAwsArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var aws_peering = new Network(\"aws-peering\", NetworkArgs.builder()\n            .displayName(\"AWS Peering Network\")\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var aws = new Peering(\"aws\", PeeringArgs.builder()\n            .displayName(\"AWS Peering\")\n            .aws(PeeringAwsArgs.builder()\n                .account(\"012345678901\")\n                .vpc(\"vpc-abcdef0123456789a\")\n                .routes(\"172.31.0.0/16\")\n                .customerRegion(\"us-east-2\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(aws_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  aws-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: AWS Peering Network\n      cloud: AWS\n      region: us-east-2\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  aws:\n    type: confluentcloud:Peering\n    properties:\n      displayName: AWS Peering\n      aws:\n        account: '012345678901'\n        vpc: vpc-abcdef0123456789a\n        routes:\n          - 172.31.0.0/16\n        customerRegion: us-east-2\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"aws-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Peering on Azure\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst azure_peering = new confluentcloud.Network(\"azure-peering\", {\n    displayName: \"Azure Peering Network\",\n    cloud: \"AZURE\",\n    region: \"centralus\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst azure = new confluentcloud.Peering(\"azure\", {\n    displayName: \"Azure Peering\",\n    azure: {\n        tenant: \"1111tttt-1111-1111-1111-111111tttttt\",\n        vnet: \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n        customerRegion: \"centralus\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: azure_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nazure_peering = confluentcloud.Network(\"azure-peering\",\n    display_name=\"Azure Peering Network\",\n    cloud=\"AZURE\",\n    region=\"centralus\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\nazure = confluentcloud.Peering(\"azure\",\n    display_name=\"Azure Peering\",\n    azure={\n        \"tenant\": \"1111tttt-1111-1111-1111-111111tttttt\",\n        \"vnet\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n        \"customer_region\": \"centralus\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": azure_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var azure_peering = new ConfluentCloud.Network(\"azure-peering\", new()\n    {\n        DisplayName = \"Azure Peering Network\",\n        Cloud = \"AZURE\",\n        Region = \"centralus\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var azure = new ConfluentCloud.Peering(\"azure\", new()\n    {\n        DisplayName = \"Azure Peering\",\n        Azure = new ConfluentCloud.Inputs.PeeringAzureArgs\n        {\n            Tenant = \"1111tttt-1111-1111-1111-111111tttttt\",\n            Vnet = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\",\n            CustomerRegion = \"centralus\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = azure_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tazure_peering, err := confluentcloud.NewNetwork(ctx, \"azure-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"Azure Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"AZURE\"),\n\t\t\tRegion:      pulumi.String(\"centralus\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"azure\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"Azure Peering\"),\n\t\t\tAzure: \u0026confluentcloud.PeeringAzureArgs{\n\t\t\t\tTenant:         pulumi.String(\"1111tttt-1111-1111-1111-111111tttttt\"),\n\t\t\t\tVnet:           pulumi.String(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\"),\n\t\t\t\tCustomerRegion: pulumi.String(\"centralus\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: azure_peering.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"azure-peering\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name     = \"Azure Peering Network\"\n  cloud            = \"AZURE\"\n  region           = \"centralus\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"azure\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"Azure Peering\"\n  azure = {\n    tenant          = \"1111tttt-1111-1111-1111-111111tttttt\"\n    vnet            = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\"\n    customer_region = \"centralus\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.azure-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringAzureArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var azure_peering = new Network(\"azure-peering\", NetworkArgs.builder()\n            .displayName(\"Azure Peering Network\")\n            .cloud(\"AZURE\")\n            .region(\"centralus\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var azure = new Peering(\"azure\", PeeringArgs.builder()\n            .displayName(\"Azure Peering\")\n            .azure(PeeringAzureArgs.builder()\n                .tenant(\"1111tttt-1111-1111-1111-111111tttttt\")\n                .vnet(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\")\n                .customerRegion(\"centralus\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(azure_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  azure-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: Azure Peering Network\n      cloud: AZURE\n      region: centralus\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  azure:\n    type: confluentcloud:Peering\n    properties:\n      displayName: Azure Peering\n      azure:\n        tenant: 1111tttt-1111-1111-1111-111111tttttt\n        vnet: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet\n        customerRegion: centralus\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"azure-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Peering on GCP\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst gcp_peering = new confluentcloud.Network(\"gcp-peering\", {\n    displayName: \"GCP Peering Network\",\n    cloud: \"GCP\",\n    region: \"us-west4\",\n    cidr: \"10.10.0.0/16\",\n    connectionTypes: [\"PEERING\"],\n    environment: {\n        id: development.id,\n    },\n});\nconst gcp = new confluentcloud.Peering(\"gcp\", {\n    displayName: \"GCP Peering\",\n    gcp: {\n        project: \"temp-gear-123456\",\n        vpcNetwork: \"customer-test-vpc-network\",\n    },\n    environment: {\n        id: development.id,\n    },\n    network: {\n        id: gcp_peering.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\ngcp_peering = confluentcloud.Network(\"gcp-peering\",\n    display_name=\"GCP Peering Network\",\n    cloud=\"GCP\",\n    region=\"us-west4\",\n    cidr=\"10.10.0.0/16\",\n    connection_types=[\"PEERING\"],\n    environment={\n        \"id\": development.id,\n    })\ngcp = confluentcloud.Peering(\"gcp\",\n    display_name=\"GCP Peering\",\n    gcp={\n        \"project\": \"temp-gear-123456\",\n        \"vpc_network\": \"customer-test-vpc-network\",\n    },\n    environment={\n        \"id\": development.id,\n    },\n    network={\n        \"id\": gcp_peering.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var gcp_peering = new ConfluentCloud.Network(\"gcp-peering\", new()\n    {\n        DisplayName = \"GCP Peering Network\",\n        Cloud = \"GCP\",\n        Region = \"us-west4\",\n        Cidr = \"10.10.0.0/16\",\n        ConnectionTypes = new[]\n        {\n            \"PEERING\",\n        },\n        Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n    var gcp = new ConfluentCloud.Peering(\"gcp\", new()\n    {\n        DisplayName = \"GCP Peering\",\n        Gcp = new ConfluentCloud.Inputs.PeeringGcpArgs\n        {\n            Project = \"temp-gear-123456\",\n            VpcNetwork = \"customer-test-vpc-network\",\n        },\n        Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Network = new ConfluentCloud.Inputs.PeeringNetworkArgs\n        {\n            Id = gcp_peering.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgcp_peering, err := confluentcloud.NewNetwork(ctx, \"gcp-peering\", \u0026confluentcloud.NetworkArgs{\n\t\t\tDisplayName: pulumi.String(\"GCP Peering Network\"),\n\t\t\tCloud:       pulumi.String(\"GCP\"),\n\t\t\tRegion:      pulumi.String(\"us-west4\"),\n\t\t\tCidr:        pulumi.String(\"10.10.0.0/16\"),\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"PEERING\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.NetworkEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewPeering(ctx, \"gcp\", \u0026confluentcloud.PeeringArgs{\n\t\t\tDisplayName: pulumi.String(\"GCP Peering\"),\n\t\t\tGcp: \u0026confluentcloud.PeeringGcpArgs{\n\t\t\t\tProject:    pulumi.String(\"temp-gear-123456\"),\n\t\t\t\tVpcNetwork: pulumi.String(\"customer-test-vpc-network\"),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.PeeringEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tNetwork: \u0026confluentcloud.PeeringNetworkArgs{\n\t\t\t\tId: gcp_peering.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\nresource \"confluentcloud_environment\" \"development\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"Development\"\n}\nresource \"confluentcloud_network\" \"gcp-peering\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name     = \"GCP Peering Network\"\n  cloud            = \"GCP\"\n  region           = \"us-west4\"\n  cidr             = \"10.10.0.0/16\"\n  connection_types = [\"PEERING\"]\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n}\nresource \"confluentcloud_peering\" \"gcp\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  display_name = \"GCP Peering\"\n  gcp = {\n    project     = \"temp-gear-123456\"\n    vpc_network = \"customer-test-vpc-network\"\n  }\n  environment = {\n    id = confluentcloud_environment.development.id\n  }\n  network = {\n    id = confluentcloud_network.gcp-peering.id\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Network;\nimport com.pulumi.confluentcloud.NetworkArgs;\nimport com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;\nimport com.pulumi.confluentcloud.Peering;\nimport com.pulumi.confluentcloud.PeeringArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringGcpArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var gcp_peering = new Network(\"gcp-peering\", NetworkArgs.builder()\n            .displayName(\"GCP Peering Network\")\n            .cloud(\"GCP\")\n            .region(\"us-west4\")\n            .cidr(\"10.10.0.0/16\")\n            .connectionTypes(\"PEERING\")\n            .environment(NetworkEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n        var gcp = new Peering(\"gcp\", PeeringArgs.builder()\n            .displayName(\"GCP Peering\")\n            .gcp(PeeringGcpArgs.builder()\n                .project(\"temp-gear-123456\")\n                .vpcNetwork(\"customer-test-vpc-network\")\n                .build())\n            .environment(PeeringEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .network(PeeringNetworkArgs.builder()\n                .id(gcp_peering.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  gcp-peering:\n    type: confluentcloud:Network\n    properties:\n      displayName: GCP Peering Network\n      cloud: GCP\n      region: us-west4\n      cidr: 10.10.0.0/16\n      connectionTypes:\n        - PEERING\n      environment:\n        id: ${development.id}\n  gcp:\n    type: confluentcloud:Peering\n    properties:\n      displayName: GCP Peering\n      gcp:\n        project: temp-gear-123456\n        vpcNetwork: customer-test-vpc-network\n      environment:\n        id: ${development.id}\n      network:\n        id: ${[\"gcp-peering\"].id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Peering`\" pulumi-lang-dotnet=\"`confluentcloud.Peering`\" pulumi-lang-go=\"`Peering`\" pulumi-lang-python=\"`Peering`\" pulumi-lang-yaml=\"`confluentcloud.Peering`\" pulumi-lang-java=\"`confluentcloud.Peering`\" pulumi-lang-hcl=\"`confluent_peering`\"\u003e`confluentcloud.Peering`\u003c/span\u003e resource:\n  * dedicated-vnet-peering-azure-kafka-acls: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-vpc-peering-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-vpc-peering-gcp-kafka-acls: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs\n  * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC\n  * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs\n  * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC\n  * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n\n## Import\n\n\u003e **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Peering.\n\nYou can import a Peering by using Environment ID and Peering ID, in the format `\u003cEnvironment ID\u003e/\u003cPeering ID\u003e`. The following example shows how to import a Peering:\n\n```sh\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n$ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123\n```\n\n\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -20865,6 +21230,79 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/getNotificationType:getNotificationType": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getNotificationType`\" pulumi-lang-dotnet=\"`confluentcloud.getNotificationType`\" pulumi-lang-go=\"`getNotificationType`\" pulumi-lang-python=\"`get_notification_type`\" pulumi-lang-yaml=\"`confluentcloud.getNotificationType`\" pulumi-lang-java=\"`confluentcloud.getNotificationType`\" pulumi-lang-hcl=\"`data.confluent_notification_type`\"\u003e`confluentcloud.getNotificationType`\u003c/span\u003e describes a Notification Type data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationType({\n        id: \"not-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notification_type(id=\"not-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationType.Invoke(new()\n    {\n        Id = \"not-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationType(ctx, \u0026confluentcloud.GetNotificationTypeArgs{\n\t\t\tId: \"not-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_notification_type\" \"example\" {\n  id = \"not-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_notification_type.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()\n            .id(\"not-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationType\n      arguments:\n        id: not-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotificationType.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Notification Type, for example, `not-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotificationType.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
+                        "type": "string"
+                    },
+                    "category": {
+                        "description": "(String) Represents the group with which the notification is associated. Notifications are grouped under certain categories for better organization. - BILLING_LICENSING: All billing, payments or licensing related notifications are grouped here. - SECURITY: All Confluent Cloud and Platform security related notifications are grouped here. - SERVICE: All Confluent services (eg. Kafka, Schema Registry, Connect etc.) related notifications are grouped here. - ACCOUNT: All Confluent account related notifications are grouped here. For example: Billing, payment or license related notifications are grouped in BILLING_LICENSING category.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "(String) Human readable description of the notification type\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "(String) Human readable display name of the notification type\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "isIncludedInPlan": {
+                        "description": "(Bool) Whether this notification is available to subscribe or not as per the user's current billing plan.\n",
+                        "type": "boolean"
+                    },
+                    "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
+                        "type": "string"
+                    },
+                    "resourceName": {
+                        "description": "(String) The Confluent Resource Name of the Notification Type.\n",
+                        "type": "string"
+                    },
+                    "severity": {
+                        "description": "(String) Severity indicates the impact of this notification. - CRITICAL: a high impact notification which needs immediate attention. - WARN: a warning notification which can be addressed now or later. - INFO: an informational notification.\n",
+                        "type": "string"
+                    },
+                    "subscriptionPriority": {
+                        "description": "(String) Indicates whether the notification is auto-subscribed and if the user can opt-out. - REQUIRED: the user is auto-subscribed to this notification and can't opt-out. - RECOMMENDED: the user is auto-subscribed to this notification and can opt-out. - OPTIONAL: the user is not auto-subscribed to this notification but can explicitly subscribe to it.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "category",
+                    "description",
+                    "displayName",
+                    "id",
+                    "isIncludedInPlan",
+                    "kind",
+                    "resourceName",
+                    "severity",
+                    "subscriptionPriority"
+                ],
+                "type": "object"
+            }
+        },
         "confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-go=\"`NotificationsIntegration`\" pulumi-lang-python=\"`NotificationsIntegration`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-java=\"`confluentcloud.NotificationsIntegration`\" pulumi-lang-hcl=\"`confluent_notifications_integration`\"\u003e`confluentcloud.NotificationsIntegration`\u003c/span\u003e describes an Integration data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationsIntegration({\n        id: \"int-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notifications_integration(id=\"int-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationsIntegration.Invoke(new()\n    {\n        Id = \"int-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationsIntegration(ctx, \u0026confluentcloud.LookupNotificationsIntegrationArgs{\n\t\t\tId: \"int-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_notifications_integration\" \"example\" {\n  id = \"int-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_notifications_integration.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationsIntegration(GetNotificationsIntegrationArgs.builder()\n            .id(\"int-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationsIntegration\n      arguments:\n        id: int-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -20962,6 +21400,204 @@
                     "slackTargets",
                     "userEmailTargets",
                     "webhookTargets"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getNotificationsResourcePreference:getNotificationsResourcePreference": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-go=\"`NotificationsResourcePreference`\" pulumi-lang-python=\"`NotificationsResourcePreference`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-java=\"`confluentcloud.NotificationsResourcePreference`\" pulumi-lang-hcl=\"`confluent_notifications_resource_preference`\"\u003e`confluentcloud.NotificationsResourcePreference`\u003c/span\u003e describes a Resource Preference data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationsResourcePreference({\n        id: \"res-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notifications_resource_preference(id=\"res-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationsResourcePreference.Invoke(new()\n    {\n        Id = \"res-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationsResourcePreference(ctx, \u0026confluentcloud.LookupNotificationsResourcePreferenceArgs{\n\t\t\tId: \"res-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_notifications_resource_preference\" \"example\" {\n  id = \"res-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_notifications_resource_preference.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()\n            .id(\"res-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationsResourcePreference\n      arguments:\n        id: res-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotificationsResourcePreference.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Resource Preference, for example, `res-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotificationsResourcePreference.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
+                        "type": "string"
+                    },
+                    "currentState": {
+                        "description": "(String) Denotes the state of the resource preference. When the resource preference is ENABLED, the user will receive notifications for the Confluent Cloud resource. If the resource preference is DISABLED, the user will not receive any notification for the resource. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
+                        "type": "string"
+                    },
+                    "resource": {
+                        "description": "(String) Denotes the Confluent Cloud resource definition.\n",
+                        "type": "string"
+                    },
+                    "resourceName": {
+                        "description": "(String) The Confluent Resource Name of the Resource Preference.\n",
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "description": "(String) Denotes the Confluent Cloud resource type.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "currentState",
+                    "id",
+                    "kind",
+                    "resource",
+                    "resourceName",
+                    "resourceType"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getNotificationsResourceSubscription:getNotificationsResourceSubscription": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-go=\"`NotificationsResourceSubscription`\" pulumi-lang-python=\"`NotificationsResourceSubscription`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-java=\"`confluentcloud.NotificationsResourceSubscription`\" pulumi-lang-hcl=\"`confluent_notifications_resource_subscription`\"\u003e`confluentcloud.NotificationsResourceSubscription`\u003c/span\u003e describes a Resource Subscription data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationsResourceSubscription({\n        id: \"res-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notifications_resource_subscription(id=\"res-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationsResourceSubscription.Invoke(new()\n    {\n        Id = \"res-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationsResourceSubscription(ctx, \u0026confluentcloud.LookupNotificationsResourceSubscriptionArgs{\n\t\t\tId: \"res-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_notifications_resource_subscription\" \"example\" {\n  id = \"res-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_notifications_resource_subscription.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()\n            .id(\"res-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationsResourceSubscription\n      arguments:\n        id: res-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotificationsResourceSubscription.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Resource Subscription, for example, `res-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotificationsResourceSubscription.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
+                        "type": "string"
+                    },
+                    "currentState": {
+                        "description": "(String) Denotes the state of the resource subscription. When the resource subscription is ENABLED, the user will receive notifications of the configured notification type for the Confluent Cloud resource. If the resource subscription is DISABLED, the user will not receive them. Note that, you will still receive notifications for `REQUIRED` notification type even when it is DISABLED.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "(String) The ID of the Notification Type.\n",
+                        "type": "string"
+                    },
+                    "integrations": {
+                        "description": "(Set of Strings) Integrations to which notifications are to be sent.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
+                        "type": "string"
+                    },
+                    "notificationTypes": {
+                        "description": "(Configuration Block) The type of notification to subscribe to. Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsResourceSubscriptionNotificationType:getNotificationsResourceSubscriptionNotificationType"
+                        },
+                        "type": "array"
+                    },
+                    "resource": {
+                        "description": "(String) Denotes the Confluent Cloud resource definition.\n",
+                        "type": "string"
+                    },
+                    "resourceName": {
+                        "description": "(String) The Confluent Resource Name of the Resource Subscription.\n",
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "description": "(String) Denotes the Confluent Cloud resource type.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "currentState",
+                    "id",
+                    "integrations",
+                    "kind",
+                    "notificationTypes",
+                    "resource",
+                    "resourceName",
+                    "resourceType"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getNotificationsSubscription:getNotificationsSubscription": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-dotnet=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-go=\"`NotificationsSubscription`\" pulumi-lang-python=\"`NotificationsSubscription`\" pulumi-lang-yaml=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-java=\"`confluentcloud.NotificationsSubscription`\" pulumi-lang-hcl=\"`confluent_notifications_subscription`\"\u003e`confluentcloud.NotificationsSubscription`\u003c/span\u003e describes a Subscription data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getNotificationsSubscription({\n        id: \"sub-abc123\",\n    });\n    return {\n        example: example,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_notifications_subscription(id=\"sub-abc123\")\npulumi.export(\"example\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetNotificationsSubscription.Invoke(new()\n    {\n        Id = \"sub-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetNotificationsSubscription(ctx, \u0026confluentcloud.LookupNotificationsSubscriptionArgs{\n\t\t\tId: \"sub-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", example)\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    confluentcloud = {\n      source = \"pulumi/confluentcloud\"\n    }\n  }\n}\n\ndata \"confluentcloud_notifications_subscription\" \"example\" {\n  id = \"sub-abc123\"\n}\n\noutput \"example\" {\n  value = data.confluentcloud_notifications_subscription.example\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()\n            .id(\"sub-abc123\")\n            .build());\n\n        ctx.export(\"example\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getNotificationsSubscription\n      arguments:\n        id: sub-abc123\noutputs:\n  example: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotificationsSubscription.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Subscription, for example, `sub-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotificationsSubscription.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(String) API Version defines the schema version of this representation of a resource.\n",
+                        "type": "string"
+                    },
+                    "currentState": {
+                        "description": "(String) Denotes the state of the subscription. When the subscription is ENABLED, the user will receive notification on the configured integrations. If the subscription is DISABLED, the user will not receive any notification for the configured notification type. Note that, you cannot disable a subscription for `REQUIRED` notification type.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "(String) The ID of the Notification Type.\n",
+                        "type": "string"
+                    },
+                    "integrations": {
+                        "description": "(Set of Strings) Integrations to which notifications are to be sent.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "kind": {
+                        "description": "(String) Kind defines the object this REST resource represents.\n",
+                        "type": "string"
+                    },
+                    "notificationTypes": {
+                        "description": "(Configuration Block) The type of notification to subscribe to. Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNotificationsSubscriptionNotificationType:getNotificationsSubscriptionNotificationType"
+                        },
+                        "type": "array"
+                    },
+                    "resourceName": {
+                        "description": "(String) The Confluent Resource Name of the Subscription.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "currentState",
+                    "id",
+                    "integrations",
+                    "kind",
+                    "notificationTypes",
+                    "resourceName"
                 ],
                 "type": "object"
             }
