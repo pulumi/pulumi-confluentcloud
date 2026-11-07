@@ -76,8 +76,16 @@ import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServicePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationTypePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationArgs;
 import com.pulumi.confluentcloud.inputs.GetNotificationsIntegrationPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferencePlainArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPluginArgs;
@@ -175,7 +183,11 @@ import com.pulumi.confluentcloud.outputs.GetKsqlClusterResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkEndpointResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkServiceResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkResult;
+import com.pulumi.confluentcloud.outputs.GetNotificationTypeResult;
 import com.pulumi.confluentcloud.outputs.GetNotificationsIntegrationResult;
+import com.pulumi.confluentcloud.outputs.GetNotificationsResourcePreferenceResult;
+import com.pulumi.confluentcloud.outputs.GetNotificationsResourceSubscriptionResult;
+import com.pulumi.confluentcloud.outputs.GetNotificationsSubscriptionResult;
 import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPluginResult;
@@ -11838,6 +11850,221 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
+     * `confluentcloud.getNotificationType` describes a Notification Type data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()
+     *             .id("not-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationTypeResult> getNotificationType(GetNotificationTypeArgs args) {
+        return getNotificationType(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getNotificationType` describes a Notification Type data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()
+     *             .id("not-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationTypeResult> getNotificationTypePlain(GetNotificationTypePlainArgs args) {
+        return getNotificationTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getNotificationType` describes a Notification Type data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()
+     *             .id("not-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationTypeResult> getNotificationType(GetNotificationTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationType:getNotificationType", TypeShape.of(GetNotificationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getNotificationType` describes a Notification Type data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()
+     *             .id("not-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationTypeResult> getNotificationType(GetNotificationTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationType:getNotificationType", TypeShape.of(GetNotificationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getNotificationType` describes a Notification Type data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationType(GetNotificationTypeArgs.builder()
+     *             .id("not-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationTypeResult> getNotificationTypePlain(GetNotificationTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationType:getNotificationType", TypeShape.of(GetNotificationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
      * `confluentcloud.NotificationsIntegration` describes an Integration data source.
      * 
      * ## Example Usage
@@ -12049,6 +12276,651 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetNotificationsIntegrationResult> getNotificationsIntegrationPlain(GetNotificationsIntegrationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration", TypeShape.of(GetNotificationsIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourcePreference` describes a Resource Preference data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourcePreferenceResult> getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs args) {
+        return getNotificationsResourcePreference(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourcePreference` describes a Resource Preference data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsResourcePreferenceResult> getNotificationsResourcePreferencePlain(GetNotificationsResourcePreferencePlainArgs args) {
+        return getNotificationsResourcePreferencePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourcePreference` describes a Resource Preference data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourcePreferenceResult> getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsResourcePreference:getNotificationsResourcePreference", TypeShape.of(GetNotificationsResourcePreferenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourcePreference` describes a Resource Preference data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourcePreferenceResult> getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsResourcePreference:getNotificationsResourcePreference", TypeShape.of(GetNotificationsResourcePreferenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourcePreference` describes a Resource Preference data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourcePreferenceArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourcePreference(GetNotificationsResourcePreferenceArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsResourcePreferenceResult> getNotificationsResourcePreferencePlain(GetNotificationsResourcePreferencePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationsResourcePreference:getNotificationsResourcePreference", TypeShape.of(GetNotificationsResourcePreferenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourceSubscription` describes a Resource Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourceSubscriptionResult> getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs args) {
+        return getNotificationsResourceSubscription(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourceSubscription` describes a Resource Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsResourceSubscriptionResult> getNotificationsResourceSubscriptionPlain(GetNotificationsResourceSubscriptionPlainArgs args) {
+        return getNotificationsResourceSubscriptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourceSubscription` describes a Resource Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourceSubscriptionResult> getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsResourceSubscription:getNotificationsResourceSubscription", TypeShape.of(GetNotificationsResourceSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourceSubscription` describes a Resource Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsResourceSubscriptionResult> getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsResourceSubscription:getNotificationsResourceSubscription", TypeShape.of(GetNotificationsResourceSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsResourceSubscription` describes a Resource Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsResourceSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsResourceSubscription(GetNotificationsResourceSubscriptionArgs.builder()
+     *             .id("res-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsResourceSubscriptionResult> getNotificationsResourceSubscriptionPlain(GetNotificationsResourceSubscriptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationsResourceSubscription:getNotificationsResourceSubscription", TypeShape.of(GetNotificationsResourceSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsSubscription` describes a Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()
+     *             .id("sub-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsSubscriptionResult> getNotificationsSubscription(GetNotificationsSubscriptionArgs args) {
+        return getNotificationsSubscription(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsSubscription` describes a Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()
+     *             .id("sub-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsSubscriptionResult> getNotificationsSubscriptionPlain(GetNotificationsSubscriptionPlainArgs args) {
+        return getNotificationsSubscriptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsSubscription` describes a Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()
+     *             .id("sub-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsSubscriptionResult> getNotificationsSubscription(GetNotificationsSubscriptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsSubscription:getNotificationsSubscription", TypeShape.of(GetNotificationsSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsSubscription` describes a Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()
+     *             .id("sub-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotificationsSubscriptionResult> getNotificationsSubscription(GetNotificationsSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNotificationsSubscription:getNotificationsSubscription", TypeShape.of(GetNotificationsSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NotificationsSubscription` describes a Subscription data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNotificationsSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getNotificationsSubscription(GetNotificationsSubscriptionArgs.builder()
+     *             .id("sub-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotificationsSubscriptionResult> getNotificationsSubscriptionPlain(GetNotificationsSubscriptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getNotificationsSubscription:getNotificationsSubscription", TypeShape.of(GetNotificationsSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

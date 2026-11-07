@@ -67,7 +67,11 @@ from .get_ksql_cluster import *
 from .get_network import *
 from .get_network_link_endpoint import *
 from .get_network_link_service import *
+from .get_notification_type import *
 from .get_notifications_integration import *
+from .get_notifications_resource_preference import *
+from .get_notifications_resource_subscription import *
+from .get_notifications_subscription import *
 from .get_organization import *
 from .get_peering import *
 from .get_plugin import *
@@ -117,6 +121,9 @@ from .network import *
 from .network_link_endpoint import *
 from .network_link_service import *
 from .notifications_integration import *
+from .notifications_resource_preference import *
+from .notifications_resource_subscription import *
+from .notifications_subscription import *
 from .peering import *
 from .plugin import *
 from .private_link_access import *
@@ -483,6 +490,30 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/notificationsIntegration:NotificationsIntegration": "NotificationsIntegration"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/notificationsResourcePreference",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference": "NotificationsResourcePreference"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/notificationsResourceSubscription",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription": "NotificationsResourceSubscription"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/notificationsSubscription",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/notificationsSubscription:NotificationsSubscription": "NotificationsSubscription"
   }
  },
  {

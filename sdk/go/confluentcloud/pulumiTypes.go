@@ -20006,6 +20006,280 @@ func (o NotificationsIntegrationWebhookTargetPtrOutput) Url() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type NotificationsResourceSubscriptionNotificationType struct {
+	// The ID of the Notification Type.
+	Id string `pulumi:"id"`
+}
+
+// NotificationsResourceSubscriptionNotificationTypeInput is an input type that accepts NotificationsResourceSubscriptionNotificationTypeArgs and NotificationsResourceSubscriptionNotificationTypeOutput values.
+// You can construct a concrete instance of `NotificationsResourceSubscriptionNotificationTypeInput` via:
+//
+//	NotificationsResourceSubscriptionNotificationTypeArgs{...}
+type NotificationsResourceSubscriptionNotificationTypeInput interface {
+	pulumi.Input
+
+	ToNotificationsResourceSubscriptionNotificationTypeOutput() NotificationsResourceSubscriptionNotificationTypeOutput
+	ToNotificationsResourceSubscriptionNotificationTypeOutputWithContext(context.Context) NotificationsResourceSubscriptionNotificationTypeOutput
+}
+
+type NotificationsResourceSubscriptionNotificationTypeArgs struct {
+	// The ID of the Notification Type.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NotificationsResourceSubscriptionNotificationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i NotificationsResourceSubscriptionNotificationTypeArgs) ToNotificationsResourceSubscriptionNotificationTypeOutput() NotificationsResourceSubscriptionNotificationTypeOutput {
+	return i.ToNotificationsResourceSubscriptionNotificationTypeOutputWithContext(context.Background())
+}
+
+func (i NotificationsResourceSubscriptionNotificationTypeArgs) ToNotificationsResourceSubscriptionNotificationTypeOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsResourceSubscriptionNotificationTypeOutput)
+}
+
+func (i NotificationsResourceSubscriptionNotificationTypeArgs) ToNotificationsResourceSubscriptionNotificationTypePtrOutput() NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return i.ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationsResourceSubscriptionNotificationTypeArgs) ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsResourceSubscriptionNotificationTypeOutput).ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(ctx)
+}
+
+// NotificationsResourceSubscriptionNotificationTypePtrInput is an input type that accepts NotificationsResourceSubscriptionNotificationTypeArgs, NotificationsResourceSubscriptionNotificationTypePtr and NotificationsResourceSubscriptionNotificationTypePtrOutput values.
+// You can construct a concrete instance of `NotificationsResourceSubscriptionNotificationTypePtrInput` via:
+//
+//	        NotificationsResourceSubscriptionNotificationTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationsResourceSubscriptionNotificationTypePtrInput interface {
+	pulumi.Input
+
+	ToNotificationsResourceSubscriptionNotificationTypePtrOutput() NotificationsResourceSubscriptionNotificationTypePtrOutput
+	ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(context.Context) NotificationsResourceSubscriptionNotificationTypePtrOutput
+}
+
+type notificationsResourceSubscriptionNotificationTypePtrType NotificationsResourceSubscriptionNotificationTypeArgs
+
+func NotificationsResourceSubscriptionNotificationTypePtr(v *NotificationsResourceSubscriptionNotificationTypeArgs) NotificationsResourceSubscriptionNotificationTypePtrInput {
+	return (*notificationsResourceSubscriptionNotificationTypePtrType)(v)
+}
+
+func (*notificationsResourceSubscriptionNotificationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i *notificationsResourceSubscriptionNotificationTypePtrType) ToNotificationsResourceSubscriptionNotificationTypePtrOutput() NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return i.ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationsResourceSubscriptionNotificationTypePtrType) ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsResourceSubscriptionNotificationTypePtrOutput)
+}
+
+type NotificationsResourceSubscriptionNotificationTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationsResourceSubscriptionNotificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypeOutput) ToNotificationsResourceSubscriptionNotificationTypeOutput() NotificationsResourceSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypeOutput) ToNotificationsResourceSubscriptionNotificationTypeOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypeOutput) ToNotificationsResourceSubscriptionNotificationTypePtrOutput() NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return o.ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypeOutput) ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationsResourceSubscriptionNotificationType) *NotificationsResourceSubscriptionNotificationType {
+		return &v
+	}).(NotificationsResourceSubscriptionNotificationTypePtrOutput)
+}
+
+// The ID of the Notification Type.
+func (o NotificationsResourceSubscriptionNotificationTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationsResourceSubscriptionNotificationType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NotificationsResourceSubscriptionNotificationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationsResourceSubscriptionNotificationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypePtrOutput) ToNotificationsResourceSubscriptionNotificationTypePtrOutput() NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypePtrOutput) ToNotificationsResourceSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsResourceSubscriptionNotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationsResourceSubscriptionNotificationTypePtrOutput) Elem() NotificationsResourceSubscriptionNotificationTypeOutput {
+	return o.ApplyT(func(v *NotificationsResourceSubscriptionNotificationType) NotificationsResourceSubscriptionNotificationType {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationsResourceSubscriptionNotificationType
+		return ret
+	}).(NotificationsResourceSubscriptionNotificationTypeOutput)
+}
+
+// The ID of the Notification Type.
+func (o NotificationsResourceSubscriptionNotificationTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationsResourceSubscriptionNotificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationsSubscriptionNotificationType struct {
+	// The ID of the Notification Type.
+	Id string `pulumi:"id"`
+}
+
+// NotificationsSubscriptionNotificationTypeInput is an input type that accepts NotificationsSubscriptionNotificationTypeArgs and NotificationsSubscriptionNotificationTypeOutput values.
+// You can construct a concrete instance of `NotificationsSubscriptionNotificationTypeInput` via:
+//
+//	NotificationsSubscriptionNotificationTypeArgs{...}
+type NotificationsSubscriptionNotificationTypeInput interface {
+	pulumi.Input
+
+	ToNotificationsSubscriptionNotificationTypeOutput() NotificationsSubscriptionNotificationTypeOutput
+	ToNotificationsSubscriptionNotificationTypeOutputWithContext(context.Context) NotificationsSubscriptionNotificationTypeOutput
+}
+
+type NotificationsSubscriptionNotificationTypeArgs struct {
+	// The ID of the Notification Type.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NotificationsSubscriptionNotificationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i NotificationsSubscriptionNotificationTypeArgs) ToNotificationsSubscriptionNotificationTypeOutput() NotificationsSubscriptionNotificationTypeOutput {
+	return i.ToNotificationsSubscriptionNotificationTypeOutputWithContext(context.Background())
+}
+
+func (i NotificationsSubscriptionNotificationTypeArgs) ToNotificationsSubscriptionNotificationTypeOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsSubscriptionNotificationTypeOutput)
+}
+
+func (i NotificationsSubscriptionNotificationTypeArgs) ToNotificationsSubscriptionNotificationTypePtrOutput() NotificationsSubscriptionNotificationTypePtrOutput {
+	return i.ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationsSubscriptionNotificationTypeArgs) ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsSubscriptionNotificationTypeOutput).ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(ctx)
+}
+
+// NotificationsSubscriptionNotificationTypePtrInput is an input type that accepts NotificationsSubscriptionNotificationTypeArgs, NotificationsSubscriptionNotificationTypePtr and NotificationsSubscriptionNotificationTypePtrOutput values.
+// You can construct a concrete instance of `NotificationsSubscriptionNotificationTypePtrInput` via:
+//
+//	        NotificationsSubscriptionNotificationTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationsSubscriptionNotificationTypePtrInput interface {
+	pulumi.Input
+
+	ToNotificationsSubscriptionNotificationTypePtrOutput() NotificationsSubscriptionNotificationTypePtrOutput
+	ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(context.Context) NotificationsSubscriptionNotificationTypePtrOutput
+}
+
+type notificationsSubscriptionNotificationTypePtrType NotificationsSubscriptionNotificationTypeArgs
+
+func NotificationsSubscriptionNotificationTypePtr(v *NotificationsSubscriptionNotificationTypeArgs) NotificationsSubscriptionNotificationTypePtrInput {
+	return (*notificationsSubscriptionNotificationTypePtrType)(v)
+}
+
+func (*notificationsSubscriptionNotificationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i *notificationsSubscriptionNotificationTypePtrType) ToNotificationsSubscriptionNotificationTypePtrOutput() NotificationsSubscriptionNotificationTypePtrOutput {
+	return i.ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationsSubscriptionNotificationTypePtrType) ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationsSubscriptionNotificationTypePtrOutput)
+}
+
+type NotificationsSubscriptionNotificationTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationsSubscriptionNotificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o NotificationsSubscriptionNotificationTypeOutput) ToNotificationsSubscriptionNotificationTypeOutput() NotificationsSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o NotificationsSubscriptionNotificationTypeOutput) ToNotificationsSubscriptionNotificationTypeOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o NotificationsSubscriptionNotificationTypeOutput) ToNotificationsSubscriptionNotificationTypePtrOutput() NotificationsSubscriptionNotificationTypePtrOutput {
+	return o.ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationsSubscriptionNotificationTypeOutput) ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationsSubscriptionNotificationType) *NotificationsSubscriptionNotificationType {
+		return &v
+	}).(NotificationsSubscriptionNotificationTypePtrOutput)
+}
+
+// The ID of the Notification Type.
+func (o NotificationsSubscriptionNotificationTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationsSubscriptionNotificationType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NotificationsSubscriptionNotificationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationsSubscriptionNotificationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o NotificationsSubscriptionNotificationTypePtrOutput) ToNotificationsSubscriptionNotificationTypePtrOutput() NotificationsSubscriptionNotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationsSubscriptionNotificationTypePtrOutput) ToNotificationsSubscriptionNotificationTypePtrOutputWithContext(ctx context.Context) NotificationsSubscriptionNotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationsSubscriptionNotificationTypePtrOutput) Elem() NotificationsSubscriptionNotificationTypeOutput {
+	return o.ApplyT(func(v *NotificationsSubscriptionNotificationType) NotificationsSubscriptionNotificationType {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationsSubscriptionNotificationType
+		return ret
+	}).(NotificationsSubscriptionNotificationTypeOutput)
+}
+
+// The ID of the Notification Type.
+func (o NotificationsSubscriptionNotificationTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationsSubscriptionNotificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type PeeringAws struct {
 	// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -46710,6 +46984,200 @@ func (o GetNotificationsIntegrationWebhookTargetArrayOutput) Index(i pulumi.IntI
 	}).(GetNotificationsIntegrationWebhookTargetOutput)
 }
 
+type GetNotificationsResourceSubscriptionNotificationType struct {
+	// The ID of the Resource Subscription, for example, `res-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetNotificationsResourceSubscriptionNotificationTypeInput is an input type that accepts GetNotificationsResourceSubscriptionNotificationTypeArgs and GetNotificationsResourceSubscriptionNotificationTypeOutput values.
+// You can construct a concrete instance of `GetNotificationsResourceSubscriptionNotificationTypeInput` via:
+//
+//	GetNotificationsResourceSubscriptionNotificationTypeArgs{...}
+type GetNotificationsResourceSubscriptionNotificationTypeInput interface {
+	pulumi.Input
+
+	ToGetNotificationsResourceSubscriptionNotificationTypeOutput() GetNotificationsResourceSubscriptionNotificationTypeOutput
+	ToGetNotificationsResourceSubscriptionNotificationTypeOutputWithContext(context.Context) GetNotificationsResourceSubscriptionNotificationTypeOutput
+}
+
+type GetNotificationsResourceSubscriptionNotificationTypeArgs struct {
+	// The ID of the Resource Subscription, for example, `res-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNotificationsResourceSubscriptionNotificationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i GetNotificationsResourceSubscriptionNotificationTypeArgs) ToGetNotificationsResourceSubscriptionNotificationTypeOutput() GetNotificationsResourceSubscriptionNotificationTypeOutput {
+	return i.ToGetNotificationsResourceSubscriptionNotificationTypeOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsResourceSubscriptionNotificationTypeArgs) ToGetNotificationsResourceSubscriptionNotificationTypeOutputWithContext(ctx context.Context) GetNotificationsResourceSubscriptionNotificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsResourceSubscriptionNotificationTypeOutput)
+}
+
+// GetNotificationsResourceSubscriptionNotificationTypeArrayInput is an input type that accepts GetNotificationsResourceSubscriptionNotificationTypeArray and GetNotificationsResourceSubscriptionNotificationTypeArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsResourceSubscriptionNotificationTypeArrayInput` via:
+//
+//	GetNotificationsResourceSubscriptionNotificationTypeArray{ GetNotificationsResourceSubscriptionNotificationTypeArgs{...} }
+type GetNotificationsResourceSubscriptionNotificationTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutput() GetNotificationsResourceSubscriptionNotificationTypeArrayOutput
+	ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutputWithContext(context.Context) GetNotificationsResourceSubscriptionNotificationTypeArrayOutput
+}
+
+type GetNotificationsResourceSubscriptionNotificationTypeArray []GetNotificationsResourceSubscriptionNotificationTypeInput
+
+func (GetNotificationsResourceSubscriptionNotificationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i GetNotificationsResourceSubscriptionNotificationTypeArray) ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutput() GetNotificationsResourceSubscriptionNotificationTypeArrayOutput {
+	return i.ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsResourceSubscriptionNotificationTypeArray) ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutputWithContext(ctx context.Context) GetNotificationsResourceSubscriptionNotificationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsResourceSubscriptionNotificationTypeArrayOutput)
+}
+
+type GetNotificationsResourceSubscriptionNotificationTypeOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsResourceSubscriptionNotificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o GetNotificationsResourceSubscriptionNotificationTypeOutput) ToGetNotificationsResourceSubscriptionNotificationTypeOutput() GetNotificationsResourceSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o GetNotificationsResourceSubscriptionNotificationTypeOutput) ToGetNotificationsResourceSubscriptionNotificationTypeOutputWithContext(ctx context.Context) GetNotificationsResourceSubscriptionNotificationTypeOutput {
+	return o
+}
+
+// The ID of the Resource Subscription, for example, `res-abc123`.
+func (o GetNotificationsResourceSubscriptionNotificationTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsResourceSubscriptionNotificationType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNotificationsResourceSubscriptionNotificationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsResourceSubscriptionNotificationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsResourceSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o GetNotificationsResourceSubscriptionNotificationTypeArrayOutput) ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutput() GetNotificationsResourceSubscriptionNotificationTypeArrayOutput {
+	return o
+}
+
+func (o GetNotificationsResourceSubscriptionNotificationTypeArrayOutput) ToGetNotificationsResourceSubscriptionNotificationTypeArrayOutputWithContext(ctx context.Context) GetNotificationsResourceSubscriptionNotificationTypeArrayOutput {
+	return o
+}
+
+func (o GetNotificationsResourceSubscriptionNotificationTypeArrayOutput) Index(i pulumi.IntInput) GetNotificationsResourceSubscriptionNotificationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsResourceSubscriptionNotificationType {
+		return vs[0].([]GetNotificationsResourceSubscriptionNotificationType)[vs[1].(int)]
+	}).(GetNotificationsResourceSubscriptionNotificationTypeOutput)
+}
+
+type GetNotificationsSubscriptionNotificationType struct {
+	// The ID of the Subscription, for example, `sub-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetNotificationsSubscriptionNotificationTypeInput is an input type that accepts GetNotificationsSubscriptionNotificationTypeArgs and GetNotificationsSubscriptionNotificationTypeOutput values.
+// You can construct a concrete instance of `GetNotificationsSubscriptionNotificationTypeInput` via:
+//
+//	GetNotificationsSubscriptionNotificationTypeArgs{...}
+type GetNotificationsSubscriptionNotificationTypeInput interface {
+	pulumi.Input
+
+	ToGetNotificationsSubscriptionNotificationTypeOutput() GetNotificationsSubscriptionNotificationTypeOutput
+	ToGetNotificationsSubscriptionNotificationTypeOutputWithContext(context.Context) GetNotificationsSubscriptionNotificationTypeOutput
+}
+
+type GetNotificationsSubscriptionNotificationTypeArgs struct {
+	// The ID of the Subscription, for example, `sub-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNotificationsSubscriptionNotificationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i GetNotificationsSubscriptionNotificationTypeArgs) ToGetNotificationsSubscriptionNotificationTypeOutput() GetNotificationsSubscriptionNotificationTypeOutput {
+	return i.ToGetNotificationsSubscriptionNotificationTypeOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsSubscriptionNotificationTypeArgs) ToGetNotificationsSubscriptionNotificationTypeOutputWithContext(ctx context.Context) GetNotificationsSubscriptionNotificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsSubscriptionNotificationTypeOutput)
+}
+
+// GetNotificationsSubscriptionNotificationTypeArrayInput is an input type that accepts GetNotificationsSubscriptionNotificationTypeArray and GetNotificationsSubscriptionNotificationTypeArrayOutput values.
+// You can construct a concrete instance of `GetNotificationsSubscriptionNotificationTypeArrayInput` via:
+//
+//	GetNotificationsSubscriptionNotificationTypeArray{ GetNotificationsSubscriptionNotificationTypeArgs{...} }
+type GetNotificationsSubscriptionNotificationTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationsSubscriptionNotificationTypeArrayOutput() GetNotificationsSubscriptionNotificationTypeArrayOutput
+	ToGetNotificationsSubscriptionNotificationTypeArrayOutputWithContext(context.Context) GetNotificationsSubscriptionNotificationTypeArrayOutput
+}
+
+type GetNotificationsSubscriptionNotificationTypeArray []GetNotificationsSubscriptionNotificationTypeInput
+
+func (GetNotificationsSubscriptionNotificationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (i GetNotificationsSubscriptionNotificationTypeArray) ToGetNotificationsSubscriptionNotificationTypeArrayOutput() GetNotificationsSubscriptionNotificationTypeArrayOutput {
+	return i.ToGetNotificationsSubscriptionNotificationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationsSubscriptionNotificationTypeArray) ToGetNotificationsSubscriptionNotificationTypeArrayOutputWithContext(ctx context.Context) GetNotificationsSubscriptionNotificationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationsSubscriptionNotificationTypeArrayOutput)
+}
+
+type GetNotificationsSubscriptionNotificationTypeOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsSubscriptionNotificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o GetNotificationsSubscriptionNotificationTypeOutput) ToGetNotificationsSubscriptionNotificationTypeOutput() GetNotificationsSubscriptionNotificationTypeOutput {
+	return o
+}
+
+func (o GetNotificationsSubscriptionNotificationTypeOutput) ToGetNotificationsSubscriptionNotificationTypeOutputWithContext(ctx context.Context) GetNotificationsSubscriptionNotificationTypeOutput {
+	return o
+}
+
+// The ID of the Subscription, for example, `sub-abc123`.
+func (o GetNotificationsSubscriptionNotificationTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationsSubscriptionNotificationType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNotificationsSubscriptionNotificationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationsSubscriptionNotificationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationsSubscriptionNotificationType)(nil)).Elem()
+}
+
+func (o GetNotificationsSubscriptionNotificationTypeArrayOutput) ToGetNotificationsSubscriptionNotificationTypeArrayOutput() GetNotificationsSubscriptionNotificationTypeArrayOutput {
+	return o
+}
+
+func (o GetNotificationsSubscriptionNotificationTypeArrayOutput) ToGetNotificationsSubscriptionNotificationTypeArrayOutputWithContext(ctx context.Context) GetNotificationsSubscriptionNotificationTypeArrayOutput {
+	return o
+}
+
+func (o GetNotificationsSubscriptionNotificationTypeArrayOutput) Index(i pulumi.IntInput) GetNotificationsSubscriptionNotificationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationsSubscriptionNotificationType {
+		return vs[0].([]GetNotificationsSubscriptionNotificationType)[vs[1].(int)]
+	}).(GetNotificationsSubscriptionNotificationTypeOutput)
+}
+
 type GetPeeringAw struct {
 	// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -56481,6 +56949,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationUserEmailTargetUserArrayInput)(nil)).Elem(), NotificationsIntegrationUserEmailTargetUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationWebhookTargetInput)(nil)).Elem(), NotificationsIntegrationWebhookTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsIntegrationWebhookTargetPtrInput)(nil)).Elem(), NotificationsIntegrationWebhookTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsResourceSubscriptionNotificationTypeInput)(nil)).Elem(), NotificationsResourceSubscriptionNotificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsResourceSubscriptionNotificationTypePtrInput)(nil)).Elem(), NotificationsResourceSubscriptionNotificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsSubscriptionNotificationTypeInput)(nil)).Elem(), NotificationsSubscriptionNotificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsSubscriptionNotificationTypePtrInput)(nil)).Elem(), NotificationsSubscriptionNotificationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsPtrInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAzureInput)(nil)).Elem(), PeeringAzureArgs{})
@@ -56888,6 +57360,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationUserEmailTargetUserArrayInput)(nil)).Elem(), GetNotificationsIntegrationUserEmailTargetUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationWebhookTargetInput)(nil)).Elem(), GetNotificationsIntegrationWebhookTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsIntegrationWebhookTargetArrayInput)(nil)).Elem(), GetNotificationsIntegrationWebhookTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsResourceSubscriptionNotificationTypeInput)(nil)).Elem(), GetNotificationsResourceSubscriptionNotificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsResourceSubscriptionNotificationTypeArrayInput)(nil)).Elem(), GetNotificationsResourceSubscriptionNotificationTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsSubscriptionNotificationTypeInput)(nil)).Elem(), GetNotificationsSubscriptionNotificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationsSubscriptionNotificationTypeArrayInput)(nil)).Elem(), GetNotificationsSubscriptionNotificationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwInput)(nil)).Elem(), GetPeeringAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwArrayInput)(nil)).Elem(), GetPeeringAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAzureInput)(nil)).Elem(), GetPeeringAzureArgs{})
@@ -57307,6 +57783,10 @@ func init() {
 	pulumi.RegisterOutputType(NotificationsIntegrationUserEmailTargetUserArrayOutput{})
 	pulumi.RegisterOutputType(NotificationsIntegrationWebhookTargetOutput{})
 	pulumi.RegisterOutputType(NotificationsIntegrationWebhookTargetPtrOutput{})
+	pulumi.RegisterOutputType(NotificationsResourceSubscriptionNotificationTypeOutput{})
+	pulumi.RegisterOutputType(NotificationsResourceSubscriptionNotificationTypePtrOutput{})
+	pulumi.RegisterOutputType(NotificationsSubscriptionNotificationTypeOutput{})
+	pulumi.RegisterOutputType(NotificationsSubscriptionNotificationTypePtrOutput{})
 	pulumi.RegisterOutputType(PeeringAwsOutput{})
 	pulumi.RegisterOutputType(PeeringAwsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAzureOutput{})
@@ -57714,6 +58194,10 @@ func init() {
 	pulumi.RegisterOutputType(GetNotificationsIntegrationUserEmailTargetUserArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationsIntegrationWebhookTargetOutput{})
 	pulumi.RegisterOutputType(GetNotificationsIntegrationWebhookTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsResourceSubscriptionNotificationTypeOutput{})
+	pulumi.RegisterOutputType(GetNotificationsResourceSubscriptionNotificationTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationsSubscriptionNotificationTypeOutput{})
+	pulumi.RegisterOutputType(GetNotificationsSubscriptionNotificationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAzureOutput{})
