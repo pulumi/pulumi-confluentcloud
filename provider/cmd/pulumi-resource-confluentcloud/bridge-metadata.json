@@ -760,6 +760,31 @@
                     }
                 }
             },
+            "confluent_notifications_resource_preference": {
+                "current": "confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference"
+            },
+            "confluent_notifications_resource_subscription": {
+                "current": "confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription",
+                "fields": {
+                    "integrations": {
+                        "maxItemsOne": false
+                    },
+                    "notification_type": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_notifications_subscription": {
+                "current": "confluentcloud:index/notificationsSubscription:NotificationsSubscription",
+                "fields": {
+                    "integrations": {
+                        "maxItemsOne": false
+                    },
+                    "notification_type": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_peering": {
                 "current": "confluentcloud:index/peering:Peering",
                 "fields": {
@@ -1961,6 +1986,9 @@
                     }
                 }
             },
+            "confluent_notification_type": {
+                "current": "confluentcloud:index/getNotificationType:getNotificationType"
+            },
             "confluent_notifications_integration": {
                 "current": "confluentcloud:index/getNotificationsIntegration:getNotificationsIntegration",
                 "fields": {
@@ -1994,6 +2022,31 @@
                         }
                     },
                     "webhook_target": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_notifications_resource_preference": {
+                "current": "confluentcloud:index/getNotificationsResourcePreference:getNotificationsResourcePreference"
+            },
+            "confluent_notifications_resource_subscription": {
+                "current": "confluentcloud:index/getNotificationsResourceSubscription:getNotificationsResourceSubscription",
+                "fields": {
+                    "integrations": {
+                        "maxItemsOne": false
+                    },
+                    "notification_type": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_notifications_subscription": {
+                "current": "confluentcloud:index/getNotificationsSubscription:getNotificationsSubscription",
+                "fields": {
+                    "integrations": {
+                        "maxItemsOne": false
+                    },
+                    "notification_type": {
                         "maxItemsOne": false
                     }
                 }

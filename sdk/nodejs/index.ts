@@ -310,10 +310,30 @@ export const getNetworkLinkService: typeof import("./getNetworkLinkService").get
 export const getNetworkLinkServiceOutput: typeof import("./getNetworkLinkService").getNetworkLinkServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkLinkService","getNetworkLinkServiceOutput"], () => require("./getNetworkLinkService"));
 
+export { GetNotificationTypeArgs, GetNotificationTypeResult, GetNotificationTypeOutputArgs } from "./getNotificationType";
+export const getNotificationType: typeof import("./getNotificationType").getNotificationType = null as any;
+export const getNotificationTypeOutput: typeof import("./getNotificationType").getNotificationTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationType","getNotificationTypeOutput"], () => require("./getNotificationType"));
+
 export { GetNotificationsIntegrationArgs, GetNotificationsIntegrationResult, GetNotificationsIntegrationOutputArgs } from "./getNotificationsIntegration";
 export const getNotificationsIntegration: typeof import("./getNotificationsIntegration").getNotificationsIntegration = null as any;
 export const getNotificationsIntegrationOutput: typeof import("./getNotificationsIntegration").getNotificationsIntegrationOutput = null as any;
 utilities.lazyLoad(exports, ["getNotificationsIntegration","getNotificationsIntegrationOutput"], () => require("./getNotificationsIntegration"));
+
+export { GetNotificationsResourcePreferenceArgs, GetNotificationsResourcePreferenceResult, GetNotificationsResourcePreferenceOutputArgs } from "./getNotificationsResourcePreference";
+export const getNotificationsResourcePreference: typeof import("./getNotificationsResourcePreference").getNotificationsResourcePreference = null as any;
+export const getNotificationsResourcePreferenceOutput: typeof import("./getNotificationsResourcePreference").getNotificationsResourcePreferenceOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationsResourcePreference","getNotificationsResourcePreferenceOutput"], () => require("./getNotificationsResourcePreference"));
+
+export { GetNotificationsResourceSubscriptionArgs, GetNotificationsResourceSubscriptionResult, GetNotificationsResourceSubscriptionOutputArgs } from "./getNotificationsResourceSubscription";
+export const getNotificationsResourceSubscription: typeof import("./getNotificationsResourceSubscription").getNotificationsResourceSubscription = null as any;
+export const getNotificationsResourceSubscriptionOutput: typeof import("./getNotificationsResourceSubscription").getNotificationsResourceSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationsResourceSubscription","getNotificationsResourceSubscriptionOutput"], () => require("./getNotificationsResourceSubscription"));
+
+export { GetNotificationsSubscriptionArgs, GetNotificationsSubscriptionResult, GetNotificationsSubscriptionOutputArgs } from "./getNotificationsSubscription";
+export const getNotificationsSubscription: typeof import("./getNotificationsSubscription").getNotificationsSubscription = null as any;
+export const getNotificationsSubscriptionOutput: typeof import("./getNotificationsSubscription").getNotificationsSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationsSubscription","getNotificationsSubscriptionOutput"], () => require("./getNotificationsSubscription"));
 
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
@@ -560,6 +580,21 @@ export type NotificationsIntegration = import("./notificationsIntegration").Noti
 export const NotificationsIntegration: typeof import("./notificationsIntegration").NotificationsIntegration = null as any;
 utilities.lazyLoad(exports, ["NotificationsIntegration"], () => require("./notificationsIntegration"));
 
+export { NotificationsResourcePreferenceArgs, NotificationsResourcePreferenceState } from "./notificationsResourcePreference";
+export type NotificationsResourcePreference = import("./notificationsResourcePreference").NotificationsResourcePreference;
+export const NotificationsResourcePreference: typeof import("./notificationsResourcePreference").NotificationsResourcePreference = null as any;
+utilities.lazyLoad(exports, ["NotificationsResourcePreference"], () => require("./notificationsResourcePreference"));
+
+export { NotificationsResourceSubscriptionArgs, NotificationsResourceSubscriptionState } from "./notificationsResourceSubscription";
+export type NotificationsResourceSubscription = import("./notificationsResourceSubscription").NotificationsResourceSubscription;
+export const NotificationsResourceSubscription: typeof import("./notificationsResourceSubscription").NotificationsResourceSubscription = null as any;
+utilities.lazyLoad(exports, ["NotificationsResourceSubscription"], () => require("./notificationsResourceSubscription"));
+
+export { NotificationsSubscriptionArgs, NotificationsSubscriptionState } from "./notificationsSubscription";
+export type NotificationsSubscription = import("./notificationsSubscription").NotificationsSubscription;
+export const NotificationsSubscription: typeof import("./notificationsSubscription").NotificationsSubscription = null as any;
+utilities.lazyLoad(exports, ["NotificationsSubscription"], () => require("./notificationsSubscription"));
+
 export { PeeringArgs, PeeringState } from "./peering";
 export type Peering = import("./peering").Peering;
 export const Peering: typeof import("./peering").Peering = null as any;
@@ -789,6 +824,12 @@ const _module = {
                 return new NetworkLinkService(name, <any>undefined, { urn })
             case "confluentcloud:index/notificationsIntegration:NotificationsIntegration":
                 return new NotificationsIntegration(name, <any>undefined, { urn })
+            case "confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference":
+                return new NotificationsResourcePreference(name, <any>undefined, { urn })
+            case "confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription":
+                return new NotificationsResourceSubscription(name, <any>undefined, { urn })
+            case "confluentcloud:index/notificationsSubscription:NotificationsSubscription":
+                return new NotificationsSubscription(name, <any>undefined, { urn })
             case "confluentcloud:index/peering:Peering":
                 return new Peering(name, <any>undefined, { urn })
             case "confluentcloud:index/plugin:Plugin":
@@ -887,6 +928,9 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkEndpoint", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkService", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/notificationsIntegration", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/notificationsResourcePreference", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/notificationsResourceSubscription", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/notificationsSubscription", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/plugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)

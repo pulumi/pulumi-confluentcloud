@@ -152,6 +152,8 @@ __all__ = [
     'NotificationsIntegrationUserEmailTarget',
     'NotificationsIntegrationUserEmailTargetUser',
     'NotificationsIntegrationWebhookTarget',
+    'NotificationsResourceSubscriptionNotificationType',
+    'NotificationsSubscriptionNotificationType',
     'PeeringAws',
     'PeeringAzure',
     'PeeringEnvironment',
@@ -367,6 +369,8 @@ __all__ = [
     'GetNotificationsIntegrationUserEmailTargetResult',
     'GetNotificationsIntegrationUserEmailTargetUserResult',
     'GetNotificationsIntegrationWebhookTargetResult',
+    'GetNotificationsResourceSubscriptionNotificationTypeResult',
+    'GetNotificationsSubscriptionNotificationTypeResult',
     'GetPeeringAwResult',
     'GetPeeringAzureResult',
     'GetPeeringEnvironmentResult',
@@ -5488,6 +5492,42 @@ class NotificationsIntegrationWebhookTarget(dict):
         URL endpoint for the webhook
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class NotificationsResourceSubscriptionNotificationType(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Notification Type.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Notification Type.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class NotificationsSubscriptionNotificationType(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Notification Type.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Notification Type.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -12821,6 +12861,42 @@ class GetNotificationsIntegrationWebhookTargetResult(dict):
         (String) URL endpoint for the webhook
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetNotificationsResourceSubscriptionNotificationTypeResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Resource Subscription, for example, `res-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Resource Subscription, for example, `res-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetNotificationsSubscriptionNotificationTypeResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Subscription, for example, `sub-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Subscription, for example, `sub-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

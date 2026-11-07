@@ -2826,6 +2826,20 @@ export interface GetNotificationsIntegrationWebhookTarget {
     url: string;
 }
 
+export interface GetNotificationsResourceSubscriptionNotificationType {
+    /**
+     * The ID of the Resource Subscription, for example, `res-abc123`.
+     */
+    id: string;
+}
+
+export interface GetNotificationsSubscriptionNotificationType {
+    /**
+     * The ID of the Subscription, for example, `sub-abc123`.
+     */
+    id: string;
+}
+
 export interface GetPeeringAw {
     /**
      * (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -4312,6 +4326,20 @@ export interface NotificationsIntegrationWebhookTarget {
      * URL endpoint for the webhook
      */
     url: string;
+}
+
+export interface NotificationsResourceSubscriptionNotificationType {
+    /**
+     * The ID of the Notification Type.
+     */
+    id: string;
+}
+
+export interface NotificationsSubscriptionNotificationType {
+    /**
+     * The ID of the Notification Type.
+     */
+    id: string;
 }
 
 export interface PeeringAws {

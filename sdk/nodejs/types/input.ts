@@ -3514,6 +3514,20 @@ export interface NotificationsIntegrationWebhookTarget {
     url: pulumi.Input<string>;
 }
 
+export interface NotificationsResourceSubscriptionNotificationType {
+    /**
+     * The ID of the Notification Type.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface NotificationsSubscriptionNotificationType {
+    /**
+     * The ID of the Notification Type.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface PeeringAws {
     /**
      * The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.

@@ -287,6 +287,10 @@ __all__ = [
     'NotificationsIntegrationUserEmailTargetUserArgsDict',
     'NotificationsIntegrationWebhookTargetArgs',
     'NotificationsIntegrationWebhookTargetArgsDict',
+    'NotificationsResourceSubscriptionNotificationTypeArgs',
+    'NotificationsResourceSubscriptionNotificationTypeArgsDict',
+    'NotificationsSubscriptionNotificationTypeArgs',
+    'NotificationsSubscriptionNotificationTypeArgsDict',
     'PeeringAwsArgs',
     'PeeringAwsArgsDict',
     'PeeringAzureArgs',
@@ -7053,6 +7057,62 @@ class NotificationsIntegrationWebhookTargetArgs:
     @url.setter
     def url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "url", value)
+
+
+class NotificationsResourceSubscriptionNotificationTypeArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Notification Type.
+    """
+
+@pulumi.input_type
+class NotificationsResourceSubscriptionNotificationTypeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the Notification Type.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Notification Type.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+class NotificationsSubscriptionNotificationTypeArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Notification Type.
+    """
+
+@pulumi.input_type
+class NotificationsSubscriptionNotificationTypeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the Notification Type.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Notification Type.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 class PeeringAwsArgsDict(TypedDict):

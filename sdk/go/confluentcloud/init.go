@@ -103,6 +103,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkLinkService{}
 	case "confluentcloud:index/notificationsIntegration:NotificationsIntegration":
 		r = &NotificationsIntegration{}
+	case "confluentcloud:index/notificationsResourcePreference:NotificationsResourcePreference":
+		r = &NotificationsResourcePreference{}
+	case "confluentcloud:index/notificationsResourceSubscription:NotificationsResourceSubscription":
+		r = &NotificationsResourceSubscription{}
+	case "confluentcloud:index/notificationsSubscription:NotificationsSubscription":
+		r = &NotificationsSubscription{}
 	case "confluentcloud:index/peering:Peering":
 		r = &Peering{}
 	case "confluentcloud:index/plugin:Plugin":
@@ -389,6 +395,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/notificationsIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/notificationsResourcePreference",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/notificationsResourceSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/notificationsSubscription",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
