@@ -9,6 +9,7 @@ env:
 
 jobs:
   prerequisites:
+    if: github.repository == 'pulumi/pulumi-confluentcloud'
     permissions:
       contents: read
       pull-requests: write
@@ -70,6 +71,7 @@ jobs:
       version: ${{ needs.prerequisites.outputs.version }}
 
   license_check:
+    if: github.repository == 'pulumi/pulumi-confluentcloud'
     name: License Check
     uses: ./.github/workflows/license.yml
     secrets: inherit
@@ -147,13 +149,4 @@ jobs:
 
 name: main
 on:
-  workflow_dispatch: {}
-  push:
-    branches:
-    - main
-    paths-ignore:
-    - "**.md"
-    tags-ignore:
-    - v*
-    - sdk/*
-    - "**"
+  workflow_call: {}
