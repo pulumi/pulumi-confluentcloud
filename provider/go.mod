@@ -109,7 +109,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/sts v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/switchover v0.1.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.8.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/terraform-usage v0.1.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/terraform-usage v0.2.0 // indirect
 	github.com/containerd/errdefs v1.0.0 // indirect
 	github.com/containerd/errdefs/pkg v0.3.0 // indirect
 	github.com/containerd/log v0.1.0 // indirect
