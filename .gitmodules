@@ -1,4 +1,0 @@
-[submodule "upstream"]
-	path = upstream
-	url = https://github.com/confluentinc/terraform-provider-confluent.git
-	ignore = dirty
